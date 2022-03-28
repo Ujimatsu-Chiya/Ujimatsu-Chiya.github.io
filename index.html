@@ -48,7 +48,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+  
+
+<link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 
 <link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
 
@@ -131,7 +133,11 @@
 
 
 
-<meta name="generator" content="Hexo 6.1.0"></head>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
 
@@ -300,39 +306,123 @@
       
         
           
-            <h1 id="BGW-协议"><a href="#BGW-协议" class="headerlink" title="BGW 协议"></a>BGW 协议</h1><p>$v\in \Bbb{F}$，其中$[v]$是各方持有的Shamir秘密分享。</p>
-<p>选定一个多项式$p$，其次数最高为$t$，其中$p(0)&#x3D;v$。</p>
-<p>$P_i$方所持有的份额为$p(i)$。</p>
-<p>$t$：共享阈值。任何$t$共享的集合都不会显示有关$v$的信息。</p>
-<p>各方都持有该线路上值$v_w$的秘密共享$[v_w]$。</p>
-<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$v_\alpha,v_\beta \in \Bbb{F}$，其中$\Bbb{F}$是一个域。</p>
-<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>$v_\gamma&#x3D;v_\alpha\circ v_\beta$。</p>
-<p>构造两个多项式$p$和$q$用于生成shamir秘密共享，那么$P_i$得到的秘密共享为$(i,p_\alpha(i),p_\beta(i))$，$[v_\alpha]$指的是任一$p_\alpha(i)$，$[v_\beta]$指的是任一$p_\beta(i)$。</p>
-<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><h3 id="v-gamma-x3D-v-alpha-v-beta"><a href="#v-gamma-x3D-v-alpha-v-beta" class="headerlink" title="$v_\gamma&#x3D;v_\alpha+v_\beta$"></a>$v_\gamma&#x3D;v_\alpha+v_\beta$</h3><p>计算参与方取出共享$[v_\alpha]$和$[v_\beta]$，计算加法共享$[v_\gamma]&#x3D;[v_\alpha+v_\beta]$。将每一方的分享$[v_\gamma]$一同还原即可得到$v_\alpha+v_\beta$的值。</p>
-<h3 id="v-gamma-x3D-c-cdot-v-alpha"><a href="#v-gamma-x3D-c-cdot-v-alpha" class="headerlink" title="$v_\gamma&#x3D;c \cdot v_\alpha$"></a>$v_\gamma&#x3D;c \cdot v_\alpha$</h3><p>$c$是一个整数。</p>
-<p>计算参与方取出共享$[v_\alpha]$，计算加法共享$[v_\gamma]&#x3D;[c \cdot v_\alpha]$。将每一方的分享$[v_\gamma]$一同还原即可得到$c \cdot v_\alpha$的值。</p>
-<h3 id="v-gamma-x3D-v-alpha-cdot-v-beta"><a href="#v-gamma-x3D-v-alpha-cdot-v-beta" class="headerlink" title="$v_\gamma&#x3D;v_\alpha\cdot v_\beta$"></a>$v_\gamma&#x3D;v_\alpha\cdot v_\beta$</h3><p>令$q&#x3D;p_\alpha\cdot p_\beta$</p>
-<p>对于每一方而言，将它拥有的两个分享$p_\alpha(i),p_\beta(i)$相乘，得到一个新分享$(i,q(i))$。</p>
-<p>目前需要基于这$n$个分享重新进行$2t$次的多项式插值：</p>
-<p>$$v_\alpha\cdot v_\beta&#x3D;\sum_{k&#x3D;1}^{2t+1}\lambda_kq(k)$$</p>
-<p>其中$\lambda_i$为拉格朗日常数。</p>
+            <h1 id="bgw-协议">BGW 协议</h1>
+<p><span class="math inline">\(v\in \Bbb{F}\)</span>，其中<span
+class="math inline">\([v]\)</span>是各方持有的Shamir秘密分享。</p>
+<p>选定一个多项式<span
+class="math inline">\(p\)</span>，其次数最高为<span
+class="math inline">\(t\)</span>，其中<span
+class="math inline">\(p(0)=v\)</span>。</p>
+<p><span class="math inline">\(P_i\)</span>方所持有的份额为<span
+class="math inline">\(p(i)\)</span>。</p>
+<p><span class="math inline">\(t\)</span>：共享阈值。任何<span
+class="math inline">\(t\)</span>共享的集合都不会显示有关<span
+class="math inline">\(v\)</span>的信息。</p>
+<p>各方都持有该线路上值<span
+class="math inline">\(v_w\)</span>的秘密共享<span
+class="math inline">\([v_w]\)</span>。</p>
+<h2 id="输入">输入</h2>
+<p><span class="math inline">\(v_\alpha,v_\beta \in
+\Bbb{F}\)</span>，其中<span
+class="math inline">\(\Bbb{F}\)</span>是一个域。</p>
+<h2 id="输出">输出</h2>
+<p><span class="math inline">\(v_\gamma=v_\alpha\circ
+v_\beta\)</span>。</p>
+<p>构造两个多项式<span class="math inline">\(p\)</span>和<span
+class="math inline">\(q\)</span>用于生成shamir秘密共享，那么<span
+class="math inline">\(P_i\)</span>得到的秘密共享为<span
+class="math inline">\((i,p_\alpha(i),p_\beta(i))\)</span>，<span
+class="math inline">\([v_\alpha]\)</span>指的是任一<span
+class="math inline">\(p_\alpha(i)\)</span>，<span
+class="math inline">\([v_\beta]\)</span>指的是任一<span
+class="math inline">\(p_\beta(i)\)</span>。</p>
+<h2 id="协议">协议</h2>
+<h3 id="v_gammav_alphav_beta"><span
+class="math inline">\(v_\gamma=v_\alpha+v_\beta\)</span></h3>
+<p>计算参与方取出共享<span
+class="math inline">\([v_\alpha]\)</span>和<span
+class="math inline">\([v_\beta]\)</span>，计算加法共享<span
+class="math inline">\([v_\gamma]=[v_\alpha+v_\beta]\)</span>。将每一方的分享<span
+class="math inline">\([v_\gamma]\)</span>一同还原即可得到<span
+class="math inline">\(v_\alpha+v_\beta\)</span>的值。</p>
+<h3 id="v_gammac-cdot-v_alpha"><span class="math inline">\(v_\gamma=c
+\cdot v_\alpha\)</span></h3>
+<p><span class="math inline">\(c\)</span>是一个整数。</p>
+<p>计算参与方取出共享<span
+class="math inline">\([v_\alpha]\)</span>，计算加法共享<span
+class="math inline">\([v_\gamma]=[c \cdot
+v_\alpha]\)</span>。将每一方的分享<span
+class="math inline">\([v_\gamma]\)</span>一同还原即可得到<span
+class="math inline">\(c \cdot v_\alpha\)</span>的值。</p>
+<h3 id="v_gammav_alphacdot-v_beta"><span
+class="math inline">\(v_\gamma=v_\alpha\cdot v_\beta\)</span></h3>
+<p>令<span class="math inline">\(q=p_\alpha\cdot p_\beta\)</span></p>
+<p>对于每一方而言，将它拥有的两个分享<span
+class="math inline">\(p_\alpha(i),p_\beta(i)\)</span>相乘，得到一个新分享<span
+class="math inline">\((i,q(i))\)</span>。</p>
+<p>目前需要基于这<span
+class="math inline">\(n\)</span>个分享重新进行<span
+class="math inline">\(2t\)</span>次的多项式插值：</p>
+<p><span class="math display">\[v_\alpha\cdot
+v_\beta=\sum_{k=1}^{2t+1}\lambda_kq(k)\]</span></p>
+<p>其中<span
+class="math inline">\(\lambda_i\)</span>为拉格朗日常数。</p>
 <p>做法：</p>
-<p>每一方随机生成一个$t$次多项式，其中$P_i$生成的多项式为$r_i$，常系数项为$q(i)$。</p>
-<p>那么$P_i$就将这个$q(i)$作为秘密，以$(t,n)$-shamir秘密共享方案进行分发。$P_i$发送给$P_j$的秘密为$(j,r_i(j))$</p>
-<p>目前每一方$P_i$都掌握以下秘密：值$v_\gamma$的一个分享$(i,q(i))$，任意一方$P_j$的$q(j)$的一个分享$(i,r_j(i)),\forall j \in [1,n]$。</p>
-<p>之后通过这些分享，任意$t$方都可以将$n$个$(i,q(i))$重构完成。根据这$n$个$(i,q(i))$可以重新将$2t+1$个$\lambda_k$的值重构完成，从而计算出$v_\alpha\cdot v_\beta$。</p>
-<p>这个协议只有在$2t+1\le n$时才安全。</p>
-<h1 id="Beaver-三元组"><a href="#Beaver-三元组" class="headerlink" title="Beaver 三元组"></a>Beaver 三元组</h1><p>这种改进是将一系列开销移到了协议开始前。</p>
-<p>离线阶段：<br>通过一些手段生成多个乘法三元组。其中这些$a$和$b$在域$\Bbb{F}$内随机选择，$c&#x3D;ab$。</p>
-<p>在协议前，一系列的shamir分享三元组$([a],[b],[c])$已经分发到各方。</p>
+<p>每一方随机生成一个<span
+class="math inline">\(t\)</span>次多项式，其中<span
+class="math inline">\(P_i\)</span>生成的多项式为<span
+class="math inline">\(r_i\)</span>，常系数项为<span
+class="math inline">\(q(i)\)</span>。</p>
+<p>那么<span class="math inline">\(P_i\)</span>就将这个<span
+class="math inline">\(q(i)\)</span>作为秘密，以<span
+class="math inline">\((t,n)\)</span>-shamir秘密共享方案进行分发。<span
+class="math inline">\(P_i\)</span>发送给<span
+class="math inline">\(P_j\)</span>的秘密为<span
+class="math inline">\((j,r_i(j))\)</span></p>
+<p>目前每一方<span
+class="math inline">\(P_i\)</span>都掌握以下秘密：值<span
+class="math inline">\(v_\gamma\)</span>的一个分享<span
+class="math inline">\((i,q(i))\)</span>，任意一方<span
+class="math inline">\(P_j\)</span>的<span
+class="math inline">\(q(j)\)</span>的一个分享<span
+class="math inline">\((i,r_j(i)),\forall j \in [1,n]\)</span>。</p>
+<p>之后通过这些分享，任意<span
+class="math inline">\(t\)</span>方都可以将<span
+class="math inline">\(n\)</span>个<span
+class="math inline">\((i,q(i))\)</span>重构完成。根据这<span
+class="math inline">\(n\)</span>个<span
+class="math inline">\((i,q(i))\)</span>可以重新将<span
+class="math inline">\(2t+1\)</span>个<span
+class="math inline">\(\lambda_k\)</span>的值重构完成，从而计算出<span
+class="math inline">\(v_\alpha\cdot v_\beta\)</span>。</p>
+<p>这个协议只有在<span class="math inline">\(2t+1\le
+n\)</span>时才安全。</p>
+<h1 id="beaver-三元组">Beaver 三元组</h1>
+<p>这种改进是将一系列开销移到了协议开始前。</p>
+<p>离线阶段： 通过一些手段生成多个乘法三元组。其中这些<span
+class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span>在域<span
+class="math inline">\(\Bbb{F}\)</span>内随机选择，<span
+class="math inline">\(c=ab\)</span>。</p>
+<p>在协议前，一系列的shamir分享三元组<span
+class="math inline">\(([a],[b],[c])\)</span>已经分发到各方。</p>
 <p>在线阶段：</p>
-<p>各方计算$[d]&#x3D;[v_\alpha-a]$的值，并公开。</p>
-<p>各方计算$[e]&#x3D;[v_\beta-b]$的值，并公开。</p>
-<p>由于$[d]$和$[e]$都被公开，因此现在已经得到$d&#x3D;v_\alpha-a$和$e&#x3D;v_\beta-b$的值。</p>
+<p>各方计算<span
+class="math inline">\([d]=[v_\alpha-a]\)</span>的值，并公开。</p>
+<p>各方计算<span
+class="math inline">\([e]=[v_\beta-b]\)</span>的值，并公开。</p>
+<p>由于<span class="math inline">\([d]\)</span>和<span
+class="math inline">\([e]\)</span>都被公开，因此现在已经得到<span
+class="math inline">\(d=v_\alpha-a\)</span>和<span
+class="math inline">\(e=v_\beta-b\)</span>的值。</p>
 <p>由于</p>
-<p>$\begin{aligned}<br>    v_\alpha\cdot v_\beta &amp;&#x3D;(d+a)\cdot(e+b) \<br>    &amp;&#x3D;de+db+ae+ab\<br>    &amp;&#x3D;de+db+ae+c<br>\end{aligned}$</p>
-<p>故各方计算自己的份额：$[v_\alpha\cdot v_\beta]&#x3D;de+d[b]+e[a]+[c]$</p>
-<p>各方揭露$[v_\alpha\cdot v_\beta]$，完成计算。</p>
+<p><span class="math inline">\(\begin{aligned}  v_\alpha\cdot v_\beta
+&amp;=(d+a)\cdot(e+b) \\  &amp;=de+db+ae+ab\\  &amp;=de+db+ae+c
+\end{aligned}\)</span></p>
+<p>故各方计算自己的份额：<span class="math inline">\([v_\alpha\cdot
+v_\beta]=de+d[b]+e[a]+[c]\)</span></p>
+<p>各方揭露<span class="math inline">\([v_\alpha\cdot
+v_\beta]\)</span>，完成计算。</p>
 
           
         
@@ -452,19 +542,29 @@
       
         
           
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
+first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
+more info. If you get any problems when using Hexo, you can find the
+answer in <a
+target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
+you can ask me on <a
+target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="quick-start">Quick Start</h2>
+<h3 id="create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a
+target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="run-server">Run server</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a
+target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
           
         
@@ -554,6 +654,15 @@
 
             
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
             
 
           </nav>
@@ -763,6 +872,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
 
   
 
