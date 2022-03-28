@@ -237,344 +237,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ujimatsu-Chiya">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T20:30:30+08:00">
-                2022-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="bmr-协议">BMR 协议</h1>
-<p>现在有一个实现实现函数<span
-class="math inline">\(\mathcal{F}\)</span>的布尔电路<span
-class="math inline">\(\mathcal{C}\)</span>。 令<span
-class="math inline">\(F:\{0,1\}^m\rightarrow\{0,1\}^{n\cdot
-m+1}\)</span>为一个<span
-class="math inline">\(\mathrm{PRG}\)</span>。</p>
-<p>有<span class="math inline">\(n\)</span>个参与方，其中第<span
-class="math inline">\(j\)</span>个参与方的输入为<span
-class="math inline">\(x_j\in\{0,1\}\)</span>。</p>
-<p>协议过程：</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都对每一个输入值<span
-class="math inline">\(b\in\{0,1\}\)</span>，随机生成一个子标记<span
-class="math inline">\(w_{i,j}^b=k_{i,j}^b ||
-p_{i,j}^b\in\{0,1\}^{m+1}\)</span>，其中满足<span
-class="math inline">\(p_{i,j}^b=1-p_{i,j}^{1-b}\)</span>。</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都生成一个输入分享<span
-class="math inline">\(f_{i,j}\in \{0,1\}\)</span>。</p>
-<p>定义每一方的MPC输入： <span
-class="math inline">\(I_{i,j}=[F(w_{i,j}^0),F(w_{i,j}^1),p_{i,j}^0,f_{i,j}]\)</span>。</p>
-<p>将所有的<span
-class="math inline">\(I_{i,j},x_j\)</span>作为新的输入。</p>
-<p>对于每一个门<span class="math inline">\(G\)</span>中实现的函数<span
-class="math inline">\(g\)</span>，假设其有两条输入线<span
-class="math inline">\(w_a,w_b\)</span>，输出线为<span
-class="math inline">\(w_c\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^0=\bigoplus_{j=1}^np_{a,j}^0,p_b^0=\bigoplus_{j=1}^np_{b,j}^0,p_c^0=\bigoplus_{j=1}^np_{c,j}^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^1=1-p_a^0,p_b^1=1-p_b^0,p_c^1=1-p_c^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(f_a=\bigoplus_{j=1}^nf_{a,j},f_b=\bigoplus_{j=1}^nf_{b,j},f_c=\bigoplus_{j=1}^nf_{c,j}\)</span>。</p>
-<p>接下来创造乱码电路表，对于任意的<span
-class="math inline">\(2^2\)</span>种组合，对于所有的<span
-class="math inline">\(v_a,v_b\in\{0,1\}\)</span>，设<span
-class="math inline">\(v_c=g(v_a,v_b)\)</span>，计算</p>
-<p><span class="math display">\[e_{v_a,v_b}=w_c^{v_c\bigoplus
-f_c}\bigoplus\bigoplus_{j=1}^n[F(w_{a,j}^{v_a\bigoplus f_a})\bigoplus
-F(w_{b,j}^{v_b\bigoplus f_b})]\]</span></p>
-<p>值<span class="math inline">\(e_{v_a,v_b}\)</span>放在位置<span
-class="math inline">\((p_a^{v_a},p_b^{v_b})\)</span>。</p>
-<p>其中，<span
-class="math inline">\(w_c^0=w_{c,1}^0||w_{c,2}^0||\cdots||w_{c,n}^0||p_c^0,w_c^1=w_{c,1}^1||w_{c,2}^1||\cdots||w_{c,n}^1||p_c^1\)</span>。</p>
-<p>根据给定的<span
-class="math inline">\(x_1,x_2,\cdots,x_n\)</span>交付给任意一方解密即可。最终需要揭露每一个值<span
-class="math inline">\(f_{i,j}\)</span>。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/GMW%E5%8D%8F%E8%AE%AE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ujimatsu-Chiya">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/GMW%E5%8D%8F%E8%AE%AE/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T20:29:57+08:00">
-                2022-03-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="gmw协议">GMW协议</h1>
-<h2 id="输入">输入</h2>
-<p><span class="math inline">\(P_1:x\in\{0,1\}\)</span></p>
-<p><span class="math inline">\(P_2:y\in\{0,1\}\)</span></p>
-<h2 id="输出">输出</h2>
-<p><span class="math inline">\(x \bigoplus y,x\bigwedge y.\)</span></p>
-<h2 id="协议">协议</h2>
-<p><span class="math inline">\(r\in\{0,1\}\)</span>由<span
-class="math inline">\(P_1\)</span>生成，发送给<span
-class="math inline">\(P_2\)</span></p>
-<p><span class="math inline">\(s\in\{0,1\}\)</span>由<span
-class="math inline">\(P_2\)</span>生成，发送给<span
-class="math inline">\(P_1\)</span></p>
-<p><span class="math inline">\(S_i^1=x \bigoplus r\)</span></p>
-<p><span class="math inline">\(S_i^2=r\)</span></p>
-<p><span class="math inline">\(S_j^2=y \bigoplus s\)</span></p>
-<p><span class="math inline">\(S_j^1=s\)</span></p>
-<p><span class="math inline">\(S_k^1=S_i^1\bigoplus S_j^1\)</span></p>
-<p><span class="math inline">\(S_k^2=S_i^2\bigoplus S_j^2\)</span></p>
-<p><span class="math inline">\(S_k^1\bigoplus S_k^2=(S_i^1 \bigoplus
-S_j^1) \bigoplus (s_i^2\bigoplus s_j^2)=x \bigoplus y\)</span></p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span
-class="math inline">\(S_k^1\)</span>，<span
-class="math inline">\(P_2\)</span>暴露分享<span
-class="math inline">\(S_k^2\)</span>即可计算<span
-class="math inline">\(x \bigoplus y\)</span>。</p>
-<p>令<span class="math inline">\(F(S_i^2,S_j^2)=(S_i^1\bigoplus
-S_i^2)\bigwedge(S_i^2\bigoplus S_j^2)=x\bigwedge y\)</span></p>
-<p><span class="math inline">\(b\in \{0,1\}\)</span>由<span
-class="math inline">\(P_1\)</span>随机生成。</p>
-<p><span class="math inline">\(P_1\)</span>预先计算好<span
-class="math inline">\(F\)</span>的四种可能性<span
-class="math inline">\(F(0,0),F(0,1),F(1,0),F(1,1)\)</span>。 和<span
-class="math inline">\(P_2\)</span>进行1-out-of-4-OT： <span
-class="math display">\[ OT_1^4=\left\{
-\begin{aligned}
-b \bigoplus F(0,0) \\
-b \bigoplus F(0,1) \\
-b \bigoplus F(1,0) \\
-b \bigoplus F(1,1) \\
-\end{aligned}
-\right.
-\]</span> 其中<span class="math inline">\(P_2\)</span>提供<span
-class="math inline">\((S_i^2,S_j^2)\)</span>的值，得到的值为<span
-class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>。</p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span
-class="math inline">\(b\)</span>，<span
-class="math inline">\(P_2\)</span>暴露分享<span
-class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>即可计算<span
-class="math inline">\(x \bigwedge y\)</span>。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://github.com/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/BGW%E5%8D%8F%E8%AE%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -763,6 +425,284 @@ class="math inline">\(e=v_\beta-b\)</span>的值。</p>
 v_\beta]=de+d[b]+e[a]+[c]\)</span></p>
 <p>各方揭露<span class="math inline">\([v_\alpha\cdot
 v_\beta]\)</span>，完成计算。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/GMW%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu-Chiya">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/GMW%E5%8D%8F%E8%AE%AE/" itemprop="url">GMW协议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:03+08:00">
+                2022-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="GMW协议"><a href="#GMW协议" class="headerlink" title="GMW协议"></a>GMW协议</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$P_1:x\in\{0,1\}$</p>
+<p>$P_2:y\in\{0,1\}$</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>$x \bigoplus y,x\bigwedge y.$</p>
+<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>$r\in\{0,1\}$由$P_1$生成，发送给$P_2$</p>
+<p>$s\in\{0,1\}$由$P_2$生成，发送给$P_1$</p>
+<p>$S_i^1=x \bigoplus r$</p>
+<p>$S_i^2=r$</p>
+<p>$S_j^2=y \bigoplus s$</p>
+<p>$S_j^1=s$</p>
+<p>$S_k^1=S_i^1\bigoplus S_j^1$</p>
+<p>$S_k^2=S_i^2\bigoplus S_j^2$</p>
+<p>$S_k^1\bigoplus S_k^2=(S_i^1 \bigoplus S_j^1) \bigoplus (s_i^2\bigoplus s_j^2)=x \bigoplus y$</p>
+<p>$P_1$暴露分享$S_k^1$，$P_2$暴露分享$S_k^2$即可计算$x \bigoplus y$。</p>
+<p>令$F(S_i^2,S_j^2)=(S_i^1\bigoplus S_i^2)\bigwedge(S_i^2\bigoplus S_j^2)=x\bigwedge y$</p>
+<p>$b\in \{0,1\}$由$P_1$随机生成。</p>
+<p>$P_1$预先计算好$F$的四种可能性$F(0,0),F(0,1),F(1,0),F(1,1)$。<br>和$P_2$进行1-out-of-4-OT：</p>
+<script type="math/tex; mode=display">OT_1^4=\left\{
+\begin{aligned}
+b \bigoplus F(0,0) \\
+b \bigoplus F(0,1) \\
+b \bigoplus F(1,0) \\
+b \bigoplus F(1,1) \\
+\end{aligned}
+\right.</script><p>其中$P_2$提供$(S_i^2,S_j^2)$的值，得到的值为$b\bigoplus F(S_i^2,S_j^2)$。</p>
+<p>$P_1$暴露分享$b$，$P_2$暴露分享$b\bigoplus F(S_i^2,S_j^2)$即可计算$x \bigwedge y$。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu-Chiya">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Ujimatsu-Chiya/Ujimatsu-Chiya.github.io/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/" itemprop="url">BMR协议</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:03+08:00">
+                2022-03-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="BMR-协议"><a href="#BMR-协议" class="headerlink" title="BMR 协议"></a>BMR 协议</h1><p>现在有一个实现实现函数$\mathcal{F}$的布尔电路$\mathcal{C}$。<br>令$F:\{0,1\}^m\rightarrow\{0,1\}^{n\cdot m+1}$为一个$\mathrm{PRG}$。</p>
+<p>有$n$个参与方，其中第$j$个参与方的输入为$x_j\in\{0,1\}$。</p>
+<p>协议过程：</p>
+<p>对于电路中的每一条线$w_i$，每一方$P_j$，都对每一个输入值$b\in\{0,1\}$，随机生成一个子标记$w_{i,j}^b=k_{i,j}^b || p_{i,j}^b\in\{0,1\}^{m+1}$，其中满足$p_{i,j}^b=1-p_{i,j}^{1-b}$。</p>
+<p>对于电路中的每一条线$w_i$，每一方$P_j$，都生成一个输入分享$f_{i,j}\in \{0,1\}$。</p>
+<p>定义每一方的MPC输入：<br>$I_{i,j}=[F(w_{i,j}^0),F(w_{i,j}^1),p_{i,j}^0,f_{i,j}]$。</p>
+<p>将所有的$I_{i,j},x_j$作为新的输入。</p>
+<p>对于每一个门$G$中实现的函数$g$，假设其有两条输入线$w_a,w_b$，输出线为$w_c$。</p>
+<p>计算$p_a^0=\bigoplus_{j=1}^np_{a,j}^0,p_b^0=\bigoplus_{j=1}^np_{b,j}^0,p_c^0=\bigoplus_{j=1}^np_{c,j}^0$。</p>
+<p>计算$p_a^1=1-p_a^0,p_b^1=1-p_b^0,p_c^1=1-p_c^0$。</p>
+<p>计算$f_a=\bigoplus_{j=1}^nf_{a,j},f_b=\bigoplus_{j=1}^nf_{b,j},f_c=\bigoplus_{j=1}^nf_{c,j}$。</p>
+<p>接下来创造乱码电路表，对于任意的$2^2$种组合，对于所有的$v_a,v_b\in\{0,1\}$，设$v_c=g(v_a,v_b)$，计算</p>
+<script type="math/tex; mode=display">e_{v_a,v_b}=w_c^{v_c\bigoplus f_c}\bigoplus\bigoplus_{j=1}^n[F(w_{a,j}^{v_a\bigoplus f_a})\bigoplus F(w_{b,j}^{v_b\bigoplus f_b})]</script><p>值$e_{v_a,v_b}$放在位置$(p_a^{v_a},p_b^{v_b})$。</p>
+<p>其中，$w_c^0=w_{c,1}^0||w_{c,2}^0||\cdots||w_{c,n}^0||p_c^0,w_c^1=w_{c,1}^1||w_{c,2}^1||\cdots||w_{c,n}^1||p_c^1$。</p>
+<p>根据给定的$x_1,x_2,\cdots,x_n$交付给任意一方解密即可。最终需要揭露每一个值$f_{i,j}$。</p>
 
           
         
