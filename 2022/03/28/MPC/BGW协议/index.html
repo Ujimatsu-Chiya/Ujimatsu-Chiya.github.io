@@ -82,12 +82,12 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="BMR协议">
-<meta property="og:url" content="http://example.com/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:title" content="BGW协议">
+<meta property="og:url" content="http://example.com/2022/03/28/MPC/BGW%E5%8D%8F%E8%AE%AE/index.html">
 <meta property="og:site_name" content="Ujimatsu-Chiya">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-03-28T06:26:04.000Z">
-<meta property="article:modified_time" content="2022-03-29T03:20:04.870Z">
+<meta property="article:published_time" content="2022-03-28T06:26:03.000Z">
+<meta property="article:modified_time" content="2022-03-29T03:20:13.317Z">
 <meta property="article:author" content="Ujimatsu-Chiya">
 <meta name="twitter:card" content="summary">
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2022/03/28/BMR协议/"/>
+  <link rel="canonical" href="http://example.com/2022/03/28/MPC/BGW协议/"/>
 
 
 
 
 
-  <title>BMR协议 | Ujimatsu-Chiya</title>
+  <title>BGW协议 | Ujimatsu-Chiya</title>
   
 
 
@@ -236,7 +236,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/28/MPC/BGW%E5%8D%8F%E8%AE%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -253,7 +253,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">BMR协议</h1>
+          <h1 class="post-title" itemprop="name headline">BGW协议</h1>
         
 
         <div class="post-meta">
@@ -265,7 +265,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:03+08:00">
                 2022-03-28
               </time>
             
@@ -281,7 +281,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-03-29T11:20:04+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2022-03-29T11:20:13+08:00">
                 2022-03-29
               </time>
             
@@ -316,56 +316,123 @@
 
       
         <p><escape><span id="more"></span></escape></p>
-<h1 id="bmr-协议">BMR 协议</h1>
-<p>现在有一个实现实现函数<span
-class="math inline">\(\mathcal{F}\)</span>的布尔电路<span
-class="math inline">\(\mathcal{C}\)</span>。 令<span
-class="math inline">\(F:\{0,1\}^m\rightarrow\{0,1\}^{n\cdot
-m+1}\)</span>为一个<span
-class="math inline">\(\mathrm{PRG}\)</span>。</p>
-<p>有<span class="math inline">\(n\)</span>个参与方，其中第<span
-class="math inline">\(j\)</span>个参与方的输入为<span
-class="math inline">\(x_j\in\{0,1\}\)</span>。</p>
-<p>协议过程：</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都对每一个输入值<span
-class="math inline">\(b\in\{0,1\}\)</span>，随机生成一个子标记<span
-class="math inline">\(w_{i,j}^b=k_{i,j}^b ||
-p_{i,j}^b\in\{0,1\}^{m+1}\)</span>，其中满足<span
-class="math inline">\(p_{i,j}^b=1-p_{i,j}^{1-b}\)</span>。</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都生成一个输入分享<span
-class="math inline">\(f_{i,j}\in \{0,1\}\)</span>。</p>
-<p>定义每一方的MPC输入： <span
-class="math inline">\(I_{i,j}=[F(w_{i,j}^0),F(w_{i,j}^1),p_{i,j}^0,f_{i,j}]\)</span>。</p>
-<p>将所有的<span
-class="math inline">\(I_{i,j},x_j\)</span>作为新的输入。</p>
-<p>对于每一个门<span class="math inline">\(G\)</span>中实现的函数<span
-class="math inline">\(g\)</span>，假设其有两条输入线<span
-class="math inline">\(w_a,w_b\)</span>，输出线为<span
-class="math inline">\(w_c\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^0=\bigoplus_{j=1}^np_{a,j}^0,p_b^0=\bigoplus_{j=1}^np_{b,j}^0,p_c^0=\bigoplus_{j=1}^np_{c,j}^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^1=1-p_a^0,p_b^1=1-p_b^0,p_c^1=1-p_c^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(f_a=\bigoplus_{j=1}^nf_{a,j},f_b=\bigoplus_{j=1}^nf_{b,j},f_c=\bigoplus_{j=1}^nf_{c,j}\)</span>。</p>
-<p>接下来创造乱码电路表，对于任意的<span
-class="math inline">\(2^2\)</span>种组合，对于所有的<span
-class="math inline">\(v_a,v_b\in\{0,1\}\)</span>，设<span
-class="math inline">\(v_c=g(v_a,v_b)\)</span>，计算</p>
-<p><span class="math display">\[e_{v_a,v_b}=w_c^{v_c\bigoplus
-f_c}\bigoplus\bigoplus_{j=1}^n[F(w_{a,j}^{v_a\bigoplus f_a})\bigoplus
-F(w_{b,j}^{v_b\bigoplus f_b})]\]</span></p>
-<p>值<span class="math inline">\(e_{v_a,v_b}\)</span>放在位置<span
-class="math inline">\((p_a^{v_a},p_b^{v_b})\)</span>。</p>
-<p>其中，<span
-class="math inline">\(w_c^0=w_{c,1}^0||w_{c,2}^0||\cdots||w_{c,n}^0||p_c^0,w_c^1=w_{c,1}^1||w_{c,2}^1||\cdots||w_{c,n}^1||p_c^1\)</span>。</p>
-<p>根据给定的<span
-class="math inline">\(x_1,x_2,\cdots,x_n\)</span>交付给任意一方解密即可。最终需要揭露每一个值<span
-class="math inline">\(f_{i,j}\)</span>。</p>
+<h1 id="bgw-协议">BGW 协议</h1>
+<p><span class="math inline">\(v\in \Bbb{F}\)</span>，其中<span
+class="math inline">\([v]\)</span>是各方持有的Shamir秘密分享。</p>
+<p>选定一个多项式<span
+class="math inline">\(p\)</span>，其次数最高为<span
+class="math inline">\(t\)</span>，其中<span
+class="math inline">\(p(0)=v\)</span>。</p>
+<p><span class="math inline">\(P_i\)</span>方所持有的份额为<span
+class="math inline">\(p(i)\)</span>。</p>
+<p><span class="math inline">\(t\)</span>：共享阈值。任何<span
+class="math inline">\(t\)</span>共享的集合都不会显示有关<span
+class="math inline">\(v\)</span>的信息。</p>
+<p>各方都持有该线路上值<span
+class="math inline">\(v_w\)</span>的秘密共享<span
+class="math inline">\([v_w]\)</span>。</p>
+<h2 id="输入">输入</h2>
+<p><span class="math inline">\(v_\alpha,v_\beta \in
+\Bbb{F}\)</span>，其中<span
+class="math inline">\(\Bbb{F}\)</span>是一个域。</p>
+<h2 id="输出">输出</h2>
+<p><span class="math inline">\(v_\gamma=v_\alpha\circ
+v_\beta\)</span>。</p>
+<h2 id="协议">协议</h2>
+<p>构造两个多项式<span class="math inline">\(p\)</span>和<span
+class="math inline">\(q\)</span>用于生成shamir秘密共享，那么<span
+class="math inline">\(P_i\)</span>得到的秘密共享为<span
+class="math inline">\((i,p_\alpha(i),p_\beta(i))\)</span>，<span
+class="math inline">\([v_\alpha]\)</span>指的是任一<span
+class="math inline">\(p_\alpha(i)\)</span>，<span
+class="math inline">\([v_\beta]\)</span>指的是任一<span
+class="math inline">\(p_\beta(i)\)</span>。</p>
+<h3 id="v_gammav_alphav_beta"><span
+class="math inline">\(v_\gamma=v_\alpha+v_\beta\)</span></h3>
+<p>计算参与方取出共享<span
+class="math inline">\([v_\alpha]\)</span>和<span
+class="math inline">\([v_\beta]\)</span>，计算加法共享<span
+class="math inline">\([v_\gamma]=[v_\alpha+v_\beta]\)</span>。将每一方的分享<span
+class="math inline">\([v_\gamma]\)</span>一同还原即可得到<span
+class="math inline">\(v_\alpha+v_\beta\)</span>的值。</p>
+<h3 id="v_gammac-cdot-v_alpha"><span class="math inline">\(v_\gamma=c
+\cdot v_\alpha\)</span></h3>
+<p><span class="math inline">\(c\)</span>是一个整数。</p>
+<p>计算参与方取出共享<span
+class="math inline">\([v_\alpha]\)</span>，计算加法共享<span
+class="math inline">\([v_\gamma]=[c \cdot
+v_\alpha]\)</span>。将每一方的分享<span
+class="math inline">\([v_\gamma]\)</span>一同还原即可得到<span
+class="math inline">\(c \cdot v_\alpha\)</span>的值。</p>
+<h3 id="v_gammav_alphacdot-v_beta"><span
+class="math inline">\(v_\gamma=v_\alpha\cdot v_\beta\)</span></h3>
+<p>令<span class="math inline">\(q=p_\alpha\cdot p_\beta\)</span></p>
+<p>对于每一方而言，将它拥有的两个分享<span
+class="math inline">\(p_\alpha(i),p_\beta(i)\)</span>相乘，得到一个新分享<span
+class="math inline">\((i,q(i))\)</span>。</p>
+<p>目前需要基于这<span
+class="math inline">\(n\)</span>个分享重新进行<span
+class="math inline">\(2t\)</span>次的多项式插值：</p>
+<p><span class="math display">\[v_\alpha\cdot
+v_\beta=\sum_{k=1}^{2t+1}\lambda_kq(k)\]</span></p>
+<p>其中<span
+class="math inline">\(\lambda_i\)</span>为拉格朗日常数。</p>
+<p>做法：</p>
+<p>每一方随机生成一个<span
+class="math inline">\(t\)</span>次多项式，其中<span
+class="math inline">\(P_i\)</span>生成的多项式为<span
+class="math inline">\(r_i\)</span>，常系数项为<span
+class="math inline">\(q(i)\)</span>。</p>
+<p>那么<span class="math inline">\(P_i\)</span>就将这个<span
+class="math inline">\(q(i)\)</span>作为秘密，以<span
+class="math inline">\((t,n)\)</span>-shamir秘密共享方案进行分发。<span
+class="math inline">\(P_i\)</span>发送给<span
+class="math inline">\(P_j\)</span>的秘密为<span
+class="math inline">\((j,r_i(j))\)</span></p>
+<p>目前每一方<span
+class="math inline">\(P_i\)</span>都掌握以下秘密：值<span
+class="math inline">\(v_\gamma\)</span>的一个分享<span
+class="math inline">\((i,q(i))\)</span>，任意一方<span
+class="math inline">\(P_j\)</span>的<span
+class="math inline">\(q(j)\)</span>的一个分享<span
+class="math inline">\((i,r_j(i)),\forall j \in [1,n]\)</span>。</p>
+<p>之后通过这些分享，任意<span
+class="math inline">\(t\)</span>方都可以将<span
+class="math inline">\(n\)</span>个<span
+class="math inline">\((i,q(i))\)</span>重构完成。根据这<span
+class="math inline">\(n\)</span>个<span
+class="math inline">\((i,q(i))\)</span>可以重新将<span
+class="math inline">\(2t+1\)</span>个<span
+class="math inline">\(\lambda_k\)</span>的值重构完成，从而计算出<span
+class="math inline">\(v_\alpha\cdot v_\beta\)</span>。</p>
+<p>这个协议只有在<span class="math inline">\(2t+1\le
+n\)</span>时才安全。</p>
+<h1 id="beaver-三元组">Beaver 三元组</h1>
+<p>这种改进是将一系列开销移到了协议开始前。</p>
+<p>离线阶段： 通过一些手段生成多个乘法三元组。其中这些<span
+class="math inline">\(a\)</span>和<span
+class="math inline">\(b\)</span>在域<span
+class="math inline">\(\Bbb{F}\)</span>内随机选择，<span
+class="math inline">\(c=ab\)</span>。</p>
+<p>在协议前，一系列的shamir分享三元组<span
+class="math inline">\(([a],[b],[c])\)</span>已经分发到各方。</p>
+<p>在线阶段：</p>
+<p>各方计算<span
+class="math inline">\([d]=[v_\alpha-a]\)</span>的值，并公开。</p>
+<p>各方计算<span
+class="math inline">\([e]=[v_\beta-b]\)</span>的值，并公开。</p>
+<p>由于<span class="math inline">\([d]\)</span>和<span
+class="math inline">\([e]\)</span>都被公开，因此现在已经得到<span
+class="math inline">\(d=v_\alpha-a\)</span>和<span
+class="math inline">\(e=v_\beta-b\)</span>的值。</p>
+<p>由于</p>
+<p><span class="math inline">\(\begin{aligned}  v_\alpha\cdot v_\beta
+&amp;=(d+a)\cdot(e+b) \\  &amp;=de+db+ae+ab\\  &amp;=de+db+ae+c
+\end{aligned}\)</span></p>
+<p>故各方计算自己的份额：<span class="math inline">\([v_\alpha\cdot
+v_\beta]=de+d[b]+e[a]+[c]\)</span></p>
+<p>各方揭露<span class="math inline">\([v_\alpha\cdot
+v_\beta]\)</span>，完成计算。</p>
 
       
     </div>
@@ -390,8 +457,8 @@ class="math inline">\(f_{i,j}\)</span>。</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/03/28/MPC/BMR%E5%8D%8F%E8%AE%AE/" rel="next" title="BMR协议">
-                <i class="fa fa-chevron-left"></i> BMR协议
+              <a href="/2022/03/28/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -400,8 +467,8 @@ class="math inline">\(f_{i,j}\)</span>。</p>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2022/03/28/MPC/GMW%E5%8D%8F%E8%AE%AE/" rel="prev" title="GMW协议">
-                GMW协议 <i class="fa fa-chevron-right"></i>
+              <a href="/2022/03/28/BGW%E5%8D%8F%E8%AE%AE/" rel="prev" title="BGW协议">
+                BGW协议 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -516,7 +583,8 @@ class="math inline">\(f_{i,j}\)</span>。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bmr-%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">BMR 协议</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bgw-%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">BGW 协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.3.</span> <span class="nav-text">协议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#v_gammav_alphav_beta"><span class="nav-number">1.3.1.</span> <span class="nav-text">\(v_\gamma&#x3D;v_\alpha+v_\beta\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v_gammac-cdot-v_alpha"><span class="nav-number">1.3.2.</span> <span class="nav-text">\(v_\gamma&#x3D;c
+\cdot v_\alpha\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#v_gammav_alphacdot-v_beta"><span class="nav-number">1.3.3.</span> <span class="nav-text">\(v_\gamma&#x3D;v_\alpha\cdot v_\beta\)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#beaver-%E4%B8%89%E5%85%83%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">Beaver 三元组</span></a></li></ol></div>
             
 
           </div>
