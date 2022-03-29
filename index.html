@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="en">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -87,7 +87,7 @@
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Ujimatsu-Chiya">
 <meta property="og:description" content="Ujimatsu-Chiya&#39;s Notes">
-<meta property="og:locale" content="en_US">
+<meta property="og:locale">
 <meta property="article:author" content="Ujimatsu-Chiya">
 <meta name="twitter:card" content="summary">
 
@@ -105,7 +105,7 @@
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
-      author: 'Author'
+      author: '博主'
     },
     algolia: {
       applicationID: '',
@@ -141,7 +141,7 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
 <!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -186,21 +186,21 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/%20" rel="section">
+          <a href="/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            首页
           </a>
         </li>
       
         
         <li class="menu-item menu-item-archives">
-          <a href="/archives/%20" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            归档
           </a>
         </li>
       
@@ -266,9 +266,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:05+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:05+08:00">
                 2022-03-28
               </time>
             
@@ -307,59 +307,14 @@
 
       
         
-          
-            <h1 id="gmw协议">GMW协议</h1>
-<h2 id="输入">输入</h2>
-<p><span class="math inline">\(P_1:x\in\{0,1\}\)</span></p>
-<p><span class="math inline">\(P_2:y\in\{0,1\}\)</span></p>
-<h2 id="输出">输出</h2>
-<p><span class="math inline">\(x \bigoplus y,x\bigwedge y.\)</span></p>
-<h2 id="协议">协议</h2>
-<p><span class="math inline">\(r\in\{0,1\}\)</span>由<span
-class="math inline">\(P_1\)</span>生成，发送给<span
-class="math inline">\(P_2\)</span></p>
-<p><span class="math inline">\(s\in\{0,1\}\)</span>由<span
-class="math inline">\(P_2\)</span>生成，发送给<span
-class="math inline">\(P_1\)</span></p>
-<p><span class="math inline">\(S_i^1=x \bigoplus r\)</span></p>
-<p><span class="math inline">\(S_i^2=r\)</span></p>
-<p><span class="math inline">\(S_j^2=y \bigoplus s\)</span></p>
-<p><span class="math inline">\(S_j^1=s\)</span></p>
-<p><span class="math inline">\(S_k^1=S_i^1\bigoplus S_j^1\)</span></p>
-<p><span class="math inline">\(S_k^2=S_i^2\bigoplus S_j^2\)</span></p>
-<p><span class="math inline">\(S_k^1\bigoplus S_k^2=(S_i^1 \bigoplus
-S_j^1) \bigoplus (s_i^2\bigoplus s_j^2)=x \bigoplus y\)</span></p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span
-class="math inline">\(S_k^1\)</span>，<span
-class="math inline">\(P_2\)</span>暴露分享<span
-class="math inline">\(S_k^2\)</span>即可计算<span
-class="math inline">\(x \bigoplus y\)</span>。</p>
-<p>令<span class="math inline">\(F(S_i^2,S_j^2)=(S_i^1\bigoplus
-S_i^2)\bigwedge(S_i^2\bigoplus S_j^2)=x\bigwedge y\)</span></p>
-<p><span class="math inline">\(b\in \{0,1\}\)</span>由<span
-class="math inline">\(P_1\)</span>随机生成。</p>
-<p><span class="math inline">\(P_1\)</span>预先计算好<span
-class="math inline">\(F\)</span>的四种可能性<span
-class="math inline">\(F(0,0),F(0,1),F(1,0),F(1,1)\)</span>。 和<span
-class="math inline">\(P_2\)</span>进行1-out-of-4-OT： <span
-class="math display">\[ OT_1^4=\left\{
-\begin{aligned}
-b \bigoplus F(0,0) \\
-b \bigoplus F(0,1) \\
-b \bigoplus F(1,0) \\
-b \bigoplus F(1,1) \\
-\end{aligned}
-\right.
-\]</span> 其中<span class="math inline">\(P_2\)</span>提供<span
-class="math inline">\((S_i^2,S_j^2)\)</span>的值，得到的值为<span
-class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>。</p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span
-class="math inline">\(b\)</span>，<span
-class="math inline">\(P_2\)</span>暴露分享<span
-class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>即可计算<span
-class="math inline">\(x \bigwedge y\)</span>。</p>
-
-          
+          <p><escape>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/03/28/GMW%E5%8D%8F%E8%AE%AE/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -435,9 +390,9 @@ class="math inline">\(x \bigwedge y\)</span>。</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:04+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:04+08:00">
                 2022-03-28
               </time>
             
@@ -476,59 +431,14 @@ class="math inline">\(x \bigwedge y\)</span>。</p>
 
       
         
-          
-            <h1 id="bmr-协议">BMR 协议</h1>
-<p>现在有一个实现实现函数<span
-class="math inline">\(\mathcal{F}\)</span>的布尔电路<span
-class="math inline">\(\mathcal{C}\)</span>。 令<span
-class="math inline">\(F:\{0,1\}^m\rightarrow\{0,1\}^{n\cdot
-m+1}\)</span>为一个<span
-class="math inline">\(\mathrm{PRG}\)</span>。</p>
-<p>有<span class="math inline">\(n\)</span>个参与方，其中第<span
-class="math inline">\(j\)</span>个参与方的输入为<span
-class="math inline">\(x_j\in\{0,1\}\)</span>。</p>
-<p>协议过程：</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都对每一个输入值<span
-class="math inline">\(b\in\{0,1\}\)</span>，随机生成一个子标记<span
-class="math inline">\(w_{i,j}^b=k_{i,j}^b ||
-p_{i,j}^b\in\{0,1\}^{m+1}\)</span>，其中满足<span
-class="math inline">\(p_{i,j}^b=1-p_{i,j}^{1-b}\)</span>。</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都生成一个输入分享<span
-class="math inline">\(f_{i,j}\in \{0,1\}\)</span>。</p>
-<p>定义每一方的MPC输入： <span
-class="math inline">\(I_{i,j}=[F(w_{i,j}^0),F(w_{i,j}^1),p_{i,j}^0,f_{i,j}]\)</span>。</p>
-<p>将所有的<span
-class="math inline">\(I_{i,j},x_j\)</span>作为新的输入。</p>
-<p>对于每一个门<span class="math inline">\(G\)</span>中实现的函数<span
-class="math inline">\(g\)</span>，假设其有两条输入线<span
-class="math inline">\(w_a,w_b\)</span>，输出线为<span
-class="math inline">\(w_c\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^0=\bigoplus_{j=1}^np_{a,j}^0,p_b^0=\bigoplus_{j=1}^np_{b,j}^0,p_c^0=\bigoplus_{j=1}^np_{c,j}^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^1=1-p_a^0,p_b^1=1-p_b^0,p_c^1=1-p_c^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(f_a=\bigoplus_{j=1}^nf_{a,j},f_b=\bigoplus_{j=1}^nf_{b,j},f_c=\bigoplus_{j=1}^nf_{c,j}\)</span>。</p>
-<p>接下来创造乱码电路表，对于任意的<span
-class="math inline">\(2^2\)</span>种组合，对于所有的<span
-class="math inline">\(v_a,v_b\in\{0,1\}\)</span>，设<span
-class="math inline">\(v_c=g(v_a,v_b)\)</span>，计算</p>
-<p><span class="math display">\[e_{v_a,v_b}=w_c^{v_c\bigoplus
-f_c}\bigoplus\bigoplus_{j=1}^n[F(w_{a,j}^{v_a\bigoplus f_a})\bigoplus
-F(w_{b,j}^{v_b\bigoplus f_b})]\]</span></p>
-<p>值<span class="math inline">\(e_{v_a,v_b}\)</span>放在位置<span
-class="math inline">\((p_a^{v_a},p_b^{v_b})\)</span>。</p>
-<p>其中，<span
-class="math inline">\(w_c^0=w_{c,1}^0||w_{c,2}^0||\cdots||w_{c,n}^0||p_c^0,w_c^1=w_{c,1}^1||w_{c,2}^1||\cdots||w_{c,n}^1||p_c^1\)</span>。</p>
-<p>根据给定的<span
-class="math inline">\(x_1,x_2,\cdots,x_n\)</span>交付给任意一方解密即可。最终需要揭露每一个值<span
-class="math inline">\(f_{i,j}\)</span>。</p>
-
-          
+          <p><escape>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/03/28/BMR%E5%8D%8F%E8%AE%AE/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -604,9 +514,9 @@ class="math inline">\(f_{i,j}\)</span>。</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:03+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:03+08:00">
                 2022-03-28
               </time>
             
@@ -645,126 +555,14 @@ class="math inline">\(f_{i,j}\)</span>。</p>
 
       
         
-          
-            <h1 id="bgw-协议">BGW 协议</h1>
-<p><span class="math inline">\(v\in \Bbb{F}\)</span>，其中<span
-class="math inline">\([v]\)</span>是各方持有的Shamir秘密分享。</p>
-<p>选定一个多项式<span
-class="math inline">\(p\)</span>，其次数最高为<span
-class="math inline">\(t\)</span>，其中<span
-class="math inline">\(p(0)=v\)</span>。</p>
-<p><span class="math inline">\(P_i\)</span>方所持有的份额为<span
-class="math inline">\(p(i)\)</span>。</p>
-<p><span class="math inline">\(t\)</span>：共享阈值。任何<span
-class="math inline">\(t\)</span>共享的集合都不会显示有关<span
-class="math inline">\(v\)</span>的信息。</p>
-<p>各方都持有该线路上值<span
-class="math inline">\(v_w\)</span>的秘密共享<span
-class="math inline">\([v_w]\)</span>。</p>
-<h2 id="输入">输入</h2>
-<p><span class="math inline">\(v_\alpha,v_\beta \in
-\Bbb{F}\)</span>，其中<span
-class="math inline">\(\Bbb{F}\)</span>是一个域。</p>
-<h2 id="输出">输出</h2>
-<p><span class="math inline">\(v_\gamma=v_\alpha\circ
-v_\beta\)</span>。</p>
-<h2 id="协议">协议</h2>
-<p>构造两个多项式<span class="math inline">\(p\)</span>和<span
-class="math inline">\(q\)</span>用于生成shamir秘密共享，那么<span
-class="math inline">\(P_i\)</span>得到的秘密共享为<span
-class="math inline">\((i,p_\alpha(i),p_\beta(i))\)</span>，<span
-class="math inline">\([v_\alpha]\)</span>指的是任一<span
-class="math inline">\(p_\alpha(i)\)</span>，<span
-class="math inline">\([v_\beta]\)</span>指的是任一<span
-class="math inline">\(p_\beta(i)\)</span>。</p>
-<h3 id="v_gammav_alphav_beta"><span
-class="math inline">\(v_\gamma=v_\alpha+v_\beta\)</span></h3>
-<p>计算参与方取出共享<span
-class="math inline">\([v_\alpha]\)</span>和<span
-class="math inline">\([v_\beta]\)</span>，计算加法共享<span
-class="math inline">\([v_\gamma]=[v_\alpha+v_\beta]\)</span>。将每一方的分享<span
-class="math inline">\([v_\gamma]\)</span>一同还原即可得到<span
-class="math inline">\(v_\alpha+v_\beta\)</span>的值。</p>
-<h3 id="v_gammac-cdot-v_alpha"><span class="math inline">\(v_\gamma=c
-\cdot v_\alpha\)</span></h3>
-<p><span class="math inline">\(c\)</span>是一个整数。</p>
-<p>计算参与方取出共享<span
-class="math inline">\([v_\alpha]\)</span>，计算加法共享<span
-class="math inline">\([v_\gamma]=[c \cdot
-v_\alpha]\)</span>。将每一方的分享<span
-class="math inline">\([v_\gamma]\)</span>一同还原即可得到<span
-class="math inline">\(c \cdot v_\alpha\)</span>的值。</p>
-<h3 id="v_gammav_alphacdot-v_beta"><span
-class="math inline">\(v_\gamma=v_\alpha\cdot v_\beta\)</span></h3>
-<p>令<span class="math inline">\(q=p_\alpha\cdot p_\beta\)</span></p>
-<p>对于每一方而言，将它拥有的两个分享<span
-class="math inline">\(p_\alpha(i),p_\beta(i)\)</span>相乘，得到一个新分享<span
-class="math inline">\((i,q(i))\)</span>。</p>
-<p>目前需要基于这<span
-class="math inline">\(n\)</span>个分享重新进行<span
-class="math inline">\(2t\)</span>次的多项式插值：</p>
-<p><span class="math display">\[v_\alpha\cdot
-v_\beta=\sum_{k=1}^{2t+1}\lambda_kq(k)\]</span></p>
-<p>其中<span
-class="math inline">\(\lambda_i\)</span>为拉格朗日常数。</p>
-<p>做法：</p>
-<p>每一方随机生成一个<span
-class="math inline">\(t\)</span>次多项式，其中<span
-class="math inline">\(P_i\)</span>生成的多项式为<span
-class="math inline">\(r_i\)</span>，常系数项为<span
-class="math inline">\(q(i)\)</span>。</p>
-<p>那么<span class="math inline">\(P_i\)</span>就将这个<span
-class="math inline">\(q(i)\)</span>作为秘密，以<span
-class="math inline">\((t,n)\)</span>-shamir秘密共享方案进行分发。<span
-class="math inline">\(P_i\)</span>发送给<span
-class="math inline">\(P_j\)</span>的秘密为<span
-class="math inline">\((j,r_i(j))\)</span></p>
-<p>目前每一方<span
-class="math inline">\(P_i\)</span>都掌握以下秘密：值<span
-class="math inline">\(v_\gamma\)</span>的一个分享<span
-class="math inline">\((i,q(i))\)</span>，任意一方<span
-class="math inline">\(P_j\)</span>的<span
-class="math inline">\(q(j)\)</span>的一个分享<span
-class="math inline">\((i,r_j(i)),\forall j \in [1,n]\)</span>。</p>
-<p>之后通过这些分享，任意<span
-class="math inline">\(t\)</span>方都可以将<span
-class="math inline">\(n\)</span>个<span
-class="math inline">\((i,q(i))\)</span>重构完成。根据这<span
-class="math inline">\(n\)</span>个<span
-class="math inline">\((i,q(i))\)</span>可以重新将<span
-class="math inline">\(2t+1\)</span>个<span
-class="math inline">\(\lambda_k\)</span>的值重构完成，从而计算出<span
-class="math inline">\(v_\alpha\cdot v_\beta\)</span>。</p>
-<p>这个协议只有在<span class="math inline">\(2t+1\le
-n\)</span>时才安全。</p>
-<h1 id="beaver-三元组">Beaver 三元组</h1>
-<p>这种改进是将一系列开销移到了协议开始前。</p>
-<p>离线阶段： 通过一些手段生成多个乘法三元组。其中这些<span
-class="math inline">\(a\)</span>和<span
-class="math inline">\(b\)</span>在域<span
-class="math inline">\(\Bbb{F}\)</span>内随机选择，<span
-class="math inline">\(c=ab\)</span>。</p>
-<p>在协议前，一系列的shamir分享三元组<span
-class="math inline">\(([a],[b],[c])\)</span>已经分发到各方。</p>
-<p>在线阶段：</p>
-<p>各方计算<span
-class="math inline">\([d]=[v_\alpha-a]\)</span>的值，并公开。</p>
-<p>各方计算<span
-class="math inline">\([e]=[v_\beta-b]\)</span>的值，并公开。</p>
-<p>由于<span class="math inline">\([d]\)</span>和<span
-class="math inline">\([e]\)</span>都被公开，因此现在已经得到<span
-class="math inline">\(d=v_\alpha-a\)</span>和<span
-class="math inline">\(e=v_\beta-b\)</span>的值。</p>
-<p>由于</p>
-<p><span class="math inline">\(\begin{aligned}  v_\alpha\cdot v_\beta
-&amp;=(d+a)\cdot(e+b) \\  &amp;=de+db+ae+ab\\  &amp;=de+db+ae+c
-\end{aligned}\)</span></p>
-<p>故各方计算自己的份额：<span class="math inline">\([v_\alpha\cdot
-v_\beta]=de+d[b]+e[a]+[c]\)</span></p>
-<p>各方揭露<span class="math inline">\([v_\alpha\cdot
-v_\beta]\)</span>，完成计算。</p>
-
-          
+          <p><escape>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2022/03/28/BGW%E5%8D%8F%E8%AE%AE/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -840,9 +638,9 @@ v_\beta]\)</span>，完成计算。</p>
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2022-03-28T10:59:03+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T10:59:03+08:00">
                 2022-03-28
               </time>
             
@@ -882,29 +680,15 @@ v_\beta]\)</span>，完成计算。</p>
       
         
           
-            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very
-first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for
-more info. If you get any problems when using Hexo, you can find the
-answer in <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or
-you can ask me on <a
-target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start">Quick Start</h2>
-<h3 id="create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server">Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+            <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a
-target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
           
         
@@ -984,10 +768,10 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/%20%7C%7C%20archive">
+                <a href="/">
               
                   <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
@@ -1037,7 +821,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -1045,7 +829,7 @@ target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
