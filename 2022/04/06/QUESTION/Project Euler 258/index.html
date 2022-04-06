@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="MPC," />
+  <meta name="keywords" content="Project Euler," />
 
 
 
@@ -82,14 +82,14 @@
 
 
 <meta property="og:type" content="article">
-<meta property="og:title" content="GMW协议">
-<meta property="og:url" content="http://example.com/2022/03/28/MPC/GMW%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:title" content="Project Euler 258">
+<meta property="og:url" content="http://example.com/2022/04/06/QUESTION/Project%20Euler%20258/index.html">
 <meta property="og:site_name" content="Ujimatsu Chiya">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-03-28T06:26:05.000Z">
-<meta property="article:modified_time" content="2022-03-29T08:18:02.462Z">
+<meta property="article:published_time" content="2022-04-06T06:51:03.000Z">
+<meta property="article:modified_time" content="2022-04-06T06:54:07.724Z">
 <meta property="article:author" content="Ujimatsu Chiya">
-<meta property="article:tag" content="MPC">
+<meta property="article:tag" content="Project Euler">
 <meta name="twitter:card" content="summary">
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://example.com/2022/03/28/MPC/GMW协议/"/>
+  <link rel="canonical" href="http://example.com/2022/04/06/QUESTION/Project Euler 258/"/>
 
 
 
 
 
-  <title>GMW协议 | Ujimatsu Chiya</title>
+  <title>Project Euler 258 | Ujimatsu Chiya</title>
   
 
 
@@ -257,7 +257,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/28/MPC/GMW%E5%8D%8F%E8%AE%AE/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/06/QUESTION/Project%20Euler%20258/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="">
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">GMW协议</h1>
+          <h1 class="post-title" itemprop="name headline">Project Euler 258</h1>
         
 
         <div class="post-meta">
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-03-28T14:26:05+08:00">
-                2022-03-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2022-04-06T14:51:03+08:00">
+                2022-04-06
               </time>
             
 
@@ -302,8 +302,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2022-03-29T16:18:02+08:00">
-                2022-03-29
+              <time title="更新于" itemprop="dateModified" datetime="2022-04-06T14:54:07+08:00">
+                2022-04-06
               </time>
             
           </span>
@@ -330,7 +330,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  259 字
+                  1k 字
                 </span>
               
 
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1 分钟
+                  5 分钟
                 </span>
               
             </div>
@@ -368,56 +368,104 @@
 
       
         <p><escape><span id="more"></span></escape></p>
-<h1 id="gmw协议">GMW协议</h1>
-<h2 id="输入">输入</h2>
-<p><span class="math inline">\(P_1:x\in\{0,1\}\)</span></p>
-<p><span class="math inline">\(P_2:y\in\{0,1\}\)</span></p>
-<h2 id="输出">输出</h2>
-<p><span class="math inline">\(x \bigoplus y,x\bigwedge y.\)</span></p>
-<h2 id="协议">协议</h2>
-<p><span class="math inline">\(r\in\{0,1\}\)</span>由<span
-class="math inline">\(P_1\)</span>生成，发送给<span
-class="math inline">\(P_2\)</span></p>
-<p><span class="math inline">\(s\in\{0,1\}\)</span>由<span
-class="math inline">\(P_2\)</span>生成，发送给<span
-class="math inline">\(P_1\)</span></p>
-<p><span class="math inline">\(S_i^1=x \bigoplus r\)</span></p>
-<p><span class="math inline">\(S_i^2=r\)</span></p>
-<p><span class="math inline">\(S_j^2=y \bigoplus s\)</span></p>
-<p><span class="math inline">\(S_j^1=s\)</span></p>
-<p><span class="math inline">\(S_k^1=S_i^1\bigoplus S_j^1\)</span></p>
-<p><span class="math inline">\(S_k^2=S_i^2\bigoplus S_j^2\)</span></p>
-<p><span class="math inline">\(S_k^1\bigoplus S_k^2=(S_i^1 \bigoplus
-S_j^1) \bigoplus (s_i^2\bigoplus s_j^2)=x \bigoplus y\)</span></p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span
-class="math inline">\(S_k^1\)</span>，<span
-class="math inline">\(P_2\)</span>暴露分享<span
-class="math inline">\(S_k^2\)</span>即可计算<span
-class="math inline">\(x \bigoplus y\)</span>。</p>
-<p>令<span class="math inline">\(F(S_i^2,S_j^2)=(S_i^1\bigoplus
-S_i^2)\bigwedge(S_i^2\bigoplus S_j^2)=x\bigwedge y\)</span></p>
-<p><span class="math inline">\(b\in \{0,1\}\)</span>由<span
-class="math inline">\(P_1\)</span>随机生成。</p>
-<p><span class="math inline">\(P_1\)</span>预先计算好<span
-class="math inline">\(F\)</span>的四种可能性<span
-class="math inline">\(F(0,0),F(0,1),F(1,0),F(1,1)\)</span>。 和<span
-class="math inline">\(P_2\)</span>进行1-out-of-4-OT： <span
-class="math display">\[ OT_1^4=\left\{
-\begin{aligned}
-b \bigoplus F(0,0) \\
-b \bigoplus F(0,1) \\
-b \bigoplus F(1,0) \\
-b \bigoplus F(1,1) \\
-\end{aligned}
-\right.
-\]</span> 其中<span class="math inline">\(P_2\)</span>提供<span
-class="math inline">\((S_i^2,S_j^2)\)</span>的值，得到的值为<span
-class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>。</p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span
-class="math inline">\(b\)</span>，<span
-class="math inline">\(P_2\)</span>暴露分享<span
-class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>即可计算<span
-class="math inline">\(x \bigwedge y\)</span>。</p>
+<h1 id="project-euler-258">Project Euler 258</h1>
+<h2 id="题目">题目</h2>
+<h3 id="a-lagged-fibonacci-sequence">A lagged Fibonacci sequence</h3>
+<p>A sequence is defined as:</p>
+<ul>
+<li><span class="math inline">\(g_k = 1\)</span>, for <span
+class="math inline">\(0 \leq k \leq 1999\)</span></li>
+<li><span class="math inline">\(g_k = g_{k-2000} + g_{k-1999}\)</span>,
+for <span class="math inline">\(k \geq 2000\)</span></li>
+</ul>
+<p>Find <span class="math inline">\(g_k \mod 20092010\)</span> for <span
+class="math inline">\(k = 10^{18}\)</span>.</p>
+<h2
+id="哈密顿-凯莱caylay-camilton定理">哈密顿-凯莱(Caylay-Camilton)定理</h2>
+<p>如果一个<span class="math inline">\(n\)</span>阶矩阵<span
+class="math inline">\(A\)</span>的特征多项式为<span
+class="math inline">\(f(\lambda)=|A-\lambda I|=\sum_{i=0}^n
+b_i\lambda^i\)</span>，其中<span
+class="math inline">\(b^i\)</span>为系数。那么矩阵多项式<span
+class="math inline">\(f(A)=\sum_{i=0}^nb_iA^i\)</span>满足<span
+class="math inline">\(f(A)=O\)</span>.</p>
+<h2 id="线性递推">线性递推</h2>
+<p>对于一个线性递推<span
+class="math inline">\(a_n=\sum_{j=1}^kc_ja_{n-j}\)</span>，可以构造如下矩阵进行<span
+class="math inline">\(O(k^3\log n)\)</span>的线性递推计算：</p>
+<p><span class="math display">\[
+\begin{bmatrix}
+c_1 &amp; c_2 &amp; c_3 &amp;\cdots &amp;c_{k-1} &amp; c_k\\
+1 &amp; 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 0\\
+0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp;
+\vdots\\
+0 &amp; 0 &amp; 0 &amp;\cdots &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp;\cdots &amp; 1 &amp; 0
+\end{bmatrix}
+\begin{bmatrix}
+a_{n-1}\\
+a_{n-2}\\
+a_{n-3}\\
+\vdots\\
+a_{n-k+1}\\
+a_{n-k}
+\end{bmatrix}
+=
+\begin{bmatrix}
+a_n\\
+a_{n-1}\\
+a_{n-2}\\
+\vdots\\
+a_{n-k+2}\\
+a_{n-k+1}
+\end{bmatrix}
+\]</span></p>
+<p>令<span class="math inline">\(A=\begin{bmatrix} c_1 &amp; c_2 &amp;
+c_3 &amp;\cdots &amp;c_{k-1} &amp; c_k\\ 1 &amp; 0 &amp; 0 &amp; \cdots
+&amp; 0 &amp; 0\\ 0 &amp; 1 &amp; 0 &amp; \cdots &amp; 0 &amp; 0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots &amp;
+\vdots\\ 0 &amp; 0 &amp; 0 &amp;\cdots &amp; 0 &amp; 0\\ 0 &amp; 0 &amp;
+0 &amp;\cdots &amp; 1 &amp; 0 \end{bmatrix},x= \begin{bmatrix} a_{k-1}\\
+a_{k-2}\\ a_{k-3}\\ \vdots\\ a_1\\ a_0 \end{bmatrix}\)</span> ##
+解决方案 可以知道，矩阵<span
+class="math inline">\(A\)</span>的特征多项式为<span
+class="math inline">\(f(\lambda)=|A-\lambda I|=\lambda^k-(\sum_{j=1}^k
+c_j \lambda^{k-j})\)</span>。</p>
+<p>代入Caylay-Camilton定理，可以发现，<span
+class="math inline">\(A^k=\sum_{j=1}^k c_j A^{k-j}\)</span>。</p>
+<p>由题目可知<span class="math inline">\(A^{2000}=A+I\)</span>。</p>
+<p>Caylay-Camilton定理说明，任意<span class="math inline">\(m\geq
+k\)</span>的矩阵幂<span
+class="math inline">\(A^k\)</span>都可以表示成一个为<span
+class="math inline">\(\sum_{i=0}^{k-1}
+v_iA^i\)</span>的矩阵多项式，其中<span
+class="math inline">\(v_i\)</span>为系数。</p>
+<p>而为了求<span class="math inline">\(a_n\)</span>，可以计算<span
+class="math inline">\(A^nx\)</span>，然后取向量<span
+class="math inline">\(A^nx\)</span>的最后一个值<span
+class="math inline">\((A^nx)_{k-1}\)</span>即可。</p>
+<p>那么令<span class="math inline">\(A^n=\sum_{i=0}^{k-1}
+v_iA^i\)</span>。</p>
+<p>可以知道，<span class="math inline">\(A^nx=\sum_{i=0}^{k-1}
+v_iA^ix\)</span>。</p>
+<p>系数<span
+class="math inline">\(v_i\)</span>可以通过快速幂算法进行多项式卷积进行计算，然后将卷积结果系数大于等于<span
+class="math inline">\(k\)</span>的部分通过矩阵多项式回退到小于<span
+class="math inline">\(k\)</span>。</p>
+<p>最终结果为<span class="math inline">\(a_n=\sum_{i=0}^{k-1} v_i\cdot
+a_i\)</span></p>
+<p>原因：容易发现，计算<span
+class="math inline">\(Ax\)</span>只是将整个向量<span
+class="math inline">\(x\)</span>向下平移了一次，新的值将在向量<span
+class="math inline">\(x\)</span>上面填充。</p>
+<p>因此，不必要将整个向量<span
+class="math inline">\(A^ix\)</span>计算出来，只需要将最后一个值<span
+class="math inline">\((A^ix)_{k-1}\)</span>计算出来，并与系数相乘即可，因为此时的<span
+class="math inline">\(i\)</span>不会发生<span
+class="math inline">\(i\geq k\)</span>的情况。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">2000</span>;</span><br><span class="line">ll N=<span class="number">1e18</span>;</span><br><span class="line">ll mod = <span class="number">20092010</span>;</span><br><span class="line">ll a[M];</span><br><span class="line">ll p[M];</span><br><span class="line">ll b[M];</span><br><span class="line">ll ans_mat[M];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">mul_ploy</span><span class="params">(ll a[M],ll b[M],ll p[M])</span></span>&#123;</span><br><span class="line">    <span class="comment">//做的是乘法，对应的就是多项式系数的卷积。</span></span><br><span class="line">    ll c[M&lt;&lt;<span class="number">1</span>];<span class="built_in">memset</span>(c,<span class="number">0</span>,<span class="built_in">sizeof</span>(c));</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;M;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;M;j++)</span><br><span class="line">            c[i+j]=(c[i+j]+a[i]*b[j])%mod;</span><br><span class="line">    <span class="comment">//利用递推式F(A)的值，将&gt;=M的所有临时系数转化成&lt;M的系数。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=M*<span class="number">2</span><span class="number">-1</span>;i&gt;=M;i--)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;M;j++)</span><br><span class="line">            c[i-M+j]=(c[i-M+j]+c[i]*p[j]);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;M;i++)</span><br><span class="line">        a[i]=c[i];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// a代表递推式的前M个值</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;M;i++)</span><br><span class="line">        a[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="comment">// p代表Hamilton-Cayley而来的矩阵多项式的系数，题中为F(A)=A^2000=A+I</span></span><br><span class="line">    p[<span class="number">0</span>]=p[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="comment">// b代表A^(2^i)时所有的A^(2^i)=sum from j=0 to M-1 A^j*b_j时系数b_j的值。</span></span><br><span class="line">    b[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    ans_mat[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;N;N&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(N&amp;<span class="number">1</span>) <span class="built_in">mul_ploy</span>(ans_mat,b,p);</span><br><span class="line">        <span class="built_in">mul_ploy</span>(b,b,p);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//需要注意的是，当向量和一个矩阵相乘后，我们只要向量中的第一个值。因为向量乘一次这个矩阵递推式，那么所有值都会前移一次。</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;M;i++)</span><br><span class="line">        ans=(ans+ans_mat[i]*a[i])%mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -435,7 +483,7 @@ class="math inline">\(x \bigwedge y\)</span>。</p>
       
         <div class="post-tags">
           
-            <a href="/tags/MPC/" rel="tag"># MPC</a>
+            <a href="/tags/Project-Euler/" rel="tag"># Project Euler</a>
           
         </div>
       
@@ -448,8 +496,8 @@ class="math inline">\(x \bigwedge y\)</span>。</p>
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2022/03/28/MPC/BMR%E5%8D%8F%E8%AE%AE/" rel="next" title="BMR协议">
-                <i class="fa fa-chevron-left"></i> BMR协议
+              <a href="/2022/03/29/MPC/GESS%E5%8D%8F%E8%AE%AE/" rel="next" title="GESS协议">
+                <i class="fa fa-chevron-left"></i> GESS协议
               </a>
             
           </div>
@@ -457,10 +505,6 @@ class="math inline">\(x \bigwedge y\)</span>。</p>
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2022/03/29/MPC/GESS%E5%8D%8F%E8%AE%AE/" rel="prev" title="GESS协议">
-                GESS协议 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,7 +627,7 @@ class="math inline">\(x \bigwedge y\)</span>。</p>
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gmw%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">GMW协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.3.</span> <span class="nav-text">协议</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-258"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 258</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-lagged-fibonacci-sequence"><span class="nav-number">1.1.1.</span> <span class="nav-text">A lagged Fibonacci sequence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%93%88%E5%AF%86%E9%A1%BF-%E5%87%AF%E8%8E%B1caylay-camilton%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">哈密顿-凯莱(Caylay-Camilton)定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E9%80%92%E6%8E%A8"><span class="nav-number">1.3.</span> <span class="nav-text">线性递推</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
             
 
           </div>
