@@ -319,8 +319,8 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 本站总访问量
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
             </span>
           
 
@@ -335,7 +335,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  259 字
+                  270 字
                 </span>
               
 
@@ -373,37 +373,23 @@
 
       
         <p><escape><span id="more"></span></escape></p>
-<h1 id="gmw协议">GMW协议</h1>
-<h2 id="输入">输入</h2>
-<p><span class="math inline">\(P_1:x\in\{0,1\}\)</span></p>
-<p><span class="math inline">\(P_2:y\in\{0,1\}\)</span></p>
-<h2 id="输出">输出</h2>
-<p><span class="math inline">\(x \bigoplus y,x\bigwedge y.\)</span></p>
-<h2 id="协议">协议</h2>
-<p><span class="math inline">\(r\in\{0,1\}\)</span>由<span class="math inline">\(P_1\)</span>生成，发送给<span class="math inline">\(P_2\)</span></p>
-<p><span class="math inline">\(s\in\{0,1\}\)</span>由<span class="math inline">\(P_2\)</span>生成，发送给<span class="math inline">\(P_1\)</span></p>
-<p><span class="math inline">\(S_i^1=x \bigoplus r\)</span></p>
-<p><span class="math inline">\(S_i^2=r\)</span></p>
-<p><span class="math inline">\(S_j^2=y \bigoplus s\)</span></p>
-<p><span class="math inline">\(S_j^1=s\)</span></p>
-<p><span class="math inline">\(S_k^1=S_i^1\bigoplus S_j^1\)</span></p>
-<p><span class="math inline">\(S_k^2=S_i^2\bigoplus S_j^2\)</span></p>
-<p><span class="math inline">\(S_k^1\bigoplus S_k^2=(S_i^1 \bigoplus
-S_j^1) \bigoplus (s_i^2\bigoplus s_j^2)=x \bigoplus y\)</span></p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span class="math inline">\(S_k^1\)</span>，<span class="math inline">\(P_2\)</span>暴露分享<span class="math inline">\(S_k^2\)</span>即可计算<span class="math inline">\(x \bigoplus y\)</span>。</p>
-<p>令<span class="math inline">\(F(S_i^2,S_j^2)=(S_i^1\bigoplus
-S_i^2)\bigwedge(S_i^2\bigoplus S_j^2)=x\bigwedge y\)</span></p>
-<p><span class="math inline">\(b\in \{0,1\}\)</span>由<span class="math inline">\(P_1\)</span>随机生成。</p>
-<p><span class="math inline">\(P_1\)</span>预先计算好<span class="math inline">\(F\)</span>的四种可能性<span class="math inline">\(F(0,0),F(0,1),F(1,0),F(1,1)\)</span>。 和<span class="math inline">\(P_2\)</span>进行1-out-of-4-OT： <span class="math display">\[ OT_1^4=\left\{
-\begin{aligned}
-b \bigoplus F(0,0) \\
-b \bigoplus F(0,1) \\
-b \bigoplus F(1,0) \\
-b \bigoplus F(1,1) \\
-\end{aligned}
-\right.
-\]</span> 其中<span class="math inline">\(P_2\)</span>提供<span class="math inline">\((S_i^2,S_j^2)\)</span>的值，得到的值为<span class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>。</p>
-<p><span class="math inline">\(P_1\)</span>暴露分享<span class="math inline">\(b\)</span>，<span class="math inline">\(P_2\)</span>暴露分享<span class="math inline">\(b\bigoplus F(S_i^2,S_j^2)\)</span>即可计算<span class="math inline">\(x \bigwedge y\)</span>。</p>
+<h1 id="GMW协议"><a href="#GMW协议" class="headerlink" title="GMW协议"></a>GMW协议</h1><h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$P_1:x\in{0,1}$</p>
+<p>$P_2:y\in{0,1}$</p>
+<h2 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h2><p>$x \bigoplus y,x\bigwedge y.$</p>
+<h2 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h2><p>$r\in{0,1}$由$P_1$生成，发送给$P_2$</p>
+<p>$s\in{0,1}$由$P_2$生成，发送给$P_1$</p>
+<p>$S_i^1&#x3D;x \bigoplus r$</p>
+<p>$S_i^2&#x3D;r$</p>
+<p>$S_j^2&#x3D;y \bigoplus s$</p>
+<p>$S_j^1&#x3D;s$</p>
+<p>$S_k^1&#x3D;S_i^1\bigoplus S_j^1$</p>
+<p>$S_k^2&#x3D;S_i^2\bigoplus S_j^2$</p>
+<p>$S_k^1\bigoplus S_k^2&#x3D;(S_i^1 \bigoplus S_j^1) \bigoplus (s_i^2\bigoplus s_j^2)&#x3D;x \bigoplus y$</p>
+<p>$P_1$暴露分享$S_k^1$，$P_2$暴露分享$S_k^2$即可计算$x \bigoplus y$。</p>
+<p>令$F(S_i^2,S_j^2)&#x3D;(S_i^1\bigoplus S_i^2)\bigwedge(S_i^2\bigoplus S_j^2)&#x3D;x\bigwedge y$</p>
+<p>$b\in {0,1}$由$P_1$随机生成。</p>
+<p>$P_1$预先计算好$F$的四种可能性$F(0,0),F(0,1),F(1,0),F(1,1)$。<br>和$P_2$进行1-out-of-4-OT：<br>$$ OT_1^4&#x3D;\left{<br>\begin{aligned}<br>b \bigoplus F(0,0) \<br>b \bigoplus F(0,1) \<br>b \bigoplus F(1,0) \<br>b \bigoplus F(1,1) \<br>\end{aligned}<br>\right.<br>$$<br>其中$P_2$提供$(S_i^2,S_j^2)$的值，得到的值为$b\bigoplus F(S_i^2,S_j^2)$。</p>
+<p>$P_1$暴露分享$b$，$P_2$暴露分享$b\bigoplus F(S_i^2,S_j^2)$即可计算$x \bigwedge y$。</p>
 
       
     </div>
@@ -523,7 +509,7 @@ b \bigoplus F(1,1) \\
               
                 <a href="/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -569,7 +555,7 @@ b \bigoplus F(1,1) \\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gmw%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">GMW协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.3.</span> <span class="nav-text">协议</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GMW%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.</span> <span class="nav-text">GMW协议</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%8F%E8%AE%AE"><span class="nav-number">1.3.</span> <span class="nav-text">协议</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -629,17 +615,17 @@ b \bigoplus F(1,1) \\
 
   
     <span class="site-uv">
-      <i class="fa fa-user"></i>
+      <i class="fa fa-user"></i> 本站访问数
       <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
+      人
     </span>
   
 
   
     <span class="site-pv">
-      <i class="fa fa-eye"></i>
+      <i class="fa fa-eye"></i> 本站总访问量
       <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
+      次
     </span>
   
 </div>
