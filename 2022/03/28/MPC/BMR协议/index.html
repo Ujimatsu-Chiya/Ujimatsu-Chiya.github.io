@@ -369,55 +369,26 @@
       
         <p><escape><span id="more"></span></escape></p>
 <h1 id="bmr-协议">BMR 协议</h1>
-<p>现在有一个实现实现函数<span
-class="math inline">\(\mathcal{F}\)</span>的布尔电路<span
-class="math inline">\(\mathcal{C}\)</span>。 令<span
-class="math inline">\(F:\{0,1\}^m\rightarrow\{0,1\}^{n\cdot
-m+1}\)</span>为一个<span
-class="math inline">\(\mathrm{PRG}\)</span>。</p>
-<p>有<span class="math inline">\(n\)</span>个参与方，其中第<span
-class="math inline">\(j\)</span>个参与方的输入为<span
-class="math inline">\(x_j\in\{0,1\}\)</span>。</p>
+<p>现在有一个实现实现函数<span class="math inline">\(\mathcal{F}\)</span>的布尔电路<span class="math inline">\(\mathcal{C}\)</span>。 令<span class="math inline">\(F:\{0,1\}^m\rightarrow\{0,1\}^{n\cdot
+m+1}\)</span>为一个<span class="math inline">\(\mathrm{PRG}\)</span>。</p>
+<p>有<span class="math inline">\(n\)</span>个参与方，其中第<span class="math inline">\(j\)</span>个参与方的输入为<span class="math inline">\(x_j\in\{0,1\}\)</span>。</p>
 <p>协议过程：</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都对每一个输入值<span
-class="math inline">\(b\in\{0,1\}\)</span>，随机生成一个子标记<span
-class="math inline">\(w_{i,j}^b=k_{i,j}^b ||
-p_{i,j}^b\in\{0,1\}^{m+1}\)</span>，其中满足<span
-class="math inline">\(p_{i,j}^b=1-p_{i,j}^{1-b}\)</span>。</p>
-<p>对于电路中的每一条线<span
-class="math inline">\(w_i\)</span>，每一方<span
-class="math inline">\(P_j\)</span>，都生成一个输入分享<span
-class="math inline">\(f_{i,j}\in \{0,1\}\)</span>。</p>
-<p>定义每一方的MPC输入： <span
-class="math inline">\(I_{i,j}=[F(w_{i,j}^0),F(w_{i,j}^1),p_{i,j}^0,f_{i,j}]\)</span>。</p>
-<p>将所有的<span
-class="math inline">\(I_{i,j},x_j\)</span>作为新的输入。</p>
-<p>对于每一个门<span class="math inline">\(G\)</span>中实现的函数<span
-class="math inline">\(g\)</span>，假设其有两条输入线<span
-class="math inline">\(w_a,w_b\)</span>，输出线为<span
-class="math inline">\(w_c\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^0=\bigoplus_{j=1}^np_{a,j}^0,p_b^0=\bigoplus_{j=1}^np_{b,j}^0,p_c^0=\bigoplus_{j=1}^np_{c,j}^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(p_a^1=1-p_a^0,p_b^1=1-p_b^0,p_c^1=1-p_c^0\)</span>。</p>
-<p>计算<span
-class="math inline">\(f_a=\bigoplus_{j=1}^nf_{a,j},f_b=\bigoplus_{j=1}^nf_{b,j},f_c=\bigoplus_{j=1}^nf_{c,j}\)</span>。</p>
-<p>接下来创造乱码电路表，对于任意的<span
-class="math inline">\(2^2\)</span>种组合，对于所有的<span
-class="math inline">\(v_a,v_b\in\{0,1\}\)</span>，设<span
-class="math inline">\(v_c=g(v_a,v_b)\)</span>，计算</p>
+<p>对于电路中的每一条线<span class="math inline">\(w_i\)</span>，每一方<span class="math inline">\(P_j\)</span>，都对每一个输入值<span class="math inline">\(b\in\{0,1\}\)</span>，随机生成一个子标记<span class="math inline">\(w_{i,j}^b=k_{i,j}^b ||
+p_{i,j}^b\in\{0,1\}^{m+1}\)</span>，其中满足<span class="math inline">\(p_{i,j}^b=1-p_{i,j}^{1-b}\)</span>。</p>
+<p>对于电路中的每一条线<span class="math inline">\(w_i\)</span>，每一方<span class="math inline">\(P_j\)</span>，都生成一个输入分享<span class="math inline">\(f_{i,j}\in \{0,1\}\)</span>。</p>
+<p>定义每一方的MPC输入： <span class="math inline">\(I_{i,j}=[F(w_{i,j}^0),F(w_{i,j}^1),p_{i,j}^0,f_{i,j}]\)</span>。</p>
+<p>将所有的<span class="math inline">\(I_{i,j},x_j\)</span>作为新的输入。</p>
+<p>对于每一个门<span class="math inline">\(G\)</span>中实现的函数<span class="math inline">\(g\)</span>，假设其有两条输入线<span class="math inline">\(w_a,w_b\)</span>，输出线为<span class="math inline">\(w_c\)</span>。</p>
+<p>计算<span class="math inline">\(p_a^0=\bigoplus_{j=1}^np_{a,j}^0,p_b^0=\bigoplus_{j=1}^np_{b,j}^0,p_c^0=\bigoplus_{j=1}^np_{c,j}^0\)</span>。</p>
+<p>计算<span class="math inline">\(p_a^1=1-p_a^0,p_b^1=1-p_b^0,p_c^1=1-p_c^0\)</span>。</p>
+<p>计算<span class="math inline">\(f_a=\bigoplus_{j=1}^nf_{a,j},f_b=\bigoplus_{j=1}^nf_{b,j},f_c=\bigoplus_{j=1}^nf_{c,j}\)</span>。</p>
+<p>接下来创造乱码电路表，对于任意的<span class="math inline">\(2^2\)</span>种组合，对于所有的<span class="math inline">\(v_a,v_b\in\{0,1\}\)</span>，设<span class="math inline">\(v_c=g(v_a,v_b)\)</span>，计算</p>
 <p><span class="math display">\[e_{v_a,v_b}=w_c^{v_c\bigoplus
 f_c}\bigoplus\bigoplus_{j=1}^n[F(w_{a,j}^{v_a\bigoplus f_a})\bigoplus
 F(w_{b,j}^{v_b\bigoplus f_b})]\]</span></p>
-<p>值<span class="math inline">\(e_{v_a,v_b}\)</span>放在位置<span
-class="math inline">\((p_a^{v_a},p_b^{v_b})\)</span>。</p>
-<p>其中，<span
-class="math inline">\(w_c^0=w_{c,1}^0||w_{c,2}^0||\cdots||w_{c,n}^0||p_c^0,w_c^1=w_{c,1}^1||w_{c,2}^1||\cdots||w_{c,n}^1||p_c^1\)</span>。</p>
-<p>根据给定的<span
-class="math inline">\(x_1,x_2,\cdots,x_n\)</span>交付给任意一方解密即可。最终需要揭露每一个值<span
-class="math inline">\(f_{i,j}\)</span>。</p>
+<p>值<span class="math inline">\(e_{v_a,v_b}\)</span>放在位置<span class="math inline">\((p_a^{v_a},p_b^{v_b})\)</span>。</p>
+<p>其中，<span class="math inline">\(w_c^0=w_{c,1}^0||w_{c,2}^0||\cdots||w_{c,n}^0||p_c^0,w_c^1=w_{c,1}^1||w_{c,2}^1||\cdots||w_{c,n}^1||p_c^1\)</span>。</p>
+<p>根据给定的<span class="math inline">\(x_1,x_2,\cdots,x_n\)</span>交付给任意一方解密即可。最终需要揭露每一个值<span class="math inline">\(f_{i,j}\)</span>。</p>
 
       
     </div>
