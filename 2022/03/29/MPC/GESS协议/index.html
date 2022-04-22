@@ -6,8 +6,8 @@
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 6.1.0">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Gochiusa_rabbit_house_logo.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Gochiusa_rabbit_house_logo.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -209,7 +209,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>772</span>
+              <span>800</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -229,18 +229,26 @@
 
       
         <p><escape><span id="more"></span></escape></p>
-<h1 id="GESS"><a href="#GESS" class="headerlink" title="GESS"></a>GESS</h1><p>$P_1$的输入标签：$(sh_{10},sh_{11})$，$P_2$的输入标签：$(sh_{20},sh_{21})$。</p>
-<p>令$G:{0,1}^2\rightarrow {00,01,10,11}$</p>
-<p>令秘密域$\mathcal{D}_\mathcal{S}&#x3D;{0,1}^n$。</p>
-<p>秘密$s_{00},s_{01},s_{10},s_{11} \in \mathcal{D}<em>\mathcal{S}$。秘密$s</em>{ij}$对应输出值$G(i,j)$。</p>
+<h1 id="gess">GESS</h1>
+<p><span class="math inline">\(P_1\)</span>的输入标签：<span class="math inline">\((sh_{10},sh_{11})\)</span>，<span class="math inline">\(P_2\)</span>的输入标签：<span class="math inline">\((sh_{20},sh_{21})\)</span>。</p>
+<p>令<span class="math inline">\(G:\{0,1\}^2\rightarrow
+\{00,01,10,11\}\)</span></p>
+<p>令秘密域<span class="math inline">\(\mathcal{D}_\mathcal{S}=\{0,1\}^n\)</span>。</p>
+<p>秘密<span class="math inline">\(s_{00},s_{01},s_{10},s_{11} \in
+\mathcal{D}_\mathcal{S}\)</span>。秘密<span class="math inline">\(s_{ij}\)</span>对应输出值<span class="math inline">\(G(i,j)\)</span>。</p>
 <p>协议：</p>
-<p>随机选择$R_0,R_1\in \mathcal{D_S}$，令$sh_{10}&#x3D;R_0,sh_{11}&#x3D;R_1$。</p>
-<p>令$sh_{20}&#x3D;s_{00}\bigoplus R_0||s_{10}\bigoplus R_1$，原因：假设第二条线输入为0，设计$sh_{20}$，使得：当第一条线输入为0时，产生秘密$s_{00}$。当第一条线输入为1时，产生秘密$s_{10}$。</p>
-<p>类似的，令$sh_{21}&#x3D;s_{01}\bigoplus R_0||s_{11}\bigoplus R_1$。</p>
-<p>随机生成一个比特$b$，在$R_0,R_1$前面附上一个比特。那么第一条线的MPC输入为$(b||R_0,\neg b||R_1)$。</p>
-<p>第二条线的MPC输入为$(s_{00}\bigoplus R_0||s_{10}\bigoplus R_1,s_{01}\bigoplus R_0||s_{11}\bigoplus R_1)$。</p>
-<p>如果随机选择的$b&#x3D;1$，那么对于第二条线的MPC输入，两块的$||$隔开两部分进行交换。</p>
-<p>解密时，使用对应输入分享$(sh_{10},sh_{11})$和第二条线的前面或者是后面的秘密的值（取决于$b$）进行异或，即可得到秘密$s_{ij}$。</p>
+<p>随机选择<span class="math inline">\(R_0,R_1\in
+\mathcal{D_S}\)</span>，令<span class="math inline">\(sh_{10}=R_0,sh_{11}=R_1\)</span>。</p>
+<p>令<span class="math inline">\(sh_{20}=s_{00}\bigoplus
+R_0||s_{10}\bigoplus R_1\)</span>，原因：假设第二条线输入为0，设计<span class="math inline">\(sh_{20}\)</span>，使得：当第一条线输入为0时，产生秘密<span class="math inline">\(s_{00}\)</span>。当第一条线输入为1时，产生秘密<span class="math inline">\(s_{10}\)</span>。</p>
+<p>类似的，令<span class="math inline">\(sh_{21}=s_{01}\bigoplus
+R_0||s_{11}\bigoplus R_1\)</span>。</p>
+<p>随机生成一个比特<span class="math inline">\(b\)</span>，在<span class="math inline">\(R_0,R_1\)</span>前面附上一个比特。那么第一条线的MPC输入为<span class="math inline">\((b||R_0,\neg b||R_1)\)</span>。</p>
+<p>第二条线的MPC输入为<span class="math inline">\((s_{00}\bigoplus
+R_0||s_{10}\bigoplus R_1,s_{01}\bigoplus R_0||s_{11}\bigoplus
+R_1)\)</span>。</p>
+<p>如果随机选择的<span class="math inline">\(b=1\)</span>，那么对于第二条线的MPC输入，两块的<span class="math inline">\(||\)</span>隔开两部分进行交换。</p>
+<p>解密时，使用对应输入分享<span class="math inline">\((sh_{10},sh_{11})\)</span>和第二条线的前面或者是后面的秘密的值（取决于<span class="math inline">\(b\)</span>）进行异或，即可得到秘密<span class="math inline">\(s_{ij}\)</span>。</p>
 
     </div>
 
@@ -324,7 +332,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GESS"><span class="nav-number">1.</span> <span class="nav-text">GESS</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#gess"><span class="nav-number">1.</span> <span class="nav-text">GESS</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
