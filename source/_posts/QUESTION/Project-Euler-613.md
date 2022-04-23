@@ -28,6 +28,8 @@ Give your answer rounded to 10 digits after the decimal point.
 
 建立一个$Rt\triangle AOB$，其中$A(0,y_0),B(x_0,0)$。
 
+![](Project-Euler-613/613-1.png)
+
 假设$Rt\triangle ABC$内任意一点$P(x,y)$，那么从$P$移动到最长边的概率为$\angle APB$占整个$2\pi$的比率。通过向量内积，可以直接计算出这个比率的值：
 
 $$p(x,y)=\frac{1}{2\pi}\cos^{-1} \frac{x^2+y^2-xx_0-yy_0}{\sqrt{(x_0-x)^2+y^2}\cdot\sqrt{x^2+(y_0-y)^2}}$$

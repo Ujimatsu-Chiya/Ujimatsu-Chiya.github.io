@@ -28,7 +28,7 @@ Find $\mathbb{E}(d)$, rounded to eight places after the decimal point.
 
 [重心坐标](https://mathworld.wolfram.com/BarycentricCoordinates.html)，表示三角形中的三个顶点的一组“质量”$(t_1,t_2,t_3)$，这三个质量可以唯一确定这个点在平面中的位置。为了规范化，一般令这三个值满足$t_1+t_2+t_3=1$。
 
-![1](./Project-Euler-727/1.png)
+![1](./Project-Euler-727/727-1.png)
 
 可以看出，顶点在这个坐标系下的坐标有：$A_1(1,0,0),A_2(0,1,0),A_3(0,0,1)$
 
