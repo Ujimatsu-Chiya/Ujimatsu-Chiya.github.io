@@ -1,10 +1,10 @@
 ---
 title: Project Euler 285
-date: 2022-04-23 13:21:25
-tags: 
+tags:
   - Project Euler
 mathjax: true
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 285
