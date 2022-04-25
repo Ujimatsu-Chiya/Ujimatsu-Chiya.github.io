@@ -113,6 +113,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 20849603980134001723930671666823555245252804609722<br/>
 53503534226472524250874054075591789781264330331690<br/>
 </center>
+
 ## 解决方案
 
 利用Python能够计算大数的特性，直接计算完成后取前10位即可。

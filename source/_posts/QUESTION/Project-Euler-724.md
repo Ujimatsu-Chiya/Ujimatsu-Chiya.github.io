@@ -37,9 +37,9 @@ Find $E(10^8)$. Give your answer rounded to the nearest integer.
 
 可以知道，在已经收集到了第$i-1$向赠券的情况下，能够收集第$i$张的概率为$p_i=\frac{n-i+1}{n}$，故$t_i$服从参数为$p_i$的几何分布，即$t_i\sim GE(p_i)$.
 
-故E$E[t_i]=\frac{1}{p_i},D[t_i]=\frac{1-p_i}{p_i^2},E[T]=\sum_{i=1}^nE[t_i]$.
+故$E[t_i]=\frac{1}{p_i},D[t_i]=\frac{1-p_i}{p_i^2},E[T]=\sum_{i=1}^nE[t_i]$.
 
-另外，可以发现$t_i$之间都是独立的，因为抽到的新赠券的时刻和之前已经抽到的没有什么关系，故$D[T]=\sum_1^nD[t_i]$.
+另外，可以发现$t_i$之间都是独立的，因为抽到的新赠券的时刻和之前已经抽到的没有什么关系，故$D[T]=\sum_{i=1}^nD[t_i]$.
 
 另外可以计算出$E[T^2]=E^2[T]+D[T]$.
 
