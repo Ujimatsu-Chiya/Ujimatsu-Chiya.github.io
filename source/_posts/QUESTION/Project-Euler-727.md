@@ -16,7 +16,7 @@ mathjax: true
 
 Let $r_a$, $r_b$ and $r_c$ be the radii of three circles that are mutually and externally tangent to each other. The three circles then form a *triangle of circular arcs* between their tangency points as shown for the three blue circles in the picture below.
 
-![p727_circular_arcs](../images/p727_circular_arcs.jpg)
+![](../images/p727_circular_arcs.jpg)
 
 Define the circumcircle of this triangle to be the red circle, with centre $D$, passing through their tangency points. Further define the incircle of this triangle to be the green circle, with centre $E$, that is mutually and externally tangent to all the three blue circles. Let $d=\vert DE \vert$ be the distance between the centres of the circumcircle and the incircle.
 
@@ -28,7 +28,7 @@ Find $\mathbb{E}(d)$, rounded to eight places after the decimal point.
 
 [重心坐标](https://mathworld.wolfram.com/BarycentricCoordinates.html)，表示三角形中的三个顶点的一组“质量”$(t_1,t_2,t_3)$，这三个质量可以唯一确定这个点在平面中的位置。为了规范化，一般令这三个值满足$t_1+t_2+t_3=1$。
 
-![1](../images/p727-1.png)
+![](../images/p727-1.png)
 
 可以看出，顶点在这个坐标系下的坐标有：$A_1(1,0,0),A_2(0,1,0),A_3(0,0,1)$
 
@@ -36,7 +36,7 @@ Find $\mathbb{E}(d)$, rounded to eight places after the decimal point.
 
 在$\triangle ABC$中，点$D$是其内心。
 
-点$E$是$\bigodot A,\bigodot B,\bigodot C$的[内索蒂圆圆心](https://mathworld.wolfram.com/EqualDetourPoint.html)，也叫做$\triangle ABC$的Equal Detour Point.
+点$E$是$\bigodot A,\bigodot B,\bigodot C$的内索蒂圆圆心，也叫做$\triangle ABC$的[Equal Detour Point](https://mathworld.wolfram.com/EqualDetourPoint.html).
 
 三角形内部点$E$的位置满足：$|AE|+|BE|-|AB|=|AE|+|CE|-|AC|=|BE|+|CE|-|BC|$。
 
