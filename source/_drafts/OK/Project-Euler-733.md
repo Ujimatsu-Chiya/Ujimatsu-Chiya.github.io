@@ -1,9 +1,11 @@
 ---
 title: Project Euler 733
-tags: 
+tags:
   - Project Euler
 mathjax: true
+date: 2022-04-26 17:34:44
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 733

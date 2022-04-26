@@ -1,9 +1,11 @@
 ---
 title: Project Euler 250
-tags: 
+tags:
   - Project Euler
 mathjax: true
+date: 2022-04-26 17:34:31
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 250
