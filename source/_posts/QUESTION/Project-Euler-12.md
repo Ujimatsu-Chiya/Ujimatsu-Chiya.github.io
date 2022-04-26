@@ -6,6 +6,7 @@ mathjax: true
 date: 2022-04-25 00:13:27
 ---
 
+
 <escape><!-- more --></escape>
 
 # Project Euler 12
@@ -32,7 +33,10 @@ What is the value of the first triangle number to have over five hundred divisor
 
 ## 因数个数定理
 
-如果一个正整数$n$分解后成为$n=\prod p_i^{e_i}$，那么$n$有$\prod (e_i+1)$个因数。
+如果一个正整数$n$分解后成为：
+$$n=\prod p_i^{e_i}$$
+那么$n$的因数个数为：
+$$\prod (e_i+1)$$
 
 ## 解决方案
 
