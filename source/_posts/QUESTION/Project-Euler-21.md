@@ -3,7 +3,9 @@ title: Project Euler 21
 tags:
   - Project Euler
 mathjax: true
+date: 2022-04-27 09:55:58
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 21
@@ -20,6 +22,9 @@ Evaluate the sum of all the amicable numbers under $10000$.
 $$n=\prod p_i^{e_i}$$
 那么$n$的因数的和为：
 $$\prod \dfrac{p_i^{e_i+1}-1}{p_i-1}$$
+更一般的，因数的$k$次幂的和为
+$$\prod \dfrac{p_i^{k(e_i+1)}-1}{p_i^k-1}$$
+计算因数和的函数将会封装在tools中并且以divisor_sigma(n,k=None)的方式调用。
 
 ## 解决方案
 可以直接通过因数和定理，先将所有$10000$以下的数进行分解，然后计算出真因数的值。
@@ -29,16 +34,12 @@ $$\prod \dfrac{p_i^{e_i+1}-1}{p_i-1}$$
 
 ## 代码
 ```py
-from tools import factorization
+from tools import divisors_sigma
 
 N = 10000
 d = [0 for _ in range(N)]
 for i in range(1, N):
-    ls = factorization(i)
-    w = 1
-    for p, e in ls:
-        w *= (p ** (e + 1) - 1) // (p - 1)
-    d[i] = w - i
+    d[i] = divisors_sigma(i)-i
 ans = 0
 for i in range(1, N):
     if N > d[i] > i == d[d[i]]:

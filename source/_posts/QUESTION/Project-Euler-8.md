@@ -9,9 +9,10 @@ date: 2022-04-26 18:35:24
 <escape><!-- more --></escape>
 
 # Project Euler 8
-## 题目
-### Largest product in a series
 
+## 题目
+
+### Largest product in a series
 
 The four adjacent digits in the $1000$-digit number that have the greatest product are $9\times9\times8\times9=5832$.
 

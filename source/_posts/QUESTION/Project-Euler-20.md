@@ -3,7 +3,9 @@ title: Project Euler 20
 tags:
   - Project Euler
 mathjax: true
+date: 2022-04-27 09:55:54
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 20
