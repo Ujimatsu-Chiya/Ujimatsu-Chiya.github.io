@@ -17,3 +17,28 @@ The product $7254$ is unusual, as the identity, $39 \times 186 = 7254$, containi
 Find the sum of all products whose multiplicand/multiplier/product identity can be written as a $1$ through $9$ pandigital.
 
 HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.
+
+## 解决方案
+
+先枚举第$1$个因数，后枚举第$2$个因数。再判断两个因数和积拼接后的长度是否会大于$9$.
+
+## 代码
+
+```py
+n = 1000
+c = "123456789"
+st = set()
+for i in range(1, n):
+    j = i + 1
+    while True:
+        s = str(i) + str(j) + str(i * j)
+        if len(s) > 9:
+            break
+        t = "".join((lambda x: (x.sort(), x)[1])(list(s)))
+        if t == c:
+            st.add(i * j)
+        j += 1
+    i += 1
+ans = sum(st)
+print(ans)
+```

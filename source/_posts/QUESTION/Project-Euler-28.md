@@ -2,6 +2,7 @@
 title: Project Euler 28
 tags:
   - Project Euler
+  - OEIS
 mathjax: true
 date: 2022-04-27 09:56:27
 ---
@@ -29,7 +30,7 @@ What is the sum of the numbers on the diagonals in a $1001$ by $1001$ spiral for
 
 容易观察到，从里面向外，每一个圈都会比里面的一个圈多$8$个元素。（以上图为例，第$1$个圈为$1$，第$2$个圈为$2\sim9$，第$3$个圈为$10\sim25$）。
 
-因此，每一圈内，四个角上的数可以分别用一个二次多项式$p(n)=an^2+bn+c$来定义这个通项公式。
+因此，在第$n$个圈中，四个角上的数可以分别用一个二次多项式$p(n)=an^2+bn+c$来定义这个通项公式。
 
 这里不再详细计算。
 
@@ -42,7 +43,7 @@ What is the sum of the numbers on the diagonals in a $1001$ by $1001$ spiral for
 
 直接取所有值相加。
 
-也可以再用平方和公式直接导出结果，此处不再赘述。
+也可以再用平方和公式进一步导出结果：$\dfrac{2}{3}(8n^3-9n^2+7n)-3$
 
 ## 代码
 
@@ -59,5 +60,12 @@ for i in range(1, N // 2 + 2):
     ans += (2 * i - 1) ** 2
 # 中心点算重复了3次，故减去。
 ans -= 3
+print(ans)
+```
+
+```Python
+N = 1001
+N = N // 2 + 1
+ans = (8 * N ** 3 - 9 * N ** 2 + 7 * N) * 2 // 3 - 3
 print(ans)
 ```
