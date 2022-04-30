@@ -8,11 +8,11 @@ date: 2022-04-26 18:35:45
 
 <escape><!-- more --></escape>
 
-
 # Project Euler 14
-## 题目
-### Longest Collatz sequence
 
+## 题目
+
+### Longest Collatz sequence
 
 The following iterative sequence is defined for the set of positive integers:
 $n \rightarrow n/2$ ($n$ is even)<br>$n \rightarrow 3n + 1$ ($n$ is odd)

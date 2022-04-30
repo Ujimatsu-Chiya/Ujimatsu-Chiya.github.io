@@ -80,7 +80,7 @@ f(i,j)=
   &a[i][j]  & & \mathrm{if\quad} i=j=1 \\
   &f(i-1,j-1)+a[i][j] & & \mathrm{else if\quad} j=i \\
   &f(i-1,j)+a[i][j] & & \mathrm{else if\quad} j=1 \\
-  &\max(f(i-1,j-1),f(i-1,j)) + a[i][j] & & \mathrm{otherwise}
+  &\max(f(i-1,j-1),f(i-1,j)) + a[i][j] & & \mathrm{else}
 \end{aligned}\right.
 $$
 
@@ -88,7 +88,6 @@ $$
 
 ## 代码
 
-```C++
 ```C++
 # include <bits/stdc++.h>
 using namespace std;

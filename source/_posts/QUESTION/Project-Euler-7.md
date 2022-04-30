@@ -9,9 +9,10 @@ date: 2022-04-26 18:35:22
 <escape><!-- more --></escape>
 
 # Project Euler 7
-## 题目
-### 10001st prime
 
+## 题目
+
+### 10001st prime
 
 By listing the first six prime numbers: $2, 3, 5, 7, 11$, and $13$, we can see that the 6th prime is $13$.
 What is the 10 001st prime number?
@@ -28,7 +29,9 @@ from sympy.ntheory.generate import prime
 N = 10001
 print(prime(N))
 ```
+
 埃氏筛：
+
 ```Python
 Q = 10001
 pr = []

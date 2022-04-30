@@ -9,8 +9,11 @@ date: 2022-04-27 09:56:19
 <escape><!-- more --></escape>
 
 # Project Euler 26
+
 ## 题目
+
 ### Reciprocal cycles
+
 A unit fraction contains $1$ in the numerator. The decimal representation of the unit fractions with denominators $2$ to $10$ are given:
 
 $$\begin{aligned}
@@ -23,14 +26,15 @@ Where $0.1(6)$ means $0.166666\ldots$, and has a $1$-digit recurring cycle. It c
 Find the value of $1000$ for which $\dfrac{1}{d}$ contains the longest recurring cycle in its decimal fraction part.
 
 ## 解决方案
+
 做竖式除法，本质上是每次将上一次的结果作为余数，乘以$10$，填上被除数后面一位后（不过，本题的被除数只有一开始的1，往后都是$0$）的结果再做一次带余的整数除法。
 
 在这道题，只要余数开始了循环，那么就可以根据上一次到达这个余数的时间计算周期。
 
 以$\dfrac{2}{11}=0.181818\dots$为例。
 
-$2* 10 \mod 11 = 9,\lfloor2 * 10 / 11\rfloor = 1$
-$9* 10 \mod 11 = 2,\lfloor9 * 10 / 11\rfloor = 8$
+$2*10 \mod 11 = 9,\lfloor2* 10 / 11\rfloor = 1$
+$9*10 \mod 11 = 2,\lfloor9* 10 / 11\rfloor = 8$
 
 余数$2$出现在了一开始的结果中，发生了循环，其长度为$2$。小数也计算了出来，分别为$1$和$8$。
 

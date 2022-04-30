@@ -9,13 +9,15 @@ date: 2022-04-27 09:56:27
 
 <escape><!-- more --></escape>
 
-
 # Project Euler 28
+
 ## 题目
+
 ### Number spiral diagonals
+
 Starting with the number $1$ and moving to the right in a clockwise direction a $5$ by $5$ spiral is formed as follows:
 
-<center style="font-family: 'Lucida Consolas', 'Consolas', 'Courier New', monospace">
+<center style="font-family: 'Courier New', 'Consolas', 'Courier New', monospace">
 <span style="color:red"><b>21</b></span> 22 23 24 <span style="color:red"><b>25</b></span><br />
 20 &nbsp;<span style="color:red"><b>7</b></span> &nbsp;8  <span style="color:red"><b>&nbsp;9</b></span> 10<br />
 19  &nbsp;6  &nbsp;<span style="color:red"><b>1</b></span>  &nbsp;2 11<br />
@@ -48,6 +50,7 @@ What is the sum of the numbers on the diagonals in a $1001$ by $1001$ spiral for
 ## 代码
 
 NOTE: 本代码只适用于矩阵大小为奇数时的情况。
+
 ```Python
 N = 1001
 ans = 0
