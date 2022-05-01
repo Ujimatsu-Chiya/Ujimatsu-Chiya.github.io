@@ -47,8 +47,8 @@ Find the minimal path sum from the left column to the right column in [matrix.tx
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &a[i][j]  & & \mathrm{if\quad} i=j=1 \\
-  &\min_{k=1}^n (f(k,j-1)+\sum_{p=\min(i,k)}^{\max(i,k)} a[p][k]) & & \mathrm{else}
+  &a[i][j]  & & \mathrm{if\quad} j=1 \\
+  &\min_{k=1}^n (f(k,j-1)+\sum_{p=\min(i,k)}^{\max(i,k)} a[p][j]) & & \mathrm{else}
 \end{aligned}\right.
 $$
 在该状态转移方程中，$k$是指当前左边那一列的“终点”，也就是本列的起点。
