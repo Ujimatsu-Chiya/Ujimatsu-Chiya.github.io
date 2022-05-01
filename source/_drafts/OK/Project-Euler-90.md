@@ -14,7 +14,7 @@ date: 2022-04-26 17:34:49
 Each of the six faces on a cube has a different digit ($0$ to $9$) written on it; the same is done to a second cube. By placing the two cubes side-by-side in different positions we can form a variety of $2$-digit numbers.
 For example, the square number $64$ could be formed:
 
-![](./images/p090.png)
+![](../images/p090.png)
 
 In fact, by carefully choosing the digits on both cubes it is possible to display all of the square numbers below one-hundred: $01, 04, 09, 16, 25, 36, 49, 64$, and $81$.
 
@@ -30,3 +30,32 @@ $\{1, 2, 3, 4, 5, 6\}$ is distinct from $\{1, 2, 3, 4, 5, 9\}$
 But because we are allowing $6$ and $9$ to be reversed, the two distinct sets in the last example both represent the extended set $\{1, 2, 3, 4, 5, 6, 9\}$ for the purpose of forming $2$-digit numbers.
 
 How many distinct arrangements of the two cubes allow for all of the square numbers to be displayed?
+
+## 解决方案
+
+## 代码
+```py
+from itertools import combinations
+
+x, y = [0, 0, 0, 1, 2, 3, 4, 6, 8], [1, 4, 9, 6, 5, 6, 9, 4, 1]
+ls = []
+for s in combinations([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 6):
+    st = set(s)
+    if 6 in st or 9 in st:
+        st.add(6)
+        st.add(9)
+    ls.append(st)
+
+ans = 0
+for i in range(len(ls)):
+    for j in range(i, len(ls)):
+        sa, sb = ls[i], ls[j]
+        ok = True
+        for k in range(9):
+            if not (x[k] in sa and y[k] in sb or x[k] in sb and y[k] in sa):
+                ok = False
+                break
+        ans += ok
+print(ans)
+
+```
