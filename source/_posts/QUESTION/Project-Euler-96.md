@@ -27,7 +27,7 @@ By solving all fifty puzzles find the sum of the 3-digit numbers found in the to
 
 ## 解决方案
 
-本代码主要采用数独优先搜索解决：每次尝试寻找一个格子并填充，然后判断是否合法。
+本代码主要采用深度优先搜索解决：每次尝试寻找一个格子并填充，然后判断是否合法。
 
 使用的加速优化手段如下：
 

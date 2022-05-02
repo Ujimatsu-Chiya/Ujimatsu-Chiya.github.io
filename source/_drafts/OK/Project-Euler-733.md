@@ -50,7 +50,7 @@ $$
 s(i,j)= 
 \left \{\begin{aligned}
   &a[j]  & & \mathrm{if\quad} i=1 \\
-  &c(i,j)\times p[j]+\sum_{1\leq k<j,a[k]<a[j]} s(i-1,k) & & \mathrm{else}
+  &c(i,j)\cdot p[j]+\sum_{1\leq k<j,a[k]<a[j]} s(i-1,k) & & \mathrm{else}
 \end{aligned}\right.
 $$
 

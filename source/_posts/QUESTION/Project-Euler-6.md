@@ -25,8 +25,9 @@ Find the difference between the sum of the squares of the first one hundred natu
 
 两个公式：
 
-前n个数的平方和为$\frac{n(n+1)(2n+1)}{6}$.
-前n个数的和为$\frac{n(n+1)}{2}$.
+前$n$个数的平方和为$\dfrac{n(n+1)(2n+1)}{6}$.
+
+前$n$个数的和为$\dfrac{n(n+1)}{2}$.
 
 直接代入公式并计算。
 

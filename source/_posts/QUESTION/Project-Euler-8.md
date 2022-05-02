@@ -44,7 +44,7 @@ Find the thirteen adjacent digits in the $1000$-digit number that have the great
 ## 解决方案
 
 需要将这个数字字符串矩阵复制出来，然后进行拼接。
-最终将枚举每一个长度为13的子串的乘积即可。
+最终将枚举每一个长度为$13$的子串的乘积即可。
 
 ## 代码
 

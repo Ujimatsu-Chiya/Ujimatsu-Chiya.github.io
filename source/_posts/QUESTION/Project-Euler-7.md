@@ -14,8 +14,8 @@ date: 2022-04-26 18:35:22
 
 ### 10001st prime
 
-By listing the first six prime numbers: $2, 3, 5, 7, 11$, and $13$, we can see that the 6th prime is $13$.
-What is the 10 001st prime number?
+By listing the first six prime numbers: $2, 3, 5, 7, 11$, and $13$, we can see that the $6\mathrm{th}$ prime is $13$.
+What is the $10 001\mathrm{st}$ prime number?
 
 ## 解决方案
 

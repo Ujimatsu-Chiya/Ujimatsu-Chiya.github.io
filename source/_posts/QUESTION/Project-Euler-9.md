@@ -8,9 +8,10 @@ date: 2022-04-26 18:35:28
 
 <escape><!-- more --></escape>
 
-
 # Project Euler 9
+
 ## 题目
+
 ### Special Pythagorean triplet
 
 A Pythagorean triplet is a set of three natural numbers, $a < b < c$, for which,
@@ -24,12 +25,11 @@ Find the product $abc$.
 
 ## 解决方案
 
-设$n=1000$.
-联立以下两个方程：
+设$n=1000$，并联立以下两个方程：
 $$\left \{
 \begin{aligned}
-a^2 + b^2 &=& c^2\\
-a+b+c &=&n
+a^2 + b^2 &= c^2\\
+a+b+c &=n
 \end{aligned}
 \right.
 $$
