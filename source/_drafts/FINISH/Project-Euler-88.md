@@ -8,10 +8,10 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 88
+
 ## 题目
+
 ### Product-sum numbers
-
-
 
 A natural number, $N$, that can be written as the sum and product of a given set of at least two natural numbers, $\{a_1, a_2, ... , a_k\}$ is called a product-sum number: $N = a_1 + a_2 + ... + a_k = a_1 \times a_2 \times ... \times a_k$.
 For example, $6 = 1 + 2 + 3 = 1 \times 2 \times 3$.
@@ -37,9 +37,11 @@ What is the sum of all the minimal product-sum numbers for $2\leq k\leq12000$?
 为了遍历所有情况，本代码遍历时，$a_1,a_2,...,a_m$可以为$1$，这是为了方便求出$k$比较小时的情况。
 
 关于在某个特定的$k$下，和积值$N$的上限.先枚举前几项出来，查询OEIS的结果为[A104173](https://oeis.org/A104173)。在FORMULA一栏，发现：
+
 ```
 a(n) <= 2n, since 1^(n-2)* 2*n = (n-2)*1 + 2 + n. - Étienne Dupuis, Dec 07 2021
 ```
+
 这说明，每个答案的上限不会超过$2k$。
 
 因此，直接搜索前$m$个值即可，途中需要记录这$m$个值的和与积，这些积值不需要超过$2N$。

@@ -8,13 +8,16 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 77
+
 ## 题目
+
 ### Prime summations
+
 It is possible to write ten as the sum of primes in exactly five different ways:
 
-$7 + 3$ 
-$5 + 5$ 
-$5 + 3 + 2$ 
+$7 + 3$
+$5 + 5$
+$5 + 3 + 2$
 $3 + 3 + 2 + 2$
 $2 + 2 + 2 + 2 + 2$
 
@@ -30,7 +33,7 @@ What is the first value which can be written as the sum of primes in over five t
 记录状态$f(i,j)(1\leq i\leq m,0\leq j\leq n)$为：当前已经使用了前$i$种质数，可以凑得和为$j$的方案数。可写出如下状态转移方程：
 
 $$
-f(i,j)= 
+f(i,j)=
 \left \{\begin{aligned}
   &1  & & \mathrm{if\quad} j=0 |(i=1 \&j\%p[1]=0)  \\
   &0  & & \mathrm{else if\quad} i=1 \\
@@ -40,6 +43,7 @@ f(i,j)=
 $$
 
 对于最后一题式子，有两种转移方式：
+
 1. 不使用第$i$个质数，直接把使用前$i-1$个数的情况记录下来。
 2. 使用第$i$个质数数，无论之前如何，直接把$f(i,j-p[i])$中的所有方案都添加一个$p[i]$，就变成了现在的方案。
 

@@ -7,7 +7,9 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 73
+
 ## 题目
+
 ### Counting fractions in a range
 
 Consider the fraction, $\dfrac{n}{d}$, where n and d are positive integers. If $n<d$ and $\gcd(n,d)=1$, it is called a reduced proper fraction.

@@ -2,6 +2,7 @@
 title: Project Euler 733
 tags:
   - Project Euler
+  - 动态规划
 mathjax: true
 date: 2022-04-26 17:34:44
 ---
@@ -33,7 +34,7 @@ Find $S(10^6)$ modulo $1\ 000\ 000\ 007$.
 可以列出以下状态转移方程：
 
 $$
-c(i,j)= 
+c(i,j)=
 \left \{\begin{aligned}
   &1  & & \mathrm{if\quad} i=1 \\
   &\sum_{1\leq k<j,a[k]<a[j]} c(i-1,k) & & \mathrm{else}
@@ -47,21 +48,67 @@ $$
 可以列出以下方程：
 
 $$
-s(i,j)= 
+s(i,j)=
 \left \{\begin{aligned}
   &a[j]  & & \mathrm{if\quad} i=1 \\
   &c(i,j)\cdot p[j]+\sum_{1\leq k<j,a[k]<a[j]} s(i-1,k) & & \mathrm{else}
 \end{aligned}\right.
 $$
 
-
 需要注意，这个方程使用了上面的$c(i,j)$的值。
 
 将之前所有末尾严格小于自身$a[j]$的子序列，由于末尾都添加一个$a[j]$，而子序列一共有$c(i,j)$个，因此总共的和添加了$c(i,j)\times p[j]$。
 
-
 可以发现，直接按照方程进行计算的时间复杂度为$O(m^2)$，可以用树状数组进行优化。这里的用法则是将离散化后的数组值作为“键”，直接维护树状数组的值。
 
-树状数组：一个可以用$O(\log m)$单次维护前缀和的一个数据结构。
+[树状数组](https://en.wikipedia.org/wiki/Fenwick_tree)，一个可以用$O(\log m)$的时间复杂度单次维护前缀和的一个数据结构。
 
-最终答案为$\sum _{i=1}^m s(n,i)$。
+最终答案为$\sum _{i=1}^m s(4,i)$。
+
+## 代码
+
+```C++
+# include <bits/stdc++.h>
+# define mem(a,b) memset(a,b,sizeof(a))
+# define lb(x) ((x)&-(x))
+typedef long long ll;
+using namespace std;
+const int N=1000000;
+int a[N+4],b[N+4],m;
+ll f1[N+4],f2[N+4],s1[N+4],s2[N+4],mod=1e9+7;
+void add(ll *s,int p,ll x){
+    for(int i=p;i<=m;i+=lb(i))
+        s[i]=(s[i]+x)%mod;
+}
+ll que(ll *s,int p){
+    ll ans=0;
+    for(int i=p;i;i-=lb(i))
+        ans=(ans+s[i])%mod;
+    return ans;
+}
+int main(){
+    a[1]=153;
+    for(int i=2;i<=N;i++)
+        a[i]=a[i-1]*153%10000019;
+    for(int i=1;i<=N;i++)
+        b[i]=f2[i]=a[i],f1[i]=1;
+    sort(b+1,b+N+1);
+    m=unique(b+1,b+N+1)-b-1;
+    for(int i=2;i<=4;i++){
+        mem(s1,0);
+        mem(s2,0);
+        for(int j=1;j<=m;j++){
+            int p=lower_bound(b+1,b+m+1,a[j])-b;
+            ll q1=que(s1,p-1),q2=que(s2,p-1);
+            add(s1,p,f1[j]);
+            add(s2,p,f2[j]);
+            f1[j]=q1;f2[j]=(q2+q1*a[j])%mod;
+        }
+    }
+    ll ans=0;
+    for(int i=1;i<=N;i++)
+        ans=(ans+f2[i])%mod;
+    printf("%lld\n",ans);
+}
+
+```

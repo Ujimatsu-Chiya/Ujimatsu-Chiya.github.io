@@ -7,8 +7,11 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 71
+
 ## 题目
+
 ### Ordered fractions
+
 Consider the fraction, $\dfrac{n}{d}$, where n and d are positive integers. If $n<d$ and $\gcd(n,d)=1$, it is called a reduced proper fraction.
 If we list the set of reduced proper fractions for $d \leq 8$ in ascending order of size, we get:
 
@@ -18,6 +21,7 @@ It can be seen that $\dfrac{2}{5}$ is the fraction immediately to the left of $\
 By listing the set of reduced proper fractions for $d \leq 1,000,000$ in ascending order of size, find the numerator of the fraction immediately to the left of $\dfrac{3}{7}$.
 
 ## 解决方案
+
 本题所描述的序列为[Farey 序列](https://en.wikipedia.org/wiki/Farey_sequence)。该序列有如下性质：
 
 对于任意的Farey 序列$F_n$，其中任意连续的三个分数序列$\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}$，满足$\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}$。

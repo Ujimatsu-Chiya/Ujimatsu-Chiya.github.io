@@ -9,8 +9,11 @@ date: 2022-04-26 17:34:49
 <escape><!-- more --></escape>
 
 # Project Euler 90
+
 ## 题目
+
 ### Cube digit pairs
+
 Each of the six faces on a cube has a different digit ($0$ to $9$) written on it; the same is done to a second cube. By placing the two cubes side-by-side in different positions we can form a variety of $2$-digit numbers.
 For example, the square number $64$ could be formed:
 
@@ -24,7 +27,7 @@ However, for this problem we shall allow the $6$ or $9$ to be turned upside-down
 
 In determining a distinct arrangement we are interested in the digits on each cube, not the order.
 
-$\{1, 2, 3, 4, 5, 6\}$ is equivalent to $\{3, 6, 4, 1, 2, 5\}$ 
+$\{1, 2, 3, 4, 5, 6\}$ is equivalent to $\{3, 6, 4, 1, 2, 5\}$
 $\{1, 2, 3, 4, 5, 6\}$ is distinct from $\{1, 2, 3, 4, 5, 9\}$
 
 But because we are allowing $6$ and $9$ to be reversed, the two distinct sets in the last example both represent the extended set $\{1, 2, 3, 4, 5, 6, 9\}$ for the purpose of forming $2$-digit numbers.
@@ -40,6 +43,7 @@ How many distinct arrangements of the two cubes allow for all of the square numb
 枚举所有的组合，然后判断平方数中的两个位是否分别在两个集合中。
 
 ## 代码
+
 ```py
 from itertools import combinations
 

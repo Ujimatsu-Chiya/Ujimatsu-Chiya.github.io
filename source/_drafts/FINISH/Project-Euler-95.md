@@ -6,10 +6,12 @@ mathjax: true
 ---
 <escape><!-- more --></escape>
 
-
 # Project Euler 95
+
 ## 题目
+
 ### Amicable chains
+
 The proper divisors of a number are all the divisors excluding the number itself. For example, the proper divisors of $28$ are $1, 2, 4, 7$, and $14$. As the sum of these divisors is equal to $28$, we call it a perfect number.
 
 Interestingly the sum of the proper divisors of $220$ is $284$ and the sum of the proper divisors of $284$ is $220$, forming a chain of two numbers. For this reason, $220$ and $284$ are called an amicable pair.
@@ -21,7 +23,6 @@ $$ 12496 \rightarrow 14288 \rightarrow 15472 \rightarrow 14536 \rightarrow 14264
 Since this chain returns to its starting point, it is called an amicable chain.
 
 Find the smallest member of the longest amicable chain with no element exceeding one million.
-
 
 ## 解决方案
 
@@ -35,7 +36,7 @@ Find the smallest member of the longest amicable chain with no element exceeding
 
 此外，在枚举的过程中，还需要判断这个节点是否为链上，而不是在环上。
 
-本代码也使用了记忆化搜索，用来记录这些节点是无效的，在环上的长度，还是在链上。
+本代码也使用了记忆化搜索，用来记录这些节点的状态值是无效的，在环上的长度，还是在链上。
 
 ## 代码
 

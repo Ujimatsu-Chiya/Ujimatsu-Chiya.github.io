@@ -7,8 +7,11 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 92
+
 ## 题目
+
 ### Square digit chains
+
 A number chain is created by continuously adding the square of the digits in a number to form a new number until it has been seen before.
 
 For example,
@@ -26,8 +29,8 @@ How many starting numbers below ten million will arrive at $89$?
 
 采用记忆化递归的方式，将每个值的计算结果存好，减少计算时间，保证每个数只被计算一次。
 
-
 ## 代码
+
 ```C++
 # include <bits/stdc++.h>
 using namespace std;

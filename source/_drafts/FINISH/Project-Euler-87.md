@@ -7,8 +7,11 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 87
+
 ## 题目
+
 ### Prime power triples
+
 The smallest number expressible as the sum of a prime square, prime cube, and prime fourth power is $28$. In fact, there are exactly four numbers below fifty that can be expressed in such a way:
 
 $28 = 2^2 + 2^3 + 2^4$
@@ -27,6 +30,7 @@ How many numbers below fifty million can be expressed as the sum of a prime squa
 直接枚举$3$个列表中每个组合，再将$3$个数的和存放进集合即可。
 
 ## 代码
+
 ```py
 from tools import get_prime, int_sqrt
 

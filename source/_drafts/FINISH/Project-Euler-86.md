@@ -7,8 +7,11 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 86
+
 ## 题目
+
 ### Cuboid route
+
 A spider, $S$, sits in one corner of a cuboid room, measuring $6$ by $5$ by $3$, and a fly, $F$, sits in the opposite corner. By travelling on the surfaces of the room the shortest “straight line” distance from $S$ to $F$ is $10$ and the path is shown on the diagram.
 
 ![](../images/p086.png)

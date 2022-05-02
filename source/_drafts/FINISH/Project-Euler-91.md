@@ -8,8 +8,11 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 91
+
 ## 题目
+
 ### Right triangles with integer coordinates
+
 The points $P (x_1, y_1)$ and $Q (x_2, y_2)$ are plotted at integer co-ordinates and are joined to the origin, $O(0,0)$, to form $\triangle OPQ$.
 
 ![](../images/p091_1.png)
@@ -30,11 +33,13 @@ Given that $0 \leq x_1, y_1, x_2, y_2 \leq 50$, how many right triangles can be 
 ```
 (PARI) a(n)=3*n^2+sum(a=1, n, sum(b = 1, n, 2*min(b*gcd(a, b)\a, (n - a)*gcd(a, b)\b) ) ) \\ Yurii Ivanov, Jun 25 2021
 ```
+
 通过这个信息，可以以$O(n^2\log n)$计算出本题的结果：
 
 $$3n^2+\sum_{a=1}^n\sum_{b=1}^n2\min(\lfloor\frac{b\gcd(a,b)}{a}\rfloor),\lfloor\frac{(n-a)\gcd(a,b)}{b}\rfloor))$$
 
 ## 代码
+
 ```py
 N = 50
 

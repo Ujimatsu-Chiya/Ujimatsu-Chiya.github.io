@@ -7,7 +7,9 @@ mathjax: true
 <escape><!-- more --></escape>
 
 # Project Euler 72
+
 ## 题目
+
 ### Counting fractions
 
 Consider the fraction, $\dfrac{n}{d}$, where n and d are positive integers. If $n<d$ and $\gcd(n,d)=1$, it is called a reduced proper fraction.
@@ -28,7 +30,6 @@ How many elements would be contained in the set of reduced proper fractions for 
 $$\sum_{i=1}^m \varphi(i)-1$$
 
 ## 代码
-
 
 ```py
 N = 1000000
