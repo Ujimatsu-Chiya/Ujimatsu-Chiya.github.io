@@ -3,7 +3,9 @@ title: Project Euler 95
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-02 16:37:23
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 95

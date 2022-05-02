@@ -3,7 +3,9 @@ title: Project Euler 73
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-02 16:36:22
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 73

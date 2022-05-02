@@ -4,7 +4,9 @@ tags:
   - Project Euler
   - 动态规划
 mathjax: true
+date: 2022-05-02 16:36:33
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 76

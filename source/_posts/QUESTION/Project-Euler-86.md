@@ -3,7 +3,9 @@ title: Project Euler 86
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-02 16:36:53
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 86

@@ -13,7 +13,7 @@ mathjax: true
 
 In the game, *Monopoly*, the standard board is set up in the following way:
 
-![](./images/p084_monopoly_board.png)
+![](../images/p084_monopoly_board.png)
 
 A player starts on the GO square and adds the scores on two 6-sided dice to determine the number of squares they advance in a clockwise direction. Without any further rules we would expect to visit each square with equal probability: $2.5\%$. However, landing on G2J (Go To Jail), CC (community chest), and CH (chance) changes this distribution.
 
