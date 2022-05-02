@@ -39,11 +39,14 @@ What is the sum of the numbers on the diagonals in a $1001$ by $1001$ spiral for
 通过OEIS查询，可以发现：
 
 右下角的通项公式为[A054554](https://oeis.org/A054554)，$4n^2-10n+7$;
+
 左下角的通项公式为[A053755](https://oeis.org/A053755)，$4(n-1)^2+1$;
+
 左上角的通项公式为[A054569](https://oeis.org/A054569)，$4n^2-6n+3$;
+
 右上角的通项公式为$(2n-1)^2$
 
-直接取所有值相加。
+因此可以直接取所有值相加。
 
 也可以再用平方和公式进一步导出结果：$\dfrac{2}{3}(8n^3-9n^2+7n)-3$
 

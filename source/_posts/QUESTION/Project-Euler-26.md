@@ -17,8 +17,15 @@ date: 2022-04-27 09:56:19
 A unit fraction contains $1$ in the numerator. The decimal representation of the unit fractions with denominators $2$ to $10$ are given:
 
 $$\begin{aligned}
-
-\frac 1 2 &= 0.5\\\frac 1 3 &= 0.(3)\\\frac 1 4 &= 0.25\\\frac 1 5 &= 0.2\\\frac 1 6 &= 0.1(6)\\\frac 1 7 &= 0.(142857)\\\frac 1 8 &= 0.125\\\frac 1 9 &= 0.(1)\\\frac 1 {10} &= 0.1\\
+\frac 1 2 &= 0.5\\
+\frac 1 3 &= 0.(3)\\
+\frac 1 4 &= 0.25\\
+\frac 1 5 &= 0.2\\
+\frac 1 6 &= 0.1(6)\\
+\frac 1 7 &= 0.(142857)\\
+\frac 1 8 &= 0.125\\
+\frac 1 9 &= 0.(1)\\
+\frac 1 {10} &= 0.1\\
 \end{aligned}$$
 
 Where $0.1(6)$ means $0.166666\ldots$, and has a $1$-digit recurring cycle. It can be seen that $\dfrac{1}{7}$ has a $6$-digit recurring cycle.
@@ -34,6 +41,7 @@ Find the value of $1000$ for which $\dfrac{1}{d}$ contains the longest recurring
 以$\dfrac{2}{11}=0.181818\dots$为例。
 
 $2*10 \mod 11 = 9,\lfloor2* 10 / 11\rfloor = 1$
+
 $9*10 \mod 11 = 2,\lfloor9* 10 / 11\rfloor = 8$
 
 余数$2$出现在了一开始的结果中，发生了循环，其长度为$2$。小数也计算了出来，分别为$1$和$8$。

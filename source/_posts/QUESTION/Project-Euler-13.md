@@ -120,7 +120,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 
 ## 解决方案
 
-利用Python能够计算大数的特性，直接计算完成后取前10位即可。
+利用Python能够计算大数的特性，直接计算完成后取前$10$位即可。
 
 ## 代码
 

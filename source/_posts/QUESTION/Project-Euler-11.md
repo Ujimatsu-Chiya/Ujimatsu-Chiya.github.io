@@ -10,9 +10,10 @@ date: 2022-04-24 16:20:59
 <escape><!-- more --></escape>
 
 # Project Euler 11
-## 题目
-### Largest product in a grid
 
+## 题目
+
+### Largest product in a grid
 
 In the $20\times20$ grid below, four numbers along a diagonal line have been marked in red.
 
@@ -44,7 +45,7 @@ What is the greatest product of four adjacent numbers in the same direction (up,
 
 ## 解决方案
 
-将整个矩阵复制成字符串，转化成一个$20\times 20$的二维数组，然后遍历每个元素，朝4个方向（上下、左右、主对角线和副对角线）。
+将整个矩阵复制成字符串，转化成一个$20\times 20$的二维数组，然后遍历每个元素，朝$4$个方向（上下、左右、主对角线和副对角线）。
 在本代码中，是将其视为一个个$4\times 4$矩阵再进行下一步比较。
 
 ## 代码
