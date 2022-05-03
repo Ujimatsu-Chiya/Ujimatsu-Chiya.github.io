@@ -18,7 +18,7 @@ A number chain is created by continuously adding the square of the digits in a n
 
 For example,
 
-$44 \rightarrow 32 \rightarrow 13 \rightarrow 10 \rightarrow \mathbf{1} \rightarrow \mathbf{1}$
+$44 \rightarrow 32 \rightarrow 13 \rightarrow 10 \rightarrow \mathbf{1} \rightarrow \mathbf{1}$<br>
 $85 \rightarrow \mathbf{89}  \rightarrow 145 \rightarrow 42 \rightarrow 20 \rightarrow 4 \rightarrow 16 \rightarrow 37 \rightarrow 58 \rightarrow \mathbf{89}$
 
 Therefore any chain that arrives at $1$ or $89$ will become stuck in an endless loop. What is most amazing is that EVERY starting number will eventually arrive at $1$ or $89$.
@@ -27,9 +27,9 @@ How many starting numbers below ten million will arrive at $89$?
 
 ## 解决方案
 
-本代码使用递归的方式。通过直接计算数位平方和恶，判断每一个数属于$1$的类还是$89$的类。
+本代码使用递归的方式。直接计算数位平方和，然后递归判断每一个数属于$1$的类还是$89$的类。
 
-采用记忆化递归的方式，将每个值的计算结果存好，减少计算时间，保证每个数只被计算一次。
+本代码采用记忆化递归的方式，将每个值的计算结果存好，减少计算时间，保证每个数只被计算一次。
 
 ## 代码
 

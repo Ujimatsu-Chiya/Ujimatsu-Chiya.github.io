@@ -56,7 +56,7 @@ date: 2022-04-30 19:47:58
 |[48](../QUESTION/Project-Euler-48)|-|-|-|-|-|-|-|
 |[49](../QUESTION/Project-Euler-49)|-|-|-|[449](../QUESTION/Project-Euler-449)|-|-|-|
 |[50](../QUESTION/Project-Euler-50)|-|[250](../QUESTION/Project-Euler-250)|-|-|-|-|-|
-|-|-|-|-|-|-|-|-|
+|[51](../QUESTION/Project-Euler-51)|-|-|-|-|-|-|-|
 |[52](../QUESTION/Project-Euler-52)|-|-|-|-|-|-|-|
 |[53](../QUESTION/Project-Euler-53)|-|-|-|-|-|-|-|
 |[54](../QUESTION/Project-Euler-54)|-|-|-|-|-|-|-|
@@ -69,9 +69,9 @@ date: 2022-04-30 19:47:58
 |[61](../QUESTION/Project-Euler-61)|-|-|-|-|-|-|-|
 |[62](../QUESTION/Project-Euler-62)|-|-|-|-|-|-|-|
 |[63](../QUESTION/Project-Euler-63)|-|-|-|-|-|-|-|
-|-|-|-|-|-|-|-|-|
+|[64](../QUESTION/Project-Euler-64)|-|-|-|-|-|-|-|
 |[65](../QUESTION/Project-Euler-65)|-|-|-|-|-|-|-|
-|-|-|-|-|-|-|-|-|
+|[66](../QUESTION/Project-Euler-66)|-|-|-|-|-|-|-|
 |[67](../QUESTION/Project-Euler-67)|-|-|-|-|-|-|-|
 |[68](../QUESTION/Project-Euler-68)|-|-|-|-|-|-|-|
 |[69](../QUESTION/Project-Euler-69)|-|-|-|-|-|-|-|
@@ -89,7 +89,7 @@ date: 2022-04-30 19:47:58
 |[81](../QUESTION/Project-Euler-81)|-|-|-|-|-|-|-|
 |[82](../QUESTION/Project-Euler-82)|-|-|-|-|-|-|-|
 |[83](../QUESTION/Project-Euler-83)|-|-|-|-|-|-|-|
-|-|-|-|-|-|-|-|-|
+|[84](../QUESTION/Project-Euler-84)|-|-|-|-|-|-|-|
 |[85](../QUESTION/Project-Euler-85)|-|[285](../QUESTION/Project-Euler-285)|-|-|-|-|-|
 |[86](../QUESTION/Project-Euler-86)|-|-|-|-|-|-|-|
 |[87](../QUESTION/Project-Euler-87)|-|-|-|-|-|-|-|
@@ -99,10 +99,10 @@ date: 2022-04-30 19:47:58
 |[91](../QUESTION/Project-Euler-91)|-|-|-|-|-|-|-|
 |[92](../QUESTION/Project-Euler-92)|-|-|-|-|-|-|-|
 |[93](../QUESTION/Project-Euler-93)|-|-|-|-|-|-|-|
-|-|-|-|-|-|-|-|-|
+|[94](../QUESTION/Project-Euler-94)|-|-|-|-|-|-|-|
 |[95](../QUESTION/Project-Euler-95)|-|-|-|-|-|-|-|
 |[96](../QUESTION/Project-Euler-96)|-|-|-|-|-|-|-|
 |[97](../QUESTION/Project-Euler-97)|-|-|-|-|-|-|-|
 |[98](../QUESTION/Project-Euler-98)|-|-|-|-|-|-|-|
 |[99](../QUESTION/Project-Euler-99)|-|-|-|-|-|-|-|
-|-|-|-|-|-|-|-|-|
+|[100](../QUESTION/Project-Euler-100)|-|-|-|-|-|-|-|

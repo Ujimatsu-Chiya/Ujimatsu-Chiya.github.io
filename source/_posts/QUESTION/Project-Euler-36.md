@@ -22,7 +22,7 @@ Find the sum of all numbers, less than one million, which are palindromic in bas
 
 ## 解决方案
 
-先枚举所有的二进制回文数，再判断其是否为十进制回文数。
+先枚举所有的二进制回文数，再判断其是否为十进制回文数。枚举的过程中，需要分开来考虑生成偶数长度的回文数和奇数长度的回文数。
 
 这将只需要枚举$O(\sqrt N)$级别数量的数。
 

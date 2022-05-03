@@ -17,11 +17,11 @@ date: 2022-05-02 16:36:33
 
 It is possible to write five as a sum in exactly six different ways:
 
-$4 + 1$
-$3 + 2$
-$3 + 1 + 1$
-$2 + 2 + 1$
-$2 + 1 + 1 + 1$
+$4 + 1$<br>
+$3 + 2$<br>
+$3 + 1 + 1$<br>
+$2 + 2 + 1$<br>
+$2 + 1 + 1 + 1$<br>
 $1 + 1 + 1 + 1 + 1$
 
 How many different ways can one hundred be written as a sum of at least two positive integers?
@@ -55,6 +55,7 @@ f[0] = 1
 for i in range(1, N + 1):
     for j in range(i, N + 1):
         f[j] += f[j - i]
-print(f[N] - 1)
+ans = f[N] - 1
+print(ans)
 
 ```

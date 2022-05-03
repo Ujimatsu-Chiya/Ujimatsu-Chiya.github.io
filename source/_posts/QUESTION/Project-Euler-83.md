@@ -15,7 +15,7 @@ date: 2022-04-30 10:32:48
 
 ### Path sum: four ways
 
-NOTE: This problem is a significantly more challenging version of <a href="problem=81">Problem 81</a>.
+NOTE: This problem is a significantly more challenging version of [Problem 81](../Project-Euler-81).
 
 In the $5$ by $5$ matrix below, the minimal path sum from the top left to the bottom right, by moving left, right, up, and down, is indicated in bold red and is equal to $2297$.
 

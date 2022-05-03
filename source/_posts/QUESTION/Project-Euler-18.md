@@ -44,7 +44,7 @@ Find the maximum total from top to bottom of the triangle below:
 04 62 98 27 23 09 70 98 73 93 38 53 60 04 23<br />
 </center>
 
-**NOTE:** As there are only $16384$ routes, it is possible to solve this problem by trying every route. However, <a href="/67">Problem 67</a>, is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
+**NOTE:** As there are only $16384$ routes, it is possible to solve this problem by trying every route. However, [Problem 67](../Project-Euler-67), is the same challenge with a triangle containing one-hundred rows; it cannot be solved by brute force, and requires a clever method! ;o)
 
 ## 解决方案
 
@@ -72,8 +72,7 @@ Find the maximum total from top to bottom of the triangle below:
 
 本题将用到动态规划算法。
 
-令$n=15$，其中$n$表示数字三角形的大小。
-记录状态$f(i,j)(1\leq j\leq i\leq n)$为：当前走到第$i$行第$j$列的数的情况下，可以得到的路径最大和是多少，用$a[i][j]$表示第$i$行第$j$列的数。
+令$n=15$，其中$n$表示数字三角形的大小，记录状态$f(i,j)(1\leq j\leq i\leq n)$为：当前走到第$i$行第$j$列的数的情况下，可以得到的路径最大和是多少，用$a[i][j]$表示第$i$行第$j$列的数。
 
 那么，可以得到状态转移方程：
 

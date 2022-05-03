@@ -17,22 +17,27 @@ date: 2022-05-02 16:37:16
 By using each of the digits from the set, $\{1, 2, 3, 4\}$, exactly once, and making use of the four arithmetic operations $(+, −, *, /)$ and brackets/parentheses, it is possible to form different positive integer targets.
 For example,
 
-$8 = (4 *(1 + 3)) / 2$
-$14 = 4* (3 + 1 / 2)$
-$19 = 4 *(2 + 3) − 1$
+$8 = (4 *(1 + 3)) / 2$<br>
+$14 = 4* (3 + 1 / 2)$<br>
+$19 = 4 *(2 + 3) − 1$<br>
 $36 = 3* 4 * (2 + 1)$
 
 Note that concatenations of the digits, like $12 + 34$, are not allowed.
+
 Using the set, $\{1, 2, 3, 4\}$, it is possible to obtain thirty-one different target numbers of which $36$ is the maximum, and each of the numbers $1$ to $28$ can be obtained before encountering the first non-expressible number.
+
 Find the set of four distinct digits, $a < b < c < d$, for which the longest set of consecutive positive integers, $1$ to $n$, can be obtained, giving your answer as a string: $abcd$.
 
 ## 解决方案
 
 直接枚举。
+
 为了加速，先将其转为后缀表达式。可以发现，转化成后缀表达式后，一共有$5$种不同的运算顺序。
-将每个后缀表达式模板中，填入枚举的数字和运算符后，用后缀表达式直接做运算。
+遍历每个后缀表达式模板，填入枚举的数字和运算符后，再用后缀表达式直接做运算。
 
 枚举量：一共有$C_9^4$个候选答案。对于每个组合，其中可以以任意顺序填入后缀表达式中，一共有$4!$种。一共要做$3$次运算，因此运算符的组合有$4^3$种。因此需要进行$C_9^4\times 4!\times 4^3\times 5=967680$次的枚举。
+
+在此过程中，需要注意除数为$0$的情况。
 
 ## 代码
 

@@ -15,7 +15,7 @@ date: 2022-04-30 10:32:36
 
 ### Passcode derivation
 
-A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was $531278$, they may ask for the 2nd, 3rd, and 5th characters; the expected reply would be: $317$.
+A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was $531278$, they may ask for the $2\mathrm{nd}$, $3\mathrm{rd}$, and $5\mathrm{th}$ characters; the expected reply would be: $317$.
 
 The text file, [keylog.txt](../resources/p079_keylog.txt), contains fifty successful login attempts.
 

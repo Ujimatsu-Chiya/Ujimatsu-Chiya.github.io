@@ -37,7 +37,7 @@ How many distinct arrangements of the two cubes allow for all of the square numb
 
 ## 解决方案
 
-每个盒子一共有$C_{10}^6=210$种情况可以填数。两个盒子一起则有$\dfrac{210*(210+1)}{2}=22155$种。
+每个盒子一共有$C_{10}^6=210$种情况可以填数。两个盒子一起则有$\dfrac{210\times(210+1)}{2}=22155$种。
 
 此处使用itertools库的combinations产生所有组合。
 

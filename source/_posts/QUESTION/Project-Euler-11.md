@@ -41,11 +41,13 @@ In the $20\times20$ grid below, four numbers along a diagonal line have been mar
 </center>
 
 The product of these numbers is $26 \times 63 \times 78 \times 14 = 1788696$.
+
 What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in the $20\times20$ grid?
 
 ## 解决方案
 
 将整个矩阵复制成字符串，转化成一个$20\times 20$的二维数组，然后遍历每个元素，朝$4$个方向（上下、左右、主对角线和副对角线）。
+
 在本代码中，是将其视为一个个$4\times 4$矩阵再进行下一步比较。
 
 ## 代码

@@ -15,7 +15,7 @@ date: 2022-04-30 10:32:44
 
 ### Path sum: three ways
 
-NOTE: This problem is a more challenging version of <a href="problem=81">Problem 81</a>.
+NOTE: This problem is a more challenging version of [Problem 81](../Project-Euler-81).
 
 The minimal path sum in the $5$ by $5$ matrix below, by starting in any cell in the left column and finishing in any cell in the right column, and only moving up, down, and right, is indicated in red and bold; the sum is equal to $994$.
 

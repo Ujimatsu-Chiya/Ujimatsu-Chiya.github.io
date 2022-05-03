@@ -25,7 +25,9 @@ How many such routes are there through a $20\times20$ grid?
 假设这个方格一共有$n\times m$格，在这里，$n=m=20$.
 
 假设往下走一步，得到一个字母D，往右走一步，得到一个字母R。那么一共可以得到$n$个D和$m$个R。
+
 但是，走的过程是可以随时变化的，这也对应了每个D和R的序列顺序不一样（但仍然保持有$n$个D和$m$个R）。
+
 问题就转化成了组合数，因此，答案是$C_{n+m}^m$
 
 这里使用了sympy的函数binomial求组合数，之后将封装在tools自定义工具类中，以C(n,m)的方式调用。

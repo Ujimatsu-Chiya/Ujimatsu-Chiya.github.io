@@ -37,9 +37,9 @@ The first ten terms in the sequence of convergents for $e$ are:
 
 $2, 3, \dfrac{8}{3}, \dfrac{11}{4}, \dfrac{19}{7}, \dfrac{87}{32}, \dfrac{106}{39}, \dfrac{193}{71}, \dfrac{1264}{465}, \dfrac{1457}{536}, ...$
 
-The sum of digits in the numerator of the $10^{\th}$ convergent is $1 + 4 + 5 + 7 = 17$.
+The sum of digits in the numerator of the $10^{\mathrm{th}}$ convergent is $1 + 4 + 5 + 7 = 17$.
 
-Find the sum of digits in the numerator of the $100 ^{\th}$ convergent of the continued fraction for $e$.
+Find the sum of digits in the numerator of the $100 ^{\mathrm{th}}$ convergent of the continued fraction for $e$.
 
 ## 解决方案
 

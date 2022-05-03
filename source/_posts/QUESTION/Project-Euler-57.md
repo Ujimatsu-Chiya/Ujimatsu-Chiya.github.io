@@ -17,9 +17,13 @@ date: 2022-04-30 10:31:47
 It is possible to show that the square root of two can be expressed as an infinite continued fraction.
 $$\sqrt 2 =1+ \dfrac 1 {2+ \dfrac 1 {2 +\dfrac 1 {2+ \dots}}}$$
 By expanding this for the first four iterations, we get:
+
 $1 + \dfrac 1 2 = \dfrac  32 = 1.5$
+
 $1 + \dfrac 1 {2 + \dfrac 1 2} = \dfrac 7 5 = 1.4$
+
 $1 + \dfrac 1 {2 + \dfrac 1 {2+\dfrac 1 2}} = \dfrac {17}{12} = 1.41666 \dots$
+
 $1 + \dfrac 1 {2 + \dfrac 1 {2+\dfrac 1 {2+\dfrac 1 2}}} = \dfrac {41}{29} = 1.41379 \dots$
 
 The next three expansions are $\dfrac {99}{70}$, $\dfrac {239}{169}$, and $\dfrac {577}{408}$, but the eighth expansion, $\dfrac {1393}{985}$, is the first example where the number of digits in the numerator exceeds the number of digits in the denominator.
