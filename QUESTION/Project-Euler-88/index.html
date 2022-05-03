@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Ujimatsu Chiya">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-02T08:37:00.000Z">
-<meta property="article:modified_time" content="2022-05-02T08:37:00.842Z">
+<meta property="article:modified_time" content="2022-05-03T02:41:47.895Z">
 <meta property="article:author" content="Ujimatsu Chiya">
 <meta property="article:tag" content="Project Euler">
 <meta property="article:tag" content="OEIS">
@@ -222,6 +222,13 @@
 
               <time title="创建时间：2022-05-02 16:37:00" itemprop="dateCreated datePublished" datetime="2022-05-02T16:37:00+08:00">2022-05-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-05-03 10:41:47" itemprop="dateModified" datetime="2022-05-03T10:41:47+08:00">2022-05-03</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
@@ -262,16 +269,22 @@
 <p>A natural number, <span class="math inline">\(N\)</span>, that can be
 written as the sum and product of a given set of at least two natural
 numbers, <span class="math inline">\(\{a_1, a_2, ... , a_k\}\)</span> is
-called a product-sum number: <span class="math inline">\(N = a_1 + a_2 +
-... + a_k = a_1 \times a_2 \times ... \times a_k\)</span>. For example,
-<span class="math inline">\(6 = 1 + 2 + 3 = 1 \times 2 \times
-3\)</span>. For a given set of size, <span class="math inline">\(k\)</span>, we shall call the smallest <span class="math inline">\(N\)</span> with this property a minimal
-product-sum number. The minimal product-sum numbers for sets of size,
-<span class="math inline">\(k = 2, 3, 4, 5\)</span>, and <span class="math inline">\(6\)</span> are as follows. <span class="math inline">\(k=2:4=2 \times 2 = 2 + 2\)</span> <span class="math inline">\(k=3:6=1 \times 2 \times 3 = 1 + 2 + 3\)</span>
-<span class="math inline">\(k=4:8=1 \times 1 \times 2 \times 4 = 1 + 1 +
-2 + 4\)</span> <span class="math inline">\(k=5:8=1 \times 1 \times 2
-\times 2 \times 2 = 1 + 1 + 2 + 2 + 2\)</span> <span class="math inline">\(k=6:12=1 \times 1 \times 1 \times 1 \times 2
-\times 6 = 1 + 1 + 1 + 1 + 2 + 6\)</span></p>
+called a product-sum number:</p>
+<p><span class="math inline">\(N = a_1 + a_2 + ... + a_k = a_1 \times
+a_2 \times ... \times a_k\)</span>.</p>
+<p>For example, <span class="math inline">\(6 = 1 + 2 + 3 = 1 \times 2
+\times 3\)</span>.</p>
+<p>For a given set of size, <span class="math inline">\(k\)</span>, we
+shall call the smallest <span class="math inline">\(N\)</span> with this
+property a minimal product-sum number. The minimal product-sum numbers
+for sets of size, <span class="math inline">\(k = 2, 3, 4, 5\)</span>,
+and <span class="math inline">\(6\)</span> are as follows.</p>
+<p><span class="math inline">\(k=2:4=2 \times 2 = 2 + 2\)</span><br>
+<span class="math inline">\(k=3:6=1 \times 2 \times 3 = 1 + 2 +
+3\)</span><br> <span class="math inline">\(k=4:8=1 \times 1 \times 2
+\times 4 = 1 + 1 + 2 + 4\)</span><br> <span class="math inline">\(k=5:8=1 \times 1 \times 2 \times 2 \times 2 = 1 +
+1 + 2 + 2 + 2\)</span><br> <span class="math inline">\(k=6:12=1 \times 1
+\times 1 \times 1 \times 2 \times 6 = 1 + 1 + 1 + 1 + 2 + 6\)</span></p>
 <p>Hence for <span class="math inline">\(2\leq k\leq 6\)</span>, the sum
 of all the minimal product-sum numbers is <span class="math inline">\(4+6+8+12=30;\)</span> note that <span class="math inline">\(8\)</span> is only counted once in the sum.</p>
 <p>In fact, as the complete set of minimal product-sum numbers for <span class="math inline">\(2\leq k\leq 12\)</span> is <span class="math inline">\(\{4, 6, 8, 12, 15, 16\}\)</span>, the sum is <span class="math inline">\(61\)</span>.</p>
@@ -280,7 +293,7 @@ of all the minimal product-sum numbers is <span class="math inline">\(4+6+8+12=3
 <p>可以知道，对于绝大多数<span class="math inline">\(k\)</span>，满足题目条件的序列<span class="math inline">\(\{a\}\)</span>中，大多数的值都是<span class="math inline">\(1\)</span>，最多只有<span class="math inline">\(m=\lfloor\log_2k\rfloor\)</span>个数的值非<span class="math inline">\(1\)</span>。</p>
 <p>因此，不失一般性，先对<span class="math inline">\(\{a\}\)</span>（长度未知）的前<span class="math inline">\(m\)</span>个的值进行枚举，那么最终可以计算出长度<span class="math inline">\(k=\prod_{i=1}^m-\sum_{i=1}^ma_i+m\)</span>，其余<span class="math inline">\(k-m\)</span>个值必定全为<span class="math inline">\(1\)</span>。</p>
 <p>为了遍历所有情况，本代码遍历时，<span class="math inline">\(a_1,a_2,...,a_m\)</span>可以为<span class="math inline">\(1\)</span>，这是为了方便求出<span class="math inline">\(k\)</span>比较小时的情况。</p>
-<p>关于在某个特定的<span class="math inline">\(k\)</span>下，和积值<span class="math inline">\(N\)</span>的上限.先枚举前几项出来，查询OEIS的结果为<a target="_blank" rel="noopener" href="https://oeis.org/A104173">A104173</a>。在FORMULA一栏，发现：</p>
+<p>关于在某个特定的<span class="math inline">\(k\)</span>下，和积值<span class="math inline">\(N\)</span>的上限。先枚举前几项出来，查询OEIS的结果为<a target="_blank" rel="noopener" href="https://oeis.org/A104173">A104173</a>。在FORMULA一栏，发现：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(n) &lt;= 2n, since 1^(n-2)* 2*n = (n-2)*1 + 2 + n. - Étienne Dupuis, Dec 07 2021</span><br></pre></td></tr></table></figure>
 <p>这说明，每个答案的上限不会超过<span class="math inline">\(2k\)</span>。</p>
 <p>因此，直接搜索前<span class="math inline">\(m\)</span>个值即可，途中需要记录这<span class="math inline">\(m\)</span>个值的和与积，这些积值不需要超过<span class="math inline">\(2N\)</span>。</p>
@@ -384,14 +397,14 @@ of all the minimal product-sum numbers is <span class="math inline">\(4+6+8+12=3
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">111</span>
+          <span class="site-state-item-count">117</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -428,13 +441,13 @@ of all the minimal product-sum numbers is <span class="math inline">\(4+6+8+12=3
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">95k</span>
+    <span title="站点总字数">105k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">1:27</span>
+    <span title="站点阅读时长">1:35</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
