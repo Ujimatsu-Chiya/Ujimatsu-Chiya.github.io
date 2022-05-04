@@ -2,6 +2,7 @@
 title: Project Euler 109
 tags:
   - Project Euler
+  - 模拟
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -51,7 +52,32 @@ How many distinct ways can a player checkout with a score less than $100$?
 
 ## 解决方案
 
+将所有得分情况全部存在一个列表中。其中前$m$个是双倍得分，其余是三倍得分。
+
+多重循环遍历所有情况即可。需要注意的地方只有判断是不是相同的结分。
+
 
 ## 代码
 
-
+```py
+N = 100
+M = 20
+a = list(range(2, M * 2 + 2, 2)) + [50]
+m = len(a)
+a += [25] + list(range(1, M + 1)) + list(range(3, M * 3 + 3, 3))
+n = len(a)
+ans = 0
+for i in range(m):
+    if a[i] < N:
+        ans += 1
+for i in range(n):
+    for j in range(m):
+        if a[i] + a[j] < N:
+            ans += 1
+for i in range(n):
+    for j in range(i, n):
+        for k in range(m):
+            if a[i] + a[j] + a[k] < N:
+                ans += 1
+print(ans)
+```

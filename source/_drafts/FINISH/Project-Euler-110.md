@@ -24,7 +24,31 @@ What is the least value of $n$ for which the number of distinct solutions exceed
 
 ## 解决方案
 
+使用的方案和第108题完全相同，此处不赘述。
 
 ## 代码
 
+```py
+from tools import get_prime
 
+N = 4000000
+pr = get_prime(len(bin(N)) * 50)
+ans = N ** 10
+
+
+def dfs(n: int, mul: int, f: int, lm: int):
+    global ans
+    if (mul + 1) >> 1 >= N:
+        ans = n
+        return
+    for i in range(1, lm + 1):
+        n *= pr[f]
+        if n > ans:
+            break
+        dfs(n, mul * (2 * i + 1), f + 1, i)
+
+
+dfs(1, 1, 0, N)
+print(ans)
+
+```
