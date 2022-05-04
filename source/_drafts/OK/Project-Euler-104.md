@@ -22,7 +22,39 @@ Given that $F_k$ is the first Fibonacci number for which the first nine digits A
 
 ## 解决方案
 
+从小到大枚举斐波那契数的项数。由于本题只关心高$9$位和低$9$位，因此可以这么做：
+
+1. 将整个数直接对$10^9$取模，那么所得到的值是精确的低$9$位。
+2. 浮点数的特点是只保留前几位的有效数字，那么就用浮点数来存储整个值，只要前$9$位准确就行。
+
+因此，计算低位时，只需要全程对$10^9$取模即可。
+
+计算高位时，如果高位的数到达了一个阈值（这里设定为$10^12$），那么就对这个数除$10$。这不仅影响高位的准确性，还能在转字符串判断时，防止产生的浮点数字符串太长，加速判断。
 
 ## 代码
 
 
+```py
+from itertools import count
+
+s = "123456789"
+m = 10 ** len(s)
+a = b = 1
+u = v = 1.0
+
+for i in count(1, 1):
+    l = str(a)
+    r = str(u)[:len(s)]
+    l = "".join((lambda x: (x.sort(), x)[1])(list(l)))
+    r = "".join((lambda x: (x.sort(), x)[1])(list(r)))
+    if l == r == s:
+        ans = i
+        break
+    a, b = b, (a + b) % m
+    u, v = v, u + v
+    if v > 1e12:
+        u /= 10
+        v /= 10
+print(ans)
+
+```
