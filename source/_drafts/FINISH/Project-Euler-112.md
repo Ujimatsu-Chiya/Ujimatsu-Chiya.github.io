@@ -2,6 +2,7 @@
 title: Project Euler 112
 tags:
   - Project Euler
+  - 模拟
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -27,7 +28,33 @@ Find the least number for which the proportion of bouncy numbers is exactly $99\
 
 ## 解决方案
 
+可以发现，随着$n$的增大，弹跳数的数量会占绝大多数。
+
+因此，直接从$1$开始暴力枚举，并直接判断是否为弹跳数。
 
 ## 代码
 
+```C++
+# include <bits/stdc++.h>
+using namespace std;
+const int M=99;
+int main(){
+    int ans,cnt=0;
+    for(int i=1;;i++){
+        string s=to_string(i);
+        bool u=0,d=0;
+        for(int i=0;i+1<s.size()&&!(u&&d);i++){
+            if(s[i]<s[i+1]) u=1;
+            if(s[i]>s[i+1]) d=1;
+        }
+        if(u&&d) ++cnt;
+        if(cnt*100==M*i){
+            ans=i;
+            break;
+        }
+    }
+    printf("%d\n",ans);
+}
+
+```
 
