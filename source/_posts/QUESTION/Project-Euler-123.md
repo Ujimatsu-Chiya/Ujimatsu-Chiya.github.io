@@ -7,12 +7,13 @@ date: 2022-05-06 22:24:45
 ---
 
 <escape><!-- more --></escape>
-    
-
 
 # Project Euler 123
+
 ## 题目
+
 ### Prime square remainders
+
 Let $p_n$ be the $n^{\mathrm{th}}$ prime: $2, 3, 5, 7, 11, \dots$, and let $r$ be the remainder when $(p_n-1)^n + (p_n+1)^n$ is divided by $p_n^2$.
 
 For example, when $n = 3, p_3 = 5$, and $4^3 + 6^3 = 280 \equiv 5 \mod 25$.
@@ -20,7 +21,6 @@ For example, when $n = 3, p_3 = 5$, and $4^3 + 6^3 = 280 \equiv 5 \mod 25$.
 The least value of $n$ for which the remainder first exceeds $10^9$ is $7037$.
 
 Find the least value of $n$ for which the remainder first exceeds $10^{10}$.
-
 
 ## 解决方案
 
@@ -37,8 +37,8 @@ r(n)=
 $$
 
 因此，直接从第$1$个质数开始进行枚举即可，容易发现这种$\sqrt{10^{10}}$级别的枚举将会很快找到答案。
-## 代码
 
+## 代码
 
 ```py
 from itertools import count

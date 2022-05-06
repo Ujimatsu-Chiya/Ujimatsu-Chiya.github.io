@@ -8,11 +8,12 @@ date: 2022-05-06 22:23:50
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 109
-## 题目
-### Darts
 
+# Project Euler 109
+
+## 题目
+
+### Darts
 
 In the game of darts a player throws three darts at a target board which is split into twenty equal sized sections numbered one to twenty.
 
@@ -50,14 +51,11 @@ Incredibly there are $42336$ distinct ways of checking out in total.
 
 How many distinct ways can a player checkout with a score less than $100$?
 
-
-
 ## 解决方案
 
 将所有得分情况全部存在一个列表中。其中前$m$个是双倍得分，其余是三倍得分。
 
 多重循环遍历所有情况即可。需要注意的地方只有判断是不是相同的结分。
-
 
 ## 代码
 

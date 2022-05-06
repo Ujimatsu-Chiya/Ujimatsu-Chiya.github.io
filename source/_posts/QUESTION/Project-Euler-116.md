@@ -8,11 +8,13 @@ date: 2022-05-06 22:24:17
 ---
 
 <escape><!-- more --></escape>
-    
 
 # Project Euler 116
+
 ## 题目
+
 ### Red, green or blue tiles
+
 A row of five black square tiles is to have a number of its tiles replaced with coloured oblong tiles chosen from red (length two), green (length three), or blue (length four).
 
 If red tiles are chosen there are exactly seven ways this can be done.
@@ -33,8 +35,8 @@ How many different ways can the black tiles in a row measuring fifty units in le
 
 NOTE: This is related to <a href="/Problem101-125/#Problem_117">Problem 117</a>.
 
-
 ## 解决方案
+
 和第115题不一样，这里铺设的方块，不再考虑相邻的时候的问题。
 
 另外，由于不同颜色不能混合使用，因此使用某种单个彩色（红、绿、蓝）的砖块和黑色的砖块一起铺设是独立的问题，应当分开考虑。把分开考虑的结果相加即可。

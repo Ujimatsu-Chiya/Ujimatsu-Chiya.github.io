@@ -7,11 +7,12 @@ date: 2022-05-06 22:23:42
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 107
-## 题目
-### Minimal network
 
+# Project Euler 107
+
+## 题目
+
+### Minimal network
 
 The following undirected network consists of seven vertices and twelve edges with a total weight of 243.
 
@@ -34,7 +35,6 @@ However, it is possible to optimise the network by removing some edges and still
 ![](../images/p107_2.png)
 
 Using [network.txt](../resources/p107_network.txt) (right click and ‘Save Link/Target As\dots’), a 6K text file containing a network with forty vertices, and given in matrix form, find the maximum saving which can be achieved by removing redundant edges whilst ensuring that the network remains connected.
-
 
 ## 解决方案
 
@@ -59,7 +59,6 @@ algorithm Kruskal(G) is
 本代码使用networkx的minimum_spanning_tree函数，直接给出一个最小生成树方案。
 
 ## 代码
-
 
 ```py
 import networkx as nx

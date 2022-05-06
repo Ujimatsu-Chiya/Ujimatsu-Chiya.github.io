@@ -8,11 +8,12 @@ date: 2022-05-06 22:24:13
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 115
-## 题目
-### Counting block combinations II
 
+# Project Euler 115
+
+## 题目
+
+### Counting block combinations II
 
 NOTE: This is a more difficult version of <a href="/Problem101-125/#Problem_114">Problem 114</a>.
 
@@ -26,7 +27,6 @@ That is, for $m = 3$, it can be seen that $n = 30$ is the smallest value for whi
 In the same way, for $m = 10$, it can be verified that $F(10, 56) = 880711$ and $F(10, 57) = 1148904$, so $n = 57$ is the least value for which the fill-count function first exceeds one million.
 
 For $m = 50$, find the least value of $n$ for which the fill-count function first exceeds one million.
-
 
 ## 解决方案
 
@@ -52,4 +52,3 @@ for i in count(1, 1):
 print(ans)
 
 ```
-

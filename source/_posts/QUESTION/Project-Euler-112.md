@@ -8,11 +8,12 @@ date: 2022-05-06 22:24:01
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 112
-## 题目
-### Bouncy numbers
 
+# Project Euler 112
+
+## 题目
+
+### Bouncy numbers
 
 Working from left-to-right if no digit is exceeded by the digit to its left it is called an increasing number; for example, $134468$.
 
@@ -25,8 +26,6 @@ Clearly there cannot be any bouncy numbers below one-hundred, but just over half
 Surprisingly, bouncy numbers become more and more common and by the time we reach $21780$ the proportion of bouncy numbers is equal to $90\%$.
 
 Find the least number for which the proportion of bouncy numbers is exactly $99\%$.
-
-
 
 ## 解决方案
 
@@ -59,4 +58,3 @@ int main(){
 }
 
 ```
-

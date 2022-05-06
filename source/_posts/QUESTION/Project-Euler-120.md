@@ -7,12 +7,13 @@ date: 2022-05-06 22:24:33
 ---
 
 <escape><!-- more --></escape>
-    
-
 
 # Project Euler 120
+
 ## 题目
+
 ### Square remainders
+
 Let $r$ be the remainder when $(a-1)^n + (a+1)^n$ is divided by $a^2$.
 
 For example, if $a = 7$ and $n = 3$, then $r = 42: 6^3 + 8^3 = 728 \equiv 42 \mod 49$. And as $n$ varies, so too will $r$, but for $a = 7$ it turns out that $r_{\max} = 42$.
@@ -20,6 +21,7 @@ For example, if $a = 7$ and $n = 3$, then $r = 42: 6^3 + 8^3 = 728 \equiv 42 \mo
 For $3 \le a \le 1000$, find $\sum r_{\max}$.
 
 ## 二项式定理
+
 二项式定理，即$n$次方二项式$(a+b)^n$的展开式：
 
 $$(a+b)^n=\sum_{i=0}^nC_n^ia^ib^{n-i}$$
@@ -58,9 +60,7 @@ r_{\max}(a)=
 \end{aligned}\right.
 $$
 
-
 ## 代码
-
 
 ```py
 N = 1000

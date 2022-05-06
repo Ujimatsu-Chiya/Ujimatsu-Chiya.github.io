@@ -7,11 +7,12 @@ date: 2022-05-06 22:22:46
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 128
-## 题目
-### Hexagonal tile differences
 
+# Project Euler 128
+
+## 题目
+
+### Hexagonal tile differences
 
 A hexagonal tile with number $1$ is surrounded by a ring of six hexagonal tiles, starting at "$12$ o'clock" and numbering the tiles $2$ to $7$ in an anti-clockwise direction.
 
@@ -30,7 +31,6 @@ It can be shown that the maximum value of $PD(n)$ is $3$.
 If all of the tiles for which $PD(n) = 3$ are listed in ascending order to form a sequence, the $10\mathrm{th}$ tile would be $271$.
 
 Find the $2000\mathrm{th}$ tile in this sequence.
-
 
 ## 解决方案
 

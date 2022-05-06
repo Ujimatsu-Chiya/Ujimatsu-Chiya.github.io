@@ -7,12 +7,12 @@ date: 2022-05-06 22:23:30
 ---
 
 <escape><!-- more --></escape>
-    
+
 # Project Euler 104
+
 ## 题目
+
 ### Pandigital Fibonacci ends
-
-
 
 The Fibonacci sequence is defined by the recurrence relation:
 
@@ -31,10 +31,9 @@ Given that $F_k$ is the first Fibonacci number for which the first nine digits A
 
 因此，计算低位时，只需要全程对$10^9$取模即可。
 
-计算高位时，如果高位的数到达了一个阈值（这里设定为$10^12$），那么就对这个数除$10$。这不仅影响高位的准确性，还能在转字符串判断时，防止产生的浮点数字符串太长，加速判断。
+计算高位时，如果高位的数到达了一个阈值（这里设定为$10^{12}$），那么就对这个数除$10$。这不仅影响高位的准确性，还能在转字符串判断时，防止产生的浮点数字符串太长，加速判断。
 
 ## 代码
-
 
 ```py
 from itertools import count

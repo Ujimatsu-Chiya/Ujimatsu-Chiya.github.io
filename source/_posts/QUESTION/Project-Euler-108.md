@@ -7,11 +7,12 @@ date: 2022-05-06 22:23:46
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 108
-## 题目
-### Diophantine reciprocals I
 
+# Project Euler 108
+
+## 题目
+
+### Diophantine reciprocals I
 
 In the following equation $x, y$, and $n$ are positive integers.
 
@@ -29,7 +30,6 @@ $$
 What is the least value of $n$ for which the number of distinct solutions exceeds one-thousand?
 
 <p class="note">NOTE: This problem is an easier version of <a href="problem=110">Problem 110</a>; it is strongly advised that you solve this one first.
-
 
 ## 解决方案
 
@@ -60,8 +60,6 @@ If n = (p1^a1)(p2^a2)...(pt^at), a(n) = ((2*a1 + 1)(2*a2 + 1) ... (2*at + 1) + 1
 而当$x=y=2n$时，满足该等于号。
 
 故方程$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$解的总个数为$f(n)=\dfrac{(\prod 2e_i+1)+1}{2}$。
-
-
 
 ## 代码
 

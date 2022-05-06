@@ -7,11 +7,12 @@ date: 2022-05-06 22:23:16
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 101
-## 题目
-### Optimum polynomial
 
+# Project Euler 101
+
+## 题目
+
+### Optimum polynomial
 
 If we are presented with the first $k$ terms of a sequence it is impossible to say with certainty the value of the next term, as there are infinitely many polynomial functions that can model the sequence.
 
@@ -40,7 +41,6 @@ $$u_n = 1 − n + n^2 − n^3 + n^4 − n^5 + n^6 − n^7 + n^8 − n^9 + n^{10}
 
 Find the sum of FITs for the BOPs.
 
-
 ## 解决方案
 
 对于一元函数上任意$n$个不同的点，可以用唯一一个$n-1$次多项式确定。求出这个$n-1$次的多项式$p(x)$最简单的办法是使用待定系数法，设$p(x)=c_0+c_1x+c_2x^2+\dots+c_{n-1}x^{n-1}$。
@@ -49,25 +49,25 @@ Find the sum of FITs for the BOPs.
 
 $$
 \begin{bmatrix}
-1^0 & 1^1 & 1^2 &\cdots  & 1^{n-1}\\
-2^0 & 2^1 & 2^2 & \cdots & 2^{n-1}\\
-3^0 & 3^1 & 3^2 & \cdots & 3^{n-1}\\
-\vdots & \vdots & \vdots & \ddots  & \vdots\\
+1^0 & 1^1 & 1^2 &\cdots  & 1^{n-1} \\
+2^0 & 2^1 & 2^2 & \cdots & 2^{n-1} \\
+3^0 & 3^1 & 3^2 & \cdots & 3^{n-1} \\
+\vdots & \vdots & \vdots & \ddots  & \vdots \\
 n^0 & n^1 & n^2 &\cdots  & n^{n-1}
 \end{bmatrix}
 \begin{bmatrix}
-c_0\\
-c_1\\
-c_2\\
-\vdots\\
+c_0 \\
+c_1 \\
+c_2 \\
+\vdots \\
 c_{n-1}
 \end{bmatrix}
 =
 \begin{bmatrix}
-u_1\\
-u_2\\
-u_3\\
-\vdots\\
+u_1 \\
+u_2 \\
+u_3 \\
+\vdots \\
 u_n
 \end{bmatrix}
 $$
@@ -79,7 +79,6 @@ $$
 另外一种做法则是使用多项式[插值](https://mathworld.wolfram.com/Interpolation.html)。本代码使用的是sympy库的interpolating_poly函数，它是基于[拉格朗日插值](https://mathworld.wolfram.com/LagrangeInterpolatingPolynomial.html)实现的。给定$n$个点$(x_1,y_1),(x_2,y_2),\dots,(x_n,y_n)$，那么这个函数就会返回一个$n-1$次多项式。拉格朗日插值的公式如下：
 
 $$p(x)=\sum_{j=1}^n y_j\prod_{k=1,k\neq j}^n \dfrac{x-x_k}{x_j-x_k}$$
-
 
 ## 代码
 

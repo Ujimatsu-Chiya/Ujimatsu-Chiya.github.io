@@ -8,11 +8,12 @@ date: 2022-05-06 22:24:25
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 118
-## 题目
-### Pandigital prime sets
 
+# Project Euler 118
+
+## 题目
+
+### Pandigital prime sets
 
 Using all of the digits $1$ through $9$ and concatenating them freely to form decimal integers, different sets can be formed. Interestingly with the set $\{2,5,47,89,631\}$, all of the elements belonging to it are prime.
 
@@ -46,7 +47,7 @@ f(i,st)=
 \end{aligned}\right.
 $$
 
-其中，运算符$\&,\bigoplus $分别表示位运算中的与运算和异或运算。
+其中，运算符$\& , \bigoplus$分别表示位运算中的与运算和异或运算。
 
 方程最后一行表示，如果不取$i$，那么直接从$f(i-1,st)$转移过来保存；如果取$i$，那么就需要将没有用到$i$的前驱状态再添加一个$mask$属于$i$类中的数，而这类数有$cnt[i]$个。
 
@@ -89,4 +90,3 @@ for i in range(1 << n):
 print(f[(1 << n) - 1])
 
 ```
-

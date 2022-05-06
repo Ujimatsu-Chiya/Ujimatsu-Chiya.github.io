@@ -7,11 +7,12 @@ date: 2022-05-06 22:23:38
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 106
-## 题目
-### Special subset sums: meta-testing
 
+# Project Euler 106
+
+## 题目
+
+### Special subset sums: meta-testing
 
 Let $S(A)$ represent the sum of elements in set $A$ of size $n$. We shall call it a special sum set if for any two non-empty disjoint subsets, $B$ and $C$, the following properties are true:
 
@@ -53,6 +54,7 @@ NOTE: This problem is related to <a href="/103">Problem 103</a> and <a href="/10
 |(()())|$\{1,2,4\}$|$\{3,5,6\}$|
 
 每个括号字符串对应着一种分配方法。可以发现这个括号字符串有一下特点：
+
 1. 左圆括号和右圆括号的数量相等
 2. 每个字符串的前缀中，**左圆括号的数量不会少于右圆括号**。这也就说明了，$B$中的每一个数，$C$中总有更大的数和它们一一对应。
 
@@ -63,7 +65,6 @@ NOTE: This problem is related to <a href="/103">Problem 103</a> and <a href="/10
 $$\sum_{k=1}^{\lfloor\dfrac{n}{2}\rfloor}C_n^{2k}(\dfrac{C_{2k}^k}{2}-\dfrac{C_{2k}^k}{k+1})$$
 
 ## 代码
-
 
 ```py
 from tools import C

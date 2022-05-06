@@ -7,10 +7,13 @@ date: 2022-05-06 22:22:55
 ---
 
 <escape><!-- more --></escape>
-    
+
 # Project Euler 133
+
 ## 题目
+
 ### Repunit nonfactors
+
 A number consisting entirely of ones is called a repunit. We shall define $R(k)$ to be a repunit of length $k$; for example, $R(6) = 111111$.
 
 Let us consider repunits of the form $R(10^n)$.
@@ -19,8 +22,8 @@ Although $R(10)$, $R(100)$, or $R(1000)$ are not divisible by $17$, $R(10000)$ i
 
 Find the sum of all the primes below one-hundred thousand that will never be a factor of $R(10^n)$.
 
-
 ## 解决方案
+
 设$\mathbb{Z}_{m}^*$为模数为$m$的乘法群。容易知道，乘法群是个循环群，而且其大小为$\varphi(m)$，其中$\varphi$为欧拉函数。
 
 元素$a$在群$\mathbb{Z}_{m}^*$上的阶$\lambda_m(a)$：使得$a^k \equiv 1(\mod m)$的最小正整数$k$。
@@ -42,7 +45,6 @@ $$10^{10^n}\equiv 1(\mod 9p)$$
 本代码也使用sympy库中的n_order(a,m)函数计算$\lambda_m(a)$的值。
 
 ## 代码
-
 
 ```py
 from tools import get_prime, divisors

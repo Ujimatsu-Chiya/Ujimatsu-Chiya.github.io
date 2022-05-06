@@ -7,11 +7,12 @@ date: 2022-05-06 22:23:58
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 111
-## 题目
-### Primes with runs
 
+# Project Euler 111
+
+## 题目
+
+### Primes with runs
 
 Considering $4$-digit primes containing repeated digits it is clear that they cannot all be the same: $1111$ is divisible by $11$, $2222$ is divisible by $22$, and so on. But there are nine $4$-digit primes containing three ones:
 
@@ -40,8 +41,6 @@ For $d = 0$ to $9$, the sum of all $S(4, d)$ is $273700$.
 
 Find the sum of all $S(10, d)$.
 
-
-
 ## 解决方案
 
 本题主要通过位运算的手段来枚举。
@@ -57,7 +56,6 @@ Find the sum of all $S(10, d)$.
 另外，还需要注意最高位不能填$0$这种情况。
 
 ## 代码
-
 
 ```py
 from tools import isprime

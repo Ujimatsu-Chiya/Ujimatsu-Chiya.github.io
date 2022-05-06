@@ -8,11 +8,12 @@ date: 2022-05-06 22:24:21
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 117
-## 题目
-### Red, green, and blue tiles
 
+# Project Euler 117
+
+## 题目
+
+### Red, green, and blue tiles
 
 Using a combination of grey square tiles and oblong tiles chosen from: red tiles (measuring two units), green tiles (measuring three units), and blue tiles (measuring four units), it is possible to tile a row measuring five units in length in exactly fifteen different ways.
 
@@ -31,7 +32,7 @@ NOTE: This is related to <a href="/Problem101-125/#Problem_116">Problem 116</a>.
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0，1 \\
+  &1  & & \mathrm{if\quad} i=0, 1 \\
   &2  & & \mathrm{if\quad} i=2\\
   &4  & & \mathrm{if\quad} i=3 \\
   &f(i-1)+f(i-2)+f(i-3)+f(1-4) & & \mathrm{else}
@@ -45,6 +46,7 @@ $$
 ## 代码
 
 本代码适用于填充的方块为任意种类任意长度的情况。
+
 ```py
 N = 50
 M = [1, 2, 3, 4]
@@ -55,7 +57,9 @@ ans = f[N]
 print(ans)
 
 ```
+
 本代码则仅适用于本题。
+
 ```py
 N = 50
 f = [1, 1, 2, 4]

@@ -7,11 +7,13 @@ date: 2022-05-06 22:24:49
 ---
 
 <escape><!-- more --></escape>
-   
 
 # Project Euler 124
+
 ## 题目
+
 ### Ordered radicals
+
 The radical of $n$, $\mathrm{rad}(n)$, is the product of the distinct prime factors of $n$. For example, $504 = 2^3 × 3^2 × 7$, so $\mathrm{rad}(504) = 2 × 3 × 7 = 42$.
 
 If we calculate $\mathrm{rad}(n)$ for $1 \le n \le 10$, then sort them on rad(n), and sorting on n if the radical values are equal, we get:
@@ -30,11 +32,9 @@ If we calculate $\mathrm{rad}(n)$ for $1 \le n \le 10$, then sort them on rad(n)
 |$9$|$3$||$7$|$7$|$9$|
 |$10$|$10$||$10$|$10$|$10$|
 
-
 Let $E(k)$ be the $k\mathrm{th}$ element in the sorted n column; for example, $E(4) = 8$ and $E(6) = 9$.
 
 If $\mathrm{rad}(n)$ is sorted for $1 \le n \le 100000$, find $E(10000)$.
-
 
 ## 解决方案
 

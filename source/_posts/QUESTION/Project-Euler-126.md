@@ -7,10 +7,13 @@ date: 2022-05-06 22:24:58
 ---
 
 <escape><!-- more --></escape>
-    
+
 # Project Euler 126
+
 ## 题目
+
 ### Cuboid layers
+
 The minimum number of cubes to cover every visible face on a cuboid measuring $3\times2\times1$ is twenty-two.
 
 ![](../images/p126.png)
@@ -25,10 +28,10 @@ It turns out that $154$ is the least value of $n$ for which $C(n) = 10$.
 
 Find the least value of $n$ for which $C(n) = 1000$.
 
-
 ## 解决方案
 
 笔者空间想象能力不太行，因此在这里使用基于广度优先搜索的方式，首先求出每一层所需要的正方体块数。
+
 ```C++
 # include <bits/stdc++.h>
 using namespace std;
@@ -63,6 +66,7 @@ int main(){
         printf("%d %d\n",k,v);
 }
 ```
+
 假设函数$f(x,y,z,n)$是包裹$x\times y\times z$长方体的第$n$层所需要的方块。
 
 通过对上面的代码调整参数$X,Y,Z,Q$，可以发现以下事实：
@@ -89,7 +93,6 @@ $$
 剩下的工作，只需要枚举这$4$个参数即可。
 
 不过，由于这里是反过来求的：求一个最小$m$满足$f(x,y,z,n)=m,x\le y\le z$的不同四元组$(x,y,z,n)$个数为$1000$。因此，$m$的上限难以确定，在这里拟定$m$的上限为$1000\times 20$。
-
 
 ## 代码
 

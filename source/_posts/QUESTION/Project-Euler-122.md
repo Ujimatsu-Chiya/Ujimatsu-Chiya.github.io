@@ -8,11 +8,13 @@ date: 2022-05-06 22:24:41
 ---
 
 <escape><!-- more --></escape>
-    
 
 # Project Euler 122
+
 ## 题目
+
 ### Efficient exponentiation
+
 The most naive way of computing n^15 requires fourteen multiplications:
 
 $n \times n \times \dots \times n = n^{15}$
@@ -42,7 +44,6 @@ We shall define $m(k)$ to be the minimum number of multiplications to compute $n
 
 For $1 \le k \le 200$, find $\sum m(k)$.
 
-
 ## 解决方案
 
 本题基于深度优先搜索的剪枝。
@@ -67,7 +68,6 @@ It is conjectured by D. E. Knuth, K. Stolarsky et al. that for all n: floor(log_
 本题的相关维基百科页面：[加法链](https://en.wikipedia.org/wiki/Addition_chain)
 
 ## 代码
-
 
 ```py
 from math import log2

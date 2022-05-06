@@ -7,12 +7,13 @@ date: 2022-05-06 22:23:03
 ---
 
 <escape><!-- more --></escape>
-    
-
 
 # Project Euler 135
+
 ## 题目
+
 ### Same differences
+
 Given the positive integers, $x, y$, and $z$, are consecutive terms of an arithmetic progression, the least value of the positive integer, $n$, for which the equation, $x^2 − y^2 − z^2 = n$, has exactly two solutions is $n = 27$:
 
 $$34^2 − 27^2 − 20^2 = 12^2 − 9^2 − 6^2 = 27$$
@@ -20,7 +21,6 @@ $$34^2 − 27^2 − 20^2 = 12^2 − 9^2 − 6^2 = 27$$
 It turns out that $n = 1155$ is the least value which has exactly ten solutions.
 
 How many values of $n$ less than one million have exactly ten distinct solutions?
-
 
 ## 解决方案
 
@@ -31,7 +31,6 @@ $x,y,z$是一个等差数列，并且由于$n>0$，因此只有当$x>y>z$时，�
 将方程左边化简，并分解因式，有$(3d-z)(d+z)=n$。
 
 故在枚举方程的解过程中，先枚举$z$的值，再枚举$d$的值，注意$d$的值要从$\lfloor\dfrac{d}{3}\rfloor+1$开始枚起来，这样才能保证一开始的$n$的正数。
-
 
 ## 代码
 

@@ -7,11 +7,12 @@ date: 2022-05-06 22:23:21
 ---
 
 <escape><!-- more --></escape>
-    
-# Project Euler 102
-## 题目
-### Triangle containment
 
+# Project Euler 102
+
+## 题目
+
+### Triangle containment
 
 Three distinct points are plotted at random on a Cartesian plane, for which $-1000 \leq x,y\leq  1000$, such that a triangle is formed.
 
@@ -26,16 +27,15 @@ Using [triangles.txt](../resources/p102_triangles.txt) (right click and 'Save Li
 
 NOTE: The first two examples in the file represent the triangles in the example given above.
 
-
 ## 解决方案
 
-设向量$\mathbf{a}=(x_1,y_1),\mathbf{b}=(x_2,y_2)$。那么向量的叉积为
+设向量$\overrightarrow{a}=(x_1,y_1),\overrightarrow{b}=(x_2,y_2)$。那么向量的叉积为
 
-$$\mathbf{a}\times \mathbf{b}=x_1y_2-x_2y_1=|\mathbf{a}||\mathbf{b}|\sin\theta$$
+$$\overrightarrow{a}\times \overrightarrow{b}=x_1y_2-x_2y_1=|\overrightarrow{a}||\overrightarrow{b}|\sin\theta$$
 
-其中$\theta$为$\mathbf{a}$逆时针旋转到$\mathbf{b}$的角度。
+其中$\theta$为$\overrightarrow{a}$逆时针旋转到$\overrightarrow{b}$的角度。
 
-如果向量$\mathbf{b}$的方向为向量$\mathbf{a}$逆时针旋转$180°$内，那么$\mathbf{a}\times\mathbf{b}>0$。
+如果向量$\overrightarrow{b}$的方向为向量$\overrightarrow{a}$逆时针旋转$180°$内，那么$\overrightarrow{a}\times\overrightarrow{b}>0$。
 
 因此，对于$\triangle ABC$任意内一点$P$，如果$\overrightarrow{PA}\times \overrightarrow{PB},\overrightarrow{PB}\times \overrightarrow{PC},\overrightarrow{PC}\times \overrightarrow{PA}$有一个值为$0$，那么$P$在$\triangle ABC$边上。如果三个值的正负性都相同，那么$P$在$\triangle ABC$内部。否则P在$\triangle ABC$外部。
 

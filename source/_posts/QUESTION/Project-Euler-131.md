@@ -7,11 +7,13 @@ date: 2022-05-06 22:22:50
 ---
 
 <escape><!-- more --></escape>
-    
 
 # Project Euler 131
+
 ## 题目
+
 ### Prime cube partnership
+
 There are some prime values, $p$, for which there exists a positive integer, $n$, such that the expression $n^3 + n^2p$ is a perfect cube.
 
 For example, when $p = 19, 8^3 + 8^2×19 = 12^3$.
@@ -19,7 +21,6 @@ For example, when $p = 19, 8^3 + 8^2×19 = 12^3$.
 What is perhaps most surprising is that for each prime with this property the value of $n$ is unique, and there are only four such primes below one-hundred.
 
 How many primes below one million have this remarkable property?
-
 
 ## 解决方案
 
@@ -48,7 +49,6 @@ $k^3<k^3+k^2<(k+1)^3$
 明显观察到$a-b<a^2+ab+b^2$，所以有：$a-b=1,p=a^2+ab+b^2$。
 
 将$b=a-1$重新代入$p=a^3-b^3$，得到$p=a^3-(a-1)^3$。因此，判断这一类数是否为质数即可。
-
 
 ## 代码
 
