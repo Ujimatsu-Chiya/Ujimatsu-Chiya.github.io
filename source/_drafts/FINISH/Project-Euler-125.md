@@ -19,7 +19,32 @@ Find the sum of all the numbers less than $10^8$ that are both palindromic and c
 
 ## 解决方案
 
+先找出所有小于$N$的平方数，然后再找出一段段小于$N$的连续平方数之和。
+
+由于每次枚举右端点时，连续平方数之和的是以立方级别增长。因此枚举一次左端点时，很快就结束了。
+
+最终则把所有的回文连续平方数和插入集合中记录。
+
 
 ## 代码
+```py
+from tools import isqrt
 
+N = 10 ** 8
+a = [i * i for i in range(1, isqrt(N) + 1)]
+st = set()
+for i in range(len(a)):
+    if i + 1 < len(a) and a[i] + a[i + 1] >= N:
+        break
+    s = a[i]
+    for j in range(i + 1, len(a)):
+        s += a[j]
+        if s >= N:
+            break
+        t = str(s)
+        if t == t[::-1]:
+            st.add(s)
+ans = sum(st)
+print(ans)
+```
 
