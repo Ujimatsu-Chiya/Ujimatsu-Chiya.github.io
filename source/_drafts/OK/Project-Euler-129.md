@@ -21,6 +21,14 @@ Find the least value of $n$ for which $A(n)$ first exceeds one-million.
 
 ## 解决方案
 
+可以通过用等比数列数列求和将$R(k)$表示出来：
+
+$$R(k)=\dfrac{10^k-1}{9}$$
+
+如果$n|R(k)$，即$9n|(10^k-1)$，那么有$10^k-1\equiv 0 (\mod 9n)$，也就是$10^k\equiv 1(\mod 9n)$。那么，$A(n)$就是求最小的**正整数**$k$，以使得$k$满足以下方程：
+
+$$10^k\equiv 1(\mod 9n)$$
+
 
 ## 代码
 

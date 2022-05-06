@@ -39,6 +39,24 @@ Find the $15\mathrm{th}$ golden nugget.
 
 
 ## 解决方案
+对$A_F(x)$的等号两边乘以一个$x$，再和原式相乘，有
+$$
+\begin{aligned}
+A_F(x)      & =xF_1+    & x^2F_2+x^3F_3+\dots \\
+xA_F(x)     & =         & x^2F_1+x^3F_2+\dots\\
+(1+x)A_F(x) &=xF_1+ &x^2F_3+x^3F_4+\dots\\
+\end{aligned}
+$$
+
+将$A_F(x)$代入第三条式子，有： 
+
+$$
+(1+x)A_F(x)=xF_1+\dfrac{A_F(x)}{x}-F_1-xF_2
+$$
+
+代入$F_1=F_2=1$，化简后，有：
+
+$A_F(x)=\dfrac{x}{1-x-x^2}$
 
 
 ## 代码

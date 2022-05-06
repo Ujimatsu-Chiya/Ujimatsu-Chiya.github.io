@@ -21,7 +21,28 @@ How many values of $n$ less than fifty million have exactly one solution?
 
 ## 解决方案
 
+本题的解决方案和第135题完全一样，在这里不再赘述。
 
 ## 代码
 
 
+```C++
+# include <bits/stdc++.h>
+using namespace std;
+const int N=5e7,Q=1;
+int c[N+4];
+int main(){
+    for(int z=1;z<=N;z++){
+        for(int d=z/3+1;;d++){
+            int w=(3*d-z)*(d+z);
+            if(w>=N) break;
+            c[w]+=1;
+        }
+    }
+    int ans=0;
+    for(int i=1;i<=N;i++)
+        if(c[i]==Q) ++ans;
+    printf("%d\n",ans);
+}
+
+```

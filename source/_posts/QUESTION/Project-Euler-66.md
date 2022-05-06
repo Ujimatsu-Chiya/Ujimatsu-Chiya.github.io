@@ -64,7 +64,7 @@ a_{n+1}&=\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\rfloor
 
 另外，假设该最小特解为$(x_1,y_1)$，那么佩尔方程的通解$(x_k,y_k)$可以由以下结果导出：
 
-$$x_k+y_k\sqrt{D}=(x_1+y_1\sqrt{D})^k$$。
+$$x_k+y_k\sqrt{D}=(x_1+y_1\sqrt{D})^k$$
 
 即有关于$(x_k,y_k)$两个序列的递推式：
 $$
