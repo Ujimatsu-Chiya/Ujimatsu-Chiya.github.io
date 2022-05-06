@@ -2,7 +2,7 @@
 title: Project Euler 126
 tags:
   - Project Euler
-mathja\times: true
+mathjax: true
 date: 2022-05-06 22:24:58
 ---
 
@@ -14,7 +14,7 @@ date: 2022-05-06 22:24:58
 
 ### Cuboid layers
 
-The minimum number of cubes to cover every visible face on a cuboid measuring $3\times2\times1$ is twenty-two.
+The minimum number of cubes to cover every visible face on a cuboid measuring $ 3\times2\times1$ is twenty-two.
 
 ![](../images/p126.png)
 
