@@ -50,15 +50,21 @@ xA_F(x)     & =         & x^2F_1+x^3F_2+\dots\\
 \end{aligned}
 $$
 
+可以发现，第三条式子用了斐波那契数的定义：$F_n=F_n-1+F_n-2$。
+
 将$A_F(x)$代入第三条式子，有： 
 
 $$
 (1+x)A_F(x)=xF_1+\dfrac{A_F(x)}{x}-F_1-xF_2
 $$
 
+
+
 代入$F_1=F_2=1$，化简后，有：
 
 $A_F(x)=\dfrac{x}{1-x-x^2}$
+
+$A_F(x)$又称为数列$F$的[**生成函数(母函数)**](https://en.wikipedia.org/wiki/Generating_function)。
 
 令$A_F(x)=n$，$n$是一个正整数，有：$x=n(1-x-x^2)$
 
