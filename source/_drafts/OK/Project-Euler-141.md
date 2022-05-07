@@ -26,6 +26,7 @@ Find the sum of all progressive perfect squares below one trillion ($10^{12}$).
 
 ## 解决方案
 
+按照题意，有等式$n=qd+r(r<q)$
 
 ## 代码
 
