@@ -152,21 +152,21 @@ N = 15
 def gen_solution():
     x1, y1, x2, y2, x3, y3 = -1, 1, 1, 1, 4, 2
     a, b = 9, 4
-    for x in (x1, x2, x3):
-        yield x
     while True:
+        for x in (x1, x2, x3):
+            yield x
         x1, y1 = -a + 5 * b, a - b
         x2, y2 = a + 5 * b, a + b
         x3, y3 = 4 * a + 10 * b, 2 * a + 4 * b
-        for x in (x1, x2, x3):
-            yield x
         a, b = 9 * a + 20 * b, 4 * a + 9 * b
 
 
 ls = []
 for x in gen_solution():
-    if x > 2 and (x - 1) % 5 == 0:
-        ls.append((x-1)//5)
+    if (x - 1) % 5 == 0:
+        w = (x - 1) // 5
+        if w > 0:
+            ls.append((x-1)//5)
     if len(ls) == N:
         break
 

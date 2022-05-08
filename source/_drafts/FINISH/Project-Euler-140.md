@@ -74,6 +74,48 @@ $$A_G(x)=\dfrac{3x^2+x}{1-x-x^2}$$
 经过一定范围的搜索，发现这个方程有$6$个基本解：
 
 $(7,1),(8,2),(13,5),(17,7),(32,14),(43,19)$
+
+使用与137题类似的方法，每一组通解$x^2-5y^2=44$的由一个基础解$(x_1,y_1)$和$x^2-5y^2=1$的通解$(a_k,b_k)$得到。
+
+$$\left \{\begin{aligned}
+  & x_{k+1}=x_1a_k+Dy_1b_k\\
+  & y_{k+1}=y_1a_k+x_1b_k
+\end{aligned}\right.
+$$
+
+将求出的$x$回代$n=\dfrac{x-7}{5}$。第$15$小的正整数$n$为所求。
+
 ## 代码
 
 
+```py
+N = 30
+
+
+def gen_solution():
+    D = 5
+    base_sol = [(7, 1), (8, 2), (13, 5), (17, 7), (32, 14), (43, 19)]
+    a, b = 9, 4
+    for x, y in base_sol:
+        yield x
+    while True:
+        for i in range(len(base_sol)):
+            x, y = base_sol[i]
+            x, y = x * a + D * y * b, x * b + y * a
+            yield x
+        a, b = 9 * a + 20 * b, 4 * a + 9 * b
+
+
+ls = []
+for x in gen_solution():
+    if (x - 7) % 5 == 0:
+        w = (x - 7) // 5
+        if w > 0:
+            ls.append((x - 7) // 5)
+    if len(ls) == N:
+        break
+
+ans = sum(ls)
+print(ans)
+
+```

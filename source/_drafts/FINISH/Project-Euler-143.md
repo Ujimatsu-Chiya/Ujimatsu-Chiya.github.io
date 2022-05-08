@@ -38,7 +38,7 @@ p^2+q^2+pq = b^2\\
 p^2+r^2+pr = c^2
 \end{aligned}$
 
-这篇[文章](http://www.geocities.ws/fredlb37/node9.html)提到了一种构造出一组三元组$(a,b,c)$满足$a^2+b^2+ab=c^2$的方法：如果$m>n,\gcd(n,m)=1,3 \nmid (n-m)$,那么有：
+这篇[文章](http://www.geocities.ws/fredlb37/node9.html)提到了一种构造出一组三元组$(a,b,c)$满足$a^2+b^2+ab=c^2$的方法：如果$m>n,\gcd(n,m)=1,3 \nmid (m-n)$,那么有：
 
 $$a=m^2-n^2,b=2mn+n^2,c=m^2+n^2=mn$$
 
@@ -48,3 +48,41 @@ $$a=m^2-n^2,b=2mn+n^2,c=m^2+n^2=mn$$
 ## 代码
 
 
+```C++
+# include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N = 120000;
+unordered_set<int>g[N+4];
+int main(){
+    for(int m=1;m*m<=N;m++){
+        for(int n=1;n<m;n++){
+            if((n-m)%3!=0&&__gcd(n,m)==1){
+                int p=2*n*m+n*n,q=m*m-n*n;
+                if(p>q) swap(p,q);
+                for(int k=1;k*(p+q)<=N;k++)
+                    g[k*p].insert(k*q);
+            }
+        }
+    }
+    unordered_set<int>st;
+    for(int i=1;i<=N;i++){
+        if(g[i].size()<2) continue;
+        vector<int>a(g[i].begin(),g[i].end());
+        sort(a.begin(),a.end());
+        for(int j=0;j<a.size();j++)
+            for(int k=j+1;k<a.size()&&i+a[j]+a[k]<=N;k++){
+                int u=a[j],v=a[k];
+                if(g[u].count(v)){
+                    st.insert(i+a[j]+a[k]);
+                }
+            }
+    }
+
+    int ans=0;
+    for(int x:st)
+        ans+=x;
+    printf("%d\n",ans);
+}
+
+```
