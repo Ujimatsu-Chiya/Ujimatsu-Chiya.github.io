@@ -3,13 +3,17 @@ title: Project Euler 129
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-08 11:55:58
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 129
+
 ## 题目
+
 ### Repunit divisibility
+
 A number consisting entirely of ones is called a repunit. We shall define $R(k)$ to be a repunit of length $k$; for example, $R(6) = 111111$.
 
 Given that $n$ is a positive integer and $\gcd(n, 10) = 1$, it can be shown that there always exists a value, $k$, for which $R(k)$ is divisible by $n$, and let $A(n)$ be the least such value of $k$; for example, $A(7) = 6$ and $A(41) = 5$.
@@ -62,4 +66,3 @@ for n in count(N | 1, 2):
 print(ans)
 
 ```
-

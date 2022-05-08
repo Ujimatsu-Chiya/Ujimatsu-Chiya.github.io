@@ -5,12 +5,15 @@ tags:
   - 动态规划
   - 概率
 mathjax: true
+date: 2022-05-08 11:56:18
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 151
+
 ## 题目
+
 ### Paper sheets of standard sizes: an expected-value problem
 
 A printing shop runs $16$ batches (jobs) every week and each batch requires a sheet of special colour-proofing paper of size A5.
@@ -28,7 +31,6 @@ At the beginning of each subsequent batch, he takes from the envelope one sheet 
 Excluding the first and last batch of the week, find the expected number of times (during each week) that the foreman finds a single sheet of paper in the envelope.
 
 Give your answer rounded to six decimal places using the format x.xxxxxx.
-
 
 ## 解决方案
 
@@ -53,16 +55,13 @@ f(i_1,i_2,i_3,i_4,i_5)=
 \end{aligned}\right.
 $$
 
-其中，$[]$表示示性函数，表示$[]$里面的算术是否为真，如果为真，那么值为$0$，否则值为$1$.
+其中，$[]$表示示性函数，表示$[]$里面的值是否为真，如果为真，那么值为$0$，否则值为$1$.
 
 整个递归的边界是纸被用完了，故值为$0$.
 
 最终答案为$f(1,0,0,0,0)-2$，因为题目要求减去第一次和最后一次见到一张纸的情况。
 
-
-
 ## 代码
-
 
 ```py
 mp = {(0, 0, 0, 0, 0): 0}

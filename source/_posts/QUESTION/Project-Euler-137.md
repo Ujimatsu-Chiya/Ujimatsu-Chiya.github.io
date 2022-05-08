@@ -5,22 +5,25 @@ tags:
   - 佩尔方程
   - OEIS
 mathjax: true
+date: 2022-05-08 11:56:10
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 137
-## 题目
-### Fibonacci golden nuggets
 
+<escape><!-- more --></escape>
+
+# Project Euler 137
+
+## 题目
+
+### Fibonacci golden nuggets
 
 Consider the infinite polynomial series $A_F(x) = x F_1 + x^2 F_2 + x^3 F_3 + \dots$, where $F_k$ is the $k$th term in the Fibonacci sequence: $1, 1, 2, 3, 5, 8, \dots$; that is, $F_k = F_{k-1} + F_{k-2}$, $F_1 = 1$ and $F_2 = 1$.
 
 For this problem we shall be interested in values of $x$ for which $A_F(x)$ is a positive integer.
 
-Surprisingly 
-$\begin{aligned} 
+Surprisingly
+$\begin{aligned}
 A_F(\tfrac{1}{2})
- & = (\tfrac{1}{2})\times 1 + (\tfrac{1}{2})^2\times 1 + (\tfrac{1}{2})^3\times 2 + (\tfrac{1}{2})^4\times 3 + (\tfrac{1}{2})^5\times 5 + \cdots \\ 
+ & = (\tfrac{1}{2})\times 1 + (\tfrac{1}{2})^2\times 1 + (\tfrac{1}{2})^3\times 2 + (\tfrac{1}{2})^4\times 3 + (\tfrac{1}{2})^5\times 5 + \cdots \\
  & = \tfrac{1}{2} + \tfrac{1}{4} + \tfrac{2}{8} + \tfrac{3}{16} + \tfrac{5}{32} + \cdots \\
  & = 2
 \end{aligned}$
@@ -39,8 +42,8 @@ We shall call $A_F(x)$ a golden nugget if $x$ is rational, because they become i
 
 Find the $15\mathrm{th}$ golden nugget.
 
-
 ## 解决方案
+
 对$A_F(x)$的等号两边乘以一个$x$，再和原式相乘，有
 $$
 \begin{aligned}
@@ -52,17 +55,13 @@ $$
 
 可以发现，第三条式子用了斐波那契数的定义：$F_n=F_n-1+F_n-2$。
 
-将$A_F(x)$代入第三条式子，有： 
+将$A_F(x)$代入第三条式子右侧，有：
 
-$$
-(1+x)A_F(x)=xF_1+\dfrac{A_F(x)}{x}-F_1-xF_2
-$$
-
-
+$$(1+x)A_F(x)=xF_1+\dfrac{A_F(x)}{x}-F_1-xF_2$$
 
 代入$F_1=F_2=1$，化简后，有：
 
-$A_F(x)=\dfrac{x}{1-x-x^2}$
+$$A_F(x)=\dfrac{x}{1-x-x^2}$$
 
 $A_F(x)$又称为数列$F$的[**生成函数(母函数)**](https://en.wikipedia.org/wiki/Generating_function)。
 
@@ -70,7 +69,7 @@ $A_F(x)$又称为数列$F$的[**生成函数(母函数)**](https://en.wikipedia.
 
 化成关于$x$的一元二次方程，有$nx^2+(n+1)x-n=0$
 
-如果$x$是一个有理数，那么其判别式$\Delta$必须是有理数。也就是$(n+1)^2-4n^2=5n^2+2n+1$必须是一个平方数。
+如果方程的解$x$是一个有理数，那么其判别式$\Delta$必须是有理数。也就是$(n+1)^2+4n^2=5n^2+2n+1$必须是一个平方数。
 
 因此，令正整数$y$满足$y^2=5n^2+2n+1$。
 
@@ -106,7 +105,6 @@ $$\left \{\begin{aligned}
 \end{aligned}\right.
 $$
 
-
 回到题目本身，可以发现，$x^2-5y=-4$有三组基础解$(-1,1),(1,1),(4,2)$。分别将这三组基础解代入到上面的公式，分别有
 
 $$\left \{\begin{aligned}
@@ -140,12 +138,12 @@ $$
 如果将该数列前几项用来查询OEIS，结果为[A081018](https://oeis.org/A081018)。
 
 以下标题信息，说明第$n$个斐波那契金块是第$2n$和$2n+1$项的斐波那契数的乘积。
+
 ```
 Fibonacci(2n)*Fibonacci(2n+1)
 ```
 
 ## 代码
-
 
 ```py
 N = 15

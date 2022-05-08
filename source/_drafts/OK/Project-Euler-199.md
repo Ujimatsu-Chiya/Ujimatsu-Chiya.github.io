@@ -5,18 +5,11 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-# Project Euler 199
-## 题目
-### Iterative Circle Packing
-
-
-Three circles of equal radius are placed inside a larger circle such that each pair of circles is tangent to one another and the inner circles do not overlap. There are four uncovered "gaps" which are to be filled iteratively with more tangent circles.
-<div class="center">
-<img src="project/images/p199_circles_in_circles.gif" class="dark_img" alt="" />
 
 # Project Euler 199
+
 ## 题目
+
 ### Iterative Circle Packing
 
 Three circles of equal radius are placed inside a larger circle such that each pair of circles is tangent to one another and the inner circles do not overlap. There are four uncovered “gaps” which are to be filled iteratively with more tangent circles.
@@ -29,10 +22,6 @@ What fraction of the area is not covered by circles after $10$ iterations?
 
 Give your answer rounded to eight decimal places using the format x.xxxxxxxx .
 
-
 ## 解决方案
 
-
 ## 代码
-
-
