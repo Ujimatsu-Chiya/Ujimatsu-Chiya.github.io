@@ -5,12 +5,14 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-# Project Euler 142
-## 题目
-### Perfect Square Collection
-Find the smallest $x + y + z$ with integers $x > y > z > 0$ such that $x + y, x - y, x + z, x - z, y + z, y - z$ are all perfect squares.
 
+# Project Euler 142
+
+## 题目
+
+### Perfect Square Collection
+
+Find the smallest $x + y + z$ with integers $x > y > z > 0$ such that $x + y, x - y, x + z, x - z, y + z, y - z$ are all perfect squares.
 
 ## 解决方案
 
@@ -39,7 +41,6 @@ $\begin{aligned}
 另外，在枚举过程中，需要保证$a>b,c>d,e>f$。以及最终算出来的$x,y,z$必须是个正整数。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

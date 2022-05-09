@@ -5,11 +5,12 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-# Project Euler 143
-## 题目
-### Investigating the Torricelli point of a triangle
 
+# Project Euler 143
+
+## 题目
+
+### Investigating the Torricelli point of a triangle
 
 Let $ABC$ be a triangle with all interior angles being less than $120$ degrees. Let $X$ be any point inside the triangle and let $XA = p, XC = q$, and $XB = r$.
 
@@ -22,7 +23,6 @@ Torricelli was able to prove that if equilateral triangles $AOB, BNC$ and $AMC$ 
 If the sum is minimised and $a, b, c, p, q$ and $r$ are all positive integers we shall call triangle $ABC$ a Torricelli triangle. For example, $a = 399, b = 455, c = 511$ is an example of a Torricelli triangle, with $p + q + r = 784$.
 
 Find the sum of all distinct values of $p + q + r \leq 120000$ for Torricelli triangles.
-
 
 ## 解决方案
 
@@ -44,9 +44,7 @@ $$a=m^2-n^2,b=2mn+n^2,c=m^2+n^2=mn$$
 
 不过，本题是需要寻找同时满足上面的式子的$(p,q),(q,r),(p,r)$。这意味着，就算$\gcd(p,q,r)=1$，也不能保证$p,q,r$两两之间是互质的。因此，非平凡的三元组$(a,b,c)$，即$\gcd(a,b,c)>1$也需要枚举出来。
 
-
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

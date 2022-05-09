@@ -5,11 +5,13 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
 
 # Project Euler 144
+
 ## 题目
+
 ### Investigating multiple reflections of a laser beam
+
 In laser physics, a “white cell” is a mirror system that acts as a delay line for the laser beam. The beam enters the cell, bounces around on the mirrors, and eventually works its way back out.
 
 The specific white cell we will be considering is an ellipse with the equation $4x^2 + y^2 = 100$
@@ -30,7 +32,6 @@ The normal line is perpendicular to this tangent line at the point of incidence.
 The animation on the right shows the first $10$ reflections of the beam.
 
 How many times does the beam hit the internal surface of the white cell before exiting?
-
 
 ## 解决方案
 

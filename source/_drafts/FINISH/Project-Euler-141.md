@@ -5,10 +5,11 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
 
 # Project Euler 141
+
 ## 题目
+
 ### Investigating progressive numbers, n, which are also square
 
 A positive integer, $n$, is divided by $d$ and the quotient and remainder are $q$ and $r$ respectively. In addition $d, q$, and $r$ are consecutive positive integer terms in a geometric sequence, but not necessarily in that order.
@@ -22,7 +23,6 @@ Some progressive numbers, such as $9$ and $10404 = 102^2$, happen to also be per
 The sum of all progressive perfect squares below one hundred thousand is $124657$.
 
 Find the sum of all progressive perfect squares below one trillion ($10^{12}$).
-
 
 ## 解决方案
 
@@ -39,7 +39,6 @@ $d=\dfrac{a}{b} \cdot r,q=\dfrac{a^2}{b^2}\cdot r$
 那么$n=qd+r=a^3bc^2+b^2c$。
 
 枚举这三个数$a,b,c$即可，要保证$\gcd(a,b)=1,a>b$。
-
 
 ## 代码
 
