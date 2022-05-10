@@ -2,21 +2,24 @@
 title: Project Euler 147
 tags:
   - Project Euler
-mathja\times: true
+mathjax: true
 date: 2022-05-10 13:47:45
 ---
 
 <escape><!-- more --></escape>
-    
-    
+
 # Project Euler 147
+
 ## 题目
+
 ### Rectangles in cross-hatched grids
+
 In a $3\times2$ cross-hatched grid, a total of $37$ different rectangles could be situated within that grid as indicated in the sketch.
 
 ![](../images/p147.png)
 
 There are $5$ grids smaller than $3\times2$, vertical and horizontal dimensions being important, i.e. $1\times1$, $2\times1$, $3\times1$, $1\times2$ and $2\times2$. If each of them is cross-hatched, the following number of different rectangles could be situated within those smaller grids:
+
 $\begin{aligned}
 1\times1&: 1 \\
 2\times1&: 4 \\
@@ -29,8 +32,8 @@ Adding those to the $37$ of the $3\times2$ grid, a total of $72$ different recta
 
 How many different rectangles could be situated within $47\times43$ and smaller grids?
 
-
 ## 解决方案
+
 假设该矩形大小为$n\times m(n\le m)$。
 
 首先，和矩形边上平行的小矩形个数为$T(n,m)=\dfrac{n(n+1)m(m+1)}{4}$。
@@ -77,7 +80,6 @@ int main(){
 使用sympy库的linsolve函数最终解出方程组，回代到公式，整合，也就是：
 
 $\dfrac{n((2m-n)(4n^2-1)-3)}{6}$
-
 
 最终把上面的第一种情况加起来即可。
 

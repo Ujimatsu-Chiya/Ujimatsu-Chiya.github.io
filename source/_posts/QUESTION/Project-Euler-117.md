@@ -33,8 +33,8 @@ $$
 f(i)=
 \left \{\begin{aligned}
   &1  & & \mathrm{if\quad} i=0, 1 \\
-  &2  & & \mathrm{if\quad} i=2\\
-  &4  & & \mathrm{if\quad} i=3 \\
+  &2  & & \mathrm{else if\quad} i=2\\
+  &4  & & \mathrm{else if\quad} i=3 \\
   &f(i-1)+f(i-2)+f(i-3)+f(1-4) & & \mathrm{else}
 \end{aligned}\right.
 $$
