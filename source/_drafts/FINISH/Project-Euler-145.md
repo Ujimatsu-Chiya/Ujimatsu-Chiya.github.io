@@ -17,7 +17,7 @@ Some positive integers n have the property that the sum $[ n + \mathrm{reverse}(
 
 There are $120$ reversible numbers below one-thousand.
 
-How many reversible numbers are there below one-billion (10^9)?
+How many reversible numbers are there below one-billion ($10^9$)?
 
 
 ## 解决方案
