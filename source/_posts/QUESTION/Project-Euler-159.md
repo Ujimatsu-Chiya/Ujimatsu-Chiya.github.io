@@ -3,15 +3,18 @@ title: Project Euler 159
 tags:
   - Project Euler
   - 动态规划
-mathja\times: true
+mathjax: true
+date: 2022-05-11 19:28:07
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 159
+
 ## 题目
+
 ### Digital root sums of factorisations
+
 A composite number can be factored many different ways. For instance, not including multiplication by one, $24$ can be factored in $7$ distinct ways:
 
 $\begin{aligned}
@@ -32,12 +35,12 @@ The chart below demonstrates all of the DRS values for $24$.
 
 |Factorisation|Digital Root Sum|
 |-|-|
-|$2	\times2	\times2	\times3$|$9$|
-|$2	\times3	\times4$|$9$|
-|$2	\times2	\times6$|$10$|
-|$4	\times6$|$10$|
-|$3	\times8$|$11$|
-|$2	\times12$|$5$|
+|$2 \times2 \times2 \times3$|$9$|
+|$2 \times3 \times4$|$9$|
+|$2 \times2 \times6$|$10$|
+|$4 \times6$|$10$|
+|$3 \times8$|$11$|
+|$2 \times12$|$5$|
 |$24$|$6$|
 
 The maximum Digital Root Sum of $24$ is $11$.
@@ -45,7 +48,6 @@ The maximum Digital Root Sum of $24$ is $11$.
 The function $\mathrm{mdrs}(n)$ gives the maximum Digital Root Sum of $n$. So $\mathrm{mdrs}(24)=11$.
 
 Find $\sum \mathrm{mdrs}(n)$ for $1 < n < 1,000,000$.
-
 
 ## 解决方案
 
@@ -79,11 +81,11 @@ $$
 
 ## 代码
 
-
 ```C++
 # include <bits/stdc++.h>
 using namespace std;
 const int N=1000000;
+typedef long long ll;
 vector<int>g[N+4];
 int f[N+4];
 int fun(int x){
@@ -91,7 +93,7 @@ int fun(int x){
 }
 int main(){
     for(int i=2;i<N;i++){
-        for(int j=i+i;j<=N;j+=i)
+        for(ll j=1ll*i*i;j<=N;j+=i)
             g[j].push_back(i);
     }
     int ans=0;

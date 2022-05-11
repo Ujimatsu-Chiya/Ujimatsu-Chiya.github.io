@@ -4,11 +4,15 @@ tags:
   - Project Euler
   - meet-in-the-middle
 mathjax: true
+date: 2022-05-11 19:27:28
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 166
+
 ## 题目
+
 ### Criss Cross
 
 A $4\times 4$ grid is filled with digits $d$, $0 \le d \le 9$.
@@ -25,8 +29,6 @@ the sum of each row and each column has the value $12$. Moreover the sum of each
 
 In how many ways can you fill a $4\times 4$ grid with the digits $d$, $0 \le d \le 9$ so that each row, each column, and both diagonals have the same sum?
 
-
-
 ## 解决方案
 
 本题基于meet-in-the-middle的思想完成。
@@ -42,7 +44,6 @@ In how many ways can you fill a $4\times 4$ grid with the digits $d$, $0 \le d \
 直接统计这种做法个数之和。
 
 ## 代码
-
 
 ```py
 mp = {}

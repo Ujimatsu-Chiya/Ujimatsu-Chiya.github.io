@@ -3,20 +3,20 @@ title: Project Euler 183
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-11 19:27:40
 ---
+
 <escape><!-- more --></escape>
 
-
-
-
 # Project Euler 183
+
 ## 题目
+
 ### Maximum product of parts
 
 Let $N$ be a positive integer and let $N$ be split into $k$ equal parts, $r = \dfrac{N}{k}$, so that $N = r + r + \dots + r$.
 
 Let $P$ be the product of these parts, $P = r × r × \dots × r = r^k$.
-
 
 For example, if $11$ is split into five equal parts, $11 = 2.2 + 2.2 + 2.2 + 2.2 + 2.2$, then $P = 2.2^5 = 51.53632$.
 
@@ -32,7 +32,6 @@ For example, $\sum D(N)$ for $5 \le N \le 100$ is $2438$.
 
 Find $\sum D(N)$ for $5 \le N \le 10000$.
 
-
 ## 解决方案
 
 令函数$y(k)=(\dfrac{N}{k})^k$，其中$k\in \mathbb{N^+}$。
@@ -44,7 +43,6 @@ Find $\sum D(N)$ for $5 \le N \le 10000$.
 对$z(x)$求导，计算得$z$的导数$z'(x)=(\dfrac{N}{x})^x\cdot (\ln\dfrac{N}{x}-1)$。
 
 令$z'(x)=0$，那么可以计算得到$x=\dfrac{N}{e}$，$z(x)$在$x_0=\dfrac{N}{e}$时将会取到最大值。
-
 
 回到函数$y(k)$，那么如果$y$要取到最大值，那么最大值点$k$为$\lfloor\dfrac{N}{e}\rfloor,\lceil\dfrac{N}{e}\rceil$两个值之一。
 

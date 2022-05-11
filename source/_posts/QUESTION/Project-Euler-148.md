@@ -3,12 +3,17 @@ title: Project Euler 148
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-11 19:27:36
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 148
+
 ## 题目
+
 ### Exploring Pascal’s triangle
+
 We can easily verify that none of the entries in the first seven rows of Pascal’s triangle are divisible by $7$:
 
 ||||||||||||||
@@ -37,7 +42,6 @@ $$C_n^m \equiv C_{n\%p}^{m\%p} \cdot C_{\lfloor\frac{n}{p}\rfloor}^{\lfloor\frac
 
 $$C_a^b\equiv  C_{a_{k-1}}^{b_{k-1}}\dots C_{a_2}^{b_2}C_{a_1}^{b_1}C_{a_0}^{b_0}(\mod p) $$
 
-
 ## 解决方案
 
 根据卢卡斯定理，上面的问题可以转化成另一种形式。有多少对$(i,j)(0\leq j \le i <n )$，满足以下条件：
@@ -48,7 +52,7 @@ $$C_a^b\equiv  C_{a_{k-1}}^{b_{k-1}}\dots C_{a_2}^{b_2}C_{a_1}^{b_1}C_{a_0}^{b_0
 
 设$p$进制数$n=n_{k-1}\dots n_2n_1n_0$，那么对于每一个$q\in[0,k-1]$，如果$n_{k-1}=i_{k-1},n_{k-2}=i_{k-2},\dots,i_{q+1}=n_{q+1},i_q<n_q$，可以将这一些数位的下标划分成独立的三个部分：
 
-1. $q-1,q-2,\dots 0$这一部分。 $i_{q-1},i_{q-2},\dots,i_0$都可以随便填$0,1,\dots,p-1$这$p$个数，而每个$j_{k-1}\le i_{k-1},j_{k-2}\le i_{k-2},\dots,j_0\le i_0$都要保证，因此后面这些数一共有$(\dfrac{p(p+1)}{2})^{k+1}$种填法。
+1. $q-1,q-2,\dots 0$这一部分。 $i_{q-1},i_{q-2},\dots,i_0$都可以随便填$0,1,\dots,p-1$这$p$个数，而每个$j_{k-1}\le i_{k-1},j_{k-2}\le i_{k-2},\dots,j_0\le i_0$都要得到保证，因此后面这些数一共有$(\dfrac{p(p+1)}{2})^{k+1}$种填法。
 
 2. $q$自己的一部分。$0\le j_q\le i_q<n_q$，满足这个条件的$(j_q,i_q)$对数为$\dfrac{n_q(n_q+1)}{2}$。
 
@@ -78,4 +82,3 @@ for k in range(len(ls) - 1, -1, -1):
 print(ans)
 
 ```
-

@@ -41,7 +41,7 @@ What is the least value of $n$ for which the number of distinct solutions exceed
 If n = (p1^a1)(p2^a2)...(pt^at), a(n) = ((2*a1 + 1)(2*a2 + 1) ... (2*at + 1) + 1)/2.
 ```
 
-这说明，如果正整数$n$分解为$n=\prod p_i^{e_i}$，那么本题解的个数为$f(n)=\dfrac{(\prod 2e_i+1)+1}{2}$。
+这说明，如果正整数$n$分解为$n=\prod p_i^{e_i}$，那么本题解的个数为$f(n)=\dfrac{\prod(2e_i+1)+1}{2}$。
 
 因此，通过$n$的分解质因数枚举$n$即可，枚举时，为使$n$取到的最小，注意当$e_i>e_j$时，那么$p_i<p_j$。
 
@@ -59,7 +59,7 @@ If n = (p1^a1)(p2^a2)...(pt^at), a(n) = ((2*a1 + 1)(2*a2 + 1) ... (2*at + 1) + 1
 
 而当$x=y=2n$时，满足该等于号。
 
-故方程$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$解的总个数为$f(n)=\dfrac{(\prod 2e_i+1)+1}{2}$。
+故方程$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$解的总个数为$f(n)=\dfrac{\prod (2e_i+1)+1}{2}$。
 
 ## 代码
 

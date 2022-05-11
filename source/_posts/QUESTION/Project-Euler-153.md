@@ -3,13 +3,17 @@ title: Project Euler 153
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-11 19:27:48
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 153
+
 ## 题目
+
 ### Investigating Gaussian Integers
+
 As we all know the equation $x^2=-1$ has no solutions for real $x$.
 
 If we however introduce the imaginary number $i$ this equation has two solutions: $x=i$ and $x=-i$.
@@ -20,7 +24,7 @@ $x=3+2i$ and $x=3-2i$ are called each others’ complex conjugate.
 
 Numbers of the form a+bi are called complex numbers.
 
-In general a+bi and a−bi are each other’s complex 
+In general a+bi and a−bi are each other’s complex
 conjugate.
 
 A Gaussian Integer is a complex number a+bi such that both a and b are integers.
@@ -39,7 +43,7 @@ The result is $\dfrac{5}{1 + 2i} = \dfrac{5}{1 + 2i}\dfrac{1 - 2i}{1 - 2i} = \df
 
 So $1+2i$ is a divisor of $5$.
 
-Note that $1+i$ is not a divisor of $5$ because $\dfrac{5}{1 + i} = \dfrac{5}{2} - \dfrac{5}{2}i$. 
+Note that $1+i$ is not a divisor of $5$ because $\dfrac{5}{1 + i} = \dfrac{5}{2} - \dfrac{5}{2}i$.
 
 Note also that if the Gaussian Integer ($a+bi$) is a divisor of a rational integer $n$, then its complex conjugate ($a−bi$) is also a divisor of $n$.
 In fact, $5$ has six divisors such that the real part is positive: $\{1, 1 + 2i, 1 − 2i, 2 + i, 2 − i, 5\}$.
@@ -57,7 +61,6 @@ The following is a table of all of the divisors for the first five positive rati
 For divisors with positive real parts, then, we have: $\sum \limits_{n = 1}^{5} {s(n)} = 35$.
 For $\sum \limits_{n = 1}^{10^5} {s(n)} = 17924657155$.
 What is $\sum \limits_{n = 1}^{10^8} {s(n)}$?
-
 
 ## 解决方案
 
@@ -81,6 +84,7 @@ $$\sum_{m=1}^N\sum_{g=1}^{\frac{N}{m}}s[m]\cdot g\cdot \dfrac{N}{mg}$$
 
 1. 三个特殊高斯整数$1+0i,1+1i,1-1i$要预处先记录在$s$中，它们的实部和虚部的最大公因数都是$1$。
 2. 本质上，每一对数$(x,y)(x>y>0)$都可以做出$2(x+y)$的贡献，这是因为它可以提供四个高斯整数：$x+yi,x-yi,y+xi,y-xi$。这将枚举量减少到了原来的$\dfrac{1}{4}$.
+
 ## 代码
 
 ```C++
@@ -108,4 +112,3 @@ int main() {
 }
 
 ```
-

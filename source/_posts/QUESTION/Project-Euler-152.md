@@ -4,13 +4,16 @@ tags:
   - Project Euler
   - meet-in-the-middle
 mathjax: true
+date: 2022-05-11 19:27:44
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 152
-## 题目
-### Writing 1/2 as a sum of inverse squares
 
+<escape><!-- more --></escape>
+
+# Project Euler 152
+
+## 题目
+
+### Writing 1/2 as a sum of inverse squares
 
 There are several ways to write the number $\dfrac{1}{2}$ as a sum of inverse squares using *distinct* integers.
 
@@ -23,12 +26,11 @@ In fact, only using integers between $2$ and $45$ inclusive, there are exactly t
 
 How many ways are there to write the number $\dfrac{1}{2}$ as a sum of inverse squares using distinct integers between $2$ and $80$ inclusive?
 
-
 ## 解决方案
+
 本解决方案参考了Thread中的一些内容。
 
 为减少枚举量，进行以下排除：
-
 
 1. 考虑所有质数$p$，令$q=p^r$，其中$r$是使$p^r$不超过$N=80$的最大值。
 
@@ -50,7 +52,6 @@ How many ways are there to write the number $\dfrac{1}{2}$ as a sum of inverse s
 
 更进一步，如果$q=p^r$中的$r$不一定是满足最大值，上述$i_j$也只是满足$\gcd(i_j,q)=1$，那么用类似的方法，可以将$\{16,32,48,80\}$排除。
 
-
 2. 根据上面的排除结果，剩下的数中，$\dfrac{1}{2^2},\dfrac{1}{3^2}$一定是在集合中的，因为缺少了这两个数之一，剩下的分数的和小于$\dfrac{1}{2}$。因此不需要对这两个数枚举，只要在最终和值$\dfrac{1}{2}$中减去即可。
 
 按照上面的方法，最终只需要枚举$27$个数的组合情况。
@@ -58,7 +59,6 @@ How many ways are there to write the number $\dfrac{1}{2}$ as a sum of inverse s
 这里则使用meet-in-the-middle思想：先将分数分成尽量相同大小的两部分，然后子集枚举第一部分，并按子集和$s$将结果存储起来，然后子集枚举第二部分，求出$s'$后，在第一部分的枚举结果中查找有没有那缺失的$s$，使得$s+s'$是原来的问题的解。如果有，那就找到了解。
 
 ## 代码
-
 
 ```py
 from fractions import Fraction

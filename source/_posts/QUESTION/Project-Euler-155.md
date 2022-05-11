@@ -4,18 +4,22 @@ tags:
   - Project Euler
   - OEIS
 mathjax: true
+date: 2022-05-11 19:27:55
 ---
+
 <escape><!-- more --></escape>
 
-
 # Project Euler 155
+
 ## 题目
+
 ### Counting Capacitor Circuits
+
 An electric circuit uses exclusively identical capacitors of the same value $C$.
 
 The capacitors can be connected in series or in parallel to form sub-units, which can then be connected in series or in parallel with other capacitors or other sub-units to form larger sub-units, and so on up to a final circuit.
 
-Using this simple procedure and up to n identical capacitors, we can make circuits having a range of different total capacitances. For example, using up to $n=3$ capacitors of $60\mu F$ each, we can obtain the following $7$ distinct total capacitance values: 
+Using this simple procedure and up to n identical capacitors, we can make circuits having a range of different total capacitances. For example, using up to $n=3$ capacitors of $60\mu F$ each, we can obtain the following $7$ distinct total capacitance values:
 
 ![](../images/p155_capacitors1.gif)
 
@@ -24,7 +28,6 @@ If we denote by $D(n)$ the number of distinct total capacitance values we can ob
 Find $D(18)$.
 
 *Reminder :*  When connecting capacitors $C_1, C_2$ etc in parallel, the total capacitance is $C_T=C_1+C_2+\dots$, whereas when connecting them in series, the overall capacitance is given by:$\dfrac{1}{C_T}=\dfrac{1}{C_1}+\dfrac{1}{C_2}+\dots$.
-
 
 ## 解决方案
 
@@ -36,8 +39,8 @@ Find $D(18)$.
 枚举的思想：如果已经有一对整体的电容值分别是$u,v$，那么分别把这两“块”进行串联或者并联，得到新值$\dfrac{1}{\dfrac{1}{u}+\dfrac{1}{v}},u+v$。
 
 这个数列在OEIS上的查询结果为[A153588](https://oeis.org/A153588)。
-## 代码
 
+## 代码
 
 ```C++
 # include <bits/stdc++.h>

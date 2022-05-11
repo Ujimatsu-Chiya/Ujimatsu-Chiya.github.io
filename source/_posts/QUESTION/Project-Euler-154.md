@@ -3,13 +3,16 @@ title: Project Euler 154
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-11 19:27:51
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 154
-## 题目
-### Exploring Pascal's pyramid
 
+<escape><!-- more --></escape>
+
+# Project Euler 154
+
+## 题目
+
+### Exploring Pascal's pyramid
 
 A triangular pyramid is constructed using spherical balls so that each ball rests on exactly three balls of the next lower level.
 
@@ -24,7 +27,6 @@ Consequently, the number of paths to reach a certain position is the sum of the 
 The result is *Pascal’s pyramid* and the numbers at each level n are the coefficients of the trinomial expansion  $(x + y + z)^n$.
 
 How many coefficients in the expansion of $(x + y + z)^{200000}$ are multiples of $10^{12}$?
-
 
 ## 解决方案
 
@@ -41,7 +43,6 @@ $$(x+y+z)^n=\sum_{i=0}^n\sum_{j=0}^{n-i}C_n^iC_{n-i}^jx^iy^jz^{n-i-j}$$
 不过，由于多项式中的项$x,y,z$是无序的，因此可以通过假定$x,y,z$的次数$i,j,n-i-j$满足$i\le j\le n-i-j$，减少枚举量。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>
