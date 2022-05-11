@@ -2,6 +2,7 @@
 title: Project Euler 155
 tags:
   - Project Euler
+  - OEIS
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -34,6 +35,7 @@ Find $D(18)$.
 
 枚举的思想：如果已经有一对整体的电容值分别是$u,v$，那么分别把这两“块”进行串联或者并联，得到新值$\dfrac{1}{\dfrac{1}{u}+\dfrac{1}{v}},u+v$。
 
+这个数列在OEIS上的查询结果为[A153588](https://oeis.org/A153588)。
 ## 代码
 
 
