@@ -93,7 +93,7 @@ int fun(int x){
 }
 int main(){
     for(int i=2;i<N;i++){
-        for(ll j=1ll*i*i;j<=N;j+=i)
+        for(ll j=1ll*i*i;j<N;j+=i)
             g[j].push_back(i);
     }
     int ans=0;

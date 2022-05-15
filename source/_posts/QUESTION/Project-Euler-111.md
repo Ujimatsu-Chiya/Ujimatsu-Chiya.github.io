@@ -58,7 +58,7 @@ Find the sum of all $S(10, d)$.
 ## 代码
 
 ```py
-from tools import isprime
+from tools import is_prime
 
 N = 10
 

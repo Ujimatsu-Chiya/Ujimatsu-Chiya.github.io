@@ -46,6 +46,13 @@ Find the sum of all values of $e$, $1<e<\varphi(1009,3643)$ and $\gcd(e,\varphi)
 
 ## 解决方案
 
+不难发现，$m^e\equiv m(\mod n)\Rightarrow m^e\equiv m(\mod p)\wedge m^e \equiv m(\mod q)$
+
+容易发现，当$m=0$时，为一个解。其余$m$满足$p \mid m$或者$q\mid m$都不是解。
+
+对于其余情况，不失一般性，仅解$m^e\equiv m(\mod p)$，那么有$m^{e-1}\equiv 1(\mod p)$。
+
+
 
 ## 代码
 

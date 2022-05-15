@@ -9,14 +9,6 @@ mathjax: true
 # Project Euler 163
 ## 题目
 ### Cross-hatched triangles
-
-
-Consider an equilateral triangle in which straight lines are drawn from each vertex to the middle of the opposite side, such as in the <i>size 1</i> triangle in the sketch below.
-<div class="center"><img src="project/images/p163.gif" class="dark_img" alt="" />
-
-# Project Euler 163
-## 题目
-### Cross-hatched triangles
 Consider an equilateral triangle in which straight lines are drawn from each vertex to the middle of the opposite side, such as in the size $1$ triangle in the sketch below.
 
 ![](../images/p163.gif)
