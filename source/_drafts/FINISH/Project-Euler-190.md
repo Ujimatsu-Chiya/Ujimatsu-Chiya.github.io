@@ -34,10 +34,28 @@ $$\mathcal{L}(x_1,x_2,\dots,x_n,\lambda_1,\lambda_2,\dots,\lambda_k)=f(x_1,x_2,\
 
 那么利用拉格朗日乘数法，构造拉格朗日函数：
 
-// 有错
-$$\mathcal{L}(x_1,x_2,\dots,x_n,\lambda)=f(x_1,x_2,\dots,x_n)-\lambda g(x_1,x_2,\dots,x_n)=\sum_{i=1}^m(x_i^i-\lambda x_i)-m$$
+$$\mathcal{L}(x_1,x_2,\dots,x_n,\lambda)=f(x_1,x_2,\dots,x_n)-\lambda g(x_1,x_2,\dots,x_n)=\prod_{i=1}^mx_i^i-\lambda(\sum_{i=1}^mx_i-m)$$
 
 为求最大值，对每个$x_i$求偏导数，有
 
-$$\dfrac{\partial \mathcal{L}}{\partial x_i}=$$
+$$\dfrac{\partial \mathcal{L}}{\partial x_i}=\dfrac{i \cdot f(x_1,x_2,\dots,x_n)}{x_i}-\lambda$$
+
+令$\dfrac{\partial \mathcal{L}}{\partial x_i}=0$，得到$x_i=\dfrac{i \cdot f(x_1,x_2,\dots,x_n)}{\lambda}$。
+
+由这个式子不难发现，$x_i$的值，都是按比例分配的，即$\forall i,j\in[1,m],\dfrac{x_i}{x_j}=\dfrac{i}{j}$。
+
+因此根据$g$这个约束，可以得到最大值点为$x_i=\dfrac{2i}{m+1}$。
+
 ## 代码
+
+```py
+N = 15
+ans = 0
+for m in range(2, N + 1):
+    w = 1
+    for i in range(1, m + 1):
+        w *= (2 * i / (m + 1)) ** i
+    ans += int(w)
+print(ans)
+
+```
