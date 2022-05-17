@@ -21,7 +21,7 @@ Using up to one million tiles how many different square laminae can be formed?
 
 ## 解决方案
 
-令$N=10^6$。假设内部的正方形边长为$a$，边框的宽度为$d$，那么大正方形的边长为$2d+a$，这个边框使用了$(2d+a)^2-a^2=4d(a+d)$.
+令$N=10^6$。假设内部的正方形边长为$a$，边框的宽度为$d$，那么大正方形的边长为$2d+a$，这个边框使用了$(2d+a)^2-a^2=4d(a+d)$个正方形。
 
 那么得到$4d(a+d)\le N$，有$a\le \dfrac{N}{4d}-d$。
 
