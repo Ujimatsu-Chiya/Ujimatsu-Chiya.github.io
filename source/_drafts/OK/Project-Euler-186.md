@@ -29,9 +29,16 @@ From the start of the records, we say that any pair of users $X$ and $Y$ are fri
 
 The Prime Minister’s phone number is $524287$. After how many successful calls, not counting misdials, will $99\%$ of the users (including the PM) be a friend, or a friend of a friend etc., of the Prime Minister?
 
+## 并查集
+
+[并查集](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)：用于高效处理一些不相交集合的数据结构。一般有两个操作：合并两个集合；查询两个元素是否在同一个集合中。
+
+可以通过优化将并查集这两种单次操作优化到$O(\alpha(n))$级别，其中$\alpha(n)$是[反阿克曼函数](https://en.wikipedia.org/wiki/Ackermann_function#Inverse)（一个增长速率非常接近于零的函数）。
+
+
 
 ## 解决方案
-
+本题为并查集的模板题，直接用并查集数据结构实现。
 
 ## 代码
 

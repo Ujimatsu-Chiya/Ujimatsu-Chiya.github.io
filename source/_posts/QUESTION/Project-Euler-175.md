@@ -3,16 +3,18 @@ title: Project Euler 175
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-17 22:21:16
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 175
+
 ## 题目
+
 ### Fractions involving the number of different ways a number can be expressed as a sum of powers of 2
 
-Define $f(0)=1$ and $f(n)$ to be the number of ways to write $n$ as a sum of powers of $2$ where no power occurs more than twice. 
+Define $f(0)=1$ and $f(n)$ to be the number of ways to write $n$ as a sum of powers of $2$ where no power occurs more than twice.
 
 For example, $f(10)=5$ since there are five different ways to express $10$:
 
@@ -29,7 +31,6 @@ Reading this binary number from the most significant bit to the least significan
 Find the Shortened Binary Expansion of the smallest $n$ for which $\dfrac{f(n)}{f(n-1)}=\dfrac{123456789}{987654321}$.
 
 Give your answer as comma separated integers, without any whitespaces.
-
 
 ## 解决方案
 

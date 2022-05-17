@@ -3,7 +3,9 @@ title: Project Euler 190
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-17 22:21:35
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 190

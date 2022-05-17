@@ -3,7 +3,9 @@ title: Project Euler 199
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-17 22:21:01
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 199
@@ -21,9 +23,11 @@ At each iteration, a maximally sized circle is placed in each gap, which creates
 What fraction of the area is not covered by circles after $10$ iterations?
 
 Give your answer rounded to eight decimal places using the format x.xxxxxxxx .
-# 笛卡尔定理
+
+## 笛卡尔定理
 
 ### 曲率
+
 如果一个圆的半径为$r$，那么其曲率$k$满足$|k|=\dfrac{1}{r}$。对于两个圆而言，如果两个圆外切，那么曲率的正负符号相同；如果为内切，那么符号不同。
 
 [笛卡尔定理](https://en.wikipedia.org/wiki/Descartes%27_theorem)：假设$4$个两两相切的圆的曲率分别为$k_1,k_2,k_3,k_4$，且这四个圆两两相切的切点均不同。那么这四个圆的曲率满足：

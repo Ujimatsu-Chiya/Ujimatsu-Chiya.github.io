@@ -3,12 +3,15 @@ title: Project Euler 184
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-17 22:21:26
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 184
+
 ## 题目
+
 ### Triangles containing the origin
 
 Consider the set $I_r$ of points $(x,y)$ with integer co-ordinates in the interior of the circle with radius $r$, centered at the origin, i.e. $x^2 + y^2 < r^2$.
@@ -21,7 +24,6 @@ For a radius of $3$, there are $360$ triangles containing the origin in the inte
 
 How many triangles are there containing the origin in the interior and having all three vertices in $I_{105}$?
 
-
 ## 解决方案
 
 令$N=105$，考虑在$x$轴上方以及$x$周的正半轴所有点$(x,y)$（对这些点更形式化的定义：$0<x^2+y^2<N^2,y>0\vee y=0\wedge x>0$），按照极角统计这些点的数量。
@@ -31,6 +33,7 @@ How many triangles are there containing the origin in the interior and having al
 ![](../images/p184-1.png)
 
 按照极角从小到大分别表示$A,B,C$三个点（其极角分别为$\alpha.\beta,\gamma$），有两种情况：
+
 - 极角在中间的点$B$在$x$轴上面，极角在两侧的点$A,C$的中心对称点$A',C'$在$x$轴下面。
 - 极角在中间的点$B$的中心对称点$B'$在$x$轴下面，极角在两侧的点$A,C$在$x$轴上面。
 
@@ -42,6 +45,7 @@ How many triangles are there containing the origin in the interior and having al
 
 $$\dfrac{s_1^3-3s_1s_2+2s_3}{3}$$
 
+（$O(\log R)$甚至是亚线性做法待补）
 
 ## 代码
 
