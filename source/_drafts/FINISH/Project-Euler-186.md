@@ -40,6 +40,44 @@ The Prime Minister’s phone number is $524287$. After how many successful calls
 ## 解决方案
 本题为并查集的模板题，直接用并查集数据结构实现。
 
+代码中需要维护每个集合的大小。为了避免错误，只有两个元素不属于同一个集合时才需要合并。
 ## 代码
 
 
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N=1000000,P=524287,A=N/100*99;
+const int M=N*5;
+int fa[N],sz[N];
+int find(int x){return x==fa[x]?x:fa[x]=find(fa[x]);}
+void merge(int x,int y){
+    int u=find(x),v=find(y);
+    if(u!=v){
+        fa[u]=v;
+        sz[v]+=sz[u];
+    }
+}
+int s[M];
+int main(){
+    int cnt=0,ans=0;
+    for(int i=0;i<N;i++)
+        fa[i]=i,sz[i]=1;
+    for(int i=1;i<=55;i++)
+        s[i]= (1ll * 300007 * i * i * i + 100003 - 200003 * i) % N;
+    for(int i=56;i<M;i++)
+        s[i]= (s[i - 24] + s[i - 55]) % N;
+    for(int i=2;i<M;i+=2){
+        if(s[i] == s[i - 1]) ++cnt;
+        else{
+            merge(s[i], s[i - 1]);
+            if(sz[find(P)]>=A){
+                ans=i/2-cnt;
+                break;
+            }
+        }
+    }
+    printf("%d\n",ans);
+}
+```
