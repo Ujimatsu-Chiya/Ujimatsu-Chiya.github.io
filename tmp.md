@@ -45,10 +45,4 @@ sudo apt install -fy
 #echo '删除上面已经安装的deb文件' # 有需要则自动删除已安装的deb文件
 
 #rm -vfr ./deepintemp
-————————————————
-版权声明：本文为CSDN博主「zymshouji」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。
-原文链接：https://blog.csdn.net/zymshouji/article/details/120443055
-
-安装sudo apt install libjpeg62:i386，可以解决ubuntu下不能发送微信截图的问题
-
 

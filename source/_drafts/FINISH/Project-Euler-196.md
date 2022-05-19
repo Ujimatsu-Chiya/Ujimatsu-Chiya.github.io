@@ -5,11 +5,11 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-  
 
 # Project Euler 196
+
 ## 题目
+
 ### Prime triplets
 
 Build a triangle from all positive integers in the following way:
@@ -44,7 +44,6 @@ You are given that $S(10000)=950007619$.
 
 Find $S(5678027) + S(7208785)$.
 
-
 ## 解决方案
 
 如果要求第$S(N)$，为确保第$N$行的在质数三元组的数都能够被找到，第$N-2$行到第$N+2$的所有质数都需要每局出来。假设第$N-2$行的第一个质数为$L$，第$N+2$行的最后一个质数为$R$。
@@ -69,7 +68,6 @@ $n$为答案的条件满足这两个之一：内圈中有两个是质数；内�
 本问题还有一些细节，实现时需要注意。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>
