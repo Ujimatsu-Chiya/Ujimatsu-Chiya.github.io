@@ -3,14 +3,15 @@ title: Project Euler 195
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-19 21:56:42
 ---
+
 <escape><!-- more --></escape>
-    
-
-
 
 # Project Euler 195
+
 ## 题目
+
 ### Inscribed circles of triangles with one angle of 60 degrees
 
 Let’s call an integer sided triangle with exactly one angle of $60$ degrees a 60-degree triangle.
@@ -23,9 +24,9 @@ Let $T(n)$ be the number of $60$-degree triangles for which $r \le n$, so $T(100
 
 Find $T(1053779)$.
 
-
 ## 解决方案
-令$N=1053379$。根据余弦定理，假设三角形两边为长度$a,b$，第三条边的长度$c$，其对角为$60\degree$，那么$a,b,c$满足：
+
+令$N=1053379$。根据余弦定理，假设三角形两边为长度$a,b$，第三条边的长度$c$，其对角为$60°$，那么$a,b,c$满足：
 
 $$a^2+b^2-ab=c^2$$
 
@@ -37,7 +38,7 @@ $$a=2mn+n^2,b=2mn+m^2,c=m^2+n^2+mn\qquad(1)$$
 
 $$a=m^2-n^2,b=2mn+m^2,c=m^2+n^2+mn\qquad(2)$$
 
-根据等积法，不难发现内切圆的半径$r$满足$\dfrac{a+b+c}{2}\cdot r=\dfrac{1}{2}ab\sin 60\degree$。
+根据等积法，不难发现内切圆的半径$r$满足$\dfrac{a+b+c}{2}\cdot r=\dfrac{1}{2}ab\sin 60°$。
 
 分别代入式$(1),(2)$，分别得到
 

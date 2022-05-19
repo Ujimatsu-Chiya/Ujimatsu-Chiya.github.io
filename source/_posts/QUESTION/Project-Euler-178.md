@@ -4,13 +4,15 @@ tags:
   - Project Euler
   - 动态规划
 mathjax: true
+date: 2022-05-19 21:56:53
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 178
+
 ## 题目
+
 ### Step Numbers
 
 Consider the number $45656$.
@@ -22,7 +24,6 @@ A number for which every pair of consecutive digits has a difference of one is c
 A pandigital number contains every decimal digit from $0$ to $9$ at least once.
 
 How many pandigital step numbers less than $10^{40}$ are there?
-
 
 ## 解决方案
 

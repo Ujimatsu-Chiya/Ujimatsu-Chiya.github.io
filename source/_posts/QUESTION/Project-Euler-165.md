@@ -3,13 +3,16 @@ title: Project Euler 165
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-19 21:56:46
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 165
-## 题目
-### Intersections
 
+<escape><!-- more --></escape>
+
+# Project Euler 165
+
+## 题目
+
+### Intersections
 
 A segment is uniquely defined by its two endpoints.
 
@@ -43,7 +46,6 @@ The first four numbers computed according to the above generator should be: $27,
 
 How many distinct true intersection points are found among the $5000$ line segments?
 
-
 ## 解决方案
 
 这个问题包含了两个子问题。
@@ -66,7 +68,6 @@ $$A=y_1-y_2,B=x_2-x_1,C=x_1(y_1-y_2)-y_1(x_1-x_2)$$
 这里自定义了一个分数类，用于规避浮点数的误差，所以代码效率可能会比较低。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

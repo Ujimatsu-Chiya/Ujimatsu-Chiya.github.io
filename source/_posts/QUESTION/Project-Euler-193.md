@@ -4,13 +4,15 @@ tags:
   - Project Euler
   - 容斥原理
 mathjax: true
+date: 2022-05-19 21:56:35
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 193
+
 ## 题目
+
 ### Squarefree Numbers
 
 A positive integer $n$ is called squarefree, if no square of a prime divides $n$, thus $1, 2, 3, 5, 6, 7, 10, 11$ are squarefree, but not $4, 8, 9, 12$.
@@ -27,7 +29,7 @@ $$
 \mu(n)=
 \left \{\begin{aligned}
   &1 & & \mathrm{if\quad} n=1 \\
-  &0 & & \mathrm{else if\quad} \exist m\in[1,k],e_m>1 \\
+  &0 & & \mathrm{else if\quad} \text{∃} m\in[1,k],e_m>1 \\
   &(-1)^k & & \mathrm{else}
 \end{aligned}\right.
 $$
@@ -46,7 +48,6 @@ $$
 $$\sum_{k=1}^{\lfloor\sqrt{N}\rfloor} \lfloor\dfrac{N}{k^2}\rfloor\cdot \mu(k)$$
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

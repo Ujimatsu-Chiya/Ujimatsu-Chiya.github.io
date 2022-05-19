@@ -3,12 +3,17 @@ title: Project Euler 170
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-19 21:56:50
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 170
+
 ## 题目
+
 ### Find the largest 0 to 9 pandigital that can be formed by concatenating products
+
 Take the number $6$ and multiply it by each of $1273$ and $9854$:
 
 $6 × 1273 =  7638$<br>
@@ -20,8 +25,8 @@ The same can be done for $0$ to $9$ pandigital numbers.
 
 What is the largest $0$ to $9$ pandigital $10$-digit concatenated product of an integer with two or more other integers, such that the concatenation of the input numbers is also a $0$ to $9$ pandigital 10-digit number?
 
-
 ## 解决方案
+
 假设算式的形式为$a(a_0,a_1,\dots)=(b_0,b_1,\dots)$。
 
 通过枚举搜索答案：
@@ -31,7 +36,6 @@ What is the largest $0$ to $9$ pandigital $10$-digit concatenated product of an 
 3. 为保证搜索效率，可以假设括号$()$中只有两个数$a_0,a_1$，这不影响寻找正确答案。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

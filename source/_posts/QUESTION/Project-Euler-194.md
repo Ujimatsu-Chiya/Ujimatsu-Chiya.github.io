@@ -3,12 +3,15 @@ title: Project Euler 194
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-19 21:56:38
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 194
+
 ## 题目
+
 ### Coloured Configurations
 
 Consider graphs built with the units A: ![](../images/p194_GraphA.png) and B: ![](../images/p194_GraphB.png), where the units are glued along the vertical edges as in the graph ![](../images/p194_Fig.png).
@@ -35,12 +38,11 @@ $$f(G)=f(G\setminus e)+f(G/e)$$
 
 [色多项式](https://en.wikipedia.org/wiki/Chromatic_polynomial)$P(G,x)$，表示一个无向图$G=(V,E)$用$x$种颜色进行着色的方案数量，其中相邻两点颜色不同。这个多项式有以下特点：
 
-- 最高次数为$|V|$ 
+- 最高次数为$|V|$
 - 最高次数的项系数为$1$
 - 所有项的系数都为整数
 
-可以利用删除-收缩公式递归地求解该色多项式$P(G,x)$。不难发现，当一个图$G$没有任何边时，$P(G,x)=x^{|V|}$，这也是删除收缩公式的递归终点。
-
+可以利用删除-收缩公式递归地求解该色多项式$P(G,x)$。不难发现，当一个图$G$没有任何边时，$P(G,x)=x^{|V|}$，这也是删除-收缩公式的递归终点。
 
 ## 解决方案
 
@@ -55,7 +57,9 @@ $$P(B,x)=x^7-9x^6+ 35 x^5-77 x^4+102x^3-76x^2+24x$$
 $$\dfrac{C_{a+b}^aP^a(A,c)P^b(B,c)}{(c(c-1))^{a+b-1}}$$
 
 注意到两个相邻单元之间染色的点是合在一起的，因此需要除回$c(c-1)$。
+
 ## 代码
+
 ```py
 from tools import C
 
@@ -69,4 +73,3 @@ ans = C(A + B, B) * pow(pA, A) * pow(pB, B) // (C * (C - 1)) ** (A + B - 1) % mo
 print(ans)
 
 ```
-

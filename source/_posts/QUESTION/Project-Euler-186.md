@@ -3,14 +3,19 @@ title: Project Euler 186
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-19 21:57:01
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 186
+
 ## 题目
+
 ### Connectedness of a network
 
 Here are the records from a busy telephone system with one million users:
+
 |Rec Nr|Caller|Called|
 |-|-|-|
 |$1$|$200007$|$100053$|
@@ -35,14 +40,13 @@ The Prime Minister’s phone number is $524287$. After how many successful calls
 
 可以通过优化将并查集这两种单次操作优化到$O(\alpha(n))$级别，其中$\alpha(n)$是[反阿克曼函数](https://en.wikipedia.org/wiki/Ackermann_function#Inverse)（一个增长速率非常接近于零的函数）。
 
-
-
 ## 解决方案
+
 本题为并查集的模板题，直接用并查集数据结构实现。
 
 代码中需要维护每个集合的大小。为了避免错误，只有两个元素不属于同一个集合时才需要合并。
-## 代码
 
+## 代码
 
 ```C++
 #include <bits/stdc++.h>

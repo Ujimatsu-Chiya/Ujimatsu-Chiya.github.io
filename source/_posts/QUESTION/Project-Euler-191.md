@@ -4,13 +4,15 @@ tags:
   - Project Euler
   - 动态规划
 mathjax: true
+date: 2022-05-19 21:57:05
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 191
+
 ## 题目
+
 ### Prize Strings
 
 A particular school offers cash rewards to children with good attendance and punctuality. If they are absent for three consecutive days or late on more than one occasion then they forfeit their prize.
@@ -27,7 +29,6 @@ AALO AALA ALOO ALOA ALAO ALAA LOOO LOOA LOAO LOAA<br>
 LAOO LAOA LAAO</span>
 
 How many “prize” strings exist over a $30$-day period?
-
 
 ## 解决方案
 
@@ -54,7 +55,6 @@ $$
 如果考虑上字母L，可以整合成一个$6$个状态的动态规划。在这个基础上，可以使用矩阵快速幂将整个流程加速到$O(\log n)$级别（这并非是本方案的核心内容）。[Leetcode 552](https://leetcode.cn/problems/student-attendance-record-ii/solution/xue-sheng-chu-qin-ji-lu-ii-by-leetcode-s-kdlm/)题解有对本题的更进一步的优化。
 
 ## 代码
-
 
 ```py
 N = 30

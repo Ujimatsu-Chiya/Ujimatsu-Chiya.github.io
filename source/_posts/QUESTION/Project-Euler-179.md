@@ -3,16 +3,18 @@ title: Project Euler 179
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-19 21:56:57
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 179
+
 ## 题目
+
 ### Consecutive positive divisors
 
 Find the number of integers $1 < n < 10^7$, for which $n$ and $n + 1$ have the same number of positive divisors. For example, $14$ has the positive divisors $1, 2, 7, 14$ while $15$ has $1, 3, 5, 15$.
-
 
 ## 解决方案
 
@@ -23,8 +25,8 @@ $v[i]$是$i$最小的质因数。如果用比$v[i]$更小的质因数$p$产生�
 如果$p=v[i]$，那么按照上面的说法，产生出来的因数是有重复的。假设$i$分解质因数后质因数$p$的次数为$e$，那么$p,p^2,\dots,p^e$都是重复的一部分，而这一部分因数的数量恰好和$\dfrac{i}{p}$因数数量相等，因此需要减去这一部分。
 
 计算完因数个数函数后，直接进行判断。
-## 代码
 
+## 代码
 
 ```C++
 #include <bits/stdc++.h>
