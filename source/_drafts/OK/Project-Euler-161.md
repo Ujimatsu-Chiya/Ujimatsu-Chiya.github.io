@@ -34,3 +34,56 @@ In how many ways can a $9$ by $12$ grid be tiled in this way by triominoes?
 ## 代码
 
 
+```py
+N, M = 9, 12
+triomino_ls = [
+    [(0, 0), (1, 0), (0, 1)],
+    [(0, 0), (1, 0), (1, 1)],
+    [(0, 0), (0, 1), (1, 1)],
+    [(0, 0), (1, 0), (1, -1)],
+    [(0, 0), (0, 1), (0, 2)],
+    [(0, 0), (1, 0), (2, 0)],
+]
+if M > N:
+    N, M = M, N
+
+
+def get_empty(grid: tuple):
+    for i in range(len(grid)):
+        if grid[i] != (1 << M) - 1:
+            for j in range(M):
+                if (grid[i] >> j & 1) == 0:
+                    return i, j
+    return None
+
+
+def place_triomino(grid: tuple, x: int, y: int, id: int):
+    tp = list(grid)
+    for dx, dy in triomino_ls[id]:
+        nx, ny = x + dx, y + dy
+        if nx < 0 or ny < 0 or nx >= len(grid) or ny >= M or tp[nx] >> ny & 1:
+            return None
+        tp[nx] |= 1 << ny
+    while len(tp) > 0 and tp[0] == (1 << M) - 1:
+        del tp[0]
+    return tuple(tp)
+
+
+cnt = M * N // 3
+st = tuple(0 for i in range(N))
+f = [{} for i in range(cnt + 1)]
+f[0][st] = 1
+for i in range(cnt):
+    for grid, val in f[i].items():
+        x, y = get_empty(grid)
+        for k in range(6):
+            next = place_triomino(grid, x, y, k)
+            if next is None:
+                continue
+            if next not in f[i + 1].keys():
+                f[i + 1][next] = 0
+            f[i + 1][next] += val
+ans = list(f[cnt].values())[0]
+print(ans)
+
+```
