@@ -17,7 +17,7 @@ Let ABCD be a convex quadrilateral, with diagonals AC and BD. At each vertex the
 
 For example, at vertex $A$, the two angles are $CAD, CAB$.
 
-We call such a quadrilateral for which all eight corner angles have integer values when measured in degrees an “integer angled quadrilateral”. An example of an integer angled quadrilateral is a square, where all eight corner angles are $45\degree$. Another example is given by $DAC = 20\degree, BAC = 60\degree, ABD = 50\degree, CBD = 30\degree, BCA = 40\degree, DCA = 30\degree, CDB = 80\degree, ADB = 50\degree$.
+We call such a quadrilateral for which all eight corner angles have integer values when measured in degrees an “integer angled quadrilateral”. An example of an integer angled quadrilateral is a square, where all eight corner angles are $45°$. Another example is given by $DAC = 20°, BAC = 60°, ABD = 50°, CBD = 30°, BCA = 40°, DCA = 30°, CDB = 80°, ADB = 50°$.
 
 What is the total number of non-similar integer angled quadrilaterals?
 
