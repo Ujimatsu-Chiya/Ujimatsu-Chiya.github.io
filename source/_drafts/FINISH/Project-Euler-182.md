@@ -52,18 +52,36 @@ Find the sum of all values of $e$, $1<e<\varphi(1009,3643)$ and $\gcd(e,\varphi)
 
 对于其余情况，不失一般性，仅解$m^e\equiv m(\mod p)$，那么有$m^{e-1}\equiv 1(\mod p)$。
 
-原问题转化成关于$m$的方程$m^{e-1}\equiv 1(\mod p)$有多少个解集。
+原问题转化成关于$m$的方程$m^{e-1}\equiv 1(\mod p)$有多少个解。令$r=e-1$。
 
 设$g$为群$\mathbb{Z}_p^*$中的一个原根（原根：对于群元素$g$，假设$x$是满足$g^x\equiv1(\mod p)$的最小正整数，如果$x=p-1$，那么$g$为群$\mathbb{Z}_p^*$）。根据原根的定义，对于任意整数$i\in\{0,1,\dots,p-2\}$，$g^i$都可以和群元素$a$一一对应。
 
+令$m=g^i$，那么问题转化成$g^{ri}\equiv1(\mod p)$有多少个$i$是满足此式的。也就是说，有多少个$i$满足$ri\equiv0(\mod p-1)$，即$p-1\mid ri$。
 
+令$d=\gcd(p-1,r)$，那么就得到$\dfrac{p-1}{d}\mid i$。因此，这样的$i$一共有$d$个。
+
+回到原来的题目，那么关于$m$的方程$m^{e-1}\equiv 1(\mod p)$一共有$\gcd(p-1,e-1)$个解。
+
+利用中国剩余定理的思想，并加上$m=0$的情况，关于$m$的方程$m^e\equiv m(\mod n)$一共有$(1+\gcd(p-1,e-1))(1+\gcd(q-1,e-1))$个解。
+
+一个优化：由于$\gcd(e,\varphi)=1$，因此$e$必须是奇数。所以对于上面的式子而言，$\gcd(p-1,e-1),\gcd(q-1,e-1)$的值至少为$2$。可以发现将会存在$e$满足这两个$\gcd$的值都为2$。
+
+更进一步的优化：事先寻找出所有模$p-1(q-1)$为$2$的值，然后通过中国剩余定理进行合并。此处不详述这个优化。
 
 ## 代码
 
-设$\lambda_p(a)$表示群元素$a$在模质数$p$乘法群$\mathbb{Z}_p^*$中的阶，即$\lambda_p(a)=x$表示最小的正整数$x$使得$a^x\equiv1(\mod p)$。根据费马小定理，有$\lambda_p(a)\mid\varphi(p)$。
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int P=1009,Q=3643;
+int n=P*Q,phi=(P-1)*(Q-1);
+int main(){
+    ll ans=0;
+    for(int e=2;e<phi;e++)
+        if(__gcd(e,phi)==1&&__gcd(e-1,P-1)==2&&__gcd(e-1,Q-1)==2)
+            ans+=e;
+    printf("%lld\n",ans);
+}
 
-
-对于群$\mathbb{Z}_p^*$中的任意一个元素$\{1,2,\dots,p-1\}$，
-
-
-因此，如果一个整数$k$满足$a^k\equiv1(\mod p)$，那么$\lambda_p(a)\mid k$。
+```
