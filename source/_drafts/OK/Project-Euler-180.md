@@ -48,3 +48,69 @@ Find $u + v$.
 ## 代码
 
 
+```C++
+# include <bits/stdc++.h>
+using namespace std;
+const int N = 35;
+typedef long long ll;
+struct Fraction {
+    ll num, den;
+    Fraction() {}
+    Fraction(ll x, ll y = 1) {
+        ll g = __gcd(x, y);
+        num = x / g;
+        den = y / g;
+        if (den < 0) num = -num, den = -den;
+    }
+    Fraction rev() {
+        return {den, num};
+    }
+    Fraction operator+(Fraction f) const {
+        return {num * f.den + f.num * den, den * f.den};
+    }
+    Fraction operator*(Fraction f) const {
+        return {num * f.num, den * f.den};
+    }
+    Fraction operator/(Fraction f) const {
+        return {num * f.den, den * f.num};
+    }
+    bool operator<(Fraction f) const {
+        return num * f.den < den * f.num;
+    }
+};
+set<Fraction>st;
+map<Fraction,Fraction>sq;
+int main() {
+    for (int b = 1; b <= N; b++) {
+        for (int a = 1; a < b; a++) {
+            if (__gcd(a, b) == 1) {
+                st.insert(Fraction(a, b));
+                sq[Fraction(a * a, b * b)] = Fraction(a, b);
+            }
+        }
+    }
+    set<Fraction> ans;
+    vector<Fraction> v(st.begin(), st.end());
+    for (int i = 0; i < v.size(); i++) {
+        for (int j = i; j < v.size(); j++) {
+            Fraction &x = v[i], &y = v[j];
+            Fraction a = x + y;
+            if (st.count(a)) ans.insert(a + x + y);
+            a = (x * y) / (x + y);
+            if (st.count(   a)) ans.insert(a + x + y);
+            Fraction a2 = x * x + y * y;
+            if (sq.count(a2))
+                ans.insert(sq[a2] + x + y);
+            a2 = (x * x * y * y) / (x * x + y * y);
+            if (sq.count(a2))
+                ans.insert(sq[a2] + x + y);
+        }
+    }
+    Fraction f(1);
+    for (Fraction w: ans) {
+        f = f + w;
+        printf("%lld/%lld\n",w.num,w.den);
+    }
+    printf("%lld %lld\n", f.num, f.den);
+}
+```
