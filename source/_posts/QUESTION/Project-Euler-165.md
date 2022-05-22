@@ -85,7 +85,7 @@ struct Fraction {
         ll g = __gcd(x, y);
         num = x / g;
         den = y / g;
-        if (num < 0) num = -num, den = -den;
+        if (den < 0) num = -num, den = -den;
     }
 };
 struct P {

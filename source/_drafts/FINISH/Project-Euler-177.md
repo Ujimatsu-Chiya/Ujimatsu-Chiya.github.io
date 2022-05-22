@@ -32,6 +32,8 @@ Note: In your calculations you may assume that a calculated angle is integral if
 
 具体过程见代码。
 
+加上旋转，翻转后有八种方案，我们只保留其中一种。
+
 ## 代码
 
 本代码根据题目下Thread的一份代码进行优化修改。
@@ -82,7 +84,7 @@ int main() {
                     if (h > hs(ADB, CDB, ACD, BCA)) continue;
                     ++ans;
                 }
-    printf("%d\n ", ans);
+    printf("%d\n", ans);
     return 0;
 }
 
