@@ -21,6 +21,8 @@ How many ambiguous numbers $x=\dfrac{p}{q}$, $0 < x < \dfrac{1}{100}$, are there
 ## 解决方案
 
 
+
+
 ## 代码
 
 
