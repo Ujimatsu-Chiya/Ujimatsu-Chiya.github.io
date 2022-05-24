@@ -1,0 +1,47 @@
+---
+title: Project Euler 748
+tags:
+  - Project Euler
+mathjax: true
+---
+<escape><!-- more --></escape>
+    
+# Project Euler 748
+## 题目
+### Upside down Diophantine equation
+
+
+Upside Down is a modification of the famous Pythagorean equation:
+\begin{align}
+\frac{1}{x^2}+\frac{1}{y^2}=\frac{13}{z^2}
+\end{align}
+
+
+A solution $(x,y,z)$  to this equation with $x,y$ and $z$ positive integers is a primitive solution if $\gcd(x,y,z)=1$.
+
+
+Let $S(N)$ be the sum of $x+y+z$ over primitive Upside Down solutions such that $1 \leq x,y,z \leq N$ and $x \le y$. <br />
+For $N=100$ the primitive solutions are $(2,3,6)$ and $(5,90,18)$, thus $S(10^2)=124$.<br />
+It can be checked that $S(10^3)=1470$ and $S(10^5)=2340084$.
+
+
+Find $S(10^{16})$ and give the last 9 digits as your answer.
+
+
+
+# Project Euler 748
+## 题目
+### Upside down Diophantine equation
+
+Upside Down is a modification of the famous Pythagorean equation:<br>$$\frac{1}{x^2}+\frac{1}{y^2}=\frac{13}{z^2}$$
+A solution $(x,y,z)$  to this equation with $x,y$ and $z$ positive integers is a primitive solution if $\gcd(x,y,z)=1$.
+Let $S(N)$ be the sum of $x+y+z$ over primitive Upside Down solutions such that $1 \leq x,y,z \leq N$ and $x \le y$.<br>For $N=100$ the primitive solutions are $(2,3,6)$ and $(5,90,18)$, thus $S(10^2)=124$.<br>It can be checked that $S(10^3)=1470$ and $S(10^5)=2340084$.
+Find $S(10^{16})$ and give the last $9$ digits as your answer.
+
+
+## 解决方案
+
+
+## 代码
+
+
