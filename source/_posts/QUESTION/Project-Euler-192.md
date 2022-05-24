@@ -28,7 +28,7 @@ Find the sum of all denominators of the best approximations to $\sqrt{n}$ for th
 
 令$M=10^{12}$。如果需要求无理数$\sqrt{n}$的有理近似，那么我们将在[Stern-Brocot Tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree)上“尝试”查找这个数。（这里使用的Stern-Brocot Tree是全体最简分数，因此最小值为$0$，最大值则推广到无穷。）
 
-最终，寻找到两个候选答案$\dfrac{a}{c},\dfrac{b}{d}$，满足$\dfrac{a}{c} <\sqrt{n}< \dfrac{b}{d} ,c,d \le M $。判断这两个分数谁比较接近即可。
+最终，寻找到两个候选答案$\dfrac{a}{c},\dfrac{b}{d}$，满足$\dfrac{a}{c}<\sqrt{n}<\dfrac{b}{d},c,d \le M$。判断这两个分数谁比较接近即可。
 
 为了避免浮点数产生的误差，进行浮点数比较时会转成整数之间的比较：
 
