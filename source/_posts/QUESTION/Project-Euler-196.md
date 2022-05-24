@@ -3,7 +3,9 @@ title: Project Euler 196
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-24 11:02:14
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 196
@@ -13,6 +15,7 @@ mathjax: true
 ### Prime triplets
 
 Build a triangle from all positive integers in the following way:
+
 ||||||||||||
 |-|-|-|-|-|-|-|-|-|-|-|
 |$1$|||||||||||

@@ -3,12 +3,15 @@ title: Project Euler 177
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-24 11:02:21
 ---
+
 <escape><!-- more --></escape>
-    
-    
+
 # Project Euler 177
+
 ## 题目
+
 ### Integer angled Quadrilaterals
 
 Let ABCD be a convex quadrilateral, with diagonals AC and BD. At each vertex the diagonal makes an angle with each of the two sides, creating eight corner angles.
@@ -22,7 +25,6 @@ We call such a quadrilateral for which all eight corner angles have integer valu
 What is the total number of non-similar integer angled quadrilaterals?
 
 Note: In your calculations you may assume that a calculated angle is integral if it is within a tolerance of $10^{-9}$ of an integer value.
-
 
 ## 解决方案
 

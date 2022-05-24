@@ -3,12 +3,15 @@ title: Project Euler 182
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-24 11:02:33
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 182
+
 ## 题目
+
 ### RSA encryption
 
 The RSA encryption is based on the following procedure:
@@ -43,7 +46,6 @@ Choose $p=1009$ and $q=3643$.
 
 Find the sum of all values of $e$, $1<e<\varphi(1009,3643)$ and $\gcd(e,\varphi)=1$, so that the number of unconcealed messages for this value of $e$ is at a minimum.
 
-
 ## 解决方案
 
 不难发现，$m^e\equiv m(\mod n)\Rightarrow m^e\equiv m(\mod p)\wedge m^e \equiv m(\mod q)$
@@ -64,7 +66,7 @@ Find the sum of all values of $e$, $1<e<\varphi(1009,3643)$ and $\gcd(e,\varphi)
 
 利用中国剩余定理的思想，并加上$m=0$的情况，关于$m$的方程$m^e\equiv m(\mod n)$一共有$(1+\gcd(p-1,e-1))(1+\gcd(q-1,e-1))$个解。
 
-一个优化：由于$\gcd(e,\varphi)=1$，因此$e$必须是奇数。所以对于上面的式子而言，$\gcd(p-1,e-1),\gcd(q-1,e-1)$的值至少为$2$。可以发现将会存在$e$满足这两个$\gcd$的值都为2$。
+一个优化：由于$\gcd(e,\varphi)=1$，因此$e$必须是奇数。所以对于上面的式子而言，$\gcd(p-1,e-1),\gcd(q-1,e-1)$的值至少为$2$。可以发现将会存在$e$满足这两个$\gcd$的值都为$2$。
 
 更进一步的优化：事先寻找出所有模$p-1(q-1)$为$2$的值，然后通过中国剩余定理进行合并。此处不详述这个优化。
 

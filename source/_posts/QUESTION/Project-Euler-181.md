@@ -5,12 +5,15 @@ tags:
   - 动态规划
   - OEIS
 mathjax: true
+date: 2022-05-24 11:02:29
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 181
+
 ## 题目
+
 ### Investigating in how many ways objects of two different colours can be grouped
 
 Having three black objects B and one white object W they can be grouped in 7 ways like this:
@@ -21,7 +24,6 @@ Having three black objects B and one white object W they can be grouped in 7 way
 
 In how many ways can sixty black objects B and forty white objects W be  thus grouped?
 
-
 ## 解决方案
 
 令$N=60,M=40$。不难发现，一个**非空**的内部组合一共有$O=(N+1)(M+1)-1$种不同情况。
@@ -31,7 +33,6 @@ In how many ways can sixty black objects B and forty white objects W be  thus gr
 如果第$k$种内部组合已经出现了，那么以后就只能使用$k,k+1,\dots,O$的内部组合，不能再使用以前的组合。
 
 那么，使用动态规划的方法进行计数。令$f(i,j,k)(0\le i\le N,0\le j\le M,0\le k\le O)$表示已经使用了$i$个黑色物体和$j$个白色物体，内部组合使用序号已经到达了$k$的情况。
-
 
 $$
 f(i,j,k)=
@@ -64,8 +65,8 @@ G.f.: Product_{ i=1..infinity, j=0..i} 1/(1-x^(i-j)*y^j).
 $$G(x,y)=\prod_{k=1}^{\infty}\prod_{j=0}^k\dfrac{1}{1-x^{k-j}y^j}$$
 
 其中，$x^Ny^M$的系数即为所求答案。
-## 代码
 
+## 代码
 
 ```C++
 #include <bits/stdc++.h>

@@ -3,12 +3,17 @@ title: Project Euler 163
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-24 11:02:10
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 163
+
 ## 题目
+
 ### Cross-hatched triangles
+
 Consider an equilateral triangle in which straight lines are drawn from each vertex to the middle of the opposite side, such as in the size $1$ triangle in the sketch below.
 
 ![](../images/p163.gif)
@@ -24,10 +29,9 @@ $T(2) = 104$
 
 Find $T(36)$.
 
-
 ## 解决方案
 
-为了避免答案因小数出现精度问题，我们决定将整个三角形进行拉伸变换，这将不会影响原来三角形的所有点、线相对位置。如下图所示，如果原来的单独一个等边三角形的边长为$2$，那么边长将拉伸到原来的$2$倍数；其高为$\sqrt{3}$，拉伸到原来的$2\sqrt{3}$倍长度。可以发现，这些点的坐标都已经变成了整数，因此后面就不需要考虑精度的事情。
+为了避免答案因小数出现精度问题，我们决定将整个三角形进行拉伸变换，这将不会影响原来三角形的所有点、线相对位置。如下图所示，如果原来的单独一个等边三角形的边长为$2$，那么边长将拉伸到原来的$2$倍数；其高为$\sqrt{3}$，拉伸到原来的$2\sqrt{3}$倍长度。可以发现，这些点的坐标都已经变成了整数。
 
 ![](../images/p163-1.png)
 
@@ -45,7 +49,6 @@ a(n) = (1678*n^3+3117*n^2+88*n-345*Mod[n,2]-320*Mod[n,3]-90*Mod[n,4]-288*Mod[n^3
 $$T(n)=\dfrac{1678n^3+3117n^2+88n-345\cdot(n\%2)-320\cdot(n\%3)-90\cdot(n\%4)-288\cdot ((n^3-n^2+n)\%5)}{240}$$
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>
