@@ -2,6 +2,7 @@
 title: Project Euler 167
 tags:
   - Project Euler
+  - 论文
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -23,6 +24,11 @@ Find $\sum U(2,2n+1)_k$ for $2 \leq n \leq 10$, where k = $10^{11}$.
 
 
 ## 解决方案
+
+这篇[文章](http://projecteuclid.org/download/pdf_1/euclid.em/1048709116)提到，形如$U(2,2n+1),n\ge 2$的乌拉姆序列，有且仅有两个项是偶数，分别为$2$和$4n+4$。
+
+
+这个[页面](https://mathworld.wolfram.com/UlamSequence.html)提到：如果乌拉姆序列中偶数的个数是有限的，那么它的差分序列是周期的。
 
 
 ## 代码
