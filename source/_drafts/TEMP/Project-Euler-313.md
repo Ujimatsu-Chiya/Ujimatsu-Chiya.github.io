@@ -1,0 +1,45 @@
+---
+title: Project Euler 313
+tags:
+  - Project Euler
+mathjax: true
+---
+<escape><!-- more --></escape>
+    
+# Project Euler 313
+## 题目
+### Sliding game
+
+In a sliding game a counter may slide horizontally or vertically into an empty space. The objective of the game is to move the red counter from the top left corner of a grid to the bottom right corner; the space always starts in the bottom right corner. For example, the following sequence of pictures show how the game can be completed in five moves on a 2 by 2 grid.
+
+<div align="center"><img src="project/images/p313_sliding_game_1.gif" alt="p313_sliding_game_1.gif" /></div>
+
+Let S(m,n) represent the minimum number of moves to complete the game on an m by n grid. For example, it can be verified that S(5,4) = 25.
+
+<div align="center"><img src="project/images/p313_sliding_game_2.gif" alt="p313_sliding_game_2.gif" /></div>
+
+There are exactly 5482 grids for which S(m,n) = p^2, where p < 100 is prime.
+
+How many grids does S(m,n) = p^2, where p < 10^6 is prime?
+
+
+# Project Euler 313
+## 题目
+### Sliding game
+
+In a sliding game a counter may slide horizontally or vertically into an empty space. The objective of the game is to move the red counter from the top left corner of a grid to the bottom right corner; the space always starts in the bottom right corner. For example, the following sequence of pictures show how the game can be completed in five moves on a 2 by 2 grid.
+<center><img src="https://projecteuler.net/project/images/p313_sliding_game_1.gif"></center>
+
+Let S(m,n) represent the minimum number of moves to complete the game on an m by n grid. For example, it can be verified that S(5,4) = 25.
+<center><img src="https://projecteuler.net/project/images/p313_sliding_game_2.gif"></center>
+
+There are exactly 5482 grids for which S(m,n) = p^2, where p < 100 is prime.
+How many grids does S(m,n) = p^2, where p < 10^6 is prime?
+
+
+## 解决方案
+
+
+## 代码
+
+
