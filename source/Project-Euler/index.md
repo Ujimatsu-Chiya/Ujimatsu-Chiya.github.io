@@ -72,7 +72,7 @@ date: 2022-04-30 19:47:58
 |[64](../QUESTION/Project-Euler-64)|[164](../QUESTION/Project-Euler-164)|-|-|-|-|-|-|
 |[65](../QUESTION/Project-Euler-65)|[165](../QUESTION/Project-Euler-165)|-|-|-|-|-|-|
 |[66](../QUESTION/Project-Euler-66)|[166](../QUESTION/Project-Euler-166)|-|-|-|-|-|-|
-|[67](../QUESTION/Project-Euler-67)|-|-|-|-|-|-|-|
+|[67](../QUESTION/Project-Euler-67)|[167](../QUESTION/Project-Euler-167)|-|-|-|-|-|-|
 |[68](../QUESTION/Project-Euler-68)|[168](../QUESTION/Project-Euler-168)|-|-|-|-|-|-|
 |[69](../QUESTION/Project-Euler-69)|[169](../QUESTION/Project-Euler-169)|-|-|-|-|-|-|
 |[70](../QUESTION/Project-Euler-70)|[170](../QUESTION/Project-Euler-170)|-|-|-|-|-|-|
