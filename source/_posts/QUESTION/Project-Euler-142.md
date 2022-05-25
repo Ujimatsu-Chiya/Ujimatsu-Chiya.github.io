@@ -18,7 +18,8 @@ Find the smallest $x + y + z$ with integers $x > y > z > 0$ such that $x + y, x 
 
 ## 解决方案
 
-令这六个数分别为六个平方数
+令这六个数分别为六个平方数：
+
 $\begin{aligned}
 &x+y=a^2\\
 &x-y=b^2\\

@@ -15,7 +15,7 @@ date: 2022-05-06 22:24:41
 
 ### Efficient exponentiation
 
-The most naive way of computing n^15 requires fourteen multiplications:
+The most naive way of computing $n^{15}$ requires fourteen multiplications:
 
 $n \times n \times \dots \times n = n^{15}$
 

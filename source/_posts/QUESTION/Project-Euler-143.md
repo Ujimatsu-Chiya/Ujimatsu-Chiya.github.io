@@ -30,7 +30,7 @@ Find the sum of all distinct values of $p + q + r \leq 120000$ for Torricelli tr
 
 在[本页面](https://mathworld.wolfram.com/FermatPoints.html)中找到了关于费马点的性质（其实也可以由四点共圆推出）：
 
-$$\angle ATB=\angle BTC=\angle CTA=120\degree$$
+$$\angle ATB=\angle BTC=\angle CTA=120°$$
 
 因此，根据余弦定理，可以列出如下式子：
 

@@ -78,6 +78,7 @@ $$(k^2+4)x^2+2bkx+b^2-100=0$$
 ## 代码
 
 ```py
+x1, y1, x2, y2 = 0.0, 10.1, 1.4, -9.6
 def solve(x1, y1, x2, y2):
     cnt = 1
     x, y = x2, y2
@@ -100,6 +101,7 @@ def solve(x1, y1, x2, y2):
     return cnt
 
 
-print(solve(0.0, 10.1, 1.4, -9.6))
+ans = solve(0.0, 10.1, 1.4, -9.6)
+print(ans)
 
 ```

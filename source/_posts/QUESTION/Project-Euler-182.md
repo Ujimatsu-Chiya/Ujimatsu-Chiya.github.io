@@ -36,7 +36,7 @@ An issue when choosing e is that there should not be too many unconcealed messag
 
 For instance, let $p=19$ and $q=37$.
 
-Then $n=19*37=703$ and $\varphi=18*36=648$.
+Then $n=19\times37=703$ and $\varphi=18\times36=648$.
 
 If we choose $e=181$, then, although $\gcd(181,648)=1$ it turns out that all possible messages $m (0\le m\le n-1)$ are unconcealed when calculating $m^e \mod n$.
 
@@ -56,7 +56,7 @@ Find the sum of all values of $e$, $1<e<\varphi(1009,3643)$ and $\gcd(e,\varphi)
 
 原问题转化成关于$m$的方程$m^{e-1}\equiv 1(\mod p)$有多少个解。令$r=e-1$。
 
-设$g$为群$\mathbb{Z}_p^*$中的一个原根（原根：对于群元素$g$，假设$x$是满足$g^x\equiv1(\mod p)$的最小正整数，如果$x=p-1$，那么$g$为群$\mathbb{Z}_p^*$）。根据原根的定义，对于任意整数$i\in\{0,1,\dots,p-2\}$，$g^i$都可以和群元素$a$一一对应。
+设$g$为群$\mathbb{Z}_p^{\star}$中的一个原根（原根：对于群元素$g$，假设$x$是满足$g^x\equiv1(\mod p)$的最小正整数，如果$x=p-1$，那么$g$为群$\mathbb{Z}_p^{\star}$）。根据原根的定义，对于任意整数$i\in\{0,1,\dots,p-2\}$，$g^i$都可以和群元素$a$一一对应。
 
 令$m=g^i$，那么问题转化成$g^{ri}\equiv1(\mod p)$有多少个$i$是满足此式的。也就是说，有多少个$i$满足$ri\equiv0(\mod p-1)$，即$p-1\mid ri$。
 
