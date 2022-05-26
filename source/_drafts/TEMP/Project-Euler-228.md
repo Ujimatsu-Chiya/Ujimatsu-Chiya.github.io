@@ -9,7 +9,8 @@ mathjax: true
 # Project Euler 228
 ## 题目
 ### Minkowski Sums
-
+
+
 Let <var>S</var>_n be the regular <var>n</var>-sided polygon – or <i>shape</i> – whose vertices 
 
 <var>v</var>_<var>k</var> (<var>k</var> = 1,2,\dots,<var>n</var>) have coordinates:
@@ -39,17 +40,19 @@ How many sides does <var>S</var>_1864 + <var>S</var>_1865 + \dots + 
 ## 题目
 ### Minkowski Sums
 
-Let S_n be the regular n-sided polygon – or <i>shape</i> – whose vertices v_k (k&thinsp;=&thinsp;1,2,\dots,n) have coordinates:
-<center>$x_k= \text{cos(}\frac{2k-1}{n} \times 180^\circ \text{)}$
-$y_k= \text{sin(}\frac{2k-1}{n} \times 180^\circ \text{)}$
-</center>
+Let $S_n$ be the regular $n$-sided polygon – or *shape* – whose vertices $v_k (k=1,2,\dots,n)$ have coordinates:
 
-Each S_n is to be interpreted as a filled shape consisting of all points on the perimeter and in the interior.
-The <i>Minkowski sum</i>, S+T, of two shapes S and T is the result of adding every point in S to every point in T, where point addition is performed coordinate-wise: (u,&thinsp;v) + (x,&thinsp;y) = (u+x,&thinsp;v+y).
-For example, the sum of S_3 and S_4 is the six-sided shape shown in pink below:
-<center><img src="https://projecteuler.net/project/images/p228.png" alt="picture showing S_3 + S_4"></center>
+$$x_k= \cos(\dfrac{2k-1}{n} \times 180°)\quad y_k= \sin(\dfrac{2k-1}{n} \times 180°)$$
 
-How many sides does S_1864&thinsp;+&thinsp;S_1865&thinsp;+&thinsp;\dots&thinsp;+&thinsp;S_1909 have?
+Each $S_n$ is to be interpreted as a filled shape consisting of all points on the perimeter and in the interior.
+
+The *Minkowski sum*, $S+T$, of two shapes $S$ and $T$ is the result of adding every point in $S$ to every point in $T$, where point addition is performed coordinate-wise: $(u,v) + (x,y) = (u+x,v+y)$.
+
+For example, the sum of $S_3$ and $S_4$ is the six-sided shape shown in pink below:
+
+![](../images/p228.png)
+
+How many sides does $S_{1864}+S_{1865}+\dots+S_{1909}$ have?
 
 
 ## 解决方案

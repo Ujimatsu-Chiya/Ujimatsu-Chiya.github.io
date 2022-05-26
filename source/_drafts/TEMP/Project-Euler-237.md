@@ -5,39 +5,24 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-# Project Euler 237
-## 题目
-### Tours on a 4 x n playing board
-
-Let T(<i>n</i>) be the number of tours over a 4 \times <i>n</i> playing board such that:
-<ul><li>The tour starts in the top left corner.</li>
-<li>The tour consists of moves that are up, down, left, or right one square.</li>
-<li>The tour visits each square exactly once.</li>
-<li>The tour ends in the bottom left corner.</li>
-</ul>The diagram shows one tour over a 4 \times 10 board:
-
-<div class="center">
-<img src="project/images/p237.gif" class="dark_img" alt="" /></div>
-
-T(10) is 2329. What is T(10^12) modulo 10^8?
 
 
 # Project Euler 237
 ## 题目
 ### Tours on a 4 x n playing board
 
-Let T(<i>n</i>) be the number of tours over a 4 \times <i>n</i> playing board such that:
-<ul>
-<li>The tour starts in the top left corner.</li>
-<li>The tour consists of moves that are up, down, left, or right one square.</li>
-<li>The tour visits each square exactly once.</li>
-<li>The tour ends in the bottom left corner.</li>
-</ul>
-The diagram shows one tour over a 4 \times 10 board:
-<center><img src="https://projecteuler.net/project/images/p237.gif" alt=""></center>
+Let $T(n)$ be the number of tours over a $4 \times n$ playing board such that:
 
-T(10) is 2329. What is T(10^12) modulo 10^8?
+ - The tour starts in the top left corner.
+ - The tour consists of moves that are up, down, left, or right one square.
+ - The tour visits each square exactly once.
+ - The tour ends in the bottom left corner.
+
+The diagram shows one tour over a $4 \times 10$ board:
+
+![](../images/p237.gif)
+
+$T(10)$ is $2329$. What is $T(10^{12}) \text{ modulo } 10^8$?
 
 
 ## 解决方案
