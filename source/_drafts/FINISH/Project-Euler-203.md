@@ -39,7 +39,19 @@ Find the sum of the distinct squarefree numbers in the first $51$ rows of Pascal
 
 ## 解决方案
 
+由于需要遍历的行数比较少，因此枚举出杨辉三角前$51$行的所有数，并直接通过因式分解判断其是否为无平方数即可。
 
 ## 代码
 
 
+```py
+from tools import get_pascals_triangle, factorization
+
+N = 51
+ans = 1
+for x in set().union(*[ls for ls in get_pascals_triangle(N-1)]) - {1}:
+    if max(f[1] for f in factorization(x)) == 1:
+        ans += x
+print(ans)
+
+```
