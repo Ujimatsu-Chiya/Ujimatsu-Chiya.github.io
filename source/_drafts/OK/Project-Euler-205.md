@@ -18,3 +18,7 @@ Peter and Colin roll their dice and compare totals: the highest total wins. The 
 
 What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer rounded to seven decimal places in the form 0.abcdefg
 
+## 解决方案
+
+
+## 代码
