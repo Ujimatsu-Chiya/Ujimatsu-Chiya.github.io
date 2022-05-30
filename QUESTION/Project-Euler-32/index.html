@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>585</span>
+              <span>555</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,24 +257,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-32">Project Euler 32</h1>
-<h2 id="题目">题目</h2>
-<h3 id="pandigital-products">Pandigital products</h3>
-<p>We shall say that an n-digit number is pandigital if it makes use of
-all the digits <span class="math inline">\(1\)</span> to <span class="math inline">\(n\)</span> exactly once; for example, the <span class="math inline">\(5\)</span>-digit number, <span class="math inline">\(15234\)</span>, is <span class="math inline">\(1\)</span> through <span class="math inline">\(5\)</span> pandigital.</p>
-<p>The product <span class="math inline">\(7254\)</span> is unusual, as
-the identity, <span class="math inline">\(39 \times 186 = 7254\)</span>,
-containing multiplicand, multiplier, and product is <span class="math inline">\(1\)</span> through <span class="math inline">\(9\)</span> pandigital.</p>
-<p>Find the sum of all products whose multiplicand/multiplier/product
-identity can be written as a <span class="math inline">\(1\)</span>
-through <span class="math inline">\(9\)</span> pandigital.</p>
-<p>HINT: Some products can be obtained in more than one way so be sure
-to only include it once in your sum.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>先枚举第<span class="math inline">\(1\)</span>个因数，后枚举第<span class="math inline">\(2\)</span>个因数。再判断两个因数和积拼接后的长度是否会大于<span class="math inline">\(9\)</span>.</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">1000</span></span><br><span class="line">c = <span class="string">&quot;123456789&quot;</span></span><br><span class="line">st = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">    j = i + <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">str</span>(i) + <span class="built_in">str</span>(j) + <span class="built_in">str</span>(i * j)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt; <span class="number">9</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        t = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(s)))</span><br><span class="line">        <span class="keyword">if</span> t == c:</span><br><span class="line">            st.add(i * j)</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">ans = <span class="built_in">sum</span>(st)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-32"><a href="#Project-Euler-32" class="headerlink" title="Project Euler 32"></a>Project Euler 32</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Pandigital-products"><a href="#Pandigital-products" class="headerlink" title="Pandigital products"></a>Pandigital products</h3><p>We shall say that an n-digit number is pandigital if it makes use of all the digits $1$ to $n$ exactly once; for example, the $5$-digit number, $15234$, is $1$ through $5$ pandigital.</p>
+<p>The product $7254$ is unusual, as the identity, $39 \times 186 = 7254$, containing multiplicand, multiplier, and product is $1$ through $9$ pandigital.</p>
+<p>Find the sum of all products whose multiplicand/multiplier/product identity can be written as a $1$ through $9$ pandigital.</p>
+<p>HINT: Some products can be obtained in more than one way so be sure to only include it once in your sum.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>先枚举第$1$个因数，后枚举第$2$个因数。再判断两个因数和积拼接后的长度是否会大于$9$.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">1000</span></span><br><span class="line">c = <span class="string">&quot;123456789&quot;</span></span><br><span class="line">st = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n):</span><br><span class="line">    j = i + <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">str</span>(i) + <span class="built_in">str</span>(j) + <span class="built_in">str</span>(i * j)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt; <span class="number">9</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        t = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(s)))</span><br><span class="line">        <span class="keyword">if</span> t == c:</span><br><span class="line">            st.add(i * j)</span><br><span class="line">        j += <span class="number">1</span></span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">ans = <span class="built_in">sum</span>(st)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -358,7 +348,7 @@ to only include it once in your sum.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-32"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 32</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandigital-products"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pandigital products</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-32"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 32</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandigital-products"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pandigital products</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,7 +362,7 @@ to only include it once in your sum.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -416,13 +406,13 @@ to only include it once in your sum.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

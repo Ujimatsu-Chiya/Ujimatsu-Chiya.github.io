@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,47 +251,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-105">Project Euler 105</h1>
-<h2 id="题目">题目</h2>
-<h3 id="special-subset-sums-testing">Special subset sums: testing</h3>
-<p>Let <span class="math inline">\(S(A)\)</span> represent the sum of
-elements in set <span class="math inline">\(A\)</span> of size <span class="math inline">\(n\)</span>. We shall call it a special sum set if
-for any two non-empty disjoint subsets, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, the following properties are true:</p>
-<ol type="1">
-<li><span class="math inline">\(S(B) \neq S(C)\)</span>; that is, sums
-of subsets cannot be equal.</li>
-<li>If <span class="math inline">\(B\)</span> contains more elements
-than <span class="math inline">\(C\)</span> then <span class="math inline">\(S(B) &gt; S(C)\)</span>.</li>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-105"><a href="#Project-Euler-105" class="headerlink" title="Project Euler 105"></a>Project Euler 105</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Special-subset-sums-testing"><a href="#Special-subset-sums-testing" class="headerlink" title="Special subset sums: testing"></a>Special subset sums: testing</h3><p>Let $S(A)$ represent the sum of elements in set $A$ of size $n$. We shall call it a special sum set if for any two non-empty disjoint subsets, $B$ and $C$, the following properties are true:</p>
+<ol>
+<li>$S(B) \neq S(C)$; that is, sums of subsets cannot be equal.</li>
+<li>If $B$ contains more elements than $C$ then $S(B) &gt; S(C)$.</li>
 </ol>
-<p>For example, <span class="math inline">\(\{81, 88, 75, 42, 87, 84,
-86, 65\}\)</span> is not a special sum set because <span class="math inline">\(65 + 87 + 88 = 75 + 81 + 84\)</span>, whereas
-<span class="math inline">\(\{157, 150, 164, 119, 79, 159, 161, 139,
-158\}\)</span> satisfies both rules for all possible subset pair
-combinations and <span class="math inline">\(S(A) = 1286\)</span>.</p>
-<p>Using <a href="../resources/p105_sets.txt">sets.txt</a> (right click
-and "Save Link/Target As"), a 4K text file with one-hundred sets
-containing seven to twelve elements (the two examples given above are
-the first two sets in the file), identify all the special sum sets,<span class="math inline">\(A_1, A_2, \ldots , A_k\)</span>, and find the
-value of <span class="math inline">\(S(A_1) + S(A_2) +\ldots +
-S(A_k)\)</span>.</p>
-<p>NOTE: This problem is related to <a href="/103">Problem 103</a> and
-<a href="/106">Problem 106</a>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题判断特殊子集的方法和第103题一样：</p>
-<p>如果一个集合满足题目中的第一个条件，那么它们的所有<span class="math inline">\(2^n\)</span>个子集<span class="math inline">\(I\)</span>的<span class="math inline">\(S(I)\)</span>都不相同。</p>
-<p>使用反证法：设一个集合<span class="math inline">\(A\)</span>，对于<span class="math inline">\(A\)</span>中的两个子集<span class="math inline">\(I,J\)</span>，满足<span class="math inline">\(S(I)=S(J)\)</span>，有以下两种情况</p>
-<ol type="1">
-<li><span class="math inline">\(I \bigcap J =
-\emptyset\)</span>：那么明显<span class="math inline">\(A\)</span>集合不符合要求。</li>
-<li><span class="math inline">\(I \bigcap J \neq
-\emptyset\)</span>：此时取<span class="math inline">\(I&#39;=I-J,J&#39;=J-I\)</span>，根据集合差运算的定义，有<span class="math inline">\(S(I&#39;)=S(I)-S(I \bigcap J),S(J&#39;)=S(J)-S(I
-\bigcap J)\)</span>。可以知道，此时<span class="math inline">\(I&#39;
-\bigcap J&#39; = \emptyset\)</span>，但有<span class="math inline">\(S(I&#39;)=S(J&#39;)\)</span>，不符合要求。</li>
+<p>For example, $\{81, 88, 75, 42, 87, 84, 86, 65\}$ is not a special sum set because $65 + 87 + 88 = 75 + 81 + 84$, whereas $\{157, 150, 164, 119, 79, 159, 161, 139, 158\}$ satisfies both rules for all possible subset pair combinations and $S(A) = 1286$.</p>
+<p>Using <a href="../resources/p105_sets.txt">sets.txt</a> (right click and “Save Link/Target As\dots”), a 4K text file with one-hundred sets containing seven to twelve elements (the two examples given above are the first two sets in the file), identify all the special sum sets,$A_1, A_2, \ldots , A_k$, and find the value of $S(A_1) + S(A_2) +\ldots + S(A_k)$.</p>
+<p>NOTE: This problem is related to <a href="/103">Problem 103</a> and <a href="/106">Problem 106</a>.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题判断特殊子集的方法和第103题一样：</p>
+<p>如果一个集合满足题目中的第一个条件，那么它们的所有$2^n$个子集$I$的$S(I)$都不相同。</p>
+<p>使用反证法：设一个集合$A$，对于$A$中的两个子集$I,J$，满足$S(I)=S(J)$，有以下两种情况</p>
+<ol>
+<li>$I \bigcap J = \emptyset$：那么明显$A$集合不符合要求。</li>
+<li>$I \bigcap J \neq \emptyset$：此时取$I’=I-J,J’=J-I$，根据集合差运算的定义，有$S(I’)=S(I)-S(I \bigcap J),S(J’)=S(J)-S(I \bigcap J)$。可以知道，此时$I’ \bigcap J’ = \emptyset$，但有$S(I’)=S(J’)$，不符合要求。</li>
 </ol>
 <p>因此原推论成立，判断集合是否为特殊不需要直接枚举一对不相交子集。而是产生所有子集，先判断元素和是否重复，然后根据和的大小进行排序比较集合大小即可（判断第二个条件是否满足）。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">z: <span class="built_in">list</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(z)</span><br><span class="line">    mp = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">        cnt, s = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> st &gt;&gt; i &amp; <span class="number">1</span>:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                s += z[i]</span><br><span class="line">        <span class="keyword">if</span> s <span class="keyword">in</span> mp.keys():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        mp[s] = cnt</span><br><span class="line">    ls = <span class="built_in">list</span>(mp.items())</span><br><span class="line">    ls.sort()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> ls[i][<span class="number">1</span>] &gt; ls[i + <span class="number">1</span>][<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p105_sets.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">    a = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> s.split(<span class="string">&#x27;,&#x27;</span>)]</span><br><span class="line">    <span class="keyword">if</span> ok(a):</span><br><span class="line">        ans += <span class="built_in">sum</span>(a)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">z: <span class="built_in">list</span></span>):</span><br><span class="line">    n = <span class="built_in">len</span>(z)</span><br><span class="line">    mp = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">        cnt, s = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> st &gt;&gt; i &amp; <span class="number">1</span>:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                s += z[i]</span><br><span class="line">        <span class="keyword">if</span> s <span class="keyword">in</span> mp.keys():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        mp[s] = cnt</span><br><span class="line">    ls = <span class="built_in">list</span>(mp.items())</span><br><span class="line">    ls.sort()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> ls[i][<span class="number">1</span>] &gt; ls[i + <span class="number">1</span>][<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p105_sets.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">    a = [<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> s.split(<span class="string">&#x27;,&#x27;</span>)]</span><br><span class="line">    <span class="keyword">if</span> ok(a):</span><br><span class="line">        ans += <span class="built_in">sum</span>(a)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -375,7 +353,7 @@ S(A_k)\)</span>.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-105"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 105</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#special-subset-sums-testing"><span class="nav-number">1.1.1.</span> <span class="nav-text">Special subset sums: testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-105"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 105</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-subset-sums-testing"><span class="nav-number">1.1.1.</span> <span class="nav-text">Special subset sums: testing</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,7 +367,7 @@ S(A_k)\)</span>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -433,13 +411,13 @@ S(A_k)\)</span>.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

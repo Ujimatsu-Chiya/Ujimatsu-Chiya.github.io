@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>817</span>
+              <span>545</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,37 +258,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-31">Project Euler 31</h1>
-<h2 id="题目">题目</h2>
-<h3 id="coin-sums">Coin sums</h3>
-<p>In the United Kingdom the currency is made up of pound (£) and pence
-(p). There are eight coins in general circulation:</p>
-<p><span class="math display">\[1p, 2p, 5p, 10p, 20p, 50p, £1 (100p),
-\mathrm{and} £2 (200p).\]</span></p>
-<p>It is possible to make £2 in the following way:</p>
-<p><span class="math display">\[1×£1 + 1×50p + 2×20p + 1×5p + 1×2p +
-3×1p\]</span></p>
-<p>How many different ways can £2 be made using any number of coins?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>一个标准的完全背包问题（只不过并非是真正意义上的动态规划，这里是一个单纯的递推题目）。</p>
-<p>记录状态<span class="math inline">\(f(i,j)(1\leq i\leq n,0\leq j\leq
-m)\)</span>为：当前使用了前<span class="math inline">\(i\)</span>种货币获得了<span class="math inline">\(j\)</span>便士的方案数。</p>
-<p>在这里，<span class="math inline">\(n=8,m=200,a=[1,2,5,10,20,50,100,200]\)</span>.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-31"><a href="#Project-Euler-31" class="headerlink" title="Project Euler 31"></a>Project Euler 31</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Coin-sums"><a href="#Coin-sums" class="headerlink" title="Coin sums"></a>Coin sums</h3><p>In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:</p>
+<script type="math/tex; mode=display">1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), \mathrm{and} £2 (200p).</script><p>It is possible to make £2 in the following way:</p>
+<script type="math/tex; mode=display">1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p</script><p>How many different ways can £2 be made using any number of coins?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>一个标准的完全背包问题（只不过并非是真正意义上的动态规划，这里是一个单纯的递推题目）。</p>
+<p>记录状态$f(i,j)(1\leq i\leq n,0\leq j\leq m)$为：当前使用了前$i$种货币获得了$j$便士的方案数。</p>
+<p>在这里，$n=8,m=200,a=[1,2,5,10,20,50,100,200]$.</p>
 <p>那么，可以得到递推方程：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 f(i,j)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} j=0 \\
-  &amp;0 &amp; &amp; \mathrm{else if\quad} i=1 \&amp;j&lt;a[i] \\
-  &amp;f(i,j-a[i]) &amp; &amp; \mathrm{else if\quad} i=1&amp; \\
-  &amp;f(i-1,j) &amp; &amp; \mathrm{else if\quad} j &lt; a[i] \\
-  &amp;f(i-1,j) + f(i,j-a[i]) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>两种递推分别对应取真正取第<span class="math inline">\(i\)</span>种货币和不取第<span class="math inline">\(i\)</span>种货币。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">200</span></span><br><span class="line">ls = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">200</span>]</span><br><span class="line">f = [<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line">f[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> ls:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(x, N + <span class="number">1</span>):</span><br><span class="line">        f[i] += f[i - x]</span><br><span class="line"><span class="built_in">print</span>(f[N])</span><br></pre></td></tr></table></figure>
+  &1  & & \mathrm{if\quad} j=0 \\
+  &0 & & \mathrm{else if\quad} i=1 \&j<a[i] \\
+  &f(i,j-a[i]) & & \mathrm{else if\quad} i=1& \\
+  &f(i-1,j) & & \mathrm{else if\quad} j < a[i] \\
+  &f(i-1,j) + f(i,j-a[i]) & & \mathrm{else}
+\end{aligned}\right.</script><p>两种递推分别对应取真正取第$i$种货币和不取第$i$种货币。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">200</span></span><br><span class="line">ls = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">10</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">100</span>, <span class="number">200</span>]</span><br><span class="line">f = [<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line">f[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> ls:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(x, N + <span class="number">1</span>):</span><br><span class="line">        f[i] += f[i - x]</span><br><span class="line"><span class="built_in">print</span>(f[N])</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -373,7 +361,7 @@ f(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-31"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 31</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#coin-sums"><span class="nav-number">1.1.1.</span> <span class="nav-text">Coin sums</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-31"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 31</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Coin-sums"><span class="nav-number">1.1.1.</span> <span class="nav-text">Coin sums</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,7 +375,7 @@ f(i,j)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -431,13 +419,13 @@ f(i,j)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

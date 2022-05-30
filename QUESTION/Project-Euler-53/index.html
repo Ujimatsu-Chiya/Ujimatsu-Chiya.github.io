@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>681</span>
+              <span>655</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,30 +251,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-53">Project Euler 53</h1>
-<h2 id="题目">题目</h2>
-<h3 id="combinatoric-selections">Combinatoric selections</h3>
-<p>There are exactly ten ways of selecting three from five, <span class="math inline">\(12345\)</span>:</p>
-<p><span class="math display">\[ 123, 124, 125, 134, 135, 145, 234, 235,
-245, 345 \]</span></p>
-<p>In combinatorics, we use the notation, <span class="math inline">\(\displaystyle \binom 5 3 = 10\)</span>. In
-general, <span class="math inline">\(\displaystyle \binom n r =
-\dfrac{n!}{r!(n-r)!}\)</span>, where <span class="math inline">\(r \le
-n\)</span>, <span class="math inline">\(n! = n \times (n-1) \times \dots
-\times 3 \times 2 \times 1\)</span>, and <span class="math inline">\(0!
-= 1\)</span>.</p>
-<p>It is not until <span class="math inline">\(n = 23\)</span>, that a
-value exceeds one-million: <span class="math inline">\(\displaystyle
-\binom {23} {10} = 1144066\)</span>.</p>
-<p>How many, not necessarily distinct, values of <span class="math inline">\(\displaystyle \binom n r\)</span> for <span class="math inline">\(1 \le n \le 100\)</span>, are greater than
-one-million?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>根据组合数的递推式，计算出<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/PascalsTriangle.html">杨辉三角</a>前<span class="math inline">\(101\)</span>行的值。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-53"><a href="#Project-Euler-53" class="headerlink" title="Project Euler 53"></a>Project Euler 53</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Combinatoric-selections"><a href="#Combinatoric-selections" class="headerlink" title="Combinatoric selections"></a>Combinatoric selections</h3><p>There are exactly ten ways of selecting three from five, $12345$:</p>
+<script type="math/tex; mode=display">123, 124, 125, 134, 135, 145, 234, 235, 245, 345</script><p>In combinatorics, we use the notation, $\displaystyle \binom 5 3 = 10$.<br>In general, $\displaystyle \binom n r = \dfrac{n!}{r!(n-r)!}$, where $r \le n$, $n! = n \times (n-1) \times \dots \times 3 \times 2 \times 1$, and $0! = 1$.</p>
+<p>It is not until $n = 23$, that a value exceeds one-million: $\displaystyle \binom {23} {10} = 1144066$.</p>
+<p>How many, not necessarily distinct, values of $\displaystyle \binom n r$ for $1 \le n \le 100$, are greater than one-million?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据组合数的递推式，计算出<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/PascalsTriangle.html">杨辉三角</a>前$101$行的值。</p>
 <p>由于Python支持计算大数，因此直接进行枚举判断。</p>
 <p>产生杨辉三角的方法将会被封装在自定义的tools工具包中，以get_pascals_triangle(n,mod=None)获得杨辉三角的前n行，其中所有值对mod取模。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">C = [[<span class="number">0</span> <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(x + <span class="number">1</span>)] <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    C[i][<span class="number">0</span>] = C[i][i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i):</span><br><span class="line">        C[i][j] = C[i - <span class="number">1</span>][j - <span class="number">1</span>] + C[i - <span class="number">1</span>][j]</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">        ans += <span class="built_in">sum</span>(<span class="number">1</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>) <span class="keyword">if</span> C[i][j] &gt;= M)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">C = [[<span class="number">0</span> <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(x + <span class="number">1</span>)] <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    C[i][<span class="number">0</span>] = C[i][i] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i):</span><br><span class="line">        C[i][j] = C[i - <span class="number">1</span>][j - <span class="number">1</span>] + C[i - <span class="number">1</span>][j]</span><br><span class="line">    <span class="keyword">if</span> i &gt; <span class="number">0</span>:</span><br><span class="line">        ans += <span class="built_in">sum</span>(<span class="number">1</span> <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>) <span class="keyword">if</span> C[i][j] &gt;= M)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -358,7 +344,7 @@ one-million?</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-53"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 53</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#combinatoric-selections"><span class="nav-number">1.1.1.</span> <span class="nav-text">Combinatoric selections</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-53"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 53</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Combinatoric-selections"><span class="nav-number">1.1.1.</span> <span class="nav-text">Combinatoric selections</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,7 +358,7 @@ one-million?</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -416,13 +402,13 @@ one-million?</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

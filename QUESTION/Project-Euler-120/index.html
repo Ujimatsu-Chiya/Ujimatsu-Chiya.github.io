@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>973</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,49 +251,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-120">Project Euler 120</h1>
-<h2 id="题目">题目</h2>
-<h3 id="square-remainders">Square remainders</h3>
-<p>Let <span class="math inline">\(r\)</span> be the remainder when
-<span class="math inline">\((a-1)^n + (a+1)^n\)</span> is divided by
-<span class="math inline">\(a^2\)</span>.</p>
-<p>For example, if <span class="math inline">\(a = 7\)</span> and <span class="math inline">\(n = 3\)</span>, then <span class="math inline">\(r
-= 42: 6^3 + 8^3 = 728 \equiv 42 \mod 49\)</span>. And as <span class="math inline">\(n\)</span> varies, so too will <span class="math inline">\(r\)</span>, but for <span class="math inline">\(a
-= 7\)</span> it turns out that <span class="math inline">\(r_{\max} =
-42\)</span>.</p>
-<p>For <span class="math inline">\(3 \le a \le 1000\)</span>, find <span class="math inline">\(\sum r_{\max}\)</span>.</p>
-<h2 id="二项式定理">二项式定理</h2>
-<p>二项式定理，即<span class="math inline">\(n\)</span>次方二项式<span class="math inline">\((a+b)^n\)</span>的展开式：</p>
-<p><span class="math display">\[(a+b)^n=\sum_{i=0}^nC_n^ia^ib^{n-i}\]</span></p>
-<h2 id="解决方案">解决方案</h2>
-<p>设<span class="math inline">\(r(a,n)=((a-1)^n+(a+1)^n) \%
-a^2\)</span>。</p>
-<p>根据二项式定理，对<span class="math inline">\(a^2\)</span>取模后，二项式展开式中<span class="math inline">\(a\)</span>的次数为<span class="math inline">\(2\)</span>及以上的项不考虑，只考虑<span class="math inline">\(a\)</span>的次数为<span class="math inline">\(0\)</span>或<span class="math inline">\(1\)</span>的项。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-120"><a href="#Project-Euler-120" class="headerlink" title="Project Euler 120"></a>Project Euler 120</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Square-remainders"><a href="#Square-remainders" class="headerlink" title="Square remainders"></a>Square remainders</h3><p>Let $r$ be the remainder when $(a-1)^n + (a+1)^n$ is divided by $a^2$.</p>
+<p>For example, if $a = 7$ and $n = 3$, then $r = 42: 6^3 + 8^3 = 728 \equiv 42 \mod 49$. And as $n$ varies, so too will $r$, but for $a = 7$ it turns out that $r_{\max} = 42$.</p>
+<p>For $3 \le a \le 1000$, find $\sum r_{\max}$.</p>
+<h2 id="二项式定理"><a href="#二项式定理" class="headerlink" title="二项式定理"></a>二项式定理</h2><p>二项式定理，即$n$次方二项式$(a+b)^n$的展开式：</p>
+<script type="math/tex; mode=display">(a+b)^n=\sum_{i=0}^nC_n^ia^ib^{n-i}</script><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>设$r(a,n)=((a-1)^n+(a+1)^n) \% a^2$。</p>
+<p>根据二项式定理，对$a^2$取模后，二项式展开式中$a$的次数为$2$及以上的项不考虑，只考虑$a$的次数为$0$或$1$的项。</p>
 <p>因此，满足下式：</p>
-<p><span class="math inline">\(r(a,n) \equiv
-C_n^1a\cdot(-1)^{n-1}+C_n^0(-1)^n+C_n^1a\cdot 1^{n-1}+C_n^0 1^n\equiv
-an+1+an\cdot(n-1)^n+(-1)^n\)</span></p>
+<p>$r(a,n) \equiv C_n^1a\cdot(-1)^{n-1}+C_n^0(-1)^n+C_n^1a\cdot 1^{n-1}+C_n^0 1^n\equiv an+1+an\cdot(n-1)^n+(-1)^n$</p>
 <p>可以写成：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 r(a,n)=
 \left \{\begin{aligned}
-  &amp;2  &amp; &amp; \mathrm{if\quad} n \equiv 0(\mod 2) \\
-  &amp;2an \%a^2 &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>为使得<span class="math inline">\(r(a,n)\)</span>最大，故不考虑<span class="math inline">\(n\)</span>为偶数的情况。那么此时可以写成<span class="math inline">\(r(a,n)=a\cdot (2n \% a)\)</span>。</p>
-<p>值<span class="math inline">\(2n\%a\)</span>需要尽可能接近<span class="math inline">\(a\)</span>。由于<span class="math inline">\(2n\)</span>为偶数，因此当<span class="math inline">\(a\)</span>为偶数时，<span class="math inline">\(\gcd(a,2)=2\)</span>，因此<span class="math inline">\(2n\%a\)</span>最大能只能取到<span class="math inline">\(2\)</span>的倍数<span class="math inline">\(a-2\)</span>，而当<span class="math inline">\(a\)</span>为奇数时，<span class="math inline">\(\gcd(a,2)=1\)</span>，<span class="math inline">\(2n\%a\)</span>最大可以取到<span class="math inline">\(1\)</span>的倍数<span class="math inline">\(a-1\)</span>。</p>
+  &2  & & \mathrm{if\quad} n \equiv 0(\mod 2) \\
+  &2an \%a^2 & & \mathrm{else}
+\end{aligned}\right.</script><p>为使得$r(a,n)$最大，故不考虑$n$为偶数的情况。那么此时可以写成$r(a,n)=a\cdot (2n \% a)$。</p>
+<p>值$2n\%a$需要尽可能接近$a$。由于$2n$为偶数，因此当$a$为偶数时，$\gcd(a,2)=2$，因此$2n\%a$最大能只能取到$2$的倍数$a-2$，而当$a$为奇数时，$\gcd(a,2)=1$，$2n\%a$最大可以取到$1$的倍数$a-1$。</p>
 <p>因此有：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 r_{\max}(a)=
 \left \{\begin{aligned}
-  &amp;a(a-2)  &amp; &amp; \mathrm{if\quad} a \equiv 0(\mod 2) \\
-  &amp;a(a-1) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">1000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> a &amp; <span class="number">1</span>:</span><br><span class="line">        ans += a * (a - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ans += a * (a - <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+  &a(a-2)  & & \mathrm{if\quad} a \equiv 0(\mod 2) \\
+  &a(a-1) & & \mathrm{else}
+\end{aligned}\right.</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">1000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> a &amp; <span class="number">1</span>:</span><br><span class="line">        ans += a * (a - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ans += a * (a - <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -377,7 +359,7 @@ r_{\max}(a)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-120"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 120</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#square-remainders"><span class="nav-number">1.1.1.</span> <span class="nav-text">Square remainders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">二项式定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-120"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 120</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Square-remainders"><span class="nav-number">1.1.1.</span> <span class="nav-text">Square remainders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E9%A1%B9%E5%BC%8F%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">二项式定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +373,7 @@ r_{\max}(a)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -435,13 +417,13 @@ r_{\max}(a)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

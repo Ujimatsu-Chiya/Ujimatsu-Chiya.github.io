@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>992</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,31 +258,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-122">Project Euler 122</h1>
-<h2 id="题目">题目</h2>
-<h3 id="efficient-exponentiation">Efficient exponentiation</h3>
-<p>The most naive way of computing <span class="math inline">\(n^{15}\)</span> requires fourteen
-multiplications:</p>
-<p><span class="math inline">\(n \times n \times \dots \times n =
-n^{15}\)</span></p>
-<p>But using a “binary” method you can compute it in six
-multiplications:</p>
-<p><span class="math inline">\(\begin{aligned} n \times n &amp;= n^2\\
-n^2 \times n^2 &amp;= n^4\\ n^4 \times n^4 &amp;= n^8\\ n^8 \times n^4
-&amp;= n^{12}\\ n^{12} \times n^2 &amp;= n^{14}\\ n^{14} \times n &amp;=
-n^{15} \end{aligned}\)</span></p>
-<p>However it is yet possible to compute it in only five
-multiplications:</p>
-<p><span class="math inline">\(\begin{aligned} n \times n &amp;= n^2\\
-n^2 \times n &amp;= n^3\\ n^3 \times n^3 &amp;= n^6\\ n^6 \times n^6
-&amp;= n^{12}\\ n^{12} \times n^3 &amp;= n^{15}
-\end{aligned}\)</span></p>
-<p>We shall define <span class="math inline">\(m(k)\)</span> to be the
-minimum number of multiplications to compute <span class="math inline">\(n^k\)</span>; for example <span class="math inline">\(m(15) = 5\)</span>.</p>
-<p>For <span class="math inline">\(1 \le k \le 200\)</span>, find <span class="math inline">\(\sum m(k)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题基于深度优先搜索的剪枝。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-122"><a href="#Project-Euler-122" class="headerlink" title="Project Euler 122"></a>Project Euler 122</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Efficient-exponentiation"><a href="#Efficient-exponentiation" class="headerlink" title="Efficient exponentiation"></a>Efficient exponentiation</h3><p>The most naive way of computing $n^{15}$ requires fourteen multiplications:</p>
+<p>$n \times n \times \dots \times n = n^{15}$</p>
+<p>But using a “binary” method you can compute it in six multiplications:</p>
+<p>$\begin{aligned}<br>n \times n &amp;= n^2\\<br>n^2 \times n^2 &amp;= n^4\\<br>n^4 \times n^4 &amp;= n^8\\<br>n^8 \times n^4 &amp;= n^{12}\\<br>n^{12} \times n^2 &amp;= n^{14}\\<br>n^{14} \times n &amp;= n^{15}<br>\end{aligned}$</p>
+<p>However it is yet possible to compute it in only five multiplications:</p>
+<p>$\begin{aligned}<br>n \times n &amp;= n^2\\<br>n^2 \times n &amp;= n^3\\<br>n^3 \times n^3 &amp;= n^6\\<br>n^6 \times n^6 &amp;= n^{12}\\<br>n^{12} \times n^3 &amp;= n^{15}<br>\end{aligned}$</p>
+<p>We shall define $m(k)$ to be the minimum number of multiplications to compute $n^k$; for example $m(15) = 5$.</p>
+<p>For $1 \le k \le 200$, find $\sum m(k)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题基于深度优先搜索的剪枝。</p>
 <p>为了尽快使结果收敛，可以为每个数的答案先拟定一个上限，而这个上限就是但使用题目所提供的“二进制”的算法（也就是快速幂）。</p>
 <p>求出前几项后，在OEIS找到了该数列<a target="_blank" rel="noopener" href="https://oeis.org/A003313">A003313</a>。在FORMULA一栏中，找到了以下信息:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">For all n &gt;= 2, a(n) &lt;= (4/3)*floor(log_2 n) + 2. - Jonathan Vos Post, Oct 08 2008</span><br><span class="line">From Achim Flammenkamp, Oct 26 2016: (Start)</span><br><span class="line">a(n) &lt;= 9/log_2(71) log_2(n), for all n.</span><br><span class="line">It is conjectured by D. E. Knuth, K. Stolarsky et al. that for all n: floor(log_2(n)) + ceiling(log_2(v(n))) &lt;= a(n). (End)</span><br></pre></td></tr></table></figure>
@@ -290,8 +276,7 @@ minimum number of multiplications to compute <span class="math inline">\(n^k\)</
 <p>在进行搜索的时候，把整个加法链路径进行保存，然后将路径中的每一个值都和当前节点值相加，判断是否可以是后继。如果可以，则继续搜索。</p>
 <p>需要注意的是，在这里的搜索，要求的是小于等于，而非是平常写的小于。这是因为，路径上的其他值也会对下一次产生的节点造成影响。</p>
 <p>本题的相关维基百科页面：<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Addition_chain">加法链</a></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log2</span><br><span class="line"></span><br><span class="line">N = <span class="number">200</span></span><br><span class="line">log2_71 = log2(<span class="number">71</span>)</span><br><span class="line">f = [<span class="built_in">len</span>(<span class="built_in">bin</span>(k)) - <span class="number">2</span> + <span class="built_in">bin</span>(k).count(<span class="string">&#x27;1&#x27;</span>) - <span class="number">2</span> <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    f[i] = <span class="built_in">min</span>(f[i], <span class="built_in">int</span>(<span class="number">4</span> * (<span class="built_in">len</span>(<span class="built_in">bin</span>(i)) - <span class="number">3</span>) / <span class="number">3</span>) + <span class="number">2</span>, <span class="built_in">int</span>(<span class="number">9</span> / log2_71 * log2(i)))</span><br><span class="line"></span><br><span class="line">a = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">d</span>):</span><br><span class="line">    k = a[d]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(d + <span class="number">1</span>):</span><br><span class="line">        w = k + a[i]</span><br><span class="line">        <span class="keyword">if</span> w &lt;= N:</span><br><span class="line">            <span class="keyword">if</span> d + <span class="number">1</span> &lt;= f[w]:</span><br><span class="line">                a[d + <span class="number">1</span>] = w</span><br><span class="line">                f[w] = d + <span class="number">1</span></span><br><span class="line">                dfs(d + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">dfs(<span class="number">0</span>)</span><br><span class="line">ans = <span class="built_in">sum</span>(f[<span class="number">1</span>:])</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log2</span><br><span class="line"></span><br><span class="line">N = <span class="number">200</span></span><br><span class="line">log2_71 = log2(<span class="number">71</span>)</span><br><span class="line">f = [<span class="built_in">len</span>(<span class="built_in">bin</span>(k)) - <span class="number">2</span> + <span class="built_in">bin</span>(k).count(<span class="string">&#x27;1&#x27;</span>) - <span class="number">2</span> <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    f[i] = <span class="built_in">min</span>(f[i], <span class="built_in">int</span>(<span class="number">4</span> * (<span class="built_in">len</span>(<span class="built_in">bin</span>(i)) - <span class="number">3</span>) / <span class="number">3</span>) + <span class="number">2</span>, <span class="built_in">int</span>(<span class="number">9</span> / log2_71 * log2(i)))</span><br><span class="line"></span><br><span class="line">a = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">d</span>):</span><br><span class="line">    k = a[d]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(d + <span class="number">1</span>):</span><br><span class="line">        w = k + a[i]</span><br><span class="line">        <span class="keyword">if</span> w &lt;= N:</span><br><span class="line">            <span class="keyword">if</span> d + <span class="number">1</span> &lt;= f[w]:</span><br><span class="line">                a[d + <span class="number">1</span>] = w</span><br><span class="line">                f[w] = d + <span class="number">1</span></span><br><span class="line">                dfs(d + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">dfs(<span class="number">0</span>)</span><br><span class="line">ans = <span class="built_in">sum</span>(f[<span class="number">1</span>:])</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -376,7 +361,7 @@ minimum number of multiplications to compute <span class="math inline">\(n^k\)</
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-122"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 122</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#efficient-exponentiation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Efficient exponentiation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-122"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 122</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Efficient-exponentiation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Efficient exponentiation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,7 +375,7 @@ minimum number of multiplications to compute <span class="math inline">\(n^k\)</
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -434,13 +419,13 @@ minimum number of multiplications to compute <span class="math inline">\(n^k\)</
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

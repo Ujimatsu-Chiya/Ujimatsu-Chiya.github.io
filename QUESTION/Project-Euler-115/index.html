@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>792</span>
+              <span>766</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,37 +252,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-115">Project Euler 115</h1>
-<h2 id="题目">题目</h2>
-<h3 id="counting-block-combinations-ii">Counting block combinations
-II</h3>
-<p>NOTE: This is a more difficult version of
-<a href="/Problem101-125/#Problem_114">Problem 114</a>.</p>
-<p>A row measuring <span class="math inline">\(n\)</span> units in
-length has red blocks with a minimum length of <span class="math inline">\(m\)</span> units placed on it, such that any two
-red blocks (which are allowed to be different lengths) are separated by
-at least one black square.</p>
-<p>Let the fill-count function, <span class="math inline">\(F(m,
-n)\)</span>, represent the number of ways that a row can be filled.</p>
-<p>For example, <span class="math inline">\(F(3, 29) = 673135\)</span>
-and <span class="math inline">\(F(3, 30) = 1089155\)</span>. That is,
-for <span class="math inline">\(m = 3\)</span>, it can be seen that
-<span class="math inline">\(n = 30\)</span> is the smallest value for
-which the fill-count function first exceeds one million.</p>
-<p>In the same way, for <span class="math inline">\(m = 10\)</span>, it
-can be verified that <span class="math inline">\(F(10, 56) =
-880711\)</span> and <span class="math inline">\(F(10, 57) =
-1148904\)</span>, so <span class="math inline">\(n = 57\)</span> is the
-least value for which the fill-count function first exceeds one
-million.</p>
-<p>For <span class="math inline">\(m = 50\)</span>, find the least value
-of <span class="math inline">\(n\)</span> for which the fill-count
-function first exceeds one million.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>使用的方案和第114题完全相同，此处不赘述。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">Q = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">M = <span class="number">50</span></span><br><span class="line">f = [<span class="number">1</span>]</span><br><span class="line">g = [<span class="number">0</span>]</span><br><span class="line">s = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    f.append(f[i - <span class="number">1</span>] + g[i - <span class="number">1</span>])</span><br><span class="line">    g.append(<span class="number">0</span> <span class="keyword">if</span> i &lt; M <span class="keyword">else</span> s[i - M])</span><br><span class="line">    s.append(s[i - <span class="number">1</span>] + f[i])</span><br><span class="line">    <span class="keyword">if</span> f[i] + g[i] &gt; Q:</span><br><span class="line">        ans = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-115"><a href="#Project-Euler-115" class="headerlink" title="Project Euler 115"></a>Project Euler 115</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Counting-block-combinations-II"><a href="#Counting-block-combinations-II" class="headerlink" title="Counting block combinations II"></a>Counting block combinations II</h3><p>NOTE: This is a more difficult version of <a href="/Problem101-125/#Problem_114">Problem 114</a>.</p>
+<p>A row measuring $n$ units in length has red blocks with a minimum length of $m$ units placed on it, such that any two red blocks (which are allowed to be different lengths) are separated by at least one black square.</p>
+<p>Let the fill-count function, $F(m, n)$, represent the number of ways that a row can be filled.</p>
+<p>For example, $F(3, 29) = 673135$ and $F(3, 30) = 1089155$.<br>That is, for $m = 3$, it can be seen that $n = 30$ is the smallest value for which the fill-count function first exceeds one million.</p>
+<p>In the same way, for $m = 10$, it can be verified that $F(10, 56) = 880711$ and $F(10, 57) = 1148904$, so $n = 57$ is the least value for which the fill-count function first exceeds one million.</p>
+<p>For $m = 50$, find the least value of $n$ for which the fill-count function first exceeds one million.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用的方案和第114题完全相同，此处不赘述。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">Q = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">M = <span class="number">50</span></span><br><span class="line">f = [<span class="number">1</span>]</span><br><span class="line">g = [<span class="number">0</span>]</span><br><span class="line">s = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    f.append(f[i - <span class="number">1</span>] + g[i - <span class="number">1</span>])</span><br><span class="line">    g.append(<span class="number">0</span> <span class="keyword">if</span> i &lt; M <span class="keyword">else</span> s[i - M])</span><br><span class="line">    s.append(s[i - <span class="number">1</span>] + f[i])</span><br><span class="line">    <span class="keyword">if</span> f[i] + g[i] &gt; Q:</span><br><span class="line">        ans = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -367,8 +346,7 @@ function first exceeds one million.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-115"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 115</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#counting-block-combinations-ii"><span class="nav-number">1.1.1.</span> <span class="nav-text">Counting block combinations
-II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-115"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 115</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting-block-combinations-II"><span class="nav-number">1.1.1.</span> <span class="nav-text">Counting block combinations II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,7 +360,7 @@ II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -426,13 +404,13 @@ II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link"
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,43 +252,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-118">Project Euler 118</h1>
-<h2 id="题目">题目</h2>
-<h3 id="pandigital-prime-sets">Pandigital prime sets</h3>
-<p>Using all of the digits <span class="math inline">\(1\)</span>
-through <span class="math inline">\(9\)</span> and concatenating them
-freely to form decimal integers, different sets can be formed.
-Interestingly with the set <span class="math inline">\(\{2,5,47,89,631\}\)</span>, all of the elements
-belonging to it are prime.</p>
-<p>How many distinct sets containing each of the digits one through nine
-exactly once contain only prime elements?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题的第一个目标：找出所有数字使用最多一次的质数，并对使用完全相同数位的质数进行统计，统计结果记录在列表<span class="math inline">\(cnt\)</span>中。</p>
-<p>在这里，用一个<span class="math inline">\(9\)</span>比特的<span class="math inline">\(mask\)</span>（下标从<span class="math inline">\(0\)</span>开始）来表示数位使用情况，如果数字<span class="math inline">\(i\)</span>被使用了，那么<span class="math inline">\(mask\)</span>的第<span class="math inline">\(i-1\)</span>位为<span class="math inline">\(1\)</span>，否则为<span class="math inline">\(0\)</span>。</p>
-<p>一个例子：<span class="math inline">\(13\)</span>和<span class="math inline">\(31\)</span>都是质数，因此<span class="math inline">\(mask=2^0+2^2=5，cnt[5]=2\)</span>。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-118"><a href="#Project-Euler-118" class="headerlink" title="Project Euler 118"></a>Project Euler 118</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Pandigital-prime-sets"><a href="#Pandigital-prime-sets" class="headerlink" title="Pandigital prime sets"></a>Pandigital prime sets</h3><p>Using all of the digits $1$ through $9$ and concatenating them freely to form decimal integers, different sets can be formed. Interestingly with the set $\{2,5,47,89,631\}$, all of the elements belonging to it are prime.</p>
+<p>How many distinct sets containing each of the digits one through nine exactly once contain only prime elements?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题的第一个目标：找出所有数字使用最多一次的质数，并对使用完全相同数位的质数进行统计，统计结果记录在列表$cnt$中。</p>
+<p>在这里，用一个$9$比特的$mask$（下标从$0$开始）来表示数位使用情况，如果数字$i$被使用了，那么$mask$的第$i-1$位为$1$，否则为$0$。</p>
+<p>一个例子：$13$和$31$都是质数，因此$mask=2^0+2^2=5，cnt[5]=2$。</p>
 <p>因此，通过一些枚举技巧，可以将一些不可能是质数的情况排除，从而能够加速快速枚举完质数。</p>
-<p>得到了<span class="math inline">\(cnt\)</span>数组后，进行第二步：动态规划。</p>
+<p>得到了$cnt$数组后，进行第二步：动态规划。</p>
 <p>需要注意到问题所要求的集合是无序的，因此可以使用动态规划来求出满足的集合数很方便。</p>
-<p>这里使用的是状态压缩动态规划。设<span class="math inline">\(f(i,st)\)</span>为：使用了<span class="math inline">\([0,i]\)</span>中所有的<span class="math inline">\(mask\)</span>下对应的数后，当前有多少个集合的数位使用情况为<span class="math inline">\(st\)</span>？也就是说，有多少集合，已经使用了<span class="math inline">\(1,2,\dots,9\)</span>里面的一些数了。如上面提到，<span class="math inline">\(st\)</span>是一个<span class="math inline">\(9\)</span>比特数。</p>
+<p>这里使用的是状态压缩动态规划。设$f(i,st)$为：使用了$[0,i]$中所有的$mask$下对应的数后，当前有多少个集合的数位使用情况为$st$？也就是说，有多少集合，已经使用了$1,2,\dots,9$里面的一些数了。如上面提到，$st$是一个$9$比特数。</p>
 <p>可以列出如下状态转移方程：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 f(i,st)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=0\&amp;st=0 \\
-  &amp;0  &amp; &amp; \mathrm{else if\quad} i=0 \\
-  &amp;f(i-1,st)  &amp; &amp; \mathrm{else if\quad} st\&amp;i\neq i \\
-  &amp;f(i-1,st)+f(i-1,st \bigoplus i) \times cnt[i] &amp; &amp;
-\mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>其中，运算符<span class="math inline">\(\&amp; ,
-\bigoplus\)</span>分别表示位运算中的与运算和异或运算。</p>
-<p>方程最后一行表示，如果不取<span class="math inline">\(i\)</span>，那么直接从<span class="math inline">\(f(i-1,st)\)</span>转移过来保存；如果取<span class="math inline">\(i\)</span>，那么就需要将没有用到<span class="math inline">\(i\)</span>的前驱状态再添加一个<span class="math inline">\(mask\)</span>属于<span class="math inline">\(i\)</span>类中的数，而这类数有<span class="math inline">\(cnt[i]\)</span>个。</p>
-<p>最终答案为<span class="math inline">\(f(2^9-1,2^9-1)\)</span>。</p>
+  &1  & & \mathrm{if\quad} i=0\&st=0 \\
+  &0  & & \mathrm{else if\quad} i=0 \\
+  &f(i-1,st)  & & \mathrm{else if\quad} st\&i\neq i \\
+  &f(i-1,st)+f(i-1,st \bigoplus i) \times cnt[i] & & \mathrm{else}
+\end{aligned}\right.</script><p>其中，运算符$\&amp; , \bigoplus$分别表示位运算中的与运算和异或运算。</p>
+<p>方程最后一行表示，如果不取$i$，那么直接从$f(i-1,st)$转移过来保存；如果取$i$，那么就需要将没有用到$i$的前驱状态再添加一个$mask$属于$i$类中的数，而这类数有$cnt[i]$个。</p>
+<p>最终答案为$f(2^9-1,2^9-1)$。</p>
 <p>代码中的实现则为另一种方式，它是以“我为人人”的方式实现的，即将当前状态转移到所有的后继可能的状态，这种写法会比较方便和好想。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations, combinations</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">n = <span class="built_in">len</span>(a)</span><br><span class="line">cnt = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n)]</span><br><span class="line">cnt[<span class="number">1</span> &lt;&lt; (<span class="number">2</span> - <span class="number">1</span>)] = cnt[<span class="number">1</span> &lt;&lt; (<span class="number">3</span> - <span class="number">1</span>)] = cnt[<span class="number">1</span> &lt;&lt; (<span class="number">5</span> - <span class="number">1</span>)] = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> combinations(a, r):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">sum</span>(st) % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        mask = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> st:</span><br><span class="line">            mask |= <span class="number">1</span> &lt;&lt; (x - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> per <span class="keyword">in</span> permutations(st):</span><br><span class="line">            <span class="keyword">if</span> (per[-<span class="number">1</span>] &amp; <span class="number">1</span>) == <span class="number">0</span> <span class="keyword">or</span> per[-<span class="number">1</span>] == <span class="number">5</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            w = <span class="built_in">int</span>(<span class="string">&quot;&quot;</span>.join(<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> per))</span><br><span class="line">            <span class="keyword">if</span> is_prime(w):</span><br><span class="line">                cnt[mask] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">f = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n)]</span><br><span class="line">f[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">    <span class="keyword">if</span> cnt[i] &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">            <span class="keyword">if</span> (j &amp; i) == <span class="number">0</span>:</span><br><span class="line">                f[i | j] += f[j] * cnt[i]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(f[(<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations, combinations</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line">n = <span class="built_in">len</span>(a)</span><br><span class="line">cnt = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n)]</span><br><span class="line">cnt[<span class="number">1</span> &lt;&lt; (<span class="number">2</span> - <span class="number">1</span>)] = cnt[<span class="number">1</span> &lt;&lt; (<span class="number">3</span> - <span class="number">1</span>)] = cnt[<span class="number">1</span> &lt;&lt; (<span class="number">5</span> - <span class="number">1</span>)] = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> combinations(a, r):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">sum</span>(st) % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        mask = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> st:</span><br><span class="line">            mask |= <span class="number">1</span> &lt;&lt; (x - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> per <span class="keyword">in</span> permutations(st):</span><br><span class="line">            <span class="keyword">if</span> (per[-<span class="number">1</span>] &amp; <span class="number">1</span>) == <span class="number">0</span> <span class="keyword">or</span> per[-<span class="number">1</span>] == <span class="number">5</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            w = <span class="built_in">int</span>(<span class="string">&quot;&quot;</span>.join(<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> per))</span><br><span class="line">            <span class="keyword">if</span> is_prime(w):</span><br><span class="line">                cnt[mask] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">f = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n)]</span><br><span class="line">f[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">    <span class="keyword">if</span> cnt[i] &gt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">            <span class="keyword">if</span> (j &amp; i) == <span class="number">0</span>:</span><br><span class="line">                f[i | j] += f[j] * cnt[i]</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(f[(<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>])</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -373,7 +360,7 @@ f(i,st)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-118"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 118</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandigital-prime-sets"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pandigital prime sets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-118"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 118</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandigital-prime-sets"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pandigital prime sets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,7 +374,7 @@ f(i,st)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -431,13 +418,13 @@ f(i,st)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

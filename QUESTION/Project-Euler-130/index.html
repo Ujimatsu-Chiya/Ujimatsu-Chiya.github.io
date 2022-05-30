@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>951</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,33 +250,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-130">Project Euler 130</h1>
-<h2 id="题目">题目</h2>
-<h3 id="composites-with-prime-repunit-property">Composites with prime
-repunit property</h3>
-<p>A number consisting entirely of ones is called a repunit. We shall
-define <span class="math inline">\(R(k)\)</span> to be a repunit of
-length <span class="math inline">\(k\)</span>; for example, <span class="math inline">\(R(6) = 111111\)</span>.</p>
-<p>Given that <span class="math inline">\(n\)</span> is a positive
-integer and <span class="math inline">\(\gcd(n, 10) = 1\)</span>, it can
-be shown that there always exists a value, <span class="math inline">\(k\)</span>, for which <span class="math inline">\(R(k)\)</span> is divisible by <span class="math inline">\(n\)</span>, and let <span class="math inline">\(A(n)\)</span> be the least such value of <span class="math inline">\(k\)</span>; for example, <span class="math inline">\(A(7) = 6\)</span> and <span class="math inline">\(A(41) = 5\)</span>.</p>
-<p>You are given that for all primes, <span class="math inline">\(p &gt;
-5\)</span>, that <span class="math inline">\(p − 1\)</span> is divisible
-by <span class="math inline">\(A(p)\)</span>. For example, when <span class="math inline">\(p = 41\)</span>, <span class="math inline">\(A(41)
-= 5\)</span>, and <span class="math inline">\(40\)</span> is divisible
-by <span class="math inline">\(5\)</span>.</p>
-<p>However, there are rare composite values for which this is also true;
-the first five examples being <span class="math inline">\(91\)</span>,
-<span class="math inline">\(259\)</span>, <span class="math inline">\(451\)</span>, <span class="math inline">\(481\)</span>, and <span class="math inline">\(703\)</span>.</p>
-<p>Find the sum of the first twenty-five composite values of <span class="math inline">\(n\)</span> for which <span class="math inline">\(\gcd(n, 10) = 1\)</span> and <span class="math inline">\(n − 1\)</span> is divisible by <span class="math inline">\(A(n)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>明显注意到对于正整数<span class="math inline">\(k\)</span>，<span class="math inline">\(3|k\Leftrightarrow3|R(k)\)</span>。</p>
-<p>因此，如果<span class="math inline">\(k\)</span>是<span class="math inline">\(3\)</span>的倍数，那么<span class="math inline">\(A(k)\)</span>也必须是<span class="math inline">\(3\)</span>的倍数，但是此时<span class="math inline">\(k-1\)</span>不是<span class="math inline">\(3\)</span>的倍数，它不能被<span class="math inline">\(A(k)\)</span>整除。</p>
-<p>本代码将枚举所有正整数<span class="math inline">\(m\)</span>满足于<span class="math inline">\(m\equiv 5(\mod 6)\)</span>。然后再判断<span class="math inline">\(m\)</span>是否为合数。如果是合数，再判断<span class="math inline">\(A(n)\)</span>是否为<span class="math inline">\(n-1\)</span>的因子。</p>
-<p>计算<span class="math inline">\(A(m)\)</span>的方式和129题相同，使用sympy库中的n_order(a,m)函数计算元素阶<span class="math inline">\(\lambda_m(a)\)</span>的值。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> n_order</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">Q = <span class="number">25</span></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> count(<span class="number">7</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="keyword">if</span> n % <span class="number">5</span> == <span class="number">0</span> <span class="keyword">or</span> n % <span class="number">3</span> == <span class="number">0</span> <span class="keyword">or</span> is_prime(n):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    order = n_order(<span class="number">10</span>, n * <span class="number">9</span>)</span><br><span class="line">    <span class="keyword">if</span> (n - <span class="number">1</span>) % order == <span class="number">0</span>:</span><br><span class="line">        ls.append(n)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(ls) == Q:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">ans = <span class="built_in">sum</span>(ls)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-130"><a href="#Project-Euler-130" class="headerlink" title="Project Euler 130"></a>Project Euler 130</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Composites-with-prime-repunit-property"><a href="#Composites-with-prime-repunit-property" class="headerlink" title="Composites with prime repunit property"></a>Composites with prime repunit property</h3><p>A number consisting entirely of ones is called a repunit. We shall define $R(k)$ to be a repunit of length $k$; for example, $R(6) = 111111$.</p>
+<p>Given that $n$ is a positive integer and $\gcd(n, 10) = 1$, it can be shown that there always exists a value, $k$, for which $R(k)$ is divisible by $n$, and let $A(n)$ be the least such value of $k$; for example, $A(7) = 6$ and $A(41) = 5$.</p>
+<p>You are given that for all primes, $p &gt; 5$, that $p − 1$ is divisible by $A(p)$. For example, when $p = 41$, $A(41) = 5$, and $40$ is divisible by $5$.</p>
+<p>However, there are rare composite values for which this is also true; the first five examples being $91$, $259$, $451$, $481$, and $703$.</p>
+<p>Find the sum of the first twenty-five composite values of $n$ for which $\gcd(n, 10) = 1$ and $n − 1$ is divisible by $A(n)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>明显注意到对于正整数$k$，$3|k\Leftrightarrow3|R(k)$。</p>
+<p>因此，如果$k$是$3$的倍数，那么$A(k)$也必须是$3$的倍数，但是此时$k-1$不是$3$的倍数，它不能被$A(k)$整除。</p>
+<p>本代码将枚举所有正整数$m$满足于$m\equiv 5(\mod 6)$。然后再判断$m$是否为合数。如果是合数，再判断$A(n)$是否为$n-1$的因子。</p>
+<p>计算$A(m)$的方式和129题相同，使用sympy库中的n_order(a,m)函数计算元素阶$\lambda_m(a)$的值。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> n_order</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">Q = <span class="number">25</span></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> count(<span class="number">7</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="keyword">if</span> n % <span class="number">5</span> == <span class="number">0</span> <span class="keyword">or</span> n % <span class="number">3</span> == <span class="number">0</span> <span class="keyword">or</span> is_prime(n):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    order = n_order(<span class="number">10</span>, n * <span class="number">9</span>)</span><br><span class="line">    <span class="keyword">if</span> (n - <span class="number">1</span>) % order == <span class="number">0</span>:</span><br><span class="line">        ls.append(n)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(ls) == Q:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">ans = <span class="built_in">sum</span>(ls)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -360,8 +345,7 @@ the first five examples being <span class="math inline">\(91\)</span>,
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-130"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 130</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#composites-with-prime-repunit-property"><span class="nav-number">1.1.1.</span> <span class="nav-text">Composites with prime
-repunit property</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-130"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 130</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Composites-with-prime-repunit-property"><span class="nav-number">1.1.1.</span> <span class="nav-text">Composites with prime repunit property</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,7 +359,7 @@ repunit property</span></a></li></ol></li><li class="nav-item nav-level-2"><a cl
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -419,13 +403,13 @@ repunit property</span></a></li></ol></li><li class="nav-item nav-level-2"><a cl
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>592</span>
+              <span>568</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,30 +257,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-40">Project Euler 40</h1>
-<h2 id="题目">题目</h2>
-<h3 id="champernownes-constant">Champernowne’s constant</h3>
-<p>An irrational decimal fraction is created by concatenating the
-positive integers:</p>
-<center style="font-family:&#39;Courier New&#39;,monospace;">
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-40"><a href="#Project-Euler-40" class="headerlink" title="Project Euler 40"></a>Project Euler 40</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Champernowne’s-constant"><a href="#Champernowne’s-constant" class="headerlink" title="Champernowne’s constant"></a>Champernowne’s constant</h3><p>An irrational decimal fraction is created by concatenating the positive integers:</p>
+<center style="font-family:'Courier New',monospace;">
 0.12345678910<font color="red">1</font>112131415161718192021...
 </center>
-<p>It can be seen that the <span class="math inline">\(12\)</span><sup>th</sup> digit of the fractional
-part is <span class="math inline">\(1\)</span>.</p>
-<p>If <span class="math inline">\(d_n\)</span> represents the <span class="math inline">\(n\)</span><sup>th</sup> digit of the fractional
-part, find the value of the following expression.</p>
-<p><span class="math display">\[d_1\times d_{10} \times d_{100} \times
-d_{1000} \times d_{10000} \times d_{100000}\times
-d_{1000000}\]</span></p>
-<h2 id="解决方案">解决方案</h2>
-<p>每一个<span class="math inline">\(d_i\)</span>都是一个独立的问题，可以先计算后再相乘。</p>
-<p>可以发现，<span class="math inline">\(1\sim 9,10\sim 99,100\sim
-999,\dots,10^{n-1}\sim
-10^n-1,\dots\)</span>，每一块都里面的数有相同的长度，而且，每一块的长度增长都是为<span class="math inline">\(1\)</span>。</p>
-<p>因此，计算每一个独立的<span class="math inline">\(d_i\)</span>时，先找到第<span class="math inline">\(i\)</span>位属于那一块，然后再判断第<span class="math inline">\(i\)</span>位属于哪一个数，之后直接相乘即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">que = [<span class="number">10</span> ** i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">x: <span class="built_in">int</span></span>):</span><br><span class="line">    x -= <span class="number">1</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        l = <span class="number">10</span> ** (i - <span class="number">1</span>)</span><br><span class="line">        r = <span class="number">10</span> ** i - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &gt;= (r - l + <span class="number">1</span>) * i:</span><br><span class="line">            x -= (r - l + <span class="number">1</span>) * i</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            d, pos = <span class="built_in">divmod</span>(x, i)</span><br><span class="line">            val = d + l</span><br><span class="line">            ans = <span class="built_in">int</span>(<span class="built_in">str</span>(val)[pos])</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> que:</span><br><span class="line">    ans *= cal(x)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+
+<p>It can be seen that the $12$<sup>th</sup> digit of the fractional part is $1$.</p>
+<p>If $d_n$ represents the $n$<sup>th</sup> digit of the fractional part, find the value of the following expression.</p>
+<script type="math/tex; mode=display">d_1\times d_{10} \times d_{100} \times d_{1000} \times d_{10000} \times d_{100000}\times d_{1000000}</script><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>每一个$d_i$都是一个独立的问题，可以先计算后再相乘。</p>
+<p>可以发现，$1\sim 9,10\sim 99,100\sim 999,\dots,10^{n-1}\sim 10^n-1,\dots$，每一块都里面的数有相同的长度，而且，每一块的长度增长都是为$1$。</p>
+<p>因此，计算每一个独立的$d_i$时，先找到第$i$位属于那一块，然后再判断第$i$位属于哪一个数，之后直接相乘即可。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">que = [<span class="number">10</span> ** i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">x: <span class="built_in">int</span></span>):</span><br><span class="line">    x -= <span class="number">1</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        l = <span class="number">10</span> ** (i - <span class="number">1</span>)</span><br><span class="line">        r = <span class="number">10</span> ** i - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> x &gt;= (r - l + <span class="number">1</span>) * i:</span><br><span class="line">            x -= (r - l + <span class="number">1</span>) * i</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            d, pos = <span class="built_in">divmod</span>(x, i)</span><br><span class="line">            val = d + l</span><br><span class="line">            ans = <span class="built_in">int</span>(<span class="built_in">str</span>(val)[pos])</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> que:</span><br><span class="line">    ans *= cal(x)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +353,7 @@ d_{1000000}\]</span></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-40"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 40</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#champernownes-constant"><span class="nav-number">1.1.1.</span> <span class="nav-text">Champernowne’s constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-40"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 40</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Champernowne%E2%80%99s-constant"><span class="nav-number">1.1.1.</span> <span class="nav-text">Champernowne’s constant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,7 +367,7 @@ d_{1000000}\]</span></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,13 +411,13 @@ d_{1000000}\]</span></p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

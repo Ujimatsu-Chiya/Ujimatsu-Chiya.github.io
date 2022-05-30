@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,46 +257,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-108">Project Euler 108</h1>
-<h2 id="题目">题目</h2>
-<h3 id="diophantine-reciprocals-i">Diophantine reciprocals I</h3>
-<p>In the following equation <span class="math inline">\(x, y\)</span>,
-and <span class="math inline">\(n\)</span> are positive integers.</p>
-<p><span class="math display">\[\dfrac{1}{x} + \dfrac{1}{y} =
-\dfrac{1}{n}\]</span></p>
-<p>For <span class="math inline">\(n = 4\)</span> there are exactly
-three distinct solutions:</p>
-<p><span class="math display">\[\begin{aligned}
-\dfrac{1}{5} + \dfrac{1}{20} &amp;= \dfrac{1}{4}\\
-\dfrac{1}{6} + \dfrac{1}{12} &amp;= \dfrac{1}{4}\\
-\dfrac{1}{8} + \dfrac{1}{8} &amp;= \dfrac{1}{4}
-\end{aligned}
-\]</span></p>
-<p>What is the least value of <span class="math inline">\(n\)</span> for
-which the number of distinct solutions exceeds one-thousand?</p>
-<p class="note">
-</p><p>NOTE: This problem is an easier version of
-<a href="problem=110">Problem 110</a>; it is strongly advised that you
-solve this one first.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>先暴力枚举出前几项的解的个数，然后查询OEIS，发现结果为数列<a target="_blank" rel="noopener" href="https://oeis.org/A018892">A018892</a>。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-108"><a href="#Project-Euler-108" class="headerlink" title="Project Euler 108"></a>Project Euler 108</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Diophantine-reciprocals-I"><a href="#Diophantine-reciprocals-I" class="headerlink" title="Diophantine reciprocals I"></a>Diophantine reciprocals I</h3><p>In the following equation $x, y$, and $n$ are positive integers.</p>
+<script type="math/tex; mode=display">\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{n}</script><p>For $n = 4$ there are exactly three distinct solutions:</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\dfrac{1}{5} + \dfrac{1}{20} &= \dfrac{1}{4}\\
+\dfrac{1}{6} + \dfrac{1}{12} &= \dfrac{1}{4}\\
+\dfrac{1}{8} + \dfrac{1}{8} &= \dfrac{1}{4}
+\end{aligned}</script><p>What is the least value of $n$ for which the number of distinct solutions exceeds one-thousand?</p>
+<p></p><p class="note">NOTE: This problem is an easier version of <a href="problem=110">Problem 110</a>; it is strongly advised that you solve this one first.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>先暴力枚举出前几项的解的个数，然后查询OEIS，发现结果为数列<a target="_blank" rel="noopener" href="https://oeis.org/A018892">A018892</a>。</p>
 <p>在FORMULA一栏中可以发现：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">If n = (p1^a1)(p2^a2)...(pt^at), a(n) = ((2*a1 + 1)(2*a2 + 1) ... (2*at + 1) + 1)/2.</span><br></pre></td></tr></table></figure>
-<p>这说明，如果正整数<span class="math inline">\(n\)</span>分解为<span class="math inline">\(n=\prod
-p_i^{e_i}\)</span>，那么本题解的个数为<span class="math inline">\(f(n)=\dfrac{\prod(2e_i+1)+1}{2}\)</span>。</p>
-<p>因此，通过<span class="math inline">\(n\)</span>的分解质因数枚举<span class="math inline">\(n\)</span>即可，枚举时，为使<span class="math inline">\(n\)</span>取到的最小，注意当<span class="math inline">\(e_i&gt;e_j\)</span>时，那么<span class="math inline">\(p_i&lt;p_j\)</span>。</p>
+<p>这说明，如果正整数$n$分解为$n=\prod p_i^{e_i}$，那么本题解的个数为$f(n)=\dfrac{\prod(2e_i+1)+1}{2}$。</p>
+<p>因此，通过$n$的分解质因数枚举$n$即可，枚举时，为使$n$取到的最小，注意当$e_i&gt;e_j$时，那么$p_i&lt;p_j$。</p>
 <p>关于上面的式子得出过程：</p>
-<p>将式子<span class="math inline">\(\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}\)</span>进行去除分母，再进行移项后得到：<span class="math inline">\(x=\dfrac{ny}{y-n}\)</span>.</p>
-<p>令<span class="math inline">\(t=y-n\)</span>，那么<span class="math inline">\(y=n+t\)</span>，代入原式子，得到：<span class="math inline">\(x=\dfrac{n(n+t)}{t}=\dfrac{n^2}{t}+n\)</span>.</p>
-<p>如果<span class="math inline">\(x\)</span>是一个整数，那么<span class="math inline">\(t |n^2\)</span>。</p>
-<p>那么，<span class="math inline">\(t\)</span>取遍<span class="math inline">\(n^2\)</span>的各个因数，根据因数个数定理，<span class="math inline">\(x\)</span>有<span class="math inline">\(d(n^2)=\prod 2e_i+1\)</span>种取值。</p>
-<p>为不失解的一般性，方程<span class="math inline">\(\dfrac{1}{x} +
-\dfrac{1}{y} = \dfrac{1}{n}\)</span>中的每个解都需要满足<span class="math inline">\(x\leq y\)</span>。</p>
-<p>而当<span class="math inline">\(x=y=2n\)</span>时，满足该等于号。</p>
-<p>故方程<span class="math inline">\(\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}\)</span>解的总个数为<span class="math inline">\(f(n)=\dfrac{\prod (2e_i+1)+1}{2}\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line">pr = get_prime(<span class="built_in">len</span>(<span class="built_in">bin</span>(N)) * <span class="number">50</span>)</span><br><span class="line">ans = N ** <span class="number">10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">n: <span class="built_in">int</span>, mul: <span class="built_in">int</span>, f: <span class="built_in">int</span>, lm: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">global</span> ans</span><br><span class="line">    <span class="keyword">if</span> (mul + <span class="number">1</span>) &gt;&gt; <span class="number">1</span> &gt;= N:</span><br><span class="line">        ans = n</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, lm + <span class="number">1</span>):</span><br><span class="line">        n *= pr[f]</span><br><span class="line">        <span class="keyword">if</span> n &gt; ans:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        dfs(n, mul * (<span class="number">2</span> * i + <span class="number">1</span>), f + <span class="number">1</span>, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, N)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>将式子$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$进行去除分母，再进行移项后得到：$x=\dfrac{ny}{y-n}$.</p>
+<p>令$t=y-n$，那么$y=n+t$，代入原式子，得到：$x=\dfrac{n(n+t)}{t}=\dfrac{n^2}{t}+n$.</p>
+<p>如果$x$是一个整数，那么$t |n^2$。</p>
+<p>那么，$t$取遍$n^2$的各个因数，根据因数个数定理，$x$有$d(n^2)=\prod 2e_i+1$种取值。</p>
+<p>为不失解的一般性，方程$\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{n}$中的每个解都需要满足$x\leq y$。</p>
+<p>而当$x=y=2n$时，满足该等于号。</p>
+<p>故方程$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$解的总个数为$f(n)=\dfrac{\prod (2e_i+1)+1}{2}$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">1000</span></span><br><span class="line">pr = get_prime(<span class="built_in">len</span>(<span class="built_in">bin</span>(N)) * <span class="number">50</span>)</span><br><span class="line">ans = N ** <span class="number">10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">n: <span class="built_in">int</span>, mul: <span class="built_in">int</span>, f: <span class="built_in">int</span>, lm: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">global</span> ans</span><br><span class="line">    <span class="keyword">if</span> (mul + <span class="number">1</span>) &gt;&gt; <span class="number">1</span> &gt;= N:</span><br><span class="line">        ans = n</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, lm + <span class="number">1</span>):</span><br><span class="line">        n *= pr[f]</span><br><span class="line">        <span class="keyword">if</span> n &gt; ans:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        dfs(n, mul * (<span class="number">2</span> * i + <span class="number">1</span>), f + <span class="number">1</span>, i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, N)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -380,7 +364,7 @@ p_i^{e_i}\)</span>，那么本题解的个数为<span class="math inline">\(f(n)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-108"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 108</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#diophantine-reciprocals-i"><span class="nav-number">1.1.1.</span> <span class="nav-text">Diophantine reciprocals I</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-108"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 108</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diophantine-reciprocals-I"><span class="nav-number">1.1.1.</span> <span class="nav-text">Diophantine reciprocals I</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -394,7 +378,7 @@ p_i^{e_i}\)</span>，那么本题解的个数为<span class="math inline">\(f(n)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -438,13 +422,13 @@ p_i^{e_i}\)</span>，那么本题解的个数为<span class="math inline">\(f(n)
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

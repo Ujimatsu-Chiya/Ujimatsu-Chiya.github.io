@@ -237,7 +237,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -256,48 +256,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-189">Project Euler 189</h1>
-<h2 id="题目">题目</h2>
-<h3 id="tri-colouring-a-triangular-grid">Tri-colouring a triangular
-grid</h3>
-<p>Consider the following configuration of 64 triangles:</p>
-<p><img src="../images/p189_grid.gif"></p>
-<p>We wish to colour the interior of each triangle with one of three
-colours: red, green or blue, so that no two neighbouring triangles have
-the same colour. Such a colouring shall be called valid. Here, two
-triangles are said to be neighbouring if they share an edge.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-189"><a href="#Project-Euler-189" class="headerlink" title="Project Euler 189"></a>Project Euler 189</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Tri-colouring-a-triangular-grid"><a href="#Tri-colouring-a-triangular-grid" class="headerlink" title="Tri-colouring a triangular grid"></a>Tri-colouring a triangular grid</h3><p>Consider the following configuration of 64 triangles:</p>
+<p><img src="../images/p189_grid.gif" alt></p>
+<p>We wish to colour the interior of each triangle with one of three colours: red, green or blue, so that no two neighbouring triangles have the same colour. Such a colouring shall be called valid. Here, two triangles are said to be neighbouring if they share an edge.</p>
 <p>Note: if they only share a vertex, then they are not neighbours.</p>
 <p>For example, here is a valid colouring of the above grid:</p>
-<p><img src="../images/p189_colours.gif"></p>
-<p>A colouring <span class="math inline">\(C’\)</span> which is obtained
-from a colouring <span class="math inline">\(C\)</span> by rotation or
-reflection is considered distinct from <span class="math inline">\(C\)</span> unless the two are identical.</p>
-<p>How many distinct valid colourings are there for the above
-configuration?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题是一道基于三进制的状态压缩动态规划题目。</p>
-<p>由于每一层的三角形中只有<strong>正三角形</strong>才会对下一层产生影响，倒三角形不会。因此我们描述每一层的状态时，只描述第<span class="math inline">\(k\)</span>层的<span class="math inline">\(k\)</span>个正三角形的涂色状态，因此，用一个<span class="math inline">\(k\)</span>位三进制数<span class="math inline">\(b=b_{k-1}b_{k-2}\dots
-b_0\)</span>来表示。其中，<span class="math inline">\(b_i\)</span>只取值<span class="math inline">\(0,1,2\)</span>，分别表示涂上的<span class="math inline">\(3\)</span>种颜色。</p>
-<p>令<span class="math inline">\(N=8\)</span>，设<span class="math inline">\(f(i,j)(1\le i\le N,0\le j&lt; 3^i)\)</span>第<span class="math inline">\(i\)</span>行中，涂色状态为<span class="math inline">\(j\)</span>的方法有多少种。在这里，<span class="math inline">\(j\)</span>表示成<span class="math inline">\(i\)</span>位三进制数<span class="math inline">\(j_{i,i-1}j_{i,i-2}\dots j_{i,0}\)</span>。</p>
+<p><img src="../images/p189_colours.gif" alt></p>
+<p>A colouring $C’$ which is obtained from a colouring $C$ by rotation or reflection is considered distinct from $C$ unless the two are identical.</p>
+<p>How many distinct valid colourings are there for the above configuration?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题是一道基于三进制的状态压缩动态规划题目。</p>
+<p>由于每一层的三角形中只有<strong>正三角形</strong>才会对下一层产生影响，倒三角形不会。因此我们描述每一层的状态时，只描述第$k$层的$k$个正三角形的涂色状态，因此，用一个$k$位三进制数$b=b_{k-1}b_{k-2}\dots b_0$来表示。其中，$b_i$只取值$0,1,2$，分别表示涂上的$3$种颜色。</p>
+<p>令$N=8$，设$f(i,j)(1\le i\le N,0\le j&lt; 3^i)$第$i$行中，涂色状态为$j$的方法有多少种。在这里，$j$表示成$i$位三进制数$j_{i,i-1}j_{i,i-2}\dots j_{i,0}$。</p>
 <p>那么，考虑倒三角形的涂色方案，如下图所示：</p>
-<p><img src="../images/p189-1.png"></p>
-<p>确定了第<span class="math inline">\(i\)</span>行和第<span class="math inline">\(i-1\)</span>行的状态后，考虑转移。一个倒三角形填色的方案必须和相邻的<strong>三个正三角形</strong>的颜色不一样。第<span class="math inline">\(i\)</span>行的<span class="math inline">\(i-1\)</span>个倒三角形互不相邻，因此根据乘法原理，可以将这些填色方案相乘，完成转移。</p>
+<p><img src="../images/p189-1.png" alt></p>
+<p>确定了第$i$行和第$i-1$行的状态后，考虑转移。一个倒三角形填色的方案必须和相邻的<strong>三个正三角形</strong>的颜色不一样。第$i$行的$i-1$个倒三角形互不相邻，因此根据乘法原理，可以将这些填色方案相乘，完成转移。</p>
 <p>可以列出如下状态转移方程：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 f(i,j)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=1 \\
-  &amp;\sum_{k=0}^{3^{i-1}-1}f(i-1,k)\cdot
-\prod_{l=0}^{i-1}  \mathrm{excluded}(j_{i,l},j_{i,l+1},k_{i-1,l})&amp;
-&amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>其中，函数<span class="math inline">\(\mathrm{excluded}(a,b,c)\)</span>表示集合<span class="math inline">\(\{0,1,2\}\)</span>去掉元素<span class="math inline">\(a,b,c\)</span>后的大小。</p>
+  &1  & & \mathrm{if\quad} i=1 \\
+  &\sum_{k=0}^{3^{i-1}-1}f(i-1,k)\cdot \prod_{l=0}^{i-1}  \mathrm{excluded}(j_{i,l},j_{i,l+1},k_{i-1,l})& & \mathrm{else}
+\end{aligned}\right.</script><p>其中，函数$\mathrm{excluded}(a,b,c)$表示集合$\{0,1,2\}$去掉元素$a,b,c$后的大小。</p>
 <p>那么最终结果为：</p>
-<p><span class="math display">\[\sum_{j=0}^{3^N-1}f(N,j)\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="built_in">pow</span>(<span class="number">3</span>,N);</span><br><span class="line">ll f[N+<span class="number">1</span>][M];</span><br><span class="line"><span class="type">int</span> pw3[N+<span class="number">1</span>],c[<span class="number">8</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;g[M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">        c[i] = <span class="number">3</span> - __builtin_popcount(i);</span><br><span class="line">    &#125;</span><br><span class="line">    pw3[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">        pw3[i] = pw3[i - <span class="number">1</span>] * <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; pw3[N]; j++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>, x = j; k &lt; N; k++, x /= <span class="number">3</span>)</span><br><span class="line">            g[j].<span class="built_in">push_back</span>(x % <span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">1</span>][<span class="number">0</span>] = f[<span class="number">1</span>][<span class="number">1</span>] = f[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; pw3[i]; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; pw3[i - <span class="number">1</span>]; k++) &#123;</span><br><span class="line">                <span class="type">int</span> v = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">0</span>; l + <span class="number">1</span> &lt; i; l++)</span><br><span class="line">                    v *= c[<span class="number">1</span> &lt;&lt; g[k][l] | <span class="number">1</span> &lt;&lt; g[j][l] | <span class="number">1</span> &lt;&lt; g[j][l + <span class="number">1</span>]];</span><br><span class="line">                f[i][j] += f[i - <span class="number">1</span>][k] * v;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pw3[N]; i++)</span><br><span class="line">        ans += f[N][i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\sum_{j=0}^{3^N-1}f(N,j)</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="built_in">pow</span>(<span class="number">3</span>,N);</span><br><span class="line">ll f[N+<span class="number">1</span>][M];</span><br><span class="line"><span class="type">int</span> pw3[N+<span class="number">1</span>],c[<span class="number">8</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;g[M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">        c[i] = <span class="number">3</span> - __builtin_popcount(i);</span><br><span class="line">    &#125;</span><br><span class="line">    pw3[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">        pw3[i] = pw3[i - <span class="number">1</span>] * <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; pw3[N]; j++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>, x = j; k &lt; N; k++, x /= <span class="number">3</span>)</span><br><span class="line">            g[j].<span class="built_in">push_back</span>(x % <span class="number">3</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">1</span>][<span class="number">0</span>] = f[<span class="number">1</span>][<span class="number">1</span>] = f[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= N; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; pw3[i]; j++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt; pw3[i - <span class="number">1</span>]; k++) &#123;</span><br><span class="line">                <span class="type">int</span> v = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">0</span>; l + <span class="number">1</span> &lt; i; l++)</span><br><span class="line">                    v *= c[<span class="number">1</span> &lt;&lt; g[k][l] | <span class="number">1</span> &lt;&lt; g[j][l] | <span class="number">1</span> &lt;&lt; g[j][l + <span class="number">1</span>]];</span><br><span class="line">                f[i][j] += f[i - <span class="number">1</span>][k] * v;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; pw3[N]; i++)</span><br><span class="line">        ans += f[N][i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -382,8 +365,7 @@ f(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-189"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 189</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tri-colouring-a-triangular-grid"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tri-colouring a triangular
-grid</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-189"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 189</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tri-colouring-a-triangular-grid"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tri-colouring a triangular grid</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -397,7 +379,7 @@ grid</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -441,13 +423,13 @@ grid</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-lin
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

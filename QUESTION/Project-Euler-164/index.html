@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>639</span>
+              <span>560</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,30 +252,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-164">Project Euler 164</h1>
-<h2 id="题目">题目</h2>
-<h3 id="numbers-for-which-no-three-consecutive-digits-have-a-sum-greater-than-a-given-value">Numbers
-for which no three consecutive digits have a sum greater than a given
-value</h3>
-<p>How many <span class="math inline">\(20\)</span> digit numbers <span class="math inline">\(n\)</span> (without any leading zero) exist such
-that no three consecutive digits of <span class="math inline">\(n\)</span> have a sum greater than <span class="math inline">\(9\)</span>?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题是一个明显的数位动态规划。</p>
-<p>令<span class="math inline">\(f(i,a,b)(i\ge 1,0\le a+b\le
-9)\)</span>为目前符合题意的<span class="math inline">\(i\)</span>位数中，个位为<span class="math inline">\(b\)</span>，十位为<span class="math inline">\(a\)</span>的数的个数，为了保证添加连续三个数的和不超过<span class="math inline">\(9\)</span>，那么个位后面添加的数必须不超过<span class="math inline">\(9-a-b\)</span>。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-164"><a href="#Project-Euler-164" class="headerlink" title="Project Euler 164"></a>Project Euler 164</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Numbers-for-which-no-three-consecutive-digits-have-a-sum-greater-than-a-given-value"><a href="#Numbers-for-which-no-three-consecutive-digits-have-a-sum-greater-than-a-given-value" class="headerlink" title="Numbers for which no three consecutive digits have a sum greater than a given value"></a>Numbers for which no three consecutive digits have a sum greater than a given value</h3><p>How many $20$ digit numbers $n$ (without any leading zero) exist such that no three consecutive digits of $n$ have a sum greater than $9$?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题是一个明显的数位动态规划。</p>
+<p>令$f(i,a,b)(i\ge 1,0\le a+b\le 9)$为目前符合题意的$i$位数中，个位为$b$，十位为$a$的数的个数，为了保证添加连续三个数的和不超过$9$，那么个位后面添加的数必须不超过$9-a-b$。</p>
 <p>那么可以得到状态转移方程：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 f(i,a,b)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=1\&amp;a=0\&amp;b&gt;0 \\
-  &amp;0 &amp; &amp; \mathrm{else if\quad} i=1 \\
-  &amp;\sum_{j=0}^{9-a-b} f(i-1,j,a) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>由于只有一位数时，十位为<span class="math inline">\(0\)</span>，因此只要求<span class="math inline">\(b&gt;0\)</span>。而且，为了防止以后出现前导<span class="math inline">\(0\)</span>，<span class="math inline">\(f(1,0,0)=0\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">20</span>,M=<span class="number">10</span>;</span><br><span class="line">ll f[N+<span class="number">4</span>][M][M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)</span><br><span class="line">        f[<span class="number">1</span>][<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span>;a&lt;=<span class="number">9</span>;a++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> b=<span class="number">0</span>;a+b&lt;=<span class="number">9</span>;b++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;a+b+j&lt;=<span class="number">9</span>;j++)</span><br><span class="line">                    f[i][a][b]+=f[i<span class="number">-1</span>][j][a];</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span>;a&lt;=<span class="number">9</span>;a++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> b=<span class="number">0</span>;a+b&lt;=<span class="number">9</span>;b++)</span><br><span class="line">            ans+=f[N][a][b];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &1  & & \mathrm{if\quad} i=1\&a=0\&b>0 \\
+  &0 & & \mathrm{else if\quad} i=1 \\
+  &\sum_{j=0}^{9-a-b} f(i-1,j,a) & & \mathrm{else}
+\end{aligned}\right.</script><p>由于只有一位数时，十位为$0$，因此只要求$b&gt;0$。而且，为了防止以后出现前导$0$，$f(1,0,0)=0$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">20</span>,M=<span class="number">10</span>;</span><br><span class="line">ll f[N+<span class="number">4</span>][M][M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">9</span>;i++)</span><br><span class="line">        f[<span class="number">1</span>][<span class="number">0</span>][i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span>;a&lt;=<span class="number">9</span>;a++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> b=<span class="number">0</span>;a+b&lt;=<span class="number">9</span>;b++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;a+b+j&lt;=<span class="number">9</span>;j++)</span><br><span class="line">                    f[i][a][b]+=f[i<span class="number">-1</span>][j][a];</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">0</span>;a&lt;=<span class="number">9</span>;a++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> b=<span class="number">0</span>;a+b&lt;=<span class="number">9</span>;b++)</span><br><span class="line">            ans+=f[N][a][b];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -360,9 +350,7 @@ f(i,a,b)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-164"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 164</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#numbers-for-which-no-three-consecutive-digits-have-a-sum-greater-than-a-given-value"><span class="nav-number">1.1.1.</span> <span class="nav-text">Numbers
-for which no three consecutive digits have a sum greater than a given
-value</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-164"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 164</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numbers-for-which-no-three-consecutive-digits-have-a-sum-greater-than-a-given-value"><span class="nav-number">1.1.1.</span> <span class="nav-text">Numbers for which no three consecutive digits have a sum greater than a given value</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -376,7 +364,7 @@ value</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-li
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -420,13 +408,13 @@ value</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-li
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

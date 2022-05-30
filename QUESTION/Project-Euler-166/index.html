@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>784</span>
+              <span>700</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,34 +251,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-166">Project Euler 166</h1>
-<h2 id="题目">题目</h2>
-<h3 id="criss-cross">Criss Cross</h3>
-<p>A <span class="math inline">\(4\times 4\)</span> grid is filled with
-digits <span class="math inline">\(d\)</span>, <span class="math inline">\(0 \le d \le 9\)</span>.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-166"><a href="#Project-Euler-166" class="headerlink" title="Project Euler 166"></a>Project Euler 166</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Criss-Cross"><a href="#Criss-Cross" class="headerlink" title="Criss Cross"></a>Criss Cross</h3><p>A $4\times 4$ grid is filled with digits $d$, $0 \le d \le 9$.</p>
 <p>It can be seen that in the grid</p>
-<p><span class="math display">\[\begin{matrix}
-6 &amp; 3 &amp; 3 &amp; 0 \\
-5 &amp; 0 &amp; 4 &amp; 3 \\
-0 &amp; 7 &amp; 1 &amp; 4 \\
-1 &amp; 2 &amp; 4 &amp; 5
-\end{matrix}\]</span> the sum of each row and each column has the value
-<span class="math inline">\(12\)</span>. Moreover the sum of each
-diagonal is also <span class="math inline">\(12\)</span>.</p>
-<p>In how many ways can you fill a <span class="math inline">\(4\times
-4\)</span> grid with the digits <span class="math inline">\(d\)</span>,
-<span class="math inline">\(0 \le d \le 9\)</span> so that each row,
-each column, and both diagonals have the same sum?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题基于meet-in-the-middle的思想完成。</p>
-<p>首先枚举幻方一行中所有的可能性填法，按照行的和分别存储，共<span class="math inline">\(10000\)</span>种可能的填法。</p>
+<script type="math/tex; mode=display">\begin{matrix}
+6 & 3 & 3 & 0 \\
+5 & 0 & 4 & 3 \\
+0 & 7 & 1 & 4 \\
+1 & 2 & 4 & 5
+\end{matrix}</script><p>the sum of each row and each column has the value $12$. Moreover the sum of each diagonal is also $12$.</p>
+<p>In how many ways can you fill a $4\times 4$ grid with the digits $d$, $0 \le d \le 9$ so that each row, each column, and both diagonals have the same sum?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题基于meet-in-the-middle的思想完成。</p>
+<p>首先枚举幻方一行中所有的可能性填法，按照行的和分别存储，共$10000$种可能的填法。</p>
 <p>接下来，枚举前两行的填法。</p>
-<p>第二行元素的和<span class="math inline">\(s\)</span>必须和第一行相同（这就是按和分类存储的原因）。这时就枚举了整个幻方的一半数字。用一个六元组<span class="math inline">\((a,b,c,d,e,f)\)</span>分别统计这一半的填法分别有多少，其中，<span class="math inline">\(a,b,c,d\)</span>分别表示幻方<span class="math inline">\(4\)</span>列上的两个数的和，<span class="math inline">\(e,f\)</span>则表示主副对角线上两个数的和。</p>
-<p>不失一般性，幻方的下两行和上两行的枚举方式是完全一样的。下面两行如果存在一种填法<span class="math inline">\((a,b,c,d,e,f)\)</span>，那么上面两行的填法一定是<span class="math inline">\((s-a,s-b,s-c,s-d,s-e,s-f)\)</span>。</p>
+<p>第二行元素的和$s$必须和第一行相同（这就是按和分类存储的原因）。这时就枚举了整个幻方的一半数字。用一个六元组$(a,b,c,d,e,f)$分别统计这一半的填法分别有多少，其中，$a,b,c,d$分别表示幻方$4$列上的两个数的和，$e,f$则表示主副对角线上两个数的和。</p>
+<p>不失一般性，幻方的下两行和上两行的枚举方式是完全一样的。下面两行如果存在一种填法$(a,b,c,d,e,f)$，那么上面两行的填法一定是$(s-a,s-b,s-c,s-d,s-e,s-f)$。</p>
 <p>直接统计这种做法个数之和。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mp = &#123;&#125;</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">                w = i + j + k + l</span><br><span class="line">                <span class="keyword">if</span> w <span class="keyword">not</span> <span class="keyword">in</span> mp.keys():</span><br><span class="line">                    mp[w] = []</span><br><span class="line">                mp[w].append((i, j, k, l))</span><br><span class="line"><span class="keyword">for</span> s, vec <span class="keyword">in</span> mp.items():</span><br><span class="line">    mq = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> vec:</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> vec:</span><br><span class="line">            t = (u[<span class="number">0</span>] + v[<span class="number">0</span>], u[<span class="number">1</span>] + v[<span class="number">1</span>], u[<span class="number">2</span>] + v[<span class="number">2</span>], u[<span class="number">3</span>] + v[<span class="number">3</span>], u[<span class="number">0</span>] + v[<span class="number">1</span>], u[<span class="number">3</span>] + v[<span class="number">2</span>])</span><br><span class="line">            <span class="keyword">if</span> t <span class="keyword">not</span> <span class="keyword">in</span> mq:</span><br><span class="line">                mq[t] = <span class="number">0</span></span><br><span class="line">            mq[t] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> vec:</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> vec:</span><br><span class="line">            t = (s - u[<span class="number">0</span>] - v[<span class="number">0</span>], s - u[<span class="number">1</span>] - v[<span class="number">1</span>], s - u[<span class="number">2</span>] - v[<span class="number">2</span>], s - u[<span class="number">3</span>] - v[<span class="number">3</span>], s - u[<span class="number">2</span>] - v[<span class="number">3</span>], s - u[<span class="number">1</span>] - v[<span class="number">0</span>])</span><br><span class="line">            <span class="keyword">if</span> t <span class="keyword">in</span> mq:</span><br><span class="line">                ans += mq[t]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">mp = &#123;&#125;</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">for</span> l <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">                w = i + j + k + l</span><br><span class="line">                <span class="keyword">if</span> w <span class="keyword">not</span> <span class="keyword">in</span> mp.keys():</span><br><span class="line">                    mp[w] = []</span><br><span class="line">                mp[w].append((i, j, k, l))</span><br><span class="line"><span class="keyword">for</span> s, vec <span class="keyword">in</span> mp.items():</span><br><span class="line">    mq = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> vec:</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> vec:</span><br><span class="line">            t = (u[<span class="number">0</span>] + v[<span class="number">0</span>], u[<span class="number">1</span>] + v[<span class="number">1</span>], u[<span class="number">2</span>] + v[<span class="number">2</span>], u[<span class="number">3</span>] + v[<span class="number">3</span>], u[<span class="number">0</span>] + v[<span class="number">1</span>], u[<span class="number">3</span>] + v[<span class="number">2</span>])</span><br><span class="line">            <span class="keyword">if</span> t <span class="keyword">not</span> <span class="keyword">in</span> mq:</span><br><span class="line">                mq[t] = <span class="number">0</span></span><br><span class="line">            mq[t] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> vec:</span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> vec:</span><br><span class="line">            t = (s - u[<span class="number">0</span>] - v[<span class="number">0</span>], s - u[<span class="number">1</span>] - v[<span class="number">1</span>], s - u[<span class="number">2</span>] - v[<span class="number">2</span>], s - u[<span class="number">3</span>] - v[<span class="number">3</span>], s - u[<span class="number">2</span>] - v[<span class="number">3</span>], s - u[<span class="number">1</span>] - v[<span class="number">0</span>])</span><br><span class="line">            <span class="keyword">if</span> t <span class="keyword">in</span> mq:</span><br><span class="line">                ans += mq[t]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -363,7 +353,7 @@ each column, and both diagonals have the same sum?</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-166"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 166</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#criss-cross"><span class="nav-number">1.1.1.</span> <span class="nav-text">Criss Cross</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-166"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 166</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Criss-Cross"><span class="nav-number">1.1.1.</span> <span class="nav-text">Criss Cross</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +367,7 @@ each column, and both diagonals have the same sum?</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -421,13 +411,13 @@ each column, and both diagonals have the same sum?</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

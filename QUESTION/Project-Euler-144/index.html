@@ -242,7 +242,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -261,62 +261,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-144">Project Euler 144</h1>
-<h2 id="题目">题目</h2>
-<h3 id="investigating-multiple-reflections-of-a-laser-beam">Investigating
-multiple reflections of a laser beam</h3>
-<p>In laser physics, a “white cell” is a mirror system that acts as a
-delay line for the laser beam. The beam enters the cell, bounces around
-on the mirrors, and eventually works its way back out.</p>
-<p>The specific white cell we will be considering is an ellipse with the
-equation <span class="math inline">\(4x^2 + y^2 = 100\)</span> The
-section corresponding to <span class="math inline">\(-0.01 \leq x \leq
-+0.01\)</span> at the top is missing, allowing the light to enter and
-exit through the hole.</p>
-<p><img src="../images/p144_1.png"> <img src="../images/p144_2.gif"></p>
-<p>The light beam in this problem starts at the point <span class="math inline">\((0.0,10.1)\)</span> just outside the white cell,
-and the beam first impacts the mirror at <span class="math inline">\((1.4,-9.6)\)</span>.</p>
-<p>Each time the laser beam hits the surface of the ellipse, it follows
-the usual law of reflection “angle of incidence equals angle of
-reflection.” That is, both the incident and reflected beams make the
-same angle with the normal line at the point of incidence.</p>
-<p>In the figure on the left, the red line shows the first two points of
-contact between the laser beam and the wall of the white cell; the blue
-line shows the line tangent to the ellipse at the point of incidence of
-the first bounce.</p>
-<p>The slope <span class="math inline">\(m\)</span> of the tangent line
-at any point <span class="math inline">\((x,y)\)</span> of the given
-ellipse is: <span class="math inline">\(m = -4x/y\)</span></p>
-<p>The normal line is perpendicular to this tangent line at the point of
-incidence.</p>
-<p>The animation on the right shows the first <span class="math inline">\(10\)</span> reflections of the beam.</p>
-<p>How many times does the beam hit the internal surface of the white
-cell before exiting?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本问题分成两个子问题解决。</p>
-<p>第一个是已知两条直线<span class="math inline">\(l_1:y=ax+b_1,l_2:y=mx+b_2\)</span>，求<span class="math inline">\(l_1\)</span>关于<span class="math inline">\(l_2\)</span>对称的直线。其中，已知它们的交点<span class="math inline">\(l_1\cap l_2=(x_0,y_0)\)</span>.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-144"><a href="#Project-Euler-144" class="headerlink" title="Project Euler 144"></a>Project Euler 144</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Investigating-multiple-reflections-of-a-laser-beam"><a href="#Investigating-multiple-reflections-of-a-laser-beam" class="headerlink" title="Investigating multiple reflections of a laser beam"></a>Investigating multiple reflections of a laser beam</h3><p>In laser physics, a “white cell” is a mirror system that acts as a delay line for the laser beam. The beam enters the cell, bounces around on the mirrors, and eventually works its way back out.</p>
+<p>The specific white cell we will be considering is an ellipse with the equation $4x^2 + y^2 = 100$<br>The section corresponding to $-0.01 \leq x \leq +0.01$ at the top is missing, allowing the light to enter and exit through the hole.</p>
+<p><img src="../images/p144_1.png" alt> <img src="../images/p144_2.gif" alt></p>
+<p>The light beam in this problem starts at the point $(0.0,10.1)$ just outside the white cell, and the beam first impacts the mirror at $(1.4,-9.6)$.</p>
+<p>Each time the laser beam hits the surface of the ellipse, it follows the usual law of reflection “angle of incidence equals angle of reflection.” That is, both the incident and reflected beams make the same angle with the normal line at the point of incidence.</p>
+<p>In the figure on the left, the red line shows the first two points of contact between the laser beam and the wall of the white cell; the blue line shows the line tangent to the ellipse at the point of incidence of the first bounce.</p>
+<p>The slope $m$ of the tangent line at any point $(x,y)$ of the given ellipse is: $m = -4x/y$</p>
+<p>The normal line is perpendicular to this tangent line at the point of incidence.</p>
+<p>The animation on the right shows the first $10$ reflections of the beam.</p>
+<p>How many times does the beam hit the internal surface of the white cell before exiting?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本问题分成两个子问题解决。</p>
+<p>第一个是已知两条直线$l_1:y=ax+b_1,l_2:y=mx+b_2$，求$l_1$关于$l_2$对称的直线。其中，已知它们的交点$l_1\cap l_2=(x_0,y_0)$.</p>
 <p>那么现在只剩下求斜率的问题，可以参考下图。</p>
-<p><img src="../images/p144-3.png"></p>
-<p>假设需要求的那条线<span class="math inline">\(l_3\)</span>的斜率为<span class="math inline">\(k\)</span>。根据对称的定义，明显<span class="math inline">\(\theta_1\)</span>和<span class="math inline">\(\theta_2\)</span>这两个角的大小是相等的。那么使用<span class="math inline">\(\tan\)</span>的差角公式，可以得到以下式子：</p>
-<p><span class="math display">\[\dfrac{m-k}{1+mk}=\dfrac{a-m}{1+am}\]</span></p>
-<p>解得<span class="math inline">\(k=\dfrac{am^2+2m-a}{1+2am-m^2}\)</span></p>
-<p>明显的是，<span class="math inline">\((x_0,y_0)\)</span>也在<span class="math inline">\(l_3\)</span>上，故<span class="math inline">\(l_3\)</span>的方程可以确定为<span class="math inline">\(y=k(x-x_0)+y_0\)</span>.</p>
-<p>回到本题，入射的光线明显属于<span class="math inline">\(l_1\)</span>，而<span class="math inline">\((x_0,y_0)\)</span>在椭圆上的切线就是<span class="math inline">\(l_2\)</span>。所求反射光线即为<span class="math inline">\(l_3\)</span>。</p>
+<p><img src="../images/p144-3.png" alt></p>
+<p>假设需要求的那条线$l_3$的斜率为$k$。根据对称的定义，明显$\theta_1$和$\theta_2$这两个角的大小是相等的。那么使用$\tan$的差角公式，可以得到以下式子：</p>
+<script type="math/tex; mode=display">\dfrac{m-k}{1+mk}=\dfrac{a-m}{1+am}</script><p>解得$k=\dfrac{am^2+2m-a}{1+2am-m^2}$</p>
+<p>明显的是，$(x_0,y_0)$也在$l_3$上，故$l_3$的方程可以确定为$y=k(x-x_0)+y_0$.</p>
+<p>回到本题，入射的光线明显属于$l_1$，而$(x_0,y_0)$在椭圆上的切线就是$l_2$。所求反射光线即为$l_3$。</p>
 <p>第二个问题是求反射直线到达的椭圆上的点。</p>
-<p>设求出来的<span class="math inline">\(l_3:y=kx+b\)</span>，联立两个方程：</p>
-<p><span class="math display">\[\left \{\begin{aligned}
-  &amp; y=kx+b\\
-  &amp; 4x^2+y^2=100
-\end{aligned}\right.
-\]</span></p>
-<p>消去<span class="math inline">\(y\)</span>，得到关于<span class="math inline">\(x\)</span>的一元二次方程：</p>
-<p><span class="math display">\[(k^2+4)x^2+2bkx+b^2-100=0\]</span></p>
-<p>因此，计算出判别式<span class="math inline">\(\Delta=16(25k^2+100-b^2)\)</span>，直接套用求根公式可以求出两个解<span class="math inline">\(x_0,x&#39;\)</span></p>
-<p>需要注意的是，由于<span class="math inline">\((x_0,y_0)\)</span>是属于<span class="math inline">\(l_3\)</span>中的点，因此解一定会出现<span class="math inline">\(x_0\)</span>。取另外一个解<span class="math inline">\(x&#39;\)</span>，计算出<span class="math inline">\(y&#39;=kx&#39;+b&#39;\)</span>，那么<span class="math inline">\((x&#39;,y&#39;)\)</span>就是反射光线射中的点。</p>
+<p>设求出来的$l_3:y=kx+b$，联立两个方程：</p>
+<script type="math/tex; mode=display">\left \{\begin{aligned}
+  & y=kx+b\\
+  & 4x^2+y^2=100
+\end{aligned}\right.</script><p>消去$y$，得到关于$x$的一元二次方程：</p>
+<script type="math/tex; mode=display">(k^2+4)x^2+2bkx+b^2-100=0</script><p>因此，计算出判别式$\Delta=16(25k^2+100-b^2)$，直接套用求根公式可以求出两个解$x_0,x’$</p>
+<p>需要注意的是，由于$(x_0,y_0)$是属于$l_3$中的点，因此解一定会出现$x_0$。取另外一个解$x’$，计算出$y’=kx’+b’$，那么$(x’,y’)$就是反射光线射中的点。</p>
 <p>因此，解决了上面两个问题之后，每一次迭代都找出反射光射中的点。如果射中的是缺口，那么跳出循环。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">x1, y1, x2, y2 = <span class="number">0.0</span>, <span class="number">10.1</span>, <span class="number">1.4</span>, -<span class="number">9.6</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">x1, y1, x2, y2</span>):</span><br><span class="line">    cnt = <span class="number">1</span></span><br><span class="line">    x, y = x2, y2</span><br><span class="line">    k = (y2 - y1) / (x2 - x1)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        m = y / (<span class="number">4</span> * x)</span><br><span class="line">        <span class="comment"># 第一个问题</span></span><br><span class="line">        k = (<span class="number">2</span> * m - k * (<span class="number">1</span> - m ** <span class="number">2</span>)) / (<span class="number">1</span> - m ** <span class="number">2</span> + <span class="number">2</span> * m * k)</span><br><span class="line">        b = y - k * x</span><br><span class="line">        <span class="comment"># 第二个问题</span></span><br><span class="line">        x1 = (-<span class="number">2</span> * k * b + <span class="number">4</span> * (<span class="number">25</span> * k ** <span class="number">2</span> + <span class="number">100</span> - b ** <span class="number">2</span>) ** <span class="number">0.5</span>) / (<span class="number">2</span> * (<span class="number">4</span> + k ** <span class="number">2</span>))</span><br><span class="line">        x2 = (-<span class="number">2</span> * k * b - <span class="number">4</span> * (<span class="number">25</span> * k ** <span class="number">2</span> + <span class="number">100</span> - b ** <span class="number">2</span>) ** <span class="number">0.5</span>) / (<span class="number">2</span> * (<span class="number">4</span> + k ** <span class="number">2</span>))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(x1 - x) &lt; <span class="number">1e-7</span>:</span><br><span class="line">            x, y = x2, k * x2 + b</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x, y = x1, k * x1 + b</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(x) &lt; <span class="number">1e-2</span> <span class="keyword">and</span> y &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> cnt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = solve(<span class="number">0.0</span>, <span class="number">10.1</span>, <span class="number">1.4</span>, -<span class="number">9.6</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">x1, y1, x2, y2 = <span class="number">0.0</span>, <span class="number">10.1</span>, <span class="number">1.4</span>, -<span class="number">9.6</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">x1, y1, x2, y2</span>):</span><br><span class="line">    cnt = <span class="number">1</span></span><br><span class="line">    x, y = x2, y2</span><br><span class="line">    k = (y2 - y1) / (x2 - x1)</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        m = y / (<span class="number">4</span> * x)</span><br><span class="line">        <span class="comment"># 第一个问题</span></span><br><span class="line">        k = (<span class="number">2</span> * m - k * (<span class="number">1</span> - m ** <span class="number">2</span>)) / (<span class="number">1</span> - m ** <span class="number">2</span> + <span class="number">2</span> * m * k)</span><br><span class="line">        b = y - k * x</span><br><span class="line">        <span class="comment"># 第二个问题</span></span><br><span class="line">        x1 = (-<span class="number">2</span> * k * b + <span class="number">4</span> * (<span class="number">25</span> * k ** <span class="number">2</span> + <span class="number">100</span> - b ** <span class="number">2</span>) ** <span class="number">0.5</span>) / (<span class="number">2</span> * (<span class="number">4</span> + k ** <span class="number">2</span>))</span><br><span class="line">        x2 = (-<span class="number">2</span> * k * b - <span class="number">4</span> * (<span class="number">25</span> * k ** <span class="number">2</span> + <span class="number">100</span> - b ** <span class="number">2</span>) ** <span class="number">0.5</span>) / (<span class="number">2</span> * (<span class="number">4</span> + k ** <span class="number">2</span>))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(x1 - x) &lt; <span class="number">1e-7</span>:</span><br><span class="line">            x, y = x2, k * x2 + b</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            x, y = x1, k * x1 + b</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(x) &lt; <span class="number">1e-2</span> <span class="keyword">and</span> y &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> cnt</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = solve(<span class="number">0.0</span>, <span class="number">10.1</span>, <span class="number">1.4</span>, -<span class="number">9.6</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -400,8 +374,7 @@ cell before exiting?</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-144"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 144</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#investigating-multiple-reflections-of-a-laser-beam"><span class="nav-number">1.1.1.</span> <span class="nav-text">Investigating
-multiple reflections of a laser beam</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-144"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 144</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Investigating-multiple-reflections-of-a-laser-beam"><span class="nav-number">1.1.1.</span> <span class="nav-text">Investigating multiple reflections of a laser beam</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -415,7 +388,7 @@ multiple reflections of a laser beam</span></a></li></ol></li><li class="nav-ite
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -459,13 +432,13 @@ multiple reflections of a laser beam</span></a></li></ol></li><li class="nav-ite
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

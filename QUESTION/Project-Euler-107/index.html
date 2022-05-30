@@ -235,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>989</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -254,17 +254,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-107">Project Euler 107</h1>
-<h2 id="题目">题目</h2>
-<h3 id="minimal-network">Minimal network</h3>
-<p>The following undirected network consists of seven vertices and
-twelve edges with a total weight of 243.</p>
-<p><img src="../images/p107_1.png"></p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-107"><a href="#Project-Euler-107" class="headerlink" title="Project Euler 107"></a>Project Euler 107</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Minimal-network"><a href="#Minimal-network" class="headerlink" title="Minimal network"></a>Minimal network</h3><p>The following undirected network consists of seven vertices and twelve edges with a total weight of 243.</p>
+<p><img src="../images/p107_1.png" alt></p>
 <p>The same network can be represented by the matrix below.</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th></th>
 <th><strong>A</strong></th>
 <th><strong>B</strong></th>
@@ -276,98 +274,88 @@ twelve edges with a total weight of 243.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>A</strong></td>
 <td>-</td>
-<td><span class="math inline">\(16\)</span></td>
-<td><span class="math inline">\(12\)</span></td>
-<td><span class="math inline">\(21\)</span></td>
+<td>$16$</td>
+<td>$12$</td>
+<td>$21$</td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>B</strong></td>
-<td><span class="math inline">\(16\)</span></td>
+<td>$16$</td>
 <td>-</td>
 <td>-</td>
-<td><span class="math inline">\(17\)</span></td>
-<td><span class="math inline">\(20\)</span></td>
+<td>$17$</td>
+<td>$20$</td>
 <td>-</td>
 <td>-</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>C</strong></td>
-<td><span class="math inline">\(12\)</span></td>
+<td>$12$</td>
 <td>-</td>
 <td>-</td>
-<td><span class="math inline">\(28\)</span></td>
+<td>$28$</td>
 <td>-</td>
-<td><span class="math inline">\(31\)</span></td>
+<td>$31$</td>
 <td>-</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>D</strong></td>
-<td><span class="math inline">\(21\)</span></td>
-<td><span class="math inline">\(17\)</span></td>
-<td><span class="math inline">\(28\)</span></td>
+<td>$21$</td>
+<td>$17$</td>
+<td>$28$</td>
 <td>-</td>
-<td><span class="math inline">\(18\)</span></td>
-<td><span class="math inline">\(19\)</span></td>
-<td><span class="math inline">\(23\)</span></td>
+<td>$18$</td>
+<td>$19$</td>
+<td>$23$</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>E</strong></td>
 <td>-</td>
-<td><span class="math inline">\(20\)</span></td>
+<td>$20$</td>
 <td>-</td>
-<td><span class="math inline">\(18\)</span></td>
+<td>$18$</td>
 <td>-</td>
 <td>-</td>
-<td><span class="math inline">\(11\)</span></td>
+<td>$11$</td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>F</strong></td>
 <td>-</td>
 <td>-</td>
-<td><span class="math inline">\(31\)</span></td>
-<td><span class="math inline">\(19\)</span></td>
+<td>$31$</td>
+<td>$19$</td>
 <td>-</td>
 <td>-</td>
-<td><span class="math inline">\(27\)</span></td>
+<td>$27$</td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>G</strong></td>
 <td>-</td>
 <td>-</td>
 <td>-</td>
-<td><span class="math inline">\(23\)</span></td>
-<td><span class="math inline">\(11\)</span></td>
-<td><span class="math inline">\(27\)</span></td>
+<td>$23$</td>
+<td>$11$</td>
+<td>$27$</td>
 <td>-</td>
 </tr>
 </tbody>
 </table>
-<p>However, it is possible to optimise the network by removing some
-edges and still ensure that all points on the network remain connected.
-The network which achieves the maximum saving is shown below. It has a
-weight of 93, representing a saving of 243 ? 93 = 150 from the original
-network.</p>
-<p><img src="../images/p107_2.png"></p>
-<p>Using <a href="../resources/p107_network.txt">network.txt</a> (right
-click and ‘Save Link/Target As’), a 6K text file containing a network
-with forty vertices, and given in matrix form, find the maximum saving
-which can be achieved by removing redundant edges whilst ensuring that
-the network remains connected.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>这是图论中<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">最小生成树(Minimum
-spanning tree)</a>中的问题。常见的使用算法有<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm">Kruskal</a>和<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim</a>算法。</p>
+</div>
+<p>However, it is possible to optimise the network by removing some edges and still ensure that all points on the network remain connected. The network which achieves the maximum saving is shown below. It has a weight of 93, representing a saving of 243 ? 93 = 150 from the original network.</p>
+<p><img src="../images/p107_2.png" alt></p>
+<p>Using <a href="../resources/p107_network.txt">network.txt</a> (right click and ‘Save Link/Target As\dots’), a 6K text file containing a network with forty vertices, and given in matrix form, find the maximum saving which can be achieved by removing redundant edges whilst ensuring that the network remains connected.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这是图论中<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">最小生成树(Minimum spanning tree)</a>中的问题。常见的使用算法有<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Kruskal%27s_algorithm">Kruskal</a>和<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Prim%27s_algorithm">Prim</a>算法。</p>
 <p>Kruskal算法主要是基于贪心思想，使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure">并查集</a>实现的，维基百科上的伪代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">algorithm Kruskal(G) is</span><br><span class="line">    F:= ∅</span><br><span class="line">    for each v ∈ G.V do</span><br><span class="line">        MAKE-SET(v)</span><br><span class="line">    for each (u, v) in G.E ordered by weight(u, v), increasing do</span><br><span class="line">        if FIND-SET(u) ≠ FIND-SET(v) then</span><br><span class="line">            F:= F ∪ &#123;(u, v)&#125; ∪ &#123;(v, u)&#125;</span><br><span class="line">            UNION(FIND-SET(u), FIND-SET(v))</span><br><span class="line">    return F</span><br></pre></td></tr></table></figure>
 <p>根据边权大小的顺序，从小到大遍历每条边。如果边两侧的点不在一个集合中，那么这条边是需要的，并将这两个集合合并；否则跳过这条边。</p>
 <p>本代码使用networkx的minimum_spanning_tree函数，直接给出一个最小生成树方案。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</span><br><span class="line"></span><br><span class="line">G = nx.Graph()</span><br><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p107_network.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">n = <span class="built_in">len</span>(ls)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    lt = ls[i].split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">        <span class="keyword">if</span> lt[j][<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        w = <span class="built_in">int</span>(lt[j])</span><br><span class="line">        ans += w</span><br><span class="line">        G.add_edge(i, j, weight=w)</span><br><span class="line">T = nx.minimum_spanning_tree(G)</span><br><span class="line"><span class="keyword">for</span> u, v <span class="keyword">in</span> T.edges:</span><br><span class="line">    ans -= T.get_edge_data(u, v)[<span class="string">&#x27;weight&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</span><br><span class="line"></span><br><span class="line">G = nx.Graph()</span><br><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p107_network.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">n = <span class="built_in">len</span>(ls)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    lt = ls[i].split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">        <span class="keyword">if</span> lt[j][<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        w = <span class="built_in">int</span>(lt[j])</span><br><span class="line">        ans += w</span><br><span class="line">        G.add_edge(i, j, weight=w)</span><br><span class="line">T = nx.minimum_spanning_tree(G)</span><br><span class="line"><span class="keyword">for</span> u, v <span class="keyword">in</span> T.edges:</span><br><span class="line">    ans -= T.get_edge_data(u, v)[<span class="string">&#x27;weight&#x27;</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p107_network.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">n = <span class="built_in">len</span>(ls)</span><br><span class="line">fa = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find</span>(<span class="params">x: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> x == fa[x]:</span><br><span class="line">        <span class="keyword">return</span> x</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        fa[x] = find(fa[x])</span><br><span class="line">        <span class="keyword">return</span> fa[x]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">merge</span>(<span class="params">x: <span class="built_in">int</span>, y: <span class="built_in">int</span></span>):</span><br><span class="line">    fa[find(x)] = find(y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">e = []</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    lt = ls[i].split(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i):</span><br><span class="line">        <span class="keyword">if</span> lt[j][<span class="number">0</span>] == <span class="string">&#x27;-&#x27;</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        w = <span class="built_in">int</span>(lt[j])</span><br><span class="line">        e.append((w, i, j))</span><br><span class="line">        ans += w</span><br><span class="line">e.sort()</span><br><span class="line"><span class="keyword">for</span> z, x, y <span class="keyword">in</span> e:</span><br><span class="line">    <span class="keyword">if</span> find(x) != find(y):</span><br><span class="line">        merge(x, y)</span><br><span class="line">        ans -= z</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -452,7 +440,7 @@ spanning tree)</a>中的问题。常见的使用算法有<a target="_blank" rel=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-107"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 107</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#minimal-network"><span class="nav-number">1.1.1.</span> <span class="nav-text">Minimal network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-107"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 107</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Minimal-network"><span class="nav-number">1.1.1.</span> <span class="nav-text">Minimal network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -466,7 +454,7 @@ spanning tree)</a>中的问题。常见的使用算法有<a target="_blank" rel=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -510,13 +498,13 @@ spanning tree)</a>中的问题。常见的使用算法有<a target="_blank" rel=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

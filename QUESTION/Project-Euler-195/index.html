@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>953</span>
+              <span>881</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,34 +251,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-195">Project Euler 195</h1>
-<h2 id="题目">题目</h2>
-<h3 id="inscribed-circles-of-triangles-with-one-angle-of-60-degrees">Inscribed
-circles of triangles with one angle of 60 degrees</h3>
-<p>Let’s call an integer sided triangle with exactly one angle of <span class="math inline">\(60\)</span> degrees a 60-degree triangle.</p>
-<p>Let <span class="math inline">\(r\)</span> be the radius of the
-inscribed circle of such a <span class="math inline">\(60\)</span>-degree triangle.</p>
-<p>There are <span class="math inline">\(1234\)</span> <span class="math inline">\(60\)</span>-degree triangles for which <span class="math inline">\(r \le 100\)</span>.</p>
-<p>Let <span class="math inline">\(T(n)\)</span> be the number of <span class="math inline">\(60\)</span>-degree triangles for which <span class="math inline">\(r \le n\)</span>, so <span class="math inline">\(T(100) = 1234, T(1000) = 22767\)</span> and <span class="math inline">\(T(10000) = 359912\)</span>.</p>
-<p>Find <span class="math inline">\(T(1053779)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(N=1053379\)</span>。根据余弦定理，假设三角形两边为长度<span class="math inline">\(a,b\)</span>，第三条边的长度<span class="math inline">\(c\)</span>，其对角为<span class="math inline">\(60°\)</span>，那么<span class="math inline">\(a,b,c\)</span>满足：</p>
-<p><span class="math display">\[a^2+b^2-ab=c^2\]</span></p>
-<p>这篇<a target="_blank" rel="noopener" href="http://www.geocities.ws/fredlb37/node9.html">文章</a>提到了一种构造出一组<strong>本原</strong>三元组<span class="math inline">\((a,b,c)\)</span>（即<span class="math inline">\(\gcd(a,b,c)=1\)</span>）满足<span class="math inline">\(a^2+b^2-ab=c^2\)</span>的方法：如果<span class="math inline">\(m&gt;n,\gcd(n,m)=1,3 \nmid
-(m-n)\)</span>,那么有：</p>
-<p><span class="math display">\[a=2mn+n^2,b=2mn+m^2,c=m^2+n^2+mn\qquad(1)\]</span></p>
-<p>或者是</p>
-<p><span class="math display">\[a=m^2-n^2,b=2mn+m^2,c=m^2+n^2+mn\qquad(2)\]</span></p>
-<p>根据等积法，不难发现内切圆的半径<span class="math inline">\(r\)</span>满足<span class="math inline">\(\dfrac{a+b+c}{2}\cdot r=\dfrac{1}{2}ab\sin
-60°\)</span>。</p>
-<p>分别代入式<span class="math inline">\((1),(2)\)</span>，分别得到</p>
-<p><span class="math display">\[r=\dfrac{\sqrt{3}mn}{2}\qquad(3)\]</span></p>
-<p><span class="math display">\[r=\dfrac{(m-n)(2n+m)}{2\sqrt{3}}\qquad(4)\]</span></p>
-<p>因此，根据<span class="math inline">\((3)(4)\)</span>式枚举出所有<span class="math inline">\(r\le
-N\)</span>的本原三元组后，计算对应非本原三元组的数量即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1053779</span>;</span><br><span class="line"><span class="type">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="type">double</span> sq3=<span class="built_in">sqrt</span>(<span class="number">3</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">1</span>; <span class="number">0.5</span> * sq3 * m &lt;= N; m++) &#123;</span><br><span class="line">        <span class="type">double</span> r;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; n &lt; m &amp;&amp; (r = <span class="number">0.5</span> * sq3 * m * n - eps) &lt;= N; n++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((m - n) % <span class="number">3</span> &amp;&amp; __gcd(m, n) == <span class="number">1</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">int</span>(<span class="number">1.0</span> * N / r + eps);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> c = <span class="number">0.5</span> / sq3;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; c * (<span class="number">2</span> * n + <span class="number">1</span>) &lt;= N; n++) &#123;</span><br><span class="line">        <span class="type">double</span> r;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> m = n + <span class="number">1</span>; (r = c * (m - n) * (<span class="number">2</span> * n + m)  - eps) &lt;= N; m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((m - n) % <span class="number">3</span> &amp;&amp; __gcd(m, n) == <span class="number">1</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">int</span>(<span class="number">1.0</span> * N / r + eps);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-195"><a href="#Project-Euler-195" class="headerlink" title="Project Euler 195"></a>Project Euler 195</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Inscribed-circles-of-triangles-with-one-angle-of-60-degrees"><a href="#Inscribed-circles-of-triangles-with-one-angle-of-60-degrees" class="headerlink" title="Inscribed circles of triangles with one angle of 60 degrees"></a>Inscribed circles of triangles with one angle of 60 degrees</h3><p>Let’s call an integer sided triangle with exactly one angle of $60$ degrees a 60-degree triangle.</p>
+<p>Let $r$ be the radius of the inscribed circle of such a $60$-degree triangle.</p>
+<p>There are $1234$ $60$-degree triangles for which $r \le 100$.</p>
+<p>Let $T(n)$ be the number of $60$-degree triangles for which $r \le n$, so $T(100) = 1234, T(1000) = 22767$ and $T(10000) = 359912$.</p>
+<p>Find $T(1053779)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=1053379$。根据余弦定理，假设三角形两边为长度$a,b$，第三条边的长度$c$，其对角为$60°$，那么$a,b,c$满足：</p>
+<script type="math/tex; mode=display">a^2+b^2-ab=c^2</script><p>这篇<a target="_blank" rel="noopener" href="http://www.geocities.ws/fredlb37/node9.html">文章</a>提到了一种构造出一组<strong>本原</strong>三元组$(a,b,c)$（即$\gcd(a,b,c)=1$）满足$a^2+b^2-ab=c^2$的方法：如果$m&gt;n,\gcd(n,m)=1,3 \nmid (m-n)$,那么有：</p>
+<script type="math/tex; mode=display">a=2mn+n^2,b=2mn+m^2,c=m^2+n^2+mn\qquad(1)</script><p>或者是</p>
+<script type="math/tex; mode=display">a=m^2-n^2,b=2mn+m^2,c=m^2+n^2+mn\qquad(2)</script><p>根据等积法，不难发现内切圆的半径$r$满足$\dfrac{a+b+c}{2}\cdot r=\dfrac{1}{2}ab\sin 60°$。</p>
+<p>分别代入式$(1),(2)$，分别得到</p>
+<script type="math/tex; mode=display">r=\dfrac{\sqrt{3}mn}{2}\qquad(3)</script><script type="math/tex; mode=display">r=\dfrac{(m-n)(2n+m)}{2\sqrt{3}}\qquad(4)</script><p>因此，根据$(3)(4)$式枚举出所有$r\le N$的本原三元组后，计算对应非本原三元组的数量即可。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1053779</span>;</span><br><span class="line"><span class="type">double</span> eps=<span class="number">1e-8</span>;</span><br><span class="line"><span class="type">double</span> sq3=<span class="built_in">sqrt</span>(<span class="number">3</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">1</span>; <span class="number">0.5</span> * sq3 * m &lt;= N; m++) &#123;</span><br><span class="line">        <span class="type">double</span> r;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; n &lt; m &amp;&amp; (r = <span class="number">0.5</span> * sq3 * m * n - eps) &lt;= N; n++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((m - n) % <span class="number">3</span> &amp;&amp; __gcd(m, n) == <span class="number">1</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">int</span>(<span class="number">1.0</span> * N / r + eps);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> c = <span class="number">0.5</span> / sq3;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">1</span>; c * (<span class="number">2</span> * n + <span class="number">1</span>) &lt;= N; n++) &#123;</span><br><span class="line">        <span class="type">double</span> r;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> m = n + <span class="number">1</span>; (r = c * (m - n) * (<span class="number">2</span> * n + m)  - eps) &lt;= N; m++) &#123;</span><br><span class="line">            <span class="keyword">if</span> ((m - n) % <span class="number">3</span> &amp;&amp; __gcd(m, n) == <span class="number">1</span>) &#123;</span><br><span class="line">                ans += <span class="built_in">int</span>(<span class="number">1.0</span> * N / r + eps);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -362,8 +348,7 @@ N\)</span>的本原三元组后，计算对应非本原三元组的数量即可�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-195"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 195</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inscribed-circles-of-triangles-with-one-angle-of-60-degrees"><span class="nav-number">1.1.1.</span> <span class="nav-text">Inscribed
-circles of triangles with one angle of 60 degrees</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-195"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 195</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inscribed-circles-of-triangles-with-one-angle-of-60-degrees"><span class="nav-number">1.1.1.</span> <span class="nav-text">Inscribed circles of triangles with one angle of 60 degrees</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +362,7 @@ circles of triangles with one angle of 60 degrees</span></a></li></ol></li><li c
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -421,13 +406,13 @@ circles of triangles with one angle of 60 degrees</span></a></li></ol></li><li c
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

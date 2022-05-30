@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>378</span>
+              <span>362</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,20 +251,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-62">Project Euler 62</h1>
-<h2 id="题目">题目</h2>
-<h3 id="cubic-permutations">Cubic permutations</h3>
-<p>The cube, <span class="math inline">\(41063625\)</span> (<span class="math inline">\(345^3\)</span>), can be permuted to produce two
-other cubes: <span class="math inline">\(56623104\)</span> (<span class="math inline">\(384^3\)</span>) and <span class="math inline">\(66430125\)</span> (<span class="math inline">\(405^3\)</span>). In fact, <span class="math inline">\(41063625\)</span> is the smallest cube which has
-exactly three permutations of its digits which are also cube.</p>
-<p>Find the smallest cube for which exactly five permutations of its
-digits are cube.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>从小到大找出立方数。将使用数位的立方数汇总到一起。</p>
-<p>如果其中一个集合先汇总了<span class="math inline">\(5\)</span>个立方数，那么就输出最小的。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">N = <span class="number">5</span></span><br><span class="line">mp = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    u = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(<span class="built_in">str</span>(i * i * i))))</span><br><span class="line">    <span class="keyword">if</span> u <span class="keyword">not</span> <span class="keyword">in</span> mp.keys():</span><br><span class="line">        mp[u] = []</span><br><span class="line">    mp[u].append(i * i * i)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(mp[u]) == N:</span><br><span class="line">        ans = mp[u][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-62"><a href="#Project-Euler-62" class="headerlink" title="Project Euler 62"></a>Project Euler 62</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Cubic-permutations"><a href="#Cubic-permutations" class="headerlink" title="Cubic permutations"></a>Cubic permutations</h3><p>The cube, $41063625$ ($345^3$), can be permuted to produce two other cubes: $56623104$ ($384^3$) and $66430125$ ($405^3$). In fact, $41063625$ is the smallest cube which has exactly three permutations of its digits which are also cube.</p>
+<p>Find the smallest cube for which exactly five permutations of its digits are cube.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>从小到大找出立方数。将使用数位的立方数汇总到一起。</p>
+<p>如果其中一个集合先汇总了$5$个立方数，那么就输出最小的。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">N = <span class="number">5</span></span><br><span class="line">mp = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    u = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(<span class="built_in">str</span>(i * i * i))))</span><br><span class="line">    <span class="keyword">if</span> u <span class="keyword">not</span> <span class="keyword">in</span> mp.keys():</span><br><span class="line">        mp[u] = []</span><br><span class="line">    mp[u].append(i * i * i)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(mp[u]) == N:</span><br><span class="line">        ans = mp[u][<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -348,7 +341,7 @@ digits are cube.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-62"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 62</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cubic-permutations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cubic permutations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-62"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 62</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cubic-permutations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cubic permutations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,7 +355,7 @@ digits are cube.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">217</span>
+          <span class="site-state-item-count">227</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -406,13 +399,13 @@ digits are cube.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">229k</span>
+    <span title="站点总字数">221k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:28</span>
+    <span title="站点阅读时长">3:21</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
