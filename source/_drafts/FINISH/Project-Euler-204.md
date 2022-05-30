@@ -32,9 +32,9 @@ How many generalised Hamming numbers of type $100$ are there which don't exceed 
 
 基本思想是：先产生有小质因子的合数，再利用这些小质因子的质数产生含有大质因子的合数。
 
-假设数组$g[i]$存放由第$1\sim i$个质因数构成的汉明数，那么尝试将$g[i]$中的所有数都乘以$pr[i+1]^0,pr[i+1]^1,pr[i+1]^2,\dots$，将产生的这些数存放到数组$g[i+1]$中。
+假设数组$g[i]$存放由第$1\sim i$个质因数构成的广义汉明数，那么尝试将$g[i]$中的所有数都乘以$pr[i+1]^0,pr[i+1]^1,pr[i+1]^2,\dots$，将产生的这些数存放到数组$g[i+1]$中。
 
-经过枚举发现，其实数组$g[m]$中的合数不多。
+枚举发现，数组$g[m]$中的广义汉明数不多。
 
 ## 代码
 
@@ -45,24 +45,24 @@ using namespace std;
 typedef long long ll;
 const int N = 100;
 const ll M = 1e9;
-vector<int>g[N+4],pr;
+vector<int>a,pr;
 bool vis[N+4];
-int main(){
-    for(int i=2;i<=N;i++) {
+int main() {
+    for (int i = 2; i <= N; i++) {
         if (vis[i]) continue;
         pr.push_back(i);
         for (int j = i * i; j <= N; j += i)
             vis[j] = true;
     }
-    g[0].push_back(1);
-    for(int i=0;i<pr.size();i++){
-        for(ll x:g[i]){
-            for(;x<=M;x*=pr[i]){
-                g[i+1].push_back(x);
-            }
+    a.push_back(1);
+    for (int p: pr) {
+        int m = a.size();
+        for (int i = 0; i < m; i++) {
+            for (ll x = 1ll * a[i] * p; x <= M; x *= p)
+                a.push_back(x);
         }
     }
-    int ans=g[pr.size()].size();
-    printf("%d\n",ans);
+    int ans = a.size();
+    printf("%d\n", ans);
 }
 ```
