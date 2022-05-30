@@ -3,13 +3,16 @@ title: Project Euler 231
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-30 20:27:57
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 231
-## 题目
-### The prime factorisation of binomial coefficients
 
+<escape><!-- more --></escape>
+
+# Project Euler 231
+
+## 题目
+
+### The prime factorisation of binomial coefficients
 
 The binomial coefficient $\displaystyle \binom {10} 3 = 120$.
 
@@ -17,9 +20,7 @@ $120 = 2^3 \times 3 \times 5 = 2 \times 2 \times 2 \times 3 \times 5$, and $2 + 
 
 So the sum of the terms in the prime factorisation of $\displaystyle \binom {10} 3$ is $14$.
 
-
 Find the sum of the terms in the prime factorisation of $\displaystyle \binom {20\,000\,000} {15\,000\,000}$.
-
 
 ## 解决方案
 
@@ -29,9 +30,7 @@ Find the sum of the terms in the prime factorisation of $\displaystyle \binom {2
 
 因此根据组合数的定义式，质因子$p$出现的次数为$f(n,p)-f(m,p)-f(n-m,p)$。
 
-
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

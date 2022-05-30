@@ -3,13 +3,16 @@ title: Project Euler 207
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-30 20:28:17
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 207
-## 题目
-### Integer partition equations
 
+<escape><!-- more --></escape>
+
+# Project Euler 207
+
+## 题目
+
+### Integer partition equations
 
 For some positive integers $k$, there exists an integer partition of the form   $4^t = 2^t + k$, where $4^t, 2^t$ and $k$ are all positive integers and $t$ is a real number.
 
@@ -52,10 +55,10 @@ Find the smallest $m$ for which $P(m) < 1/12345$
 ```
 (x & (x - 1)) == 0
 ```
+
 最终，答案是一个形如$x^2-x$的整数。
 
 ## 代码
-
 
 ```py
 from itertools import count

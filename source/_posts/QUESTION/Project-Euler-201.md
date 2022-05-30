@@ -3,20 +3,22 @@ title: Project Euler 201
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-30 20:28:01
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 201
-## 题目
-### Subsets with a unique sum
 
+<escape><!-- more --></escape>
+
+# Project Euler 201
+
+## 题目
+
+### Subsets with a unique sum
 
 For any set $A$ of numbers, let $\text{sum}(A)$ be the sum of the elements of $A$.
 
 Consider the set $B = \{1,3,6,8,10,11\}$.
 
 There are $20$ subsets of $B$ containing three elements, and their sums are:
-
 
 $\text{sum}(\{1,3,6\}) = 10$,<br />
 $\text{sum}(\{1,3,8\}) = 12$,<br />
@@ -49,7 +51,6 @@ $S$ has $100891344545564193334812497256$ $50$-element subsets.
 
 Determine the sum of all integers which are the sum of exactly one of the $50$-element subsets of $S$, i.e. find $\text{sum}(U(S,50))$.
 
-
 ## 解决方案
 
 使用动态规划的思想解决集合的计数问题。
@@ -80,8 +81,8 @@ $$
 因此，最终答案为$\sum_{k=1}^S k\cdot[f(M,N,k)=1]$。其中，$[]$表示示性函数，表示$[]$里面的值是否为真，如果为真，那么值为$0$，否则值为$1$.
 
 由于本题只关心$f$的值是否为$0,1$，或者是超过$2$，因此为$f$定义一个新运算$\circ$：$\{0,1,2\}^2\rightarrow\{0,1,2\}$，其中$a\circ b=\min(a+b,2)$。因此不需要计算$f$的真实值，避免了溢出问题。
-## 代码
 
+## 代码
 
 ```C++
 #include <bits/stdc++.h>

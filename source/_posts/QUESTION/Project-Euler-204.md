@@ -3,13 +3,16 @@ title: Project Euler 204
 tags:
   - Project Euler
 mathjax: true
+date: 2022-05-30 20:28:09
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 204
-## 题目
-### Generalised Hamming Numbers
 
+<escape><!-- more --></escape>
+
+# Project Euler 204
+
+## 题目
+
+### Generalised Hamming Numbers
 
 A Hamming number is a positive number which has no prime factor larger than 5.
 
@@ -23,9 +26,6 @@ Hence the Hamming numbers are the generalised Hamming numbers of type $5$.
 
 How many generalised Hamming numbers of type $100$ are there which don't exceed $10^9$?
 
-
-
-
 ## 解决方案
 
 令$N=100,M=10^9$，$N$以内的质数存放在数组$pr$中，一共有$m$个。
@@ -37,7 +37,6 @@ How many generalised Hamming numbers of type $100$ are there which don't exceed 
 枚举发现，数组$g[m]$中的广义汉明数不多。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>
