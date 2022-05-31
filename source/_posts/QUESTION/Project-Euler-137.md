@@ -125,7 +125,7 @@ $$\left \{\begin{aligned}
 \end{aligned}\right.
 $$
 
-再根据66题的算法，可以得到$x^2-5y^2=1$的解：
+再根据第66题的算法，可以得到$x^2-5y^2=1$的通解：
 $$a_1=9,b_1=4$$
 $$\left \{\begin{aligned}
   & a_{k+1}=9a_k+20b_k\\
