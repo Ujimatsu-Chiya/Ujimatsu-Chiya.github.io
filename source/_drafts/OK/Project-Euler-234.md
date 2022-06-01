@@ -13,7 +13,7 @@ mathjax: true
 
 For an integer $n \ge 4$, we define the *lower prime square root* of n, denoted by $\text{lps}(n)$, as the largest prime $\le \sqrt{n}$ and the *upper prime square root* of $n$, $\text{ups}(n)$, as the smallest prime $\ge \sqrt{n}$.
 
-So, for example, $\text{lps}(n)(4) = 2 = \text{ups}(4), \text{lps}(n)(1000) = 31, \text{ups}(1000) = 37$.
+So, for example, $\text{lps}(4) = 2 = \text{ups}(4), \text{lps}(1000) = 31, \text{ups}(1000) = 37$.
 
 Let us call an integer $n \ge 4$ *semidivisible*, if one of $\text{lps}(n)$ and $\text{ups}(n)$ divides $n$, but not both.
 
