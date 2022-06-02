@@ -257,16 +257,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-71"><a href="#Project-Euler-71" class="headerlink" title="Project Euler 71"></a>Project Euler 71</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Ordered-fractions"><a href="#Ordered-fractions" class="headerlink" title="Ordered fractions"></a>Ordered fractions</h3><p>Consider the fraction, $\dfrac{n}{d}$, where n and d are positive integers. If $n&lt;d$ and $\gcd(n,d)=1$, it is called a reduced proper fraction.<br>If we list the set of reduced proper fractions for $d \leq 8$ in ascending order of size, we get:</p>
-<script type="math/tex; mode=display">\dfrac{1}{8},\dfrac{1}{7},\dfrac{1}{6},\dfrac{1}{5},\dfrac{1}{4},\dfrac{2}{7},\dfrac{1}{3},\dfrac{3}{8},\mathbf{\dfrac{2}{5}},\dfrac{3}{7},\dfrac{1}{2},\dfrac{4}{7},\dfrac{3}{5},\dfrac{5}{8},\dfrac{2}{3},\dfrac{5}{7},\dfrac{3}{4},\dfrac{4}{5},\dfrac{5}{6},\dfrac{6}{7},\dfrac{7}{8}</script><p>It can be seen that $\dfrac{2}{5}$ is the fraction immediately to the left of $\dfrac{3}{7}$.<br>By listing the set of reduced proper fractions for $d \leq 1,000,000$ in ascending order of size, find the numerator of the fraction immediately to the left of $\dfrac{3}{7}$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题所描述的序列为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Farey_sequence">Farey 序列</a>。该序列有如下性质：</p>
-<p>对于任意的Farey 序列$F_n$，其中任意连续的三个分数序列$\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}$，满足$\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}$。</p>
-<p>本题目前比$\dfrac{3}{7}$小的最大分数为$\dfrac{2}{5}$，在中间插入一个新值$\dfrac{3+2}{7+5}=\dfrac{5}{12}$后，可以发现这个新值比$\dfrac{2}{5}$更大，但同时还是比$\dfrac{3}{7}$小。在$\dfrac{5}{12}$和$\dfrac{3}{7}$中间继续插入后，得到$\dfrac{8}{19}…$</p>
-<p>以此类推，每插入一个新的数，分子增长$3$，分母增长了$7$，新插入值的序列可以用$\dfrac{2+3k}{5+7k}$来表示。</p>
-<p>因此，所求分数的值满足最大的$k$使得$5+7k\leq 10^6$。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">ru, rd = <span class="number">3</span>, <span class="number">7</span></span><br><span class="line">lu, ld = <span class="number">2</span>, <span class="number">5</span></span><br><span class="line"></span><br><span class="line">k = (N - ld) // rd</span><br><span class="line">ans = lu + ru * k</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-71">Project Euler 71</h1>
+<h2 id="题目">题目</h2>
+<h3 id="ordered-fractions">Ordered fractions</h3>
+<p>Consider the fraction, <span class="math inline">\(\dfrac{n}{d}\)</span>, where n and d are positive
+integers. If <span class="math inline">\(n&lt;d\)</span> and <span class="math inline">\(\gcd(n,d)=1\)</span>, it is called a reduced
+proper fraction. If we list the set of reduced proper fractions for
+<span class="math inline">\(d \leq 8\)</span> in ascending order of
+size, we get:</p>
+<p><span class="math display">\[\dfrac{1}{8},\dfrac{1}{7},\dfrac{1}{6},\dfrac{1}{5},\dfrac{1}{4},\dfrac{2}{7},\dfrac{1}{3},\dfrac{3}{8},\mathbf{\dfrac{2}{5}},\dfrac{3}{7},\dfrac{1}{2},\dfrac{4}{7},\dfrac{3}{5},\dfrac{5}{8},\dfrac{2}{3},\dfrac{5}{7},\dfrac{3}{4},\dfrac{4}{5},\dfrac{5}{6},\dfrac{6}{7},\dfrac{7}{8}\]</span></p>
+<p>It can be seen that <span class="math inline">\(\dfrac{2}{5}\)</span>
+is the fraction immediately to the left of <span class="math inline">\(\dfrac{3}{7}\)</span>. By listing the set of
+reduced proper fractions for <span class="math inline">\(d \leq
+1,000,000\)</span> in ascending order of size, find the numerator of the
+fraction immediately to the left of <span class="math inline">\(\dfrac{3}{7}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题所描述的序列为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Farey_sequence">Farey
+序列</a>。该序列有如下性质：</p>
+<p>对于任意的Farey 序列<span class="math inline">\(F_n\)</span>，其中任意连续的三个分数序列<span class="math inline">\(\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}\)</span>，满足<span class="math inline">\(\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}\)</span>。</p>
+<p>本题目前比<span class="math inline">\(\dfrac{3}{7}\)</span>小的最大分数为<span class="math inline">\(\dfrac{2}{5}\)</span>，在中间插入一个新值<span class="math inline">\(\dfrac{3+2}{7+5}=\dfrac{5}{12}\)</span>后，可以发现这个新值比<span class="math inline">\(\dfrac{2}{5}\)</span>更大，但同时还是比<span class="math inline">\(\dfrac{3}{7}\)</span>小。在<span class="math inline">\(\dfrac{5}{12}\)</span>和<span class="math inline">\(\dfrac{3}{7}\)</span>中间继续插入后，得到<span class="math inline">\(\dfrac{8}{19}...\)</span></p>
+<p>以此类推，每插入一个新的数，分子增长<span class="math inline">\(3\)</span>，分母增长了<span class="math inline">\(7\)</span>，新插入值的序列可以用<span class="math inline">\(\dfrac{2+3k}{5+7k}\)</span>来表示。</p>
+<p>因此，所求分数的值满足最大的<span class="math inline">\(k\)</span>使得<span class="math inline">\(5+7k\leq
+10^6\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">ru, rd = <span class="number">3</span>, <span class="number">7</span></span><br><span class="line">lu, ld = <span class="number">2</span>, <span class="number">5</span></span><br><span class="line"></span><br><span class="line">k = (N - ld) // rd</span><br><span class="line">ans = lu + ru * k</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -350,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-71"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 71</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ordered-fractions"><span class="nav-number">1.1.1.</span> <span class="nav-text">Ordered fractions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-71"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 71</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ordered-fractions"><span class="nav-number">1.1.1.</span> <span class="nav-text">Ordered fractions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -364,14 +379,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -408,13 +423,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -251,26 +251,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-131"><a href="#Project-Euler-131" class="headerlink" title="Project Euler 131"></a>Project Euler 131</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Prime-cube-partnership"><a href="#Prime-cube-partnership" class="headerlink" title="Prime cube partnership"></a>Prime cube partnership</h3><p>There are some prime values, $p$, for which there exists a positive integer, $n$, such that the expression $n^3 + n^2p$ is a perfect cube.</p>
-<p>For example, when $p = 19, 8^3 + 8^2×19 = 12^3$.</p>
-<p>What is perhaps most surprising is that for each prime with this property the value of $n$ is unique, and there are only four such primes below one-hundred.</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-131">Project Euler 131</h1>
+<h2 id="题目">题目</h2>
+<h3 id="prime-cube-partnership">Prime cube partnership</h3>
+<p>There are some prime values, <span class="math inline">\(p\)</span>,
+for which there exists a positive integer, <span class="math inline">\(n\)</span>, such that the expression <span class="math inline">\(n^3 + n^2p\)</span> is a perfect cube.</p>
+<p>For example, when <span class="math inline">\(p = 19, 8^3 + 8^2×19 =
+12^3\)</span>.</p>
+<p>What is perhaps most surprising is that for each prime with this
+property the value of <span class="math inline">\(n\)</span> is unique,
+and there are only four such primes below one-hundred.</p>
 <p>How many primes below one million have this remarkable property?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>假设这个立方数为$m^3=n^3+n^2p$，</p>
-<p>那么有$m^3=n^3\cdot \dfrac{n+p}{n}$</p>
-<p>两边开立方，有$m=n\cdot \sqrt[3]{\dfrac{n+p}{n}}$</p>
-<p>由于$m,n$都是正整数，为满足原来的式子，整个立方根表达的数必须是个有理数。</p>
-<p>接下来证明$\gcd(n+p,n)=1$：</p>
-<p>因为$p$是质数，如果$\gcd(n+p,n)&gt;1$，即$\gcd(n,p)&gt;1$，那么$n$是$p$的倍数，有$n=kp$，其中$n$是一个正整数。</p>
-<p>回代到上面的立方数式子，得到：$m^3=(k^3+k^2)p^3$。那么，如果$(k^3+k^2)p^3$是一个立方数，那么$k^3+k^2$是一个立方数。但是，$k^3$的下一个立方数$(k+1)^3=k^3+3k^2+3k+1&gt;k^3+k^2$。因此有：</p>
-<p>$k^3&lt;k^3+k^2&lt;(k+1)^3$</p>
-<p>这说明$k^3+k^2$夹在两个相邻立方数之间，它自己肯定不是一个立方数。因此有刚刚的结论：$\gcd(n+p,n)=1$。</p>
-<p>因此，可以令$n+p=a^3,n=b^3$（立方根里面不需要约分），得到$p=a^3-b^3=(a-b)(a^2+ab+b^2)$。</p>
-<p>但是，$p$是质数，但$p$却有两个因式：$a-b$和$a^2+ab+b^2$</p>
-<p>明显观察到$a-b&lt;a^2+ab+b^2$，所以有：$a-b=1,p=a^2+ab+b^2$。</p>
-<p>将$b=a-1$重新代入$p=a^3-b^3$，得到$p=a^3-(a-1)^3$。因此，判断这一类数是否为质数即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">1000000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    w = (i + <span class="number">1</span>) ** <span class="number">3</span> - i ** <span class="number">3</span></span><br><span class="line">    <span class="keyword">if</span> w &gt; N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> is_prime(w):</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案">解决方案</h2>
+<p>假设这个立方数为<span class="math inline">\(m^3=n^3+n^2p\)</span>，</p>
+<p>那么有<span class="math inline">\(m^3=n^3\cdot
+\dfrac{n+p}{n}\)</span></p>
+<p>两边开立方，有<span class="math inline">\(m=n\cdot
+\sqrt[3]{\dfrac{n+p}{n}}\)</span></p>
+<p>由于<span class="math inline">\(m,n\)</span>都是正整数，为满足原来的式子，整个立方根表达的数必须是个有理数。</p>
+<p>接下来证明<span class="math inline">\(\gcd(n+p,n)=1\)</span>：</p>
+<p>因为<span class="math inline">\(p\)</span>是质数，如果<span class="math inline">\(\gcd(n+p,n)&gt;1\)</span>，即<span class="math inline">\(\gcd(n,p)&gt;1\)</span>，那么<span class="math inline">\(n\)</span>是<span class="math inline">\(p\)</span>的倍数，有<span class="math inline">\(n=kp\)</span>，其中<span class="math inline">\(n\)</span>是一个正整数。</p>
+<p>回代到上面的立方数式子，得到：<span class="math inline">\(m^3=(k^3+k^2)p^3\)</span>。那么，如果<span class="math inline">\((k^3+k^2)p^3\)</span>是一个立方数，那么<span class="math inline">\(k^3+k^2\)</span>是一个立方数。但是，<span class="math inline">\(k^3\)</span>的下一个立方数<span class="math inline">\((k+1)^3=k^3+3k^2+3k+1&gt;k^3+k^2\)</span>。因此有：</p>
+<p><span class="math inline">\(k^3&lt;k^3+k^2&lt;(k+1)^3\)</span></p>
+<p>这说明<span class="math inline">\(k^3+k^2\)</span>夹在两个相邻立方数之间，它自己肯定不是一个立方数。因此有刚刚的结论：<span class="math inline">\(\gcd(n+p,n)=1\)</span>。</p>
+<p>因此，可以令<span class="math inline">\(n+p=a^3,n=b^3\)</span>（立方根里面不需要约分），得到<span class="math inline">\(p=a^3-b^3=(a-b)(a^2+ab+b^2)\)</span>。</p>
+<p>但是，<span class="math inline">\(p\)</span>是质数，但<span class="math inline">\(p\)</span>却有两个因式：<span class="math inline">\(a-b\)</span>和<span class="math inline">\(a^2+ab+b^2\)</span></p>
+<p>明显观察到<span class="math inline">\(a-b&lt;a^2+ab+b^2\)</span>，所以有：<span class="math inline">\(a-b=1,p=a^2+ab+b^2\)</span>。</p>
+<p>将<span class="math inline">\(b=a-1\)</span>重新代入<span class="math inline">\(p=a^3-b^3\)</span>，得到<span class="math inline">\(p=a^3-(a-1)^3\)</span>。因此，判断这一类数是否为质数即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">1000000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    w = (i + <span class="number">1</span>) ** <span class="number">3</span> - i ** <span class="number">3</span></span><br><span class="line">    <span class="keyword">if</span> w &gt; N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> is_prime(w):</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -354,7 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-131"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 131</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prime-cube-partnership"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime cube partnership</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-131"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 131</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-cube-partnership"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime cube partnership</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,14 +378,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -412,13 +422,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

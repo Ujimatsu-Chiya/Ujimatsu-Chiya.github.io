@@ -234,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,34 +253,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-128"><a href="#Project-Euler-128" class="headerlink" title="Project Euler 128"></a>Project Euler 128</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Hexagonal-tile-differences"><a href="#Hexagonal-tile-differences" class="headerlink" title="Hexagonal tile differences"></a>Hexagonal tile differences</h3><p>A hexagonal tile with number $1$ is surrounded by a ring of six hexagonal tiles, starting at “$12$ o’clock” and numbering the tiles $2$ to $7$ in an anti-clockwise direction.</p>
-<p>New rings are added in the same fashion, with the next rings being numbered $8$ to $19$, $20$ to $37$, $38$ to $61$, and so on. The diagram below shows the first three rings.</p>
-<p><img src="../images/p128.png" alt></p>
-<p>By finding the difference between tile $n$ and each of its six neighbours we shall define $PD(n)$ to be the number of those differences which are prime.</p>
-<p>For example, working clockwise around tile $8$ the differences are $12, 29, 11, 6, 1$, and $13$. So $PD(8) = 3$.</p>
-<p>In the same way, the differences around tile $17$ are $1, 17, 16, 1, 11$, and $10$, hence $PD(17) = 2$.</p>
-<p>It can be shown that the maximum value of $PD(n)$ is $3$.</p>
-<p>If all of the tiles for which $PD(n) = 3$ are listed in ascending order to form a sequence, the $10\mathrm{th}$ tile would be $271$.</p>
-<p>Find the $2000\mathrm{th}$ tile in this sequence.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>首先需要通过一些证明，跳过完全不需要检查的数。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-128">Project Euler 128</h1>
+<h2 id="题目">题目</h2>
+<h3 id="hexagonal-tile-differences">Hexagonal tile differences</h3>
+<p>A hexagonal tile with number <span class="math inline">\(1\)</span>
+is surrounded by a ring of six hexagonal tiles, starting at "<span class="math inline">\(12\)</span> o'clock" and numbering the tiles <span class="math inline">\(2\)</span> to <span class="math inline">\(7\)</span> in an anti-clockwise direction.</p>
+<p>New rings are added in the same fashion, with the next rings being
+numbered <span class="math inline">\(8\)</span> to <span class="math inline">\(19\)</span>, <span class="math inline">\(20\)</span> to <span class="math inline">\(37\)</span>, <span class="math inline">\(38\)</span> to <span class="math inline">\(61\)</span>, and so on. The diagram below shows
+the first three rings.</p>
+<p><img src="../images/p128.png"></p>
+<p>By finding the difference between tile <span class="math inline">\(n\)</span> and each of its six neighbours we shall
+define <span class="math inline">\(PD(n)\)</span> to be the number of
+those differences which are prime.</p>
+<p>For example, working clockwise around tile <span class="math inline">\(8\)</span> the differences are <span class="math inline">\(12, 29, 11, 6, 1\)</span>, and <span class="math inline">\(13\)</span>. So <span class="math inline">\(PD(8)
+= 3\)</span>.</p>
+<p>In the same way, the differences around tile <span class="math inline">\(17\)</span> are <span class="math inline">\(1, 17,
+16, 1, 11\)</span>, and <span class="math inline">\(10\)</span>, hence
+<span class="math inline">\(PD(17) = 2\)</span>.</p>
+<p>It can be shown that the maximum value of <span class="math inline">\(PD(n)\)</span> is <span class="math inline">\(3\)</span>.</p>
+<p>If all of the tiles for which <span class="math inline">\(PD(n) =
+3\)</span> are listed in ascending order to form a sequence, the <span class="math inline">\(10\mathrm{th}\)</span> tile would be <span class="math inline">\(271\)</span>.</p>
+<p>Find the <span class="math inline">\(2000\mathrm{th}\)</span> tile in
+this sequence.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>首先需要通过一些证明，跳过完全不需要检查的数。</p>
 <p>我们在这里先将每个六边形圈里面的数分成以下几类：</p>
-<ol>
-<li>圈的起点（$12$点方向），如$2,8,20$等</li>
-<li>圈的终点，如$7,9,37$等</li>
-<li>圈的边节点（不包括终点），如$9,11,13,15,17,33,34$等</li>
-<li>圈的$4,8$点方向的两个角节点，如$6,16,32,4,12,26$等。</li>
-<li>圈的$2,6,10$点方向的三个角节点，如$7,18,35,5,14,29,3,10,23$等。</li>
+<ol type="1">
+<li>圈的起点（<span class="math inline">\(12\)</span>点方向），如<span class="math inline">\(2,8,20\)</span>等</li>
+<li>圈的终点，如<span class="math inline">\(7,9,37\)</span>等</li>
+<li>圈的边节点（不包括终点），如<span class="math inline">\(9,11,13,15,17,33,34\)</span>等</li>
+<li>圈的<span class="math inline">\(4,8\)</span>点方向的两个角节点，如<span class="math inline">\(6,16,32,4,12,26\)</span>等。</li>
+<li>圈的<span class="math inline">\(2,6,10\)</span>点方向的三个角节点，如<span class="math inline">\(7,18,35,5,14,29,3,10,23\)</span>等。</li>
 </ol>
 <p>可以发现，随着圈数的上升，起点数和终点数以及角节点是线性增长的，而圈的边节点是平方增长的。</p>
-<p>说明圈第三类节点不可能是我们需要的（以$13$为例）：这些边节点和内圈相邻$2$个节点（$4,5$），外圈相邻$2$个节点（$27,28$），前后相接一个节点（$12,14$）。前后相接的节点差值为$1$，不是质数；和内圈相邻的两个节点，它们也是相邻的，故肯定存在一个节点和本节点同奇偶；外圈同理。因此，第三类节点至少有$4$个相邻差不是质数，故排除。</p>
-<p>说明第四类节点不可能是我们需要的（以$16$为例）：这些角节点和内圈相邻$1$个节点（$6$），外圈相邻$3$个节点（$31,32,33$），前后相接一个节点（$15,17$）。前后相接的节点差值为$1$，不是质数；从内向外（除了$1$），这两个方向的节点，从内向外把数列出来，都是偶数。因此，它和相邻的两个同方向角节点($6,32$)是同奇偶的。因此，第五类节点至少有$4$个相邻差不是质数，故排除。</p>
-<p>说明第五类节点不可能是我们需要的（以$18$为例）：这些角节点和内圈相邻$1$个节点（$7$），外圈相邻$3$个节点（$34,35,36$），前后相接一个节点（$17,19$）。前后相接的节点差值为$1$，不是质数；从内向外（除了$1$），这两个方向的节点，从内向外把数列出来，都是奇偶相间的。因此，它和外圈的另外两个边节点($34,36$)一定是同奇偶的。因此，第五类节点至少有$4$个相邻差不是质数，故排除。</p>
+<p>说明圈第三类节点不可能是我们需要的（以<span class="math inline">\(13\)</span>为例）：这些边节点和内圈相邻<span class="math inline">\(2\)</span>个节点（<span class="math inline">\(4,5\)</span>），外圈相邻<span class="math inline">\(2\)</span>个节点（<span class="math inline">\(27,28\)</span>），前后相接一个节点（<span class="math inline">\(12,14\)</span>）。前后相接的节点差值为<span class="math inline">\(1\)</span>，不是质数；和内圈相邻的两个节点，它们也是相邻的，故肯定存在一个节点和本节点同奇偶；外圈同理。因此，第三类节点至少有<span class="math inline">\(4\)</span>个相邻差不是质数，故排除。</p>
+<p>说明第四类节点不可能是我们需要的（以<span class="math inline">\(16\)</span>为例）：这些角节点和内圈相邻<span class="math inline">\(1\)</span>个节点（<span class="math inline">\(6\)</span>），外圈相邻<span class="math inline">\(3\)</span>个节点（<span class="math inline">\(31,32,33\)</span>），前后相接一个节点（<span class="math inline">\(15,17\)</span>）。前后相接的节点差值为<span class="math inline">\(1\)</span>，不是质数；从内向外（除了<span class="math inline">\(1\)</span>），这两个方向的节点，从内向外把数列出来，都是偶数。因此，它和相邻的两个同方向角节点(<span class="math inline">\(6,32\)</span>)是同奇偶的。因此，第五类节点至少有<span class="math inline">\(4\)</span>个相邻差不是质数，故排除。</p>
+<p>说明第五类节点不可能是我们需要的（以<span class="math inline">\(18\)</span>为例）：这些角节点和内圈相邻<span class="math inline">\(1\)</span>个节点（<span class="math inline">\(7\)</span>），外圈相邻<span class="math inline">\(3\)</span>个节点（<span class="math inline">\(34,35,36\)</span>），前后相接一个节点（<span class="math inline">\(17,19\)</span>）。前后相接的节点差值为<span class="math inline">\(1\)</span>，不是质数；从内向外（除了<span class="math inline">\(1\)</span>），这两个方向的节点，从内向外把数列出来，都是奇偶相间的。因此，它和外圈的另外两个边节点(<span class="math inline">\(34,36\)</span>)一定是同奇偶的。因此，第五类节点至少有<span class="math inline">\(4\)</span>个相邻差不是质数，故排除。</p>
 <p>因此，只需要枚举每个圈的起点和终点即可。</p>
-<p>枚举起点时需要注意的地方：不需要枚举$8$点钟方向的节点（差值肯定为$1$），以及$6,12$点钟方向的数（差值肯定是$6$的倍数）。</p>
-<p>枚举终点时需要注意的地方：不需要枚举$4$点钟方向的节点（差值肯定为$1$），以及$6,12$点钟方向的数（差值肯定是$6$的倍数）</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">Q = <span class="number">2000</span></span><br><span class="line">ls = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> count(<span class="number">2</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="comment"># 起点</span></span><br><span class="line">    a = <span class="number">6</span> * n + <span class="number">1</span>  <span class="comment"># 10</span></span><br><span class="line">    b = <span class="number">12</span> * n + <span class="number">5</span>  <span class="comment"># 2</span></span><br><span class="line">    c = <span class="number">6</span> * n - <span class="number">1</span>  <span class="comment"># 4</span></span><br><span class="line">    st = <span class="number">3</span> * n * n - <span class="number">3</span> * n + <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> is_prime(a) <span class="keyword">and</span> is_prime(b) <span class="keyword">and</span> is_prime(c):</span><br><span class="line">        ls.append(st)</span><br><span class="line">    <span class="comment"># 终点</span></span><br><span class="line">    a = <span class="number">6</span> * n - <span class="number">1</span>  <span class="comment"># 10</span></span><br><span class="line">    b = <span class="number">12</span> * n - <span class="number">7</span>  <span class="comment"># 8</span></span><br><span class="line">    c = <span class="number">6</span> * n + <span class="number">5</span>  <span class="comment"># 2</span></span><br><span class="line">    ed = <span class="number">3</span> * n * n + <span class="number">3</span> * n + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> is_prime(a) <span class="keyword">and</span> is_prime(b) <span class="keyword">and</span> is_prime(c):</span><br><span class="line">        ls.append(ed)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(ls) &gt;= Q:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ls[Q - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>枚举起点时需要注意的地方：不需要枚举<span class="math inline">\(8\)</span>点钟方向的节点（差值肯定为<span class="math inline">\(1\)</span>），以及<span class="math inline">\(6,12\)</span>点钟方向的数（差值肯定是<span class="math inline">\(6\)</span>的倍数）。</p>
+<p>枚举终点时需要注意的地方：不需要枚举<span class="math inline">\(4\)</span>点钟方向的节点（差值肯定为<span class="math inline">\(1\)</span>），以及<span class="math inline">\(6,12\)</span>点钟方向的数（差值肯定是<span class="math inline">\(6\)</span>的倍数）</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">Q = <span class="number">2000</span></span><br><span class="line">ls = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> count(<span class="number">2</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="comment"># 起点</span></span><br><span class="line">    a = <span class="number">6</span> * n + <span class="number">1</span>  <span class="comment"># 10</span></span><br><span class="line">    b = <span class="number">12</span> * n + <span class="number">5</span>  <span class="comment"># 2</span></span><br><span class="line">    c = <span class="number">6</span> * n - <span class="number">1</span>  <span class="comment"># 4</span></span><br><span class="line">    st = <span class="number">3</span> * n * n - <span class="number">3</span> * n + <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> is_prime(a) <span class="keyword">and</span> is_prime(b) <span class="keyword">and</span> is_prime(c):</span><br><span class="line">        ls.append(st)</span><br><span class="line">    <span class="comment"># 终点</span></span><br><span class="line">    a = <span class="number">6</span> * n - <span class="number">1</span>  <span class="comment"># 10</span></span><br><span class="line">    b = <span class="number">12</span> * n - <span class="number">7</span>  <span class="comment"># 8</span></span><br><span class="line">    c = <span class="number">6</span> * n + <span class="number">5</span>  <span class="comment"># 2</span></span><br><span class="line">    ed = <span class="number">3</span> * n * n + <span class="number">3</span> * n + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> is_prime(a) <span class="keyword">and</span> is_prime(b) <span class="keyword">and</span> is_prime(c):</span><br><span class="line">        ls.append(ed)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(ls) &gt;= Q:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ls[Q - <span class="number">1</span>])</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +378,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-128"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 128</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hexagonal-tile-differences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hexagonal tile differences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-128"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 128</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hexagonal-tile-differences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hexagonal tile differences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,14 +392,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -422,13 +436,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

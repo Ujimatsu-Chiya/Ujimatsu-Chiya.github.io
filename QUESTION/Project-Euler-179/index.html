@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>493</span>
+              <span>531</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,14 +251,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-179"><a href="#Project-Euler-179" class="headerlink" title="Project Euler 179"></a>Project Euler 179</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Consecutive-positive-divisors"><a href="#Consecutive-positive-divisors" class="headerlink" title="Consecutive positive divisors"></a>Consecutive positive divisors</h3><p>Find the number of integers $1 &lt; n &lt; 10^7$, for which $n$ and $n + 1$ have the same number of positive divisors. For example, $14$ has the positive divisors $1, 2, 7, 14$ while $15$ has $1, 3, 5, 15$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>线性筛可以用于高速计算积性函数的值，本题需要求的积性函数是因数个数。</p>
-<p>$v[i]$是$i$最小的质因数。如果用比$v[i]$更小的质因数$p$产生了一个新数，那么$i$中的所有因数都需要乘以一个$p$，与原来的因数一起成为新数的因子，因此多添加了一倍的因子。</p>
-<p>如果$p=v[i]$，那么按照上面的说法，产生出来的因数是有重复的。假设$i$分解质因数后质因数$p$的次数为$e$，那么$p,p^2,\dots,p^e$都是重复的一部分，而这一部分因数的数量恰好和$\dfrac{i}{p}$因数数量相等，因此需要减去这一部分。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-179">Project Euler 179</h1>
+<h2 id="题目">题目</h2>
+<h3 id="consecutive-positive-divisors">Consecutive positive
+divisors</h3>
+<p>Find the number of integers <span class="math inline">\(1 &lt; n &lt;
+10^7\)</span>, for which <span class="math inline">\(n\)</span> and
+<span class="math inline">\(n + 1\)</span> have the same number of
+positive divisors. For example, <span class="math inline">\(14\)</span>
+has the positive divisors <span class="math inline">\(1, 2, 7,
+14\)</span> while <span class="math inline">\(15\)</span> has <span class="math inline">\(1, 3, 5, 15\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>线性筛可以用于高速计算积性函数的值，本题需要求的积性函数是因数个数。</p>
+<p><span class="math inline">\(v[i]\)</span>是<span class="math inline">\(i\)</span>最小的质因数。如果用比<span class="math inline">\(v[i]\)</span>更小的质因数<span class="math inline">\(p\)</span>产生了一个新数，那么<span class="math inline">\(i\)</span>中的所有因数都需要乘以一个<span class="math inline">\(p\)</span>，与原来的因数一起成为新数的因子，因此多添加了一倍的因子。</p>
+<p>如果<span class="math inline">\(p=v[i]\)</span>，那么按照上面的说法，产生出来的因数是有重复的。假设<span class="math inline">\(i\)</span>分解质因数后质因数<span class="math inline">\(p\)</span>的次数为<span class="math inline">\(e\)</span>，那么<span class="math inline">\(p,p^2,\dots,p^e\)</span>都是重复的一部分，而这一部分因数的数量恰好和<span class="math inline">\(\dfrac{i}{p}\)</span>因数数量相等，因此需要减去这一部分。</p>
 <p>计算完因数个数函数后，直接进行判断。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e7</span>;</span><br><span class="line"><span class="type">int</span> pr[N/<span class="number">4</span>+<span class="number">40</span>],v[N+<span class="number">1</span>],s[N+<span class="number">1</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    s[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;s[i]=<span class="number">2</span>;</span><br><span class="line">            pr[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">            <span class="keyword">if</span>(pr[j]==v[i])</span><br><span class="line">                s[i*pr[j]]=s[i]+s[i]-s[i/pr[j]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                s[i*pr[j]]=s[i]+s[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">        <span class="keyword">if</span>(s[i]==s[i+<span class="number">1</span>]) ++ans;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e7</span>;</span><br><span class="line"><span class="type">int</span> pr[N/<span class="number">4</span>+<span class="number">40</span>],v[N+<span class="number">1</span>],s[N+<span class="number">1</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    s[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;s[i]=<span class="number">2</span>;</span><br><span class="line">            pr[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">            <span class="keyword">if</span>(pr[j]==v[i])</span><br><span class="line">                s[i*pr[j]]=s[i]+s[i]-s[i/pr[j]];</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                s[i*pr[j]]=s[i]+s[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;N;i++)</span><br><span class="line">        <span class="keyword">if</span>(s[i]==s[i+<span class="number">1</span>]) ++ans;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -342,7 +352,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-179"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 179</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Consecutive-positive-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Consecutive positive divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-179"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 179</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#consecutive-positive-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Consecutive positive
+divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -356,14 +367,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -400,13 +411,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

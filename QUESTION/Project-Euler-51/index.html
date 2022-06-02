@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,30 +251,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-51"><a href="#Project-Euler-51" class="headerlink" title="Project Euler 51"></a>Project Euler 51</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Prime-digit-replacements"><a href="#Prime-digit-replacements" class="headerlink" title="Prime digit replacements"></a>Prime digit replacements</h3><p>By replacing the $1^{st}$ digit of the $2$-digit number $*3$, it turns out that six of the nine possible values: $13, 23, 43, 53, 73$, and $83$, are all prime.</p>
-<p>By replacing the $3^{rd}$ and $4^{\th}$ digits of $56**3$ with the same digit, this $5$-digit number is the first example having seven primes among the ten generated numbers, yielding the family: $56003, 56113, 56333, 56443, 56663, 56773,$ and $56993$.</p>
-<p>Consequently $56003$, being the first member of this family, is the smallest prime with this property.</p>
-<p>Find the smallest prime which, by replacing part of the number (not necessarily adjacent digits) with the same digit, is part of an eight prime value family.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>此处使用一个术语：模板，用来表示题意中带星号和数字的混合字符串。如题目中的$<em>3,56*</em>3$等。</p>
-<p>这些模板通过将对所有星号(*)填入相同的数位，产生$9\sim10$个数（当模板的最高位是星号时，将不能填入$0$）。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-51">Project Euler 51</h1>
+<h2 id="题目">题目</h2>
+<h3 id="prime-digit-replacements">Prime digit replacements</h3>
+<p>By replacing the <span class="math inline">\(1^{st}\)</span> digit of
+the <span class="math inline">\(2\)</span>-digit number <span class="math inline">\(*3\)</span>, it turns out that six of the nine
+possible values: <span class="math inline">\(13, 23, 43, 53,
+73\)</span>, and <span class="math inline">\(83\)</span>, are all
+prime.</p>
+<p>By replacing the <span class="math inline">\(3^{rd}\)</span> and
+<span class="math inline">\(4^{\th}\)</span> digits of <span class="math inline">\(56**3\)</span> with the same digit, this <span class="math inline">\(5\)</span>-digit number is the first example
+having seven primes among the ten generated numbers, yielding the
+family: <span class="math inline">\(56003, 56113, 56333, 56443, 56663,
+56773,\)</span> and <span class="math inline">\(56993\)</span>.</p>
+<p>Consequently <span class="math inline">\(56003\)</span>, being the
+first member of this family, is the smallest prime with this
+property.</p>
+<p>Find the smallest prime which, by replacing part of the number (not
+necessarily adjacent digits) with the same digit, is part of an eight
+prime value family.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>此处使用一个术语：模板，用来表示题意中带星号和数字的混合字符串。如题目中的<span class="math inline">\(*3,56**3\)</span>等。</p>
+<p>这些模板通过将对所有星号(*)填入相同的数位，产生<span class="math inline">\(9\sim10\)</span>个数（当模板的最高位是星号时，将不能填入<span class="math inline">\(0\)</span>）。</p>
 <p>一个关于模板的结论：</p>
-<p>如果一个模板能够产生$8$个质数，那么这个模板的星号个数必须为$3$的倍数。</p>
-<p>设模板中星号的个数为$k$，其余的数字之和为$s$，那么产生的数字的数位和为$s,s+k,s+2k,…,s+9k$。</p>
-<ol>
-<li>当$k$满足$k\equiv 0 (\mod 3)$时，可以发现： $s\equiv s+k\equiv s+2k\equiv…\equiv s+9k(\mod 3)$</li>
+<p>如果一个模板能够产生<span class="math inline">\(8\)</span>个质数，那么这个模板的星号个数必须为<span class="math inline">\(3\)</span>的倍数。</p>
+<p>设模板中星号的个数为<span class="math inline">\(k\)</span>，其余的数字之和为<span class="math inline">\(s\)</span>，那么产生的数字的数位和为<span class="math inline">\(s,s+k,s+2k,...,s+9k\)</span>。</p>
+<ol type="1">
+<li>当<span class="math inline">\(k\)</span>满足<span class="math inline">\(k\equiv 0 (\mod 3)\)</span>时，可以发现： <span class="math inline">\(s\equiv s+k\equiv s+2k\equiv...\equiv s+9k(\mod
+3)\)</span></li>
 </ol>
-<p>这种情况下，当$s$<em>不满足</em>$s\equiv0(\mod 3)$时，就有可能产生$8$个质数。</p>
-<ol>
+<p>这种情况下，当<span class="math inline">\(s\)</span><em>不满足</em><span class="math inline">\(s\equiv0(\mod 3)\)</span>时，就有可能产生<span class="math inline">\(8\)</span>个质数。</p>
+<ol start="2" type="1">
 <li>否则，总有</li>
 </ol>
-<p>$\begin{aligned}<br>&amp; s\equiv s+3k\equiv s+6k\equiv s+9k(\mod 3) \\<br>&amp; s+1k\equiv s+4k\equiv s+7k(\mod 3) \\<br>&amp; s+2k\equiv s+5k\equiv s+8k(\mod 3)<br>\end{aligned}$</p>
-<p>这三条式子中，总存在一条是和$0$是同余的。在这种情况下，就有$3$个合数，不能构造出$8$个质数，所以，原结论成立。</p>
-<p>另外，题目要求枚举的质数中，是某个模板下产生的$8$个质数中最小的。因此，所枚举的质数必定是以某个模板填入$0,1,2$这三个数位之一。</p>
+<p><span class="math inline">\(\begin{aligned} &amp; s\equiv s+3k\equiv
+s+6k\equiv s+9k(\mod 3) \\ &amp; s+1k\equiv s+4k\equiv s+7k(\mod 3) \\
+&amp; s+2k\equiv s+5k\equiv s+8k(\mod 3) \end{aligned}\)</span></p>
+<p>这三条式子中，总存在一条是和<span class="math inline">\(0\)</span>是同余的。在这种情况下，就有<span class="math inline">\(3\)</span>个合数，不能构造出<span class="math inline">\(8\)</span>个质数，所以，原结论成立。</p>
+<p>另外，题目要求枚举的质数中，是某个模板下产生的<span class="math inline">\(8\)</span>个质数中最小的。因此，所枚举的质数必定是以某个模板填入<span class="math inline">\(0,1,2\)</span>这三个数位之一。</p>
 <p>因此，利用上面的结论，直接开始枚举质数。</p>
 <p>本代码使用sympy库中的nextprime函数，它将返回当前大于数的下一个质数。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, combinations</span><br><span class="line"></span><br><span class="line">M = <span class="number">8</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将数的一部分下标替换成模板</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">change</span>(<span class="params">s: <span class="built_in">str</span>, pos_list</span>):</span><br><span class="line">    ls = <span class="built_in">list</span>(s)</span><br><span class="line">    <span class="keyword">for</span> pos <span class="keyword">in</span> pos_list:</span><br><span class="line">        ls[pos] = <span class="string">&#x27;*&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(ls)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    s = <span class="built_in">str</span>(n)</span><br><span class="line">    <span class="comment"># 存放字符串中,0,1,2的下标</span></span><br><span class="line">    pos = [[], [], []]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">int</span>(s[i]) &lt;= <span class="number">2</span>:</span><br><span class="line">            pos[<span class="built_in">int</span>(s[i])].append(i)</span><br><span class="line">    <span class="comment"># 产生星号数为3的倍数的模板</span></span><br><span class="line">    <span class="keyword">for</span> stars <span class="keyword">in</span> count(<span class="number">3</span>, <span class="number">3</span>):</span><br><span class="line">        candidates = <span class="built_in">list</span>(combinations(pos[<span class="number">0</span>], stars)) + <span class="built_in">list</span>(combinations(pos[<span class="number">1</span>], stars)) + <span class="built_in">list</span>(</span><br><span class="line">            <span class="built_in">list</span>(combinations(pos[<span class="number">2</span>], stars)))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(candidates) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">for</span> pos_list <span class="keyword">in</span> candidates:</span><br><span class="line">            <span class="comment"># 用来产生模板t。</span></span><br><span class="line">            t = change(s, pos_list)</span><br><span class="line">            cnt = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">                <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">and</span> t[<span class="number">0</span>] == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">if</span> is_prime(<span class="built_in">int</span>(t.replace(<span class="string">&#x27;*&#x27;</span>, <span class="built_in">str</span>(i)))):</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> cnt &gt;= M:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pr = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    pr = nextprime(pr)</span><br><span class="line">    <span class="keyword">if</span> ok(pr):</span><br><span class="line">        ans = pr</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count, combinations</span><br><span class="line"></span><br><span class="line">M = <span class="number">8</span></span><br><span class="line">a = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将数的一部分下标替换成模板</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">change</span>(<span class="params">s: <span class="built_in">str</span>, pos_list</span>):</span><br><span class="line">    ls = <span class="built_in">list</span>(s)</span><br><span class="line">    <span class="keyword">for</span> pos <span class="keyword">in</span> pos_list:</span><br><span class="line">        ls[pos] = <span class="string">&#x27;*&#x27;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;&quot;</span>.join(ls)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    s = <span class="built_in">str</span>(n)</span><br><span class="line">    <span class="comment"># 存放字符串中,0,1,2的下标</span></span><br><span class="line">    pos = [[], [], []]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s)):</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">int</span>(s[i]) &lt;= <span class="number">2</span>:</span><br><span class="line">            pos[<span class="built_in">int</span>(s[i])].append(i)</span><br><span class="line">    <span class="comment"># 产生星号数为3的倍数的模板</span></span><br><span class="line">    <span class="keyword">for</span> stars <span class="keyword">in</span> count(<span class="number">3</span>, <span class="number">3</span>):</span><br><span class="line">        candidates = <span class="built_in">list</span>(combinations(pos[<span class="number">0</span>], stars)) + <span class="built_in">list</span>(combinations(pos[<span class="number">1</span>], stars)) + <span class="built_in">list</span>(</span><br><span class="line">            <span class="built_in">list</span>(combinations(pos[<span class="number">2</span>], stars)))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(candidates) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">for</span> pos_list <span class="keyword">in</span> candidates:</span><br><span class="line">            <span class="comment"># 用来产生模板t。</span></span><br><span class="line">            t = change(s, pos_list)</span><br><span class="line">            cnt = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">                <span class="keyword">if</span> i == <span class="number">0</span> <span class="keyword">and</span> t[<span class="number">0</span>] == <span class="string">&#x27;*&#x27;</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                <span class="keyword">if</span> is_prime(<span class="built_in">int</span>(t.replace(<span class="string">&#x27;*&#x27;</span>, <span class="built_in">str</span>(i)))):</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> cnt &gt;= M:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pr = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    pr = nextprime(pr)</span><br><span class="line">    <span class="keyword">if</span> ok(pr):</span><br><span class="line">        ans = pr</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -358,7 +377,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-51"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 51</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prime-digit-replacements"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime digit replacements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-51"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 51</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-digit-replacements"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime digit replacements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,14 +391,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -416,13 +435,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -239,14 +239,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>964</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -258,36 +258,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-733"><a href="#Project-Euler-733" class="headerlink" title="Project Euler 733"></a>Project Euler 733</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Ascending-subsequences"><a href="#Ascending-subsequences" class="headerlink" title="Ascending subsequences"></a>Ascending subsequences</h3><p>Let $a_i$ be the sequence defined by $a_i=153^i \bmod 10\ 000\ 019$ for $i \ge 1$. The first terms of $a_i$ are: $153, 23409, 3581577, 7980255, 976697, 9434375, \dots$</p>
-<p>Consider the subsequences consisting of $4$ terms in ascending order. For the part of the sequence shown above, these are:</p>
-<p>$\begin{aligned}<br>&amp; 153, 23409, 3581577, 7980255\\<br>&amp; 153, 23409, 3581577, 9434375\\<br>&amp; 153, 23409, 7980255, 9434375\\<br>&amp; 153, 23409, 976697, 9434375\\<br>&amp; 153, 3581577, 7980255, 9434375\\<br>&amp; 23409, 3581577, 7980255, 9434375<br>\end{aligned}$.</p>
-<p>Define $S(n)$ to be the sum of the terms for all such subsequences within the first $n$ terms of $a_i$. Thus $S(6)=94513710$. You are given that $S(100)=4465488724217$.</p>
-<p>Find $S(10^6)$ modulo $1\ 000\ 000\ 007$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>上升子序列问题一般是以动态规划为基本思想的问题。本题依旧尝试使用动态规划解决。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-733">Project Euler 733</h1>
+<h2 id="题目">题目</h2>
+<h3 id="ascending-subsequences">Ascending subsequences</h3>
+<p>Let <span class="math inline">\(a_i\)</span> be the sequence defined
+by <span class="math inline">\(a_i=153^i \bmod 10\ 000\ 019\)</span> for
+<span class="math inline">\(i \ge 1\)</span>. The first terms of <span class="math inline">\(a_i\)</span> are: <span class="math inline">\(153,
+23409, 3581577, 7980255, 976697, 9434375, \dots\)</span></p>
+<p>Consider the subsequences consisting of <span class="math inline">\(4\)</span> terms in ascending order. For the part
+of the sequence shown above, these are:</p>
+<p><span class="math inline">\(\begin{aligned} &amp; 153, 23409,
+3581577, 7980255\\ &amp; 153, 23409, 3581577, 9434375\\ &amp; 153,
+23409, 7980255, 9434375\\ &amp; 153, 23409, 976697, 9434375\\ &amp; 153,
+3581577, 7980255, 9434375\\ &amp; 23409, 3581577, 7980255, 9434375
+\end{aligned}\)</span>.</p>
+<p>Define <span class="math inline">\(S(n)\)</span> to be the sum of the
+terms for all such subsequences within the first <span class="math inline">\(n\)</span> terms of <span class="math inline">\(a_i\)</span>. Thus <span class="math inline">\(S(6)=94513710\)</span>. You are given that <span class="math inline">\(S(100)=4465488724217\)</span>.</p>
+<p>Find <span class="math inline">\(S(10^6)\)</span> modulo <span class="math inline">\(1\ 000\ 000\ 007\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>上升子序列问题一般是以动态规划为基本思想的问题。本题依旧尝试使用动态规划解决。</p>
 <p>由于本题需要求的是所有严格上升子序列之和（而不是个数），因此需要维护多一个当前子序列的个数，再计算当前下标这个数的贡献次数。</p>
-<p>因此，假设这个序列为$a$，其长度为$m$。设$c(i,j)(1\leq i\leq 4,1\leq j\leq m)$为长度为$i$的严格上升子序列中，第$i$个元素为$a[j]$的子序列有多少个。</p>
+<p>因此，假设这个序列为<span class="math inline">\(a\)</span>，其长度为<span class="math inline">\(m\)</span>。设<span class="math inline">\(c(i,j)(1\leq i\leq 4,1\leq j\leq
+m)\)</span>为长度为<span class="math inline">\(i\)</span>的严格上升子序列中，第<span class="math inline">\(i\)</span>个元素为<span class="math inline">\(a[j]\)</span>的子序列有多少个。</p>
 <p>可以列出以下状态转移方程：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 c(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{1\leq k<j,a[k]<a[j]} c(i-1,k) & & \mathrm{else}
-\end{aligned}\right.</script><p>意思是，将之前所有末尾严格小于自身$a[j]$的子序列，末尾都添加一个$a[j]$，就变成了以$a[j]$为末尾的子序列。</p>
-<p>再设$s(i,j)(1\leq i\leq 4,1\leq j\leq m)$为长度为$i$的严格上升子序列中，第$j$个元素为$a[j]$的所有子序列之和。</p>
+  &amp;1  &amp; &amp; \mathrm{if\quad} i=1 \\
+  &amp;\sum_{1\leq k&lt;j,a[k]&lt;a[j]} c(i-1,k) &amp; &amp;
+\mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>意思是，将之前所有末尾严格小于自身<span class="math inline">\(a[j]\)</span>的子序列，末尾都添加一个<span class="math inline">\(a[j]\)</span>，就变成了以<span class="math inline">\(a[j]\)</span>为末尾的子序列。</p>
+<p>再设<span class="math inline">\(s(i,j)(1\leq i\leq 4,1\leq j\leq
+m)\)</span>为长度为<span class="math inline">\(i\)</span>的严格上升子序列中，第<span class="math inline">\(j\)</span>个元素为<span class="math inline">\(a[j]\)</span>的所有子序列之和。</p>
 <p>可以列出以下方程：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 s(i,j)=
 \left \{\begin{aligned}
-  &a[j]  & & \mathrm{if\quad} i=1 \\
-  &c(i,j)\cdot p[j]+\sum_{1\leq k<j,a[k]<a[j]} s(i-1,k) & & \mathrm{else}
-\end{aligned}\right.</script><p>需要注意，这个方程使用了上面的$c(i,j)$的值。</p>
-<p>将之前所有末尾严格小于自身$a[j]$的子序列，由于末尾都添加一个$a[j]$，而子序列一共有$c(i,j)$个，因此总共的和添加了$c(i,j)\times p[j]$。</p>
-<p>可以发现，直接按照方程进行计算的时间复杂度为$O(m^2)$，可以用树状数组进行优化。这里的用法则是将离散化后的数组值作为“键”，直接维护树状数组的值。</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fenwick_tree">树状数组</a>，一个可以用$O(\log m)$的时间复杂度单次维护前缀和的一个数据结构。</p>
-<p>最终答案为$\sum _{i=1}^m s(4,i)$。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> mem(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> lb(x) ((x)&amp;-(x))</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line"><span class="type">int</span> a[N+<span class="number">4</span>],b[N+<span class="number">4</span>],m;</span><br><span class="line">ll f1[N+<span class="number">4</span>],f2[N+<span class="number">4</span>],s1[N+<span class="number">4</span>],s2[N+<span class="number">4</span>],mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(ll *s,<span class="type">int</span> p,ll x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i&lt;=m;i+=<span class="built_in">lb</span>(i))</span><br><span class="line">        s[i]=(s[i]+x)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">que</span><span class="params">(ll *s,<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i;i-=<span class="built_in">lb</span>(i))</span><br><span class="line">        ans=(ans+s[i])%mod;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a[<span class="number">1</span>]=<span class="number">153</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        a[i]=a[i<span class="number">-1</span>]*<span class="number">153</span>%<span class="number">10000019</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        b[i]=f2[i]=a[i],f1[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">sort</span>(b+<span class="number">1</span>,b+N+<span class="number">1</span>);</span><br><span class="line">    m=<span class="built_in">unique</span>(b+<span class="number">1</span>,b+N+<span class="number">1</span>)-b<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">mem</span>(s1,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">mem</span>(s2,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="type">int</span> p=<span class="built_in">lower_bound</span>(b+<span class="number">1</span>,b+m+<span class="number">1</span>,a[j])-b;</span><br><span class="line">            ll q1=<span class="built_in">que</span>(s1,p<span class="number">-1</span>),q2=<span class="built_in">que</span>(s2,p<span class="number">-1</span>);</span><br><span class="line">            <span class="built_in">add</span>(s1,p,f1[j]);</span><br><span class="line">            <span class="built_in">add</span>(s2,p,f2[j]);</span><br><span class="line">            f1[j]=q1;f2[j]=(q2+q1*a[j])%mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        ans=(ans+f2[i])%mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;a[j]  &amp; &amp; \mathrm{if\quad} i=1 \\
+  &amp;c(i,j)\cdot p[j]+\sum_{1\leq k&lt;j,a[k]&lt;a[j]} s(i-1,k) &amp;
+&amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>需要注意，这个方程使用了上面的<span class="math inline">\(c(i,j)\)</span>的值。</p>
+<p>将之前所有末尾严格小于自身<span class="math inline">\(a[j]\)</span>的子序列，由于末尾都添加一个<span class="math inline">\(a[j]\)</span>，而子序列一共有<span class="math inline">\(c(i,j)\)</span>个，因此总共的和添加了<span class="math inline">\(c(i,j)\times p[j]\)</span>。</p>
+<p>可以发现，直接按照方程进行计算的时间复杂度为<span class="math inline">\(O(m^2)\)</span>，可以用树状数组进行优化。这里的用法则是将离散化后的数组值作为“键”，直接维护树状数组的值。</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Fenwick_tree">树状数组</a>，一个可以用<span class="math inline">\(O(\log
+m)\)</span>的时间复杂度单次维护前缀和的一个数据结构。</p>
+<p>最终答案为<span class="math inline">\(\sum _{i=1}^m
+s(4,i)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> mem(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> lb(x) ((x)&amp;-(x))</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line"><span class="type">int</span> a[N+<span class="number">4</span>],b[N+<span class="number">4</span>],m;</span><br><span class="line">ll f1[N+<span class="number">4</span>],f2[N+<span class="number">4</span>],s1[N+<span class="number">4</span>],s2[N+<span class="number">4</span>],mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(ll *s,<span class="type">int</span> p,ll x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i&lt;=m;i+=<span class="built_in">lb</span>(i))</span><br><span class="line">        s[i]=(s[i]+x)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">que</span><span class="params">(ll *s,<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i;i-=<span class="built_in">lb</span>(i))</span><br><span class="line">        ans=(ans+s[i])%mod;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a[<span class="number">1</span>]=<span class="number">153</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        a[i]=a[i<span class="number">-1</span>]*<span class="number">153</span>%<span class="number">10000019</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        b[i]=f2[i]=a[i],f1[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">sort</span>(b+<span class="number">1</span>,b+N+<span class="number">1</span>);</span><br><span class="line">    m=<span class="built_in">unique</span>(b+<span class="number">1</span>,b+N+<span class="number">1</span>)-b<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=<span class="number">4</span>;i++)&#123;</span><br><span class="line">        <span class="built_in">mem</span>(s1,<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">mem</span>(s2,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="type">int</span> p=<span class="built_in">lower_bound</span>(b+<span class="number">1</span>,b+m+<span class="number">1</span>,a[j])-b;</span><br><span class="line">            ll q1=<span class="built_in">que</span>(s1,p<span class="number">-1</span>),q2=<span class="built_in">que</span>(s2,p<span class="number">-1</span>);</span><br><span class="line">            <span class="built_in">add</span>(s1,p,f1[j]);</span><br><span class="line">            <span class="built_in">add</span>(s2,p,f2[j]);</span><br><span class="line">            f1[j]=q1;f2[j]=(q2+q1*a[j])%mod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        ans=(ans+f2[i])%mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +395,7 @@ s(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-733"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 733</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ascending-subsequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Ascending subsequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-733"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 733</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ascending-subsequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Ascending subsequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +409,14 @@ s(i,j)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,13 +453,13 @@ s(i,j)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

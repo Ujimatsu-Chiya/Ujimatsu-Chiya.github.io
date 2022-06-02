@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>316</span>
+              <span>336</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,13 +251,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-52"><a href="#Project-Euler-52" class="headerlink" title="Project Euler 52"></a>Project Euler 52</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Permuted-multiples"><a href="#Permuted-multiples" class="headerlink" title="Permuted multiples"></a>Permuted multiples</h3><p>It can be seen that the number, $125874$, and its double, $251748$, contain exactly the same digits, but in a different order.</p>
-<p>Find the smallest positive integer, $x$, such that $2x, 3x, 4x, 5x,$ and $6x$, contain the same digits.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>直接枚举。可以发现，如果要满足上面的条件，那么$x$和$6x$的位数必须相同。</p>
-<p>因此，对于一个$n$位数而言，只需要枚举这些$n$位数的前$\dfrac{1}{6}$的部分。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    l = <span class="number">10</span> ** (i - <span class="number">1</span>)</span><br><span class="line">    r = <span class="number">10</span> ** i // <span class="number">6</span></span><br><span class="line">    ok = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(l, r + <span class="number">1</span>):</span><br><span class="line">        st = <span class="built_in">set</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">7</span>):</span><br><span class="line">            st.add(<span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(<span class="built_in">str</span>(x * i)))))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(st) == <span class="number">1</span>:</span><br><span class="line">            ok = <span class="literal">True</span></span><br><span class="line">            ans = x</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> ok:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-52">Project Euler 52</h1>
+<h2 id="题目">题目</h2>
+<h3 id="permuted-multiples">Permuted multiples</h3>
+<p>It can be seen that the number, <span class="math inline">\(125874\)</span>, and its double, <span class="math inline">\(251748\)</span>, contain exactly the same digits,
+but in a different order.</p>
+<p>Find the smallest positive integer, <span class="math inline">\(x\)</span>, such that <span class="math inline">\(2x, 3x, 4x, 5x,\)</span> and <span class="math inline">\(6x\)</span>, contain the same digits.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>直接枚举。可以发现，如果要满足上面的条件，那么<span class="math inline">\(x\)</span>和<span class="math inline">\(6x\)</span>的位数必须相同。</p>
+<p>因此，对于一个<span class="math inline">\(n\)</span>位数而言，只需要枚举这些<span class="math inline">\(n\)</span>位数的前<span class="math inline">\(\dfrac{1}{6}\)</span>的部分。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    l = <span class="number">10</span> ** (i - <span class="number">1</span>)</span><br><span class="line">    r = <span class="number">10</span> ** i // <span class="number">6</span></span><br><span class="line">    ok = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(l, r + <span class="number">1</span>):</span><br><span class="line">        st = <span class="built_in">set</span>()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">7</span>):</span><br><span class="line">            st.add(<span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(<span class="built_in">str</span>(x * i)))))</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(st) == <span class="number">1</span>:</span><br><span class="line">            ok = <span class="literal">True</span></span><br><span class="line">            ans = x</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> ok:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -341,7 +346,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-52"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 52</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Permuted-multiples"><span class="nav-number">1.1.1.</span> <span class="nav-text">Permuted multiples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-52"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 52</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#permuted-multiples"><span class="nav-number">1.1.1.</span> <span class="nav-text">Permuted multiples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -355,14 +360,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -399,13 +404,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>581</span>
+              <span>641</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,21 +251,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-123"><a href="#Project-Euler-123" class="headerlink" title="Project Euler 123"></a>Project Euler 123</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Prime-square-remainders"><a href="#Prime-square-remainders" class="headerlink" title="Prime square remainders"></a>Prime square remainders</h3><p>Let $p_n$ be the $n^{\mathrm{th}}$ prime: $2, 3, 5, 7, 11, \dots$, and let $r$ be the remainder when $(p_n-1)^n + (p_n+1)^n$ is divided by $p_n^2$.</p>
-<p>For example, when $n = 3, p_3 = 5$, and $4^3 + 6^3 = 280 \equiv 5 \mod 25$.</p>
-<p>The least value of $n$ for which the remainder first exceeds $10^9$ is $7037$.</p>
-<p>Find the least value of $n$ for which the remainder first exceeds $10^{10}$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>设$r(n)=((p_n-1)^n + (p_n+1)^n) \% p_n^2$</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-123">Project Euler 123</h1>
+<h2 id="题目">题目</h2>
+<h3 id="prime-square-remainders">Prime square remainders</h3>
+<p>Let <span class="math inline">\(p_n\)</span> be the <span class="math inline">\(n^{\mathrm{th}}\)</span> prime: <span class="math inline">\(2, 3, 5, 7, 11, \dots\)</span>, and let <span class="math inline">\(r\)</span> be the remainder when <span class="math inline">\((p_n-1)^n + (p_n+1)^n\)</span> is divided by <span class="math inline">\(p_n^2\)</span>.</p>
+<p>For example, when <span class="math inline">\(n = 3, p_3 =
+5\)</span>, and <span class="math inline">\(4^3 + 6^3 = 280 \equiv 5
+\mod 25\)</span>.</p>
+<p>The least value of <span class="math inline">\(n\)</span> for which
+the remainder first exceeds <span class="math inline">\(10^9\)</span> is
+<span class="math inline">\(7037\)</span>.</p>
+<p>Find the least value of <span class="math inline">\(n\)</span> for
+which the remainder first exceeds <span class="math inline">\(10^{10}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>设<span class="math inline">\(r(n)=((p_n-1)^n + (p_n+1)^n) \%
+p_n^2\)</span></p>
 <p>利用在第120题推导出的一部分结论，可以发现：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 r(n)=
 \left \{\begin{aligned}
-  &2  & & \mathrm{if\quad} n \equiv 0(\mod 2) \\
-  &2np_n \%p_n^2 & & \mathrm{else}
-\end{aligned}\right.</script><p>因此，直接从第$1$个质数开始进行枚举即可，容易发现这种$\sqrt{10^{10}}$级别的枚举将会很快找到答案。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">10</span></span><br><span class="line">pr = <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">    w = <span class="number">2</span> * i * pr % (pr * pr)</span><br><span class="line">    <span class="keyword">if</span> w &gt;= M:</span><br><span class="line">        ans = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    pr = nextprime(pr, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;2  &amp; &amp; \mathrm{if\quad} n \equiv 0(\mod 2) \\
+  &amp;2np_n \%p_n^2 &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>因此，直接从第<span class="math inline">\(1\)</span>个质数开始进行枚举即可，容易发现这种<span class="math inline">\(\sqrt{10^{10}}\)</span>级别的枚举将会很快找到答案。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">10</span></span><br><span class="line">pr = <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">    w = <span class="number">2</span> * i * pr % (pr * pr)</span><br><span class="line">    <span class="keyword">if</span> w &gt;= M:</span><br><span class="line">        ans = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    pr = nextprime(pr, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -349,7 +361,7 @@ r(n)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-123"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 123</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prime-square-remainders"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime square remainders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-123"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 123</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-square-remainders"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime square remainders</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -363,14 +375,14 @@ r(n)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -407,13 +419,13 @@ r(n)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

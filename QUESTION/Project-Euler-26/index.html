@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>858</span>
+              <span>940</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,29 +257,41 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-26"><a href="#Project-Euler-26" class="headerlink" title="Project Euler 26"></a>Project Euler 26</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Reciprocal-cycles"><a href="#Reciprocal-cycles" class="headerlink" title="Reciprocal cycles"></a>Reciprocal cycles</h3><p>A unit fraction contains $1$ in the numerator. The decimal representation of the unit fractions with denominators $2$ to $10$ are given:</p>
-<script type="math/tex; mode=display">\begin{aligned}
-\frac 1 2 &= 0.5\\
-\frac 1 3 &= 0.(3)\\
-\frac 1 4 &= 0.25\\
-\frac 1 5 &= 0.2\\
-\frac 1 6 &= 0.1(6)\\
-\frac 1 7 &= 0.(142857)\\
-\frac 1 8 &= 0.125\\
-\frac 1 9 &= 0.(1)\\
-\frac 1 {10} &= 0.1\\
-\end{aligned}</script><p>Where $0.1(6)$ means $0.166666\ldots$, and has a $1$-digit recurring cycle. It can be seen that $\dfrac{1}{7}$ has a $6$-digit recurring cycle.</p>
-<p>Find the value of $1000$ for which $\dfrac{1}{d}$ contains the longest recurring cycle in its decimal fraction part.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>做竖式除法，本质上是每次将上一次的结果作为余数，乘以$10$，填上被除数后面一位后（不过，本题的被除数只有一开始的1，往后都是$0$）的结果再做一次带余的整数除法。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-26">Project Euler 26</h1>
+<h2 id="题目">题目</h2>
+<h3 id="reciprocal-cycles">Reciprocal cycles</h3>
+<p>A unit fraction contains <span class="math inline">\(1\)</span> in
+the numerator. The decimal representation of the unit fractions with
+denominators <span class="math inline">\(2\)</span> to <span class="math inline">\(10\)</span> are given:</p>
+<p><span class="math display">\[\begin{aligned}
+\frac 1 2 &amp;= 0.5\\
+\frac 1 3 &amp;= 0.(3)\\
+\frac 1 4 &amp;= 0.25\\
+\frac 1 5 &amp;= 0.2\\
+\frac 1 6 &amp;= 0.1(6)\\
+\frac 1 7 &amp;= 0.(142857)\\
+\frac 1 8 &amp;= 0.125\\
+\frac 1 9 &amp;= 0.(1)\\
+\frac 1 {10} &amp;= 0.1\\
+\end{aligned}\]</span></p>
+<p>Where <span class="math inline">\(0.1(6)\)</span> means <span class="math inline">\(0.166666\ldots\)</span>, and has a <span class="math inline">\(1\)</span>-digit recurring cycle. It can be seen
+that <span class="math inline">\(\dfrac{1}{7}\)</span> has a <span class="math inline">\(6\)</span>-digit recurring cycle.</p>
+<p>Find the value of <span class="math inline">\(1000\)</span> for which
+<span class="math inline">\(\dfrac{1}{d}\)</span> contains the longest
+recurring cycle in its decimal fraction part.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>做竖式除法，本质上是每次将上一次的结果作为余数，乘以<span class="math inline">\(10\)</span>，填上被除数后面一位后（不过，本题的被除数只有一开始的1，往后都是<span class="math inline">\(0\)</span>）的结果再做一次带余的整数除法。</p>
 <p>在这道题，只要余数开始了循环，那么就可以根据上一次到达这个余数的时间计算周期。</p>
-<p>以$\dfrac{2}{11}=0.181818\dots$为例。</p>
-<p>$2<em>10 \mod 11 = 9,\lfloor2</em> 10 / 11\rfloor = 1$</p>
-<p>$9<em>10 \mod 11 = 2,\lfloor9</em> 10 / 11\rfloor = 8$</p>
-<p>余数$2$出现在了一开始的结果中，发生了循环，其长度为$2$。小数也计算了出来，分别为$1$和$8$。</p>
+<p>以<span class="math inline">\(\dfrac{2}{11}=0.181818\dots\)</span>为例。</p>
+<p><span class="math inline">\(2*10 \mod 11 = 9,\lfloor2* 10 / 11\rfloor
+= 1\)</span></p>
+<p><span class="math inline">\(9*10 \mod 11 = 2,\lfloor9* 10 / 11\rfloor
+= 8\)</span></p>
+<p>余数<span class="math inline">\(2\)</span>出现在了一开始的结果中，发生了循环，其长度为<span class="math inline">\(2\)</span>。小数也计算了出来，分别为<span class="math inline">\(1\)</span>和<span class="math inline">\(8\)</span>。</p>
 <p>因此，在这个数据范围下，循环节长度能以线性的时空复杂度计算出来。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> mx=<span class="number">0</span>,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">2</span>;x&lt;N;x++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(f,<span class="number">-1</span>,<span class="built_in">sizeof</span>(f));</span><br><span class="line">        <span class="type">int</span> w=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>,k=<span class="number">0</span>;j;j=j*<span class="number">10</span>%x)&#123;</span><br><span class="line">            <span class="keyword">if</span>(f[j]!=<span class="number">-1</span>)&#123;</span><br><span class="line">                w=k-f[j];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            f[j]=k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(w&gt;mx) mx=w,ans=x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> mx=<span class="number">0</span>,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x=<span class="number">2</span>;x&lt;N;x++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(f,<span class="number">-1</span>,<span class="built_in">sizeof</span>(f));</span><br><span class="line">        <span class="type">int</span> w=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>,k=<span class="number">0</span>;j;j=j*<span class="number">10</span>%x)&#123;</span><br><span class="line">            <span class="keyword">if</span>(f[j]!=<span class="number">-1</span>)&#123;</span><br><span class="line">                w=k-f[j];</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            f[j]=k++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(w&gt;mx) mx=w,ans=x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -363,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-26"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 26</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reciprocal-cycles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reciprocal cycles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-26"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 26</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reciprocal-cycles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reciprocal cycles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,14 +389,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -421,13 +433,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

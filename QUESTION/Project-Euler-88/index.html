@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,24 +258,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-88"><a href="#Project-Euler-88" class="headerlink" title="Project Euler 88"></a>Project Euler 88</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Product-sum-numbers"><a href="#Product-sum-numbers" class="headerlink" title="Product-sum numbers"></a>Product-sum numbers</h3><p>A natural number, $N$, that can be written as the sum and product of a given set of at least two natural numbers, $\{a_1, a_2, … , a_k\}$ is called a product-sum number:</p>
-<p>$N = a_1 + a_2 + … + a_k = a_1 \times a_2 \times … \times a_k$.</p>
-<p>For example, $6 = 1 + 2 + 3 = 1 \times 2 \times 3$.</p>
-<p>For a given set of size, $k$, we shall call the smallest $N$ with this property a minimal product-sum number. The minimal product-sum numbers for sets of size, $k = 2, 3, 4, 5$, and $6$ are as follows.</p>
-<p>$k=2:4=2 \times 2 = 2 + 2$<br><br>$k=3:6=1 \times 2 \times 3 = 1 + 2 + 3$<br><br>$k=4:8=1 \times 1 \times 2 \times 4 = 1 + 1 + 2 + 4$<br><br>$k=5:8=1 \times 1 \times 2 \times 2 \times 2  = 1 + 1 + 2 + 2 + 2$<br><br>$k=6:12=1 \times 1 \times 1 \times 1 \times 2 \times 6 = 1 + 1 + 1 + 1 + 2 + 6$</p>
-<p>Hence for $2\leq k\leq 6$, the sum of all the minimal product-sum numbers is $4+6+8+12=30;$ note that $8$ is only counted once in the sum.</p>
-<p>In fact, as the complete set of minimal product-sum numbers for $2\leq k\leq 12$ is $\{4, 6, 8, 12, 15, 16\}$, the sum is $61$.</p>
-<p>What is the sum of all the minimal product-sum numbers for $2\leq k\leq12000$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>可以知道，对于绝大多数$k$，满足题目条件的序列$\{a\}$中，大多数的值都是$1$，最多只有$m=\lfloor\log_2k\rfloor$个数的值非$1$。</p>
-<p>因此，不失一般性，先对$\{a\}$（长度未知）的前$m$个的值进行枚举，那么最终可以计算出长度$k=\prod_{i=1}^m-\sum_{i=1}^ma_i+m$，其余$k-m$个值必定全为$1$。</p>
-<p>为了遍历所有情况，本代码遍历时，$a_1,a_2,…,a_m$可以为$1$，这是为了方便求出$k$比较小时的情况。</p>
-<p>关于在某个特定的$k$下，和积值$N$的上限。先枚举前几项出来，查询OEIS的结果为<a target="_blank" rel="noopener" href="https://oeis.org/A104173">A104173</a>。在FORMULA一栏，发现：</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-88">Project Euler 88</h1>
+<h2 id="题目">题目</h2>
+<h3 id="product-sum-numbers">Product-sum numbers</h3>
+<p>A natural number, <span class="math inline">\(N\)</span>, that can be
+written as the sum and product of a given set of at least two natural
+numbers, <span class="math inline">\(\{a_1, a_2, ... , a_k\}\)</span> is
+called a product-sum number:</p>
+<p><span class="math inline">\(N = a_1 + a_2 + ... + a_k = a_1 \times
+a_2 \times ... \times a_k\)</span>.</p>
+<p>For example, <span class="math inline">\(6 = 1 + 2 + 3 = 1 \times 2
+\times 3\)</span>.</p>
+<p>For a given set of size, <span class="math inline">\(k\)</span>, we
+shall call the smallest <span class="math inline">\(N\)</span> with this
+property a minimal product-sum number. The minimal product-sum numbers
+for sets of size, <span class="math inline">\(k = 2, 3, 4, 5\)</span>,
+and <span class="math inline">\(6\)</span> are as follows.</p>
+<p><span class="math inline">\(k=2:4=2 \times 2 = 2 + 2\)</span><br>
+<span class="math inline">\(k=3:6=1 \times 2 \times 3 = 1 + 2 +
+3\)</span><br> <span class="math inline">\(k=4:8=1 \times 1 \times 2
+\times 4 = 1 + 1 + 2 + 4\)</span><br> <span class="math inline">\(k=5:8=1 \times 1 \times 2 \times 2 \times 2 = 1 +
+1 + 2 + 2 + 2\)</span><br> <span class="math inline">\(k=6:12=1 \times 1
+\times 1 \times 1 \times 2 \times 6 = 1 + 1 + 1 + 1 + 2 + 6\)</span></p>
+<p>Hence for <span class="math inline">\(2\leq k\leq 6\)</span>, the sum
+of all the minimal product-sum numbers is <span class="math inline">\(4+6+8+12=30;\)</span> note that <span class="math inline">\(8\)</span> is only counted once in the sum.</p>
+<p>In fact, as the complete set of minimal product-sum numbers for <span class="math inline">\(2\leq k\leq 12\)</span> is <span class="math inline">\(\{4, 6, 8, 12, 15, 16\}\)</span>, the sum is <span class="math inline">\(61\)</span>.</p>
+<p>What is the sum of all the minimal product-sum numbers for <span class="math inline">\(2\leq k\leq12000\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可以知道，对于绝大多数<span class="math inline">\(k\)</span>，满足题目条件的序列<span class="math inline">\(\{a\}\)</span>中，大多数的值都是<span class="math inline">\(1\)</span>，最多只有<span class="math inline">\(m=\lfloor\log_2k\rfloor\)</span>个数的值非<span class="math inline">\(1\)</span>。</p>
+<p>因此，不失一般性，先对<span class="math inline">\(\{a\}\)</span>（长度未知）的前<span class="math inline">\(m\)</span>个的值进行枚举，那么最终可以计算出长度<span class="math inline">\(k=\prod_{i=1}^m-\sum_{i=1}^ma_i+m\)</span>，其余<span class="math inline">\(k-m\)</span>个值必定全为<span class="math inline">\(1\)</span>。</p>
+<p>为了遍历所有情况，本代码遍历时，<span class="math inline">\(a_1,a_2,...,a_m\)</span>可以为<span class="math inline">\(1\)</span>，这是为了方便求出<span class="math inline">\(k\)</span>比较小时的情况。</p>
+<p>关于在某个特定的<span class="math inline">\(k\)</span>下，和积值<span class="math inline">\(N\)</span>的上限。先枚举前几项出来，查询OEIS的结果为<a target="_blank" rel="noopener" href="https://oeis.org/A104173">A104173</a>。在FORMULA一栏，发现：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(n) &lt;= 2n, since 1^(n-2)* 2*n = (n-2)*1 + 2 + n. - Étienne Dupuis, Dec 07 2021</span><br></pre></td></tr></table></figure>
-<p>这说明，每个答案的上限不会超过$2k$。</p>
-<p>因此，直接搜索前$m$个值即可，途中需要记录这$m$个值的和与积，这些积值不需要超过$2N$。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">12000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="built_in">log2</span>(<span class="number">1e-8</span>+N);</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> fl, <span class="type">int</span> pre, <span class="type">int</span> mul, <span class="type">int</span> sum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (fl == M) &#123;</span><br><span class="line">        <span class="type">int</span> t = mul - sum + M;</span><br><span class="line">        <span class="keyword">if</span> (t &lt;= N)</span><br><span class="line">            f[t] = <span class="built_in">min</span>(f[t], mul);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = pre; i &lt;= N &amp;&amp; mul * i &lt;= N * <span class="number">2</span>; i++)</span><br><span class="line">        <span class="built_in">dfs</span>(fl + <span class="number">1</span>, i, mul * i, sum + i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">2</span>]=<span class="number">4</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        st.<span class="built_in">insert</span>(f[i]);</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:st)</span><br><span class="line">        ans+=x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这说明，每个答案的上限不会超过<span class="math inline">\(2k\)</span>。</p>
+<p>因此，直接搜索前<span class="math inline">\(m\)</span>个值即可，途中需要记录这<span class="math inline">\(m\)</span>个值的和与积，这些积值不需要超过<span class="math inline">\(2N\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">12000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="built_in">log2</span>(<span class="number">1e-8</span>+N);</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> fl, <span class="type">int</span> pre, <span class="type">int</span> mul, <span class="type">int</span> sum)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (fl == M) &#123;</span><br><span class="line">        <span class="type">int</span> t = mul - sum + M;</span><br><span class="line">        <span class="keyword">if</span> (t &lt;= N)</span><br><span class="line">            f[t] = <span class="built_in">min</span>(f[t], mul);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = pre; i &lt;= N &amp;&amp; mul * i &lt;= N * <span class="number">2</span>; i++)</span><br><span class="line">        <span class="built_in">dfs</span>(fl + <span class="number">1</span>, i, mul * i, sum + i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(f,<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(f));</span><br><span class="line">    f[<span class="number">2</span>]=<span class="number">4</span>;</span><br><span class="line">    <span class="built_in">dfs</span>(<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        st.<span class="built_in">insert</span>(f[i]);</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:st)</span><br><span class="line">        ans+=x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -360,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-88"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 88</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Product-sum-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Product-sum numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-88"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 88</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#product-sum-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Product-sum numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,14 +393,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -418,13 +437,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

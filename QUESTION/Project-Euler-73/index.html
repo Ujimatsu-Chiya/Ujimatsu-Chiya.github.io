@@ -250,17 +250,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-73"><a href="#Project-Euler-73" class="headerlink" title="Project Euler 73"></a>Project Euler 73</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Counting-fractions-in-a-range"><a href="#Counting-fractions-in-a-range" class="headerlink" title="Counting fractions in a range"></a>Counting fractions in a range</h3><p>Consider the fraction, $\dfrac{n}{d}$, where n and d are positive integers. If $n&lt;d$ and $\gcd(n,d)=1$, it is called a reduced proper fraction.<br>If we list the set of reduced proper fractions for $d \leq 8$ in ascending order of size, we get:</p>
-<script type="math/tex; mode=display">\dfrac{1}{8},\dfrac{1}{7},\dfrac{1}{6},\dfrac{1}{5},\dfrac{1}{4},\dfrac{2}{7},\dfrac{1}{3},\mathbf{\dfrac{3}{8},\dfrac{2}{5},\dfrac{3}{7}},\dfrac{1}{2},\dfrac{4}{7},\dfrac{3}{5},\dfrac{5}{8},\dfrac{2}{3},\dfrac{5}{7},\dfrac{3}{4},\dfrac{4}{5},\dfrac{5}{6},\dfrac{6}{7},\dfrac{7}{8}</script><p>It can be seen that there are $3$ fractions between $\dfrac{1}{3}$ and $\dfrac{1}{2}$.</p>
-<p>How many fractions lie between $\dfrac{1}{3}$ and $\dfrac{1}{2}$ in the sorted set of reduced proper fractions for $d \leq 12,000$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot Tree</a>，一种用来表示各种最简分数的数据结构，它的中序遍历结果就是Farey序列。</p>
-<p>主要构造方式则是基于Farey的性质（第71题提过）：对于任意的Farey 序列$F_n$，其中任意连续的三个分数序列$\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}$，满足$\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}$。</p>
-<p>本代码直接模拟遍历Stern-Brocot Tree，每一个节点就是一个分数的区间（也表示新生成的分数本身）。相比于直接暴力判断，优化了一个$\log$的级别。</p>
-<p>遍历到分母大于$N=12000$就返回。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-73">Project Euler 73</h1>
+<h2 id="题目">题目</h2>
+<h3 id="counting-fractions-in-a-range">Counting fractions in a
+range</h3>
+<p>Consider the fraction, <span class="math inline">\(\dfrac{n}{d}\)</span>, where n and d are positive
+integers. If <span class="math inline">\(n&lt;d\)</span> and <span class="math inline">\(\gcd(n,d)=1\)</span>, it is called a reduced
+proper fraction. If we list the set of reduced proper fractions for
+<span class="math inline">\(d \leq 8\)</span> in ascending order of
+size, we get:</p>
+<p><span class="math display">\[\dfrac{1}{8},\dfrac{1}{7},\dfrac{1}{6},\dfrac{1}{5},\dfrac{1}{4},\dfrac{2}{7},\dfrac{1}{3},\mathbf{\dfrac{3}{8},\dfrac{2}{5},\dfrac{3}{7}},\dfrac{1}{2},\dfrac{4}{7},\dfrac{3}{5},\dfrac{5}{8},\dfrac{2}{3},\dfrac{5}{7},\dfrac{3}{4},\dfrac{4}{5},\dfrac{5}{6},\dfrac{6}{7},\dfrac{7}{8}\]</span></p>
+<p>It can be seen that there are <span class="math inline">\(3\)</span>
+fractions between <span class="math inline">\(\dfrac{1}{3}\)</span> and
+<span class="math inline">\(\dfrac{1}{2}\)</span>.</p>
+<p>How many fractions lie between <span class="math inline">\(\dfrac{1}{3}\)</span> and <span class="math inline">\(\dfrac{1}{2}\)</span> in the sorted set of reduced
+proper fractions for <span class="math inline">\(d \leq
+12,000\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot
+Tree</a>，一种用来表示各种最简分数的数据结构，它的中序遍历结果就是Farey序列。</p>
+<p>主要构造方式则是基于Farey的性质（第71题提过）：对于任意的Farey
+序列<span class="math inline">\(F_n\)</span>，其中任意连续的三个分数序列<span class="math inline">\(\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}\)</span>，满足<span class="math inline">\(\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}\)</span>。</p>
+<p>本代码直接模拟遍历Stern-Brocot
+Tree，每一个节点就是一个分数的区间（也表示新生成的分数本身）。相比于直接暴力判断，优化了一个<span class="math inline">\(\log\)</span>的级别。</p>
+<p>遍历到分母大于<span class="math inline">\(N=12000\)</span>就返回。</p>
 <p>本题有线性或以下的做法，奈何本人水平有限，在此不详细提及。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">12000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> lu=<span class="number">1</span>,ld=<span class="number">3</span>,ru=<span class="number">1</span>,rd=<span class="number">2</span>;</span><br><span class="line"><span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> lu,<span class="type">int</span> ld,<span class="type">int</span> ru,<span class="type">int</span> rd)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> mu=lu+ru,md=ld+rd;</span><br><span class="line">    <span class="keyword">if</span>(md&gt;N) <span class="keyword">return</span>;</span><br><span class="line">    ++ans;</span><br><span class="line">    <span class="built_in">dfs</span>(lu,ld,mu,md);</span><br><span class="line">    <span class="built_in">dfs</span>(mu,md,ru,rd);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">dfs</span>(lu,ld,ru,rd);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">12000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> lu=<span class="number">1</span>,ld=<span class="number">3</span>,ru=<span class="number">1</span>,rd=<span class="number">2</span>;</span><br><span class="line"><span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> lu,<span class="type">int</span> ld,<span class="type">int</span> ru,<span class="type">int</span> rd)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> mu=lu+ru,md=ld+rd;</span><br><span class="line">    <span class="keyword">if</span>(md&gt;N) <span class="keyword">return</span>;</span><br><span class="line">    ++ans;</span><br><span class="line">    <span class="built_in">dfs</span>(lu,ld,mu,md);</span><br><span class="line">    <span class="built_in">dfs</span>(mu,md,ru,rd);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">dfs</span>(lu,ld,ru,rd);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -344,7 +361,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-73"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 73</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting-fractions-in-a-range"><span class="nav-number">1.1.1.</span> <span class="nav-text">Counting fractions in a range</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-73"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 73</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#counting-fractions-in-a-range"><span class="nav-number">1.1.1.</span> <span class="nav-text">Counting fractions in a
+range</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -358,14 +376,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -402,13 +420,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

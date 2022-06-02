@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>434</span>
+              <span>454</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,17 +259,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-15"><a href="#Project-Euler-15" class="headerlink" title="Project Euler 15"></a>Project Euler 15</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Lattice-paths"><a href="#Lattice-paths" class="headerlink" title="Lattice paths"></a>Lattice paths</h3><p>Starting in the top left corner of a $2×2$ grid, and only being able to move to the right and down, there are exactly $6$ routes to the bottom right corner.</p>
-<p><img src="../images/p015.png" alt></p>
-<p>How many such routes are there through a $20\times20$ grid?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>假设这个方格一共有$n\times m$格，在这里，$n=m=20$.</p>
-<p>假设往下走一步，得到一个字母D，往右走一步，得到一个字母R。那么一共可以得到$n$个D和$m$个R。</p>
-<p>但是，走的过程是可以随时变化的，这也对应了每个D和R的序列顺序不一样（但仍然保持有$n$个D和$m$个R）。</p>
-<p>问题就转化成了组合数，因此，答案是$C_{n+m}^m$</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-15">Project Euler 15</h1>
+<h2 id="题目">题目</h2>
+<h3 id="lattice-paths">Lattice paths</h3>
+<p>Starting in the top left corner of a <span class="math inline">\(2×2\)</span> grid, and only being able to move to
+the right and down, there are exactly <span class="math inline">\(6\)</span> routes to the bottom right corner.</p>
+<p><img src="../images/p015.png"></p>
+<p>How many such routes are there through a <span class="math inline">\(20\times20\)</span> grid?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>假设这个方格一共有<span class="math inline">\(n\times
+m\)</span>格，在这里，<span class="math inline">\(n=m=20\)</span>.</p>
+<p>假设往下走一步，得到一个字母D，往右走一步，得到一个字母R。那么一共可以得到<span class="math inline">\(n\)</span>个D和<span class="math inline">\(m\)</span>个R。</p>
+<p>但是，走的过程是可以随时变化的，这也对应了每个D和R的序列顺序不一样（但仍然保持有<span class="math inline">\(n\)</span>个D和<span class="math inline">\(m\)</span>个R）。</p>
+<p>问题就转化成了组合数，因此，答案是<span class="math inline">\(C_{n+m}^m\)</span></p>
 <p>这里使用了sympy的函数binomial求组合数，之后将封装在tools自定义工具类中，以C(n,m)的方式调用。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> binomial</span><br><span class="line"></span><br><span class="line">n = m = <span class="number">20</span></span><br><span class="line">ans = binomial(n + m, m)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> binomial</span><br><span class="line"></span><br><span class="line">n = m = <span class="number">20</span></span><br><span class="line">ans = binomial(n + m, m)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -353,7 +359,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-15"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 15</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Lattice-paths"><span class="nav-number">1.1.1.</span> <span class="nav-text">Lattice paths</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-15"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 15</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lattice-paths"><span class="nav-number">1.1.1.</span> <span class="nav-text">Lattice paths</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -367,14 +373,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -411,13 +417,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

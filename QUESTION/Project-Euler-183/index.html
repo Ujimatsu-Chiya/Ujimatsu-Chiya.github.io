@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,27 +250,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-183"><a href="#Project-Euler-183" class="headerlink" title="Project Euler 183"></a>Project Euler 183</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Maximum-product-of-parts"><a href="#Maximum-product-of-parts" class="headerlink" title="Maximum product of parts"></a>Maximum product of parts</h3><p>Let $N$ be a positive integer and let $N$ be split into $k$ equal parts, $r = \dfrac{N}{k}$, so that $N = r + r + \dots + r$.</p>
-<p>Let $P$ be the product of these parts, $P = r × r × \dots × r = r^k$.</p>
-<p>For example, if $11$ is split into five equal parts, $11 = 2.2 + 2.2 + 2.2 + 2.2 + 2.2$, then $P = 2.2^5 = 51.53632$.</p>
-<p>Let $M(N) = P_max$ for a given value of $N$.</p>
-<p>It turns out that the maximum for $N = 11$ is found by splitting eleven into four equal parts which leads to $P_{\max} = (\dfrac{11}{4})^4$; that is, $M(11) = \dfrac{14641}{256} = 57.19140625$, which is a terminating decimal.</p>
-<p>However, for $N = 8$ the maximum is achieved by splitting it into three equal parts, so $M(8) = \dfrac{512}{27}$, which is a non-terminating decimal.</p>
-<p>Let $D(N) = N$ if $M(N)$ is a non-terminating decimal and $D(N) = -N$ if $M(N)$ is a terminating decimal.</p>
-<p>For example, $\sum D(N)$ for $5 \le N \le 100$ is $2438$.</p>
-<p>Find $\sum D(N)$ for $5 \le N \le 10000$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令函数$y(k)=(\dfrac{N}{k})^k$，其中$k\in \mathbb{N^+}$。</p>
-<p>由于函数$y(k)$的定义域是在整数域上，不好通过求导求最大值，因此将整数域扩展到实数域。</p>
-<p>令$z(x)=(\dfrac{N}{x})^x$，其中$x\in \mathbb{R}$。</p>
-<p>对$z(x)$求导，计算得$z$的导数$z’(x)=(\dfrac{N}{x})^x\cdot (\ln\dfrac{N}{x}-1)$。</p>
-<p>令$z’(x)=0$，那么可以计算得到$x=\dfrac{N}{e}$，$z(x)$在$x_0=\dfrac{N}{e}$时将会取到最大值。</p>
-<p>回到函数$y(k)$，那么如果$y$要取到最大值，那么最大值点$k$为$\lfloor\dfrac{N}{e}\rfloor,\lceil\dfrac{N}{e}\rceil$两个值之一。</p>
-<p>因此，直接将它们代入函数$y(k)$代入，这种做法是可行的，不过由于$x_0=\dfrac{N}{e}$是在指数上出现的，因此直接代入计算，可能会导致结果失真。这里取而代之的方法是，代入$y(k)$的对数函数$\ln y(k)=k(\ln N-\ln k)$进行比较计算。</p>
-<p>最终找到最大值点$k_0$后，开始解决最大值是否为有限小数的问题。</p>
-<p>而这个问题比较简单，只需要判断分数$\dfrac{N}{k_0}$是否为有限小数即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> e, ceil, floor, log, gcd</span><br><span class="line"></span><br><span class="line">N = <span class="number">10000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, N + <span class="number">1</span>):</span><br><span class="line">    val = n / e</span><br><span class="line">    l, r = floor(val), ceil(val)</span><br><span class="line">    logfl, logfr = l * log(n / l), r * log(n / r)</span><br><span class="line">    <span class="keyword">if</span> logfl &gt; logfr:</span><br><span class="line">        x = l</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        x = r</span><br><span class="line">    x //= gcd(x, n)</span><br><span class="line">    <span class="keyword">while</span> x % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        x //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> (x &amp; <span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">        x &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">        ans -= n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ans += n</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-183">Project Euler 183</h1>
+<h2 id="题目">题目</h2>
+<h3 id="maximum-product-of-parts">Maximum product of parts</h3>
+<p>Let <span class="math inline">\(N\)</span> be a positive integer and
+let <span class="math inline">\(N\)</span> be split into <span class="math inline">\(k\)</span> equal parts, <span class="math inline">\(r = \dfrac{N}{k}\)</span>, so that <span class="math inline">\(N = r + r + \dots + r\)</span>.</p>
+<p>Let <span class="math inline">\(P\)</span> be the product of these
+parts, <span class="math inline">\(P = r × r × \dots × r =
+r^k\)</span>.</p>
+<p>For example, if <span class="math inline">\(11\)</span> is split into
+five equal parts, <span class="math inline">\(11 = 2.2 + 2.2 + 2.2 + 2.2
++ 2.2\)</span>, then <span class="math inline">\(P = 2.2^5 =
+51.53632\)</span>.</p>
+<p>Let <span class="math inline">\(M(N) = P_max\)</span> for a given
+value of <span class="math inline">\(N\)</span>.</p>
+<p>It turns out that the maximum for <span class="math inline">\(N =
+11\)</span> is found by splitting eleven into four equal parts which
+leads to <span class="math inline">\(P_{\max} =
+(\dfrac{11}{4})^4\)</span>; that is, <span class="math inline">\(M(11) =
+\dfrac{14641}{256} = 57.19140625\)</span>, which is a terminating
+decimal.</p>
+<p>However, for <span class="math inline">\(N = 8\)</span> the maximum
+is achieved by splitting it into three equal parts, so <span class="math inline">\(M(8) = \dfrac{512}{27}\)</span>, which is a
+non-terminating decimal.</p>
+<p>Let <span class="math inline">\(D(N) = N\)</span> if <span class="math inline">\(M(N)\)</span> is a non-terminating decimal and
+<span class="math inline">\(D(N) = -N\)</span> if <span class="math inline">\(M(N)\)</span> is a terminating decimal.</p>
+<p>For example, <span class="math inline">\(\sum D(N)\)</span> for <span class="math inline">\(5 \le N \le 100\)</span> is <span class="math inline">\(2438\)</span>.</p>
+<p>Find <span class="math inline">\(\sum D(N)\)</span> for <span class="math inline">\(5 \le N \le 10000\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令函数<span class="math inline">\(y(k)=(\dfrac{N}{k})^k\)</span>，其中<span class="math inline">\(k\in \mathbb{N^+}\)</span>。</p>
+<p>由于函数<span class="math inline">\(y(k)\)</span>的定义域是在整数域上，不好通过求导求最大值，因此将整数域扩展到实数域。</p>
+<p>令<span class="math inline">\(z(x)=(\dfrac{N}{x})^x\)</span>，其中<span class="math inline">\(x\in \mathbb{R}\)</span>。</p>
+<p>对<span class="math inline">\(z(x)\)</span>求导，计算得<span class="math inline">\(z\)</span>的导数<span class="math inline">\(z&#39;(x)=(\dfrac{N}{x})^x\cdot
+(\ln\dfrac{N}{x}-1)\)</span>。</p>
+<p>令<span class="math inline">\(z&#39;(x)=0\)</span>，那么可以计算得到<span class="math inline">\(x=\dfrac{N}{e}\)</span>，<span class="math inline">\(z(x)\)</span>在<span class="math inline">\(x_0=\dfrac{N}{e}\)</span>时将会取到最大值。</p>
+<p>回到函数<span class="math inline">\(y(k)\)</span>，那么如果<span class="math inline">\(y\)</span>要取到最大值，那么最大值点<span class="math inline">\(k\)</span>为<span class="math inline">\(\lfloor\dfrac{N}{e}\rfloor,\lceil\dfrac{N}{e}\rceil\)</span>两个值之一。</p>
+<p>因此，直接将它们代入函数<span class="math inline">\(y(k)\)</span>代入，这种做法是可行的，不过由于<span class="math inline">\(x_0=\dfrac{N}{e}\)</span>是在指数上出现的，因此直接代入计算，可能会导致结果失真。这里取而代之的方法是，代入<span class="math inline">\(y(k)\)</span>的对数函数<span class="math inline">\(\ln y(k)=k(\ln N-\ln k)\)</span>进行比较计算。</p>
+<p>最终找到最大值点<span class="math inline">\(k_0\)</span>后，开始解决最大值是否为有限小数的问题。</p>
+<p>而这个问题比较简单，只需要判断分数<span class="math inline">\(\dfrac{N}{k_0}\)</span>是否为有限小数即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> e, ceil, floor, log, gcd</span><br><span class="line"></span><br><span class="line">N = <span class="number">10000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>, N + <span class="number">1</span>):</span><br><span class="line">    val = n / e</span><br><span class="line">    l, r = floor(val), ceil(val)</span><br><span class="line">    logfl, logfr = l * log(n / l), r * log(n / r)</span><br><span class="line">    <span class="keyword">if</span> logfl &gt; logfr:</span><br><span class="line">        x = l</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        x = r</span><br><span class="line">    x //= gcd(x, n)</span><br><span class="line">    <span class="keyword">while</span> x % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        x //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> (x &amp; <span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">        x &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">        ans -= n</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ans += n</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -354,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-183"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 183</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-product-of-parts"><span class="nav-number">1.1.1.</span> <span class="nav-text">Maximum product of parts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-183"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 183</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maximum-product-of-parts"><span class="nav-number">1.1.1.</span> <span class="nav-text">Maximum product of parts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,14 +388,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -412,13 +432,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

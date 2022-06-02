@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>693</span>
+              <span>707</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,19 +258,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-79"><a href="#Project-Euler-79" class="headerlink" title="Project Euler 79"></a>Project Euler 79</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Passcode-derivation"><a href="#Passcode-derivation" class="headerlink" title="Passcode derivation"></a>Passcode derivation</h3><p>A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was $531278$, they may ask for the $2\mathrm{nd}$, $3\mathrm{rd}$, and $5\mathrm{th}$ characters; the expected reply would be: $317$.</p>
-<p>The text file, <a href="../resources/p079_keylog.txt">keylog.txt</a>, contains fifty successful login attempts.</p>
-<p>Given that the three characters are always asked for in order, analyse the file so as to determine the shortest possible secret passcode of unknown length.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题的解题方法依赖于这个事实：所有密码位的出现都是唯一的。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-79">Project Euler 79</h1>
+<h2 id="题目">题目</h2>
+<h3 id="passcode-derivation">Passcode derivation</h3>
+<p>A common security method used for online banking is to ask the user
+for three random characters from a passcode. For example, if the
+passcode was <span class="math inline">\(531278\)</span>, they may ask
+for the <span class="math inline">\(2\mathrm{nd}\)</span>, <span class="math inline">\(3\mathrm{rd}\)</span>, and <span class="math inline">\(5\mathrm{th}\)</span> characters; the expected
+reply would be: <span class="math inline">\(317\)</span>.</p>
+<p>The text file, <a href="../resources/p079_keylog.txt">keylog.txt</a>,
+contains fifty successful login attempts.</p>
+<p>Given that the three characters are always asked for in order,
+analyse the file so as to determine the shortest possible secret
+passcode of unknown length.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题的解题方法依赖于这个事实：所有密码位的出现都是唯一的。</p>
 <p>因此，可以通过<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Directed_acyclic_graph">建立有向无环图（DAG）</a>，表示密码位的关系。（如果这不是一个DAG，那么上述事实不成立）</p>
-<p>如$317$，则将连接两条有向边$3\rightarrow 1,1\rightarrow 7$。</p>
+<p>如<span class="math inline">\(317\)</span>，则将连接两条有向边<span class="math inline">\(3\rightarrow 1,1\rightarrow 7\)</span>。</p>
 <p>对最终建成的DAG进行<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Topological_sorting">拓扑排序</a>，得到的即为最终答案（如果拓扑排序失败，说明这不是一个DAG）。</p>
 <p>以下是维基百科中，关于拓扑排序算法的伪代码：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">L ← Empty list that will contain the sorted elements</span><br><span class="line">S ← Set of all nodes with no incoming edge</span><br><span class="line"></span><br><span class="line">while S is not empty do</span><br><span class="line">    remove a node n from S</span><br><span class="line">    add n to L</span><br><span class="line">    for each node m with an edge e from n to m do</span><br><span class="line">        remove edge e from the graph</span><br><span class="line">        if m has no other incoming edges then</span><br><span class="line">            insert m into S</span><br><span class="line"></span><br><span class="line">if graph has edges then</span><br><span class="line">    return error   (graph has at least one cycle)</span><br><span class="line">else </span><br><span class="line">    return L (a topologically sorted order)</span><br></pre></td></tr></table></figure>
 <p>本代码中将实现两种方式：手动实现拓扑排序和使用networkx库导出。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line">g = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">d = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">f = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p079_keylog.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">    x = <span class="built_in">int</span>(s[:-<span class="number">1</span>])</span><br><span class="line">    a = x // <span class="number">100</span></span><br><span class="line">    b = x // <span class="number">10</span> % <span class="number">10</span></span><br><span class="line">    c = x % <span class="number">10</span></span><br><span class="line">    g[a].append(b)</span><br><span class="line">    g[b].append(c)</span><br><span class="line">    d[b] += <span class="number">1</span></span><br><span class="line">    d[c] += <span class="number">1</span></span><br><span class="line">    f[a] = f[b] = f[c] = <span class="number">1</span></span><br><span class="line">q = Queue()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">if</span> d[i] == <span class="number">0</span> <span class="keyword">and</span> f[i]:</span><br><span class="line">        q.put(i)</span><br><span class="line"></span><br><span class="line">a = []</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    u = q.get()</span><br><span class="line">    a.append(u)</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> g[u]:</span><br><span class="line">        d[v] -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> d[v] == <span class="number">0</span>:</span><br><span class="line">            q.put(v)</span><br><span class="line">ans = <span class="string">&quot;&quot;</span>.join(<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> a)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line">g = [[] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">d = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">f = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p079_keylog.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">    x = <span class="built_in">int</span>(s[:-<span class="number">1</span>])</span><br><span class="line">    a = x // <span class="number">100</span></span><br><span class="line">    b = x // <span class="number">10</span> % <span class="number">10</span></span><br><span class="line">    c = x % <span class="number">10</span></span><br><span class="line">    g[a].append(b)</span><br><span class="line">    g[b].append(c)</span><br><span class="line">    d[b] += <span class="number">1</span></span><br><span class="line">    d[c] += <span class="number">1</span></span><br><span class="line">    f[a] = f[b] = f[c] = <span class="number">1</span></span><br><span class="line">q = Queue()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    <span class="keyword">if</span> d[i] == <span class="number">0</span> <span class="keyword">and</span> f[i]:</span><br><span class="line">        q.put(i)</span><br><span class="line"></span><br><span class="line">a = []</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">not</span> q.empty():</span><br><span class="line">    u = q.get()</span><br><span class="line">    a.append(u)</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> g[u]:</span><br><span class="line">        d[v] -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> d[v] == <span class="number">0</span>:</span><br><span class="line">            q.put(v)</span><br><span class="line">ans = <span class="string">&quot;&quot;</span>.join(<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> a)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</span><br><span class="line"></span><br><span class="line">g = nx.DiGraph()</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">open</span>(<span class="string">&#x27;p079_keylog.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines():</span><br><span class="line">    g.add_edge(s[<span class="number">0</span>], s[<span class="number">1</span>])</span><br><span class="line">    g.add_edge(s[<span class="number">1</span>], s[<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">ans = <span class="string">&quot;&quot;</span>.join(<span class="built_in">list</span>(nx.topological_sort(g)))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -356,7 +367,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-79"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 79</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Passcode-derivation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Passcode derivation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-79"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 79</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#passcode-derivation"><span class="nav-number">1.1.1.</span> <span class="nav-text">Passcode derivation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -370,14 +381,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -414,13 +425,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -234,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>753</span>
+              <span>799</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,17 +253,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-174"><a href="#Project-Euler-174" class="headerlink" title="Project Euler 174"></a>Project Euler 174</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Counting-the-number-of-“hollow”-square-laminae-that-can-form-one-two-three-…-distinct-arrangements"><a href="#Counting-the-number-of-“hollow”-square-laminae-that-can-form-one-two-three-…-distinct-arrangements" class="headerlink" title="Counting the number of “hollow” square laminae that can form one, two, three, … distinct arrangements"></a>Counting the number of “hollow” square laminae that can form one, two, three, … distinct arrangements</h3><p>We shall define a square lamina to be a square outline with a square “hole” so that the shape possesses vertical and horizontal symmetry.</p>
-<p>Given eight tiles it is possible to form a lamina in only one way: $3\times 3$ square with a $1\times1$ hole in the middle. However, using thirty-two tiles it is possible to form two distinct laminae.</p>
-<p><img src="../images/p173_square_laminas.gif" alt></p>
-<p>If $t$ represents the number of tiles used, we shall say that $t = 8$ is type $L(1)$ and $t = 32$ is type $L(2)$.</p>
-<p>Let $N(n)$ be the number of $t \le 1000000$ such that $t$ is type $L(n)$; for example, $N(15)$ = $832$.</p>
-<p>What is $\sum N(n)$ for $1 \le n \le 10$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>与173题一样，令$N=1000000$。假设内部的正方形边长为$a$，边框的宽度为$d$，那么大正方形的边长为$2d+a$，这个边框使用了$(2d+a)^2-a^2=4d(a+d)$个正方形。</p>
-<p>计算出的式子有常数因子$4$，因此只需要$\dfrac{N}{4}$的空间。因此，直接枚举式子$a(a+d)$的值并统计即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>,Q=<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=N/<span class="number">4</span>;</span><br><span class="line"><span class="type">int</span> cnt[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">1</span>;a+<span class="number">1</span>&lt;=M;a++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">1</span>;d*(d+a)&lt;=M;d++)</span><br><span class="line">            ++cnt[d*(a+d)];</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span>&lt;cnt[i]&amp;&amp;cnt[i]&lt;=Q) ++ans;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-174">Project Euler 174</h1>
+<h2 id="题目">题目</h2>
+<h3 id="counting-the-number-of-hollow-square-laminae-that-can-form-one-two-three-distinct-arrangements">Counting
+the number of “hollow” square laminae that can form one, two, three, …
+distinct arrangements</h3>
+<p>We shall define a square lamina to be a square outline with a square
+“hole” so that the shape possesses vertical and horizontal symmetry.</p>
+<p>Given eight tiles it is possible to form a lamina in only one way:
+<span class="math inline">\(3\times 3\)</span> square with a <span class="math inline">\(1\times1\)</span> hole in the middle. However,
+using thirty-two tiles it is possible to form two distinct laminae.</p>
+<p><img src="../images/p173_square_laminas.gif"></p>
+<p>If <span class="math inline">\(t\)</span> represents the number of
+tiles used, we shall say that <span class="math inline">\(t = 8\)</span>
+is type <span class="math inline">\(L(1)\)</span> and <span class="math inline">\(t = 32\)</span> is type <span class="math inline">\(L(2)\)</span>.</p>
+<p>Let <span class="math inline">\(N(n)\)</span> be the number of <span class="math inline">\(t \le 1000000\)</span> such that <span class="math inline">\(t\)</span> is type <span class="math inline">\(L(n)\)</span>; for example, <span class="math inline">\(N(15)\)</span> = <span class="math inline">\(832\)</span>.</p>
+<p>What is <span class="math inline">\(\sum N(n)\)</span> for <span class="math inline">\(1 \le n \le 10\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>与173题一样，令<span class="math inline">\(N=1000000\)</span>。假设内部的正方形边长为<span class="math inline">\(a\)</span>，边框的宽度为<span class="math inline">\(d\)</span>，那么大正方形的边长为<span class="math inline">\(2d+a\)</span>，这个边框使用了<span class="math inline">\((2d+a)^2-a^2=4d(a+d)\)</span>个正方形。</p>
+<p>计算出的式子有常数因子<span class="math inline">\(4\)</span>，因此只需要<span class="math inline">\(\dfrac{N}{4}\)</span>的空间。因此，直接枚举式子<span class="math inline">\(a(a+d)\)</span>的值并统计即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>,Q=<span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=N/<span class="number">4</span>;</span><br><span class="line"><span class="type">int</span> cnt[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">1</span>;a+<span class="number">1</span>&lt;=M;a++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">1</span>;d*(d+a)&lt;=M;d++)</span><br><span class="line">            ++cnt[d*(a+d)];</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="number">0</span>&lt;cnt[i]&amp;&amp;cnt[i]&lt;=Q) ++ans;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -347,7 +358,9 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-174"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 174</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Counting-the-number-of-%E2%80%9Chollow%E2%80%9D-square-laminae-that-can-form-one-two-three-%E2%80%A6-distinct-arrangements"><span class="nav-number">1.1.1.</span> <span class="nav-text">Counting the number of “hollow” square laminae that can form one, two, three, … distinct arrangements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-174"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 174</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#counting-the-number-of-hollow-square-laminae-that-can-form-one-two-three-distinct-arrangements"><span class="nav-number">1.1.1.</span> <span class="nav-text">Counting
+the number of “hollow” square laminae that can form one, two, three, …
+distinct arrangements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -361,14 +374,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -405,13 +418,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

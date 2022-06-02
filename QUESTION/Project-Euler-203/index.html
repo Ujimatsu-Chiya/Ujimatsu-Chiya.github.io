@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>673</span>
+              <span>695</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,32 +251,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-203"><a href="#Project-Euler-203" class="headerlink" title="Project Euler 203"></a>Project Euler 203</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Squarefree-Binomial-Coefficients"><a href="#Squarefree-Binomial-Coefficients" class="headerlink" title="Squarefree Binomial Coefficients"></a>Squarefree Binomial Coefficients</h3><p>The binomial coefficients $\displaystyle \binom n k$ can be arranged in triangular form, Pascal’s triangle, like this:</p>
-<div class="table-container">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-203">Project Euler 203</h1>
+<h2 id="题目">题目</h2>
+<h3 id="squarefree-binomial-coefficients">Squarefree Binomial
+Coefficients</h3>
+<p>The binomial coefficients <span class="math inline">\(\displaystyle
+\binom n k\)</span> can be arranged in triangular form, Pascal's
+triangle, like this:</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
 <tbody>
-<tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
@@ -293,7 +278,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td></td>
 <td></td>
@@ -310,7 +295,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
@@ -327,7 +312,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td></td>
 <td></td>
@@ -344,7 +329,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
@@ -361,7 +346,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td></td>
 <td>1</td>
@@ -378,7 +363,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td>1</td>
 <td></td>
@@ -395,7 +380,7 @@
 <td>1</td>
 <td></td>
 </tr>
-<tr>
+<tr class="even">
 <td>1</td>
 <td></td>
 <td>7</td>
@@ -412,7 +397,7 @@
 <td></td>
 <td>1</td>
 </tr>
-<tr>
+<tr class="odd">
 <td></td>
 <td></td>
 <td></td>
@@ -420,7 +405,8 @@
 <td></td>
 <td></td>
 <td></td>
-<td>…</td>
+<td>...</td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -430,14 +416,19 @@
 </tr>
 </tbody>
 </table>
-</div>
-<p>It can be seen that the first eight rows of Pascal’s triangle contain twelve distinct numbers: $1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 21$ and $35$.</p>
-<p>A positive integer $n$ is called squarefree if no square of a prime divides $n$.</p>
-<p>Of the twelve distinct numbers in the first eight rows of Pascal’s triangle, all except $4$ and $20$ are squarefree.</p>
-<p>The sum of the distinct squarefree numbers in the first eight rows is $105$.</p>
-<p>Find the sum of the distinct squarefree numbers in the first $51$ rows of Pascal’s triangle.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>由于需要遍历的行数比较少，因此枚举出杨辉三角前$51$行的所有数，并直接通过因式分解判断其是否为无平方数即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_pascals_triangle, factorization</span><br><span class="line"></span><br><span class="line">N = <span class="number">51</span></span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">set</span>().union(*[ls <span class="keyword">for</span> ls <span class="keyword">in</span> get_pascals_triangle(N-<span class="number">1</span>)]) - &#123;<span class="number">1</span>&#125;:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">max</span>(f[<span class="number">1</span>] <span class="keyword">for</span> f <span class="keyword">in</span> factorization(x)) == <span class="number">1</span>:</span><br><span class="line">        ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>It can be seen that the first eight rows of Pascal's triangle contain
+twelve distinct numbers: <span class="math inline">\(1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 21\)</span> and <span class="math inline">\(35\)</span>.</p>
+<p>A positive integer <span class="math inline">\(n\)</span> is called
+squarefree if no square of a prime divides <span class="math inline">\(n\)</span>.</p>
+<p>Of the twelve distinct numbers in the first eight rows of Pascal's
+triangle, all except <span class="math inline">\(4\)</span> and <span class="math inline">\(20\)</span> are squarefree.</p>
+<p>The sum of the distinct squarefree numbers in the first eight rows is
+<span class="math inline">\(105\)</span>.</p>
+<p>Find the sum of the distinct squarefree numbers in the first <span class="math inline">\(51\)</span> rows of Pascal's triangle.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>由于需要遍历的行数比较少，因此枚举出杨辉三角前<span class="math inline">\(51\)</span>行的所有数，并直接通过因式分解判断其是否为无平方数即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_pascals_triangle, factorization</span><br><span class="line"></span><br><span class="line">N = <span class="number">51</span></span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">set</span>().union(*[ls <span class="keyword">for</span> ls <span class="keyword">in</span> get_pascals_triangle(N-<span class="number">1</span>)]) - &#123;<span class="number">1</span>&#125;:</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">max</span>(f[<span class="number">1</span>] <span class="keyword">for</span> f <span class="keyword">in</span> factorization(x)) == <span class="number">1</span>:</span><br><span class="line">        ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -521,7 +512,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-203"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 203</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Squarefree-Binomial-Coefficients"><span class="nav-number">1.1.1.</span> <span class="nav-text">Squarefree Binomial Coefficients</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-203"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 203</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#squarefree-binomial-coefficients"><span class="nav-number">1.1.1.</span> <span class="nav-text">Squarefree Binomial
+Coefficients</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -535,14 +527,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -579,13 +571,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

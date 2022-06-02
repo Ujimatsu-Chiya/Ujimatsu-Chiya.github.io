@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,25 +251,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-176"><a href="#Project-Euler-176" class="headerlink" title="Project Euler 176"></a>Project Euler 176</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Right-angled-triangles-that-share-a-cathetus"><a href="#Right-angled-triangles-that-share-a-cathetus" class="headerlink" title="Right-angled triangles that share a cathetus"></a>Right-angled triangles that share a cathetus</h3><p>The four right-angled triangles with sides $(9,12,15), (12,16,20), (5,12,13)$ and $(12,35,37)$ all have one of the shorter sides (catheti) equal to $12$. It can be shown that no other integer sided right-angled triangle exists with one of the catheti equal to $12$.</p>
-<p>Find the smallest integer that can be the length of a cathetus of exactly $47547$ different integer sided right-angled triangles.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>将前几项枚举出来，放入OEIS查询后发现结果为<a target="_blank" rel="noopener" href="https://oeis.org/A046079">A046079</a>。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-176">Project Euler 176</h1>
+<h2 id="题目">题目</h2>
+<h3 id="right-angled-triangles-that-share-a-cathetus">Right-angled
+triangles that share a cathetus</h3>
+<p>The four right-angled triangles with sides <span class="math inline">\((9,12,15), (12,16,20), (5,12,13)\)</span> and
+<span class="math inline">\((12,35,37)\)</span> all have one of the
+shorter sides (catheti) equal to <span class="math inline">\(12\)</span>. It can be shown that no other integer
+sided right-angled triangle exists with one of the catheti equal to
+<span class="math inline">\(12\)</span>.</p>
+<p>Find the smallest integer that can be the length of a cathetus of
+exactly <span class="math inline">\(47547\)</span> different integer
+sided right-angled triangles.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>将前几项枚举出来，放入OEIS查询后发现结果为<a target="_blank" rel="noopener" href="https://oeis.org/A046079">A046079</a>。</p>
 <p>查询到FORMULA一栏，发现如下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Let n = (2^a0)*(p1^a1)*...*(pk^ak). Then a(n) = [(2*a0 - 1)*(2*a1 + 1)*(2*a2 + 1)*(2*a3 + 1)*...*(2*ak + 1) - 1]/2. Note that if there is no a0 term, i.e., if n is odd, then the first term is simply omitted. - Temple Keller (temple.keller(AT)gmail.com), Jan 05 2008</span><br></pre></td></tr></table></figure>
-<p>这说明，如果一个数$n$的分解质因数为$n=2^{e_0}\prod p_i^{e_i}$，<br>那么，包含$n$这个数的勾股数组个数$f(n)$为：</p>
-<script type="math/tex; mode=display">
+<p>这说明，如果一个数<span class="math inline">\(n\)</span>的分解质因数为<span class="math inline">\(n=2^{e_0}\prod p_i^{e_i}\)</span>，
+那么，包含<span class="math inline">\(n\)</span>这个数的勾股数组个数<span class="math inline">\(f(n)\)</span>为：</p>
+<p><span class="math display">\[
 f(n)=
 \left \{\begin{aligned}
-  &\dfrac{(2e_0-1) \prod(2e_i+1)-1}{2}  & & \mathrm{if\quad} e_0>0 \\
-  &\dfrac{\prod(2e_i+1)-1}{2} & & \mathrm{else}
-\end{aligned}\right.</script><p>因此，通过$n$的分解质因数枚举$n$即可，枚举时，为使$n$取到的最小，注意当$e_i&gt;e_j$时，那么$p_i&lt;p_j$。对$2$的质数枚举额外枚举。</p>
-<p>对于$f(n)$的一些证明：</p>
-<p>根据勾股定理$a^2+b^2=c^2$，得到$a^2=(c+b)(c-b)$，那么问题就转化为相当于有多少对$(x,y)$使得$a^2=xy,x&lt;y$。每一对正数$(x,y)$对应着一对正数$(c,b)$。</p>
-<p>如果$a$是一个奇数，根据因数个数定理，不难发现答案就是$\dfrac{\prod(2e_i+1)-1}{2}$。</p>
-<p>如果$a$是一个偶数，那么$c+b$和$c-b$都为偶数，因此需要减去$c+b$和$c-b$中一个为偶数，一个为奇数的情况，也就是有：$\dfrac{(2e_0+1)\prod(2e_i+1)-2\prod(2e_i+1)-1}{2}$，那么整理得：$\dfrac{(2e_0-1) \prod(2e_i+1)-1}{2}$。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">Q = <span class="number">47547</span></span><br><span class="line">ans = -<span class="number">1</span></span><br><span class="line">pr = get_prime(<span class="number">3</span>, <span class="built_in">len</span>(<span class="built_in">bin</span>(Q)) * <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">val: <span class="built_in">int</span>, f: <span class="built_in">int</span>, lim: <span class="built_in">int</span>, w: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">global</span> ans</span><br><span class="line">    <span class="keyword">if</span> (ans != -<span class="number">1</span> <span class="keyword">and</span> val &gt; ans) <span class="keyword">or</span> (w - <span class="number">1</span>) // <span class="number">2</span> &gt; Q:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> (w - <span class="number">1</span>) // <span class="number">2</span> == Q:</span><br><span class="line">        ans = val</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, lim):</span><br><span class="line">        val *= pr[f]</span><br><span class="line">        dfs(val, f + <span class="number">1</span>, i, w * (i * <span class="number">2</span> + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> ans != -<span class="number">1</span> <span class="keyword">and</span> (<span class="number">1</span> &lt;&lt; k) &gt;= ans:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0</span>:</span><br><span class="line">        w = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        w = <span class="number">2</span> * k - <span class="number">1</span></span><br><span class="line">    dfs(<span class="number">1</span> &lt;&lt; k, <span class="number">0</span>, <span class="number">66</span>, w)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;\dfrac{(2e_0-1) \prod(2e_i+1)-1}{2}  &amp; &amp; \mathrm{if\quad}
+e_0&gt;0 \\
+  &amp;\dfrac{\prod(2e_i+1)-1}{2} &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>因此，通过<span class="math inline">\(n\)</span>的分解质因数枚举<span class="math inline">\(n\)</span>即可，枚举时，为使<span class="math inline">\(n\)</span>取到的最小，注意当<span class="math inline">\(e_i&gt;e_j\)</span>时，那么<span class="math inline">\(p_i&lt;p_j\)</span>。对<span class="math inline">\(2\)</span>的质数枚举额外枚举。</p>
+<p>对于<span class="math inline">\(f(n)\)</span>的一些证明：</p>
+<p>根据勾股定理<span class="math inline">\(a^2+b^2=c^2\)</span>，得到<span class="math inline">\(a^2=(c+b)(c-b)\)</span>，那么问题就转化为相当于有多少对<span class="math inline">\((x,y)\)</span>使得<span class="math inline">\(a^2=xy,x&lt;y\)</span>。每一对正数<span class="math inline">\((x,y)\)</span>对应着一对正数<span class="math inline">\((c,b)\)</span>。</p>
+<p>如果<span class="math inline">\(a\)</span>是一个奇数，根据因数个数定理，不难发现答案就是<span class="math inline">\(\dfrac{\prod(2e_i+1)-1}{2}\)</span>。</p>
+<p>如果<span class="math inline">\(a\)</span>是一个偶数，那么<span class="math inline">\(c+b\)</span>和<span class="math inline">\(c-b\)</span>都为偶数，因此需要减去<span class="math inline">\(c+b\)</span>和<span class="math inline">\(c-b\)</span>中一个为偶数，一个为奇数的情况，也就是有：<span class="math inline">\(\dfrac{(2e_0+1)\prod(2e_i+1)-2\prod(2e_i+1)-1}{2}\)</span>，那么整理得：<span class="math inline">\(\dfrac{(2e_0-1) \prod(2e_i+1)-1}{2}\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">Q = <span class="number">47547</span></span><br><span class="line">ans = -<span class="number">1</span></span><br><span class="line">pr = get_prime(<span class="number">3</span>, <span class="built_in">len</span>(<span class="built_in">bin</span>(Q)) * <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">val: <span class="built_in">int</span>, f: <span class="built_in">int</span>, lim: <span class="built_in">int</span>, w: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">global</span> ans</span><br><span class="line">    <span class="keyword">if</span> (ans != -<span class="number">1</span> <span class="keyword">and</span> val &gt; ans) <span class="keyword">or</span> (w - <span class="number">1</span>) // <span class="number">2</span> &gt; Q:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> (w - <span class="number">1</span>) // <span class="number">2</span> == Q:</span><br><span class="line">        ans = val</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, lim):</span><br><span class="line">        val *= pr[f]</span><br><span class="line">        dfs(val, f + <span class="number">1</span>, i, w * (i * <span class="number">2</span> + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    <span class="keyword">if</span> ans != -<span class="number">1</span> <span class="keyword">and</span> (<span class="number">1</span> &lt;&lt; k) &gt;= ans:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">0</span>:</span><br><span class="line">        w = <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        w = <span class="number">2</span> * k - <span class="number">1</span></span><br><span class="line">    dfs(<span class="number">1</span> &lt;&lt; k, <span class="number">0</span>, <span class="number">66</span>, w)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -353,7 +368,8 @@ f(n)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-176"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 176</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Right-angled-triangles-that-share-a-cathetus"><span class="nav-number">1.1.1.</span> <span class="nav-text">Right-angled triangles that share a cathetus</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-176"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 176</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#right-angled-triangles-that-share-a-cathetus"><span class="nav-number">1.1.1.</span> <span class="nav-text">Right-angled
+triangles that share a cathetus</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -367,14 +383,14 @@ f(n)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -411,13 +427,13 @@ f(n)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

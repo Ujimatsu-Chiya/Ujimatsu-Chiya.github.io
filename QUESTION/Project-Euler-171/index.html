@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,31 +252,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-171"><a href="#Project-Euler-171" class="headerlink" title="Project Euler 171"></a>Project Euler 171</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Finding-numbers-for-which-the-sum-of-the-squares-of-the-digits-is-a-square"><a href="#Finding-numbers-for-which-the-sum-of-the-squares-of-the-digits-is-a-square" class="headerlink" title="Finding numbers for which the sum of the squares of the digits is a square"></a>Finding numbers for which the sum of the squares of the digits is a square</h3><p>For a positive integer $n$, let $f(n)$ be the sum of the squares of the digits (in base $10$) of n, e.g.</p>
-<p>$\begin{aligned}<br>&amp; f(3) = 3^2 = 9, \\<br>&amp; f(25) = 2^2 + 5^2 = 4 + 25 = 29, \\<br>&amp; f(442) = 4^2 + 4^2 + 2^2 = 16 + 16 + 4 = 36<br>\end{aligned}$</p>
-<p>Find the last nine digits of the sum of all $n$, $0 &lt; n &lt; 10^{20}$, such that $f(n)$ is a perfect square.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>一道非常明显的数位动态规划题目。不过，这里要求我们统计的是满足条件的数的和。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-171">Project Euler 171</h1>
+<h2 id="题目">题目</h2>
+<h3 id="finding-numbers-for-which-the-sum-of-the-squares-of-the-digits-is-a-square">Finding
+numbers for which the sum of the squares of the digits is a square</h3>
+<p>For a positive integer <span class="math inline">\(n\)</span>, let
+<span class="math inline">\(f(n)\)</span> be the sum of the squares of
+the digits (in base <span class="math inline">\(10\)</span>) of n,
+e.g.</p>
+<p><span class="math inline">\(\begin{aligned} &amp; f(3) = 3^2 = 9, \\
+&amp; f(25) = 2^2 + 5^2 = 4 + 25 = 29, \\ &amp; f(442) = 4^2 + 4^2 + 2^2
+= 16 + 16 + 4 = 36 \end{aligned}\)</span></p>
+<p>Find the last nine digits of the sum of all <span class="math inline">\(n\)</span>, <span class="math inline">\(0 &lt; n
+&lt; 10^{20}\)</span>, such that <span class="math inline">\(f(n)\)</span> is a perfect square.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>一道非常明显的数位动态规划题目。不过，这里要求我们统计的是满足条件的数的和。</p>
 <p>我们可以通过先统计个数，计算出每个数位上的数的贡献次数，从而计算出它们的和。</p>
-<p>设$N=20$。令$c(i,j)(1\le i\le N,0\le j\le 9^2\cdot i)$表示$i$位数中，有多少个数的函数值$f$为$j$。不难列出以下状态转移方程：</p>
-<script type="math/tex; mode=display">
+<p>设<span class="math inline">\(N=20\)</span>。令<span class="math inline">\(c(i,j)(1\le i\le N,0\le j\le 9^2\cdot
+i)\)</span>表示<span class="math inline">\(i\)</span>位数中，有多少个数的函数值<span class="math inline">\(f\)</span>为<span class="math inline">\(j\)</span>。不难列出以下状态转移方程：</p>
+<p><span class="math display">\[
 c(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1\&j\in\{x^2\mid x\in \mathbb{N},1\le x\le 9\} \\
-  &0 & & \mathrm{else if\quad} i=1\\
-  &\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}c(i-1,j-k^2) & & \mathrm{else}
-\end{aligned}\right.</script><p>其中，最后一行表示，每一个数都可以添加一个数位$k$在其后面，那么$f$就会增加$k^2$。</p>
-<p>根据符合状态的数的出现次数，可以确定每一个数位的贡献。令$s(i,j)(1\le i\le N,0\le j\le 9^2\cdot i)$表示$i$位数中，函数值$f$为$j$的所有数之和，那么可以列出以下状态转移方程：</p>
-<script type="math/tex; mode=display">
+  &amp;1  &amp; &amp; \mathrm{if\quad} i=1\&amp;j\in\{x^2\mid x\in
+\mathbb{N},1\le x\le 9\} \\
+  &amp;0 &amp; &amp; \mathrm{else if\quad} i=1\\
+  &amp;\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}c(i-1,j-k^2) &amp;
+&amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>其中，最后一行表示，每一个数都可以添加一个数位<span class="math inline">\(k\)</span>在其后面，那么<span class="math inline">\(f\)</span>就会增加<span class="math inline">\(k^2\)</span>。</p>
+<p>根据符合状态的数的出现次数，可以确定每一个数位的贡献。令<span class="math inline">\(s(i,j)(1\le i\le N,0\le j\le 9^2\cdot
+i)\)</span>表示<span class="math inline">\(i\)</span>位数中，函数值<span class="math inline">\(f\)</span>为<span class="math inline">\(j\)</span>的所有数之和，那么可以列出以下状态转移方程：</p>
+<p><span class="math display">\[
 s(i,j)=
 \left \{\begin{aligned}
-  &\sqrt{j}  & & \mathrm{if\quad} i=1\&j\in\{x^2\mid x\in \mathbb{N},1\le x\le 9\} \\
-  &0 & & \mathrm{else if\quad} i=1\\
-  &\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}10\cdot s(i-1,j-k^2)+k\cdot c(i-1,j-k^2) & & \mathrm{else}
-\end{aligned}\right.</script><p>最后一行中，将$c(i-1,j-k^2)$个数后面都放置一个$k$，就可以产生贡献，而之前的数就需要向前进一位，乘$10$。</p>
-<p>最终答案为：</p>
-<script type="math/tex; mode=display">\sum_{i=1}^N\sum_{j=0}^{\lfloor9\sqrt{i}\rfloor}s(i,j^2)</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">N = <span class="number">20</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line">c = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N * <span class="number">9</span> * <span class="number">9</span> + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line">s = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N * <span class="number">9</span> * <span class="number">9</span> + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    c[<span class="number">1</span>][j * j] = <span class="number">1</span></span><br><span class="line">    s[<span class="number">1</span>][j * j] = j</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i * <span class="number">9</span> * <span class="number">9</span> + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">if</span> j - k * k &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            c[i][j] += c[i - <span class="number">1</span>][j - k * k]</span><br><span class="line">            s[i][j] += s[i - <span class="number">1</span>][j - k * k] * <span class="number">10</span> + k * c[i - <span class="number">1</span>][j - k * k]</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> j * j &gt; <span class="number">9</span> * <span class="number">9</span> * N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        ans += s[i][j * j]</span><br><span class="line">ans %= mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;\sqrt{j}  &amp; &amp; \mathrm{if\quad} i=1\&amp;j\in\{x^2\mid
+x\in \mathbb{N},1\le x\le 9\} \\
+  &amp;0 &amp; &amp; \mathrm{else if\quad} i=1\\
+  &amp;\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}10\cdot
+s(i-1,j-k^2)+k\cdot c(i-1,j-k^2) &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>最后一行中，将<span class="math inline">\(c(i-1,j-k^2)\)</span>个数后面都放置一个<span class="math inline">\(k\)</span>，就可以产生贡献，而之前的数就需要向前进一位，乘<span class="math inline">\(10\)</span>。</p>
+<p>最终答案为： <span class="math display">\[\sum_{i=1}^N\sum_{j=0}^{\lfloor9\sqrt{i}\rfloor}s(i,j^2)\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">N = <span class="number">20</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line">c = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N * <span class="number">9</span> * <span class="number">9</span> + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line">s = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N * <span class="number">9</span> * <span class="number">9</span> + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">10</span>):</span><br><span class="line">    c[<span class="number">1</span>][j * j] = <span class="number">1</span></span><br><span class="line">    s[<span class="number">1</span>][j * j] = j</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i * <span class="number">9</span> * <span class="number">9</span> + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            <span class="keyword">if</span> j - k * k &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            c[i][j] += c[i - <span class="number">1</span>][j - k * k]</span><br><span class="line">            s[i][j] += s[i - <span class="number">1</span>][j - k * k] * <span class="number">10</span> + k * c[i - <span class="number">1</span>][j - k * k]</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> j <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> j * j &gt; <span class="number">9</span> * <span class="number">9</span> * N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        ans += s[i][j * j]</span><br><span class="line">ans %= mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -361,7 +382,8 @@ s(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-171"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 171</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Finding-numbers-for-which-the-sum-of-the-squares-of-the-digits-is-a-square"><span class="nav-number">1.1.1.</span> <span class="nav-text">Finding numbers for which the sum of the squares of the digits is a square</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-171"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 171</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#finding-numbers-for-which-the-sum-of-the-squares-of-the-digits-is-a-square"><span class="nav-number">1.1.1.</span> <span class="nav-text">Finding
+numbers for which the sum of the squares of the digits is a square</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,14 +397,14 @@ s(i,j)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -419,13 +441,13 @@ s(i,j)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -232,14 +232,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -251,33 +251,61 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-103"><a href="#Project-Euler-103" class="headerlink" title="Project Euler 103"></a>Project Euler 103</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Special-subset-sums-optimum"><a href="#Special-subset-sums-optimum" class="headerlink" title="Special subset sums: optimum"></a>Special subset sums: optimum</h3><p>Let $S(A)$ represent the sum of elements in set $A$ of size $n$. We shall call it a special sum set if for any two non-empty disjoint subsets, $B$ and $C$, the following properties are true:</p>
-<ol>
-<li>$S(B) \neq S(C)$; that is, sums of subsets cannot be equal.</li>
-<li>If $B$ contains more elements than $C$ then $S(B) &gt; S(C)$.</li>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-103">Project Euler 103</h1>
+<h2 id="题目">题目</h2>
+<h3 id="special-subset-sums-optimum">Special subset sums: optimum</h3>
+<p>Let <span class="math inline">\(S(A)\)</span> represent the sum of
+elements in set <span class="math inline">\(A\)</span> of size <span class="math inline">\(n\)</span>. We shall call it a special sum set if
+for any two non-empty disjoint subsets, <span class="math inline">\(B\)</span> and <span class="math inline">\(C\)</span>, the following properties are true:</p>
+<ol type="1">
+<li><span class="math inline">\(S(B) \neq S(C)\)</span>; that is, sums
+of subsets cannot be equal.</li>
+<li>If <span class="math inline">\(B\)</span> contains more elements
+than <span class="math inline">\(C\)</span> then <span class="math inline">\(S(B) &gt; S(C)\)</span>.</li>
 </ol>
-<p>If $S(A)$ is minimised for a given $n$, we shall call it an optimum special sum set. The first five optimum special sum sets are given below.</p>
-<p>$\begin{aligned}<br>n = 1&amp;: \{1\} \\<br>n = 2&amp;: \{1, 2\} \\<br>n = 3&amp;: \{2, 3, 4\} \\<br>n = 4&amp;: \{3, 5, 6, 7\} \\<br>n = 5&amp;: \{6, 9, 11, 12, 13\} \\<br>\end{aligned}$</p>
-<p>It <em>seems</em> that for a given optimum set, $A = {a_1, a_2, \dots , a_n}$, the next optimum set is of the form  $B = {b, a_1+b, a_2+b, \dots ,a_n+b}$, where $b$ is the “middle” element on the previous row.</p>
-<p>By applying this “rule” we would expect the optimum set for $n=6$ to be $A = \{11, 17, 20, 22, 23, 24\}$, with $S(A) = 117$. However, this is not the optimum set, as we have merely applied an algorithm to provide a near optimum set. The optimum set for $n=6$ is $A = \{11, 18, 19, 20, 22, 25\}$, with $S(A) = 115$ and corresponding set string: $111819202225$.</p>
-<p>Given that $A$ is an optimum special sum set for $n=7$, find its set string.</p>
-<p>NOTE: This problem is related to <a href="problem=105">Problem 105</a> and <a href="problem=106">Problem 106</a>.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>一个推论：如果一个集合满足题目中的第一个条件，那么它们的所有$2^n$个子集$I$的$S(I)$都不相同。</p>
-<p>使用反证法：设一个集合$A$，对于$A$中的两个子集$I,J$，满足$S(I)=S(J)$，有以下两种情况</p>
-<ol>
-<li>$I \bigcap J = \emptyset$：那么明显$A$集合不符合要求。</li>
-<li>$I \bigcap J \neq \emptyset$：此时取$I’=I-J,J’=J-I$，根据集合差运算的定义，有$S(I’)=S(I)-S(I \bigcap J),S(J’)=S(J)-S(I \bigcap J)$。可以知道，此时$I’ \bigcap J’ = \emptyset$，但有$S(I’)=S(J’)$，不符合要求。</li>
+<p>If <span class="math inline">\(S(A)\)</span> is minimised for a given
+<span class="math inline">\(n\)</span>, we shall call it an optimum
+special sum set. The first five optimum special sum sets are given
+below.</p>
+<p><span class="math inline">\(\begin{aligned} n = 1&amp;: \{1\} \\ n =
+2&amp;: \{1, 2\} \\ n = 3&amp;: \{2, 3, 4\} \\ n = 4&amp;: \{3, 5, 6,
+7\} \\ n = 5&amp;: \{6, 9, 11, 12, 13\} \\ \end{aligned}\)</span></p>
+<p>It <em>seems</em> that for a given optimum set, <span class="math inline">\(A = {a_1, a_2, \dots , a_n}\)</span>, the next
+optimum set is of the form <span class="math inline">\(B = {b, a_1+b,
+a_2+b, \dots ,a_n+b}\)</span>, where <span class="math inline">\(b\)</span> is the "middle" element on the previous
+row.</p>
+<p>By applying this "rule" we would expect the optimum set for <span class="math inline">\(n=6\)</span> to be <span class="math inline">\(A =
+\{11, 17, 20, 22, 23, 24\}\)</span>, with <span class="math inline">\(S(A) = 117\)</span>. However, this is not the
+optimum set, as we have merely applied an algorithm to provide a near
+optimum set. The optimum set for <span class="math inline">\(n=6\)</span> is <span class="math inline">\(A =
+\{11, 18, 19, 20, 22, 25\}\)</span>, with <span class="math inline">\(S(A) = 115\)</span> and corresponding set string:
+<span class="math inline">\(111819202225\)</span>.</p>
+<p>Given that <span class="math inline">\(A\)</span> is an optimum
+special sum set for <span class="math inline">\(n=7\)</span>, find its
+set string.</p>
+<p>NOTE: This problem is related to <a href="problem=105">Problem
+105</a> and <a href="problem=106">Problem 106</a>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>一个推论：如果一个集合满足题目中的第一个条件，那么它们的所有<span class="math inline">\(2^n\)</span>个子集<span class="math inline">\(I\)</span>的<span class="math inline">\(S(I)\)</span>都不相同。</p>
+<p>使用反证法：设一个集合<span class="math inline">\(A\)</span>，对于<span class="math inline">\(A\)</span>中的两个子集<span class="math inline">\(I,J\)</span>，满足<span class="math inline">\(S(I)=S(J)\)</span>，有以下两种情况</p>
+<ol type="1">
+<li><span class="math inline">\(I \bigcap J =
+\emptyset\)</span>：那么明显<span class="math inline">\(A\)</span>集合不符合要求。</li>
+<li><span class="math inline">\(I \bigcap J \neq
+\emptyset\)</span>：此时取<span class="math inline">\(I&#39;=I-J,J&#39;=J-I\)</span>，根据集合差运算的定义，有<span class="math inline">\(S(I&#39;)=S(I)-S(I \bigcap J),S(J&#39;)=S(J)-S(I
+\bigcap J)\)</span>。可以知道，此时<span class="math inline">\(I&#39;
+\bigcap J&#39; = \emptyset\)</span>，但有<span class="math inline">\(S(I&#39;)=S(J&#39;)\)</span>，不符合要求。</li>
 </ol>
 <p>因此原推论成立，判断集合是否为特殊不需要直接枚举一对不相交子集。而是产生所有子集，先判断元素和是否重复，然后根据和的大小进行排序比较集合大小即可（判断第二个条件是否满足）。</p>
 <p>题目中介绍了一个生成特殊集合的方法，但不保证元素和是最小的。</p>
 <p>因此，个人思路如下：</p>
-<ol>
-<li>利用题目中给定的方法暂时生成一个$n=7$的特殊集合$A$</li>
+<ol type="1">
+<li>利用题目中给定的方法暂时生成一个<span class="math inline">\(n=7\)</span>的特殊集合<span class="math inline">\(A\)</span></li>
 <li>对集合中的每个元素施加一定的“扰动”（每个元素都先让它们加一或减一或不动），由此尝试找到元素和更小的特殊集合。</li>
 </ol>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">a = [<span class="number">11</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">22</span>, <span class="number">25</span>]</span><br><span class="line">b = [a[<span class="built_in">len</span>(a) // <span class="number">2</span>]]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> a:</span><br><span class="line">    b.append(<span class="number">20</span> + x)</span><br><span class="line">n = <span class="built_in">len</span>(b)</span><br><span class="line">ans = <span class="built_in">list</span>(b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">z: <span class="built_in">list</span></span>):</span><br><span class="line">    mp = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">        cnt, s = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> st &gt;&gt; i &amp; <span class="number">1</span>:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                s += z[i]</span><br><span class="line">        <span class="keyword">if</span> s <span class="keyword">in</span> mp.keys():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        mp[s] = cnt</span><br><span class="line">    ls = <span class="built_in">list</span>(mp.items())</span><br><span class="line">    ls.sort()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> ls[i][<span class="number">1</span>] &gt; ls[i + <span class="number">1</span>][<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> product([-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>], repeat=n):</span><br><span class="line">    z = [w[i] + b[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(z) &lt; <span class="built_in">sum</span>(ans) <span class="keyword">and</span> ok(z):</span><br><span class="line">        ans = z</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join([<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> ans]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">a = [<span class="number">11</span>, <span class="number">18</span>, <span class="number">19</span>, <span class="number">20</span>, <span class="number">22</span>, <span class="number">25</span>]</span><br><span class="line">b = [a[<span class="built_in">len</span>(a) // <span class="number">2</span>]]</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> a:</span><br><span class="line">    b.append(<span class="number">20</span> + x)</span><br><span class="line">n = <span class="built_in">len</span>(b)</span><br><span class="line">ans = <span class="built_in">list</span>(b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">z: <span class="built_in">list</span></span>):</span><br><span class="line">    mp = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> st <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span> &lt;&lt; n):</span><br><span class="line">        cnt, s = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">            <span class="keyword">if</span> st &gt;&gt; i &amp; <span class="number">1</span>:</span><br><span class="line">                cnt += <span class="number">1</span></span><br><span class="line">                s += z[i]</span><br><span class="line">        <span class="keyword">if</span> s <span class="keyword">in</span> mp.keys():</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        mp[s] = cnt</span><br><span class="line">    ls = <span class="built_in">list</span>(mp.items())</span><br><span class="line">    ls.sort()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>((<span class="number">1</span> &lt;&lt; n) - <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> ls[i][<span class="number">1</span>] &gt; ls[i + <span class="number">1</span>][<span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> product([-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>], repeat=n):</span><br><span class="line">    z = [w[i] + b[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">sum</span>(z) &lt; <span class="built_in">sum</span>(ans) <span class="keyword">and</span> ok(z):</span><br><span class="line">        ans = z</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&quot;</span>.join([<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> ans]))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -361,7 +389,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-103"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 103</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Special-subset-sums-optimum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Special subset sums: optimum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-103"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 103</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#special-subset-sums-optimum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Special subset sums: optimum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,14 +403,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -419,13 +447,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

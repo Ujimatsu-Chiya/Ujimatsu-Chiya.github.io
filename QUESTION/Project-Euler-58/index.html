@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>801</span>
+              <span>761</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,23 +257,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-58"><a href="#Project-Euler-58" class="headerlink" title="Project Euler 58"></a>Project Euler 58</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Spiral-primes"><a href="#Spiral-primes" class="headerlink" title="Spiral primes"></a>Spiral primes</h3><p>Starting with 1 and spiralling anticlockwise in the following way, a square spiral with side length 7 is formed.</p>
-<center style="font-family:'Courier New', monospace;">
-<font color="red">37</font> 36 35 34 33 32  <font color="red">31</font> <br> 38 <font color="red">17</font> 16 15 14 <font color="red">13</font> 30 <br>
-39 18 <font color="red">&nbsp;5</font> &nbsp;4 <font color="red">&nbsp;3</font> 12 29 <br>
-40 19 &nbsp;6 &nbsp;1 &nbsp;2 11 28 <br>
-41 20 <font color="red">&nbsp;7</font> &nbsp;8 &nbsp;9 10 27 <br>
-42 21 22 23 24 25 26 <br>
-<font color="red">43</font> 44 45 46 47 48 49
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-58">Project Euler 58</h1>
+<h2 id="题目">题目</h2>
+<h3 id="spiral-primes">Spiral primes</h3>
+Starting with 1 and spiralling anticlockwise in the following way, a
+square spiral with side length 7 is formed.
+<center style="font-family:&#39;Courier New&#39;, monospace;">
+<font color="red">37</font> 36 35 34 33 32 <font color="red">31</font>
+<br> 38 <font color="red">17</font> 16 15 14 <font color="red">13</font>
+30 <br> 39 18 <font color="red"> 5</font>  4 <font color="red"> 3</font>
+12 29 <br> 40 19  6  1  2 11 28 <br> 41 20 <font color="red"> 7</font>
+ 8  9 10 27 <br> 42 21 22 23 24 25 26 <br> <font color="red">43</font>
+44 45 46 47 48 49
 </center>
-
-<p>It is interesting to note that the odd squares lie along the bottom right diagonal, but what is more interesting is that $8$ out of the $13$ numbers lying along both diagonals are prime; that is, a ratio of $\dfrac{8}{13} \approx 62\%$.</p>
-<p>If one complete new layer is wrapped around the spiral above, a square spiral with side length $9$ will be formed. If this process is continued, what is the side length of the square spiral for which the ratio of primes along both diagonals first falls below $10\%$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这个矩阵的四个角的元素的通项公式分别是：$4n^2-10n+7,4(n-1)^2+1,4n^2-6n+3,(2n-1)^2$，其中$n\ge 1$，用的是第28题的结论。</p>
+<p>It is interesting to note that the odd squares lie along the bottom
+right diagonal, but what is more interesting is that <span class="math inline">\(8\)</span> out of the <span class="math inline">\(13\)</span> numbers lying along both diagonals are
+prime; that is, a ratio of <span class="math inline">\(\dfrac{8}{13}
+\approx 62\%\)</span>.</p>
+<p>If one complete new layer is wrapped around the spiral above, a
+square spiral with side length <span class="math inline">\(9\)</span>
+will be formed. If this process is continued, what is the side length of
+the square spiral for which the ratio of primes along both diagonals
+first falls below <span class="math inline">\(10\%\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>这个矩阵的四个角的元素的通项公式分别是：<span class="math inline">\(4n^2-10n+7,4(n-1)^2+1,4n^2-6n+3,(2n-1)^2\)</span>，其中<span class="math inline">\(n\ge 1\)</span>，用的是第28题的结论。</p>
 <p>因此，这份代码将通过公式枚举出一个个质数，然后单独进行判断即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">r = <span class="number">0.1</span></span><br><span class="line">c0 = <span class="number">0</span></span><br><span class="line">c1 = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">2</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">4</span> * i * i - <span class="number">10</span> * i + <span class="number">7</span>, <span class="number">4</span> * (i - <span class="number">1</span>) * (i - <span class="number">1</span>) + <span class="number">1</span>, <span class="number">4</span> * i * i - <span class="number">6</span> * i + <span class="number">3</span>, (<span class="number">2</span> * i - <span class="number">1</span>) ** <span class="number">2</span>]:</span><br><span class="line">        c1 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> is_prime(x):</span><br><span class="line">            c0 += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> c0 / c1 &lt; r:</span><br><span class="line">        ans = i * <span class="number">2</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">r = <span class="number">0.1</span></span><br><span class="line">c0 = <span class="number">0</span></span><br><span class="line">c1 = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">2</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> [<span class="number">4</span> * i * i - <span class="number">10</span> * i + <span class="number">7</span>, <span class="number">4</span> * (i - <span class="number">1</span>) * (i - <span class="number">1</span>) + <span class="number">1</span>, <span class="number">4</span> * i * i - <span class="number">6</span> * i + <span class="number">3</span>, (<span class="number">2</span> * i - <span class="number">1</span>) ** <span class="number">2</span>]:</span><br><span class="line">        c1 += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> is_prime(x):</span><br><span class="line">            c0 += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> c0 / c1 &lt; r:</span><br><span class="line">        ans = i * <span class="number">2</span> - <span class="number">1</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -357,7 +368,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-58"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 58</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spiral-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spiral primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-58"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 58</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spiral-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spiral primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,14 +382,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -415,13 +426,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

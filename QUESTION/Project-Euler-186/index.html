@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,52 +251,65 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-186"><a href="#Project-Euler-186" class="headerlink" title="Project Euler 186"></a>Project Euler 186</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Connectedness-of-a-network"><a href="#Connectedness-of-a-network" class="headerlink" title="Connectedness of a network"></a>Connectedness of a network</h3><p>Here are the records from a busy telephone system with one million users:</p>
-<div class="table-container">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-186">Project Euler 186</h1>
+<h2 id="题目">题目</h2>
+<h3 id="connectedness-of-a-network">Connectedness of a network</h3>
+<p>Here are the records from a busy telephone system with one million
+users:</p>
 <table>
 <thead>
-<tr>
+<tr class="header">
 <th>Rec Nr</th>
 <th>Caller</th>
 <th>Called</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>$1$</td>
-<td>$200007$</td>
-<td>$100053$</td>
+<tr class="odd">
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(200007\)</span></td>
+<td><span class="math inline">\(100053\)</span></td>
 </tr>
-<tr>
-<td>$2$</td>
-<td>$600183$</td>
-<td>$500439$</td>
+<tr class="even">
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(600183\)</span></td>
+<td><span class="math inline">\(500439\)</span></td>
 </tr>
-<tr>
-<td>$3$</td>
-<td>$600863$</td>
-<td>$701497$</td>
+<tr class="odd">
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(600863\)</span></td>
+<td><span class="math inline">\(701497\)</span></td>
 </tr>
-<tr>
-<td>$\dots$</td>
-<td>$\dots$</td>
-<td>$\dots$</td>
+<tr class="even">
+<td><span class="math inline">\(\dots\)</span></td>
+<td><span class="math inline">\(\dots\)</span></td>
+<td><span class="math inline">\(\dots\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>The telephone number of the caller and the called number in record $n$ are $\mathrm{Caller}(n) = S_{2n-1}$ and $\mathrm{Called}(n) = S_{2n}$ where $S_{1,2,3,\dots}$ come from the “Lagged Fibonacci Generator”:</p>
-<p>For $1 \le k \le 55, S_k = [100003 - 200003k + 300007 k^3] (\mathrm{modulo\ } 1000000)$<br><br>For $56 \le k, S_k = [S_k-24 + S_k-55] (\mathrm{modulo\ } 1000000)$</p>
-<p>If $\mathrm{Caller(n)} = \mathrm{Called(n)}$ then the user is assumed to have misdialled and the call fails; otherwise the call is successful.</p>
-<p>From the start of the records, we say that any pair of users $X$ and $Y$ are friends if $X$ calls $Y$ or vice-versa. Similarly, $X$ is a friend of a friend of $Z$ if $X$ is a friend of $Y$ and $Y$ is a friend of $Z$; and so on for longer chains.</p>
-<p>The Prime Minister’s phone number is $524287$. After how many successful calls, not counting misdials, will $99\%$ of the users (including the PM) be a friend, or a friend of a friend etc., of the Prime Minister?</p>
-<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure">并查集</a>：用于高效处理一些不相交集合的数据结构。一般有两个操作：合并两个集合；查询两个元素是否在同一个集合中。</p>
-<p>可以通过优化将并查集这两种单次操作优化到$O(\alpha(n))$级别，其中$\alpha(n)$是<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ackermann_function#Inverse">反阿克曼函数</a>（一个增长速率非常接近于零的函数）。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题为并查集的模板题，直接用并查集数据结构实现。</p>
+<p>The telephone number of the caller and the called number in record
+<span class="math inline">\(n\)</span> are <span class="math inline">\(\mathrm{Caller}(n) = S_{2n-1}\)</span> and <span class="math inline">\(\mathrm{Called}(n) = S_{2n}\)</span> where <span class="math inline">\(S_{1,2,3,\dots}\)</span> come from the “Lagged
+Fibonacci Generator”:</p>
+<p>For <span class="math inline">\(1 \le k \le 55, S_k = [100003 -
+200003k + 300007 k^3] (\mathrm{modulo\ } 1000000)\)</span><br> For <span class="math inline">\(56 \le k, S_k = [S_k-24 + S_k-55] (\mathrm{modulo\
+} 1000000)\)</span></p>
+<p>If <span class="math inline">\(\mathrm{Caller(n)} =
+\mathrm{Called(n)}\)</span> then the user is assumed to have misdialled
+and the call fails; otherwise the call is successful.</p>
+<p>From the start of the records, we say that any pair of users <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> are friends if <span class="math inline">\(X\)</span> calls <span class="math inline">\(Y\)</span> or vice-versa. Similarly, <span class="math inline">\(X\)</span> is a friend of a friend of <span class="math inline">\(Z\)</span> if <span class="math inline">\(X\)</span> is a friend of <span class="math inline">\(Y\)</span> and <span class="math inline">\(Y\)</span> is a friend of <span class="math inline">\(Z\)</span>; and so on for longer chains.</p>
+<p>The Prime Minister’s phone number is <span class="math inline">\(524287\)</span>. After how many successful calls,
+not counting misdials, will <span class="math inline">\(99\%\)</span> of
+the users (including the PM) be a friend, or a friend of a friend etc.,
+of the Prime Minister?</p>
+<h2 id="并查集">并查集</h2>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure">并查集</a>：用于高效处理一些不相交集合的数据结构。一般有两个操作：合并两个集合；查询两个元素是否在同一个集合中。</p>
+<p>可以通过优化将并查集这两种单次操作优化到<span class="math inline">\(O(\alpha(n))\)</span>级别，其中<span class="math inline">\(\alpha(n)\)</span>是<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Ackermann_function#Inverse">反阿克曼函数</a>（一个增长速率非常接近于零的函数）。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题为并查集的模板题，直接用并查集数据结构实现。</p>
 <p>代码中需要维护每个集合的大小。为了避免错误，只有两个元素不属于同一个集合时才需要合并。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>,P=<span class="number">524287</span>,A=N/<span class="number">100</span>*<span class="number">99</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=N*<span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> fa[N],sz[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="keyword">return</span> x==fa[x]?x:fa[x]=<span class="built_in">find</span>(fa[x]);&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> u=<span class="built_in">find</span>(x),v=<span class="built_in">find</span>(y);</span><br><span class="line">    <span class="keyword">if</span>(u!=v)&#123;</span><br><span class="line">        fa[u]=v;</span><br><span class="line">        sz[v]+=sz[u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> s[M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        fa[i]=i,sz[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">55</span>;i++)</span><br><span class="line">        s[i]= (<span class="number">1ll</span> * <span class="number">300007</span> * i * i * i + <span class="number">100003</span> - <span class="number">200003</span> * i) % N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">56</span>;i&lt;M;i++)</span><br><span class="line">        s[i]= (s[i - <span class="number">24</span>] + s[i - <span class="number">55</span>]) % N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;M;i+=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] == s[i - <span class="number">1</span>]) ++cnt;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">merge</span>(s[i], s[i - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(sz[<span class="built_in">find</span>(P)]&gt;=A)&#123;</span><br><span class="line">                ans=i/<span class="number">2</span>-cnt;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>,P=<span class="number">524287</span>,A=N/<span class="number">100</span>*<span class="number">99</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=N*<span class="number">5</span>;</span><br><span class="line"><span class="type">int</span> fa[N],sz[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;<span class="keyword">return</span> x==fa[x]?x:fa[x]=<span class="built_in">find</span>(fa[x]);&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x,<span class="type">int</span> y)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> u=<span class="built_in">find</span>(x),v=<span class="built_in">find</span>(y);</span><br><span class="line">    <span class="keyword">if</span>(u!=v)&#123;</span><br><span class="line">        fa[u]=v;</span><br><span class="line">        sz[v]+=sz[u];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> s[M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> cnt=<span class="number">0</span>,ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        fa[i]=i,sz[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=<span class="number">55</span>;i++)</span><br><span class="line">        s[i]= (<span class="number">1ll</span> * <span class="number">300007</span> * i * i * i + <span class="number">100003</span> - <span class="number">200003</span> * i) % N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">56</span>;i&lt;M;i++)</span><br><span class="line">        s[i]= (s[i - <span class="number">24</span>] + s[i - <span class="number">55</span>]) % N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;M;i+=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i] == s[i - <span class="number">1</span>]) ++cnt;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">merge</span>(s[i], s[i - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">if</span>(sz[<span class="built_in">find</span>(P)]&gt;=A)&#123;</span><br><span class="line">                ans=i/<span class="number">2</span>-cnt;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -380,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-186"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 186</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Connectedness-of-a-network"><span class="nav-number">1.1.1.</span> <span class="nav-text">Connectedness of a network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-number">1.2.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-186"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 186</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#connectedness-of-a-network"><span class="nav-number">1.1.1.</span> <span class="nav-text">Connectedness of a network</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E6%9F%A5%E9%9B%86"><span class="nav-number">1.2.</span> <span class="nav-text">并查集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -394,14 +407,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -438,13 +451,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

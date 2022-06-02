@@ -253,28 +253,47 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-147"><a href="#Project-Euler-147" class="headerlink" title="Project Euler 147"></a>Project Euler 147</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Rectangles-in-cross-hatched-grids"><a href="#Rectangles-in-cross-hatched-grids" class="headerlink" title="Rectangles in cross-hatched grids"></a>Rectangles in cross-hatched grids</h3><p>In a $3\times2$ cross-hatched grid, a total of $37$ different rectangles could be situated within that grid as indicated in the sketch.</p>
-<p><img src="../images/p147.png" alt></p>
-<p>There are $5$ grids smaller than $3\times2$, vertical and horizontal dimensions being important, i.e. $1\times1$, $2\times1$, $3\times1$, $1\times2$ and $2\times2$. If each of them is cross-hatched, the following number of different rectangles could be situated within those smaller grids:</p>
-<p>$\begin{aligned}<br>1\times1&amp;: 1 \\<br>2\times1&amp;: 4 \\<br>3\times1&amp;: 8 \\<br>1\times2&amp;: 4 \\<br>2\times2&amp;: 18<br>\end{aligned}$</p>
-<p>Adding those to the $37$ of the $3\times2$ grid, a total of $72$ different rectangles could be situated within $3\times2$ and smaller grids.</p>
-<p>How many different rectangles could be situated within $47\times43$ and smaller grids?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>假设该矩形大小为$n\times m(n\le m)$。</p>
-<p>首先，和矩形边上平行的小矩形个数为$T(n,m)=\dfrac{n(n+1)m(m+1)}{4}$。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-147">Project Euler 147</h1>
+<h2 id="题目">题目</h2>
+<h3 id="rectangles-in-cross-hatched-grids">Rectangles in cross-hatched
+grids</h3>
+<p>In a <span class="math inline">\(3\times2\)</span> cross-hatched
+grid, a total of <span class="math inline">\(37\)</span> different
+rectangles could be situated within that grid as indicated in the
+sketch.</p>
+<p><img src="../images/p147.png"></p>
+<p>There are <span class="math inline">\(5\)</span> grids smaller than
+<span class="math inline">\(3\times2\)</span>, vertical and horizontal
+dimensions being important, i.e. <span class="math inline">\(1\times1\)</span>, <span class="math inline">\(2\times1\)</span>, <span class="math inline">\(3\times1\)</span>, <span class="math inline">\(1\times2\)</span> and <span class="math inline">\(2\times2\)</span>. If each of them is
+cross-hatched, the following number of different rectangles could be
+situated within those smaller grids:</p>
+<p><span class="math inline">\(\begin{aligned} 1\times1&amp;: 1 \\
+2\times1&amp;: 4 \\ 3\times1&amp;: 8 \\ 1\times2&amp;: 4 \\
+2\times2&amp;: 18 \end{aligned}\)</span></p>
+<p>Adding those to the <span class="math inline">\(37\)</span> of the
+<span class="math inline">\(3\times2\)</span> grid, a total of <span class="math inline">\(72\)</span> different rectangles could be situated
+within <span class="math inline">\(3\times2\)</span> and smaller
+grids.</p>
+<p>How many different rectangles could be situated within <span class="math inline">\(47\times43\)</span> and smaller grids?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>假设该矩形大小为<span class="math inline">\(n\times m(n\le
+m)\)</span>。</p>
+<p>首先，和矩形边上平行的小矩形个数为<span class="math inline">\(T(n,m)=\dfrac{n(n+1)m(m+1)}{4}\)</span>。</p>
 <p>接下来考虑倾斜矩形的个数，使用了一些和多项式相关的小技巧。</p>
-<p>合理猜测：这一类的矩形个数可以用多项式来表示，并且项的最高次数和上面一样，也是$4$。这种猜测个人认为比较合理，因为随着$n,m$的增长，两种方式矩形的增长速度感知上是相同的。</p>
-<p>因此，假设这个公式为$p(n,m)=\sum_{i=0}^4\sum_{j=0}^{4-i}a_{i,j} n^im^j$.其中，多项式$a_{i,j}$是未知的，用待定系数求出来。</p>
-<p>我首先写了一份比较暴力并且不美观的代码，用来计算小范围内的$p(n,m)$值：</p>
+<p>合理猜测：这一类的矩形个数可以用多项式来表示，并且项的最高次数和上面一样，也是<span class="math inline">\(4\)</span>。这种猜测个人认为比较合理，因为随着<span class="math inline">\(n,m\)</span>的增长，两种方式矩形的增长速度感知上是相同的。</p>
+<p>因此，假设这个公式为<span class="math inline">\(p(n,m)=\sum_{i=0}^4\sum_{j=0}^{4-i}a_{i,j}
+n^im^j\)</span>.其中，多项式<span class="math inline">\(a_{i,j}\)</span>是未知的，用待定系数求出来。</p>
+<p>我首先写了一份比较暴力并且不美观的代码，用来计算小范围内的<span class="math inline">\(p(n,m)\)</span>值：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> o=<span class="built_in">max</span>(n,m)*<span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    n&lt;&lt;=<span class="number">1</span>;m&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=m;j++)&#123;</span><br><span class="line">        <span class="keyword">if</span>((i+j)&amp;<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">1</span>;d&lt;=o;d++)&#123;</span><br><span class="line">            <span class="type">int</span> x=i-d,y=j+d;</span><br><span class="line">            <span class="keyword">if</span>(x&lt;<span class="number">0</span>||y&gt;m) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=o;k++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(<span class="built_in">max</span>(k+i,k+x)&lt;=n&amp;&amp;<span class="built_in">max</span>(k+j,k+y)&lt;=m) ++ans;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> M=<span class="number">7</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">1</span>;n&lt;=M;n++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> m=n;m&lt;=M;m++)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d %d %d\n&quot;</span>,n,m,<span class="built_in">solve</span>(n,m));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>用统计出来的$n,m,p(n,m)$，全部代入到公式$p(n,m)$中。由此构造出一个方程组。</p>
+<p>用统计出来的<span class="math inline">\(n,m,p(n,m)\)</span>，全部代入到公式<span class="math inline">\(p(n,m)\)</span>中。由此构造出一个方程组。</p>
 <p>使用sympy库的linsolve函数最终解出方程组，回代到公式，整合，也就是：</p>
-<p>$\dfrac{n((2m-n)(4n^2-1)-3)}{6}$</p>
+<p><span class="math inline">\(\dfrac{n((2m-n)(4n^2-1)-3)}{6}\)</span></p>
 <p>最终把上面的第一种情况加起来即可。</p>
-<p>不失一般性，如果$n&gt;m$，那么将上面的式子的$n,m$两个变量进行交换。</p>
-<p>本题甚至可以进一步整理公式直接导出答案$\sum_{i=1}^N\sum_{j=1}^M{T(i,j)+p(i,j)}$的通式，此处不赘述。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">N, M = <span class="number">47</span>, <span class="number">43</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">n, m</span>):</span><br><span class="line">    <span class="keyword">if</span> n &gt; m:</span><br><span class="line">        n, m = m, n</span><br><span class="line">    <span class="keyword">return</span> n * (n + <span class="number">1</span>) * m * (m + <span class="number">1</span>) // <span class="number">4</span> + n * ((<span class="number">2</span> * m - n) * (<span class="number">4</span> * n * n - <span class="number">1</span>) - <span class="number">3</span>) // <span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, M + <span class="number">1</span>):</span><br><span class="line">        ans += solve(i, j)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>不失一般性，如果<span class="math inline">\(n&gt;m\)</span>，那么将上面的式子的<span class="math inline">\(n,m\)</span>两个变量进行交换。</p>
+<p>本题甚至可以进一步整理公式直接导出答案<span class="math inline">\(\sum_{i=1}^N\sum_{j=1}^M{T(i,j)+p(i,j)}\)</span>的通式，此处不赘述。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">N, M = <span class="number">47</span>, <span class="number">43</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">n, m</span>):</span><br><span class="line">    <span class="keyword">if</span> n &gt; m:</span><br><span class="line">        n, m = m, n</span><br><span class="line">    <span class="keyword">return</span> n * (n + <span class="number">1</span>) * m * (m + <span class="number">1</span>) // <span class="number">4</span> + n * ((<span class="number">2</span> * m - n) * (<span class="number">4</span> * n * n - <span class="number">1</span>) - <span class="number">3</span>) // <span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, M + <span class="number">1</span>):</span><br><span class="line">        ans += solve(i, j)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -358,7 +377,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-147"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 147</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Rectangles-in-cross-hatched-grids"><span class="nav-number">1.1.1.</span> <span class="nav-text">Rectangles in cross-hatched grids</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-147"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 147</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rectangles-in-cross-hatched-grids"><span class="nav-number">1.1.1.</span> <span class="nav-text">Rectangles in cross-hatched
+grids</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,14 +392,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -416,13 +436,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

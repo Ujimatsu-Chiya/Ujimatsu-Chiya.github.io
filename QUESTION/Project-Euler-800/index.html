@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>732</span>
+              <span>790</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,20 +252,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-249"><a href="#Project-Euler-249" class="headerlink" title="Project Euler 249"></a>Project Euler 249</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Hybrid-Integers"><a href="#Hybrid-Integers" class="headerlink" title="Hybrid Integers"></a>Hybrid Integers</h3><p>An integer of the form $p^q q^p$ with prime numbers $p \neq q$ is called a <em>hybrid-integer</em>.</p>
-<p>For example, $800 = 2^5 5^2$ is a hybrid-integer.</p>
-<p>We define $C(n)$ to be the number of hybrid-integers less than or equal to $n$.</p>
-<p>You are given $C(800) = 2$ and $C(800^{800}) = 10790$</p>
-<p>Find $C(800800^{800800})$</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>由于题目中仅涉及求幂，乘法等运算，可以考虑取对数进行计算，避免大整数。</p>
-<p>令$N=P^E$，其中$P=E=800800$。不失一般性，假设$p&lt; q$，那么写成对数形式，就是求所有有多少质数对$(p,q)$满足：</p>
-<script type="math/tex; mode=display">p\log_2q +q\log_2p\le E\log_2P</script><p>$q$的最大值最多能取到多少？当$p=2$时，忽略掉第一项$p\log_2q$，可以估计$q$取得的上限为$E\log_2P$。</p>
-<p>令$M=\lceil E\log_2P\rceil$，使用线性筛枚举出$M$以内的质数，存放在数组$pr$中。</p>
-<p>使用双指针法，在第一层循环从左到右枚举左指针$l$，第二层循环右往左枚举右指针$r$，并枚举到第一个$pr[l] \cdot \log_2pr[r]+pr[r]\cdot \log_2pr[l]&lt; E\log_2P$的最大$r$。那么，$r$左边和$l$右边的所有质数都可以和$pr[l]$组成答案，统计这一段数的数量。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-249">Project Euler 249</h1>
+<h2 id="题目">题目</h2>
+<h3 id="hybrid-integers">Hybrid Integers</h3>
+<p>An integer of the form <span class="math inline">\(p^q q^p\)</span>
+with prime numbers <span class="math inline">\(p \neq q\)</span> is
+called a <em>hybrid-integer</em>.</p>
+<p>For example, <span class="math inline">\(800 = 2^5 5^2\)</span> is a
+hybrid-integer.</p>
+<p>We define <span class="math inline">\(C(n)\)</span> to be the number
+of hybrid-integers less than or equal to <span class="math inline">\(n\)</span>.</p>
+<p>You are given <span class="math inline">\(C(800) = 2\)</span> and
+<span class="math inline">\(C(800^{800}) = 10790\)</span></p>
+<p>Find <span class="math inline">\(C(800800^{800800})\)</span></p>
+<h2 id="解决方案">解决方案</h2>
+<p>由于题目中仅涉及求幂，乘法等运算，可以考虑取对数进行计算，避免大整数。</p>
+<p>令<span class="math inline">\(N=P^E\)</span>，其中<span class="math inline">\(P=E=800800\)</span>。不失一般性，假设<span class="math inline">\(p&lt;
+q\)</span>，那么写成对数形式，就是求所有有多少质数对<span class="math inline">\((p,q)\)</span>满足：</p>
+<p><span class="math display">\[p\log_2q +q\log_2p\le
+E\log_2P\]</span></p>
+<p><span class="math inline">\(q\)</span>的最大值最多能取到多少？当<span class="math inline">\(p=2\)</span>时，忽略掉第一项<span class="math inline">\(p\log_2q\)</span>，可以估计<span class="math inline">\(q\)</span>取得的上限为<span class="math inline">\(E\log_2P\)</span>。</p>
+<p>令<span class="math inline">\(M=\lceil
+E\log_2P\rceil\)</span>，使用线性筛枚举出<span class="math inline">\(M\)</span>以内的质数，存放在数组<span class="math inline">\(pr\)</span>中。</p>
+<p>使用双指针法，在第一层循环从左到右枚举左指针<span class="math inline">\(l\)</span>，第二层循环右往左枚举右指针<span class="math inline">\(r\)</span>，并枚举到第一个<span class="math inline">\(pr[l] \cdot \log_2pr[r]+pr[r]\cdot \log_2pr[l]&lt;
+E\log_2P\)</span>的最大<span class="math inline">\(r\)</span>。那么，<span class="math inline">\(r\)</span>左边和<span class="math inline">\(l\)</span>右边的所有质数都可以和<span class="math inline">\(pr[l]\)</span>组成答案，统计这一段数的数量。</p>
 <p>为避免log2函数使用次数过多降低效率，实现时先将所有对数值先计算出来。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> P = <span class="number">800800</span>,E = <span class="number">800800</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="built_in">log2</span>(P) * E + <span class="number">4</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> max_lg = <span class="built_in">log2</span>(P) * E;</span><br><span class="line"><span class="type">int</span> pr[M/<span class="number">4</span>+<span class="number">104</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> v[M];</span><br><span class="line"><span class="type">double</span> lg[M/<span class="number">4</span>+<span class="number">104</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= M; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v[i] == <span class="number">0</span>) &#123;</span><br><span class="line">            v[i] = i;</span><br><span class="line">            pr[++m] = i;</span><br><span class="line">            lg[m] = <span class="built_in">log2</span>(pr[m]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pr[j] &gt; v[i] || pr[j] &gt; M / i) <span class="keyword">break</span>;</span><br><span class="line">            v[i * pr[j]] = pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>, r = m; l &lt;= m; l++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (; r &gt; l &amp;&amp; lg[l] * pr[r] + lg[r] * pr[l] &gt; max_lg; r--);</span><br><span class="line">        <span class="keyword">if</span> (l == r) <span class="keyword">break</span>;</span><br><span class="line">        ans += r - l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> P = <span class="number">800800</span>,E = <span class="number">800800</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="built_in">log2</span>(P) * E + <span class="number">4</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> max_lg = <span class="built_in">log2</span>(P) * E;</span><br><span class="line"><span class="type">int</span> pr[M/<span class="number">4</span>+<span class="number">104</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> v[M];</span><br><span class="line"><span class="type">double</span> lg[M/<span class="number">4</span>+<span class="number">104</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= M; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (v[i] == <span class="number">0</span>) &#123;</span><br><span class="line">            v[i] = i;</span><br><span class="line">            pr[++m] = i;</span><br><span class="line">            lg[m] = <span class="built_in">log2</span>(pr[m]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (pr[j] &gt; v[i] || pr[j] &gt; M / i) <span class="keyword">break</span>;</span><br><span class="line">            v[i * pr[j]] = pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">1</span>, r = m; l &lt;= m; l++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (; r &gt; l &amp;&amp; lg[l] * pr[r] + lg[r] * pr[l] &gt; max_lg; r--);</span><br><span class="line">        <span class="keyword">if</span> (l == r) <span class="keyword">break</span>;</span><br><span class="line">        ans += r - l;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -350,7 +364,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-249"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 249</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hybrid-Integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hybrid Integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-249"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 249</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hybrid-integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hybrid Integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -364,14 +378,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -408,13 +422,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

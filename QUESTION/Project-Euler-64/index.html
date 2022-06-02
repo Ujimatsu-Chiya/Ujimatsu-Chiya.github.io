@@ -252,26 +252,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-64"><a href="#Project-Euler-64" class="headerlink" title="Project Euler 64"></a>Project Euler 64</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Odd-period-square-roots"><a href="#Odd-period-square-roots" class="headerlink" title="Odd period square roots"></a>Odd period square roots</h3><p>All square roots are periodic when written as continued fractions and can be written in the form:</p>
-<p>$\sqrt{N}=a_0+\dfrac 1 {a_1+\dfrac 1 {a_2+ \dfrac 1 {a_3+ \dots}}}$</p>
-<p>For example, let us consider $\sqrt{23}:$<br>$\sqrt{23}=4+\sqrt{23}-4=4+\dfrac 1 {\dfrac 1 {\sqrt{23}-4}}=4+\dfrac 1  {1+\dfrac{\sqrt{23}-3}7}$</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-64">Project Euler 64</h1>
+<h2 id="题目">题目</h2>
+<h3 id="odd-period-square-roots">Odd period square roots</h3>
+<p>All square roots are periodic when written as continued fractions and
+can be written in the form:</p>
+<p><span class="math inline">\(\sqrt{N}=a_0+\dfrac 1 {a_1+\dfrac 1 {a_2+
+\dfrac 1 {a_3+ \dots}}}\)</span></p>
+<p>For example, let us consider <span class="math inline">\(\sqrt{23}:\)</span> <span class="math inline">\(\sqrt{23}=4+\sqrt{23}-4=4+\dfrac 1 {\dfrac 1
+{\sqrt{23}-4}}=4+\dfrac 1 {1+\dfrac{\sqrt{23}-3}7}\)</span></p>
 <p>If we continue we would get the following expansion:</p>
-<p>$\sqrt{23}=4+\dfrac 1 {1+\dfrac 1 {3+ \dfrac 1 {1+\dfrac 1 {8+ \dots}}}}$</p>
+<p><span class="math inline">\(\sqrt{23}=4+\dfrac 1 {1+\dfrac 1 {3+
+\dfrac 1 {1+\dfrac 1 {8+ \dots}}}}\)</span></p>
 <p>The process can be summarised as follows:</p>
-<p>$a_0=4, \dfrac 1 {\sqrt{23}-4}=\dfrac {\sqrt{23}+4} 7=1+\dfrac {\sqrt{23}-3} 7$<br><br>$a_1=1, \dfrac 7 {\sqrt{23}-3}=\dfrac {7(\sqrt{23}+3)} {14}=3+\dfrac {\sqrt{23}-3} 2$<br><br>$a_2=3, \dfrac 2 {\sqrt{23}-3}=\dfrac {2(\sqrt{23}+3)} {14}=1+\dfrac {\sqrt{23}-4} 7$<br><br>$a_3=1, \dfrac 7 {\sqrt{23}-4}=\dfrac {7(\sqrt{23}+4)} 7=8+\sqrt{23}-4$<br><br>$a_4=8, \dfrac 1 {\sqrt{23}-4}=\dfrac {\sqrt{23}+4} 7=1+\dfrac {\sqrt{23}-3} 7$<br><br>$a_5=1, \dfrac 7 {\sqrt{23}-3}=\dfrac {7 (\sqrt{23}+3)} {14}=3+\dfrac {\sqrt{23}-3} 2$<br><br>$a_6=3, \dfrac 2 {\sqrt{23}-3}=\dfrac {2(\sqrt{23}+3)} {14}=1+\dfrac {\sqrt{23}-4} 7$<br><br>$a_7=1, \dfrac 7 {\sqrt{23}-4}=\dfrac {7(\sqrt{23}+4)} {7}=8+\sqrt{23}-4$<br></p>
-<p>It can be seen that the sequence is repeating. For conciseness, we use the notation $\sqrt{23}=[4;(1,3,1,8)]$, to indicate that the block $(1,3,1,8)$ repeats indefinitely.</p>
-<p>The first ten continued fraction representations of (irrational) square roots are:</p>
-<p>$\sqrt{2}=[1;(2)]$, period=$1$<br><br>$\sqrt{3}=[1;(1,2)]$, period=$2$<br><br>$\sqrt{5}=[2;(4)]$, period=$1$<br><br>$\sqrt{6}=[2;(2,4)]$, period=$2$<br><br>$\sqrt{7}=[2;(1,1,1,4)]$, period=$4$<br><br>$\sqrt{8}=[2;(1,4)]$, period=$2$<br><br>$\sqrt{10}=[3;(6)]$, period=$1$<br><br>$\sqrt{11}=[3;(3,6)]$, period=$2$<br><br>$\sqrt{12}=[3;(2,6)]$, period=$2$<br><br>$\sqrt{13}=[3;(1,1,1,1,6)]$, period=$5$<br></p>
-<p>Exactly four continued fractions, for $N \le 13$, have an odd period.</p>
-<p>How many continued fractions for $N \le 10\,000$ have an odd period?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题主要以查阅资料等方式得以解决。</p>
-<p>该计算<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Periodic_continued_fraction#Canonical_form_and_repetend">周期性连分数</a>的维基百科页面中，给出了一种计算连分数序列$\{a\}$的递推算法：</p>
-<p>$\begin{aligned}<br>m_0 &amp;=0 \\<br>d_0 &amp;= 1 \\<br>a_0&amp;=\lfloor\sqrt {S}\rfloor \\<br>m_{n+1}&amp;=d_na_n-m_n \\<br>d_{n+1}&amp;=\dfrac{S-m_{n+1}^2}{d_n}\\<br>a_{n+1}&amp;=\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\rfloor<br>\end{aligned}$</p>
-<p>其中，$\{m\},\{d\},\{a\}$三个数列都是整数序列。当计算到$a_n=2a_0$时，算法终止迭代，$n$就是周期本身。</p>
-<p>依照该维基百科提供的内容，即可完成每个连分数的$\{a\}$序列周期计算。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> int_sqrt, is_square</span><br><span class="line"></span><br><span class="line"><span class="comment"># https://en.wikipedia.org/wiki/Periodic_continued_fraction#Canonical_form_and_repetend</span></span><br><span class="line">N = <span class="number">10000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> S <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> is_square(S):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    m = <span class="number">0</span></span><br><span class="line">    d = <span class="number">1</span></span><br><span class="line">    a0 = int_sqrt(S)</span><br><span class="line">    tm = <span class="number">0</span></span><br><span class="line">    a = a0</span><br><span class="line">    <span class="keyword">while</span> a != <span class="number">2</span> * a0:</span><br><span class="line">        m = d * a - m</span><br><span class="line">        d = (S - m * m) // d</span><br><span class="line">        a = (a0 + m) // d</span><br><span class="line">        tm += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> tm &amp; <span class="number">1</span>:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(a_0=4, \dfrac 1 {\sqrt{23}-4}=\dfrac
+{\sqrt{23}+4} 7=1+\dfrac {\sqrt{23}-3} 7\)</span><br> <span class="math inline">\(a_1=1, \dfrac 7 {\sqrt{23}-3}=\dfrac
+{7(\sqrt{23}+3)} {14}=3+\dfrac {\sqrt{23}-3} 2\)</span><br> <span class="math inline">\(a_2=3, \dfrac 2 {\sqrt{23}-3}=\dfrac
+{2(\sqrt{23}+3)} {14}=1+\dfrac {\sqrt{23}-4} 7\)</span><br> <span class="math inline">\(a_3=1, \dfrac 7 {\sqrt{23}-4}=\dfrac
+{7(\sqrt{23}+4)} 7=8+\sqrt{23}-4\)</span><br> <span class="math inline">\(a_4=8, \dfrac 1 {\sqrt{23}-4}=\dfrac {\sqrt{23}+4}
+7=1+\dfrac {\sqrt{23}-3} 7\)</span><br> <span class="math inline">\(a_5=1, \dfrac 7 {\sqrt{23}-3}=\dfrac {7
+(\sqrt{23}+3)} {14}=3+\dfrac {\sqrt{23}-3} 2\)</span><br> <span class="math inline">\(a_6=3, \dfrac 2 {\sqrt{23}-3}=\dfrac
+{2(\sqrt{23}+3)} {14}=1+\dfrac {\sqrt{23}-4} 7\)</span><br> <span class="math inline">\(a_7=1, \dfrac 7 {\sqrt{23}-4}=\dfrac
+{7(\sqrt{23}+4)} {7}=8+\sqrt{23}-4\)</span><br></p>
+<p>It can be seen that the sequence is repeating. For conciseness, we
+use the notation <span class="math inline">\(\sqrt{23}=[4;(1,3,1,8)]\)</span>, to indicate that
+the block <span class="math inline">\((1,3,1,8)\)</span> repeats
+indefinitely.</p>
+<p>The first ten continued fraction representations of (irrational)
+square roots are:</p>
+<p><span class="math inline">\(\sqrt{2}=[1;(2)]\)</span>, period=<span class="math inline">\(1\)</span><br> <span class="math inline">\(\sqrt{3}=[1;(1,2)]\)</span>, period=<span class="math inline">\(2\)</span><br> <span class="math inline">\(\sqrt{5}=[2;(4)]\)</span>, period=<span class="math inline">\(1\)</span><br> <span class="math inline">\(\sqrt{6}=[2;(2,4)]\)</span>, period=<span class="math inline">\(2\)</span><br> <span class="math inline">\(\sqrt{7}=[2;(1,1,1,4)]\)</span>, period=<span class="math inline">\(4\)</span><br> <span class="math inline">\(\sqrt{8}=[2;(1,4)]\)</span>, period=<span class="math inline">\(2\)</span><br> <span class="math inline">\(\sqrt{10}=[3;(6)]\)</span>, period=<span class="math inline">\(1\)</span><br> <span class="math inline">\(\sqrt{11}=[3;(3,6)]\)</span>, period=<span class="math inline">\(2\)</span><br> <span class="math inline">\(\sqrt{12}=[3;(2,6)]\)</span>, period=<span class="math inline">\(2\)</span><br> <span class="math inline">\(\sqrt{13}=[3;(1,1,1,1,6)]\)</span>, period=<span class="math inline">\(5\)</span><br></p>
+<p>Exactly four continued fractions, for <span class="math inline">\(N
+\le 13\)</span>, have an odd period.</p>
+<p>How many continued fractions for <span class="math inline">\(N \le
+10\,000\)</span> have an odd period?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题主要以查阅资料等方式得以解决。</p>
+<p>该计算<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Periodic_continued_fraction#Canonical_form_and_repetend">周期性连分数</a>的维基百科页面中，给出了一种计算连分数序列<span class="math inline">\(\{a\}\)</span>的递推算法：</p>
+<p><span class="math inline">\(\begin{aligned} m_0 &amp;=0 \\ d_0 &amp;=
+1 \\ a_0&amp;=\lfloor\sqrt {S}\rfloor \\ m_{n+1}&amp;=d_na_n-m_n \\
+d_{n+1}&amp;=\dfrac{S-m_{n+1}^2}{d_n}\\
+a_{n+1}&amp;=\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\rfloor
+\end{aligned}\)</span></p>
+<p>其中，<span class="math inline">\(\{m\},\{d\},\{a\}\)</span>三个数列都是整数序列。当计算到<span class="math inline">\(a_n=2a_0\)</span>时，算法终止迭代，<span class="math inline">\(n\)</span>就是周期本身。</p>
+<p>依照该维基百科提供的内容，即可完成每个连分数的<span class="math inline">\(\{a\}\)</span>序列周期计算。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> int_sqrt, is_square</span><br><span class="line"></span><br><span class="line"><span class="comment"># https://en.wikipedia.org/wiki/Periodic_continued_fraction#Canonical_form_and_repetend</span></span><br><span class="line">N = <span class="number">10000</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> S <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> is_square(S):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    m = <span class="number">0</span></span><br><span class="line">    d = <span class="number">1</span></span><br><span class="line">    a0 = int_sqrt(S)</span><br><span class="line">    tm = <span class="number">0</span></span><br><span class="line">    a = a0</span><br><span class="line">    <span class="keyword">while</span> a != <span class="number">2</span> * a0:</span><br><span class="line">        m = d * a - m</span><br><span class="line">        d = (S - m * m) // d</span><br><span class="line">        a = (a0 + m) // d</span><br><span class="line">        tm += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> tm &amp; <span class="number">1</span>:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -356,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-64"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 64</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Odd-period-square-roots"><span class="nav-number">1.1.1.</span> <span class="nav-text">Odd period square roots</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-64"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 64</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#odd-period-square-roots"><span class="nav-number">1.1.1.</span> <span class="nav-text">Odd period square roots</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -370,14 +396,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">227</span>
+          <span class="site-state-item-count">238</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -414,13 +440,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">221k</span>
+    <span title="站点总字数">251k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">3:21</span>
+    <span title="站点阅读时长">3:48</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
