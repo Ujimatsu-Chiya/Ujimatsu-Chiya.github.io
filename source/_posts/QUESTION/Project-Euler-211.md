@@ -3,11 +3,15 @@ title: Project Euler 211
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-02 21:04:06
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 211
+
 ## 题目
+
 ### Divisor Square Sum
 
 For a positive integer $n$, let $\sigma_2(n)$ be the sum of the squares of its divisors. For example,
@@ -15,7 +19,6 @@ For a positive integer $n$, let $\sigma_2(n)$ be the sum of the squares of its d
 $$\sigma_2(10) = 1 + 4 + 25 + 100 = 130.$$
 
 Find the sum of all $n, 0 < n < 64,000,000$ such that $\sigma_2(n)$ is a perfect square.
-
 
 ## 解决方案
 

@@ -3,7 +3,9 @@ title: Project Euler 357
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-02 21:03:46
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 357
@@ -17,7 +19,9 @@ Consider the divisors of $30: 1,2,3,5,6,10,15,30$. It can be seen that for every
 Find the sum of all positive integers $n$ not exceeding $100 000 000$ such that for every divisor $d$ of $n$, $d+n/d$ is prime.
 
 ## 解决方案
+
 如果一个数$n$满足题目要求，那么$n$一定满足以下条件。
+
 1. $n+1$一定是一个质数（因为每个数都有因子$1$，$n+1=\dfrac{n}{1}+1$
 2. $n$是一个无平方因子数，如果存在一个质因子$p$，使得$p^2|n$，那么$p+(\dfrac{n}{p})=p\cdot(1+\dfrac{n}{p^2})$，那么此时的$p+\dfrac{n}{p}$不是质数。
 

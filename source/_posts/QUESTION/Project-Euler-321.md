@@ -3,12 +3,15 @@ title: Project Euler 321
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-02 21:03:34
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 321
+
 ## 题目
+
 ### Swapping Counters
 
 A horizontal row comprising of $2n + 1$ squares has $n$ red counters placed at one end and $n$ blue counters at the other end, being separated by a single empty square in the centre. For example, when $n = 3$.
@@ -26,7 +29,6 @@ It can be verified $M(3) = 15$, which also happens to be a triangle number.
 If we create a sequence based on the values of n for which $M(n)$ is a triangle number then the first five terms would be: $1, 3, 10, 22,$ and $63$, and their sum would be $99$.
 
 Find the sum of the first forty terms of this sequence.
-
 
 ## 解决方案
 
