@@ -5,13 +5,14 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
 
 # Project Euler 219
+
 ## 题目
+
 ### Skew-cost coding
 
-Let **A** and **B** be bit strings (sequences of 0’s and 1’s).<br>If **A** is equal to the <u>left</u>most length(**A**) bits of **B**, then **A** is said to be a *prefix* of **B**.
+Let **A** and **B** be bit strings (sequences of $0$’s and $1$’s).<br>If **A** is equal to the <u>left</u>most length(**A**) bits of **B**, then **A** is said to be a *prefix* of **B**.
 
 For example, $00110$ is a prefix of $\underline{00110}1001$, but not of $00111$ or $100110$.
 A *prefix-free code of size $n$* is a collection of $n$ distinct bit strings such that no string is a prefix of any other. For example, this is a prefix-free code of size $6$:
@@ -26,10 +27,6 @@ In short, we write $\text{Cost}(6) = 35$.
 
 What is $\text{Cost}(10^9)$?
 
-
 ## 解决方案
 
-
 ## 代码
-
-

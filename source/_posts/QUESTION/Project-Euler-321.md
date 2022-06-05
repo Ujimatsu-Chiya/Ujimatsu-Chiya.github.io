@@ -2,6 +2,7 @@
 title: Project Euler 321
 tags:
   - Project Euler
+  - 佩尔方程
 mathjax: true
 date: 2022-06-02 21:03:34
 ---
