@@ -36,6 +36,7 @@ What is the value of the first triangle number to have over five hundred divisor
 
 如果一个正整数$n$分解后成为：
 $$n=\prod p_i^{e_i}$$
+
 那么$n$的因数个数为：
 $$\prod (e_i+1)$$
 
