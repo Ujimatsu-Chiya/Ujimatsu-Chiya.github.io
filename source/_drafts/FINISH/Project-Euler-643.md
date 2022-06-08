@@ -26,10 +26,10 @@ Find $f(10^{11})\text{ modulo } 1\,000\,000\,007$.
 那么$f(n)$定义并化简的步骤如下：
 
 $$\begin{aligned}
-f(n)&=\sum_{t=0}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^n\sum_{p=1}^{q}[\gcd(p,q)=2^t]) \\
-&=\sum_{t=0}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\sum_{p=1}^{q}[\gcd(p,q)=1])\\
-&=\sum_{t=0}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\varphi(q))\\
-&=\sum_{t=0}^{\lfloor \log_2n\rfloor}(\Phi(\lfloor\frac{n}{2^t}\rfloor)-1)
+f(n)&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^n\sum_{p=1}^{q}[\gcd(p,q)=2^t]) \\
+&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\sum_{p=1}^{q}[\gcd(p,q)=1])\\
+&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\varphi(q))\\
+&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(\Phi(\lfloor\frac{n}{2^t}\rfloor)-1)
 \end{aligned}$$
 
 和512题一样，现在的问题就是使用数论分块的方法高效计算$\Phi(n)$的值。
