@@ -5,12 +5,15 @@ tags:
   - 动态规划
   - 矩阵快速幂
 mathjax: true
+date: 2022-06-08 22:37:32
 ---
+
 <escape><!-- more --></escape>
 
-
 # Project Euler 458
+
 ## 题目
+
 ### Permutations of Project
 
 Consider the alphabet $A$ made out of the letters of the word "project": $A=\{c,e,j,o,p,r,t\}$.
@@ -20,7 +23,6 @@ Let $T(n)$ be the number of strings of length $n$ consisting of letters from $A$
 $T(7)=7^7-7!=818503$.
 
 Find $T(10^{12})$. Give the last $9$ digits of your answer.
-
 
 ## 解决方案
 
@@ -66,9 +68,7 @@ $$
 
 最终，直接使用矩阵快速幂进行处理即可，答案为$\sum_{j=1}^{m-1}f(n,j)$。
 
-
 ## 代码
-
 
 ```py
 n = 10 ** 12

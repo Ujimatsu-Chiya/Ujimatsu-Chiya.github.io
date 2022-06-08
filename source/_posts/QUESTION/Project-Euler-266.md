@@ -4,14 +4,15 @@ tags:
   - Project Euler
   - meet-in-the-middle
 mathjax: true
+date: 2022-06-08 22:37:25
 ---
+
 <escape><!-- more --></escape>
-    
-
-
 
 # Project Euler 266
+
 ## 题目
+
 ### Pseudo Square Root
 
 The divisors of $12$ are: $1,2,3,4,6$ and $12$.
@@ -24,13 +25,11 @@ It can be seen that $\text{PSR}(3102)=47$.
 
 Let $p$ be the product of the primes below $190$. Find $\text{PSR}(p) \mod 10^{16}$.
 
-
 ## 解决方案
 
 质数的个数只有$m=42$个，比较容易想到meet-in-the-middle思想。
 
 令$n$为这些质数的积。前$21$个质数可以产生$n$的因子的一部分，存放在数组$lm$中，后$21$个质数也可以产生$n$的因子的另一部分，放在数组$rm$中。
-
 
 那么，$lm,rm$中任意一对数的乘积组合就一一对应了$n$的因子。
 
@@ -66,4 +65,3 @@ ans %= mod
 print(ans)
 
 ```
-

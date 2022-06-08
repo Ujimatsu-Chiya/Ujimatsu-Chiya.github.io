@@ -3,12 +3,15 @@ title: Project Euler 504
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-08 22:37:45
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 504
+
 ## 题目
+
 ### Square on the Inside
 
 Let $ABCD$ be a quadrilateral whose vertices are lattice points lying on the coordinate axes as follows:
@@ -36,8 +39,6 @@ $$A=i+\dfrac{b}{2}-1$$
 那么这个多边形内部的节点数为：
 
 $\dfrac{(a+c)(b+d)-\gcd(a,b)-\gcd(b,c)-\gcd(c,d)-\gcd(d,a)-2}{2}$
-
-
 
 ## 代码
 

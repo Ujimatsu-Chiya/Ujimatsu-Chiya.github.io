@@ -4,13 +4,16 @@ tags:
   - Project Euler
   - 数论分块
 mathjax: true
+date: 2022-06-08 22:37:13
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 512
-## 题目
-### Sums of totients of powers
 
+<escape><!-- more --></escape>
+
+# Project Euler 512
+
+## 题目
+
+### Sums of totients of powers
 
 Let $\varphi(n)$ be Euler's totient function.
 
@@ -21,8 +24,6 @@ Let $g(n)=\sum_{i=1}^{n} f(i)$.
 $g(100)=2007$.
 
 Find $g(5 \times 10^8)$.
-
-
 
 ## 解决方案
 
@@ -68,7 +69,6 @@ $$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})$$
 其中，右边这一部分可以使用数论分块来解决。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

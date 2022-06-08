@@ -3,23 +3,24 @@ title: Project Euler 500
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-08 22:37:41
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 500
-## 题目
-### Problem 500!!!
 
+<escape><!-- more --></escape>
+
+# Project Euler 500
+
+## 题目
+
+### Problem 500
 
 The number of divisors of $120$ is $16$.
 
 In fact $120$ is the smallest number having $16$ divisors.
 
-
 Find the smallest number with $2^{500500}$ divisors.
 
 Give your answer modulo $500500507$.
-
 
 ## 解决方案
 
@@ -34,10 +35,7 @@ $$2^{2^{e_1}-1}\times3^{2^{e_2}-1}\times 5^{2^{e_3}-1}\times \dots$$
 
 因此，使用优先队列维护这些等待被$n$相乘的数，找出最小的一个为$n$乘上即可，过程迭代$N$次。
 
-
-
 ## 代码
-
 
 ```py
 from tools import get_prime
