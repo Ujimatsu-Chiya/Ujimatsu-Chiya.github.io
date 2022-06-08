@@ -49,19 +49,19 @@ using namespace std;
 typedef long long ll;
 const int N = 18;
 struct Fraction{
-    ll numerator,denominator;
+    ll num,den;
     Fraction operator + (Fraction f){
-        ll num = numerator*f.denominator+denominator*f.numerator;
-        ll den = denominator*f.denominator;
-        ll g=__gcd(num,den);
-        return {num/g,den/g};
+        ll a = num*f.den+den*f.num;
+        ll b = den*f.den;
+        ll g=__gcd(a,b);
+        return {a/g,b/g};
     }
     Fraction inv(){
-        return {denominator,numerator};
+        return {den,num};
     }
     //这里的小于只是为了用于区分分数的不同，而并非是分数的值大小本身。
     bool operator < (const Fraction &f) const{
-        return numerator<f.numerator||numerator==f.numerator&&denominator<f.denominator;
+        return num<f.num||num==f.num&&den<f.den;
     }
 };
 set<Fraction>st,now[N+2];
@@ -89,5 +89,6 @@ int main(){
     printf("%d\n",ans);
 
 }
+
 
 ```
