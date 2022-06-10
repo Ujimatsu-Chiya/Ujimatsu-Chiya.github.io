@@ -1,42 +1,46 @@
 ---
-title: Project Euler 643
+title: Project Euler 625
 tags:
   - Project Euler
   - 数论分块
 mathjax: true
-date: 2022-06-08 22:37:21
 ---
-
 <escape><!-- more --></escape>
-
-# Project Euler 643
-
+    
+# Project Euler 625
 ## 题目
+### Gcd sum
 
-### 2-Friendly
 
-Two positive integers $a$ and $b$ are *$2$-friendly* when $\gcd(a,b) = 2^t, t>0$. For example, $24$ and $40$ are $2$-friendly because $\gcd(24,40) = 8 = 2^3$ while $24$ and $36$ are not because $\gcd(24,36) = 12 = 2^2\cdot 3$ not a power of $2$.
 
-Let $f(n)$ be the number of pairs, $(p,q)$, of positive integers with $1\le p\lt q\le n$ such that $p$ and $q$ are $2$-friendly. You are given $f(10^2) = 1031$ and $f(10^6) = 321418433 \text{ modulo } 1\,000\,000\,007$.
+$G(N)=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)$. 
 
-Find $f(10^{11})\text{ modulo } 1\,000\,000\,007$.
+You are given: $G(10)=122$.
+
+Find $G(10^{11})$. Give your answer modulo $998244353$.
+
+
+
+
+
 
 ## 解决方案
 
 令$\Phi(n)=\sum_{i=1}^n\varphi(n)$，其中$\varphi$为欧拉函数。
 
-那么$f(n)$定义并化简的步骤如下：
-
 $$\begin{aligned}
-f(n)&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^n\sum_{p=1}^{q}[\gcd(p,q)=2^t]) \\
-&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\sum_{p=1}^{q}[\gcd(p,q)=1])\\
-&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\varphi(q))\\
-&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(\Phi(\lfloor\frac{n}{2^t}\rfloor)-1)
+G(N)&=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)=\sum_{g=1}^Ng\sum_{j=1}^N\sum_{i=1}^j[\gcd(i,j)=g] \\
+&=\sum_{g=1}^Ng\sum_{j=1}^N\sum_{i=1}^j[\gcd(i,j)=g] \\
+&=\sum_{g=1}^Ng\sum_{j=1}^{\frac{N}{g}}\sum_{i=1}^j[\gcd(i,j)=1]\\
+&=\sum_{g=1}^Ng\sum_{j=1}^{\frac{N}{g}}\varphi(i)\\
+&=\sum_{g=1}^Ng\Phi(\dfrac{N}{g})
 \end{aligned}$$
 
 其中，$[]$表示示性函数，表示$[]$里面的值是否为真，如果为真，那么值为$0$，否则值为$1$.
 
-和512题一样，现在的问题就是使用数论分块的方法高效计算$\Phi(n)$的值。
+这启发我们使用数论分块进行解决。考虑两层嵌套的数论分块，外层的计算$g(n)$的值，内层的计算$\Phi(n)$的值。
+
+那么现在的问题就是使用数论分块的方法高效计算$\Phi(n)$的值。
 
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
@@ -49,16 +53,16 @@ $$\begin{aligned}
 
 $$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})$$
 
-其中，右边这一部分可以使用数论分块来解决。
 
 ## 代码
+
 
 ```C++
 #include <bits/stdc++.h>
 typedef long long ll;
 using namespace std;
 const ll N=1e11;
-const ll mod=1000000007;
+const ll mod=998244353;
 const int M = pow(N, 2.0 / 3);
 int s[M+4];
 int v[M+4],pr[M/10+1000],m=0;
@@ -91,8 +95,11 @@ int main() {
     for(int i=2;i<=M;i++)
         s[i]=(s[i]+s[i-1])%mod;
     ll ans=0;
-    for(ll d=2; d <= N; d<<=1)
-        ans= (ans + sum_phi(N / d) - 1) % mod;
+    for(ll l=1,r;l<=N;l=r+1){
+        r=N/(N/l);
+        // l<=g<=r
+        ans=(ans+(l+r)%mod*((r-l+1)%mod)%mod*inv2%mod*sum_phi(N/l)+mod)%mod;
+    }
     printf("%lld\n",ans);
 }
 

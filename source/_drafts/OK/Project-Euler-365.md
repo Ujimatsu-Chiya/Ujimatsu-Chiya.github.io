@@ -2,6 +2,8 @@
 title: Project Euler 365
 tags:
   - Project Euler
+  - 卢卡斯定理
+  - 中国剩余定理
 mathjax: true
 ---
 <escape><!-- more --></escape>

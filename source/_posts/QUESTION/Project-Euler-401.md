@@ -2,6 +2,7 @@
 title: Project Euler 401
 tags:
   - Project Euler
+  - 数论分块
 mathjax: true
 date: 2022-06-05 09:28:58
 ---

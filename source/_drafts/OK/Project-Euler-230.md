@@ -21,7 +21,7 @@ Example:
 
 Let $A=1415926535, B=8979323846$. We wish to find $D_{A,B}(35)$, say.
 
-The first few terms of F_A,B are:
+The first few terms of $F_{A,B}$ are:
 
 $1415926535$<br>
 $8979323846$<br>

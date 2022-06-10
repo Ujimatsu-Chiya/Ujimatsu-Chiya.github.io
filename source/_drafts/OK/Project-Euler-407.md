@@ -23,6 +23,7 @@ Find $\sum M(n)$ for $1 \le n \le 10^7$.
 
 ## 解决方案
 
+可以得到，$a(a-1)\equiv 0(\mod n)$。
 
 ## 代码
 
