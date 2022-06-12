@@ -2,6 +2,7 @@
 title: Project Euler 587
 tags:
   - Project Euler
+  - 二分查找
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -64,25 +65,49 @@ $$(k^2+1)x^2-2k(k+1)x+k^2=0$$
 
 $$\begin{aligned}
 I&=\int_{x_0}^1 1-\sqrt{1-(x-1)^2}dx\\
-&=\int_{-x_0}^01-\sqrt{1-x^2}dx\\
-&=\int_{0}^{x_0}1-\sqrt{1-x^2}dx\\
-&=x_0-\int_{0}^{x_0}\sqrt{1-x^2}dx
+&=\int_{x_0-1}^01-\sqrt{1-x^2}dx\\
+&=\int_{0}^{1-x_0}1-\sqrt{1-x^2}dx\\
+&=1-x_0-\int_{0}^{1-x_0}\sqrt{1-x^2}dx
 \end{aligned}$$
 
 经过查表，$\int \sqrt{1-x^2}dx=\dfrac{1}{2}(\arcsin x+x\sqrt{1-x^2})+C$
 
 因此
 
-$$I=x_0-\dfrac{1}{2}(\arcsin x_0+x_0\sqrt{1-x_0^2})$$
+$$I=1-x_0-\dfrac{1}{2}(\arcsin (1-x_0)+(1-x_0)\sqrt{1-(1-x_0)^2})$$
 
 因此凹三角形$OAC$的总面积为
 
-$$S_k=\dfrac{x_0y_0}{2}+x_0-\dfrac{1}{2}(\arcsin x_0+x_0\sqrt{1-x_0^2})$$
+$$S_k=\dfrac{x_0y_0}{2}+1-x_0-\dfrac{1}{2}(\arcsin (1-x_0)+(1-x_0)\sqrt{1-(1-x_0)^2})$$
 
 那么题目所求比例值为$\dfrac{S_k}{S_0}$。
 
-不难观察到，随着$k$越大，值$\dfrac{S_k}{S_0}$越小。为了找到符合题目要求的最小$k$，考虑使用二分查找。
+随着$k$越大，值$\dfrac{S_k}{S_0}$越小，这个值具有**单调性**。为了找到符合题目要求的最小$k$，考虑使用[二分查找算法](https://en.wikipedia.org/wiki/Binary_search_algorithm)解决。
+
 
 ## 代码
 
+```py
+from math import pi, asin
 
+R = 0.001
+S0 = 1 - pi / 4
+k = 1
+l, r = 1, 10 ** 9
+while l < r:
+    k = (l + r) >> 1
+    a = 1 + k * k
+    b = -k * k * 2 - k * 2
+    c = k * k
+    d = b * b - 4 * a * c
+    x = (-b - d ** 0.5) / (a * 2)
+    t = 1 - x
+    Sk = x * x / k / 2 + t - 0.5 * (asin(t) + t * (1 - t ** 2) ** 0.5)
+    if Sk / S0 < R:
+        r = k
+    else:
+        l = k + 1
+ans = l
+print(ans)
+
+```
