@@ -2,6 +2,8 @@
 title: Project Euler 227
 tags:
   - Project Euler
+  - 概率
+  - 动态规划
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -26,6 +28,7 @@ Give your answer rounded to ten significant digits.
 
 
 ## 解决方案
+
 
 
 ## 代码

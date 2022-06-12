@@ -30,10 +30,13 @@ In how many ways can a laser beam enter at vertex $C$, bounce off $12017639147$ 
 
 我们对这个等边三角形进行拓展，得到下图：
 
+![](../images/p202-2.png)
+
 其中，蓝色点就是通过镜面拓展出来后的$C$点。
 
 由于这是一个三角形阵列，不容易对每个点进行坐标编排，因此以原图中的点$C$为原点，将整个三角形阵列转化为平面直角坐标系上的点，如下图：
 
+![](../images/p202-3.png)
 
 那么很容易地观察出，拓展出来的$C(x,y)$满足关系：$y\equiv x(\mod 3)$
 
@@ -46,9 +49,17 @@ In how many ways can a laser beam enter at vertex $C$, bounce off $12017639147$ 
 1. $y\equiv x(\mod 3)$
 2. $\gcd(x,y)=1$
 3. $2x+2y-3=N,$即$x+y=\dfrac{N+3}{2}$
+4. $x,y>0$
 
+因此，如果$N$为偶数，那么答案为$0$。
 
+令$M=\dfrac{N+3}{2}$，问题进一步转化成：有多少个数$x$，满足以下条件：
 
+1. $\gcd(x,M-x)=1$，通过辗转相除法，可以改写成$\gcd(x,M)=1$
+2. $1\le x\le M$
+3. $2x\equiv M(\mod 3)$
+
+不难发现，当$M$是$3$的倍数时，条件1和3是矛盾的，因此此时答案为$0$，因此只考虑$M$为非$3$的倍数时的答案。
 ## 代码
 
 

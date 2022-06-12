@@ -31,6 +31,10 @@ Calculate $\displaystyle{\sum M(10^{18},10^9,p\cdot q\cdot r)}$ for $1000\lt p\l
 
 ## 解决方案
 
+令$pr$为所有满足$1000< p< 5000$的质数$p$的数组。
+
+利用[卢卡斯定理](https://en.wikipedia.org/wiki/Lucas%27s_theorem)，可以预处理出所有$\displaystyle{\binom{10^{18}}{10^9}}\%p$的值。
+
 
 ## 代码
 
