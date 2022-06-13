@@ -28,7 +28,7 @@ How many numbers $t(n)$ are prime for $n \le 50,000,000$ ?
 
 一个结论：如果$p|t(n)$，那么$p|t(kp\pm n)$，其中$k\ge0$。
 
-原因：$t(kp\pm n)=2(kp^2\pm n)-1=2k^2p^4\pm4kp^2n+2n^2-1$。我们已经假定了$p|2n^2-1$，因此$p|t(kp\pm n)$成立。
+原因：$t(kp\pm n)=2(kp^2\pm n)^2-1=2k^2p^4\pm4kp^2n+2n^2-1$。我们已经假定了$p|2n^2-1$，因此$p|t(kp\pm n)$成立。
 
 这说明只要发现$t(n)$有一个质因子$p$，就可以将它把$t(n+p),t(n+2p),\dots,t(p-n),t(2p-n),\dots$筛掉。
 
