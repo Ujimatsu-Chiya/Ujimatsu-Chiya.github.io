@@ -3,14 +3,16 @@ title: Project Euler 601
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-13 21:21:50
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 601
+
 ## 题目
+
 ### Divisibility streaks
-
-
 
 For every positive number $n$ we define the function  $\text{streak}(n)=k$   as the smallest positive integer $k$ such that $n+k$ is not divisible by $k+1$.
 
@@ -20,21 +22,18 @@ $14$ is divisible by $2$ <br />
 $15$ is divisible by $3$ <br />
 $16$ is divisible by $4$ <br />
 $17$ is NOT divisible by $5$ <br />
-So $\text{streak}(13) = 4$. <br /> 
+So $\text{streak}(13) = 4$. <br />
 
 Similarly:<br />
 $120$ is divisible by $1$ <br />
 $121$ is NOT divisible by $2$ <br />
 So $\text{streak}(120) = 1$.
 
-
 Define $P(s, N)$ to be the number of integers $n$, $1 < n < N$, for which $\text{streak}(n) = s$.
 
 So $P(3, 14) = 1$ and $P(6, 10^6) = 14286$.
 
-
 Find the sum, as $i$ ranges from $1$ to $31$, of $P(i, 4^i)$.
-
 
 ## 解决方案
 
@@ -54,9 +53,7 @@ $$P(s,N)=\lfloor\dfrac{N-1}{L(s)}\rfloor-\lfloor\dfrac{N-1}{L(s+1)}\rfloor-[s=1]
 
 第一项则计算出了在$1\sim N-1$中，有多少个数是$L(s)$的倍数，它们的$\text{streak}$值**大于等于**$s$。第二项则减去$L(s+1)$的倍数，它们的$\text{streak}$值**大于等于**$s+1$。那么剩下的数就确保了它们的$\text{streak}$值为$s$。第三项则避免了$1$这个答案，以符合题目中的要求。
 
-
 ## 代码
-
 
 ```py
 from tools import lcm

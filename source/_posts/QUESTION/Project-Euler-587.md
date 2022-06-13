@@ -4,14 +4,16 @@ tags:
   - Project Euler
   - 二分查找
 mathjax: true
+date: 2022-06-13 21:21:38
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 587
+
 ## 题目
+
 ### Concave triangle
-
-
 
 A square is drawn around a circle as shown in the diagram below on the left.
 We shall call the blue shaded region the L-section.
@@ -24,26 +26,17 @@ We shall call the orange shaded region a concave triangle.
 
 It should be clear that the concave triangle occupies exactly half of the L-section.
 
-
-
 Two circles are placed next to each other horizontally, a rectangle is drawn around both circles, and a line is drawn from the bottom left to the top right as shown in the diagram below.
 
 ![](../images/p587_concave_triangle_2.png)
 
 This time the concave triangle occupies approximately 36.46% of the L-section.
 
-
 If $n$ circles are placed next to each other horizontally, a rectangle is drawn around the $n$ circles, and a line is drawn from the bottom left to the top right, then it can be shown that the least value of $n$ for which the concave triangle occupies less than $10\%$ of the L-section is $n = 15$.
 
 What is the least value of $n$ for which the concave triangle occupies less than $0.1\%$ of the L-section?
 
-
-
-
-
-
 ## 解决方案
-
 
 这里假设每个圆的半径都为$1$。
 
@@ -83,7 +76,6 @@ $$S_k=\dfrac{x_0y_0}{2}+1-x_0-\dfrac{1}{2}(\arcsin (1-x_0)+(1-x_0)\sqrt{1-(1-x_0
 那么题目所求比例值为$\dfrac{S_k}{S_0}$。
 
 随着$k$越大，值$\dfrac{S_k}{S_0}$越小，这个值具有**单调性**。为了找到符合题目要求的最小$k$，考虑使用[二分查找算法](https://en.wikipedia.org/wiki/Binary_search_algorithm)解决。
-
 
 ## 代码
 

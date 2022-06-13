@@ -4,25 +4,22 @@ tags:
   - Project Euler
   - 数论分块
 mathjax: true
+date: 2022-06-13 21:21:46
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 625
+
 ## 题目
+
 ### Gcd sum
 
-
-
-$G(N)=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)$. 
+$G(N)=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)$.
 
 You are given: $G(10)=122$.
 
 Find $G(10^{11})$. Give your answer modulo $998244353$.
-
-
-
-
-
 
 ## 解决方案
 
@@ -53,9 +50,7 @@ $$\begin{aligned}
 
 $$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})$$
 
-
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

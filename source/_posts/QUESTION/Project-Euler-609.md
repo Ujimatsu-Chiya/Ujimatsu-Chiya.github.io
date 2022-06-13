@@ -3,24 +3,26 @@ title: Project Euler 609
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-13 21:21:14
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 609
+
 ## 题目
+
 ### π sequences
-
-
 
 For every $n \ge 1$ the **prime-counting** function $\pi(n)$ is equal to the number of primes not exceeding $n$.
 
 E.g. $\pi(6)=3$ and $\pi(100)=25$.
 
-We say that a sequence of integers $u  = (u_0,\cdots,u_m)$ is a *$\pi$ sequence* if 
+We say that a sequence of integers $u  = (u_0,\cdots,u_m)$ is a *$\pi$ sequence* if
 
 - $u_n \ge 1$ for every $n$
 - $u_{n+1}= \pi(u_n)$
--  $u$ has two or more elements
+- $u$ has two or more elements
 
 For $u_0=10$ there are three distinct $\pi$ sequences: $(10,4),  (10,4,2)$ and $(10,4,2,1)$.
 
@@ -32,17 +34,13 @@ Let $P(n)$ be the product of all $p(n,k)$ that are larger than $0$.
 
 You are given: $P(10)=3\times8\times9\times3=648$ and $P(100)=31038676032$.
 
-Find $P(10^8)$. Give your answer modulo $1000000007$. 
-
-
-
+Find $P(10^8)$. Give your answer modulo $1000000007$.
 
 ## 解决方案
 
 利用线性筛生成所有质数，并直接计算出函数$\pi$的值。$u$序列直接通过迭代$\pi$值产生。
 
 注意到，对于相邻两个质数$p,q$，发现$\pi(p)=\pi(p+1)=\pi(p+2)=\dots=\pi(q-1)$。因此，同时处理开头为$p\sim q-1$的$u$序列。
-
 
 ## 代码
 

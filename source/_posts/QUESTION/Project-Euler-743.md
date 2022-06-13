@@ -3,29 +3,26 @@ title: Project Euler 743
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-13 21:21:30
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 743
+
 ## 题目
+
 ### Window into a Matrix
 
-
-
 A window into a matrix is a contiguous sub matrix.
-
 
 Consider a $2\times n$ matrix where every entry is either $0$ or $1$.
 
 Let $A(k,n)$ be the total number of these matrices such that the sum of the entries in every $2\times k$ window is $k$.
 
-
 You are given that $A(3,9) = 560$ and $A(4,20) = 1060870$.
 
-
 Find $A(10^8,10^{16})$. Give your answer modulo $1\,000\,000\,007$.
-
-
 
 ## 解决方案
 
@@ -44,7 +41,6 @@ $$A(k,n)=\sum_{i=0}^{\lfloor\frac{k}{2}\rfloor}\frac{k!}{(n-2i)!(i!)^2}2^{\frac{
 如果有$i$列有两个$1$，那么有$i$列没有$1$，有$k-2i$只有一个$1$。那么，$1$的分配方式就有$C_{k}^i\cdot C_{k-i}^i=\dfrac{k!}{(n-2i)!(i!)^2}$种。整个$2\times n$的格子中，有$\dfrac{n}{k}\cdot(k-2i)$列是只有一个$1$的，每一列有$2$种填法，由此得到$2^{\frac{n}{k}\cdot(k-2i)}$。最终通过组合得到上式。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

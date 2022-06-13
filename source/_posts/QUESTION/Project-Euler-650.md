@@ -3,14 +3,16 @@ title: Project Euler 650
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-13 21:21:34
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 650
+
 ## 题目
+
 ### Divisors of Binomial Product
-
-
 
 Let $B(n) = \displaystyle \prod_{k=0}^n {n \choose k}$, a product of binomial coefficients.
 
@@ -18,24 +20,18 @@ For example, $B(5) = {5 \choose 0} \times {5 \choose 1} \times {5 \choose 2}  \t
 
 Let $D(n) = \displaystyle \sum_{d|B(n)} d$, the sum of the divisors of $B(n)$.
 
-
 For example, the divisors of $B(5)$ are $1, 2, 4, 5, 10, 20, 25, 50, 100, 125, 250, 500, 625, 1250$ and $2500$,
 
 so $D(5) = 1 + 2 + 4 + 5 + 10 + 20 + 25 + 50 + 100 + 125 + 250 + 500 + 625 + 1250 + 2500 = 5467$.
-
 
 Let $S(n) = \displaystyle \sum_{k=1}^n D(k)$.
 
 You are given $S(5) = 5736$, $S(10) = 141740594713218418$ and $S(100) \mod 1\,000\,000\,007 = 332792866$.
 
-
 Find $S(20\,000) \mod 1\,000\,000\,007$.
 
-
-
-
-
 ## 解决方案
+
 根据组合数的定义，不难计算出
 
 $$B(n)=\dfrac{(n!)^{n+1}}{\prod_{i=0}^n (i!)^2}$$
@@ -47,7 +43,6 @@ $$B(n)=B(n-1)\cdot \dfrac{n^n}{n!}$$
 直接维护$B(n)$的分解质因数$B(n)=p_1^{e_1}\cdot p_2^{e_2}\cdot p_1^{e_3}\dots$中$e_1,e_2,e_3\dots$的值。每一次求好之后利用因数和定理$\sigma(B(n))=\prod\dfrac{p_i^{e_i+1}-1}{p_i-1}$和快速幂算法进行计算。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

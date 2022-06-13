@@ -3,13 +3,15 @@ title: Project Euler 516
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-13 21:21:23
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 516
+
 ## 题目
+
 ### 5-smooth totients
 
 $5$-smooth numbers are numbers whose largest prime factor doesn’t exceed $5$.
@@ -22,7 +24,6 @@ $S(100)=3728$.
 
 Find $S(10^{12})$. Give your answer modulo $2^{32}$.
 
-
 ## 解决方案
 
 可以发现，这些数都是形如以下形式：
@@ -34,7 +35,6 @@ $$2^a3^b5^c\cdot p_1p_2p_3\dots$$
 那么，枚举的过程分为两部分：一部分是枚举出$2^a3^b5^c$的值，直接暴力循环枚举。另一部分是枚举右边大于$5$的质数的乘积，通过递归进行枚举。
 
 最终，这两部分数两两之间的乘积就是答案。
-
 
 ## 代码
 
@@ -84,4 +84,3 @@ int main() {
     printf("%lld\n", ans);
 }
 ```
-

@@ -3,15 +3,15 @@ title: Project Euler 381
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-13 21:21:54
 ---
+
 <escape><!-- more --></escape>
-    
-
-
-
 
 # Project Euler 381
+
 ## 题目
+
 ### (prime-k) factorial
 
 For a prime $p$ let $S(p) = (\sum(p-k)!) \mod(p)$ for $1 \le k \le 5$.
@@ -51,7 +51,6 @@ $$24a\equiv -1(\mod p)$$
 为了避免扩展使用欧几里得算法的值，可以通过计算出$2,3$在$p$上的逆元，间接计算出$24$的逆元。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>
