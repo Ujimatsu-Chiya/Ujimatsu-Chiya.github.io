@@ -28,6 +28,7 @@ Find the smallest denominator $d$, having a resilience $R(d) < \dfrac{15499}{947
 
 ## 解决方案
 
+根据欧拉函数$\varphi$的定义，可以知道$R(d)=\dfrac{\varphi(d)}{d-1}$
 
 ## 代码
 
