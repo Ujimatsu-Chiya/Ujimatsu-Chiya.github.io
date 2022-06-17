@@ -62,7 +62,61 @@ $$\begin{aligned}
 &Q\cdot P_1^{57}
 \end{aligned}$$
 
-其中，$Q$是模$4$余$3$的质数之积，$P_i$是模$4$余$1$的质数。
+
+其中，$Q$是质数$2$和模$4$余$3$的质数组合成的数，$P_i$是模$4$余$1$的质数。第二种和第五种情况指数太大，故不考虑。
+
+令$M=10^{11}$，那么$Q\le \dfrac{M}{5^3\cdot13^2\cdot 17},P_i\le \dfrac{M}{5^2\cdot13^2}$（均由第一种形式推出。）
+
+因此，先枚举$Q$的部分，再枚举$P=\prod_iP_j^{E_J}$的部分，最终所有$PQ\le M$的值就是答案。
+
+
 ## 代码
 
 
+```C++
+#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+const ll N=1e11;
+const ll MXQ = N/(5*5*5*13*13*17);
+const ll MXP = N/(5*5*5*13*13);
+ll s[MXQ+4];
+bool vis[MXP+4];
+int pr[MXP / 5 + 1000],m=0;
+int main(){
+    s[1]=1;
+    for(int i=2;i<=MXP;i++){
+        if(vis[i]) continue;
+        for(ll j=1ll*i*i;j<=MXP;j+=i){
+            vis[j]=1;
+        }
+        if(i%4==1) pr[++m]=i;
+        else{
+            for(ll j=1;j<=MXQ/i;j++)
+                if(s[j]) s[j*i]=1;
+        }
+    }
+    for(int i=1;i<=MXQ;i++)
+        s[i]=s[i-1]+(s[i]?i:0);
+    ll u,v,w;
+    ll ans=0;
+    // 1
+    for(int i=1;i<=m&&(u=pr[i]*pr[i]*pr[i])<=N/(5*5*13);i++) {
+        for(int j=1;j<=m&&(v=u*pr[j]*pr[j])<=N;j++)
+            if(i!=j)
+                for(int k=1;k<=m&&(w=v*pr[k])<=N;k++)
+                    if(i!=k&&j!=k) ans+=w*s[N/w];
+    }
+    // 3
+    for(int i=1;i<=m&& (u=pow(pr[i], 10)) <= N; i++){
+        for(int j=1;j<=m&& (v= u * pr[j] * pr[j]) <= N; j++)
+            if(i!=j) ans+=v*s[N/v];
+        }
+    // 4
+    for(int i=1;i<=m&& (u=pow(pr[i], 7))<=N; i++){
+        for(int j=1;j<=m&& (v= u*pr[j]*pr[j]*pr[j])<=N; j++)
+            if(i!=j) ans+=v*s[N/v];
+        }
+    printf("%lld\n",ans);
+}
+```
