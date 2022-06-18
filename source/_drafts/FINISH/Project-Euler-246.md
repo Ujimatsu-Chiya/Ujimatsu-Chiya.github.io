@@ -52,11 +52,11 @@ $$(a^2k^2+b^2)x^2+(2a^2ky_0x-2a^2k^2x_0)x+a^2y_0^2-2a^2kx_0y_0+a^2k^2x_0^2-a^2b^
 
 $$(x_0^2 - a^2)k^2-2x_0y_0k+y_0^2-b^2=0$$
 
-也就是说，$k$不同的两个解对应着直线的斜率，不失一般性，假设其分别为$k_0,k_1,k_0<k_1$。
+也就是说，$k$不同的两个解对应着直线的斜率，不失一般性，假设其分别为$k_0,k_1$。那么这两条直线夹角的正切值为$|\dfrac{k_1-k_0}{1+k_0k_1}|$。
 
-这两条直线夹角的正切值为$\dfrac{k_1-k_0}{1+k_0k_1}$。
+解决本题时，还采用了一个假设：当$\angle RPS=45°$时，$P$点的轨迹$\Gamma$是一个凸曲线。（如果$\dfrac{a}{b}$值太大，那么$\Gamma$将不会是一个凸曲线，我在这里没有进行太多的研究。）
 
-解决本题时，还采用了一个假设：当$\angle RPS=45°$时，$P$点的轨迹$\Gamma$是一个凸曲线。
+因此，枚举所有$x_0\ge0$，二分查找$y_0$使其恰好在$\Gamma$外部。那么，$y_0$以下（不包括$y_0$）的所有点都是答案，不过，这需要排除在椭圆内部的点。
 
 ## 代码
 
@@ -77,43 +77,37 @@ cnt2 = cnt4 = 0
 pre_r = int((a + 4) * (a + 4))
 
 for x0 in count(0, 1):
-    if x0 != a:
-        if x0 < a:
-            y0 = ceil(sqrt(b2 * (1 - x0 * x0 / a2)) - eps)
-        else:
-            y0 = 0
-        l = y0
-        r = pre_r
-        while l < r:
-            mid = (l + r + 1) >> 1
+    y0 = ceil(sqrt(b2 * (1 - x0 * x0 / a2)) - eps) if x0 < a else 0
+    l = y0
+    r = pre_r
+    while l < r:
+        mid = (l + r) >> 1
+        if x0 != a:
             A = x0 * x0 - a2
             B = -2 * x0 * mid
             C = mid * mid - b2
             D = B * B - 4 * A * C
             k = [(-B - sqrt(D)) / (2 * A), (-B + sqrt(D)) / (2 * A)]
             tg = (k[1] - k[0]) / (1 + k[0] * k[1])
-            if 0 < tg <= 1:
-                r = mid - 1
-            else:
-                l = mid
-        if l == 0:
-            break
-        if x0 == 0:
-            cnt2 += l - y0 + 1
-        elif y0 > 0:
-            cnt4 += l - y0 + 1
         else:
-            cnt4 += l
-            cnt2 += 1
-        pre_r = l
+            k = (mid * mid - b2) / (2 * x0 * mid)
+            tg = 1 / k
+        if 0 < tg <= 1:
+            r = mid
+        else:
+            l = mid + 1
+    if l == 0:
+        break
+    # 统计不同点的个数。
+    if x0 == 0:
+        cnt2 += l - y0
+    elif y0 > 0:
+        cnt4 += l - y0
     else:
-        y0 = 1
-        while True:
-            k = (y0 * y0 - b2) / (2 * x0 * y0)
-            if k >= 1:
-                break
-            cnt4 += 1
-            y0 += 1
+        cnt4 += l - 1
+        if x0 > a:
+            cnt2 += 1
+    pre_r = l
 ans = cnt2 * 2 + cnt4 * 4
 print(ans)
 
