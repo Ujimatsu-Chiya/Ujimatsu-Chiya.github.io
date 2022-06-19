@@ -49,7 +49,7 @@ from math import exp, log
 
 N = 10 ** 18
 ans = 0
-K = int((exp(0.577215664901532) * log(log(N)) + 0.6483 / log(log(N)))*2)
+K = int((exp(0.57721566490153286) * log(log(N)) + 0.6483 / log(log(N)))*2)
 
 
 def dfs(n: int, fz: int, fm: int):
