@@ -25,7 +25,7 @@ dy &=& 1 + (S_{6n-1} \text{ modulo } 399)\\
 dz &=& 1 + (S_{6n} \text{ modulo } 399)
 \end{aligned}$
 
-where $S_1,\dots,S_300000$ come from the “Lagged Fibonacci Generator”:
+where $S_1,\dots,S_{300000}$ come from the “Lagged Fibonacci Generator”:
 
 For $1 \le k \le 55, S_k = [100003 - 200003k + 300007k^3]  (\text{ modulo } 1000000)$
 
