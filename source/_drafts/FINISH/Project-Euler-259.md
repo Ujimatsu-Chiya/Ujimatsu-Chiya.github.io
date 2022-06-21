@@ -5,10 +5,11 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
 
 # Project Euler 259
+
 ## 题目
+
 ### Reachable Numbers
 
 A positive integer will be called *reachable* if it can result from an arithmetic expression obeying the following rules:
@@ -20,10 +21,9 @@ A positive integer will be called *reachable* if it can result from an arithmeti
 - <dfn title="A minus sign applied to a single operand (as opposed to a subtraction operator between two operands)">Unary minus</dfn> is not allowed.
 - Any number of (possibly nested) parentheses may be used to define the order of operations.
 
-For example, $42$ is reachable, since $(1/23) * ((4*5)-6) * (78-9) = 42$.
+For example, $42$ is reachable, since $(1/23) *((4*5)-6) * (78-9) = 42$.
 
 What is the sum of all positive reachable integers?
-
 
 ## 解决方案
 
