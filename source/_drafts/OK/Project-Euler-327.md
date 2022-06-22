@@ -33,7 +33,7 @@ For example, $M(3,6)=123$ and $M(4,6)=23$. And, $\sum M(C,6)=146$ for $3 \le C \
 
 You are given that $\sum M(C,10)=10382$ for $3 \le C \le 10$.
 
-Find $\sum M(C,30) for 3 \le C \le 40$.
+Find $\sum M(C,30)$ for $3 \le C \le 40$.
 
 
 

@@ -3,13 +3,16 @@ title: Project Euler 709
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-22 23:27:13
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 709
-## 题目
-### Even Stevens
 
+<escape><!-- more --></escape>
+
+# Project Euler 709
+
+## 题目
+
+### Even Stevens
 
 Every day for the past $n$ days Even Stevens brings home his groceries in a plastic bag. He stores these plastic bags in a cupboard. He either puts the plastic bag into the cupboard with the rest, or else he takes an **even** number of the existing bags (which may either be empty or previously filled with other bags themselves) and places these into the current bag.
 
@@ -26,8 +29,6 @@ Note that $1, 2, 3$ inside $4$ is invalid because every bag must contain an even
 Define $f(n)$ to be the number of possible packings of $n$ bags. Hence $f(4)=5$. You are also given $f(8)=1\,385$.
 
 Find $f(24\,680)$ giving your answer modulo $1\,020\,202\,009$.
-
-
 
 ## 解决方案
 
@@ -59,7 +60,7 @@ $$
 
 这给出了$f(n)$的另一条递推公式：
 
-$$f(n)=\dfrac{\sum_{k=0}^nC_n^k\cdot f(k)\cdot f(n-k)}{2}$$
+$$f(n+1)=\dfrac{\sum_{k=0}^nC_n^k\cdot f(k)\cdot f(n-k)}{2}$$
 
 ## 代码
 

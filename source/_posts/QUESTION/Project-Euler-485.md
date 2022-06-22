@@ -3,14 +3,16 @@ title: Project Euler 485
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-22 23:26:56
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 485
+
 ## 题目
+
 ### Maximum number of divisors
-
-
 
 Let $d(n)$ be the number of divisors of $n$.
 
@@ -20,10 +22,7 @@ Let $S(u,k)$ be the sum of $M(n,k)$ for $1 \le n \le u-k+1$.
 
 You are given that $S(1000,10)=17176$.
 
-
 Find $S(100 000 000,100 000)$.
-
-
 
 ## 单调队列
 
@@ -40,7 +39,6 @@ $$S(N,K)=\sum_{i=1}^{N-K+1} \max_{j=i}^{i+K-1} d(j)$$
 那么，询问值将是$[1,K],[2,K+1],[3,K+2],\dots$因此，使用单调队列来维护这些询问值。最终将每次维护结果的队头相加即可。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

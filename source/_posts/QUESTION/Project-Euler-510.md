@@ -3,13 +3,15 @@ title: Project Euler 510
 tags:
   - Project Euler
 mathjax: true
+date: 2022-06-22 23:27:05
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 510
+
 ## 题目
+
 ### Tangent Circles
 
 Circles $A$ and $B$ are tangent to each other and to line $L$ at three distinct points.
@@ -51,8 +53,8 @@ $$r_C=\dfrac{r_Ar_B}{r_A+r_B+2\sqrt{r_Ar_B}}$$
 那么，重新令$r_A=dp^2(p+q)^2,r_B=dq^2(p+q)^2,r_C=dp^2q^2$，其中$p\le q,\gcd(p,q)=1,d>0$，那么枚举出每对互质的$(p,q)$和$d$，就产生了一对符合要求的三元组$(r_A,r_b,r_C)$。
 
 在代码实现中，$(p,q)$的枚举是在[Stern-Brocot Tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree)上进行。
-## 代码
 
+## 代码
 
 ```py
 N = 10 ** 9
