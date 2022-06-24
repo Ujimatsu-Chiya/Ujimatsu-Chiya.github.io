@@ -39,6 +39,15 @@ Give your answer as a fraction reduced to its lowest terms, in the form $u/v$.
 
 ## 解决方案
 
+假设$m=\dfrac{u}{v}$，$\gcd(u,v)=1$，$a_1,a_2,\dots,a_5$分别是$A$店铺对应$5$个商品的损耗量，$b_1,b_2,\dots,b_5$同理。
+
+那么可以写出以下几个等式：
+
+$$\dfrac{b_1}{a_1}=\dfrac{5u}{41v},\dfrac{b_2}{a_2}=\dfrac{b_3}{a_3}=\dfrac{b_5}{a_5}=\dfrac{59u}{41v},\dfrac{b_4}{a_4}=\dfrac{59u}{90v}$$
+
+那么，根据最后一个条件：A点的损耗总数为B的$m$倍，那么可以写出：
+
+$$\dfrac{\sum_{i=1}^5a_i}{\sum_{i=1}^5b_i}=\dfrac{295u}{246v}$$
 
 ## 代码
 
