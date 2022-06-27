@@ -19,3 +19,7 @@ U(n) &= 2S(n-2) + U(n-1)
 可以发现，两家店中，Gammon Joint和Champagne Truffles的数量分别都是Christmas Cake的$2$被和$3$倍。
 
 因此，枚举$m$时，不需要考虑这Gammon Joint和Champagne Truffles两种物品。但是计算总数时，Christmas Cake的数量要考虑成是$6$倍的。
+
+对于第$i$个初始方向而言，机器人的移动位置向量为$dx_i=\cos\dfrac{(i+1)2\pi}{5}-\cos\dfrac{i\cdot 2\pi}{5},dy_i=\sin\dfrac{(i+1)2\pi}{5}-\sin\dfrac{i\cdot 2\pi}{5}$
+
+那么$\sum_{i=0}^4dx_i=0,\sum_{i=0}^4dy_i=0$，每一个方向在序列中都恰好出现相同的次数，机器人才可能返回原点。
