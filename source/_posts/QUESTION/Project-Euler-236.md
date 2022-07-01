@@ -3,12 +3,15 @@ title: Project Euler 236
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-01 17:37:03
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 236
+
 ## 题目
+
 ### Luxury Hampers
 
 Suppliers ‘A’ and ‘B’ provided the following numbers of products for the luxury hamper market:
@@ -35,7 +38,6 @@ There are thirty-five $m>1$ for which this surprising result could have occurred
 What’s the largest possible value of $m$?
 
 Give your answer as a fraction reduced to its lowest terms, in the form $u/v$.
-
 
 ## 解决方案
 
@@ -69,11 +71,7 @@ $$k_1(v_1V-u_1U)+k_2(v_2V-u_2U)+k_4(v_4V-u_4U)=0$$
 
 由于$k_1,k_2,k_4$的上限都很低，因此可以直接进行二重循环的枚举，当然也可以进行一次循环且使用扩展欧几里得算法解决。
 
-
-
-
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

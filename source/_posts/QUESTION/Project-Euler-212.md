@@ -4,13 +4,15 @@ tags:
   - Project Euler
   - 容斥原理
 mathjax: true
+date: 2022-07-01 17:37:11
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 212
+
 ## 题目
+
 ### Combined Volume of Cuboids
 
 An *axis-aligned cuboid*, specified by parameters $\{ (x_0,y_0,z_0), (dx,dy,dz) \}$, consists of all points $(X,Y,Z)$ such that $x_0 \le X \le x_0+dx, y_0 \le Y \le y_0+dy$ and $z_0 \le Z \le z_0+dz$.  The volume of the cuboid is the product, $dx \times dy \times dz$.  The *combined volume* of a collection of cuboids is the volume of their union and will be less than the sum of the individual volumes if any cuboids overlap.
@@ -38,7 +40,6 @@ The combined volume of the first $100$ cuboids, $C_1,\dots,C_{100}$, is $7235815
 
 What is the combined volume of all $50000$ cuboids, $C_1,\dots,C_{50000}$ ?
 
-
 ## 解决方案
 
 这$50000$个方块有以下特点：
@@ -54,10 +55,7 @@ What is the combined volume of all $50000$ cuboids, $C_1,\dots,C_{50000}$ ?
 
 当然，本题也可以用八叉树进行实现，不过效率较低。
 
-
-
 ## 代码
-
 
 ```py
 from collections import defaultdict
