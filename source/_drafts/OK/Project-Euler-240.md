@@ -28,6 +28,7 @@ In how many ways can twenty $12$-sided dice (sides numbered $1$ to $12$) be roll
 
 ## 解决方案
 
+令$N=12,S=70,T=2$。
 
 ## 代码
 

@@ -103,7 +103,7 @@ def cal(n):
         return 0
     ls = factorization(m)
     s = phi(m)
-    if 1 not in [a[0] for a in ls]:
+    if 1 not in [a[0] % 3 for a in ls]:
         g = -1 if m % 3 == 2 else 1
         s -= g * 2 ** len(ls)
     return s // 3
