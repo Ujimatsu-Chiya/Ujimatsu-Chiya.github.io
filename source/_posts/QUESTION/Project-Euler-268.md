@@ -35,7 +35,6 @@ $$\sum_{i=K}^M (-1)^{i-K}\cdot C_{i-1}^{K-1}\cdot \sum_{p_1<p_2<\dots<p_i}\dfrac
 
 ```py
 from tools import get_prime, C
-from time import time
 
 N = 10 ** 16
 M = 100
