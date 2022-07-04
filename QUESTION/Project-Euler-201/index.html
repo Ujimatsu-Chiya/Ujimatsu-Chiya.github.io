@@ -26,7 +26,7 @@
 <meta property="og:site_name" content="Ujimatsu Chiya">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-05-30T12:28:01.000Z">
-<meta property="article:modified_time" content="2022-06-09T15:52:16.363Z">
+<meta property="article:modified_time" content="2022-07-02T04:39:04.176Z">
 <meta property="article:author" content="Ujimatsu Chiya">
 <meta property="article:tag" content="Project Euler">
 <meta name="twitter:card" content="summary">
@@ -222,7 +222,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-09 23:52:16" itemprop="dateModified" datetime="2022-06-09T23:52:16+08:00">2022-06-09</time>
+                <time title="修改时间：2022-07-02 12:39:04" itemprop="dateModified" datetime="2022-07-02T12:39:04+08:00">2022-07-02</time>
               </span>
 
           
@@ -320,7 +320,7 @@ f(i,j,k)=
 \]</span></p>
 <p>对于方程最后一行，新数<span class="math inline">\(i^2\)</span>要么被使用了，就<span class="math inline">\(f(i-1,j-1,k-i^2)\)</span>中的所有集合都添加一个<span class="math inline">\(i^2\)</span>；要么没有被使用，直接将旧状态<span class="math inline">\(f(i-1,j,k)\)</span>记录。</p>
 <p>因此，最终答案为<span class="math inline">\(\sum_{k=1}^S
-k\cdot[f(M,N,k)=1]\)</span>。其中，<span class="math inline">\([]\)</span>表示示性函数，表示<span class="math inline">\([]\)</span>里面的值是否为真，如果为真，那么值为<span class="math inline">\(0\)</span>，否则值为<span class="math inline">\(1\)</span>.</p>
+k\cdot[f(M,N,k)=1]\)</span>。其中，<span class="math inline">\([]\)</span>表示示性函数，表示<span class="math inline">\([]\)</span>里面的值是否为真，如果为真，那么值为<span class="math inline">\(1\)</span>，否则值为<span class="math inline">\(0\)</span>.</p>
 <p>由于本题只关心<span class="math inline">\(f\)</span>的值是否为<span class="math inline">\(0,1\)</span>，或者是超过<span class="math inline">\(2\)</span>，因此为<span class="math inline">\(f\)</span>定义一个新运算<span class="math inline">\(\circ\)</span>：<span class="math inline">\(\{0,1,2\}^2\rightarrow\{0,1,2\}\)</span>，其中<span class="math inline">\(a\circ b=\min(a+b,2)\)</span>。因此不需要计算<span class="math inline">\(f\)</span>的真实值，避免了溢出问题。</p>
 <h2 id="代码">代码</h2>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">100</span>,N=<span class="number">50</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> S=M*(M+<span class="number">1</span>)*(<span class="number">2</span>*M+<span class="number">1</span>)/<span class="number">6</span>-N*(N+<span class="number">1</span>)*(<span class="number">2</span>*N+<span class="number">1</span>)/<span class="number">6</span>;</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">1</span>][S+<span class="number">1</span>];</span><br><span class="line"><span class="type">int</span> add[<span class="number">3</span>][<span class="number">3</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">3</span>; j++)</span><br><span class="line">            add[i][j] = <span class="built_in">min</span>(<span class="number">2</span>, i + j);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>, sum = <span class="number">0</span>; i &lt;= M; i++) &#123;</span><br><span class="line">        <span class="type">int</span> v = i * i;</span><br><span class="line">        sum += v;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="built_in">min</span>(N, i); j &gt;= <span class="number">1</span>; j--)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="built_in">min</span>(S, sum); k &gt;= v; k--)</span><br><span class="line">                f[j][k] = add[f[j][k]][f[j - <span class="number">1</span>][k - v]];</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= S; i++)</span><br><span class="line">        <span class="keyword">if</span> (f[N][i] == <span class="number">1</span>) ans += i;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -421,14 +421,14 @@ k\cdot[f(M,N,k)=1]\)</span>。其中，<span class="math inline">\([]\)</span>�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">300</span>
+          <span class="site-state-item-count">312</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-count">20</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -465,13 +465,13 @@ k\cdot[f(M,N,k)=1]\)</span>。其中，<span class="math inline">\([]\)</span>�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">326k</span>
+    <span title="站点总字数">345k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:56</span>
+    <span title="站点阅读时长">5:14</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
