@@ -3,13 +3,15 @@ title: Project Euler 239
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-04 18:02:25
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 239
+
 ## 题目
+
 ### Twenty-two Foolish Primes
 
 A set of disks numbered $1$ through $100$ are placed in a line in random order.
@@ -18,8 +20,8 @@ What is the probability that we have a partial derangement such that exactly $22
 
 Give your answer rounded to $12$ places behind the decimal point in the form $0.abcdefghijkl$.
 
-
 ## 解决方案
+
 令$N=100,O=22$，并且$N$以内一共有$M=25$个质数。
 
 不难以下两个过程是独立的：
@@ -41,9 +43,7 @@ $$
 
 合并两个步骤，最终题目的答案为$\dfrac{C_M^O\cdot f(N-M+O,O)}{N!}$.
 
-
 ## 代码
-
 
 ```py
 from tools import C

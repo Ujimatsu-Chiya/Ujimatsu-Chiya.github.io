@@ -54,7 +54,7 @@ $$T(n)=\dfrac{1678n^3+3117n^2+88n-345\cdot(n\%2)-320\cdot(n\%3)-90\cdot(n\%4)-28
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-const int N=3;
+const int N=36;
 struct P {
     ll x, y;
     // 向量减法

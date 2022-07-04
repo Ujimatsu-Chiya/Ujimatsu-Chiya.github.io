@@ -99,7 +99,7 @@ def cal(n):
     if n % 2 == 0:
         return 0
     m = (n + 3) // 2
-    if m % 2 == 0:
+    if m % 3 == 0:
         return 0
     ls = factorization(m)
     s = phi(m)
