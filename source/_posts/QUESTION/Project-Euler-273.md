@@ -40,15 +40,10 @@ $$(a^2+b^2)(c^2+d^2)=(ac-bd)^2+(ad+bc)^2=(ac+bd)^2+(ad-bc)^2$$
 
 ```C++
 # include <bits/stdc++.h>
+# include "tools.h"
 using namespace std;
 typedef long long ll;
 const int N=150;
-bool is_prime(ll x){
-    if(x==1) return 0;
-    for(int i=2;i*i<=x;i++)
-        if(x%i==0) return 0;
-    return 1;
-}
 vector<int>pr,u,v;
 ll dfs(int f,ll a,ll b){
     if(f==u.size()) return min(abs(a),abs(b));
@@ -59,7 +54,7 @@ int main() {
         if(is_prime(p)){
             pr.push_back(p);
             for(int a=1;a*a<=p;a++){
-                int b=sqrt(p-a*a)+1e-9;
+                int b=int_square(p-a*a);
                 if(a*a+b*b==p){
                     u.push_back(a);
                     v.push_back(b);
