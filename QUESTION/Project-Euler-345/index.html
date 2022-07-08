@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ujimatsu-chiya.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 345">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-345/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-08T09:05:59.000Z">
+<meta property="article:modified_time" content="2022-07-08T09:48:04.306Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta property="article:tag" content="Project Euler">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="图论">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-345/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Project Euler 345 | Ujimatsu Chiya</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ujimatsu Chiya</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-project-euler">
+
+    <a href="/Project-Euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-345/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 345
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-08 17:05:59 / 修改时间：17:48:04" itemprop="dateCreated datePublished" datetime="2022-07-08T17:05:59+08:00">2022-07-08</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>2.3k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-345">Project Euler 345</h1>
+<h2 id="题目">题目</h2>
+<h3 id="matrix-sum">Matrix Sum</h3>
+<p>We define the <em>Matrix Sum</em> of a matrix as the maximum possible
+sum of matrix elements such that none of the selected elements share the
+same row or column.</p>
+<p>For example, the Matrix Sum of the matrix below equals <span class="math inline">\(3315 ( = 863 + 383 + 343 + 959 +
+767)\)</span>:</p>
+<p><span class="math display">\[\begin{matrix}
+  7 &amp;  53 &amp; 183 &amp; 439 &amp; \color{lightgreen} {863} \\
+497 &amp; \color{lightgreen} {383} &amp; 563 &amp;  79 &amp; 973 \\
+287 &amp;  63 &amp; \color{lightgreen} {343} &amp; 169 &amp; 583 \\
+627 &amp; 343 &amp; 773 &amp; \color{lightgreen} {959} &amp; 943 \\
+\color{lightgreen} {767} &amp; 473 &amp; 103 &amp; 699 &amp; 303
+\end{matrix}\]</span></p>
+<p>Find the Matrix Sum of:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>7</td>
+<td>53</td>
+<td>183</td>
+<td>439</td>
+<td>863</td>
+<td>497</td>
+<td>383</td>
+<td>563</td>
+<td>79</td>
+<td>973</td>
+<td>287</td>
+<td>63</td>
+<td>343</td>
+<td>169</td>
+<td>583</td>
+</tr>
+<tr class="even">
+<td>627</td>
+<td>343</td>
+<td>773</td>
+<td>959</td>
+<td>943</td>
+<td>767</td>
+<td>473</td>
+<td>103</td>
+<td>699</td>
+<td>303</td>
+<td>957</td>
+<td>703</td>
+<td>583</td>
+<td>639</td>
+<td>913</td>
+</tr>
+<tr class="odd">
+<td>447</td>
+<td>283</td>
+<td>463</td>
+<td>29</td>
+<td>23</td>
+<td>487</td>
+<td>463</td>
+<td>993</td>
+<td>119</td>
+<td>883</td>
+<td>327</td>
+<td>493</td>
+<td>423</td>
+<td>159</td>
+<td>743</td>
+</tr>
+<tr class="even">
+<td>217</td>
+<td>623</td>
+<td>3</td>
+<td>399</td>
+<td>853</td>
+<td>407</td>
+<td>103</td>
+<td>983</td>
+<td>89</td>
+<td>463</td>
+<td>290</td>
+<td>516</td>
+<td>212</td>
+<td>462</td>
+<td>350</td>
+</tr>
+<tr class="odd">
+<td>960</td>
+<td>376</td>
+<td>682</td>
+<td>962</td>
+<td>300</td>
+<td>780</td>
+<td>486</td>
+<td>502</td>
+<td>912</td>
+<td>800</td>
+<td>250</td>
+<td>346</td>
+<td>172</td>
+<td>812</td>
+<td>350</td>
+</tr>
+<tr class="even">
+<td>870</td>
+<td>456</td>
+<td>192</td>
+<td>162</td>
+<td>593</td>
+<td>473</td>
+<td>915</td>
+<td>45</td>
+<td>989</td>
+<td>873</td>
+<td>823</td>
+<td>965</td>
+<td>425</td>
+<td>329</td>
+<td>803</td>
+</tr>
+<tr class="odd">
+<td>973</td>
+<td>965</td>
+<td>905</td>
+<td>919</td>
+<td>133</td>
+<td>673</td>
+<td>665</td>
+<td>235</td>
+<td>509</td>
+<td>613</td>
+<td>673</td>
+<td>815</td>
+<td>165</td>
+<td>992</td>
+<td>326</td>
+</tr>
+<tr class="even">
+<td>322</td>
+<td>148</td>
+<td>972</td>
+<td>962</td>
+<td>286</td>
+<td>255</td>
+<td>941</td>
+<td>541</td>
+<td>265</td>
+<td>323</td>
+<td>925</td>
+<td>281</td>
+<td>601</td>
+<td>95</td>
+<td>973</td>
+</tr>
+<tr class="odd">
+<td>445</td>
+<td>721</td>
+<td>11</td>
+<td>525</td>
+<td>473</td>
+<td>65</td>
+<td>511</td>
+<td>164</td>
+<td>138</td>
+<td>672</td>
+<td>18</td>
+<td>428</td>
+<td>154</td>
+<td>448</td>
+<td>848</td>
+</tr>
+<tr class="even">
+<td>414</td>
+<td>456</td>
+<td>310</td>
+<td>312</td>
+<td>798</td>
+<td>104</td>
+<td>566</td>
+<td>520</td>
+<td>302</td>
+<td>248</td>
+<td>694</td>
+<td>976</td>
+<td>430</td>
+<td>392</td>
+<td>198</td>
+</tr>
+<tr class="odd">
+<td>184</td>
+<td>829</td>
+<td>373</td>
+<td>181</td>
+<td>631</td>
+<td>101</td>
+<td>969</td>
+<td>613</td>
+<td>840</td>
+<td>740</td>
+<td>778</td>
+<td>458</td>
+<td>284</td>
+<td>760</td>
+<td>390</td>
+</tr>
+<tr class="even">
+<td>821</td>
+<td>461</td>
+<td>843</td>
+<td>513</td>
+<td>17</td>
+<td>901</td>
+<td>711</td>
+<td>993</td>
+<td>293</td>
+<td>157</td>
+<td>274</td>
+<td>94</td>
+<td>192</td>
+<td>156</td>
+<td>574</td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>124</td>
+<td>4</td>
+<td>878</td>
+<td>450</td>
+<td>476</td>
+<td>712</td>
+<td>914</td>
+<td>838</td>
+<td>669</td>
+<td>875</td>
+<td>299</td>
+<td>823</td>
+<td>329</td>
+<td>699</td>
+</tr>
+<tr class="even">
+<td>815</td>
+<td>559</td>
+<td>813</td>
+<td>459</td>
+<td>522</td>
+<td>788</td>
+<td>168</td>
+<td>586</td>
+<td>966</td>
+<td>232</td>
+<td>308</td>
+<td>833</td>
+<td>251</td>
+<td>631</td>
+<td>107</td>
+</tr>
+<tr class="odd">
+<td>813</td>
+<td>883</td>
+<td>451</td>
+<td>509</td>
+<td>615</td>
+<td>77</td>
+<td>281</td>
+<td>613</td>
+<td>459</td>
+<td>205</td>
+<td>380</td>
+<td>274</td>
+<td>302</td>
+<td>35</td>
+<td>805</td>
+</tr>
+</tbody>
+</table>
+<h2 id="解决方案">解决方案</h2>
+<p>不难想到使用状态压缩动态规划来完成这题。</p>
+<p>令<span class="math inline">\(N=15\)</span>。并将这些数存在一个开始下标为<span class="math inline">\(0\)</span>的<span class="math inline">\(N\times
+N\)</span>大小的数组中。我们使用一个<span class="math inline">\(N\)</span>位二进制数<span class="math inline">\(st\)</span>来表示当前的列的使用情况。如果第<span class="math inline">\(i\)</span>列被使用了，那么<span class="math inline">\(st\)</span>的第<span class="math inline">\(i\)</span>位为<span class="math inline">\(1\)</span>，否则为<span class="math inline">\(0\)</span>。并且令<span class="math inline">\(c(st)\)</span>为<span class="math inline">\(N\)</span>位二进制数<span class="math inline">\(st\)</span>中<span class="math inline">\(1\)</span>的位数。</p>
+<p>那么令状态<span class="math inline">\(f(st)(0\le
+st&lt;2^N)\)</span>为在前<span class="math inline">\(c(st)\)</span>行中，已经使用了<span class="math inline">\(st\)</span>表示的一部分列，目前的最大和。那么可以写出如下状态转移方程：</p>
+<p><span class="math display">\[
+f(st)=
+\left \{\begin{aligned}
+  &amp;0  &amp; &amp; \mathrm{if\quad} st=0 \\
+  &amp;\max_{i=0,st\&amp;2^i&gt;0}^{N-1}
+f(st\oplus2^i)+a[c(st)-1][i]&amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>对于每一个状态<span class="math inline">\(st\)</span>，通过<span class="math inline">\(c(st)\)</span>我们就已经确定了当前已经使用的行数，并从新的一行开始选择。最终，从前已经使用的<span class="math inline">\(f(st\oplus 2^i)\)</span>和现在要选择的<span class="math inline">\(a[c(st)-1][i]\)</span>数相合并，就转移到了当前状态。</p>
+<p>最终答案为<span class="math inline">\(f[2^N-1]\)</span>，注意<span class="math inline">\(c(2^N-1)=N\)</span>，这说明<span class="math inline">\(N\)</span>行都已经被选完了。</p>
+<p>另外一种方法则是通过改造求将这个问题转换成<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minimum-cost_flow_problem">最小费用最大流问题</a>，从而可以在多项式时间内解决。</p>
+<p>由于同一行下，每一列的元素都是互斥的，这让我们考虑使用网络流的思想解决。因此我们将每一行和每一列都用一个节点表示，假设行节点为<span class="math inline">\(a_i\)</span>，列节点为<span class="math inline">\(b_j\)</span>，那么为每个行节点<span class="math inline">\(a_i\)</span>向列节点<span class="math inline">\(b_j\)</span> 连一条费用为<span class="math inline">\(-a[i][j]\)</span>（注意这里是负数，因为问题模型是最小费用），容量为<span class="math inline">\(1\)</span>的边。添加一个源点<span class="math inline">\(s\)</span>，指向所有行节点，容量为<span class="math inline">\(1\)</span>，费用为<span class="math inline">\(0\)</span>；再添加一个汇点<span class="math inline">\(t\)</span>，将所有列节点指向<span class="math inline">\(t\)</span>，同样容量为<span class="math inline">\(1\)</span>，费用为<span class="math inline">\(0\)</span>。</p>
+<p>最终执行完算法后，花费的费用最小，并且每一行，每一列都被用到。取反符号后即为答案。</p>
+<p>此处的代码将使用networkx库中的max_flow_min_cost方法完成。</p>
+<p>通过查看费用流的<span class="math inline">\(N^2\)</span>条边的使用情况，还可以得知哪<span class="math inline">\(N\)</span>个数被选上了。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">15</span>;</span><br><span class="line"><span class="type">int</span> a[N][N]=&#123;</span><br><span class="line">  <span class="number">7</span>, <span class="number">53</span>,<span class="number">183</span>,<span class="number">439</span>,<span class="number">863</span>,<span class="number">497</span>,<span class="number">383</span>,<span class="number">563</span>, <span class="number">79</span>,<span class="number">973</span>,<span class="number">287</span>, <span class="number">63</span>,<span class="number">343</span>,<span class="number">169</span>,<span class="number">583</span>,</span><br><span class="line"><span class="number">627</span>,<span class="number">343</span>,<span class="number">773</span>,<span class="number">959</span>,<span class="number">943</span>,<span class="number">767</span>,<span class="number">473</span>,<span class="number">103</span>,<span class="number">699</span>,<span class="number">303</span>,<span class="number">957</span>,<span class="number">703</span>,<span class="number">583</span>,<span class="number">639</span>,<span class="number">913</span>,</span><br><span class="line"><span class="number">447</span>,<span class="number">283</span>,<span class="number">463</span>, <span class="number">29</span>, <span class="number">23</span>,<span class="number">487</span>,<span class="number">463</span>,<span class="number">993</span>,<span class="number">119</span>,<span class="number">883</span>,<span class="number">327</span>,<span class="number">493</span>,<span class="number">423</span>,<span class="number">159</span>,<span class="number">743</span>,</span><br><span class="line"><span class="number">217</span>,<span class="number">623</span>,  <span class="number">3</span>,<span class="number">399</span>,<span class="number">853</span>,<span class="number">407</span>,<span class="number">103</span>,<span class="number">983</span>, <span class="number">89</span>,<span class="number">463</span>,<span class="number">290</span>,<span class="number">516</span>,<span class="number">212</span>,<span class="number">462</span>,<span class="number">350</span>,</span><br><span class="line"><span class="number">960</span>,<span class="number">376</span>,<span class="number">682</span>,<span class="number">962</span>,<span class="number">300</span>,<span class="number">780</span>,<span class="number">486</span>,<span class="number">502</span>,<span class="number">912</span>,<span class="number">800</span>,<span class="number">250</span>,<span class="number">346</span>,<span class="number">172</span>,<span class="number">812</span>,<span class="number">350</span>,</span><br><span class="line"><span class="number">870</span>,<span class="number">456</span>,<span class="number">192</span>,<span class="number">162</span>,<span class="number">593</span>,<span class="number">473</span>,<span class="number">915</span>, <span class="number">45</span>,<span class="number">989</span>,<span class="number">873</span>,<span class="number">823</span>,<span class="number">965</span>,<span class="number">425</span>,<span class="number">329</span>,<span class="number">803</span>,</span><br><span class="line"><span class="number">973</span>,<span class="number">965</span>,<span class="number">905</span>,<span class="number">919</span>,<span class="number">133</span>,<span class="number">673</span>,<span class="number">665</span>,<span class="number">235</span>,<span class="number">509</span>,<span class="number">613</span>,<span class="number">673</span>,<span class="number">815</span>,<span class="number">165</span>,<span class="number">992</span>,<span class="number">326</span>,</span><br><span class="line"><span class="number">322</span>,<span class="number">148</span>,<span class="number">972</span>,<span class="number">962</span>,<span class="number">286</span>,<span class="number">255</span>,<span class="number">941</span>,<span class="number">541</span>,<span class="number">265</span>,<span class="number">323</span>,<span class="number">925</span>,<span class="number">281</span>,<span class="number">601</span>, <span class="number">95</span>,<span class="number">973</span>,</span><br><span class="line"><span class="number">445</span>,<span class="number">721</span>, <span class="number">11</span>,<span class="number">525</span>,<span class="number">473</span>, <span class="number">65</span>,<span class="number">511</span>,<span class="number">164</span>,<span class="number">138</span>,<span class="number">672</span>, <span class="number">18</span>,<span class="number">428</span>,<span class="number">154</span>,<span class="number">448</span>,<span class="number">848</span>,</span><br><span class="line"><span class="number">414</span>,<span class="number">456</span>,<span class="number">310</span>,<span class="number">312</span>,<span class="number">798</span>,<span class="number">104</span>,<span class="number">566</span>,<span class="number">520</span>,<span class="number">302</span>,<span class="number">248</span>,<span class="number">694</span>,<span class="number">976</span>,<span class="number">430</span>,<span class="number">392</span>,<span class="number">198</span>,</span><br><span class="line"><span class="number">184</span>,<span class="number">829</span>,<span class="number">373</span>,<span class="number">181</span>,<span class="number">631</span>,<span class="number">101</span>,<span class="number">969</span>,<span class="number">613</span>,<span class="number">840</span>,<span class="number">740</span>,<span class="number">778</span>,<span class="number">458</span>,<span class="number">284</span>,<span class="number">760</span>,<span class="number">390</span>,</span><br><span class="line"><span class="number">821</span>,<span class="number">461</span>,<span class="number">843</span>,<span class="number">513</span>, <span class="number">17</span>,<span class="number">901</span>,<span class="number">711</span>,<span class="number">993</span>,<span class="number">293</span>,<span class="number">157</span>,<span class="number">274</span>, <span class="number">94</span>,<span class="number">192</span>,<span class="number">156</span>,<span class="number">574</span>,</span><br><span class="line"> <span class="number">34</span>,<span class="number">124</span>,  <span class="number">4</span>,<span class="number">878</span>,<span class="number">450</span>,<span class="number">476</span>,<span class="number">712</span>,<span class="number">914</span>,<span class="number">838</span>,<span class="number">669</span>,<span class="number">875</span>,<span class="number">299</span>,<span class="number">823</span>,<span class="number">329</span>,<span class="number">699</span>,</span><br><span class="line"><span class="number">815</span>,<span class="number">559</span>,<span class="number">813</span>,<span class="number">459</span>,<span class="number">522</span>,<span class="number">788</span>,<span class="number">168</span>,<span class="number">586</span>,<span class="number">966</span>,<span class="number">232</span>,<span class="number">308</span>,<span class="number">833</span>,<span class="number">251</span>,<span class="number">631</span>,<span class="number">107</span>,</span><br><span class="line"><span class="number">813</span>,<span class="number">883</span>,<span class="number">451</span>,<span class="number">509</span>,<span class="number">615</span>, <span class="number">77</span>,<span class="number">281</span>,<span class="number">613</span>,<span class="number">459</span>,<span class="number">205</span>,<span class="number">380</span>,<span class="number">274</span>,<span class="number">302</span>, <span class="number">35</span>,<span class="number">805</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="type">int</span> f[<span class="number">1</span>&lt;&lt;N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> s=<span class="number">1</span>;s&lt;(<span class="number">1</span>&lt;&lt;N);s++)&#123;</span><br><span class="line">        <span class="type">int</span> c=__builtin_popcount(s)<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s&gt;&gt;i&amp;<span class="number">1</span>)</span><br><span class="line">                f[s]=<span class="built_in">max</span>(f[s],f[s^<span class="number">1</span>&lt;&lt;i]+a[c][i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,f[(<span class="number">1</span>&lt;&lt;N)<span class="number">-1</span>]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> networkx <span class="keyword">as</span> nx</span><br><span class="line"></span><br><span class="line">a = [[<span class="number">7</span>, <span class="number">53</span>, <span class="number">183</span>, <span class="number">439</span>, <span class="number">863</span>, <span class="number">497</span>, <span class="number">383</span>, <span class="number">563</span>, <span class="number">79</span>, <span class="number">973</span>, <span class="number">287</span>, <span class="number">63</span>, <span class="number">343</span>, <span class="number">169</span>, <span class="number">583</span>],</span><br><span class="line">     [<span class="number">627</span>, <span class="number">343</span>, <span class="number">773</span>, <span class="number">959</span>, <span class="number">943</span>, <span class="number">767</span>, <span class="number">473</span>, <span class="number">103</span>, <span class="number">699</span>, <span class="number">303</span>, <span class="number">957</span>, <span class="number">703</span>, <span class="number">583</span>, <span class="number">639</span>, <span class="number">913</span>],</span><br><span class="line">     [<span class="number">447</span>, <span class="number">283</span>, <span class="number">463</span>, <span class="number">29</span>, <span class="number">23</span>, <span class="number">487</span>, <span class="number">463</span>, <span class="number">993</span>, <span class="number">119</span>, <span class="number">883</span>, <span class="number">327</span>, <span class="number">493</span>, <span class="number">423</span>, <span class="number">159</span>, <span class="number">743</span>],</span><br><span class="line">     [<span class="number">217</span>, <span class="number">623</span>, <span class="number">3</span>, <span class="number">399</span>, <span class="number">853</span>, <span class="number">407</span>, <span class="number">103</span>, <span class="number">983</span>, <span class="number">89</span>, <span class="number">463</span>, <span class="number">290</span>, <span class="number">516</span>, <span class="number">212</span>, <span class="number">462</span>, <span class="number">350</span>],</span><br><span class="line">     [<span class="number">960</span>, <span class="number">376</span>, <span class="number">682</span>, <span class="number">962</span>, <span class="number">300</span>, <span class="number">780</span>, <span class="number">486</span>, <span class="number">502</span>, <span class="number">912</span>, <span class="number">800</span>, <span class="number">250</span>, <span class="number">346</span>, <span class="number">172</span>, <span class="number">812</span>, <span class="number">350</span>],</span><br><span class="line">     [<span class="number">870</span>, <span class="number">456</span>, <span class="number">192</span>, <span class="number">162</span>, <span class="number">593</span>, <span class="number">473</span>, <span class="number">915</span>, <span class="number">45</span>, <span class="number">989</span>, <span class="number">873</span>, <span class="number">823</span>, <span class="number">965</span>, <span class="number">425</span>, <span class="number">329</span>, <span class="number">803</span>],</span><br><span class="line">     [<span class="number">973</span>, <span class="number">965</span>, <span class="number">905</span>, <span class="number">919</span>, <span class="number">133</span>, <span class="number">673</span>, <span class="number">665</span>, <span class="number">235</span>, <span class="number">509</span>, <span class="number">613</span>, <span class="number">673</span>, <span class="number">815</span>, <span class="number">165</span>, <span class="number">992</span>, <span class="number">326</span>],</span><br><span class="line">     [<span class="number">322</span>, <span class="number">148</span>, <span class="number">972</span>, <span class="number">962</span>, <span class="number">286</span>, <span class="number">255</span>, <span class="number">941</span>, <span class="number">541</span>, <span class="number">265</span>, <span class="number">323</span>, <span class="number">925</span>, <span class="number">281</span>, <span class="number">601</span>, <span class="number">95</span>, <span class="number">973</span>],</span><br><span class="line">     [<span class="number">445</span>, <span class="number">721</span>, <span class="number">11</span>, <span class="number">525</span>, <span class="number">473</span>, <span class="number">65</span>, <span class="number">511</span>, <span class="number">164</span>, <span class="number">138</span>, <span class="number">672</span>, <span class="number">18</span>, <span class="number">428</span>, <span class="number">154</span>, <span class="number">448</span>, <span class="number">848</span>],</span><br><span class="line">     [<span class="number">414</span>, <span class="number">456</span>, <span class="number">310</span>, <span class="number">312</span>, <span class="number">798</span>, <span class="number">104</span>, <span class="number">566</span>, <span class="number">520</span>, <span class="number">302</span>, <span class="number">248</span>, <span class="number">694</span>, <span class="number">976</span>, <span class="number">430</span>, <span class="number">392</span>, <span class="number">198</span>],</span><br><span class="line">     [<span class="number">184</span>, <span class="number">829</span>, <span class="number">373</span>, <span class="number">181</span>, <span class="number">631</span>, <span class="number">101</span>, <span class="number">969</span>, <span class="number">613</span>, <span class="number">840</span>, <span class="number">740</span>, <span class="number">778</span>, <span class="number">458</span>, <span class="number">284</span>, <span class="number">760</span>, <span class="number">390</span>],</span><br><span class="line">     [<span class="number">821</span>, <span class="number">461</span>, <span class="number">843</span>, <span class="number">513</span>, <span class="number">17</span>, <span class="number">901</span>, <span class="number">711</span>, <span class="number">993</span>, <span class="number">293</span>, <span class="number">157</span>, <span class="number">274</span>, <span class="number">94</span>, <span class="number">192</span>, <span class="number">156</span>, <span class="number">574</span>],</span><br><span class="line">     [<span class="number">34</span>, <span class="number">124</span>, <span class="number">4</span>, <span class="number">878</span>, <span class="number">450</span>, <span class="number">476</span>, <span class="number">712</span>, <span class="number">914</span>, <span class="number">838</span>, <span class="number">669</span>, <span class="number">875</span>, <span class="number">299</span>, <span class="number">823</span>, <span class="number">329</span>, <span class="number">699</span>],</span><br><span class="line">     [<span class="number">815</span>, <span class="number">559</span>, <span class="number">813</span>, <span class="number">459</span>, <span class="number">522</span>, <span class="number">788</span>, <span class="number">168</span>, <span class="number">586</span>, <span class="number">966</span>, <span class="number">232</span>, <span class="number">308</span>, <span class="number">833</span>, <span class="number">251</span>, <span class="number">631</span>, <span class="number">107</span>],</span><br><span class="line">     [<span class="number">813</span>, <span class="number">883</span>, <span class="number">451</span>, <span class="number">509</span>, <span class="number">615</span>, <span class="number">77</span>, <span class="number">281</span>, <span class="number">613</span>, <span class="number">459</span>, <span class="number">205</span>, <span class="number">380</span>, <span class="number">274</span>, <span class="number">302</span>, <span class="number">35</span>, <span class="number">805</span>]</span><br><span class="line">     ]</span><br><span class="line"></span><br><span class="line">n = <span class="built_in">len</span>(a)</span><br><span class="line">s = -<span class="number">1</span></span><br><span class="line">t = -<span class="number">2</span></span><br><span class="line">g = nx.DiGraph()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        g.add_edge(i, j + n, capacity=<span class="number">1</span>, weight=-a[i][j])</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    g.add_edge(s, i, capacity=<span class="number">1</span>, weight=<span class="number">0</span>)</span><br><span class="line">    g.add_edge(i + n, t, capacity=<span class="number">1</span>, weight=<span class="number">0</span>)</span><br><span class="line">ans = -nx.cost_of_flow(g, nx.max_flow_min_cost(g, s, t))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Project-Euler/" rel="tag"># Project Euler</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+              <a href="/tags/%E5%9B%BE%E8%AE%BA/" rel="tag"># 图论</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/QUESTION/Project-Euler-327/" rel="prev" title="Project Euler 327">
+      <i class="fa fa-chevron-left"></i> Project Euler 327
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/QUESTION/Project-Euler-329/" rel="next" title="Project Euler 329">
+      Project Euler 329 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-345"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 345</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#matrix-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Matrix Sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">381k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:47</span>
+  
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        本站访问数：<span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站总访问量：<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
