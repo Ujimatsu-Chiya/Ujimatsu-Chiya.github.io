@@ -2,6 +2,7 @@
 title: Project Euler 359
 tags:
   - Project Euler
+  - OEIS
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -39,4 +40,47 @@ Find the sum of all $P(f, r)$ for all positive $f$ and $r$ such that $f \times r
 
 ## 解决方案
 
+通过暴力枚举前几项，可以在OEIS查询到结果为[A083362](https://oeis.org/A083362)。
+
+找到FORMULA一栏，给出了如下信息：
+
+```
+T(0, k) = (k+1)*(k+2)/2 for k>=0, T(n, 0) = floor((n+1)^2/2) for n>0, T(n, k+1) = (2*floor((n+1)/2) + k+1)^2 - T(n, k) for n>0 and k>=0.
+```
+
+这些信息给出的公式是以$0$为初始下标的。转化成以$1$为初始下标后，有
+
+$$
+p(f,r)=
+\left \{\begin{aligned}
+  &\dfrac{r(r+1)}{2}  & & \mathrm{if\quad} f=1 \\
+  &\lfloor\dfrac{f^2}{2}\rfloor & & \mathrm{else if\quad} f>1\wedge r=1 \\
+  &(2\cdot\lfloor\dfrac{f}{2}\rfloor+r-1)^2-p(f,r-1) & & \mathrm{else}
+\end{aligned}\right.
+$$
+
+可以看到第三条式子是一个递推式，为了加速计算的过程，我们考虑将它改写成通式。
+
+通过Mathematica输入以下代码：
+
+运行后发现结果为：
+
 ## 代码
+```py
+from tools import divisors
+
+N = 71328803586048
+mod = 10 ** 9
+
+
+def P(f, r):
+    if f == 1:
+        return r * (r + 1) // 2
+    else:
+        return r * (r - 1) // 2 + f // 2 * (f // 2 + r - (r + f) % 2) * 2
+
+
+ans = sum(P(d, N // d) for d in divisors(N)) % mod
+print(ans)
+
+```
