@@ -48,12 +48,12 @@ $$
 
 第二个问题：为防止游戏亏损，至多设立的钱数是多少。
 
-假设$X$为玩家进行一次游戏所获得的钱数，那么$X$满足以下两点分布：
+假设$X$为玩家进行一次游戏所获得的钱数的随机变量，那么$X$满足以下两点分布：
 
 |$X$|$P(X)$|
 |-|-|
-|$\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$|$x-1$|
-|$1-\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$|$-1$|
+|$x-1$|$\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$|
+|$-1$|$1-\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$|
 
 为了防止游戏亏损，那么$X$的数学期望$E[X]$必须满足$E[X]<0$。
 
@@ -77,6 +77,7 @@ ans = 0
 for j in range(N + 1):
     if j > N - j:
         ans += f[N][j]
-print(int(1 / ans))
+ans = int(1 / ans)
+print(ans)
 
 ```
