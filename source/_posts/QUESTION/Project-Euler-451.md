@@ -3,14 +3,15 @@ title: Project Euler 451
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-12 00:16:47
 ---
+
 <escape><!-- more --></escape>
-    
-
-
 
 # Project Euler 451
+
 ## 题目
+
 ### Modular inverses
 
 Consider the number $15$.
@@ -36,14 +37,11 @@ Also $I(100)=51$ and $I(7)=1$.
 
 Find $\sum I(n)$ for $3\le n\le2\cdot10^7$
 
-
 ## 解决方案
 
 将问题进行正式描述：求$I(n)$的值，其中$I(n)$是方程$x^2\equiv 1(\mod n)$中，小于$n-1$的最大正整数解。方程也可以化为：
 
 $$(x+1)(x-1)\equiv 0(\mod n)\qquad(1)$$
-
-
 
 假设$n$的分解质因数为$n=\prod_{i=1}^{k} p_i^{e_i}$，那么不难发现：
 
@@ -54,7 +52,7 @@ $$(x+1)(x-1)\equiv 0(\mod n)\qquad(1)$$
 
 不过由于数据范围$N=2\times 10^7$，比较大，因此实际上实现的时候，使用中国剩余定理先将多个形如$x^2\equiv 1(\mod p_i^{e_i})$方程的解两个两个地进行组合。具体方式如下：
 
-假设$n'=\prod_{i=1}^{k'}p_i^{e_i},k'<k,m=p_{k'+1}^{e_{k'+1}}$，如果我们已经解出了$x^2\equiv 1(\mod n')$的所有解，那么再方程的所有解$x_b$和方程$x^2\equiv 1(\mod m)$的所有解$x_a$一一组合，得到如下方程组：
+假设$n'=\prod_{i=1}^{k'}p_i^{e_i},k'< k,m=p_{k'+1}^{e_{k'+1}}$，如果我们已经解出了$x^2\equiv 1(\mod n')$的所有解，那么再方程的所有解$x_b$和方程$x^2\equiv 1(\mod m)$的所有解$x_a$（注意$x_a$要么为$1$，要么为$-1$）一一组合，得到如下方程组：
 
 $$
 \left \{\begin{aligned}
@@ -63,13 +61,13 @@ $$
 \end{aligned}\right.
 $$
 
-令$x=t_am+x_a=t_bn'+x_b$，那么得到一个方程$t_am-t_bn'=x_b-x_a$
+令$x=t_am+x_a=t_bn'+x_b$，那么得到一个以$t_a$和$t_b$为未知数的方程$t_am-t_bn'=x_b-x_a$.
 
+通过扩展欧几里得算法，我们可以解得方程$t_a'm-t_b'n'=1$的解$(t_a',t_b')$。那么得到$t_a=(x_b-x_a)t_a'$
 
-
+那么得到$x=t_am+x_a=(x_b-x_a)t_a'm+x_a=x_bt_a'm+x_a(1-t'_am)$。由于$x_a$能够分别取$1$和$-1$，因此每合并一个方程，都能够产生两个解：$x_bt_a'm\pm(1-t'_am)$
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

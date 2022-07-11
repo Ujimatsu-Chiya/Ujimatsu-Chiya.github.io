@@ -3,13 +3,16 @@ title: Project Euler 375
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-12 00:17:19
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 375
-## 题目
-### Minimum of subsequences
 
+<escape><!-- more --></escape>
+
+# Project Euler 375
+
+## 题目
+
+### Minimum of subsequences
 
 Let $S_n$ be an integer sequence produced with the following pseudo-random number generator:
 $$
@@ -19,13 +22,11 @@ S_{n+1}  &= S_n^2 \mod 50515093
 \end{aligned}
 $$
 
-
 Let $A(i, j)$ be the minimum of the numbers $S_i, S_{i+1}, \ldots, S_j$ for $i\le j$.
 
 Let $M(N) = \sum A(i, j)$ for $1 \le i \le j \le N$.
 
 We can verify that $M(10) = 432256955$ and $M(10\,000) = 3264567774119$.
-
 
 Find $M(2\,000\,000\,000)$.
 
@@ -43,18 +44,13 @@ Find $M(2\,000\,000\,000)$.
 
 如果最小值$m$是某个区间的贡献，那么$m$可能横跨多个区间。为了避免重复计算，接下来先考虑比$m$大的数的贡献。
 
-
-
 接下来我们将原序列$S$中的$N$个值分成三部分，分别是：$S$的前$T$个数，$S$的最后$T$个数，以及中间其它数。由于$S$有周期性，我们只考虑$S$的前$2T+N\%T$项，对这些项使用上面提到的单调栈算法两次，分别求出两个关于$i$的序列$l[i],r[i]$。不难发现可以将这些$i-l[i],r[i]-i$的值对应到原式序列的一个个下标里面。
-
-
 
 因此对前$T$个数和后$T$个数分别独立计算求和。对于中间剩下的$N-2T$这一部分数，可以考虑将它分成每$T$个元素一块，整体计算贡献。
 
 在计算的过程中统计所有非最小值的区间贡献数量之和。长度为$N$的序列意味着有$\dfrac{N(N+1)}{2}$个区间，那么最后求$m$的时候用$\dfrac{N(N+1)}{2}$减去这些区间数量和，那么就得到了$m$的区间贡献数。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

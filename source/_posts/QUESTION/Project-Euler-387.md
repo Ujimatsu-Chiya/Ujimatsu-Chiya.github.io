@@ -3,13 +3,16 @@ title: Project Euler 387
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-12 00:16:43
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 387
-## 题目
-### Harshad Numbers
 
+<escape><!-- more --></escape>
+
+# Project Euler 387
+
+## 题目
+
+### Harshad Numbers
 
 A **Harshad or Niven number** is a number that is divisible by the sum of its digits.
 
@@ -37,9 +40,6 @@ You are given that the sum of the strong, right truncatable Harshad primes less 
 
 Find the sum of the strong, right truncatable Harshad primes less than $10^{14}$.
 
-
-
-
 ## 解决方案
 
 令$N=14.$不难发现，$1$位质数不是可右截强Harshad数，因为一位数与自己数位和的商为$1$，不是一个质数。
@@ -53,7 +53,6 @@ Find the sum of the strong, right truncatable Harshad primes less than $10^{14}$
 对每个右截强Harshad数$y$，后面都填上$1,3,7,9$这$4$个数位$d$中的一个，那么构造出了$10y+d$。最终如果$10y+d$是质数，那么就添加到答案中。
 
 ## 代码
-
 
 ```py
 from tools import is_prime

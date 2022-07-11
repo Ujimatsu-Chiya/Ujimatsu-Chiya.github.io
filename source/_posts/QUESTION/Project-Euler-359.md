@@ -4,7 +4,9 @@ tags:
   - Project Euler
   - OEIS
 mathjax: true
+date: 2022-07-12 00:16:55
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 359

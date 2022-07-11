@@ -4,21 +4,22 @@ tags:
   - Project Euler
   - 并查集
 mathjax: true
+date: 2022-07-12 00:16:59
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 425
+
 ## 题目
+
 ### Prime connection
-
-
 
 Two positive numbers $A$ and $B$ are said to be *connected* (denoted by "$A \leftrightarrow B$") if one of these conditions holds:
 
 (1) $A$ and $B$ have the same length and differ in exactly one digit; for example, $123 \leftrightarrow 173$.
 
 (2) Adding one digit to the left of $A$ (or $B$) makes $B$ (or $A$); for example, $23 \leftrightarrow 223$ and $123 \leftrightarrow 23$.
-
 
 We call a prime $P$ a *$2$'s relative* if there exists a chain of connected primes between $2$ and $P$ and no prime in the chain exceeds $P$.
 
@@ -28,22 +29,17 @@ $2 \leftrightarrow 3 \leftrightarrow 13 \leftrightarrow 113 \leftrightarrow 103 
 
 However, $11$ and $103$ are not $2$'s relatives.
 
-
 Let $F(N)$ be the sum of the primes $\le N$ which are not $2$'s relatives.
 
 We can verify that $F(10^3) = 431$ and $F(10^4) = 78728$.
 
-
 Find $F(10^7)$.
-
-
 
 ## 并查集
 
 [并查集](https://en.wikipedia.org/wiki/Disjoint-set_data_structure)：用于高效处理一些不相交集合的数据结构。一般有两个操作：合并两个集合；查询两个元素是否在同一个集合中。
 
 可以通过优化将并查集这两种单次操作优化到$O(\alpha(n))$级别，其中$\alpha(n)$是[反阿克曼函数](https://en.wikipedia.org/wiki/Ackermann_function#Inverse)（一个增长速率非常接近于零的函数）。
-
 
 ## 解决方案
 
@@ -52,7 +48,6 @@ Find $F(10^7)$.
 从小到大枚举每个质数$p$，并且通过$p$直接枚举出如题意所需要的改变一位的质数$p'$，合并质数$p$和$p'$的所在集合。合并完成后，最终判断$p$和$2$是否在同一集合即可。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

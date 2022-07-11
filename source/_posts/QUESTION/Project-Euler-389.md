@@ -5,12 +5,15 @@ tags:
   - 概率
   - 动态规划
 mathjax: true
+date: 2022-07-12 00:16:50
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 389
+
 ## 题目
+
 ### Platonic Dice
 
 An unbiased single 4-sided die is thrown and its value, $T$, is noted.
@@ -25,13 +28,11 @@ $D$ unbiased $20$-sided dice are thrown and their scores are added together. The
 
 Find the variance of $I$, and give your answer rounded to $4$ decimal places.
 
-
 ## 解决方案
 
 不难想到使用动态规划解决本题。
 
 当前先考虑一轮的过程：假设当前使用的是$m$面的骰子，那么令状态$g_m(i,j)(i,j\ge 0)$表示具有$i$个$m$面骰子的情况下，能够掷出$j$个点的概率。不难写出$g_m$的状态转移方程：
-
 
 $$
 g_m(i,j)=
@@ -61,9 +62,7 @@ $$
 
 朴素实现一次$g_m(i,j)$的转移需要花费$O(m)$的时间复杂度。为了加速，我们注意到在实现$g_m$一个状态$g_m(i-1,j)$会**等概率**转移到下一个状态中的连续一段：$g(i,j+1),g(i,j+2),\dots,g(i,j+m)$，因此考虑使用一个差分数组$g'_m[i][j]$进行转移的保存：将$g'[i][j+1]$加上$\dfrac{g_m(i-1,j)}{m}$，将$g'[i][j+m+1]$减去$\dfrac{g_m(i-1,j)}{m}$。最终$g_m(i,j)=\sum_{k=1}^j g'[i][k]$就可以一次循环求出来，平均一个状态只有$O(1)$的时间复杂度。
 
-
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

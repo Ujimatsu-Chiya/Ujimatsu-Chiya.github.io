@@ -3,13 +3,15 @@ title: Project Euler 443
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-12 00:17:23
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 443
+
 ## 题目
+
 ### GCD sequence
 
 Let $g(n)$ be a sequence defined as follows:
@@ -29,7 +31,6 @@ You are given that $g(1000) = 2524$ and $g(1000000) = 2624152$.
 
 Find $g(10^{15})$.
 
-
 ## 解决方案
 
 令$N=10^{15}$，将$g$中的前一部分项打印出来，发现对于绝大多数$n$，都满足$g(n)=g(n-1)+1$。
@@ -44,9 +45,7 @@ Find $g(10^{15})$.
 
 令$n'=n+k+1$，那么$g'=n+k+\gcd(n+k+1,g+k)$，得到了一组新的$n',g(n)$值，由此迭代直到$N$处。
 
-
 ## 代码
-
 
 ```py
 from tools import factorization, gcd

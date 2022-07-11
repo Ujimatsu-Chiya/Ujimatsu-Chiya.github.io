@@ -4,20 +4,22 @@ tags:
   - Project Euler
   - OEIS
 mathjax: true
+date: 2022-07-12 00:17:06
 ---
-<escape><!-- more --></escape>
-    
 
+<escape><!-- more --></escape>
 
 # Project Euler 364
+
 ## 题目
+
 ### Comfortable distance
 
 There are $N$ seats in a row. $N$ people come after each other to fill the seats according to the following rules:
 
 1. If there is any seat whose adjacent seat(s) are not occupied take such a seat.
 2. If there is no such seat and there is any seat for which only one adjacent seat is occupied take such a seat.
-3. Otherwise take one of the remaining available seats. 
+3. Otherwise take one of the remaining available seats.
 
 Let $T(N)$ be the number of possibilities that $N$ seats are occupied by $N$ people with the given rules. The following figure shows $T(4)=8$.
 
@@ -26,8 +28,6 @@ Let $T(N)$ be the number of possibilities that $N$ seats are occupied by $N$ peo
 We can verify that $T(10) = 61632$ and $T(1 000) \mod 100 000 007 = 47255094$.
 
 Find $T(1 000 000) \mod 100 000 007$.
-
-
 
 ## 解决方案
 
@@ -58,7 +58,6 @@ $$f(n,h)=\sum_{2m+3k=n-h-1} C_{m+k}^m\cdot (m+k+1)!\cdot(k+h)!\cdot 2^{k}\cdot(k
 将前一部分数在OEIS中查询，结果为[A192008](https://oeis.org/A192008)。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>
