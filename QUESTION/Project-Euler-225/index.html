@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>529</span>
+              <span>507</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,23 +257,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-225">Project Euler 225</h1>
-<h2 id="题目">题目</h2>
-<h3 id="tribonacci-non-divisors">Tribonacci non-divisors</h3>
-<p>The sequence <span class="math inline">\(1, 1, 1, 3, 5, 9, 17, 31,
-57, 105, 193, 355, 653, 1201 \dots\)</span> is defined by <span class="math inline">\(T_1 = T_2 = T_3 = 1\)</span> and <span class="math inline">\(T_n = T_n-1 + T_n-2 + T_n-3\)</span>.</p>
-<p>It can be shown that <span class="math inline">\(27\)</span> does not
-divide any terms of this sequence.</p>
-<p>In fact, <span class="math inline">\(27\)</span> is the first odd
-number with this property.</p>
-<p>Find the <span class="math inline">\(124^{\text{th}}\)</span> odd
-number that does not divide any terms of the above sequence.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>模<span class="math inline">\(p\)</span>下的广义斐波那契序列必定是一个周期性序列。因为它的下一个数都是由最近的<span class="math inline">\(m\)</span>个数（这里为<span class="math inline">\(m=3\)</span>）相加决定的，这些数最多只有<span class="math inline">\(p^m\)</span>种不同的可能性。也就是说，决定下一个数是多少的状态是有限的。最终无限的序列必定会呈现一个周期性。</p>
-<p>因此，利用这种性质，可以寻找序列的模<span class="math inline">\(p\)</span>周期，从而判断出这个奇数是否不能将原序列中任何一个数相除。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">Q = <span class="number">124</span></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> count(<span class="number">27</span>, <span class="number">2</span>):</span><br><span class="line">    ok = <span class="number">1</span></span><br><span class="line">    a = b = c = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        a, b, c = b, c, (a + b + c) % m</span><br><span class="line">        <span class="keyword">if</span> c == <span class="number">0</span>:</span><br><span class="line">            ok = <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> a == b == c == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> ok:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> cnt == Q:</span><br><span class="line">            ans = m</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-225"><a href="#Project-Euler-225" class="headerlink" title="Project Euler 225"></a>Project Euler 225</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Tribonacci-non-divisors"><a href="#Tribonacci-non-divisors" class="headerlink" title="Tribonacci non-divisors"></a>Tribonacci non-divisors</h3><p>The sequence $1, 1, 1, 3, 5, 9, 17, 31, 57, 105, 193, 355, 653, 1201 \dots$ is defined by $T_1 = T_2 = T_3 = 1$ and $T_n = T_n-1 + T_n-2 + T_n-3$.</p>
+<p>It can be shown that $27$ does not divide any terms of this sequence.</p>
+<p>In fact, $27$ is the first odd number with this property.</p>
+<p>Find the $124^{\text{th}}$ odd number that does not divide any terms of the above sequence.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>模$p$下的广义斐波那契序列必定是一个周期性序列。因为它的下一个数都是由最近的$m$个数（这里为$m=3$）相加决定的，这些数最多只有$p^m$种不同的可能性。也就是说，决定下一个数是多少的状态是有限的。最终无限的序列必定会呈现一个周期性。</p>
+<p>因此，利用这种性质，可以寻找序列的模$p$周期，从而判断出这个奇数是否不能将原序列中任何一个数相除。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">Q = <span class="number">124</span></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> count(<span class="number">27</span>, <span class="number">2</span>):</span><br><span class="line">    ok = <span class="number">1</span></span><br><span class="line">    a = b = c = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        a, b, c = b, c, (a + b + c) % m</span><br><span class="line">        <span class="keyword">if</span> c == <span class="number">0</span>:</span><br><span class="line">            ok = <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> a == b == c == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> ok:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> cnt == Q:</span><br><span class="line">            ans = m</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -357,7 +349,7 @@ number that does not divide any terms of the above sequence.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-225"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 225</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tribonacci-non-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tribonacci non-divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-225"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 225</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tribonacci-non-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tribonacci non-divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,14 +363,14 @@ number that does not divide any terms of the above sequence.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -415,13 +407,13 @@ number that does not divide any terms of the above sequence.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

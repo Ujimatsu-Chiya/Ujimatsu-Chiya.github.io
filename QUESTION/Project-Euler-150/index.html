@@ -240,14 +240,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -259,55 +259,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-150">Project Euler 150</h1>
-<h2 id="题目">题目</h2>
-<h3 id="searching-a-triangular-array-for-a-sub-triangle-having-minimum-sum">Searching
-a triangular array for a sub-triangle having minimum-sum</h3>
-<p>In a triangular array of positive and negative integers, we wish to
-find a sub-triangle such that the sum of the numbers it contains is the
-smallest possible.</p>
-<p>In the example below, it can be easily verified that the marked
-triangle satisfies this condition having a sum of <span class="math inline">\(-42\)</span>.</p>
-<p><img src="../images/p150.gif"></p>
-<p>We wish to make such a triangular array with one thousand rows, so we
-generate 500500 pseudo-random numbers s_k in the range ±2^19, using a
-type of random number generator (known as a Linear Congruential
-Generator) as follows:</p>
-<p><span class="math inline">\(\begin{aligned} &amp;t := 0 \\
-&amp;\text{for }k = 1 \text{ up to } k = 500500: \\ &amp;\quad t :=
-(615949*t + 797807) \mathrm{modulo\ } 2^{20} \\ &amp;\quad s_k :=
-t-2^{19} \\ \end{aligned}\)</span></p>
-<p>Thus: <span class="math inline">\(s_1 = 273519, s_2 = -153582, s_3 =
-450905\)</span> etc</p>
-<p>Our triangular array is then formed using the pseudo-random numbers
-thus:</p>
-<p><span class="math display">\[s_1\]</span> <span class="math display">\[s_2\ s_3\]</span> <span class="math display">\[s_4\ s_5\ s_6 \]</span> <span class="math display">\[s_7\ s_8\ s_9\ s_{10}\]</span> <span class="math display">\[\dots\]</span></p>
-<p>Sub-triangles can start at any element of the array and extend down
-as far as we like (taking-in the two elements directly below it from the
-next row, the three elements directly below from the row after that, and
-so on).</p>
-<p>The “sum of a sub-triangle” is defined as the sum of all the elements
-it contains.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-150"><a href="#Project-Euler-150" class="headerlink" title="Project Euler 150"></a>Project Euler 150</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Searching-a-triangular-array-for-a-sub-triangle-having-minimum-sum"><a href="#Searching-a-triangular-array-for-a-sub-triangle-having-minimum-sum" class="headerlink" title="Searching a triangular array for a sub-triangle having minimum-sum"></a>Searching a triangular array for a sub-triangle having minimum-sum</h3><p>In a triangular array of positive and negative integers, we wish to find a sub-triangle such that the sum of the numbers it contains is the smallest possible.</p>
+<p>In the example below, it can be easily verified that the marked triangle satisfies this condition having a sum of $-42$.</p>
+<p><img src="../images/p150.gif" alt></p>
+<p>We wish to make such a triangular array with one thousand rows, so we generate 500500 pseudo-random numbers s_k in the range ±2^19, using a type of random number generator (known as a Linear Congruential Generator) as follows:</p>
+<p>$\begin{aligned}<br>&amp;t := 0 \\<br>&amp;\text{for }k = 1 \text{ up to } k = 500500: \\<br>&amp;\quad t := (615949*t + 797807) \mathrm{modulo\ } 2^{20} \\<br>&amp;\quad s_k := t-2^{19} \\<br>\end{aligned}$</p>
+<p>Thus: $s_1 = 273519, s_2 = -153582, s_3 = 450905$ etc</p>
+<p>Our triangular array is then formed using the pseudo-random numbers thus:</p>
+<script type="math/tex; mode=display">s_1</script><script type="math/tex; mode=display">s_2\ s_3</script><script type="math/tex; mode=display">s_4\ s_5\ s_6</script><script type="math/tex; mode=display">s_7\ s_8\ s_9\ s_{10}</script><script type="math/tex; mode=display">\dots</script><p>Sub-triangles can start at any element of the array and extend down as far as we like (taking-in the two elements directly below it from the next row, the three elements directly below from the row after that, and so on).</p>
+<p>The “sum of a sub-triangle” is defined as the sum of all the elements it contains.</p>
 <p>Find the smallest possible sub-triangle sum.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>将数字三角形直接转化成一个以左下角为顶点的直角三角形，方便存储。如下：</p>
-<p><span class="math display">\[\begin{aligned}
-&amp; s_1 \\
-&amp; s_2\ s_3\\
-&amp; s_4\ s_5\ s_6 \\
-&amp; s_7\ s_8\ s_9\ s_{10}\\
-&amp; \dots
-\end{aligned}\]</span></p>
-<p>那么令三角形的行数为<span class="math inline">\(n\)</span>，设<span class="math inline">\(a[i][j](1\le j\le i\le n)\)</span>表示第<span class="math inline">\(i\)</span>行第<span class="math inline">\(j\)</span>列的数。</p>
-<p>假设<span class="math inline">\(s(i,j)=\sum_{k=1}^ja[i][k]\)</span>，也就是求出每一行的前缀和。其中，<span class="math inline">\(s(i,0)=0\)</span>。</p>
-<p>那么，对于最上面的点<span class="math inline">\((i,j)\)</span>，直角边长为<span class="math inline">\(d(i+d-1\le n)\)</span>的三角形的和为：<span class="math inline">\(f(i,j,d)=\sum_{k=0}^{d-1}
-s(i+k,j+k)-s(i+k,j-1)\)</span>。</p>
-<p>可以看出，当<span class="math inline">\(d\ge 2\)</span>时，<span class="math inline">\(f(i,j,d)=f(i,j,d-1)+s(i+d-1,j+d-1)-s(i+d,j-1)\)</span>.</p>
-<p>由上式可以提供一种做法：先枚举最上面的点<span class="math inline">\((i,j)\)</span>，然后从小到大枚举三角形的边长<span class="math inline">\(d\)</span>，枚举到第<span class="math inline">\(d\)</span>次时，就将第<span class="math inline">\(i+d-1\)</span>行第<span class="math inline">\(j\)</span>列之后的<span class="math inline">\(d\)</span>个数直接加起来。</p>
-<p>这种做法需要枚举<span class="math inline">\(\Theta(n^3)\)</span>个小三角形。但本人能力有限，还没想到<span class="math inline">\(O(n^2)\)</span>的算法。（如果想到了就补上）</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> mem(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line">ll s[N+<span class="number">4</span>][N+<span class="number">4</span>];</span><br><span class="line">ll ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll b=<span class="number">1</span>&lt;&lt;<span class="number">19</span>,t=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">        t=(<span class="number">615949ll</span>*t+<span class="number">797807</span>)%(b*<span class="number">2</span>);</span><br><span class="line">        s[i][j]=s[i][j<span class="number">-1</span>]+(t-b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">            ll sum=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">0</span>;i+d&lt;=N;d++)&#123;</span><br><span class="line">                sum+=s[i+d][j+d]-s[i+d][j<span class="number">-1</span>];</span><br><span class="line">                ans=<span class="built_in">min</span>(ans,sum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>将数字三角形直接转化成一个以左下角为顶点的直角三角形，方便存储。如下：</p>
+<script type="math/tex; mode=display">\begin{aligned}
+& s_1 \\
+& s_2\ s_3\\
+& s_4\ s_5\ s_6 \\
+& s_7\ s_8\ s_9\ s_{10}\\
+& \dots
+\end{aligned}</script><p>那么令三角形的行数为$n$，设$a[i]<a href="1\le j\le i\le n">j</a>$表示第$i$行第$j$列的数。</p>
+<p>假设$s(i,j)=\sum_{k=1}^ja[i][k]$，也就是求出每一行的前缀和。其中，$s(i,0)=0$。</p>
+<p>那么，对于最上面的点$(i,j)$，直角边长为$d(i+d-1\le  n)$的三角形的和为：$f(i,j,d)=\sum_{k=0}^{d-1} s(i+k,j+k)-s(i+k,j-1)$。</p>
+<p>可以看出，当$d\ge 2$时，$f(i,j,d)=f(i,j,d-1)+s(i+d-1,j+d-1)-s(i+d,j-1)$.</p>
+<p>由上式可以提供一种做法：先枚举最上面的点$(i,j)$，然后从小到大枚举三角形的边长$d$，枚举到第$d$次时，就将第$i+d-1$行第$j$列之后的$d$个数直接加起来。</p>
+<p>这种做法需要枚举$\Theta(n^3)$个小三角形。但本人能力有限，还没想到$O(n^2)$的算法。（如果想到了就补上）</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> mem(a,b) memset(a,b,sizeof(a))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line">ll s[N+<span class="number">4</span>][N+<span class="number">4</span>];</span><br><span class="line">ll ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll b=<span class="number">1</span>&lt;&lt;<span class="number">19</span>,t=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">        t=(<span class="number">615949ll</span>*t+<span class="number">797807</span>)%(b*<span class="number">2</span>);</span><br><span class="line">        s[i][j]=s[i][j<span class="number">-1</span>]+(t-b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;</span><br><span class="line">            ll sum=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">0</span>;i+d&lt;=N;d++)&#123;</span><br><span class="line">                sum+=s[i+d][j+d]-s[i+d][j<span class="number">-1</span>];</span><br><span class="line">                ans=<span class="built_in">min</span>(ans,sum);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -391,8 +368,7 @@ s(i+k,j+k)-s(i+k,j-1)\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-150"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 150</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#searching-a-triangular-array-for-a-sub-triangle-having-minimum-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Searching
-a triangular array for a sub-triangle having minimum-sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-150"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 150</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Searching-a-triangular-array-for-a-sub-triangle-having-minimum-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Searching a triangular array for a sub-triangle having minimum-sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -406,14 +382,14 @@ a triangular array for a sub-triangle having minimum-sum</span></a></li></ol></l
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -450,13 +426,13 @@ a triangular array for a sub-triangle having minimum-sum</span></a></li></ol></l
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

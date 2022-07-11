@@ -260,109 +260,90 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-109">Project Euler 109</h1>
-<h2 id="题目">题目</h2>
-<h3 id="darts">Darts</h3>
-<p>In the game of darts a player throws three darts at a target board
-which is split into twenty equal sized sections numbered one to
-twenty.</p>
-<p><img src="../images/p109.png"></p>
-<p>The score of a dart is determined by the number of the region that
-the dart lands in. A dart landing outside the red/green outer ring
-scores zero. The black and cream regions inside this ring represent
-single scores. However, the red/green outer ring and middle ring score
-double and treble scores respectively.</p>
-<p>At the centre of the board are two concentric circles called the bull
-region, or bulls-eye. The outer bull is worth <span class="math inline">\(25\)</span> points and the inner bull is a double,
-worth <span class="math inline">\(50\)</span> points.</p>
-<p>There are many variations of rules but in the most popular game the
-players will begin with a score <span class="math inline">\(301\)</span>
-or <span class="math inline">\(501\)</span> and the first player to
-reduce their running total to zero is a winner. However, it is normal to
-play a “doubles out” system, which means that the player must land a
-double (including the double bulls-eye at the centre of the board) on
-their final dart to win; any other dart that would reduce their running
-total to one or lower means the score for that set of three darts is
-“bust”.</p>
-<p>When a player is able to finish on their current score it is called a
-“checkout” and the highest checkout is <span class="math inline">\(170\)</span>: T20 T20 D25 (two treble 20s and
-double bull).</p>
-<p>There are exactly eleven distinct ways to checkout on a score of
-<span class="math inline">\(6\)</span>:</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-109"><a href="#Project-Euler-109" class="headerlink" title="Project Euler 109"></a>Project Euler 109</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Darts"><a href="#Darts" class="headerlink" title="Darts"></a>Darts</h3><p>In the game of darts a player throws three darts at a target board which is split into twenty equal sized sections numbered one to twenty.</p>
+<p><img src="../images/p109.png" alt></p>
+<p>The score of a dart is determined by the number of the region that the dart lands in. A dart landing outside the red/green outer ring scores zero. The black and cream regions inside this ring represent single scores. However, the red/green outer ring and middle ring score double and treble scores respectively.</p>
+<p>At the centre of the board are two concentric circles called the bull region, or bulls-eye. The outer bull is worth $25$ points and the inner bull is a double, worth $50$ points.</p>
+<p>There are many variations of rules but in the most popular game the players will begin with a score $301$ or $501$ and the first player to reduce their running total to zero is a winner. However, it is normal to play a “doubles out” system, which means that the player must land a double (including the double bulls-eye at the centre of the board) on their final dart to win; any other dart that would reduce their running total to one or lower means the score for that set of three darts is “bust”.</p>
+<p>When a player is able to finish on their current score it is called a “checkout” and the highest checkout is $170$: T20 T20 D25 (two treble 20s and double bull).</p>
+<p>There are exactly eleven distinct ways to checkout on a score of $6$:</p>
+<div class="table-container">
 <table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>D3</td>
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>D1</td>
 <td>D2</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>S2</td>
 <td>D2</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>D2</td>
 <td>D1</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>S4</td>
 <td>D1</td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td>S1</td>
 <td>S1</td>
 <td>D2</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>S1</td>
 <td>T1</td>
 <td>D1</td>
 </tr>
-<tr class="even">
+<tr>
 <td>S1</td>
 <td>S3</td>
 <td>D1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>D1</td>
 <td>D1</td>
 <td>D1</td>
 </tr>
-<tr class="even">
+<tr>
 <td>D1</td>
 <td>S2</td>
 <td>D1</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>S2</td>
 <td>S2</td>
 <td>D1</td>
 </tr>
 </tbody>
 </table>
-<p>Note that D1 D2 is considered <strong>different</strong> to D2 D1 as
-they finish on different doubles. However, the combination S1 T1 D1 is
-considered the <strong>same</strong> as T1 S1 D1.</p>
-<p>In addition we shall not include misses in considering combinations;
-for example, D3 is the <strong>same</strong> as 0 D3 and 0 0 D3.</p>
-<p>Incredibly there are <span class="math inline">\(42336\)</span>
-distinct ways of checking out in total.</p>
-<p>How many distinct ways can a player checkout with a score less than
-<span class="math inline">\(100\)</span>?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>将所有得分情况全部存在一个列表中。其中前<span class="math inline">\(m\)</span>个是双倍得分，其余是三倍得分。</p>
+</div>
+<p>Note that D1 D2 is considered <strong>different</strong> to D2 D1 as they finish on different doubles. However, the combination S1 T1 D1 is considered the <strong>same</strong> as T1 S1 D1.</p>
+<p>In addition we shall not include misses in considering combinations; for example, D3 is the <strong>same</strong> as 0 D3 and 0 0 D3.</p>
+<p>Incredibly there are $42336$ distinct ways of checking out in total.</p>
+<p>How many distinct ways can a player checkout with a score less than $100$?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>将所有得分情况全部存在一个列表中。其中前$m$个是双倍得分，其余是三倍得分。</p>
 <p>多重循环遍历所有情况即可。需要注意的地方只有判断是不是相同的结分。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">M = <span class="number">20</span></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">2</span>, M * <span class="number">2</span> + <span class="number">2</span>, <span class="number">2</span>)) + [<span class="number">50</span>]</span><br><span class="line">m = <span class="built_in">len</span>(a)</span><br><span class="line">a += [<span class="number">25</span>] + <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, M + <span class="number">1</span>)) + <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">3</span>, M * <span class="number">3</span> + <span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">n = <span class="built_in">len</span>(a)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    <span class="keyword">if</span> a[i] &lt; N:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        <span class="keyword">if</span> a[i] + a[j] &lt; N:</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, n):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">if</span> a[i] + a[j] + a[k] &lt; N:</span><br><span class="line">                ans += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">M = <span class="number">20</span></span><br><span class="line">a = <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">2</span>, M * <span class="number">2</span> + <span class="number">2</span>, <span class="number">2</span>)) + [<span class="number">50</span>]</span><br><span class="line">m = <span class="built_in">len</span>(a)</span><br><span class="line">a += [<span class="number">25</span>] + <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">1</span>, M + <span class="number">1</span>)) + <span class="built_in">list</span>(<span class="built_in">range</span>(<span class="number">3</span>, M * <span class="number">3</span> + <span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">n = <span class="built_in">len</span>(a)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">    <span class="keyword">if</span> a[i] &lt; N:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">        <span class="keyword">if</span> a[i] + a[j] &lt; N:</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, n):</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            <span class="keyword">if</span> a[i] + a[j] + a[k] &lt; N:</span><br><span class="line">                ans += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -447,7 +428,7 @@ distinct ways of checking out in total.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-109"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 109</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#darts"><span class="nav-number">1.1.1.</span> <span class="nav-text">Darts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-109"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 109</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Darts"><span class="nav-number">1.1.1.</span> <span class="nav-text">Darts</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -461,14 +442,14 @@ distinct ways of checking out in total.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -505,13 +486,13 @@ distinct ways of checking out in total.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

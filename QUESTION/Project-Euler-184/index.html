@@ -241,7 +241,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>715</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -260,43 +260,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-184">Project Euler 184</h1>
-<h2 id="题目">题目</h2>
-<h3 id="triangles-containing-the-origin">Triangles containing the
-origin</h3>
-<p>Consider the set <span class="math inline">\(I_r\)</span> of points
-<span class="math inline">\((x,y)\)</span> with integer co-ordinates in
-the interior of the circle with radius <span class="math inline">\(r\)</span>, centered at the origin, i.e. <span class="math inline">\(x^2 + y^2 &lt; r^2\)</span>.</p>
-<p>For a radius of <span class="math inline">\(2\)</span>, <span class="math inline">\(I_2\)</span> contains the nine points <span class="math inline">\((0,0), (1,0), (1,1), (0,1), (-1,1), (-1,0),
-(-1,-1), (0,-1)\)</span> and <span class="math inline">\((1,-1)\)</span>. There are eight triangles having
-all three vertices in <span class="math inline">\(I_2\)</span> which
-contain the origin in the interior. Two of them are shown below, the
-others are obtained from these by rotation.</p>
-<p><img src="../images/p184.gif"></p>
-<p>For a radius of <span class="math inline">\(3\)</span>, there are
-<span class="math inline">\(360\)</span> triangles containing the origin
-in the interior and having all vertices in <span class="math inline">\(I_3\)</span> and for <span class="math inline">\(I_5\)</span> the number is <span class="math inline">\(10600\)</span>.</p>
-<p>How many triangles are there containing the origin in the interior
-and having all three vertices in <span class="math inline">\(I_{105}\)</span>?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(N=105\)</span>，考虑在<span class="math inline">\(x\)</span>轴上方以及<span class="math inline">\(x\)</span>周的正半轴所有点<span class="math inline">\((x,y)\)</span>（对这些点更形式化的定义：<span class="math inline">\(0&lt;x^2+y^2&lt;N^2, y&gt;0\vee y=0\wedge
-x&gt;0\)</span>），按照极角统计这些点的数量。</p>
-<p>对于上半部分的这一些点，随机选择三个极角<strong>两两不相同</strong>的点，它们都能够对应<span class="math inline">\(2\)</span>个原点<span class="math inline">\(O\)</span>在内部的三角形，如下图：</p>
-<p><img src="../images/p184-1.png"></p>
-<p>按照极角从小到大分别表示<span class="math inline">\(A,B,C\)</span>三个点（其极角分别为<span class="math inline">\(\alpha.\beta,\gamma\)</span>），有两种情况：</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-184"><a href="#Project-Euler-184" class="headerlink" title="Project Euler 184"></a>Project Euler 184</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Triangles-containing-the-origin"><a href="#Triangles-containing-the-origin" class="headerlink" title="Triangles containing the origin"></a>Triangles containing the origin</h3><p>Consider the set $I_r$ of points $(x,y)$ with integer co-ordinates in the interior of the circle with radius $r$, centered at the origin, i.e. $x^2 + y^2 &lt; r^2$.</p>
+<p>For a radius of $2$, $I_2$ contains the nine points $(0,0), (1,0), (1,1), (0,1), (-1,1), (-1,0), (-1,-1), (0,-1)$ and $(1,-1)$. There are eight triangles having all three vertices in $I_2$ which contain the origin in the interior. Two of them are shown below, the others are obtained from these by rotation.</p>
+<p><img src="../images/p184.gif" alt></p>
+<p>For a radius of $3$, there are $360$ triangles containing the origin in the interior and having all vertices in $I_3$ and for $I_5$ the number is $10600$.</p>
+<p>How many triangles are there containing the origin in the interior and having all three vertices in $I_{105}$?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=105$，考虑在$x$轴上方以及$x$周的正半轴所有点$(x,y)$（对这些点更形式化的定义：$0<x^2+y^2<N^2, y>0\vee y=0\wedge x&gt;0$），按照极角统计这些点的数量。</x^2+y^2<N^2,></p>
+<p>对于上半部分的这一些点，随机选择三个极角<strong>两两不相同</strong>的点，它们都能够对应$2$个原点$O$在内部的三角形，如下图：</p>
+<p><img src="../images/p184-1.png" alt></p>
+<p>按照极角从小到大分别表示$A,B,C$三个点（其极角分别为$\alpha.\beta,\gamma$），有两种情况：</p>
 <ul>
-<li>极角在中间的点<span class="math inline">\(B\)</span>在<span class="math inline">\(x\)</span>轴上面，极角在两侧的点<span class="math inline">\(A,C\)</span>的中心对称点<span class="math inline">\(A&#39;,C&#39;\)</span>在<span class="math inline">\(x\)</span>轴下面。</li>
-<li>极角在中间的点<span class="math inline">\(B\)</span>的中心对称点<span class="math inline">\(B&#39;\)</span>在<span class="math inline">\(x\)</span>轴下面，极角在两侧的点<span class="math inline">\(A,C\)</span>在<span class="math inline">\(x\)</span>轴上面。</li>
+<li>极角在中间的点$B$在$x$轴上面，极角在两侧的点$A,C$的中心对称点$A’,C’$在$x$轴下面。</li>
+<li>极角在中间的点$B$的中心对称点$B’$在$x$轴下面，极角在两侧的点$A,C$在$x$轴上面。</li>
 </ul>
-<p>令<span class="math inline">\(g(k)\)</span>表示上述极角为<span class="math inline">\(k\)</span>的个数。令<span class="math inline">\(s_r=\sum_k g^r(k)\)</span>，那么本题答案为<span class="math inline">\(\dfrac{s_1^3-3s_1s_2+2s_3}{3}\)</span>。</p>
+<p>令$g(k)$表示上述极角为$k$的个数。令$s_r=\sum_k g^r(k)$，那么本题答案为$\dfrac{s_1^3-3s_1s_2+2s_3}{3}$。</p>
 <p>计算过程使用了容斥原理的思想，如下：</p>
-<p>一开始，顺序随机选定<span class="math inline">\(A,B,C\)</span>三个点（不考虑极角顺序），有<span class="math inline">\(s_1^3\)</span>种选择方法。然后，需要去掉三个点中有两个极角相同的情况，需要去掉<span class="math inline">\(3s_1s_2\)</span>种选法。但是，三个点都在同一极角的情况又多减去了<span class="math inline">\(2\)</span>次，因此需要添加回<span class="math inline">\(2s_3\)</span>。由于<span class="math inline">\(A,B,C\)</span>三个点选择方法本身是无序的，因此整个选择方法需要除<span class="math inline">\(3!\)</span>。每一种选法都对应两个原点在内部的三角形，需要乘回<span class="math inline">\(2\)</span>。因此本题的最终结果为：</p>
-<p><span class="math display">\[\dfrac{s_1^3-3s_1s_2+2s_3}{3}\]</span></p>
-<p>（<span class="math inline">\(O(\log
-R)\)</span>甚至是亚线性做法待补）</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fractions <span class="keyword">import</span> Fraction</span><br><span class="line"></span><br><span class="line">N = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">slopes_dict = &#123;&#125;</span><br><span class="line"></span><br><span class="line">nb_of_points = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, N):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N):</span><br><span class="line">        w = i * i + j * j</span><br><span class="line">        <span class="keyword">if</span> i * i + j * j &lt; N * N:</span><br><span class="line">            nb_of_points += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> i != <span class="number">0</span> <span class="keyword">and</span> j != <span class="number">0</span>:</span><br><span class="line">                s = Fraction(j, i)</span><br><span class="line">                <span class="keyword">if</span> s <span class="keyword">in</span> slopes_dict.keys():</span><br><span class="line">                    slopes_dict[s] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    slopes_dict[s] = <span class="number">1</span></span><br><span class="line">slopes_dict[<span class="number">0</span>] = N - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">ls = <span class="built_in">list</span>(slopes_dict.values()) * <span class="number">2</span></span><br><span class="line">s1 = <span class="built_in">sum</span>(ls)</span><br><span class="line">s2 = <span class="built_in">sum</span>(x * x <span class="keyword">for</span> x <span class="keyword">in</span> ls)</span><br><span class="line">s3 = <span class="built_in">sum</span>(x ** <span class="number">3</span> <span class="keyword">for</span> x <span class="keyword">in</span> ls)</span><br><span class="line">ans = (s1 ** <span class="number">3</span> - <span class="number">3</span> * s1 * s2 + <span class="number">2</span> * s3) // <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>一开始，顺序随机选定$A,B,C$三个点（不考虑极角顺序），有$s_1^3$种选择方法。然后，需要去掉三个点中有两个极角相同的情况，需要去掉$3s_1s_2$种选法。但是，三个点都在同一极角的情况又多减去了$2$次，因此需要添加回$2s_3$。由于$A,B,C$三个点选择方法本身是无序的，因此整个选择方法需要除$3!$。每一种选法都对应两个原点在内部的三角形，需要乘回$2$。因此本题的最终结果为：</p>
+<script type="math/tex; mode=display">\dfrac{s_1^3-3s_1s_2+2s_3}{3}</script><p>（$O(\log R)$甚至是亚线性做法待补）</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fractions <span class="keyword">import</span> Fraction</span><br><span class="line"></span><br><span class="line">N = <span class="number">6</span></span><br><span class="line"></span><br><span class="line">slopes_dict = &#123;&#125;</span><br><span class="line"></span><br><span class="line">nb_of_points = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, N):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N):</span><br><span class="line">        w = i * i + j * j</span><br><span class="line">        <span class="keyword">if</span> i * i + j * j &lt; N * N:</span><br><span class="line">            nb_of_points += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> i != <span class="number">0</span> <span class="keyword">and</span> j != <span class="number">0</span>:</span><br><span class="line">                s = Fraction(j, i)</span><br><span class="line">                <span class="keyword">if</span> s <span class="keyword">in</span> slopes_dict.keys():</span><br><span class="line">                    slopes_dict[s] += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    slopes_dict[s] = <span class="number">1</span></span><br><span class="line">slopes_dict[<span class="number">0</span>] = N - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">ls = <span class="built_in">list</span>(slopes_dict.values()) * <span class="number">2</span></span><br><span class="line">s1 = <span class="built_in">sum</span>(ls)</span><br><span class="line">s2 = <span class="built_in">sum</span>(x * x <span class="keyword">for</span> x <span class="keyword">in</span> ls)</span><br><span class="line">s3 = <span class="built_in">sum</span>(x ** <span class="number">3</span> <span class="keyword">for</span> x <span class="keyword">in</span> ls)</span><br><span class="line">ans = (s1 ** <span class="number">3</span> - <span class="number">3</span> * s1 * s2 + <span class="number">2</span> * s3) // <span class="number">3</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -380,8 +363,7 @@ R)\)</span>甚至是亚线性做法待补）</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-184"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 184</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#triangles-containing-the-origin"><span class="nav-number">1.1.1.</span> <span class="nav-text">Triangles containing the
-origin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-184"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 184</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Triangles-containing-the-origin"><span class="nav-number">1.1.1.</span> <span class="nav-text">Triangles containing the origin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,14 +377,14 @@ origin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-l
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -439,13 +421,13 @@ origin</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-l
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

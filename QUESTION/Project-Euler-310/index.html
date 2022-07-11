@@ -233,14 +233,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -252,48 +252,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-310">Project Euler 310</h1>
-<h2 id="题目">题目</h2>
-<h3 id="nim-square">Nim Square</h3>
-<p>Alice and Bob play the game Nim Square.</p>
-<p>Nim Square is just like ordinary three-heap normal play Nim, but the
-players may only remove a square number of stones from a heap.</p>
-<p>The number of stones in the three heaps is represented by the ordered
-triple <span class="math inline">\((a,b,c)\)</span>.</p>
-<p>If <span class="math inline">\(0\le a\le b\le c\le29\)</span> then
-the number of losing positions for the next player is <span class="math inline">\(1160\)</span>.</p>
-<p>Find the number of losing positions for the next player if <span class="math inline">\(0\le a\le b\le c\le100 000\)</span>.</p>
-<h2 id="spraguegrundy定理">Sprague–Grundy定理</h2>
-<p><span class="math inline">\(sg\)</span>函数是一个用来解决公平组合游戏(ICG)问题的一种工具。</p>
-<p>定义一个非负整数集合上的运算<span class="math inline">\(\text{mex}(s)\)</span>：表示集合<span class="math inline">\(s\)</span>中未出现的最小的非负整数。</p>
-<p>我们定义一个游戏状态<span class="math inline">\(n\)</span>，令<span class="math inline">\(sg(n)=\text{mex}(\{sg(m)|n\rightarrow
-m\})\)</span>.<span class="math inline">\(m\)</span>是从<span class="math inline">\(n\)</span>能够抵达的所有游戏状态。如果<span class="math inline">\(sg(n)&gt;0\)</span>，那么状态<span class="math inline">\(n\)</span>为必胜态；如果<span class="math inline">\(sg(n)=0\)</span>，那么为必败态。</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem">Sprague–Grundy，SG定理</a>说明了，如果这个游戏当前的状态<span class="math inline">\(n\)</span>，它可以看做是多个状态<span class="math inline">\((n_1,n_2,\dots,n_k)\)</span>的组合，那么就可以写成：</p>
-<p><span class="math display">\[sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots
-\oplus sg(n_k)\]</span></p>
-<p>以NIM游戏为例，如果当前有<span class="math inline">\(n\)</span>堆石头，其中第<span class="math inline">\(i\)</span>堆为<span class="math inline">\(a_i\)</span>。那么状态<span class="math inline">\(sg(a_1,a_2,\dots,a_n)\)</span>可以看成是<span class="math inline">\(sg(a_1),sg(a_2),\dots,sg(a_n)\)</span>的组合，当前的状态是必胜态还是必败态由<span class="math inline">\(sg(a_1)\oplus sg(a_2)\oplus\dots\oplus
-sg(a_n)\)</span>决定。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-310"><a href="#Project-Euler-310" class="headerlink" title="Project Euler 310"></a>Project Euler 310</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Nim-Square"><a href="#Nim-Square" class="headerlink" title="Nim Square"></a>Nim Square</h3><p>Alice and Bob play the game Nim Square.</p>
+<p>Nim Square is just like ordinary three-heap normal play Nim, but the players may only remove a square number of stones from a heap.</p>
+<p>The number of stones in the three heaps is represented by the ordered triple $(a,b,c)$.</p>
+<p>If $0\le a\le b\le c\le29$ then the number of losing positions for the next player is $1160$.</p>
+<p>Find the number of losing positions for the next player if $0\le a\le b\le c\le100 000$.</p>
+<h2 id="Sprague–Grundy定理"><a href="#Sprague–Grundy定理" class="headerlink" title="Sprague–Grundy定理"></a>Sprague–Grundy定理</h2><p>$sg$函数是一个用来解决公平组合游戏(ICG)问题的一种工具。</p>
+<p>定义一个非负整数集合上的运算$\text{mex}(s)$：表示集合$s$中未出现的最小的非负整数。</p>
+<p>我们定义一个游戏状态$n$，令$sg(n)=\text{mex}(\{sg(m)|n\rightarrow m\})$.$m$是从$n$能够抵达的所有游戏状态。如果$sg(n)&gt;0$，那么状态$n$为必胜态；如果$sg(n)=0$，那么为必败态。</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem">Sprague–Grundy，SG定理</a>说明了，如果这个游戏当前的状态$n$，它可以看做是多个状态$(n_1,n_2,\dots,n_k)$的组合，那么就可以写成：</p>
+<script type="math/tex; mode=display">sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots \oplus sg(n_k)</script><p>以NIM游戏为例，如果当前有$n$堆石头，其中第$i$堆为$a_i$。那么状态$sg(a_1,a_2,\dots,a_n)$可以看成是$sg(a_1),sg(a_2),\dots,sg(a_n)$的组合，当前的状态是必胜态还是必败态由$sg(a_1)\oplus sg(a_2)\oplus\dots\oplus sg(a_n)$决定。</p>
 <p>因此一般使用SG定理解决问题，主要依靠的是分治的思想。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在每一次操作中，一方可以拿起三堆石头<span class="math inline">\((a,b,c)\)</span>的其中一堆的石头的平方数个。并且这<span class="math inline">\(3\)</span>堆石头是相互独立的。因此，三堆石头的<span class="math inline">\(sg\)</span>函数<span class="math inline">\(sg(a,b,c)=sg(a)\oplus sg(b)\oplus
-sg(c)\)</span>.那么此时只需要单独考虑一堆石头的情况<span class="math inline">\(sg(n)\)</span>。</p>
-<p>只拿一堆石头时，那么剩下的石头只可能为<span class="math inline">\(n-1^2,n-2^2,n-3^2,\dots\)</span>。那么不难写出<span class="math inline">\(sg(n)\)</span>为：</p>
-<p><span class="math display">\[
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在每一次操作中，一方可以拿起三堆石头$(a,b,c)$的其中一堆的石头的平方数个。并且这$3$堆石头是相互独立的。因此，三堆石头的$sg$函数$sg(a,b,c)=sg(a)\oplus sg(b)\oplus sg(c)$.那么此时只需要单独考虑一堆石头的情况$sg(n)$。</p>
+<p>只拿一堆石头时，那么剩下的石头只可能为$n-1^2,n-2^2,n-3^2,\dots$。那么不难写出$sg(n)$为：</p>
+<script type="math/tex; mode=display">
 sg(n)=
 \left \{\begin{aligned}
-  &amp;0 &amp; &amp; \mathrm{if\quad} n=0 \\
-  &amp;\text{mex}(\{sg(n-i^2)|1\le i^2\le n\}) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>由此可以快速地求出每个独立状态的<span class="math inline">\(sg\)</span>值。</p>
-<p>令<span class="math inline">\(N=10^5\)</span>，那么问题就转化成有多少个三元组<span class="math inline">\((a,b,c),0\le a\le b\le c\le N\)</span>，满足<span class="math inline">\(sg(a)\oplus sg(b)\oplus sg(c)=0\)</span>。</p>
-<p>可以想到先统计在<span class="math inline">\(0\sim
-N\)</span>中有多少个值<span class="math inline">\(n\)</span>，其中有<span class="math inline">\(c(i)\)</span>个<span class="math inline">\(n\)</span>满足<span class="math inline">\(sg(n)=i\)</span>。令<span class="math inline">\(O=\max_{i=0}^N sg(i)\)</span>。并且其实<span class="math inline">\(O\)</span>值很小。那么可以考虑通过枚举<span class="math inline">\(i,j\)</span>使得<span class="math inline">\(0\le
-i\le j\le i\oplus j \le
-O\)</span>，进行组合计数即可。计数的过程中要注意当<span class="math inline">\(i=j\)</span>时，<span class="math inline">\(c[i]\)</span>和<span class="math inline">\(c[j]\)</span>使用的是同一个部分下的所有数。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="built_in">log</span>(N+<span class="number">10</span>)*<span class="number">10</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> sg[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">bool</span> mex[M+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> cnt[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(mex,<span class="number">0</span>,<span class="built_in">sizeof</span>(mex));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j*j&lt;=i;j++)</span><br><span class="line">            mex[sg[i-j*j]]=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;mex[j];++j);</span><br><span class="line">        sg[i]=j;</span><br><span class="line">        ++cnt[sg[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    ++cnt[<span class="number">0</span>];</span><br><span class="line">    <span class="type">int</span> mx=*<span class="built_in">max_element</span>(sg+<span class="number">1</span>,sg+N+<span class="number">1</span>);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=mx;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;=mx;j++)&#123;</span><br><span class="line">            <span class="type">int</span> k=i^j;</span><br><span class="line">            <span class="keyword">if</span>(mx&gt;=k&amp;&amp;k&gt;j)</span><br><span class="line">                ans+=<span class="number">1ll</span>*cnt[i]*cnt[j]*cnt[k];</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=mx;i++)</span><br><span class="line">        ans+=<span class="number">1ll</span>*cnt[i]*(cnt[i]+<span class="number">1</span>)/<span class="number">2</span>*cnt[<span class="number">0</span>];</span><br><span class="line">    ans+=<span class="number">1ll</span>*cnt[<span class="number">0</span>]*(cnt[<span class="number">0</span>]+<span class="number">1</span>)*(cnt[<span class="number">0</span>]+<span class="number">2</span>)/<span class="number">6</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &0 & & \mathrm{if\quad} n=0 \\
+  &\text{mex}(\{sg(n-i^2)|1\le i^2\le n\}) & & \mathrm{else}
+\end{aligned}\right.</script><p>由此可以快速地求出每个独立状态的$sg$值。</p>
+<p>令$N=10^5$，那么问题就转化成有多少个三元组$(a,b,c),0\le a\le b\le c\le N$，满足$sg(a)\oplus sg(b)\oplus sg(c)=0$。</p>
+<p>可以想到先统计在$0\sim N$中有多少个值$n$，其中有$c(i)$个$n$满足$sg(n)=i$。令$O=\max_{i=0}^N sg(i)$。并且其实$O$值很小。那么可以考虑通过枚举$i,j$使得$0\le i\le j\le i\oplus j \le O$，进行组合计数即可。计数的过程中要注意当$i=j$时，$c[i]$和$c[j]$使用的是同一个部分下的所有数。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="built_in">log</span>(N+<span class="number">10</span>)*<span class="number">10</span>+<span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> sg[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">bool</span> mex[M+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> cnt[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(mex,<span class="number">0</span>,<span class="built_in">sizeof</span>(mex));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j*j&lt;=i;j++)</span><br><span class="line">            mex[sg[i-j*j]]=<span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;mex[j];++j);</span><br><span class="line">        sg[i]=j;</span><br><span class="line">        ++cnt[sg[i]];</span><br><span class="line">    &#125;</span><br><span class="line">    ++cnt[<span class="number">0</span>];</span><br><span class="line">    <span class="type">int</span> mx=*<span class="built_in">max_element</span>(sg+<span class="number">1</span>,sg+N+<span class="number">1</span>);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=mx;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;=mx;j++)&#123;</span><br><span class="line">            <span class="type">int</span> k=i^j;</span><br><span class="line">            <span class="keyword">if</span>(mx&gt;=k&amp;&amp;k&gt;j)</span><br><span class="line">                ans+=<span class="number">1ll</span>*cnt[i]*cnt[j]*cnt[k];</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=mx;i++)</span><br><span class="line">        ans+=<span class="number">1ll</span>*cnt[i]*(cnt[i]+<span class="number">1</span>)/<span class="number">2</span>*cnt[<span class="number">0</span>];</span><br><span class="line">    ans+=<span class="number">1ll</span>*cnt[<span class="number">0</span>]*(cnt[<span class="number">0</span>]+<span class="number">1</span>)*(cnt[<span class="number">0</span>]+<span class="number">2</span>)/<span class="number">6</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -379,7 +361,7 @@ O\)</span>，进行组合计数即可。计数的过程中要注意当<span clas
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-310"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 310</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nim-square"><span class="nav-number">1.1.1.</span> <span class="nav-text">Nim Square</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spraguegrundy%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">Sprague–Grundy定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-310"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 310</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nim-Square"><span class="nav-number">1.1.1.</span> <span class="nav-text">Nim Square</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sprague%E2%80%93Grundy%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">Sprague–Grundy定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -393,14 +375,14 @@ O\)</span>，进行组合计数即可。计数的过程中要注意当<span clas
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -437,13 +419,13 @@ O\)</span>，进行组合计数即可。计数的过程中要注意当<span clas
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

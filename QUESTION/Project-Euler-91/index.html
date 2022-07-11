@@ -242,7 +242,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>716</span>
+              <span>690</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -261,31 +261,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-91">Project Euler 91</h1>
-<h2 id="题目">题目</h2>
-<h3 id="right-triangles-with-integer-coordinates">Right triangles with
-integer coordinates</h3>
-<p>The points <span class="math inline">\(P (x_1, y_1)\)</span> and
-<span class="math inline">\(Q (x_2, y_2)\)</span> are plotted at integer
-co-ordinates and are joined to the origin, <span class="math inline">\(O(0,0)\)</span>, to form <span class="math inline">\(\triangle OPQ\)</span>.</p>
-<p><img src="../images/p091_1.png"></p>
-<p>There are exactly fourteen triangles containing a right angle that
-can be formed when each co-ordinate lies between <span class="math inline">\(0\)</span> and <span class="math inline">\(2\)</span> inclusive; that is, <span class="math inline">\(0 \leq x_1, y_1, x_2, y_2 \leq 2\)</span>.</p>
-<p><img src="../images/p091_2.png"></p>
-<p>Given that <span class="math inline">\(0 \leq x_1, y_1, x_2, y_2 \leq
-50\)</span>, how many right triangles can be formed?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>由于只有<span class="math inline">\(51\times
-51-1\)</span>个点，因此每次可以枚举出两个点，通过判断向量内积是否为<span class="math inline">\(0\)</span>来找出直角。
-将枚举出来的三角形的每一条边都视为一个向量，两两做内积，就可以完成判断，找到一个直角三角形。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-91"><a href="#Project-Euler-91" class="headerlink" title="Project Euler 91"></a>Project Euler 91</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Right-triangles-with-integer-coordinates"><a href="#Right-triangles-with-integer-coordinates" class="headerlink" title="Right triangles with integer coordinates"></a>Right triangles with integer coordinates</h3><p>The points $P (x_1, y_1)$ and $Q (x_2, y_2)$ are plotted at integer co-ordinates and are joined to the origin, $O(0,0)$, to form $\triangle OPQ$.</p>
+<p><img src="../images/p091_1.png" alt></p>
+<p>There are exactly fourteen triangles containing a right angle that can be formed when each co-ordinate lies between $0$ and $2$ inclusive; that is, $0 \leq x_1, y_1, x_2, y_2 \leq 2$.</p>
+<p><img src="../images/p091_2.png" alt></p>
+<p>Given that $0 \leq x_1, y_1, x_2, y_2 \leq 50$, how many right triangles can be formed?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>由于只有$51\times 51-1$个点，因此每次可以枚举出两个点，通过判断向量内积是否为$0$来找出直角。<br>将枚举出来的三角形的每一条边都视为一个向量，两两做内积，就可以完成判断，找到一个直角三角形。</p>
 <p>通过查询OEIS该数列的前几项，发现结果为<a target="_blank" rel="noopener" href="https://oeis.org/A155154">A155154</a>。在PROG一栏中，发现如下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(PARI) a(n)=3*n^2+sum(a=1, n, sum(b = 1, n, 2*min(b*gcd(a, b)\a, (n - a)*gcd(a, b)\b) ) ) \\ Yurii Ivanov, Jun 25 2021</span><br></pre></td></tr></table></figure>
-<p>通过这个信息，可以以<span class="math inline">\(O(n^2\log
-n)\)</span>计算出本题的结果：</p>
-<p><span class="math display">\[3n^2+\sum_{a=1}^n\sum_{b=1}^n2\min(\lfloor\frac{b\gcd(a,b)}{a}\rfloor),\lfloor\frac{(n-a)\gcd(a,b)}{b}\rfloor))\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">a: <span class="built_in">complex</span>, b: <span class="built_in">complex</span></span>):</span><br><span class="line">    <span class="keyword">if</span> a.imag * b.imag + a.real * b.real == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    u = b - a</span><br><span class="line">    <span class="keyword">if</span> u.imag * a.imag + u.real * a.real == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    v = a - b</span><br><span class="line">    <span class="keyword">if</span> v.imag * b.imag + v.real * b.real == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, N + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i + j &gt; <span class="number">0</span>:</span><br><span class="line">            ls.append(<span class="built_in">complex</span>(i, j))</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ls)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>, <span class="built_in">len</span>(ls)):</span><br><span class="line">        <span class="keyword">if</span> ok(ls[i], ls[j]):</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>通过这个信息，可以以$O(n^2\log n)$计算出本题的结果：</p>
+<script type="math/tex; mode=display">3n^2+\sum_{a=1}^n\sum_{b=1}^n2\min(\lfloor\frac{b\gcd(a,b)}{a}\rfloor),\lfloor\frac{(n-a)\gcd(a,b)}{b}\rfloor))</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ok</span>(<span class="params">a: <span class="built_in">complex</span>, b: <span class="built_in">complex</span></span>):</span><br><span class="line">    <span class="keyword">if</span> a.imag * b.imag + a.real * b.real == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    u = b - a</span><br><span class="line">    <span class="keyword">if</span> u.imag * a.imag + u.real * a.real == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    v = a - b</span><br><span class="line">    <span class="keyword">if</span> v.imag * b.imag + v.real * b.real == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, N + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i + j &gt; <span class="number">0</span>:</span><br><span class="line">            ls.append(<span class="built_in">complex</span>(i, j))</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ls)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>, <span class="built_in">len</span>(ls)):</span><br><span class="line">        <span class="keyword">if</span> ok(ls[i], ls[j]):</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> gcd</span><br><span class="line"></span><br><span class="line">N = <span class="number">50</span></span><br><span class="line">ans = <span class="number">3</span> * N ** <span class="number">2</span></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        g = gcd(a, b)</span><br><span class="line">        ans += <span class="number">2</span> * <span class="built_in">min</span>(b * g // a, (N - a) * g // b)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -371,8 +358,7 @@ n)\)</span>计算出本题的结果：</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-91"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 91</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#right-triangles-with-integer-coordinates"><span class="nav-number">1.1.1.</span> <span class="nav-text">Right triangles with
-integer coordinates</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-91"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 91</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Right-triangles-with-integer-coordinates"><span class="nav-number">1.1.1.</span> <span class="nav-text">Right triangles with integer coordinates</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +372,14 @@ integer coordinates</span></a></li></ol></li><li class="nav-item nav-level-2"><a
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,13 +416,13 @@ integer coordinates</span></a></li></ol></li><li class="nav-item nav-level-2"><a
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

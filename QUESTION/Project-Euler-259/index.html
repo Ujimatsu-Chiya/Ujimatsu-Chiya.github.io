@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,37 +257,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-259">Project Euler 259</h1>
-<h2 id="题目">题目</h2>
-<h3 id="reachable-numbers">Reachable Numbers</h3>
-<p>A positive integer will be called <em>reachable</em> if it can result
-from an arithmetic expression obeying the following rules:</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-259"><a href="#Project-Euler-259" class="headerlink" title="Project Euler 259"></a>Project Euler 259</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Reachable-Numbers"><a href="#Reachable-Numbers" class="headerlink" title="Reachable Numbers"></a>Reachable Numbers</h3><p>A positive integer will be called <em>reachable</em> if it can result from an arithmetic expression obeying the following rules:</p>
 <ul>
-<li>Uses the digits 1 through 9, in that order and exactly once
-each.</li>
-<li>Any successive digits can be concatenated (for example, using the
-digits 2, 3 and 4 we obtain the number 234).</li>
-<li>Only the four usual binary arithmetic operations (addition,
-subtraction, multiplication and division) are allowed.</li>
+<li>Uses the digits 1 through 9, in that order and exactly once each.</li>
+<li>Any successive digits can be concatenated (for example, using the digits 2, 3 and 4 we obtain the number 234).</li>
+<li>Only the four usual binary arithmetic operations (addition, subtraction, multiplication and division) are allowed.</li>
 <li>Each operation can be used any number of times, or not at all.</li>
-<li><dfn title="A minus sign applied to a single operand (as opposed to a subtraction operator between two operands)">Unary
-minus</dfn> is not allowed.</li>
-<li>Any number of (possibly nested) parentheses may be used to define
-the order of operations.</li>
+<li><dfn title="A minus sign applied to a single operand (as opposed to a subtraction operator between two operands)">Unary minus</dfn> is not allowed.</li>
+<li>Any number of (possibly nested) parentheses may be used to define the order of operations.</li>
 </ul>
-<p>For example, <span class="math inline">\(42\)</span> is reachable,
-since <span class="math inline">\((1/23) *((4*5)-6) * (78-9) =
-42\)</span>.</p>
+<p>For example, $42$ is reachable, since $(1/23) <em>((4</em>5)-6) * (78-9) = 42$.</p>
 <p>What is the sum of all positive reachable integers?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题的做法和区间动态规划的进行做法比较像。</p>
-<p>如果现在要枚举<span class="math inline">\(l,l+1,\dots,r-1,r\)</span>这一些数组成的表达式的值，并存放在集合<span class="math inline">\(st[l][r]\)</span>中。那么我们可以对于<span class="math inline">\(\forall k,l\le k&lt; r\)</span>，枚举每个数<span class="math inline">\(x\in st[l][k],y\in
-st[k+1][r]\)</span>，并将这些数通过任何一种运算，将运算结果（也就是<span class="math inline">\(x+y,x-y,xy,x/y\)</span>）存放在集合<span class="math inline">\(st[l][r]\)</span>中。当<span class="math inline">\(y\neq 0\)</span>时才能做除法运算。</p>
-<p>通过这种枚举方式，最终只需要判断集合<span class="math inline">\(st[1][9]\)</span>存放的数是否为正整数即可。</p>
-<p>为了方便和效率，本题没有采用分数进行实现，而是使用一个误差用于判断这个数是否为整数。另外，如果做除法时除数的绝对值大于<span class="math inline">\(10^5\)</span>，那么不允许做（因为做出来的结果，无法用一个数乘回去，使得分母被消除，避免诸如<span class="math inline">\(\dfrac{1}{23456789}\)</span>这种数混入答案）。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">9</span>;</span><br><span class="line">unordered_set&lt;<span class="type">double</span>&gt;st[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line">unordered_set&lt;<span class="type">int</span>&gt;ok;</span><br><span class="line"><span class="type">double</span> eps=<span class="number">1e-6</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        <span class="type">double</span> w=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=M;j++)&#123;</span><br><span class="line">            w=w*<span class="number">10</span>+j;</span><br><span class="line">            st[i][j].<span class="built_in">insert</span>(w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> len=<span class="number">2</span>;len&lt;=M;len++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>;l+len<span class="number">-1</span>&lt;=M;l++)&#123;</span><br><span class="line">            <span class="type">int</span> r=l+len<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k=l;k&lt;r;k++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">double</span> vl:st[l][k]) <span class="keyword">for</span>(<span class="type">double</span> vr:st[k+<span class="number">1</span>][r])&#123;</span><br><span class="line">                    st[l][r].<span class="built_in">insert</span>(vl+vr);</span><br><span class="line">                    st[l][r].<span class="built_in">insert</span>(vl-vr);</span><br><span class="line">                    st[l][r].<span class="built_in">insert</span>(vl*vr);</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">abs</span>(vr)&gt;eps&amp;&amp;<span class="built_in">abs</span>(vr)&lt;<span class="number">100000</span>)</span><br><span class="line">                        st[l][r].<span class="built_in">insert</span>(vl/vr);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">double</span> x:st[<span class="number">1</span>][M])</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">abs</span>(x-<span class="built_in">round</span>(x))&lt;eps)&#123;</span><br><span class="line">            <span class="type">int</span> w=<span class="built_in">round</span>(x);</span><br><span class="line">            <span class="keyword">if</span>(w&gt;<span class="number">0</span>) ok.<span class="built_in">insert</span>(w);</span><br><span class="line">        &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:ok) ans+=x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题的做法和区间动态规划的进行做法比较像。</p>
+<p>如果现在要枚举$l,l+1,\dots,r-1,r$这一些数组成的表达式的值，并存放在集合$st[l][r]$中。那么我们可以对于$\forall k,l\le k&lt; r$，枚举每个数$x\in st[l][k],y\in st[k+1][r]$，并将这些数通过任何一种运算，将运算结果（也就是$x+y,x-y,xy,x/y$）存放在集合$st[l][r]$中。当$y\neq 0$时才能做除法运算。</p>
+<p>通过这种枚举方式，最终只需要判断集合$st[1][9]$存放的数是否为正整数即可。</p>
+<p>为了方便和效率，本题没有采用分数进行实现，而是使用一个误差用于判断这个数是否为整数。另外，如果做除法时除数的绝对值大于$10^5$，那么不允许做（因为做出来的结果，无法用一个数乘回去，使得分母被消除，避免诸如$\dfrac{1}{23456789}$这种数混入答案）。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">9</span>;</span><br><span class="line">unordered_set&lt;<span class="type">double</span>&gt;st[<span class="number">10</span>][<span class="number">10</span>];</span><br><span class="line">unordered_set&lt;<span class="type">int</span>&gt;ok;</span><br><span class="line"><span class="type">double</span> eps=<span class="number">1e-6</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        <span class="type">double</span> w=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=M;j++)&#123;</span><br><span class="line">            w=w*<span class="number">10</span>+j;</span><br><span class="line">            st[i][j].<span class="built_in">insert</span>(w);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> len=<span class="number">2</span>;len&lt;=M;len++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>;l+len<span class="number">-1</span>&lt;=M;l++)&#123;</span><br><span class="line">            <span class="type">int</span> r=l+len<span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k=l;k&lt;r;k++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">double</span> vl:st[l][k]) <span class="keyword">for</span>(<span class="type">double</span> vr:st[k+<span class="number">1</span>][r])&#123;</span><br><span class="line">                    st[l][r].<span class="built_in">insert</span>(vl+vr);</span><br><span class="line">                    st[l][r].<span class="built_in">insert</span>(vl-vr);</span><br><span class="line">                    st[l][r].<span class="built_in">insert</span>(vl*vr);</span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">abs</span>(vr)&gt;eps&amp;&amp;<span class="built_in">abs</span>(vr)&lt;<span class="number">100000</span>)</span><br><span class="line">                        st[l][r].<span class="built_in">insert</span>(vl/vr);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">double</span> x:st[<span class="number">1</span>][M])</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">abs</span>(x-<span class="built_in">round</span>(x))&lt;eps)&#123;</span><br><span class="line">            <span class="type">int</span> w=<span class="built_in">round</span>(x);</span><br><span class="line">            <span class="keyword">if</span>(w&gt;<span class="number">0</span>) ok.<span class="built_in">insert</span>(w);</span><br><span class="line">        &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:ok) ans+=x;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -371,7 +358,7 @@ st[k+1][r]\)</span>，并将这些数通过任何一种运算，将运算结果�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-259"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 259</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reachable-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reachable Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-259"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 259</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Reachable-Numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reachable Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,14 +372,14 @@ st[k+1][r]\)</span>，并将这些数通过任何一种运算，将运算结果�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -429,13 +416,13 @@ st[k+1][r]\)</span>，并将这些数通过任何一种运算，将运算结果�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

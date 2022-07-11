@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>937</span>
+              <span>861</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,37 +250,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-221">Project Euler 221</h1>
-<h2 id="题目">题目</h2>
-<h3 id="alexandrian-integers">Alexandrian Integers</h3>
-<p>We shall call a positive integer <span class="math inline">\(A\)</span> an “Alexandrian integer”, if there
-exist integers <span class="math inline">\(p, q, r\)</span> such
-that:</p>
-<p><span class="math display">\[A=p·q·r \text{ and }
-\frac{1}{A}=\frac{1}{p}+\frac{1}{q}+\frac{1}{r}\]</span></p>
-<p>For example, <span class="math inline">\(630\)</span> is an
-Alexandrian integer (<span class="math inline">\(p = 5, q = -7, r =
--18\)</span>).</p>
-<p>In fact, <span class="math inline">\(630\)</span> is the <span class="math inline">\(6^{\text{th}}\)</span> Alexandrian integer, the
-first <span class="math inline">\(6\)</span> Alexandrian integers being:
-<span class="math inline">\(6, 42, 120, 156, 420\)</span> and <span class="math inline">\(630\)</span>.</p>
-<p>Find the <span class="math inline">\(150000^{\text{th}}\)</span>
-Alexandrian integer.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>可以发现，<span class="math inline">\(p,q,r\)</span>中必定有其中一个数是正数，其余两个数是负数，假设<span class="math inline">\(p\)</span>是正数，<span class="math inline">\(q,r\)</span>是负数。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-221"><a href="#Project-Euler-221" class="headerlink" title="Project Euler 221"></a>Project Euler 221</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Alexandrian-Integers"><a href="#Alexandrian-Integers" class="headerlink" title="Alexandrian Integers"></a>Alexandrian Integers</h3><p>We shall call a positive integer $A$ an “Alexandrian integer”, if there exist integers $p, q, r$ such that:</p>
+<script type="math/tex; mode=display">A=p·q·r \text{ and } \frac{1}{A}=\frac{1}{p}+\frac{1}{q}+\frac{1}{r}</script><p>For example, $630$ is an Alexandrian integer ($p = 5, q = -7, r = -18$).</p>
+<p>In fact, $630$ is the $6^{\text{th}}$ Alexandrian integer,  the first $6$ Alexandrian integers being: $6, 42, 120, 156, 420$ and $630$.</p>
+<p>Find the $150000^{\text{th}}$ Alexandrian integer.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>可以发现，$p,q,r$中必定有其中一个数是正数，其余两个数是负数，假设$p$是正数，$q,r$是负数。</p>
 <p>因此问题等价于如下形式：</p>
-<p>寻找<span class="math inline">\(A=pqr\)</span>，其中<span class="math inline">\(p,q,r&gt;0\)</span>，使得<span class="math inline">\(\dfrac{1}{A}=\dfrac{1}{p}-\dfrac{1}{q}-\dfrac{1}{r}\)</span></p>
-<p>消去<span class="math inline">\(A\)</span>，不难得到</p>
-<p><span class="math display">\[qr-pr-qp=1\]</span></p>
-<p>两边都加一个<span class="math inline">\(p^2\)</span>，那么可以写成</p>
-<p><span class="math display">\[(p-q)(p-r)=p^2+1\]</span></p>
-<p>那么，先枚举<span class="math inline">\(p\)</span>，再枚举<span class="math inline">\(p^2+1\)</span>的因子<span class="math inline">\(d\)</span>，那么可以得到<span class="math inline">\(p-q=d,p-r=\dfrac{p^2+1}{d}\)</span>，最终得到题目中要求的一个数：</p>
-<p><span class="math display">\[A=p(p+d)(p+\dfrac{p^2+1}{d})\]</span></p>
-<p>令<span class="math inline">\(f(n)=n^2+1\)</span>，那么使用216题的分解方式对<span class="math inline">\(f(n)\)</span>进行分解：如果<span class="math inline">\(p|f(n)\)</span>，那么<span class="math inline">\(p|f(kp\pm n)\)</span>，其中<span class="math inline">\(k&gt;0\)</span>。再根据分解产生其所有因子。</p>
-<p>本题<span class="math inline">\(p\)</span>的上限难以确定，如果查询的值为<span class="math inline">\(Q=150000\)</span>，那么就假设为<span class="math inline">\(\dfrac{2Q}{3}+100\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> Q = <span class="number">150000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = Q*<span class="number">2</span>/<span class="number">3</span>+<span class="number">100</span>;</span><br><span class="line"><span class="type">const</span> ll MX = <span class="number">1e18</span>;</span><br><span class="line">ll f[M+<span class="number">4</span>];</span><br><span class="line">unordered_map&lt;ll,<span class="type">int</span>&gt;fact[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        f[i]=<span class="number">1ll</span>*i*i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        ll p=f[i];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=i;j&lt;=M;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(f[j]%p==<span class="number">0</span>) f[j]/=p,++fact[j][p];</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-i;j&lt;=M;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(f[j]%p==<span class="number">0</span>) f[j]/=p,++fact[j][p];</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;ll&gt;a;</span><br><span class="line">    <span class="keyword">for</span>(ll p=<span class="number">1</span>; p &lt;= M; p++)&#123;</span><br><span class="line">        ll n= p*p+<span class="number">1</span>;</span><br><span class="line">        vector&lt;ll&gt;divs&#123;<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;[pr,e]:fact[p])&#123;</span><br><span class="line">            <span class="type">int</span> l=<span class="number">0</span>,r=divs.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> _ = <span class="number">0</span>;_ &lt; e;_++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=l;j&lt;r;j++)</span><br><span class="line">                    <span class="keyword">if</span>(divs[j]*divs[j]*pr*pr&lt;=n)</span><br><span class="line">                        divs.<span class="built_in">push_back</span>(divs[j]*pr);</span><br><span class="line">                l=r;r=divs.<span class="built_in">size</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(ll d:divs)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p*(p+d)&gt;MX/(p+(p*p+<span class="number">1</span>)/d)) <span class="keyword">continue</span>;</span><br><span class="line">            a.<span class="built_in">push_back</span>(p*(p+d)*(p+(p*p+<span class="number">1</span>)/d));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>());</span><br><span class="line">    ll ans=a[Q<span class="number">-1</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>寻找$A=pqr$，其中$p,q,r&gt;0$，使得$\dfrac{1}{A}=\dfrac{1}{p}-\dfrac{1}{q}-\dfrac{1}{r}$</p>
+<p>消去$A$，不难得到</p>
+<script type="math/tex; mode=display">qr-pr-qp=1</script><p>两边都加一个$p^2$，那么可以写成</p>
+<script type="math/tex; mode=display">(p-q)(p-r)=p^2+1</script><p>那么，先枚举$p$，再枚举$p^2+1$的因子$d$，那么可以得到$p-q=d,p-r=\dfrac{p^2+1}{d}$，最终得到题目中要求的一个数：</p>
+<script type="math/tex; mode=display">A=p(p+d)(p+\dfrac{p^2+1}{d})</script><p>令$f(n)=n^2+1$，那么使用216题的分解方式对$f(n)$进行分解：如果$p|f(n)$，那么$p|f(kp\pm n)$，其中$k&gt;0$。再根据分解产生其所有因子。</p>
+<p>本题$p$的上限难以确定，如果查询的值为$Q=150000$，那么就假设为$\dfrac{2Q}{3}+100$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> Q = <span class="number">150000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = Q*<span class="number">2</span>/<span class="number">3</span>+<span class="number">100</span>;</span><br><span class="line"><span class="type">const</span> ll MX = <span class="number">1e18</span>;</span><br><span class="line">ll f[M+<span class="number">4</span>];</span><br><span class="line">unordered_map&lt;ll,<span class="type">int</span>&gt;fact[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        f[i]=<span class="number">1ll</span>*i*i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        ll p=f[i];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=i;j&lt;=M;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(f[j]%p==<span class="number">0</span>) f[j]/=p,++fact[j][p];</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-i;j&lt;=M;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(f[j]%p==<span class="number">0</span>) f[j]/=p,++fact[j][p];</span><br><span class="line">    &#125;</span><br><span class="line">    vector&lt;ll&gt;a;</span><br><span class="line">    <span class="keyword">for</span>(ll p=<span class="number">1</span>; p &lt;= M; p++)&#123;</span><br><span class="line">        ll n= p*p+<span class="number">1</span>;</span><br><span class="line">        vector&lt;ll&gt;divs&#123;<span class="number">1</span>&#125;;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span> &amp;[pr,e]:fact[p])&#123;</span><br><span class="line">            <span class="type">int</span> l=<span class="number">0</span>,r=divs.<span class="built_in">size</span>();</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> _ = <span class="number">0</span>;_ &lt; e;_++)&#123;</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> j=l;j&lt;r;j++)</span><br><span class="line">                    <span class="keyword">if</span>(divs[j]*divs[j]*pr*pr&lt;=n)</span><br><span class="line">                        divs.<span class="built_in">push_back</span>(divs[j]*pr);</span><br><span class="line">                l=r;r=divs.<span class="built_in">size</span>();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(ll d:divs)&#123;</span><br><span class="line">            <span class="keyword">if</span>(p*(p+d)&gt;MX/(p+(p*p+<span class="number">1</span>)/d)) <span class="keyword">continue</span>;</span><br><span class="line">            a.<span class="built_in">push_back</span>(p*(p+d)*(p+(p*p+<span class="number">1</span>)/d));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(a.<span class="built_in">begin</span>(),a.<span class="built_in">end</span>());</span><br><span class="line">    ll ans=a[Q<span class="number">-1</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +348,7 @@ Alexandrian integer.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-221"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 221</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#alexandrian-integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Alexandrian Integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-221"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 221</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Alexandrian-Integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Alexandrian Integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,14 +362,14 @@ Alexandrian integer.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -422,13 +406,13 @@ Alexandrian integer.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

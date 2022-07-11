@@ -234,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>982</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,42 +253,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-210">Project Euler 210</h1>
-<h2 id="题目">题目</h2>
-<h3 id="obtuse-angled-triangles">Obtuse Angled Triangles</h3>
-<p>Consider the set <span class="math inline">\(S(r)\)</span> of points
-<span class="math inline">\((x,y)\)</span> with integer coordinates
-satisfying |<span class="math inline">\(x| + |y| \le r\)</span>.</p>
-<p>Let <span class="math inline">\(O\)</span> be the point <span class="math inline">\((0,0)\)</span> and <span class="math inline">\(C\)</span> the point <span class="math inline">\((\dfrac{r}{4},\dfrac{r}{4})\)</span>.</p>
-<p>Let <span class="math inline">\(N(r)\)</span> be the number of points
-<span class="math inline">\(B\)</span> in <span class="math inline">\(S(r)\)</span>, so that the triangle <span class="math inline">\(OBC\)</span> has an obtuse angle, i.e. the largest
-angle <span class="math inline">\(\alpha\)</span> satisfies <span class="math inline">\(90°&lt;\alpha&lt;180°\)</span>.</p>
-<p>So, for example, <span class="math inline">\(N(4)=24\)</span> and
-<span class="math inline">\(N(8)=100\)</span>.</p>
-<p>What is <span class="math inline">\(N(1,000,000,000)\)</span>?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本解决方案只适用于<span class="math inline">\(r\)</span>为<span class="math inline">\(8\)</span>的倍数的情况。</p>
-<p>这些点一共由三部分组成，以<span class="math inline">\(r=8\)</span>为例，如下图所示：</p>
-<p><img src="../images/p210-1.png"></p>
-<p>其中，位于直线<span class="math inline">\(x-y=0\)</span>上的点都不是合法的，因为<span class="math inline">\(\triangle
-OBC\)</span>此时是一个退化的三角形。接下来的计算将忽略这些点。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-210"><a href="#Project-Euler-210" class="headerlink" title="Project Euler 210"></a>Project Euler 210</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Obtuse-Angled-Triangles"><a href="#Obtuse-Angled-Triangles" class="headerlink" title="Obtuse Angled Triangles"></a>Obtuse Angled Triangles</h3><p>Consider the set $S(r)$ of points $(x,y)$ with integer coordinates satisfying |$x| + |y| \le r$.</p>
+<p>Let $O$ be the point $(0,0)$ and $C$ the point $(\dfrac{r}{4},\dfrac{r}{4})$.</p>
+<p>Let $N(r)$ be the number of points $B$ in $S(r)$, so that the triangle $OBC$ has an obtuse angle, i.e. the largest angle $\alpha$ satisfies $90°&lt;\alpha&lt;180°$.</p>
+<p>So, for example, $N(4)=24$ and $N(8)=100$.</p>
+<p>What is $N(1,000,000,000)$?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本解决方案只适用于$r$为$8$的倍数的情况。</p>
+<p>这些点一共由三部分组成，以$r=8$为例，如下图所示：</p>
+<p><img src="../images/p210-1.png" alt></p>
+<p>其中，位于直线$x-y=0$上的点都不是合法的，因为$\triangle OBC$此时是一个退化的三角形。接下来的计算将忽略这些点。</p>
 <p>那么一共有三种情况：</p>
-<ol type="1">
-<li><span class="math inline">\(\angle
-O\)</span>为钝角。这些点位于平面<span class="math inline">\(x+y&lt;0\)</span>中，有<span class="math inline">\(r^2\)</span>个。</li>
-<li><span class="math inline">\(\angle
-C\)</span>为钝角。这些点位于平面<span class="math inline">\(x+y&gt;\dfrac{r}{2}\)</span>中，有<span class="math inline">\(\dfrac{r^2}{2}\)</span>个。</li>
-<li><span class="math inline">\(\angle
-B\)</span>为钝角。这些点位于平面<span class="math inline">\((x-\dfrac{r}{8})^2+(y-\dfrac{r}{8})^2&lt;\dfrac{r^2}{32}\)</span>中，也就是一个圆内。</li>
+<ol>
+<li>$\angle O$为钝角。这些点位于平面$x+y&lt;0$中，有$r^2$个。</li>
+<li>$\angle C$为钝角。这些点位于平面$x+y&gt;\dfrac{r}{2}$中，有$\dfrac{r^2}{2}$个。</li>
+<li>$\angle B$为钝角。这些点位于平面$(x-\dfrac{r}{8})^2+(y-\dfrac{r}{8})^2&lt;\dfrac{r^2}{32}$中，也就是一个圆内。</li>
 </ol>
 <p>接下来重点是计算情况3中的点个数。</p>
-<p>令<span class="math inline">\(s=\dfrac{r}{8}\)</span>，那么此时<span class="math inline">\(s\)</span>是一个整数。这个圆的圆心也就是<span class="math inline">\((s,s)\)</span>。</p>
-<p>将圆心挪到原点，此时等价于求圆<span class="math inline">\(x^2+y^2=2s^2\)</span>内有多少个点，这部分点一共有</p>
-<p><span class="math display">\[2\cdot{\lfloor\sqrt{2s^2-1}\rfloor}+\sum_{x=1}^{\lfloor\sqrt{2s^2-1}\rfloor}(4\cdot\lfloor\sqrt{2s^2-x^2-1}\rfloor+2)-2(s-1)\]</span></p>
-<p>注意最后一项是在直线<span class="math inline">\(x-y=0\)</span>上的点，一共有<span class="math inline">\(2(s-1)\)</span>个，这些点需要去掉。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">1e9</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">3ll</span>*N*N/<span class="number">2</span>;</span><br><span class="line">    ll s=N&gt;&gt;<span class="number">3</span>;</span><br><span class="line">    ll r2=s*s*<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll x=<span class="number">0</span>,y=<span class="built_in">sqrt</span>(r2)+<span class="number">1</span>;x*x&lt;=r2;x++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(;y&gt;=<span class="number">0</span>&amp;&amp;x*x+y*y&gt;=r2;--y);</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>) ans+=y*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(y&gt;=<span class="number">0</span>) ans+=y*<span class="number">4</span>+<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ans-=<span class="number">2</span>*(s<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>令$s=\dfrac{r}{8}$，那么此时$s$是一个整数。这个圆的圆心也就是$(s,s)$。</p>
+<p>将圆心挪到原点，此时等价于求圆$x^2+y^2=2s^2$内有多少个点，这部分点一共有</p>
+<script type="math/tex; mode=display">2\cdot{\lfloor\sqrt{2s^2-1}\rfloor}+\sum_{x=1}^{\lfloor\sqrt{2s^2-1}\rfloor}(4\cdot\lfloor\sqrt{2s^2-x^2-1}\rfloor+2)-2(s-1)</script><p>注意最后一项是在直线$x-y=0$上的点，一共有$2(s-1)$个，这些点需要去掉。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">1e9</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">3ll</span>*N*N/<span class="number">2</span>;</span><br><span class="line">    ll s=N&gt;&gt;<span class="number">3</span>;</span><br><span class="line">    ll r2=s*s*<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll x=<span class="number">0</span>,y=<span class="built_in">sqrt</span>(r2)+<span class="number">1</span>;x*x&lt;=r2;x++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(;y&gt;=<span class="number">0</span>&amp;&amp;x*x+y*y&gt;=r2;--y);</span><br><span class="line">        <span class="keyword">if</span>(x==<span class="number">0</span>) ans+=y*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(y&gt;=<span class="number">0</span>) ans+=y*<span class="number">4</span>+<span class="number">2</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ans-=<span class="number">2</span>*(s<span class="number">-1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +358,7 @@ B\)</span>为钝角。这些点位于平面<span class="math inline">\((x-\dfrac
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-210"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 210</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#obtuse-angled-triangles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Obtuse Angled Triangles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-210"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 210</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Obtuse-Angled-Triangles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Obtuse Angled Triangles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +372,14 @@ B\)</span>为钝角。这些点位于平面<span class="math inline">\((x-\dfrac
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,13 +416,13 @@ B\)</span>为钝角。这些点位于平面<span class="math inline">\((x-\dfrac
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

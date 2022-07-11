@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,37 +258,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-401">Project Euler 401</h1>
-<h2 id="题目">题目</h2>
-<h3 id="sum-of-squares-of-divisors">Sum of squares of divisors</h3>
-<p>The divisors of <span class="math inline">\(6\)</span> are <span class="math inline">\(1,2,3\)</span> and <span class="math inline">\(6\)</span>.</p>
-<p>The sum of the squares of these numbers is <span class="math inline">\(1+4+9+36=50\)</span>.</p>
-<p>Let <span class="math inline">\(\text{sigma2}(n)\)</span> represent
-the sum of the squares of the divisors of n. Thus <span class="math inline">\(\text{sigma2}(6)=50\)</span>.</p>
-<p>Let <span class="math inline">\(\text{SIGMA2}\)</span> represent the
-summatory function of <span class="math inline">\(\text{sigma2}\)</span>, that is <span class="math inline">\(\text{SIGMA2}(n)=\sum\text{ sigma2}(i)\)</span>
-for <span class="math inline">\(i=1\)</span> to <span class="math inline">\(n\)</span>.</p>
-<p>The first <span class="math inline">\(6\)</span> values of SIGMA2
-are: <span class="math inline">\(1,6,16,37,63\)</span> and <span class="math inline">\(113\)</span>.</p>
-<p>Find <span class="math inline">\(\text{SIGMA2}(10^{15}) \text{ modulo
-} 10^9\)</span>.</p>
-<h2 id="数论分块">数论分块</h2>
-<p>这种方法一般用于计算关于某个函数<span class="math inline">\(f\)</span>（<span class="math inline">\(f\)</span>的前缀和<span class="math inline">\(s(n)\)</span>可以很轻松地算出来）的下面的表达式：</p>
-<p><span class="math display">\[g(n)=\sum_{d=1}^nf(d)\cdot
-\lfloor\dfrac{n}{d}\rfloor\]</span></p>
-<p>对于<span class="math inline">\(d\)</span>任意不同的取值，<span class="math inline">\(\lfloor\dfrac{n}{d}\rfloor\)</span>只有<span class="math inline">\(O(\sqrt{n})\)</span>个值。</p>
-<p>一个块如果下标从<span class="math inline">\(i\)</span>开始，那么到<span class="math inline">\(\lfloor\dfrac{n}{\lfloor\dfrac{n}{i}\rfloor}\rfloor\)</span>才结束，而这块内部的所有<span class="math inline">\(\lfloor\dfrac{n}{d}\rfloor\)</span>都是相同的。下一个块的起点为<span class="math inline">\(\lfloor\dfrac{n}{\lfloor\dfrac{n}{i}\rfloor}\rfloor+1\)</span>开始，这些块是首尾相接的。</p>
-<p>因此，从下标<span class="math inline">\(i=1\)</span>开始，枚举计算每一块的<span class="math inline">\(f\)</span>函数之和，并求和，用表达式来表示就是：</p>
-<p><span class="math display">\[g(n)=\sum_{k}\lfloor\dfrac{n}{k}\rfloor\cdot(s(\lfloor\dfrac{n}{\lfloor\dfrac{n}{k}\rfloor}\rfloor)-s(k-1))\]</span></p>
-<p>其中<span class="math inline">\(k\)</span>是每一块的起点。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>不难想到每个因子<span class="math inline">\(d\)</span>在<span class="math inline">\(1\sim n\)</span>中出现的次数总共为<span class="math inline">\(\lfloor\dfrac{n}{d}\rfloor\)</span>次。</p>
-<p>因此<span class="math inline">\(\text{SIGMA2}(n)=\sum_{i=1}^n\lfloor\dfrac{n}{d}\rfloor\cdot
-d^2\)</span>。</p>
-<p>代入数论分块中，<span class="math inline">\(f(n)=n^2\)</span>，那么<span class="math inline">\(s(n)=\dfrac{n(n+1)(2n+1)}{6}\)</span>即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">1e15</span>;</span><br><span class="line">ll mod=<span class="number">1e9</span>;</span><br><span class="line">ll inv3=<span class="number">666666667</span>;</span><br><span class="line"><span class="function">ll <span class="title">f</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">    n%=mod;</span><br><span class="line">    <span class="keyword">return</span> n*(n+<span class="number">1</span>)/<span class="number">2</span>%mod*(n+n+<span class="number">1</span>)%mod*inv3%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,x;</span><br><span class="line">    <span class="keyword">for</span>(x=<span class="number">1</span>;x*x&lt;=N;x++)&#123;</span><br><span class="line">        ans=(ans+N/x%mod*x%mod*x)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(ll y;x&lt;=N;x=y+<span class="number">1</span>)&#123;</span><br><span class="line">        y=N/(N/x);</span><br><span class="line">        ll c=(N/x)%mod;</span><br><span class="line">        ans=(ans+(<span class="built_in">f</span>(y)-<span class="built_in">f</span>(x<span class="number">-1</span>)+mod)*c)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-401"><a href="#Project-Euler-401" class="headerlink" title="Project Euler 401"></a>Project Euler 401</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Sum-of-squares-of-divisors"><a href="#Sum-of-squares-of-divisors" class="headerlink" title="Sum of squares of divisors"></a>Sum of squares of divisors</h3><p>The divisors of $6$ are $1,2,3$ and $6$.</p>
+<p>The sum of the squares of these numbers is $1+4+9+36=50$.</p>
+<p>Let $\text{sigma2}(n)$ represent the sum of the squares of the divisors of n. Thus $\text{sigma2}(6)=50$.</p>
+<p>Let $\text{SIGMA2}$ represent the summatory function of $\text{sigma2}$, that is $\text{SIGMA2}(n)=\sum\text{ sigma2}(i)$ for $i=1$ to $n$.</p>
+<p>The first $6$ values of SIGMA2 are: $1,6,16,37,63$ and $113$.</p>
+<p>Find $\text{SIGMA2}(10^{15}) \text{ modulo } 10^9$.</p>
+<h2 id="数论分块"><a href="#数论分块" class="headerlink" title="数论分块"></a>数论分块</h2><p>这种方法一般用于计算关于某个函数$f$（$f$的前缀和$s(n)$可以很轻松地算出来）的下面的表达式：</p>
+<script type="math/tex; mode=display">g(n)=\sum_{d=1}^nf(d)\cdot \lfloor\dfrac{n}{d}\rfloor</script><p>对于$d$任意不同的取值，$\lfloor\dfrac{n}{d}\rfloor$只有$O(\sqrt{n})$个值。</p>
+<p>一个块如果下标从$i$开始，那么到$\lfloor\dfrac{n}{\lfloor\dfrac{n}{i}\rfloor}\rfloor$才结束，而这块内部的所有$\lfloor\dfrac{n}{d}\rfloor$都是相同的。下一个块的起点为$\lfloor\dfrac{n}{\lfloor\dfrac{n}{i}\rfloor}\rfloor+1$开始，这些块是首尾相接的。</p>
+<p>因此，从下标$i=1$开始，枚举计算每一块的$f$函数之和，并求和，用表达式来表示就是：</p>
+<script type="math/tex; mode=display">g(n)=\sum_{k}\lfloor\dfrac{n}{k}\rfloor\cdot(s(\lfloor\dfrac{n}{\lfloor\dfrac{n}{k}\rfloor}\rfloor)-s(k-1))</script><p>其中$k$是每一块的起点。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>不难想到每个因子$d$在$1\sim n$中出现的次数总共为$\lfloor\dfrac{n}{d}\rfloor$次。</p>
+<p>因此$\text{SIGMA2}(n)=\sum_{i=1}^n\lfloor\dfrac{n}{d}\rfloor\cdot d^2$。</p>
+<p>代入数论分块中，$f(n)=n^2$，那么$s(n)=\dfrac{n(n+1)(2n+1)}{6}$即可。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">1e15</span>;</span><br><span class="line">ll mod=<span class="number">1e9</span>;</span><br><span class="line">ll inv3=<span class="number">666666667</span>;</span><br><span class="line"><span class="function">ll <span class="title">f</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">    n%=mod;</span><br><span class="line">    <span class="keyword">return</span> n*(n+<span class="number">1</span>)/<span class="number">2</span>%mod*(n+n+<span class="number">1</span>)%mod*inv3%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>,x;</span><br><span class="line">    <span class="keyword">for</span>(x=<span class="number">1</span>;x*x&lt;=N;x++)&#123;</span><br><span class="line">        ans=(ans+N/x%mod*x%mod*x)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(ll y;x&lt;=N;x=y+<span class="number">1</span>)&#123;</span><br><span class="line">        y=N/(N/x);</span><br><span class="line">        ll c=(N/x)%mod;</span><br><span class="line">        ans=(ans+(<span class="built_in">f</span>(y)-<span class="built_in">f</span>(x<span class="number">-1</span>)+mod)*c)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -373,7 +359,7 @@ d^2\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-401"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 401</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-of-squares-of-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sum of squares of divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97"><span class="nav-number">1.2.</span> <span class="nav-text">数论分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-401"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 401</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sum-of-squares-of-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sum of squares of divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E8%AE%BA%E5%88%86%E5%9D%97"><span class="nav-number">1.2.</span> <span class="nav-text">数论分块</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,14 +373,14 @@ d^2\)</span>。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -431,13 +417,13 @@ d^2\)</span>。</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

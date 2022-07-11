@@ -232,14 +232,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -251,51 +251,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-245">Project Euler 245</h1>
-<h2 id="题目">题目</h2>
-<h3 id="coresilience">Coresilience</h3>
-<p>We shall call a fraction that cannot be cancelled down a resilient
-fraction.</p>
-<p>Furthermore we shall define the resilience of a denominator, <span class="math inline">\(R(d)\)</span>, to be the ratio of its proper
-fractions that are resilient; for example, <span class="math inline">\(R(12) = \dfrac{4}{11}\)</span>.</p>
-<p>The resilience of a number <span class="math inline">\(d \gt
-1\)</span> is then <span class="math inline">\(\dfrac{\varphi(d)}{d -
-1}\)</span>, where <span class="math inline">\(\varphi\)</span> is
-Euler's totient function.</p>
-<p>We further define the <strong>coresilience</strong> of a number <span class="math inline">\(n \gt 1\)</span> as <span class="math inline">\(C(n) = \dfrac{n - \varphi(n)}{n - 1}\)</span>.</p>
-<p>The coresilience of a prime <span class="math inline">\(p\)</span> is
-<span class="math inline">\(C(p) = \dfrac{1}{p - 1}\)</span>.</p>
-<p>Find the sum of all <b>composite</b> integers <span class="math inline">\(1 \lt n \le 2 \times 10^{11}\)</span>, for which
-<span class="math inline">\(C(n)\)</span> is a
-<dfn title="A fraction with numerator 1">unit fraction</dfn>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(N=2\times 10^{11}\)</span>。</p>
-<p>证明：如果<span class="math inline">\(C(n)\)</span>是一个单位分数，那么<span class="math inline">\(n\)</span>是一个无平方因子数。</p>
-<p>假设<span class="math inline">\(p\)</span>是<span class="math inline">\(n\)</span>的任意一个质因子，<span class="math inline">\(e\)</span>是一个最大的正整数使得<span class="math inline">\(p^e|n\)</span>。</p>
-<p>如果<span class="math inline">\(C(n)\)</span>是一个单位分数，那么可以写成存在一个整数<span class="math inline">\(m\)</span>，满足<span class="math inline">\(m=\dfrac{n-1}{n-\varphi(n)}\)</span></p>
-<p>那么，<span class="math inline">\(\varphi(n)\)</span>中有一个因子<span class="math inline">\(p^{e-1}\)</span>。同时不难发现<span class="math inline">\(p^{e-1}|n\)</span>。因此如果<span class="math inline">\(m\)</span>是一个整数，那么<span class="math inline">\(p^{e-1}|1\)</span>，从而得出<span class="math inline">\(e=1\)</span>。</p>
-<p>因此，<span class="math inline">\(n\)</span>是一个无平方因子数。</p>
-<p>证明：<span class="math inline">\(n\)</span>是奇数。也就是说，<span class="math inline">\(n\)</span>没有<span class="math inline">\(2\)</span>的质因子。</p>
-<p>如果<span class="math inline">\(n\)</span>是偶数，那么<span class="math inline">\(n-1\)</span>是奇数，<span class="math inline">\(n-\varphi(n)\)</span>是偶数，偶数不可能整除一个奇数，因此<span class="math inline">\(n\)</span>不可能是偶数。</p>
-<p>证明：<span class="math inline">\(m\)</span>是偶数。</p>
-<p>由于<span class="math inline">\(n\)</span>是奇数<span class="math inline">\(n-1\)</span>是偶数，<span class="math inline">\(\varphi(n)\)</span>是偶数，因此<span class="math inline">\(m\)</span>一定是一个偶数。</p>
-<p>假设<span class="math inline">\(n=p_1p_2\dots
-p_k\)</span>，并且对于<span class="math inline">\(1&lt; i\le
-k\)</span>，都有<span class="math inline">\(p_{i-1}&lt;
-p_i\)</span>。</p>
-<p>考虑当前已经有<span class="math inline">\(x=\prod_{i=1}^{k-1}p_i,y=\prod_{i=1}^{k-1}(p_i-1)\)</span>，现在枚举一个新的<span class="math inline">\(p=p_k\)</span>，有<span class="math inline">\(n=xp\)</span>。</p>
-<p>那么，<span class="math inline">\(\dfrac{xp-1}{xp-y(p-1)}=\dfrac{xp-1}{(x-y)p+y}=m\)</span></p>
-<p>容易发现，随着<span class="math inline">\(p\)</span>值增长，<span class="math inline">\(m\)</span>也增长（由反比例函数的性质可知）。但是，<span class="math inline">\(m\)</span>的增长速度非常慢（因为分母中有个<span class="math inline">\(x-y\)</span>，并且<span class="math inline">\(x-y\)</span>的值一般是比较接近<span class="math inline">\(x\)</span>的）。可以求出<span class="math inline">\(m\)</span>的范围，再通过枚举<span class="math inline">\(m\)</span>反推出<span class="math inline">\(p\)</span>。</p>
-<p>那么，根据以上约束，不难得出<span class="math inline">\(p_{k-1}&lt;
-p\le\dfrac{N}{x}\)</span></p>
-<p>因此，可以给出<span class="math inline">\(\dfrac{xp_{k-1}}{(x-y)p_{k-1}+y}&lt;
-m\le\dfrac{N-1}{N-y(\frac{N}{x})+y}\)</span></p>
-<p>只需要枚举这个区间中所有的偶数<span class="math inline">\(m\)</span>即可，这个区间范围比较小。根据<span class="math inline">\(m\)</span>，重新计算出<span class="math inline">\(p=\dfrac{1+mx}{x-mx+my}\)</span>，并判断<span class="math inline">\(p\)</span>是否为一个整数并且为一个质数。如果<span class="math inline">\(p\)</span>满足要求，那么说明找到了一个答案<span class="math inline">\(np\)</span>。</p>
-<p>另外一个问题：<span class="math inline">\(x\)</span>的枚举。<span class="math inline">\(x\)</span>的枚举比较容易，只需要枚举所有的质数之积即可。但是，用<span class="math inline">\(x\)</span>扩展到下一个<span class="math inline">\(x&#39;=xq\)</span>时，需要保证<span class="math inline">\(q\le \sqrt{\dfrac{N}{x}}\)</span>，因为<span class="math inline">\(q\)</span>并非是答案中最大的质因数。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-245"><a href="#Project-Euler-245" class="headerlink" title="Project Euler 245"></a>Project Euler 245</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Coresilience"><a href="#Coresilience" class="headerlink" title="Coresilience"></a>Coresilience</h3><p>We shall call a fraction that cannot be cancelled down a resilient fraction.</p>
+<p>Furthermore we shall define the resilience of a denominator, $R(d)$, to be the ratio of its proper fractions that are resilient; for example, $R(12) = \dfrac{4}{11}$.</p>
+<p>The resilience of a number $d \gt 1$ is then $\dfrac{\varphi(d)}{d - 1}$, where $\varphi$ is Euler’s totient function.</p>
+<p>We further define the <strong>coresilience</strong> of a number $n \gt 1$ as $C(n) = \dfrac{n - \varphi(n)}{n - 1}$.</p>
+<p>The coresilience of a prime $p$ is $C(p) = \dfrac{1}{p - 1}$.</p>
+<p>Find the sum of all <b>composite</b> integers $1 \lt n \le 2 \times 10^{11}$, for which $C(n)$ is a <dfn title="A fraction with numerator 1">unit fraction</dfn>.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=2\times 10^{11}$。</p>
+<p>证明：如果$C(n)$是一个单位分数，那么$n$是一个无平方因子数。</p>
+<p>假设$p$是$n$的任意一个质因子，$e$是一个最大的正整数使得$p^e|n$。</p>
+<p>如果$C(n)$是一个单位分数，那么可以写成存在一个整数$m$，满足$m=\dfrac{n-1}{n-\varphi(n)}$</p>
+<p>那么，$\varphi(n)$中有一个因子$p^{e-1}$。同时不难发现$p^{e-1}|n$。因此如果$m$是一个整数，那么$p^{e-1}|1$，从而得出$e=1$。</p>
+<p>因此，$n$是一个无平方因子数。</p>
+<p>证明：$n$是奇数。也就是说，$n$没有$2$的质因子。</p>
+<p>如果$n$是偶数，那么$n-1$是奇数，$n-\varphi(n)$是偶数，偶数不可能整除一个奇数，因此$n$不可能是偶数。</p>
+<p>证明：$m$是偶数。</p>
+<p>由于$n$是奇数$n-1$是偶数，$\varphi(n)$是偶数，因此$m$一定是一个偶数。</p>
+<p>假设$n=p_1p_2\dots p_k$，并且对于$1&lt; i\le k$，都有$p_{i-1}&lt; p_i$。</p>
+<p>考虑当前已经有$x=\prod_{i=1}^{k-1}p_i,y=\prod_{i=1}^{k-1}(p_i-1)$，现在枚举一个新的$p=p_k$，有$n=xp$。</p>
+<p>那么，$\dfrac{xp-1}{xp-y(p-1)}=\dfrac{xp-1}{(x-y)p+y}=m$</p>
+<p>容易发现，随着$p$值增长，$m$也增长（由反比例函数的性质可知）。但是，$m$的增长速度非常慢（因为分母中有个$x-y$，并且$x-y$的值一般是比较接近$x$的）。可以求出$m$的范围，再通过枚举$m$反推出$p$。</p>
+<p>那么，根据以上约束，不难得出$p_{k-1}&lt; p\le\dfrac{N}{x}$</p>
+<p>因此，可以给出$\dfrac{xp_{k-1}}{(x-y)p_{k-1}+y}&lt; m\le\dfrac{N-1}{N-y(\frac{N}{x})+y}$</p>
+<p>只需要枚举这个区间中所有的偶数$m$即可，这个区间范围比较小。根据$m$，重新计算出$p=\dfrac{1+mx}{x-mx+my}$，并判断$p$是否为一个整数并且为一个质数。如果$p$满足要求，那么说明找到了一个答案$np$。</p>
+<p>另外一个问题：$x$的枚举。$x$的枚举比较容易，只需要枚举所有的质数之积即可。但是，用$x$扩展到下一个$x’=xq$时，需要保证$q\le \sqrt{\dfrac{N}{x}}$，因为$q$并非是答案中最大的质因数。</p>
 <p>另外，前几项在OEIS中查询后，结果为<a target="_blank" rel="noopener" href="https://oeis.org/A160599">A160599</a>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tools.h&quot;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll N = <span class="number">200000000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="built_in">sqrt</span>(N)+<span class="number">4</span>;</span><br><span class="line"><span class="type">int</span> pr[M/<span class="number">10</span>+<span class="number">1000</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> vis[M+<span class="number">4</span>];</span><br><span class="line">ll ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> f, ll x, ll y)</span> </span>&#123;</span><br><span class="line">    ll p_max = <span class="built_in">int_sqrt</span>(N / x);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = f + <span class="number">1</span>; i &lt;= m &amp;&amp; pr[i] &lt;= p_max; i++) &#123;</span><br><span class="line">        <span class="built_in">dfs</span>(i, x * pr[i], y * (pr[i] - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    ll p = f &lt; m ? pr[f + <span class="number">1</span>] : pr[f] + <span class="number">2</span>;</span><br><span class="line">    ll num = p * x - <span class="number">1</span>, den = p * (x - y) + y;</span><br><span class="line">    ll kl = (num + den - <span class="number">1</span>) / den;</span><br><span class="line">    <span class="keyword">if</span> (kl % <span class="number">2</span> == <span class="number">1</span>) kl += <span class="number">1</span>;</span><br><span class="line">    num = (N / x) * x - <span class="number">1</span>;</span><br><span class="line">    den = (N / x) * (x - y) + y;</span><br><span class="line">    ll kr = num / den;</span><br><span class="line">    <span class="keyword">for</span> (ll k = kl; k &lt;= kr; k += <span class="number">2</span>) &#123;</span><br><span class="line">        num = k * y + <span class="number">1</span>;</span><br><span class="line">        den = x - k * (x - y);</span><br><span class="line">        <span class="keyword">if</span> (num % den == <span class="number">0</span>) &#123;</span><br><span class="line">            ll p = num / den;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">is_prime</span>(p))</span><br><span class="line">                ans += x * p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= M; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[i]) <span class="keyword">continue</span>;</span><br><span class="line">        pr[++m] = i;</span><br><span class="line">        <span class="keyword">for</span> (ll j = <span class="number">1ll</span> * i * i; j &lt;= M; j += i)</span><br><span class="line">            vis[j] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= m; i++)</span><br><span class="line">        <span class="built_in">dfs</span>(i, pr[i], pr[i] - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tools.h&quot;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll N = <span class="number">200000000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="built_in">sqrt</span>(N)+<span class="number">4</span>;</span><br><span class="line"><span class="type">int</span> pr[M/<span class="number">10</span>+<span class="number">1000</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> vis[M+<span class="number">4</span>];</span><br><span class="line">ll ans=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> f, ll x, ll y)</span> </span>&#123;</span><br><span class="line">    ll p_max = <span class="built_in">int_sqrt</span>(N / x);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = f + <span class="number">1</span>; i &lt;= m &amp;&amp; pr[i] &lt;= p_max; i++) &#123;</span><br><span class="line">        <span class="built_in">dfs</span>(i, x * pr[i], y * (pr[i] - <span class="number">1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    ll p = f &lt; m ? pr[f + <span class="number">1</span>] : pr[f] + <span class="number">2</span>;</span><br><span class="line">    ll num = p * x - <span class="number">1</span>, den = p * (x - y) + y;</span><br><span class="line">    ll kl = (num + den - <span class="number">1</span>) / den;</span><br><span class="line">    <span class="keyword">if</span> (kl % <span class="number">2</span> == <span class="number">1</span>) kl += <span class="number">1</span>;</span><br><span class="line">    num = (N / x) * x - <span class="number">1</span>;</span><br><span class="line">    den = (N / x) * (x - y) + y;</span><br><span class="line">    ll kr = num / den;</span><br><span class="line">    <span class="keyword">for</span> (ll k = kl; k &lt;= kr; k += <span class="number">2</span>) &#123;</span><br><span class="line">        num = k * y + <span class="number">1</span>;</span><br><span class="line">        den = x - k * (x - y);</span><br><span class="line">        <span class="keyword">if</span> (num % den == <span class="number">0</span>) &#123;</span><br><span class="line">            ll p = num / den;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">is_prime</span>(p))</span><br><span class="line">                ans += x * p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= M; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[i]) <span class="keyword">continue</span>;</span><br><span class="line">        pr[++m] = i;</span><br><span class="line">        <span class="keyword">for</span> (ll j = <span class="number">1ll</span> * i * i; j &lt;= M; j += i)</span><br><span class="line">            vis[j] = <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= m; i++)</span><br><span class="line">        <span class="built_in">dfs</span>(i, pr[i], pr[i] - <span class="number">1</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -380,7 +363,7 @@ m\le\dfrac{N-1}{N-y(\frac{N}{x})+y}\)</span></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-245"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 245</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#coresilience"><span class="nav-number">1.1.1.</span> <span class="nav-text">Coresilience</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-245"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 245</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Coresilience"><span class="nav-number">1.1.1.</span> <span class="nav-text">Coresilience</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -394,14 +377,14 @@ m\le\dfrac{N-1}{N-y(\frac{N}{x})+y}\)</span></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -438,13 +421,13 @@ m\le\dfrac{N-1}{N-y(\frac{N}{x})+y}\)</span></p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

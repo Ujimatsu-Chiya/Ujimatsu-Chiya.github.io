@@ -233,14 +233,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -252,43 +252,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-336">Project Euler 336</h1>
-<h2 id="题目">题目</h2>
-<h3 id="maximix-arrangements">Maximix Arrangements</h3>
-<p>A train is used to transport four carriages in the order: ABCD.
-However, sometimes when the train arrives to collect the carriages they
-are not in the correct order.</p>
-<p>To rearrange the carriages they are all shunted on to a large
-rotating turntable. After the carriages are uncoupled at a specific
-point the train moves off the turntable pulling the carriages still
-attached with it. The remaining carriages are rotated <span class="math inline">\(180\)</span> degrees. All of the carriages are
-then rejoined and this process is repeated as often as necessary in
-order to obtain the least number of uses of the turntable.</p>
-<p>Some arrangements, such as ADCB, can be solved easily: the carriages
-are separated between A and D, and after DCB are rotated the correct
-order has been achieved.</p>
-<p>However, Simple Simon, the train driver, is not known for his
-efficiency, so he always solves the problem by initially getting
-carriage A in the correct place, then carriage B, and so on.</p>
-<p>Using four carriages, the worst possible arrangements for Simon,
-which we shall call <em>maximix arrangements</em>, are DACB and DBAC;
-each requiring him five rotations (although, using the most efficient
-approach, they could be solved using just three rotations). The process
-he uses for DACB is shown below.</p>
-<p><img src="../images/p336_maximix.gif"></p>
-<p>It can be verified that there are <span class="math inline">\(24\)</span> maximix arrangements for six
-carriages, of which the tenth lexicographic maximix arrangement is
-DFAECB.</p>
-<p>Find the <span class="math inline">\(2011^{\text{th}}\)</span>
-lexicographic maximix arrangement for eleven carriages.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(N=11,Q=2011\)</span>。</p>
-<p>可以知道，最大的安排数是<span class="math inline">\(2N-3\)</span>。这里使用数字<span class="math inline">\(1\)</span>代表车厢A，<span class="math inline">\(2\)</span>代表B，<span class="math inline">\(3\)</span>代表C……按照这个人的排序方式，当<span class="math inline">\(1\)</span>不在第<span class="math inline">\(1\)</span>个位置并且不在第<span class="math inline">\(N\)</span>个位置，那么他就需要<span class="math inline">\(2\)</span>次翻转。翻转完成后，若<span class="math inline">\(2\)</span>不在不在第<span class="math inline">\(2\)</span>个位置并且不在第<span class="math inline">\(N\)</span>个位置，那么同样需要<span class="math inline">\(2\)</span>次翻转……最终到了第<span class="math inline">\(N-1\)</span>个车厢，只有它在第<span class="math inline">\(N\)</span>个位置时才翻转，而第<span class="math inline">\(N\)</span>个车厢已经排好序。因此最大安排数为<span class="math inline">\(2N-3\)</span>。</p>
-<p>因此，直接暴力枚举每个排列，按照题中的算法进行排序，直到找到第<span class="math inline">\(Q\)</span>个排列。</p>
-<p>为了减少枚举量，发现第一个位置不可能为<span class="math inline">\(1\)</span>或者是<span class="math inline">\(2\)</span>。因为第一个是<span class="math inline">\(1\)</span>，那就直接被算法跳过，肯定不是最优的；如果第一个是<span class="math inline">\(2\)</span>，那么当<span class="math inline">\(1\)</span>被翻转到第一个位置时，<span class="math inline">\(2\)</span>将会在序列末尾，而不会在中间，少了所要求的一次翻转次数。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">11</span>,Q=<span class="number">2011</span>;</span><br><span class="line"><span class="type">int</span> a[N],b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a[<span class="number">0</span>]=<span class="number">2</span>;a[<span class="number">1</span>]=<span class="number">0</span>;a[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;N;i++)</span><br><span class="line">        a[i]=i;</span><br><span class="line">    <span class="type">int</span> v=<span class="number">2</span>*N<span class="number">-3</span>,cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="type">int</span> c=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(a));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,p=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b[i]==i) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(b[N<span class="number">-1</span>]!=i)&#123;</span><br><span class="line">                <span class="keyword">for</span>(p=i+<span class="number">1</span>;b[p]!=i;p++);</span><br><span class="line">                <span class="built_in">reverse</span>(b+p,b+N);</span><br><span class="line">                ++c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">reverse</span>(b+i,b+N);</span><br><span class="line">            ++c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(c==v&amp;&amp;++cnt==Q) <span class="keyword">break</span>;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="built_in">next_permutation</span>(a,a+N));</span><br><span class="line">    string ans=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        ans+=<span class="string">&#x27;A&#x27;</span>+a[i];</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-336"><a href="#Project-Euler-336" class="headerlink" title="Project Euler 336"></a>Project Euler 336</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Maximix-Arrangements"><a href="#Maximix-Arrangements" class="headerlink" title="Maximix Arrangements"></a>Maximix Arrangements</h3><p>A train is used to transport four carriages in the order: ABCD. However, sometimes when the train arrives to collect the carriages they are not in the correct order.</p>
+<p>To rearrange the carriages they are all shunted on to a large rotating turntable. After the carriages are uncoupled at a specific point the train moves off the turntable pulling the carriages still attached with it. The remaining carriages are rotated $180$ degrees. All of the carriages are then rejoined and this process is repeated as often as necessary in order to obtain the least number of uses of the turntable.</p>
+<p>Some arrangements, such as ADCB, can be solved easily: the carriages are separated between A and D, and after DCB are rotated the correct order has been achieved.</p>
+<p>However, Simple Simon, the train driver, is not known for his efficiency, so he always solves the problem by initially getting carriage A in the correct place, then carriage B, and so on.</p>
+<p>Using four carriages, the worst possible arrangements for Simon, which we shall call <em>maximix arrangements</em>, are DACB and DBAC; each requiring him five rotations (although, using the most efficient approach, they could be solved using just three rotations). The process he uses for DACB is shown below.</p>
+<p><img src="../images/p336_maximix.gif" alt></p>
+<p>It can be verified that there are $24$ maximix arrangements for six carriages, of which the tenth lexicographic maximix arrangement is DFAECB.</p>
+<p>Find the $2011^{\text{th}}$ lexicographic maximix arrangement for eleven carriages.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=11,Q=2011$。</p>
+<p>可以知道，最大的安排数是$2N-3$。这里使用数字$1$代表车厢A，$2$代表B，$3$代表C……按照这个人的排序方式，当$1$不在第$1$个位置并且不在第$N$个位置，那么他就需要$2$次翻转。翻转完成后，若$2$不在不在第$2$个位置并且不在第$N$个位置，那么同样需要$2$次翻转……最终到了第$N-1$个车厢，只有它在第$N$个位置时才翻转，而第$N$个车厢已经排好序。因此最大安排数为$2N-3$。</p>
+<p>因此，直接暴力枚举每个排列，按照题中的算法进行排序，直到找到第$Q$个排列。</p>
+<p>为了减少枚举量，发现第一个位置不可能为$1$或者是$2$。因为第一个是$1$，那就直接被算法跳过，肯定不是最优的；如果第一个是$2$，那么当$1$被翻转到第一个位置时，$2$将会在序列末尾，而不会在中间，少了所要求的一次翻转次数。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">11</span>,Q=<span class="number">2011</span>;</span><br><span class="line"><span class="type">int</span> a[N],b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    a[<span class="number">0</span>]=<span class="number">2</span>;a[<span class="number">1</span>]=<span class="number">0</span>;a[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;N;i++)</span><br><span class="line">        a[i]=i;</span><br><span class="line">    <span class="type">int</span> v=<span class="number">2</span>*N<span class="number">-3</span>,cnt=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">do</span>&#123;</span><br><span class="line">        <span class="type">int</span> c=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">memcpy</span>(b,a,<span class="built_in">sizeof</span>(a));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>,p=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(b[i]==i) <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(b[N<span class="number">-1</span>]!=i)&#123;</span><br><span class="line">                <span class="keyword">for</span>(p=i+<span class="number">1</span>;b[p]!=i;p++);</span><br><span class="line">                <span class="built_in">reverse</span>(b+p,b+N);</span><br><span class="line">                ++c;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">reverse</span>(b+i,b+N);</span><br><span class="line">            ++c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(c==v&amp;&amp;++cnt==Q) <span class="keyword">break</span>;</span><br><span class="line">    &#125;<span class="keyword">while</span>(<span class="built_in">next_permutation</span>(a,a+N));</span><br><span class="line">    string ans=<span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;N;i++)</span><br><span class="line">        ans+=<span class="string">&#x27;A&#x27;</span>+a[i];</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +350,7 @@ lexicographic maximix arrangement for eleven carriages.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-336"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 336</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maximix-arrangements"><span class="nav-number">1.1.1.</span> <span class="nav-text">Maximix Arrangements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-336"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 336</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximix-Arrangements"><span class="nav-number">1.1.1.</span> <span class="nav-text">Maximix Arrangements</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +364,14 @@ lexicographic maximix arrangement for eleven carriages.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,13 +408,13 @@ lexicographic maximix arrangement for eleven carriages.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

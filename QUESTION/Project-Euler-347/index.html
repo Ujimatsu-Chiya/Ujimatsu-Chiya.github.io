@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>873</span>
+              <span>789</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,30 +250,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-347">Project Euler 347</h1>
-<h2 id="题目">题目</h2>
-<h3 id="largest-integer-divisible-by-two-primes">Largest integer
-divisible by two primes</h3>
-<p>The largest integer <span class="math inline">\(\le 100\)</span> that
-is only divisible by both the primes <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span> is <span class="math inline">\(96\)</span>, as <span class="math inline">\(96=32*3=2^5*3\)</span>.</p>
-<p>For two <em>distinct</em> primes <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> let <span class="math inline">\(M(p,q,N)\)</span> be the largest positive integer
-<span class="math inline">\(\le N\)</span> only divisible by both <span class="math inline">\(p\)</span> and <span class="math inline">\(q\)</span> and <span class="math inline">\(M(p,q,N)=0\)</span> if such a positive integer
-does not exist.</p>
-<p>E.g. <span class="math inline">\(M(2,3,100)=96\)</span>.</p>
-<p><span class="math inline">\(M(3,5,100)=75\)</span> and not <span class="math inline">\(90\)</span> because <span class="math inline">\(90\)</span> is divisible by <span class="math inline">\(2 ,3\)</span> and <span class="math inline">\(5\)</span>.</p>
-<p>Also <span class="math inline">\(M(2,73,100)=0\)</span> because there
-does not exist a positive integer <span class="math inline">\(\le
-100\)</span> that is divisible by both <span class="math inline">\(2\)</span> and <span class="math inline">\(73\)</span>.</p>
-<p>Let <span class="math inline">\(S(N)\)</span> be the sum of all
-distinct <span class="math inline">\(M(p,q,N)\)</span>. <span class="math inline">\(S(100)=2262.\)</span></p>
-<p>Find <span class="math inline">\(S(10 000 000)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>根据分解质因数的思想可以知道，如果<span class="math inline">\(p,q\)</span>有其中一个不相同，那么<span class="math inline">\(M(p,q,N)\)</span>也不会相同。</p>
-<p>因此，令<span class="math inline">\(N=10000000\)</span>，枚举所有的<span class="math inline">\(p,q(p&lt; q)\)</span>使得<span class="math inline">\(pq\le N\)</span>。那么找到一对<span class="math inline">\((x,y)\)</span>使得<span class="math inline">\(p^xq^y\le N\)</span>并且<span class="math inline">\(p^xq^y\)</span>最大，那么<span class="math inline">\(p^xq^y\)</span>便是其中一个答案。</p>
-<p>另外一个地方则是，质数只需要筛选到<span class="math inline">\(\dfrac{N}{2}\)</span>即可。因为枚举的<span class="math inline">\((p,q)\)</span>中，<span class="math inline">\(p\)</span>至少为<span class="math inline">\(2\)</span>，那么<span class="math inline">\(q\)</span>最多为<span class="math inline">\(\dfrac{N}{2}\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">7</span></span><br><span class="line">pr = get_prime(N // <span class="number">2</span>)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pr) - <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">        <span class="keyword">if</span> pr[i] * pr[j] &gt; N:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        mx = <span class="number">0</span></span><br><span class="line">        x = pr[i]</span><br><span class="line">        <span class="keyword">while</span> x * pr[j] &lt;= N:</span><br><span class="line">            y = pr[j]</span><br><span class="line">            <span class="keyword">while</span> x * y &lt;= N:</span><br><span class="line">                mx = <span class="built_in">max</span>(mx, x * y)</span><br><span class="line">                y *= pr[j]</span><br><span class="line">            x *= pr[i]</span><br><span class="line">        ans += mx</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-347"><a href="#Project-Euler-347" class="headerlink" title="Project Euler 347"></a>Project Euler 347</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Largest-integer-divisible-by-two-primes"><a href="#Largest-integer-divisible-by-two-primes" class="headerlink" title="Largest integer divisible by two primes"></a>Largest integer divisible by two primes</h3><p>The largest integer $\le 100$ that is only divisible by both the primes $2$ and $3$ is $96$, as $96=32<em>3=2^5</em>3$.</p>
+<p>For two <em>distinct</em> primes $p$ and $q$ let $M(p,q,N)$ be the largest positive integer $\le N$ only divisible by both $p$ and $q$ and $M(p,q,N)=0$ if such a positive integer does not exist.</p>
+<p>E.g. $M(2,3,100)=96$.</p>
+<p>$M(3,5,100)=75$ and not $90$ because $90$ is divisible by $2 ,3$ and $5$.</p>
+<p>Also $M(2,73,100)=0$ because there does not exist a positive integer $\le 100$ that is divisible by both $2$ and $73$.</p>
+<p>Let $S(N)$ be the sum of all distinct $M(p,q,N)$.<br>$S(100)=2262.$</p>
+<p>Find $S(10 000 000)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据分解质因数的思想可以知道，如果$p,q$有其中一个不相同，那么$M(p,q,N)$也不会相同。</p>
+<p>因此，令$N=10000000$，枚举所有的$p,q(p&lt; q)$使得$pq\le N$。那么找到一对$(x,y)$使得$p^xq^y\le N$并且$p^xq^y$最大，那么$p^xq^y$便是其中一个答案。</p>
+<p>另外一个地方则是，质数只需要筛选到$\dfrac{N}{2}$即可。因为枚举的$(p,q)$中，$p$至少为$2$，那么$q$最多为$\dfrac{N}{2}$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">7</span></span><br><span class="line">pr = get_prime(N // <span class="number">2</span>)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(pr) - <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i + <span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">        <span class="keyword">if</span> pr[i] * pr[j] &gt; N:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        mx = <span class="number">0</span></span><br><span class="line">        x = pr[i]</span><br><span class="line">        <span class="keyword">while</span> x * pr[j] &lt;= N:</span><br><span class="line">            y = pr[j]</span><br><span class="line">            <span class="keyword">while</span> x * y &lt;= N:</span><br><span class="line">                mx = <span class="built_in">max</span>(mx, x * y)</span><br><span class="line">                y *= pr[j]</span><br><span class="line">            x *= pr[i]</span><br><span class="line">        ans += mx</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -357,8 +346,7 @@ distinct <span class="math inline">\(M(p,q,N)\)</span>. <span class="math inline
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-347"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 347</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#largest-integer-divisible-by-two-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Largest integer
-divisible by two primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-347"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 347</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Largest-integer-divisible-by-two-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Largest integer divisible by two primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -372,14 +360,14 @@ divisible by two primes</span></a></li></ol></li><li class="nav-item nav-level-2
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -416,13 +404,13 @@ divisible by two primes</span></a></li></ol></li><li class="nav-item nav-level-2
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

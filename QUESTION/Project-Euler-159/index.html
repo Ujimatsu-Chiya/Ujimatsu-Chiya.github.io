@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,91 +258,70 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-159">Project Euler 159</h1>
-<h2 id="题目">题目</h2>
-<h3 id="digital-root-sums-of-factorisations">Digital root sums of
-factorisations</h3>
-<p>A composite number can be factored many different ways. For instance,
-not including multiplication by one, <span class="math inline">\(24\)</span> can be factored in <span class="math inline">\(7\)</span> distinct ways:</p>
-<p><span class="math inline">\(\begin{aligned} 24 &amp;=
-2\times2\times2\times3 \\ 24 &amp;= 2\times3\times4 \\ 24 &amp;=
-2\times2\times6 \\ 24 &amp;= 4\times6 \\ 24 &amp;= 3\times8\\ 24 &amp;=
-2\times12\\ 24 &amp;= 24 \end{aligned}\)</span></p>
-<p>Recall that the digital root of a number, in base <span class="math inline">\(10\)</span>, is found by adding together the
-digits of that number, and repeating that process until a number is
-arrived at that is less than <span class="math inline">\(10\)</span>.
-Thus the digital root of <span class="math inline">\(467\)</span> is
-<span class="math inline">\(8\)</span>.</p>
-<p>We shall call a Digital Root Sum (DRS) the sum of the digital roots
-of the individual factors of our number.</p>
-<p>The chart below demonstrates all of the DRS values for <span class="math inline">\(24\)</span>.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-159"><a href="#Project-Euler-159" class="headerlink" title="Project Euler 159"></a>Project Euler 159</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Digital-root-sums-of-factorisations"><a href="#Digital-root-sums-of-factorisations" class="headerlink" title="Digital root sums of factorisations"></a>Digital root sums of factorisations</h3><p>A composite number can be factored many different ways. For instance, not including multiplication by one, $24$ can be factored in $7$ distinct ways:</p>
+<p>$\begin{aligned}<br>24 &amp;= 2\times2\times2\times3 \\<br>24 &amp;= 2\times3\times4 \\<br>24 &amp;= 2\times2\times6 \\<br>24 &amp;= 4\times6 \\<br>24 &amp;= 3\times8\\<br>24 &amp;= 2\times12\\<br>24 &amp;= 24<br>\end{aligned}$</p>
+<p>Recall that the digital root of a number, in base $10$, is found by adding together the digits of that number, and repeating that process until a number is arrived at that is less than $10$. Thus the digital root of $467$ is $8$.</p>
+<p>We shall call a Digital Root Sum (DRS) the sum of the digital roots of the individual factors of our number.</p>
+<p>The chart below demonstrates all of the DRS values for $24$.</p>
+<div class="table-container">
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Factorisation</th>
 <th>Digital Root Sum</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td><span class="math inline">\(2 \times2 \times2 \times3\)</span></td>
-<td><span class="math inline">\(9\)</span></td>
+<tr>
+<td>$2 \times2 \times2 \times3$</td>
+<td>$9$</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(2 \times3 \times4\)</span></td>
-<td><span class="math inline">\(9\)</span></td>
+<tr>
+<td>$2 \times3 \times4$</td>
+<td>$9$</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(2 \times2 \times6\)</span></td>
-<td><span class="math inline">\(10\)</span></td>
+<tr>
+<td>$2 \times2 \times6$</td>
+<td>$10$</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(4 \times6\)</span></td>
-<td><span class="math inline">\(10\)</span></td>
+<tr>
+<td>$4 \times6$</td>
+<td>$10$</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(3 \times8\)</span></td>
-<td><span class="math inline">\(11\)</span></td>
+<tr>
+<td>$3 \times8$</td>
+<td>$11$</td>
 </tr>
-<tr class="even">
-<td><span class="math inline">\(2 \times12\)</span></td>
-<td><span class="math inline">\(5\)</span></td>
+<tr>
+<td>$2 \times12$</td>
+<td>$5$</td>
 </tr>
-<tr class="odd">
-<td><span class="math inline">\(24\)</span></td>
-<td><span class="math inline">\(6\)</span></td>
+<tr>
+<td>$24$</td>
+<td>$6$</td>
 </tr>
 </tbody>
 </table>
-<p>The maximum Digital Root Sum of <span class="math inline">\(24\)</span> is <span class="math inline">\(11\)</span>.</p>
-<p>The function <span class="math inline">\(\mathrm{mdrs}(n)\)</span>
-gives the maximum Digital Root Sum of <span class="math inline">\(n\)</span>. So <span class="math inline">\(\mathrm{mdrs}(24)=11\)</span>.</p>
-<p>Find <span class="math inline">\(\sum \mathrm{mdrs}(n)\)</span> for
-<span class="math inline">\(1 &lt; n &lt; 1,000,000\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>可以证明，数根的值<span class="math inline">\(r(x)=(x-1)\%9+1\)</span>，也就是当<span class="math inline">\(x\)</span>为<span class="math inline">\(9\)</span>的倍数时，<span class="math inline">\(r(x)=9\)</span>，否则<span class="math inline">\(r(x)=x\%9\)</span>。特别的，<span class="math inline">\(r(0)=0\)</span>。</p>
-<p>由于任意一个<span class="math inline">\(k\)</span>位十进制数<span class="math inline">\(d=d_{k-1}...d_2d_1d_0\)</span>都可以写成如下形式的多项式：</p>
-<p><span class="math display">\[d=\sum_{i=0}^{k=1}d_i 10^i\]</span></p>
-<p>因此，假设<span class="math inline">\(s(d)\)</span>为<span class="math inline">\(d\)</span>的数位和，那么有：</p>
-<p><span class="math display">\[s(d)=\sum_{i=0}^{k-1}d_i\equiv
-\sum_{i=0}^{k-1}d_i10^i(\mod 10)\]</span></p>
-<p>这说明，数位和的值<span class="math inline">\(s(d)\)</span>和数本身的值<span class="math inline">\(d\)</span>关于<span class="math inline">\(9\)</span>同余。因此进行有限次操作后，最终得到的一位数的数字根一定和原来的数关于同余。由于正数的数位和一定大于<span class="math inline">\(0\)</span>，因此有<span class="math inline">\(r(x)=(x-1)\%9+1\)</span>。</p>
-<p>回到本题，通过类似埃氏筛法的思想，对于每个数<span class="math inline">\(n\)</span>，用一个集合<span class="math inline">\(D_n\)</span>存储<span class="math inline">\(n\)</span>的除了<span class="math inline">\(1\)</span>和<span class="math inline">\(n\)</span>以外的所有不大于<span class="math inline">\(\sqrt{n}\)</span>的因子，。</p>
-<p>基于动态规划的思想，可以想到，将每个数<span class="math inline">\(i\)</span>拆成两个非平凡因子（即不为<span class="math inline">\(1\)</span>或<span class="math inline">\(n\)</span>）<span class="math inline">\(d\)</span>和<span class="math inline">\(\dfrac{i}{d}\)</span>的乘积。那么，<span class="math inline">\(\mathrm{mdrs}(d)+\mathrm{mdrs}(\dfrac{i}{d})\)</span>有可能成为<span class="math inline">\(\mathrm{mdrs}(i)\)</span>。</p>
-<p>设<span class="math inline">\(f(i)=\mathrm{mdrs(i)}(i\ge
-1)\)</span>。因此，可以列出如下状态转移方程：</p>
-<p><span class="math display">\[
+</div>
+<p>The maximum Digital Root Sum of $24$ is $11$.</p>
+<p>The function $\mathrm{mdrs}(n)$ gives the maximum Digital Root Sum of $n$. So $\mathrm{mdrs}(24)=11$.</p>
+<p>Find $\sum \mathrm{mdrs}(n)$ for $1 &lt; n &lt; 1,000,000$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>可以证明，数根的值$r(x)=(x-1)\%9+1$，也就是当$x$为$9$的倍数时，$r(x)=9$，否则$r(x)=x\%9$。特别的，$r(0)=0$。</p>
+<p>由于任意一个$k$位十进制数$d=d_{k-1}…d_2d_1d_0$都可以写成如下形式的多项式：</p>
+<script type="math/tex; mode=display">d=\sum_{i=0}^{k=1}d_i 10^i</script><p>因此，假设$s(d)$为$d$的数位和，那么有：</p>
+<script type="math/tex; mode=display">s(d)=\sum_{i=0}^{k-1}d_i\equiv \sum_{i=0}^{k-1}d_i10^i(\mod 10)</script><p>这说明，数位和的值$s(d)$和数本身的值$d$关于$9$同余。因此进行有限次操作后，最终得到的一位数的数字根一定和原来的数关于同余。由于正数的数位和一定大于$0$，因此有$r(x)=(x-1)\%9+1$。</p>
+<p>回到本题，通过类似埃氏筛法的思想，对于每个数$n$，用一个集合$D_n$存储$n$的除了$1$和$n$以外的所有不大于$\sqrt{n}$的因子，。</p>
+<p>基于动态规划的思想，可以想到，将每个数$i$拆成两个非平凡因子（即不为$1$或$n$）$d$和$\dfrac{i}{d}$的乘积。那么，$\mathrm{mdrs}(d)+\mathrm{mdrs}(\dfrac{i}{d})$有可能成为$\mathrm{mdrs}(i)$。</p>
+<p>设$f(i)=\mathrm{mdrs(i)}(i\ge 1)$。因此，可以列出如下状态转移方程：</p>
+<script type="math/tex; mode=display">
 f(i)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=1 \\
-  &amp;\max(r(i),\max_{d\in D_i}\{f(d)+f(\dfrac{i}{d})\})  &amp; &amp;
-\mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>最终答案为<span class="math inline">\(\sum_{i=2}^{N-1}f(i)\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;g[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x%<span class="number">9</span>?x%<span class="number">9</span>:<span class="number">9</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">1ll</span>*i*i;j&lt;N;j+=i)</span><br><span class="line">            g[j].<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        f[i]=<span class="built_in">fun</span>(i);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x:g[i])</span><br><span class="line">            f[i]=<span class="built_in">max</span>(f[i],f[x]+f[i/x]);</span><br><span class="line">        ans+=f[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &1  & & \mathrm{if\quad} i=1 \\
+  &\max(r(i),\max_{d\in D_i}\{f(d)+f(\dfrac{i}{d})\})  & & \mathrm{else}
+\end{aligned}\right.</script><p>最终答案为$\sum_{i=2}^{N-1}f(i)$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;g[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> f[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x%<span class="number">9</span>?x%<span class="number">9</span>:<span class="number">9</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">1ll</span>*i*i;j&lt;N;j+=i)</span><br><span class="line">            g[j].<span class="built_in">push_back</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        f[i]=<span class="built_in">fun</span>(i);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x:g[i])</span><br><span class="line">            f[i]=<span class="built_in">max</span>(f[i],f[x]+f[i/x]);</span><br><span class="line">        ans+=f[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -427,8 +406,7 @@ f(i)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-159"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 159</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#digital-root-sums-of-factorisations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Digital root sums of
-factorisations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-159"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 159</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Digital-root-sums-of-factorisations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Digital root sums of factorisations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -442,14 +420,14 @@ factorisations</span></a></li></ol></li><li class="nav-item nav-level-2"><a clas
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -486,13 +464,13 @@ factorisations</span></a></li></ol></li><li class="nav-item nav-level-2"><a clas
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

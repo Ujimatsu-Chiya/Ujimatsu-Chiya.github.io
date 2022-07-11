@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>948</span>
+              <span>890</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,32 +257,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-160">Project Euler 160</h1>
-<h2 id="题目">题目</h2>
-<h3 id="factorial-trailing-digits">Factorial trailing digits</h3>
-<p>For any <span class="math inline">\(N\)</span>, let <span class="math inline">\(f(N)\)</span> be the last five digits before the
-trailing zeroes in <span class="math inline">\(N!\)</span>.</p>
-<p>For example,<br> <span class="math inline">\(9! = 362880\)</span> so
-<span class="math inline">\(f(9)=36288\)</span><br> <span class="math inline">\(10! = 3628800\)</span> so <span class="math inline">\(f(10)=36288\)</span><br> <span class="math inline">\(20! = 2432902008176640000\)</span> so <span class="math inline">\(f(20)=17664\)</span></p>
-<p>Find <span class="math inline">\(f(1,000,000,000,000)\)</span></p>
-<h2 id="解决方案">解决方案</h2>
-<p>令函数<span class="math inline">\(c(n)=\sum_{r\ge 1,5^r\le n}
-\lfloor\dfrac{n}{5^r}\rfloor\)</span>，即<span class="math inline">\(n!\)</span>的后置<span class="math inline">\(0\)</span>个数。容易知道，<span class="math inline">\(c(n)\)</span>能够以<span class="math inline">\(O(\log n)\)</span>的时间复杂度被计算出来。</p>
-<p>令函数<span class="math inline">\(g(n)=\prod_{i=1,5\nmid
-i}^ni\)</span>，那么可得<span class="math inline">\(f(n)=g(n)f(\lfloor\dfrac{n}{5}\rfloor)\%10^5\)</span></p>
-<p>令函数<span class="math inline">\(f_5(n)=f(n)\%5^5\)</span>，那么<span class="math inline">\(f_5(n)=g(5^5)^{n/5^5}g(n\%5^5)f_5(\lfloor\dfrac{n}{5}\rfloor)\%5^5\)</span>
-。</p>
-<p>容易计算得<span class="math inline">\(g(5^5)\%5^5=-1\)</span>，那么上式变成<span class="math inline">\(f_5(n)=(-1)^{n/5^5}g(n\%5^5)f_5(\lfloor\dfrac{n}{5}\rfloor)\%5^5\)</span></p>
-<p><span class="math inline">\(f_5(n)\)</span>的值将能够迅速计算出。容易知道，只要<span class="math inline">\(n\)</span>足够大，<span class="math inline">\(\dfrac{n!}{10^{c(n)}}\)</span>的<span class="math inline">\(2\)</span>的质因数个数将会很多。因此，可以直接假设<span class="math inline">\(\dfrac{n!}{10^{c(n)}}\equiv 0(\mod
-2^5)\)</span>。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-160"><a href="#Project-Euler-160" class="headerlink" title="Project Euler 160"></a>Project Euler 160</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Factorial-trailing-digits"><a href="#Factorial-trailing-digits" class="headerlink" title="Factorial trailing digits"></a>Factorial trailing digits</h3><p>For any $N$, let $f(N)$ be the last five digits before the trailing zeroes in $N!$.</p>
+<p>For example,<br><br>$9! = 362880$ so $f(9)=36288$<br><br>$10! = 3628800$ so $f(10)=36288$<br><br>$20! = 2432902008176640000$ so $f(20)=17664$</p>
+<p>Find $f(1,000,000,000,000)$</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令函数$c(n)=\sum_{r\ge 1,5^r\le n} \lfloor\dfrac{n}{5^r}\rfloor$，即$n!$的后置$0$个数。容易知道，$c(n)$能够以$O(\log n)$的时间复杂度被计算出来。</p>
+<p>令函数$g(n)=\prod_{i=1,5\nmid i}^ni$，那么可得$f(n)=g(n)f(\lfloor\dfrac{n}{5}\rfloor)\%10^5$</p>
+<p>令函数$f_5(n)=f(n)\%5^5$，那么$f_5(n)=g(5^5)^{n/5^5}g(n\%5^5)f_5(\lfloor\dfrac{n}{5}\rfloor)\%5^5$<br>。</p>
+<p>容易计算得$g(5^5)\%5^5=-1$，那么上式变成$f_5(n)=(-1)^{n/5^5}g(n\%5^5)f_5(\lfloor\dfrac{n}{5}\rfloor)\%5^5$</p>
+<p>$f_5(n)$的值将能够迅速计算出。容易知道，只要$n$足够大，$\dfrac{n!}{10^{c(n)}}$的$2$的质因数个数将会很多。因此，可以直接假设$\dfrac{n!}{10^{c(n)}}\equiv 0(\mod 2^5)$。</p>
 <p>根据中国剩余定理，直接解以下方程即可得到答案：</p>
-<p><span class="math inline">\(\left\{\begin{aligned}  &amp; x \equiv 0
-(\mod 2^5) \\  &amp; x \equiv f_5(n)(\mod 5^5)
-\end{aligned}\right.\)</span></p>
-<p>但是，在<span class="math inline">\(n\)</span>比较小时，需要通过暴力来规避默认<span class="math inline">\(2^5\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> fac</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">12</span></span><br><span class="line">M = <span class="number">5</span></span><br><span class="line">g = [<span class="number">1</span>]</span><br><span class="line">pw5 = <span class="number">5</span> ** M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f5</span>(<span class="params">n</span>):</span><br><span class="line">    inv2 = (pw5 + <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">    ans = <span class="built_in">pow</span>(inv2, count0(N), pw5) % pw5</span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        ans = ans * (-<span class="number">1</span>) ** (n // pw5) * g[n % pw5] % pw5</span><br><span class="line">        n //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count0</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        ans += n // <span class="number">5</span></span><br><span class="line">        n //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> N &lt;= M * <span class="number">2</span> + <span class="number">20</span> + M:</span><br><span class="line">    w = <span class="built_in">str</span>(fac(N)).rstrip(<span class="string">&#x27;0&#x27;</span>)[-<span class="number">5</span>:]</span><br><span class="line">    ans = <span class="built_in">int</span>(w)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, pw5):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">            g.append(g[-<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            g.append(g[-<span class="number">1</span>] * i % pw5)</span><br><span class="line"></span><br><span class="line">    r5 = f5(N)</span><br><span class="line">    <span class="comment"># 293为2^5在5^5上的逆元，29为5^5在2^5上的逆元。</span></span><br><span class="line">    ans = (r5 * (<span class="number">2</span> ** M) * <span class="number">293</span> + <span class="number">0</span> * (<span class="number">5</span> ** M) * <span class="number">29</span>) % <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>$\left\{\begin{aligned}<br>  &amp; x \equiv 0 (\mod 2^5) \\<br>  &amp; x \equiv f_5(n)(\mod 5^5)<br>\end{aligned}\right.$</p>
+<p>但是，在$n$比较小时，需要通过暴力来规避默认$2^5$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> fac</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">12</span></span><br><span class="line">M = <span class="number">5</span></span><br><span class="line">g = [<span class="number">1</span>]</span><br><span class="line">pw5 = <span class="number">5</span> ** M</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f5</span>(<span class="params">n</span>):</span><br><span class="line">    inv2 = (pw5 + <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">    ans = <span class="built_in">pow</span>(inv2, count0(N), pw5) % pw5</span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        ans = ans * (-<span class="number">1</span>) ** (n // pw5) * g[n % pw5] % pw5</span><br><span class="line">        n //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count0</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        ans += n // <span class="number">5</span></span><br><span class="line">        n //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> N &lt;= M * <span class="number">2</span> + <span class="number">20</span> + M:</span><br><span class="line">    w = <span class="built_in">str</span>(fac(N)).rstrip(<span class="string">&#x27;0&#x27;</span>)[-<span class="number">5</span>:]</span><br><span class="line">    ans = <span class="built_in">int</span>(w)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, pw5):</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">            g.append(g[-<span class="number">1</span>])</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            g.append(g[-<span class="number">1</span>] * i % pw5)</span><br><span class="line"></span><br><span class="line">    r5 = f5(N)</span><br><span class="line">    <span class="comment"># 293为2^5在5^5上的逆元，29为5^5在2^5上的逆元。</span></span><br><span class="line">    ans = (r5 * (<span class="number">2</span> ** M) * <span class="number">293</span> + <span class="number">0</span> * (<span class="number">5</span> ** M) * <span class="number">29</span>) % <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -366,7 +354,7 @@ i}^ni\)</span>，那么可得<span class="math inline">\(f(n)=g(n)f(\lfloor\dfra
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-160"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 160</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#factorial-trailing-digits"><span class="nav-number">1.1.1.</span> <span class="nav-text">Factorial trailing digits</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-160"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 160</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Factorial-trailing-digits"><span class="nav-number">1.1.1.</span> <span class="nav-text">Factorial trailing digits</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,14 +368,14 @@ i}^ni\)</span>，那么可得<span class="math inline">\(f(n)=g(n)f(\lfloor\dfra
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -424,13 +412,13 @@ i}^ni\)</span>，那么可得<span class="math inline">\(f(n)=g(n)f(\lfloor\dfra
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.3k</span>
+              <span>2.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,63 +257,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-182">Project Euler 182</h1>
-<h2 id="题目">题目</h2>
-<h3 id="rsa-encryption">RSA encryption</h3>
-<p>The RSA encryption is based on the following procedure:</p>
-<p>Generate two distinct primes <span class="math inline">\(p\)</span>
-and <span class="math inline">\(q\)</span>.Compute <span class="math inline">\(n=pq\)</span> and <span class="math inline">\(\varphi=(p-1)(q-1)\)</span>.</p>
-<p>Find an integer <span class="math inline">\(e,
-1&lt;e&lt;\varphi\)</span>, such that <span class="math inline">\(\gcd(e,\varphi)=1\)</span>.</p>
-<p>A message in this system is a number in the interval <span class="math inline">\([0,n-1]\)</span>.</p>
-<p>A text to be encrypted is then somehow converted to messages (numbers
-in the interval <span class="math inline">\([0,n-1]\)</span>).</p>
-<p>To encrypt the text, for each message, <span class="math inline">\(m,
-c=m^e \mod n\)</span> is calculated.</p>
-<p>To decrypt the text, the following procedure is needed: calculate
-<span class="math inline">\(d\)</span> such that <span class="math inline">\(ed=1 \mod \varphi\)</span>, then for each
-encrypted message, <span class="math inline">\(c\)</span>, calculate
-<span class="math inline">\(m=c^d \mod n\)</span>.</p>
-<p>There exist values of <span class="math inline">\(e\)</span> and
-<span class="math inline">\(m\)</span> such that <span class="math inline">\(m^e \mod n=m\)</span>.</p>
-<p>We call messages <span class="math inline">\(m\)</span> for which
-<span class="math inline">\(m^e \mod n=m\)</span> unconcealed
-messages.</p>
-<p>An issue when choosing e is that there should not be too many
-unconcealed messages.</p>
-<p>For instance, let <span class="math inline">\(p=19\)</span> and <span class="math inline">\(q=37\)</span>.</p>
-<p>Then <span class="math inline">\(n=19\times37=703\)</span> and <span class="math inline">\(\varphi=18\times36=648\)</span>.</p>
-<p>If we choose <span class="math inline">\(e=181\)</span>, then,
-although <span class="math inline">\(\gcd(181,648)=1\)</span> it turns
-out that all possible messages <span class="math inline">\(m (0\le m\le
-n-1)\)</span> are unconcealed when calculating <span class="math inline">\(m^e \mod n\)</span>.</p>
-<p>For any valid choice of e there exist some unconcealed messages.It’s
-important that the number of unconcealed messages is at a minimum.</p>
-<p>Choose <span class="math inline">\(p=1009\)</span> and <span class="math inline">\(q=3643\)</span>.</p>
-<p>Find the sum of all values of <span class="math inline">\(e\)</span>,
-<span class="math inline">\(1&lt;e&lt;\varphi(1009,3643)\)</span> and
-<span class="math inline">\(\gcd(e,\varphi)=1\)</span>, so that the
-number of unconcealed messages for this value of <span class="math inline">\(e\)</span> is at a minimum.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>不难发现，<span class="math inline">\(m^e\equiv m(\mod n)\Rightarrow
-m^e\equiv m(\mod p)\wedge m^e \equiv m(\mod q)\)</span></p>
-<p>容易发现，当<span class="math inline">\(m=0\)</span>时，为一个解。其余<span class="math inline">\(m\)</span>满足<span class="math inline">\(p \mid
-m\)</span>或者<span class="math inline">\(q\mid m\)</span>都不是解。</p>
-<p>对于其余情况，不失一般性，仅解<span class="math inline">\(m^e\equiv
-m(\mod p)\)</span>，那么有<span class="math inline">\(m^{e-1}\equiv
-1(\mod p)\)</span>。</p>
-<p>原问题转化成关于<span class="math inline">\(m\)</span>的方程<span class="math inline">\(m^{e-1}\equiv 1(\mod
-p)\)</span>有多少个解。令<span class="math inline">\(r=e-1\)</span>。</p>
-<p>设<span class="math inline">\(g\)</span>为群<span class="math inline">\(\mathbb{Z}_p^{\star}\)</span>中的一个原根（原根：对于群元素<span class="math inline">\(g\)</span>，假设<span class="math inline">\(x\)</span>是满足<span class="math inline">\(g^x\equiv1(\mod p)\)</span>的最小正整数，如果<span class="math inline">\(x=p-1\)</span>，那么<span class="math inline">\(g\)</span>为群<span class="math inline">\(\mathbb{Z}_p^{\star}\)</span>）。根据原根的定义，对于任意整数<span class="math inline">\(i\in\{0,1,\dots,p-2\}\)</span>，<span class="math inline">\(g^i\)</span>都可以和群元素<span class="math inline">\(a\)</span>一一对应。</p>
-<p>令<span class="math inline">\(m=g^i\)</span>，那么问题转化成<span class="math inline">\(g^{ri}\equiv1(\mod p)\)</span>有多少个<span class="math inline">\(i\)</span>是满足此式的。也就是说，有多少个<span class="math inline">\(i\)</span>满足<span class="math inline">\(ri\equiv0(\mod p-1)\)</span>，即<span class="math inline">\(p-1\mid ri\)</span>。</p>
-<p>令<span class="math inline">\(d=\gcd(p-1,r)\)</span>，那么就得到<span class="math inline">\(\dfrac{p-1}{d}\mid i\)</span>。因此，这样的<span class="math inline">\(i\)</span>一共有<span class="math inline">\(d\)</span>个。</p>
-<p>回到原来的题目，那么关于<span class="math inline">\(m\)</span>的方程<span class="math inline">\(m^{e-1}\equiv 1(\mod p)\)</span>一共有<span class="math inline">\(\gcd(p-1,e-1)\)</span>个解。</p>
-<p>利用中国剩余定理的思想，并加上<span class="math inline">\(m=0\)</span>的情况，关于<span class="math inline">\(m\)</span>的方程<span class="math inline">\(m^e\equiv m(\mod n)\)</span>一共有<span class="math inline">\((1+\gcd(p-1,e-1))(1+\gcd(q-1,e-1))\)</span>个解。</p>
-<p>一个优化：由于<span class="math inline">\(\gcd(e,\varphi)=1\)</span>，因此<span class="math inline">\(e\)</span>必须是奇数。所以对于上面的式子而言，<span class="math inline">\(\gcd(p-1,e-1),\gcd(q-1,e-1)\)</span>的值至少为<span class="math inline">\(2\)</span>。可以发现将会存在<span class="math inline">\(e\)</span>满足这两个<span class="math inline">\(\gcd\)</span>的值都为<span class="math inline">\(2\)</span>。</p>
-<p>更进一步的优化：事先寻找出所有模<span class="math inline">\(p-1(q-1)\)</span>为<span class="math inline">\(2\)</span>的值，然后通过中国剩余定理进行合并。此处不详述这个优化。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> P=<span class="number">1009</span>,Q=<span class="number">3643</span>;</span><br><span class="line"><span class="type">int</span> n=P*Q,phi=(P<span class="number">-1</span>)*(Q<span class="number">-1</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> e=<span class="number">2</span>;e&lt;phi;e++)</span><br><span class="line">        <span class="keyword">if</span>(__gcd(e,phi)==<span class="number">1</span>&amp;&amp;__gcd(e<span class="number">-1</span>,P<span class="number">-1</span>)==<span class="number">2</span>&amp;&amp;__gcd(e<span class="number">-1</span>,Q<span class="number">-1</span>)==<span class="number">2</span>)</span><br><span class="line">            ans+=e;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-182"><a href="#Project-Euler-182" class="headerlink" title="Project Euler 182"></a>Project Euler 182</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="RSA-encryption"><a href="#RSA-encryption" class="headerlink" title="RSA encryption"></a>RSA encryption</h3><p>The RSA encryption is based on the following procedure:</p>
+<p>Generate two distinct primes $p$ and $q$.Compute $n=pq$ and $\varphi=(p-1)(q-1)$.</p>
+<p>Find an integer $e, 1&lt;e&lt;\varphi$, such that $\gcd(e,\varphi)=1$.</p>
+<p>A message in this system is a number in the interval $[0,n-1]$.</p>
+<p>A text to be encrypted is then somehow converted to messages (numbers in the interval $[0,n-1]$).</p>
+<p>To encrypt the text,  for each message, $m, c=m^e \mod n$ is calculated.</p>
+<p>To decrypt the text, the following procedure is needed: calculate $d$ such that $ed=1 \mod \varphi$, then for each encrypted message, $c$, calculate $m=c^d \mod n$.</p>
+<p>There exist values of $e$ and $m$  such that $m^e \mod n=m$.</p>
+<p>We call messages $m$ for which $m^e \mod n=m$ unconcealed messages.</p>
+<p>An issue when choosing e is that there should not be too many unconcealed messages.</p>
+<p>For instance, let $p=19$ and $q=37$.</p>
+<p>Then $n=19\times37=703$ and $\varphi=18\times36=648$.</p>
+<p>If we choose $e=181$, then, although $\gcd(181,648)=1$ it turns out that all possible messages $m (0\le m\le n-1)$ are unconcealed when calculating $m^e \mod n$.</p>
+<p>For any valid choice of e there exist some unconcealed messages.It’s important that the number of unconcealed messages is at a minimum.</p>
+<p>Choose $p=1009$ and $q=3643$.</p>
+<p>Find the sum of all values of $e$, $1&lt;e&lt;\varphi(1009,3643)$ and $\gcd(e,\varphi)=1$, so that the number of unconcealed messages for this value of $e$ is at a minimum.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>不难发现，$m^e\equiv m(\mod n)\Rightarrow m^e\equiv m(\mod p)\wedge m^e \equiv m(\mod q)$</p>
+<p>容易发现，当$m=0$时，为一个解。其余$m$满足$p \mid m$或者$q\mid m$都不是解。</p>
+<p>对于其余情况，不失一般性，仅解$m^e\equiv m(\mod p)$，那么有$m^{e-1}\equiv 1(\mod p)$。</p>
+<p>原问题转化成关于$m$的方程$m^{e-1}\equiv 1(\mod p)$有多少个解。令$r=e-1$。</p>
+<p>设$g$为群$\mathbb{Z}_p^{\star}$中的一个原根（原根：对于群元素$g$，假设$x$是满足$g^x\equiv1(\mod p)$的最小正整数，如果$x=p-1$，那么$g$为群$\mathbb{Z}_p^{\star}$）。根据原根的定义，对于任意整数$i\in\{0,1,\dots,p-2\}$，$g^i$都可以和群元素$a$一一对应。</p>
+<p>令$m=g^i$，那么问题转化成$g^{ri}\equiv1(\mod p)$有多少个$i$是满足此式的。也就是说，有多少个$i$满足$ri\equiv0(\mod p-1)$，即$p-1\mid ri$。</p>
+<p>令$d=\gcd(p-1,r)$，那么就得到$\dfrac{p-1}{d}\mid i$。因此，这样的$i$一共有$d$个。</p>
+<p>回到原来的题目，那么关于$m$的方程$m^{e-1}\equiv 1(\mod p)$一共有$\gcd(p-1,e-1)$个解。</p>
+<p>利用中国剩余定理的思想，并加上$m=0$的情况，关于$m$的方程$m^e\equiv m(\mod n)$一共有$(1+\gcd(p-1,e-1))(1+\gcd(q-1,e-1))$个解。</p>
+<p>一个优化：由于$\gcd(e,\varphi)=1$，因此$e$必须是奇数。所以对于上面的式子而言，$\gcd(p-1,e-1),\gcd(q-1,e-1)$的值至少为$2$。可以发现将会存在$e$满足这两个$\gcd$的值都为$2$。</p>
+<p>更进一步的优化：事先寻找出所有模$p-1(q-1)$为$2$的值，然后通过中国剩余定理进行合并。此处不详述这个优化。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> P=<span class="number">1009</span>,Q=<span class="number">3643</span>;</span><br><span class="line"><span class="type">int</span> n=P*Q,phi=(P<span class="number">-1</span>)*(Q<span class="number">-1</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> e=<span class="number">2</span>;e&lt;phi;e++)</span><br><span class="line">        <span class="keyword">if</span>(__gcd(e,phi)==<span class="number">1</span>&amp;&amp;__gcd(e<span class="number">-1</span>,P<span class="number">-1</span>)==<span class="number">2</span>&amp;&amp;__gcd(e<span class="number">-1</span>,Q<span class="number">-1</span>)==<span class="number">2</span>)</span><br><span class="line">            ans+=e;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -397,7 +370,7 @@ p)\)</span>有多少个解。令<span class="math inline">\(r=e-1\)</span>。</p
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-182"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 182</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rsa-encryption"><span class="nav-number">1.1.1.</span> <span class="nav-text">RSA encryption</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-182"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 182</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-encryption"><span class="nav-number">1.1.1.</span> <span class="nav-text">RSA encryption</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -411,14 +384,14 @@ p)\)</span>有多少个解。令<span class="math inline">\(r=e-1\)</span>。</p
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -455,13 +428,13 @@ p)\)</span>有多少个解。令<span class="math inline">\(r=e-1\)</span>。</p
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

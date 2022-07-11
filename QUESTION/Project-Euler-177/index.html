@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>887</span>
+              <span>873</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,33 +259,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-177">Project Euler 177</h1>
-<h2 id="题目">题目</h2>
-<h3 id="integer-angled-quadrilaterals">Integer angled
-Quadrilaterals</h3>
-<p>Let ABCD be a convex quadrilateral, with diagonals AC and BD. At each
-vertex the diagonal makes an angle with each of the two sides, creating
-eight corner angles.</p>
-<p><img src="../images/p177_quad.gif"></p>
-<p>For example, at vertex <span class="math inline">\(A\)</span>, the
-two angles are <span class="math inline">\(CAD, CAB\)</span>.</p>
-<p>We call such a quadrilateral for which all eight corner angles have
-integer values when measured in degrees an “integer angled
-quadrilateral”. An example of an integer angled quadrilateral is a
-square, where all eight corner angles are <span class="math inline">\(45°\)</span>. Another example is given by <span class="math inline">\(DAC = 20°, BAC = 60°, ABD = 50°, CBD = 30°, BCA =
-40°, DCA = 30°, CDB = 80°, ADB = 50°\)</span>.</p>
-<p>What is the total number of non-similar integer angled
-quadrilaterals?</p>
-<p>Note: In your calculations you may assume that a calculated angle is
-integral if it is within a tolerance of <span class="math inline">\(10^{-9}\)</span> of an integer value.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题在枚举的过程中需要注意旋转、翻转的情况，需要去重。需要通过一些手段尽量减少枚举量。</p>
-<p>只需要枚举其中四个角<span class="math inline">\(DAC,BAC,ABD,CBD\)</span>的大小，就可以通过<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/LawofSines.html">正弦定理</a>和<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/LawofCosines.html">余弦定理</a>确定另外<span class="math inline">\(4\)</span>个角的值，然后判断这些角是否都为整数。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-177"><a href="#Project-Euler-177" class="headerlink" title="Project Euler 177"></a>Project Euler 177</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Integer-angled-Quadrilaterals"><a href="#Integer-angled-Quadrilaterals" class="headerlink" title="Integer angled Quadrilaterals"></a>Integer angled Quadrilaterals</h3><p>Let ABCD be a convex quadrilateral, with diagonals AC and BD. At each vertex the diagonal makes an angle with each of the two sides, creating eight corner angles.</p>
+<p><img src="../images/p177_quad.gif" alt></p>
+<p>For example, at vertex $A$, the two angles are $CAD, CAB$.</p>
+<p>We call such a quadrilateral for which all eight corner angles have integer values when measured in degrees an “integer angled quadrilateral”. An example of an integer angled quadrilateral is a square, where all eight corner angles are $45°$. Another example is given by $DAC = 20°, BAC = 60°, ABD = 50°, CBD = 30°, BCA = 40°, DCA = 30°, CDB = 80°, ADB = 50°$.</p>
+<p>What is the total number of non-similar integer angled quadrilaterals?</p>
+<p>Note: In your calculations you may assume that a calculated angle is integral if it is within a tolerance of $10^{-9}$ of an integer value.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题在枚举的过程中需要注意旋转、翻转的情况，需要去重。需要通过一些手段尽量减少枚举量。</p>
+<p>只需要枚举其中四个角$DAC,BAC,ABD,CBD$的大小，就可以通过<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/LawofSines.html">正弦定理</a>和<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/LawofCosines.html">余弦定理</a>确定另外$4$个角的值，然后判断这些角是否都为整数。</p>
 <p>具体过程见代码。</p>
 <p>加上旋转，翻转后有八种方案，我们只保留其中一种。</p>
-<h2 id="代码">代码</h2>
-<p>本代码根据题目下Thread的一份代码进行优化修改。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>本代码根据题目下Thread的一份代码进行优化修改。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">double</span> pi = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="type">double</span> sina[<span class="number">184</span>];</span><br><span class="line"><span class="type">double</span> cosa[<span class="number">184</span>];</span><br><span class="line"><span class="function"><span class="type">unsigned</span> <span class="title">hs</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, <span class="type">int</span> d)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (a &lt;&lt; <span class="number">24</span>) | (b &lt;&lt; <span class="number">16</span>) | (c &lt;&lt; <span class="number">8</span>) | d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">180</span>; i++) &#123;</span><br><span class="line">        sina[i] = <span class="built_in">sin</span>(i * pi / <span class="number">180</span>);</span><br><span class="line">        cosa[i] = <span class="built_in">cos</span>(i * pi / <span class="number">180</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 不失一般性，枚举的角DAC是八个角中最小的。后续计算中如果发现有比这更小的角，则直接跳出循环。</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> DAC = <span class="number">1</span>; DAC &lt;= <span class="number">45</span>; DAC++)</span><br><span class="line">        <span class="comment">// AB边上的另外两个角ABD，CBD至少有DAC这么大。</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> BAC = DAC; BAC &lt;= <span class="number">180</span> - DAC * <span class="number">3</span>; BAC++)</span><br><span class="line">            <span class="comment">// CBD至少有DAC这么大。</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> ABD = DAC; ABD &lt;= <span class="number">180</span> - <span class="number">2</span> * DAC - BAC; ABD++)</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> CBD = DAC; CBD &lt;= <span class="number">180</span> - DAC - BAC - ABD; CBD++) &#123;</span><br><span class="line">                    <span class="type">int</span> BCA = <span class="number">180</span> - (BAC + ABD + CBD);</span><br><span class="line">                    <span class="type">int</span> ADB = <span class="number">180</span> - (DAC + BAC + ABD);</span><br><span class="line">                    <span class="comment">// AB=1</span></span><br><span class="line">                    <span class="type">double</span> AC = sina[ABD + CBD] / sina[BCA];</span><br><span class="line">                    <span class="type">double</span> AD = sina[ABD] / sina[ADB];</span><br><span class="line">                    <span class="type">double</span> DC = <span class="built_in">sqrt</span>(AC * AC + AD * AD - <span class="number">2</span> * AC * AD * cosa[DAC]);</span><br><span class="line">                    <span class="type">double</span> tmpACD = <span class="built_in">acos</span>((AC * AC + DC * DC - AD * AD) / (<span class="number">2</span> * AC * DC)) * <span class="number">180</span> / pi;</span><br><span class="line">                    <span class="type">int</span> ACD = <span class="built_in">int</span>(<span class="built_in">round</span>(tmpACD));</span><br><span class="line">                    <span class="keyword">if</span> (<span class="built_in">fabs</span>(tmpACD - ACD) &gt; <span class="number">1e-9</span>) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (ACD &lt; DAC) <span class="keyword">break</span>;</span><br><span class="line">                    <span class="type">int</span> CDB = <span class="number">180</span> - (DAC + ACD + ADB);</span><br><span class="line">                    <span class="keyword">if</span> (CDB &lt; DAC) <span class="keyword">break</span>;</span><br><span class="line">                    <span class="type">unsigned</span> h = <span class="built_in">hs</span>(DAC, BAC, ABD, CBD);</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(ABD, CBD, BCA, ACD)) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(BCA, ACD, CDB, ADB)) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(CDB, ADB, DAC, BAC)) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(BAC, DAC, ADB, CDB)) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(CBD, ABD, BAC, DAC)) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(ACD, BCA, CBD, ABD)) <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (h &gt; <span class="built_in">hs</span>(ADB, CDB, ACD, BCA)) <span class="keyword">continue</span>;</span><br><span class="line">                    ++ans;</span><br><span class="line">                &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -370,8 +356,7 @@ integral if it is within a tolerance of <span class="math inline">\(10^{-9}\)</s
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-177"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 177</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#integer-angled-quadrilaterals"><span class="nav-number">1.1.1.</span> <span class="nav-text">Integer angled
-Quadrilaterals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-177"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 177</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-angled-Quadrilaterals"><span class="nav-number">1.1.1.</span> <span class="nav-text">Integer angled Quadrilaterals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,14 +370,14 @@ Quadrilaterals</span></a></li></ol></li><li class="nav-item nav-level-2"><a clas
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -429,13 +414,13 @@ Quadrilaterals</span></a></li></ol></li><li class="nav-item nav-level-2"><a clas
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

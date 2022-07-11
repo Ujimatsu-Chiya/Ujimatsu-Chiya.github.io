@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>776</span>
+              <span>716</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,38 +257,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-381">Project Euler 381</h1>
-<h2 id="题目">题目</h2>
-<h3 id="prime-k-factorial">(prime-k) factorial</h3>
-<p>For a prime <span class="math inline">\(p\)</span> let <span class="math inline">\(S(p) = (\sum(p-k)!) \mod(p)\)</span> for <span class="math inline">\(1 \le k \le 5\)</span>.</p>
-<p>For example, if <span class="math inline">\(p=7, (7-1)! + (7-2)! +
-(7-3)! + (7-4)! + (7-5)! = 6! + 5! + 4! + 3! + 2! = 720+120+24+6+2 =
-872\)</span>.</p>
-<p>As <span class="math inline">\(872 \mod(7) = 4, S(7) =
-4\)</span>.</p>
-<p>It can be verified that <span class="math inline">\(\sum S(p) =
-480\)</span> for <span class="math inline">\(5 \le p &lt;
-100\)</span>.</p>
-<p>Find <span class="math inline">\(\sum S(p)\)</span> for <span class="math inline">\(5 \le p &lt; 10^8\)</span>.</p>
-<h2 id="威尔逊定理">威尔逊定理</h2>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wilson%27s_theorem">威尔逊定理</a>：一个数<span class="math inline">\(p\)</span>为质数，当且仅当满足下面的条件：</p>
-<p><span class="math display">\[(p-1)!\equiv-1(\mod p)\]</span></p>
-<h2 id="解决方案">解决方案</h2>
-<p>假设已知<span class="math inline">\(a=(p-5)!\%p\)</span>，那么有</p>
-<p><span class="math display">\[\begin{aligned}
-S(p)&amp;=(a+(p-4)a+(p-4)(p-3)a+\dots+(p-4)(p-3)(p-2)(p-1)a) \% p\\
-&amp;=(a+(-4)a+(-4)(-3)a+\dots+(-4)(-3)(-2)(-1)a)\%p\\
-&amp;=9a \%p
-\end{aligned}\]</span></p>
-<p>那么接下来的问题是根据威尔逊计算<span class="math inline">\(a\)</span>的值。</p>
-<p>可以发现，<span class="math inline">\((p-1)\%p=(p-1)(p-2)(p-3)(p-4)a\%p=24a\%p\)</span>。</p>
-<p>可以借助威尔逊定理，解出下面的式子，得到<span class="math inline">\(a\)</span>的值。</p>
-<p><span class="math display">\[24a\equiv -1(\mod p)\]</span></p>
-<p>为了避免扩展使用欧几里得算法的值，可以通过计算出<span class="math inline">\(2,3\)</span>在<span class="math inline">\(p\)</span>上的逆元，间接计算出<span class="math inline">\(24\)</span>的逆元。</p>
-<p>计算完成后，最终得到<span class="math inline">\(S(p)=-9\cdot(24)^{-1}\% p\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e8</span>;</span><br><span class="line"><span class="type">int</span> pr[N+<span class="number">4</span>],v[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;pr[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> p=pr[i];</span><br><span class="line">        <span class="keyword">if</span>(p&gt;=<span class="number">5</span>)&#123;</span><br><span class="line">            ll inv2=(p+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            ll inv3=(p%<span class="number">3</span>==<span class="number">1</span>?(p+p+<span class="number">1</span>)/<span class="number">3</span>:(p+<span class="number">1</span>)/<span class="number">3</span>);</span><br><span class="line">            ans+=inv2*inv2%p*inv2%p*inv3%p*(p<span class="number">-1</span>)%p*<span class="number">9</span>%p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-381"><a href="#Project-Euler-381" class="headerlink" title="Project Euler 381"></a>Project Euler 381</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="prime-k-factorial"><a href="#prime-k-factorial" class="headerlink" title="(prime-k) factorial"></a>(prime-k) factorial</h3><p>For a prime $p$ let $S(p) = (\sum(p-k)!) \mod(p)$ for $1 \le k \le 5$.</p>
+<p>For example, if $p=7, (7-1)! + (7-2)! + (7-3)! + (7-4)! + (7-5)! = 6! + 5! + 4! + 3! + 2! = 720+120+24+6+2 = 872$.</p>
+<p>As $872 \mod(7) = 4, S(7) = 4$.</p>
+<p>It can be verified that $\sum S(p) = 480$ for $5 \le p &lt; 100$.</p>
+<p>Find $\sum S(p)$ for $5 \le p &lt; 10^8$.</p>
+<h2 id="威尔逊定理"><a href="#威尔逊定理" class="headerlink" title="威尔逊定理"></a>威尔逊定理</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wilson%27s_theorem">威尔逊定理</a>：一个数$p$为质数，当且仅当满足下面的条件：</p>
+<script type="math/tex; mode=display">(p-1)!\equiv-1(\mod p)</script><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>假设已知$a=(p-5)!\%p$，那么有</p>
+<script type="math/tex; mode=display">\begin{aligned}
+S(p)&=(a+(p-4)a+(p-4)(p-3)a+\dots+(p-4)(p-3)(p-2)(p-1)a) \% p\\
+&=(a+(-4)a+(-4)(-3)a+\dots+(-4)(-3)(-2)(-1)a)\%p\\
+&=9a \%p
+\end{aligned}</script><p>那么接下来的问题是根据威尔逊计算$a$的值。</p>
+<p>可以发现，$(p-1)\%p=(p-1)(p-2)(p-3)(p-4)a\%p=24a\%p$。</p>
+<p>可以借助威尔逊定理，解出下面的式子，得到$a$的值。</p>
+<script type="math/tex; mode=display">24a\equiv -1(\mod p)</script><p>为了避免扩展使用欧几里得算法的值，可以通过计算出$2,3$在$p$上的逆元，间接计算出$24$的逆元。</p>
+<p>计算完成后，最终得到$S(p)=-9\cdot(24)^{-1}\% p$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e8</span>;</span><br><span class="line"><span class="type">int</span> pr[N+<span class="number">4</span>],v[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;pr[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> p=pr[i];</span><br><span class="line">        <span class="keyword">if</span>(p&gt;=<span class="number">5</span>)&#123;</span><br><span class="line">            ll inv2=(p+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">            ll inv3=(p%<span class="number">3</span>==<span class="number">1</span>?(p+p+<span class="number">1</span>)/<span class="number">3</span>:(p+<span class="number">1</span>)/<span class="number">3</span>);</span><br><span class="line">            ans+=inv2*inv2%p*inv2%p*inv3%p*(p<span class="number">-1</span>)%p*<span class="number">9</span>%p;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +359,7 @@ S(p)&amp;=(a+(p-4)a+(p-4)(p-3)a+\dots+(p-4)(p-3)(p-2)(p-1)a) \% p\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-381"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 381</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-k-factorial"><span class="nav-number">1.1.1.</span> <span class="nav-text">(prime-k) factorial</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">威尔逊定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-381"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 381</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-k-factorial"><span class="nav-number">1.1.1.</span> <span class="nav-text">(prime-k) factorial</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A8%81%E5%B0%94%E9%80%8A%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">威尔逊定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +373,14 @@ S(p)&amp;=(a+(p-4)a+(p-4)(p-3)a+\dots+(p-4)(p-3)(p-2)(p-1)a) \% p\\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,13 +417,13 @@ S(p)&amp;=(a+(p-4)a+(p-4)(p-3)a+\dots+(p-4)(p-3)(p-2)(p-1)a) \% p\\
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

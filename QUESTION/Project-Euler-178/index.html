@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,39 +258,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-178">Project Euler 178</h1>
-<h2 id="题目">题目</h2>
-<h3 id="step-numbers">Step Numbers</h3>
-<p>Consider the number <span class="math inline">\(45656\)</span>.</p>
-<p>It can be seen that each pair of consecutive digits of <span class="math inline">\(45656\)</span> has a difference of one.</p>
-<p>A number for which every pair of consecutive digits has a difference
-of one is called a step number.</p>
-<p>A pandigital number contains every decimal digit from <span class="math inline">\(0\)</span> to <span class="math inline">\(9\)</span> at least once.</p>
-<p>How many pandigital step numbers less than <span class="math inline">\(10^{40}\)</span> are there?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题是一道数位动态规划题。</p>
-<p>在每一个符合题意的数后面，都有两种方案填上一个数（如果个位是<span class="math inline">\(0\)</span>或者是<span class="math inline">\(9\)</span>，那么后面只能填上一位）。另外，数位的使用情况肯定是连续的，因此可以由<span class="math inline">\(2^{10}=1024\)</span>的状态空间优化成<span class="math inline">\(55\)</span>种使用情况。</p>
-<p>令<span class="math inline">\(N=40\)</span>，那么令<span class="math inline">\(f(i,l,r,d)(1\le i\le N,0\le l\le d\le r \le 9
-)\)</span>为有多少个<span class="math inline">\(i\)</span>位数，使用了<span class="math inline">\(l\)</span>和<span class="math inline">\(r\)</span>之间的数位，目前个位为<span class="math inline">\(d\)</span>的数有多少个。那么可以列出如下状态转移方程：</p>
-<p><span class="math display">\[
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-178"><a href="#Project-Euler-178" class="headerlink" title="Project Euler 178"></a>Project Euler 178</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Step-Numbers"><a href="#Step-Numbers" class="headerlink" title="Step Numbers"></a>Step Numbers</h3><p>Consider the number $45656$.</p>
+<p>It can be seen that each pair of consecutive digits of $45656$ has a difference of one.</p>
+<p>A number for which every pair of consecutive digits has a difference of one is called a step number.</p>
+<p>A pandigital number contains every decimal digit from $0$ to $9$ at least once.</p>
+<p>How many pandigital step numbers less than $10^{40}$ are there?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题是一道数位动态规划题。</p>
+<p>在每一个符合题意的数后面，都有两种方案填上一个数（如果个位是$0$或者是$9$，那么后面只能填上一位）。另外，数位的使用情况肯定是连续的，因此可以由$2^{10}=1024$的状态空间优化成$55$种使用情况。</p>
+<p>令$N=40$，那么令$f(i,l,r,d)(1\le i\le N,0\le l\le d\le r \le 9 )$为有多少个$i$位数，使用了$l$和$r$之间的数位，目前个位为$d$的数有多少个。那么可以列出如下状态转移方程：</p>
+<script type="math/tex; mode=display">
 f(i,l,r,d)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=1\&amp;l=r\&amp;r=d \\
-  &amp;0 &amp; &amp; \mathrm{else if\quad} i=1|l=r\\
-  &amp;f(i-1,l,r,d+1)+f(i-1,l+1,r,d+1) &amp; &amp; \mathrm{else if\quad}
-l=d \\
-  &amp;f(i-1,l,r,d-1)+f(i-1,l,r-1,d-1) &amp; &amp; \mathrm{else if\quad}
-r=d \\
-  &amp;f(i-1,l,r,d+1)+f(i-1,l,r,d-1) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>对于第三行，如果新填的数是来自区间的最左边，那么它有可能是第一次用，从<span class="math inline">\(f(i-1,l+1,r,d+1)\)</span>转移而来；也有可能是再次使用，从<span class="math inline">\(f(i-1,l,r,d+1)\)</span>转移而来。第四行也类似。</p>
-<p>对于最后一行，如果值在区间中间，那么它肯定不是第一次用，可以是之前填的数个位<span class="math inline">\(-1\)</span>转移而来，也可以是<span class="math inline">\(+1\)</span>转移而来。</p>
+  &1  & & \mathrm{if\quad} i=1\&l=r\&r=d \\
+  &0 & & \mathrm{else if\quad} i=1|l=r\\
+  &f(i-1,l,r,d+1)+f(i-1,l+1,r,d+1) & & \mathrm{else if\quad} l=d \\
+  &f(i-1,l,r,d-1)+f(i-1,l,r-1,d-1) & & \mathrm{else if\quad} r=d \\
+  &f(i-1,l,r,d+1)+f(i-1,l,r,d-1) & & \mathrm{else}
+\end{aligned}\right.</script><p>对于第三行，如果新填的数是来自区间的最左边，那么它有可能是第一次用，从$f(i-1,l+1,r,d+1)$转移而来；也有可能是再次使用，从$f(i-1,l,r,d+1)$转移而来。第四行也类似。</p>
+<p>对于最后一行，如果值在区间中间，那么它肯定不是第一次用，可以是之前填的数个位$-1$转移而来，也可以是$+1$转移而来。</p>
 <p>最终答案为：</p>
-<p><span class="math display">\[\sum_{i=1}^N\sum_{d=0}^9f(i,0,9,d)\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">40</span>,M=<span class="number">10</span>;</span><br><span class="line">ll f[N+<span class="number">3</span>][M][M][M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;M;j++)</span><br><span class="line">        f[<span class="number">1</span>][j][j][j]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">0</span>;l&lt;M;l++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> r=l;r&lt;M;r++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> d=l;d&lt;=r;d++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(l&lt;d&amp;&amp;d&lt;r) f[i][l][r][d]=f[i<span class="number">-1</span>][l][r][d<span class="number">-1</span>]+f[i<span class="number">-1</span>][l][r][d+<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(d==l) f[i][l][r][d]=f[i<span class="number">-1</span>][l][r][d+<span class="number">1</span>]+f[i<span class="number">-1</span>][l+<span class="number">1</span>][r][d+<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> f[i][l][r][d]=f[i<span class="number">-1</span>][l][r][d<span class="number">-1</span>]+f[i<span class="number">-1</span>][l][r<span class="number">-1</span>][d<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">0</span>;d&lt;M;d++)</span><br><span class="line">            ans+=f[i][<span class="number">0</span>][<span class="number">9</span>][d];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\sum_{i=1}^N\sum_{d=0}^9f(i,0,9,d)</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">40</span>,M=<span class="number">10</span>;</span><br><span class="line">ll f[N+<span class="number">3</span>][M][M][M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;M;j++)</span><br><span class="line">        f[<span class="number">1</span>][j][j][j]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">0</span>;l&lt;M;l++)</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> r=l;r&lt;M;r++)</span><br><span class="line">                <span class="keyword">for</span>(<span class="type">int</span> d=l;d&lt;=r;d++)&#123;</span><br><span class="line">                    <span class="keyword">if</span>(l&lt;d&amp;&amp;d&lt;r) f[i][l][r][d]=f[i<span class="number">-1</span>][l][r][d<span class="number">-1</span>]+f[i<span class="number">-1</span>][l][r][d+<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> <span class="keyword">if</span>(d==l) f[i][l][r][d]=f[i<span class="number">-1</span>][l][r][d+<span class="number">1</span>]+f[i<span class="number">-1</span>][l+<span class="number">1</span>][r][d+<span class="number">1</span>];</span><br><span class="line">                    <span class="keyword">else</span> f[i][l][r][d]=f[i<span class="number">-1</span>][l][r][d<span class="number">-1</span>]+f[i<span class="number">-1</span>][l][r<span class="number">-1</span>][d<span class="number">-1</span>];</span><br><span class="line">                &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> d=<span class="number">0</span>;d&lt;M;d++)</span><br><span class="line">            ans+=f[i][<span class="number">0</span>][<span class="number">9</span>][d];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -375,7 +364,7 @@ r=d \\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-178"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 178</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Step Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-178"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 178</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Step Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,14 +378,14 @@ r=d \\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -433,13 +422,13 @@ r=d \\
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

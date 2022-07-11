@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,38 +250,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-343">Project Euler 343</h1>
-<h2 id="题目">题目</h2>
-<h3 id="fractional-sequences">Fractional Sequences</h3>
-<p>For any positive integer <span class="math inline">\(k\)</span>, a
-finite sequence <span class="math inline">\(a_i\)</span> of fractions
-<span class="math inline">\(\dfrac{x_i}{y_i}\)</span> is defined by:</p>
-<p><span class="math inline">\(a_1 = \dfrac{1}{k}\)</span> and <span class="math inline">\(a_i = \dfrac{x_{i-1}+1}{y_{i-1}-1}\)</span>
-reduced to lowest terms for <span class="math inline">\(i&gt;1\)</span>.</p>
-<p>When <span class="math inline">\(a_i\)</span> reaches some integer
-<span class="math inline">\(n\)</span>, the sequence stops. (That is,
-when <span class="math inline">\(y_i=1\)</span>.)</p>
-<p>Define <span class="math inline">\(f(k) = n\)</span>.</p>
-<p>For example, for <span class="math inline">\(k = 20\)</span>:</p>
-<p><span class="math inline">\(\dfrac{1}{20} \rightarrow \dfrac{2}{19}
-\rightarrow \dfrac{3}{18} = \dfrac{1}{6} \rightarrow \dfrac{2}{5}
-\rightarrow \dfrac{3}{4} \rightarrow \dfrac{4}{3} \rightarrow
-\dfrac{5}{2} \rightarrow \dfrac{6}{1} = 6\)</span></p>
-<p>So <span class="math inline">\(f(20) = 6\)</span>.</p>
-<p>Also <span class="math inline">\(f(1) = 1, f(2) = 2, f(3) =
-1\)</span> and <span class="math inline">\(\sum f(k^3) = 118937\)</span>
-for <span class="math inline">\(1 \le k \le 100\)</span>.</p>
-<p>Find <span class="math inline">\(\sum f(k^3)\)</span> for <span class="math inline">\(1 \le k \le 2\times10^6\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在迭代求<span class="math inline">\(a_i\)</span>的过程中，如果不发生约分，那么分子和分母之和总是相等的，这个和一开始为<span class="math inline">\(k+1\)</span>。因此从一开始，在迭代的过程中，当分子<span class="math inline">\(x_i\)</span>满足<span class="math inline">\(\gcd(x_i,k+1)&gt;1\)</span>时，那么就会进行约分。由于<span class="math inline">\(x_i\)</span>是从<span class="math inline">\(1\)</span>开始迭代的，因此发生约分的时候，<span class="math inline">\(x_i\)</span>是<span class="math inline">\(k+1\)</span>的最小质因数，设其为<span class="math inline">\(p\)</span>。约分后，分子变成<span class="math inline">\(1\)</span>，分母变成<span class="math inline">\((k+1-p)/p\)</span>，注意到也是一个新的分数单位，并且消去了<span class="math inline">\(k+1\)</span>中最小的一个质因数<span class="math inline">\(p\)</span>，此时是一个新的进入了新的迭代过程。</p>
-<p>最终，<span class="math inline">\(k+1\)</span>的质因子从小到大一直被消去，直到剩下一个最大的质因子。</p>
-<p>如果一开始<span class="math inline">\(k+1\)</span>是质数时，约分便不会再发生。故<span class="math inline">\(f(k)\)</span>的值是<span class="math inline">\(k+1\)</span>的最大质因子再减去<span class="math inline">\(1\)</span>.</p>
-<p>由于<span class="math inline">\(n^3+1=(n+1)(n^2-n+1)\)</span>，<span class="math inline">\(n^3+1\)</span>的最大质因子要么来自<span class="math inline">\(n+1\)</span>，要么来自<span class="math inline">\(n^2-n+1\)</span>。</p>
-<p>求<span class="math inline">\(n+1\)</span>的最大质因子此处不详述，使用普通筛法即可。而<span class="math inline">\(n^2-n+1\)</span>则使用和216题类似的筛法进行筛选：令<span class="math inline">\(g(n)=n^2-n+1\)</span>，如果<span class="math inline">\(p|g(n)\)</span>，那么<span class="math inline">\(p|g(kp+n),p|g(kp-n+1)\)</span>，其中<span class="math inline">\(k&gt;0\)</span>.</p>
-<p>最终求<span class="math inline">\(f(k^3)\)</span>时将两部分结果合并即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e6</span>;</span><br><span class="line">ll v1[N+<span class="number">4</span>],b[N+<span class="number">4</span>],v2[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N+<span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v1[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=N+<span class="number">1</span>;j+=i)</span><br><span class="line">                v1[j]=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        v1[i]=v1[i+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        b[i]=<span class="number">1ll</span>*i*i-i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        ll p=b[i];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=i;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(b[j]%p==<span class="number">0</span>)</span><br><span class="line">                b[j]/=p,v2[j]=<span class="built_in">max</span>(v2[j],p);</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-i+<span class="number">1</span>;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(b[j]%p==<span class="number">0</span>)</span><br><span class="line">                b[j]/=p,v2[j]=<span class="built_in">max</span>(v2[j],p);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        ans+=<span class="built_in">max</span>(v1[i],v2[i])<span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-343"><a href="#Project-Euler-343" class="headerlink" title="Project Euler 343"></a>Project Euler 343</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Fractional-Sequences"><a href="#Fractional-Sequences" class="headerlink" title="Fractional Sequences"></a>Fractional Sequences</h3><p>For any positive integer $k$, a finite sequence $a_i$ of fractions $\dfrac{x_i}{y_i}$ is defined by:</p>
+<p>$a_1 = \dfrac{1}{k}$ and $a_i = \dfrac{x_{i-1}+1}{y_{i-1}-1}$ reduced to lowest terms for $i&gt;1$.</p>
+<p>When $a_i$ reaches some integer $n$, the sequence stops. (That is, when $y_i=1$.)</p>
+<p>Define $f(k) = n$.</p>
+<p>For example, for $k = 20$:</p>
+<p>$\dfrac{1}{20} \rightarrow \dfrac{2}{19} \rightarrow \dfrac{3}{18} = \dfrac{1}{6} \rightarrow \dfrac{2}{5} \rightarrow \dfrac{3}{4} \rightarrow \dfrac{4}{3} \rightarrow \dfrac{5}{2} \rightarrow \dfrac{6}{1} = 6$</p>
+<p>So $f(20) = 6$.</p>
+<p>Also $f(1) = 1, f(2) = 2, f(3) = 1$ and $\sum f(k^3) = 118937$ for $1 \le k \le 100$.</p>
+<p>Find $\sum f(k^3)$ for $1 \le k \le 2\times10^6$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在迭代求$a_i$的过程中，如果不发生约分，那么分子和分母之和总是相等的，这个和一开始为$k+1$。因此从一开始，在迭代的过程中，当分子$x_i$满足$\gcd(x_i,k+1)&gt;1$时，那么就会进行约分。由于$x_i$是从$1$开始迭代的，因此发生约分的时候，$x_i$是$k+1$的最小质因数，设其为$p$。约分后，分子变成$1$，分母变成$(k+1-p)/p$，注意到也是一个新的分数单位，并且消去了$k+1$中最小的一个质因数$p$，此时是一个新的进入了新的迭代过程。</p>
+<p>最终，$k+1$的质因子从小到大一直被消去，直到剩下一个最大的质因子。</p>
+<p>如果一开始$k+1$是质数时，约分便不会再发生。故$f(k)$的值是$k+1$的最大质因子再减去$1$.</p>
+<p>由于$n^3+1=(n+1)(n^2-n+1)$，$n^3+1$的最大质因子要么来自$n+1$，要么来自$n^2-n+1$。</p>
+<p>求$n+1$的最大质因子此处不详述，使用普通筛法即可。而$n^2-n+1$则使用和216题类似的筛法进行筛选：令$g(n)=n^2-n+1$，如果$p|g(n)$，那么$p|g(kp+n),p|g(kp-n+1)$，其中$k&gt;0$.</p>
+<p>最终求$f(k^3)$时将两部分结果合并即可。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e6</span>;</span><br><span class="line">ll v1[N+<span class="number">4</span>],b[N+<span class="number">4</span>],v2[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N+<span class="number">1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v1[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=N+<span class="number">1</span>;j+=i)</span><br><span class="line">                v1[j]=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        v1[i]=v1[i+<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        b[i]=<span class="number">1ll</span>*i*i-i+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        ll p=b[i];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=i;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(b[j]%p==<span class="number">0</span>)</span><br><span class="line">                b[j]/=p,v2[j]=<span class="built_in">max</span>(v2[j],p);</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-i+<span class="number">1</span>;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(b[j]%p==<span class="number">0</span>)</span><br><span class="line">                b[j]/=p,v2[j]=<span class="built_in">max</span>(v2[j],p);</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        ans+=<span class="built_in">max</span>(v1[i],v2[i])<span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -365,7 +351,7 @@ for <span class="math inline">\(1 \le k \le 100\)</span>.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-343"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 343</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fractional-sequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Fractional Sequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-343"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 343</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fractional-Sequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Fractional Sequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -379,14 +365,14 @@ for <span class="math inline">\(1 \le k \le 100\)</span>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -423,13 +409,13 @@ for <span class="math inline">\(1 \le k \le 100\)</span>.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

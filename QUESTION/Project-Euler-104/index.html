@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>814</span>
+              <span>770</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,32 +257,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-104">Project Euler 104</h1>
-<h2 id="题目">题目</h2>
-<h3 id="pandigital-fibonacci-ends">Pandigital Fibonacci ends</h3>
-<p>The Fibonacci sequence is defined by the recurrence relation:</p>
-<p><span class="math inline">\(F_n = F_n−1 + F_n−2\)</span>, where <span class="math inline">\(F_1 = 1\)</span> and <span class="math inline">\(F_2 = 1\)</span>.</p>
-<p>It turns out that <span class="math inline">\(F_{541}\)</span>, which
-contains <span class="math inline">\(113\)</span> digits, is the first
-Fibonacci number for which the last nine digits are <span class="math inline">\(1-9\)</span> pandigital (contain all the digits
-<span class="math inline">\(1\)</span> to <span class="math inline">\(9\)</span>, but not necessarily in order). And
-<span class="math inline">\(F_{2749}\)</span>, which contains <span class="math inline">\(575\)</span> digits, is the first Fibonacci number
-for which the first nine digits are <span class="math inline">\(1-9\)</span> pandigital.</p>
-<p>Given that <span class="math inline">\(F_k\)</span> is the first
-Fibonacci number for which the first nine digits AND the last nine
-digits are <span class="math inline">\(1-9\)</span> pandigital, find
-<span class="math inline">\(k\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>从小到大枚举斐波那契数的项数。由于本题只关心高<span class="math inline">\(9\)</span>位和低<span class="math inline">\(9\)</span>位，因此可以这么做：</p>
-<ol type="1">
-<li>将整个数直接对<span class="math inline">\(10^9\)</span>取模，那么所得到的值是精确的低<span class="math inline">\(9\)</span>位。</li>
-<li>浮点数的特点是只保留前几位的有效数字，那么就用浮点数来存储整个值，只要前<span class="math inline">\(9\)</span>位准确就行。</li>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-104"><a href="#Project-Euler-104" class="headerlink" title="Project Euler 104"></a>Project Euler 104</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Pandigital-Fibonacci-ends"><a href="#Pandigital-Fibonacci-ends" class="headerlink" title="Pandigital Fibonacci ends"></a>Pandigital Fibonacci ends</h3><p>The Fibonacci sequence is defined by the recurrence relation:</p>
+<p>$F_n = F_n−1 + F_n−2$, where $F_1 = 1$ and $F_2 = 1$.</p>
+<p>It turns out that $F_{541}$, which contains $113$ digits, is the first Fibonacci number for which the last nine digits are $1-9$ pandigital (contain all the digits $1$ to $9$, but not necessarily in order). And $F_{2749}$, which contains $575$ digits, is the first Fibonacci number for which the first nine digits are $1-9$ pandigital.</p>
+<p>Given that $F_k$ is the first Fibonacci number for which the first nine digits AND the last nine digits are $1-9$ pandigital, find $k$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>从小到大枚举斐波那契数的项数。由于本题只关心高$9$位和低$9$位，因此可以这么做：</p>
+<ol>
+<li>将整个数直接对$10^9$取模，那么所得到的值是精确的低$9$位。</li>
+<li>浮点数的特点是只保留前几位的有效数字，那么就用浮点数来存储整个值，只要前$9$位准确就行。</li>
 </ol>
-<p>因此，计算低位时，只需要全程对<span class="math inline">\(10^9\)</span>取模即可。</p>
-<p>计算高位时，如果高位的数到达了一个阈值（这里设定为<span class="math inline">\(10^{12}\)</span>），那么就对这个数除<span class="math inline">\(10\)</span>。这不仅影响高位的准确性，还能在转字符串判断时，防止产生的浮点数字符串太长，加速判断。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;123456789&quot;</span></span><br><span class="line">m = <span class="number">10</span> ** <span class="built_in">len</span>(s)</span><br><span class="line">a = b = <span class="number">1</span></span><br><span class="line">u = v = <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    l = <span class="built_in">str</span>(a)</span><br><span class="line">    r = <span class="built_in">str</span>(u)[:<span class="built_in">len</span>(s)]</span><br><span class="line">    l = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(l)))</span><br><span class="line">    r = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(r)))</span><br><span class="line">    <span class="keyword">if</span> l == r == s:</span><br><span class="line">        ans = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    a, b = b, (a + b) % m</span><br><span class="line">    u, v = v, u + v</span><br><span class="line">    <span class="keyword">if</span> v &gt; <span class="number">1e12</span>:</span><br><span class="line">        u /= <span class="number">10</span></span><br><span class="line">        v /= <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>因此，计算低位时，只需要全程对$10^9$取模即可。</p>
+<p>计算高位时，如果高位的数到达了一个阈值（这里设定为$10^{12}$），那么就对这个数除$10$。这不仅影响高位的准确性，还能在转字符串判断时，防止产生的浮点数字符串太长，加速判断。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">s = <span class="string">&quot;123456789&quot;</span></span><br><span class="line">m = <span class="number">10</span> ** <span class="built_in">len</span>(s)</span><br><span class="line">a = b = <span class="number">1</span></span><br><span class="line">u = v = <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    l = <span class="built_in">str</span>(a)</span><br><span class="line">    r = <span class="built_in">str</span>(u)[:<span class="built_in">len</span>(s)]</span><br><span class="line">    l = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(l)))</span><br><span class="line">    r = <span class="string">&quot;&quot;</span>.join((<span class="keyword">lambda</span> x: (x.sort(), x)[<span class="number">1</span>])(<span class="built_in">list</span>(r)))</span><br><span class="line">    <span class="keyword">if</span> l == r == s:</span><br><span class="line">        ans = i</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    a, b = b, (a + b) % m</span><br><span class="line">    u, v = v, u + v</span><br><span class="line">    <span class="keyword">if</span> v &gt; <span class="number">1e12</span>:</span><br><span class="line">        u /= <span class="number">10</span></span><br><span class="line">        v /= <span class="number">10</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -366,7 +354,7 @@ digits are <span class="math inline">\(1-9\)</span> pandigital, find
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-104"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 104</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pandigital-fibonacci-ends"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pandigital Fibonacci ends</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-104"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 104</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandigital-Fibonacci-ends"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pandigital Fibonacci ends</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,14 +368,14 @@ digits are <span class="math inline">\(1-9\)</span> pandigital, find
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -424,13 +412,13 @@ digits are <span class="math inline">\(1-9\)</span> pandigital, find
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

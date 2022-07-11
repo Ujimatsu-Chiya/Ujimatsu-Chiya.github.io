@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,48 +259,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-323">Project Euler 323</h1>
-<h2 id="题目">题目</h2>
-<h3 id="bitwise-or-operations-on-random-integers">Bitwise-OR operations
-on random integers</h3>
-<p>Let <span class="math inline">\(y_0, y_1, y_2,\dots\)</span> be a
-sequence of random unsigned <span class="math inline">\(32\)</span> bit
-integers (i.e. <span class="math inline">\(0 \le y_i &lt;
-2^{32}\)</span>, every value equally likely). For the sequence <span class="math inline">\(x_i\)</span> the following recursion is given:</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-323"><a href="#Project-Euler-323" class="headerlink" title="Project Euler 323"></a>Project Euler 323</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Bitwise-OR-operations-on-random-integers"><a href="#Bitwise-OR-operations-on-random-integers" class="headerlink" title="Bitwise-OR operations on random integers"></a>Bitwise-OR operations on random integers</h3><p>Let $y_0, y_1, y_2,\dots$ be a sequence of random unsigned $32$ bit integers (i.e. $0 \le y_i &lt; 2^{32}$, every value equally likely).<br>For the sequence $x_i$ the following recursion is given:</p>
 <ul>
-<li><span class="math inline">\(x_0 = 0\)</span> and</li>
-<li><span class="math inline">\(x_i = x_{i-1} \mathbf{|}
-y_{i-1}\)</span>, for <span class="math inline">\(i &gt; 0\)</span>. (
-<span class="math inline">\(\mathbf{|}\)</span> is the bitwise-OR
-operator)</li>
+<li>$x_0 = 0$ and</li>
+<li>$x_i = x_{i-1} \mathbf{|} y_{i-1}$, for $i &gt; 0$. ( $\mathbf{|}$ is the bitwise-OR operator)</li>
 </ul>
-<p>It can be seen that eventually there will be an index <span class="math inline">\(N\)</span> such that <span class="math inline">\(x_i = 2^{32} -1\)</span> (a bit-pattern of all
-ones) for all <span class="math inline">\(i \ge N\)</span>.</p>
-<p>Find the expected value of <span class="math inline">\(N\)</span>.
-Give your answer rounded to <span class="math inline">\(10\)</span>
-digits after the decimal point.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(N=32\)</span>。</p>
-<p>一个观察点：当前状态其实和<span class="math inline">\(y_i\)</span>的值没有关系，只和<span class="math inline">\(y_i\)</span>的二进制<span class="math inline">\(1\)</span>的个数有关系。</p>
-<p>因此，我们只考虑<span class="math inline">\(y_i\)</span>中还有多少个<span class="math inline">\(0\)</span>还没有被翻成<span class="math inline">\(1\)</span>。</p>
-<p>令<span class="math inline">\(f(i)(i\ge 0)\)</span>表示还有<span class="math inline">\(i\)</span>个<span class="math inline">\(0\)</span>还没被翻成<span class="math inline">\(1\)</span>的情况下，全都完成翻转的期望。</p>
-<p>那么，状态<span class="math inline">\(i\)</span>有<span class="math inline">\(\dfrac{C_i^0}{2^i}\)</span>的概率转换成状态<span class="math inline">\(i\)</span>，也就是说，一个比特都没翻转成功；有<span class="math inline">\(\dfrac{C_i^1}{2^i}\)</span>的概率转换成状态<span class="math inline">\(i-1\)</span>，也就是说只有一个比特翻转成功了……有<span class="math inline">\(\dfrac{C_i^i}{2^i}\)</span>的概率转换成状态<span class="math inline">\(0\)</span>，此时<span class="math inline">\(i\)</span>个比特全部成功翻转。那么，我们可以写出如下的式子：</p>
-<p><span class="math display">\[f(i)=\sum_{j=0}^i(\dfrac{C_i^j}{2^n}\cdot
-f(j))+1\]</span></p>
-<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态<span class="math inline">\(i\)</span>依赖于自身）。不过，这种情况下消除后效性很简单。右边有一个项也是<span class="math inline">\(f(i)\)</span>，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
+<p>It can be seen that eventually there will be an index $N$ such that<br>$x_i = 2^{32} -1$ (a bit-pattern of all ones) for all $i \ge N$.</p>
+<p>Find the expected value of $N$. Give your answer rounded to $10$ digits after the decimal point.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=32$。</p>
+<p>一个观察点：当前状态其实和$y_i$的值没有关系，只和$y_i$的二进制$1$的个数有关系。</p>
+<p>因此，我们只考虑$y_i$中还有多少个$0$还没有被翻成$1$。</p>
+<p>令$f(i)(i\ge 0)$表示还有$i$个$0$还没被翻成$1$的情况下，全都完成翻转的期望。</p>
+<p>那么，状态$i$有$\dfrac{C_i^0}{2^i}$的概率转换成状态$i$，也就是说，一个比特都没翻转成功；有$\dfrac{C_i^1}{2^i}$的概率转换成状态$i-1$，也就是说只有一个比特翻转成功了……有$\dfrac{C_i^i}{2^i}$的概率转换成状态$0$，此时$i$个比特全部成功翻转。那么，我们可以写出如下的式子：</p>
+<script type="math/tex; mode=display">f(i)=\sum_{j=0}^i(\dfrac{C_i^j}{2^n}\cdot f(j))+1</script><p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态$i$依赖于自身）。不过，这种情况下消除后效性很简单。右边有一个项也是$f(i)$，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
 <p>因此，可以正式写出状态转移方程：</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 f(i)=
 \left \{\begin{aligned}
-  &amp;0  &amp; &amp; \mathrm{if\quad} i=0 \\
-  &amp;\dfrac{\sum_{j=0}^{i-1}C_i^j\cdot f(j)+2^i}{2^i-1} &amp; &amp;
-\mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>因此，最终结果为<span class="math inline">\(f(N)\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_pascals_triangle</span><br><span class="line"></span><br><span class="line">N = <span class="number">32</span></span><br><span class="line">C = get_pascals_triangle(N)</span><br><span class="line">f = [<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    f.append(<span class="number">2</span> ** n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        f[n] += C[n][i] * f[i]</span><br><span class="line">    f[n] /= <span class="number">2</span> ** n - <span class="number">1</span></span><br><span class="line">ans = f[N]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.10f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br></pre></td></tr></table></figure>
+  &0  & & \mathrm{if\quad} i=0 \\
+  &\dfrac{\sum_{j=0}^{i-1}C_i^j\cdot f(j)+2^i}{2^i-1} & & \mathrm{else}
+\end{aligned}\right.</script><p>因此，最终结果为$f(N)$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_pascals_triangle</span><br><span class="line"></span><br><span class="line">N = <span class="number">32</span></span><br><span class="line">C = get_pascals_triangle(N)</span><br><span class="line">f = [<span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    f.append(<span class="number">2</span> ** n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        f[n] += C[n][i] * f[i]</span><br><span class="line">    f[n] /= <span class="number">2</span> ** n - <span class="number">1</span></span><br><span class="line">ans = f[N]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.10f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -386,8 +367,7 @@ f(i)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-323"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 323</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bitwise-or-operations-on-random-integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Bitwise-OR operations
-on random integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-323"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 323</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bitwise-OR-operations-on-random-integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Bitwise-OR operations on random integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -401,14 +381,14 @@ on random integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a 
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -445,13 +425,13 @@ on random integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a 
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

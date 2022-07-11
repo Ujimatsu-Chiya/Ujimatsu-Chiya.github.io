@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>630</span>
+              <span>602</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,26 +258,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-187">Project Euler 187</h1>
-<h2 id="题目">题目</h2>
-<h3 id="semiprimes">Semiprimes</h3>
-<p>A composite is a number containing at least two prime factors. For
-example, <span class="math inline">\(15 = 3 \times 5; 9 = 3 \times 3; 12
-= 2 \times 2 \times 3\)</span>.</p>
-<p>There are ten composites below thirty containing precisely two, not
-necessarily distinct, prime factors: <span class="math inline">\(4, 6,
-9, 10, 14, 15, 21, 22, 25, 26\)</span>.</p>
-<p>How many composite integers, <span class="math inline">\(n &lt;
-10^8\)</span>, have precisely two, not necessarily distinct, prime
-factors?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>由于要求的半素数其中一个质因子至少为<span class="math inline">\(2\)</span>，因此只需要枚举<span class="math inline">\(\dfrac{N}{2}\)</span>之前的质数。</p>
-<p>由于<span class="math inline">\(M=\dfrac{N}{2}\)</span>的范围依旧比较大，故使用线性筛将所有质数枚举出来。</p>
-<p>按顺序产生质数后，设其数组为<span class="math inline">\(pr\)</span>。使用双指针法，在第一层循环从左到右枚举左指针<span class="math inline">\(l\)</span>，第二层循环右往左枚举右指针<span class="math inline">\(r\)</span>，并枚举到第一个<span class="math inline">\(pr[l]\cdot pr[r]&lt; N\)</span>的最大<span class="math inline">\(r\)</span>。<span class="math inline">\(r\)</span>左边和<span class="math inline">\(l\)</span>右边的所有质数都可以和<span class="math inline">\(pr[l]\)</span>组成答案，统计这一段数的数量。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-187"><a href="#Project-Euler-187" class="headerlink" title="Project Euler 187"></a>Project Euler 187</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Semiprimes"><a href="#Semiprimes" class="headerlink" title="Semiprimes"></a>Semiprimes</h3><p>A composite is a number containing at least two prime factors. For example, $15 = 3 \times 5; 9 = 3 \times 3; 12 = 2 \times 2 \times 3$.</p>
+<p>There are ten composites below thirty containing precisely two, not necessarily distinct, prime factors: $4, 6, 9, 10, 14, 15, 21, 22, 25, 26$.</p>
+<p>How many composite integers, $n &lt; 10^8$, have precisely two, not necessarily distinct, prime factors?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>由于要求的半素数其中一个质因子至少为$2$，因此只需要枚举$\dfrac{N}{2}$之前的质数。</p>
+<p>由于$M=\dfrac{N}{2}$的范围依旧比较大，故使用线性筛将所有质数枚举出来。</p>
+<p>按顺序产生质数后，设其数组为$pr$。使用双指针法，在第一层循环从左到右枚举左指针$l$，第二层循环右往左枚举右指针$r$，并枚举到第一个$pr[l]\cdot pr[r]&lt; N$的最大$r$。$r$左边和$l$右边的所有质数都可以和$pr[l]$组成答案，统计这一段数的数量。</p>
 <p>需要注意还有一种情况，就是质数的平方数。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> O=<span class="number">1e8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=O/<span class="number">2</span>;</span><br><span class="line"><span class="type">int</span> v[N+<span class="number">4</span>],pr[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            pr[++m]=i;v[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r=m;l&lt;=r;l++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(;pr[l]*pr[r]&gt;=O;r--);</span><br><span class="line">        ans+=r-l+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> O=<span class="number">1e8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=O/<span class="number">2</span>;</span><br><span class="line"><span class="type">int</span> v[N+<span class="number">4</span>],pr[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            pr[++m]=i;v[i]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,r=m;l&lt;=r;l++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(;pr[l]*pr[r]&gt;=O;r--);</span><br><span class="line">        ans+=r-l+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -362,7 +352,7 @@ factors?</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-187"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 187</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#semiprimes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Semiprimes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-187"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 187</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Semiprimes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Semiprimes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -376,14 +366,14 @@ factors?</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -420,13 +410,13 @@ factors?</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,37 +257,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-192">Project Euler 192</h1>
-<h2 id="题目">题目</h2>
-<h3 id="best-approximations">Best Approximations</h3>
-<p>Let x be a real number.</p>
-<p>A best approximation to <span class="math inline">\(x\)</span> for
-the denominator bound <span class="math inline">\(d\)</span> is a
-rational number <span class="math inline">\(\dfrac{r}{s}\)</span> in
-reduced form, with <span class="math inline">\(s \le d\)</span>, such
-that any rational number which is closer to <span class="math inline">\(x\)</span> than <span class="math inline">\(\dfrac{r}{s}\)</span> has a denominator larger
-than <span class="math inline">\(d\)</span>:</p>
-<p><span class="math display">\[|\dfrac{p}{q}-x| &lt; |\dfrac{r}{s}-x|
-\Rightarrow q &gt; d\]</span></p>
-<p>For example, the best approximation to <span class="math inline">\(\sqrt{13}\)</span> for the denominator bound <span class="math inline">\(20\)</span> is <span class="math inline">\(\dfrac{18}{5}\)</span> and the best approximation
-to <span class="math inline">\(\sqrt{13}\)</span> for the denominator
-bound <span class="math inline">\(30\)</span> is <span class="math inline">\(\dfrac{101}{28}\)</span>.</p>
-<p>Find the sum of all denominators of the best approximations to <span class="math inline">\(\sqrt{n}\)</span> for the denominator bound <span class="math inline">\(10^{12}\)</span>, where <span class="math inline">\(n\)</span> is not a perfect square and <span class="math inline">\(1 &lt; n \le 100000\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(M=10^{12}\)</span>。如果需要求无理数<span class="math inline">\(\sqrt{n}\)</span>的有理近似，那么我们将在<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot
-Tree</a>上“尝试”查找这个数。（这里使用的Stern-Brocot
-Tree是全体最简分数，因此最小值为<span class="math inline">\(0\)</span>，最大值则推广到无穷。）</p>
-<p>最终，寻找到两个候选答案<span class="math inline">\(\dfrac{a}{c},\dfrac{b}{d}\)</span>，满足<span class="math inline">\(\dfrac{a}{c}&lt;\sqrt{n}&lt;\dfrac{b}{d},c,d \le
-M\)</span>。判断这两个分数谁比较接近即可。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-192"><a href="#Project-Euler-192" class="headerlink" title="Project Euler 192"></a>Project Euler 192</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Best-Approximations"><a href="#Best-Approximations" class="headerlink" title="Best Approximations"></a>Best Approximations</h3><p>Let x be a real number.</p>
+<p>A best approximation to $x$ for the denominator bound $d$ is a rational number $\dfrac{r}{s}$ in reduced form, with $s \le d$, such that any rational number which is closer to $x$ than $\dfrac{r}{s}$ has a denominator larger than $d$:</p>
+<script type="math/tex; mode=display">|\dfrac{p}{q}-x| < |\dfrac{r}{s}-x| \Rightarrow q > d</script><p>For example, the best approximation to $\sqrt{13}$ for the denominator bound $20$ is $\dfrac{18}{5}$ and the best approximation to $\sqrt{13}$ for the denominator bound $30$ is $\dfrac{101}{28}$.</p>
+<p>Find the sum of all denominators of the best approximations to $\sqrt{n}$ for the denominator bound $10^{12}$, where $n$ is not a perfect square and $1 &lt; n \le 100000$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$M=10^{12}$。如果需要求无理数$\sqrt{n}$的有理近似，那么我们将在<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern-Brocot Tree</a>上“尝试”查找这个数。（这里使用的Stern-Brocot Tree是全体最简分数，因此最小值为$0$，最大值则推广到无穷。）</p>
+<p>最终，寻找到两个候选答案$\dfrac{a}{c},\dfrac{b}{d}$，满足$\dfrac{a}{c}&lt;\sqrt{n}&lt;\dfrac{b}{d},c,d \le M$。判断这两个分数谁比较接近即可。</p>
 <p>为了避免浮点数产生的误差，进行浮点数比较时会转成整数之间的比较：</p>
-<ol type="1">
-<li>比较分数<span class="math inline">\(\dfrac{p}{q}\)</span>和<span class="math inline">\(\sqrt{n}\)</span>，相当于比较<span class="math inline">\(p^2\)</span>和<span class="math inline">\(nq^2\)</span>的大小。</li>
-<li>比较<span class="math inline">\(\sqrt{n}-\dfrac{a}{c}\)</span>和<span class="math inline">\(\dfrac{b}{d}-\sqrt{n}\)</span>，经转化后，相当于比较<span class="math inline">\(4nc^2d^2\)</span>和<span class="math inline">\((bc+ad)^2\)</span>的大小。</li>
+<ol>
+<li>比较分数$\dfrac{p}{q}$和$\sqrt{n}$，相当于比较$p^2$和$nq^2$的大小。</li>
+<li>比较$\sqrt{n}-\dfrac{a}{c}$和$\dfrac{b}{d}-\sqrt{n}$，经转化后，相当于比较$4nc^2d^2$和$(bc+ad)^2$的大小。</li>
 </ol>
 <p>另一个用有理数近似无理数的相关的方法是基于连分数的，在该<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Continued_fraction#Best_rational_approximations">页面</a>中有介绍。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">12</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">n</span>):</span><br><span class="line">    a, c = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    b, d = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        p = a + b</span><br><span class="line">        q = c + d</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> q &gt; M:</span><br><span class="line">            <span class="keyword">if</span> <span class="number">4</span> * n * c ** <span class="number">2</span> * d ** <span class="number">2</span> &lt; (a * d + b * c) ** <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> c</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> d</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            t = p * p - q * q * n</span><br><span class="line">            <span class="keyword">if</span> t == <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 找到了一个有理数p/q，其值为sqrt(n)，这说明n是个平方数，不是我们需要求的。</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> t &gt; <span class="number">0</span>:</span><br><span class="line">                b, d = p, q</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                a, c = p, q</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="built_in">sum</span>(cal(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">12</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">n</span>):</span><br><span class="line">    a, c = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line">    b, d = <span class="number">1</span>, <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        p = a + b</span><br><span class="line">        q = c + d</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> q &gt; M:</span><br><span class="line">            <span class="keyword">if</span> <span class="number">4</span> * n * c ** <span class="number">2</span> * d ** <span class="number">2</span> &lt; (a * d + b * c) ** <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> c</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> d</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            t = p * p - q * q * n</span><br><span class="line">            <span class="keyword">if</span> t == <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 找到了一个有理数p/q，其值为sqrt(n)，这说明n是个平方数，不是我们需要求的。</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            <span class="keyword">if</span> t &gt; <span class="number">0</span>:</span><br><span class="line">                b, d = p, q</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                a, c = p, q</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="built_in">sum</span>(cal(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -371,7 +355,7 @@ M\)</span>。判断这两个分数谁比较接近即可。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-192"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 192</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#best-approximations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Best Approximations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-192"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 192</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Best-Approximations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Best Approximations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,14 +369,14 @@ M\)</span>。判断这两个分数谁比较接近即可。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -429,13 +413,13 @@ M\)</span>。判断这两个分数谁比较接近即可。</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

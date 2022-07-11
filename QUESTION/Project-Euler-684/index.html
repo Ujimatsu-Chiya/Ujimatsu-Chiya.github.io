@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>893</span>
+              <span>833</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,35 +251,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-684">Project Euler 684</h1>
-<h2 id="题目">题目</h2>
-<h3 id="inverse-digit-sum">Inverse Digit Sum</h3>
-<p>Define <span class="math inline">\(s(n)\)</span> to be the smallest
-number that has a digit sum of <span class="math inline">\(n\)</span>.
-For example <span class="math inline">\(s(10) = 19\)</span>.</p>
-<p>Let <span class="math inline">\(\displaystyle S(k) = \sum_{n=1}^k
-s(n)\)</span>. You are given <span class="math inline">\(S(20) =
-1074\)</span>.</p>
-<p>Further let <span class="math inline">\(f_i\)</span> be the Fibonacci
-sequence defined by <span class="math inline">\(f_0=0, f_1=1\)</span>
-and <span class="math inline">\(f_i=f_{i-2}+f_{i-1}\)</span> for all
-<span class="math inline">\(i \ge 2\)</span>.</p>
-<p>Find <span class="math inline">\(\displaystyle \sum_{i=2}^{90}
-S(f_i)\)</span>. Give your answer modulo <span class="math inline">\(1\,000\,000\,007\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>基于贪心思想，<span class="math inline">\(s(n)\)</span>中除了最高位以外，其它位全是<span class="math inline">\(9\)</span>。因此，<span class="math inline">\(s(n)\)</span>的值为如下形式：<span class="math inline">\(?999999999\dots\)</span>这样保证了<span class="math inline">\(s(n)\)</span>的位数是最小的，并且分配给高位的数是尽量小的。因此，<span class="math inline">\(s(n)=10^{\lfloor\frac{n}{9}\rfloor}\cdot(n\%9+1)-1\)</span>。</p>
-<p><span class="math inline">\(s(n)\)</span>中从小到大，每<span class="math inline">\(9\)</span>个数划分成一块，那么不难发现，每一块里面的数都是<span class="math inline">\(1999\dots\)</span>到<span class="math inline">\(9999\dots\)</span>，每一块的长度完全一样。</p>
-<p>令<span class="math inline">\(n=9q+r,0\le r&lt;9\)</span>，那么<span class="math inline">\(S(n)\)</span>由以下两部分数组成：</p>
-<ol type="1">
-<li><p>所有完整的块的数字之和，这一部分数字有<span class="math inline">\(q\)</span>个完整的块，这些完整的块的数之和通过等比数列公式容易求出为<span class="math inline">\(6\times(10^q-1)-9q\)</span>.</p></li>
-<li><p>最后一块不完整的数之和这些数之和。这些数一共有<span class="math inline">\(r\)</span>个，都是<span class="math inline">\(k+1\)</span>位数。它们的和为<span class="math inline">\(\dfrac{1}{2}r(10^q(r+3)-2)\)</span></p></li>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-684"><a href="#Project-Euler-684" class="headerlink" title="Project Euler 684"></a>Project Euler 684</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Inverse-Digit-Sum"><a href="#Inverse-Digit-Sum" class="headerlink" title="Inverse Digit Sum"></a>Inverse Digit Sum</h3><p>Define $s(n)$ to be the smallest number that has a digit sum of $n$. For example $s(10) = 19$.</p>
+<p>Let $\displaystyle S(k) = \sum_{n=1}^k s(n)$. You are given $S(20) = 1074$.</p>
+<p>Further let $f_i$ be the Fibonacci sequence defined by $f_0=0, f_1=1$ and $f_i=f_{i-2}+f_{i-1}$ for all $i \ge 2$.</p>
+<p>Find $\displaystyle \sum_{i=2}^{90} S(f_i)$. Give your answer modulo $1\,000\,000\,007$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>基于贪心思想，$s(n)$中除了最高位以外，其它位全是$9$。因此，$s(n)$的值为如下形式：$?999999999\dots$这样保证了$s(n)$的位数是最小的，并且分配给高位的数是尽量小的。因此，$s(n)=10^{\lfloor\frac{n}{9}\rfloor}\cdot(n\%9+1)-1$。</p>
+<p>$s(n)$中从小到大，每$9$个数划分成一块，那么不难发现，每一块里面的数都是$1999\dots$到$9999\dots$，每一块的长度完全一样。</p>
+<p>令$n=9q+r,0\le r&lt;9$，那么$S(n)$由以下两部分数组成：</p>
+<ol>
+<li><p>所有完整的块的数字之和，这一部分数字有$q$个完整的块，这些完整的块的数之和通过等比数列公式容易求出为$6\times(10^q-1)-9q$.</p>
+</li>
+<li><p>最后一块不完整的数之和这些数之和。这些数一共有$r$个，都是$k+1$位数。它们的和为$\dfrac{1}{2}r(10^q(r+3)-2)$</p>
+</li>
 </ol>
 <p>两部分加起来，得到:</p>
-<p><span class="math display">\[S(n) = \left(\frac{(r+2)(r+1)}{2} +
-5\right)\cdot 10^q-9q-6-r\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">90</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span> + <span class="number">7</span></span><br><span class="line">f = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    f.append(f[-<span class="number">1</span>] + f[-<span class="number">2</span>])</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> f[<span class="number">2</span>:]:</span><br><span class="line">    q, r = <span class="built_in">divmod</span>(w, <span class="number">9</span>)</span><br><span class="line">    ans = (ans + ((r + <span class="number">1</span>) * (r + <span class="number">2</span>) // <span class="number">2</span> + <span class="number">5</span>) * <span class="built_in">pow</span>(<span class="number">10</span>, q, mod) - <span class="number">9</span> * q - <span class="number">6</span> - r) % mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">S(n) = \left(\frac{(r+2)(r+1)}{2} + 5\right)\cdot 10^q-9q-6-r</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">90</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span> + <span class="number">7</span></span><br><span class="line">f = [<span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    f.append(f[-<span class="number">1</span>] + f[-<span class="number">2</span>])</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> f[<span class="number">2</span>:]:</span><br><span class="line">    q, r = <span class="built_in">divmod</span>(w, <span class="number">9</span>)</span><br><span class="line">    ans = (ans + ((r + <span class="number">1</span>) * (r + <span class="number">2</span>) // <span class="number">2</span> + <span class="number">5</span>) * <span class="built_in">pow</span>(<span class="number">10</span>, q, mod) - <span class="number">9</span> * q - <span class="number">6</span> - r) % mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +352,7 @@ S(f_i)\)</span>. Give your answer modulo <span class="math inline">\(1\,000\,000
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-684"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 684</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#inverse-digit-sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Inverse Digit Sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-684"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 684</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverse-Digit-Sum"><span class="nav-number">1.1.1.</span> <span class="nav-text">Inverse Digit Sum</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,14 +366,14 @@ S(f_i)\)</span>. Give your answer modulo <span class="math inline">\(1\,000\,000
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -422,13 +410,13 @@ S(f_i)\)</span>. Give your answer modulo <span class="math inline">\(1\,000\,000
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

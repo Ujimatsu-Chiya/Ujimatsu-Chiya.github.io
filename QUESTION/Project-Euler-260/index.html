@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.1k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,63 +251,33 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-260">Project Euler 260</h1>
-<h2 id="题目">题目</h2>
-<h3 id="stone-game">Stone Game</h3>
-<p>A game is played with three piles of stones and two players.</p>
-<p>At her turn, a player removes one or more stones from the piles.
-However, if she takes stones from more than one pile, she must remove
-the same number of stones from each of the selected piles. In other
-words, the player chooses some <span class="math inline">\(N&gt;0\)</span> and removes:</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-260"><a href="#Project-Euler-260" class="headerlink" title="Project Euler 260"></a>Project Euler 260</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Stone-Game"><a href="#Stone-Game" class="headerlink" title="Stone Game"></a>Stone Game</h3><p>A game is played with three piles of stones and two players.</p>
+<p>At her turn, a player removes one or more stones from the piles. However, if she takes stones from more than one pile, she must remove the same number of stones from each of the selected piles.<br>In other words, the player chooses some $N&gt;0$ and removes:</p>
 <ul>
-<li><span class="math inline">\(N\)</span> stones from any single pile;
-or</li>
-<li><span class="math inline">\(N\)</span> stones from each of any two
-piles (<span class="math inline">\(2N\)</span> total); or</li>
-<li><span class="math inline">\(N\)</span> stones from each of the three
-piles (<span class="math inline">\(3N\)</span> total).</li>
+<li>$N$ stones from any single pile; or</li>
+<li>$N$ stones from each of any two piles ($2N$ total); or</li>
+<li>$N$ stones from each of the three piles ($3N$ total).</li>
 </ul>
-<p>The player taking the last stone(s) wins the game. A <em>winning
-configuration</em> is one where the first player can force a win.For
-example, <span class="math inline">\((0,0,13), (0,11,11)\)</span> and
-<span class="math inline">\((5,5,5)\)</span> are winning configurations
-because the first player can immediately remove all stones.</p>
-<p>A <em>losing configuration</em> is one where the second player can
-force a win, no matter what the first player does.For example, <span class="math inline">\((0,1,2)\)</span> and <span class="math inline">\((1,3,3)\)</span> are losing configurations: any
-legal move leaves a winning configuration for the second player.</p>
-<p>Consider all losing configurations <span class="math inline">\((x_i,y_i,z_i)\)</span> where <span class="math inline">\(x_i \le y_i \le z_i \le 100\)</span>.We can verify
-that <span class="math inline">\(\sum(x_i+y_i+z_i) = 173895\)</span> for
-these.</p>
-<p>Find <span class="math inline">\(\sum(x_i+y_i+z_i)\)</span> where
-<span class="math inline">\((x_i,y_i,z_i)\)</span> ranges over the
-losing configurations with <span class="math inline">\(x_i \le y_i \le
-z_i \le 1000\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(N=1000\)</span>。这是一个<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Impartial_game">无偏博弈</a>，我们可以将游戏的状态视为有向无环图上的一个个节点。</p>
-<ol type="1">
+<p>The player taking the last stone(s) wins the game.<br>A <em>winning configuration</em> is one where the first player can force a win.For example, $(0,0,13), (0,11,11)$ and $(5,5,5)$ are winning configurations because the first player can immediately remove all stones.</p>
+<p>A <em>losing configuration</em> is one where the second player can force a win, no matter what the first player does.For example, $(0,1,2)$ and $(1,3,3)$ are losing configurations: any legal move leaves a winning configuration for the second player.</p>
+<p>Consider all losing configurations $(x_i,y_i,z_i)$ where $x_i \le y_i \le z_i \le 100$.We can verify that $\sum(x_i+y_i+z_i) = 173895$ for these.</p>
+<p>Find $\sum(x_i+y_i+z_i)$ where $(x_i,y_i,z_i)$ ranges over the losing configurations with $x_i \le y_i \le z_i \le 1000$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=1000$。这是一个<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Impartial_game">无偏博弈</a>，我们可以将游戏的状态视为有向无环图上的一个个节点。</p>
+<ol>
 <li>一个状态是必败状态，当且仅当它的所有后继的状态都是必胜状态。</li>
 <li>一个状态是必败状态，当且仅当它存在一个后继的状态是必败状态。</li>
-<li>由于取完所有石头就是胜利，因此没有后继的状态<span class="math inline">\((0,0,0)\)</span>是必败状态。</li>
+<li>由于取完所有石头就是胜利，因此没有后继的状态$(0,0,0)$是必败状态。</li>
 </ol>
-<p>那么，对于一个状态<span class="math inline">\((x,y,z)\)</span>，它有以下这么多种后继状态：</p>
-<p><span class="math inline">\(\begin{aligned} &amp; (x-s,y,z),1\le s\le
-x\\ &amp; (x,y-s,z),1\le s\le y\\ &amp; (x,y,z-s),1\le s\le z\\ &amp;
-(x,y-s,z-s),1\le s\le \min(y,z)\\ &amp; (x-s,y,z-s),1\le s\le
-\min(x,z)\\ &amp; (x-s,y-s,z),1\le s\le \min(x,y)\\ &amp;
-(x-s,y-s,z-s),1\le s\le \min(x,y,z)\\ \end{aligned}\)</span></p>
-<p>那么，当我们考虑一个状态<span class="math inline">\((x,y,z)\)</span>的类型时，需要线性的时间复杂度。程序总体时间复杂度为<span class="math inline">\(O(N^4)\)</span>，这明显是不能接受的。</p>
+<p>那么，对于一个状态$(x,y,z)$，它有以下这么多种后继状态：</p>
+<p>$\begin{aligned}<br>&amp; (x-s,y,z),1\le s\le x\\<br>&amp; (x,y-s,z),1\le s\le y\\<br>&amp; (x,y,z-s),1\le s\le z\\<br>&amp; (x,y-s,z-s),1\le s\le \min(y,z)\\<br>&amp; (x-s,y,z-s),1\le s\le \min(x,z)\\<br>&amp; (x-s,y-s,z),1\le s\le \min(x,y)\\<br>&amp; (x-s,y-s,z-s),1\le s\le \min(x,y,z)\\<br>\end{aligned}$</p>
+<p>那么，当我们考虑一个状态$(x,y,z)$的类型时，需要线性的时间复杂度。程序总体时间复杂度为$O(N^4)$，这明显是不能接受的。</p>
 <p>我们尝试将上面的每一种后继状态“集合”起来。然后分别判断整个集合里面是否都是存放的必胜态。</p>
-<p>有一些状态的分量因为大家都减去了<span class="math inline">\(s\)</span>，但是其之间相对的差值仍然不会改变，考虑使用这些不变的相对差值将状态集中起来，那么可以如下集中：</p>
-<p><span class="math inline">\(\begin{aligned} &amp;
-(x-s,y,z)\rightarrow s_1(y,z)\\ &amp; (x,y-s,z)\rightarrow s_1(x,z)\\
-&amp; (x,y,z-s)\rightarrow s_1(x,y)\\ &amp; (x,y-s,z-s)\rightarrow
-s_2(x,z-y)\\ &amp; (x-s,y,z-s)\rightarrow s_2(y,z-x)\\ &amp;
-(x-s,y-s,z)\rightarrow s_2(z,y-x)\\ &amp; (x-s,y-s,z-s)\rightarrow
-s_3(y-x,z-y)\\ \end{aligned}\)</span></p>
-<p>在判断状态<span class="math inline">\((x,y,z)\)</span>的类型时，只需要以常数时间维护好这些<span class="math inline">\(s\)</span>值，然后就能够以常数时间判断。最终时间复杂度为<span class="math inline">\(O(N^3)\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000</span>;</span><br><span class="line"><span class="type">bool</span> s1[N + <span class="number">1</span>][N + <span class="number">1</span>];</span><br><span class="line"><span class="type">bool</span> s2[N + <span class="number">1</span>][N + <span class="number">1</span>];</span><br><span class="line"><span class="type">bool</span> s3[N + <span class="number">1</span>][N + <span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt;= N; x++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> y = x; y &lt;= N; y++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> z = y; z &lt;= N; z++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(s3[y - x][z - y] || s2[z][y - x] || s2[y][z - x] || s2[x][z - y] || s1[y][z] || s1[x][z] || s1[x][y])) &#123;</span><br><span class="line">                    s3[y - x][z - y] = <span class="literal">true</span>;</span><br><span class="line">                    s2[z][y - x] = <span class="literal">true</span>;</span><br><span class="line">                    s2[y][z - x] = <span class="literal">true</span>;</span><br><span class="line">                    s2[x][z - y] = <span class="literal">true</span>;</span><br><span class="line">                    s1[x][y] = <span class="literal">true</span>;</span><br><span class="line">                    s1[x][z] = <span class="literal">true</span>;</span><br><span class="line">                    s1[y][z] = <span class="literal">true</span>;</span><br><span class="line">                    ans += x + y + z;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>有一些状态的分量因为大家都减去了$s$，但是其之间相对的差值仍然不会改变，考虑使用这些不变的相对差值将状态集中起来，那么可以如下集中：</p>
+<p>$\begin{aligned}<br>&amp; (x-s,y,z)\rightarrow s_1(y,z)\\<br>&amp; (x,y-s,z)\rightarrow s_1(x,z)\\<br>&amp; (x,y,z-s)\rightarrow s_1(x,y)\\<br>&amp; (x,y-s,z-s)\rightarrow s_2(x,z-y)\\<br>&amp; (x-s,y,z-s)\rightarrow s_2(y,z-x)\\<br>&amp; (x-s,y-s,z)\rightarrow s_2(z,y-x)\\<br>&amp; (x-s,y-s,z-s)\rightarrow s_3(y-x,z-y)\\<br>\end{aligned}$</p>
+<p>在判断状态$(x,y,z)$的类型时，只需要以常数时间维护好这些$s$值，然后就能够以常数时间判断。最终时间复杂度为$O(N^3)$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000</span>;</span><br><span class="line"><span class="type">bool</span> s1[N + <span class="number">1</span>][N + <span class="number">1</span>];</span><br><span class="line"><span class="type">bool</span> s2[N + <span class="number">1</span>][N + <span class="number">1</span>];</span><br><span class="line"><span class="type">bool</span> s3[N + <span class="number">1</span>][N + <span class="number">1</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt;= N; x++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> y = x; y &lt;= N; y++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> z = y; z &lt;= N; z++) &#123;</span><br><span class="line">                <span class="keyword">if</span> (!(s3[y - x][z - y] || s2[z][y - x] || s2[y][z - x] || s2[x][z - y] || s1[y][z] || s1[x][z] || s1[x][y])) &#123;</span><br><span class="line">                    s3[y - x][z - y] = <span class="literal">true</span>;</span><br><span class="line">                    s2[z][y - x] = <span class="literal">true</span>;</span><br><span class="line">                    s2[y][z - x] = <span class="literal">true</span>;</span><br><span class="line">                    s2[x][z - y] = <span class="literal">true</span>;</span><br><span class="line">                    s1[x][y] = <span class="literal">true</span>;</span><br><span class="line">                    s1[x][z] = <span class="literal">true</span>;</span><br><span class="line">                    s1[y][z] = <span class="literal">true</span>;</span><br><span class="line">                    ans += x + y + z;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -392,7 +362,7 @@ s_3(y-x,z-y)\\ \end{aligned}\)</span></p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-260"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 260</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stone-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Stone Game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-260"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 260</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Stone-Game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Stone Game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -406,14 +376,14 @@ s_3(y-x,z-y)\\ \end{aligned}\)</span></p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -450,13 +420,13 @@ s_3(y-x,z-y)\\ \end{aligned}\)</span></p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

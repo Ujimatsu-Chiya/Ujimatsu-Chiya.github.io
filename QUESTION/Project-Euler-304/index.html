@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>933</span>
+              <span>873</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,30 +258,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-304">Project Euler 304</h1>
-<h2 id="题目">题目</h2>
-<h3 id="primonacci">Primonacci</h3>
-<p>For any positive integer <span class="math inline">\(n\)</span> the
-function <span class="math inline">\(\text{next-prime}(n)\)</span>
-returns the smallest prime <span class="math inline">\(p\)</span> such
-that <span class="math inline">\(p&gt;n\)</span>.</p>
-<p>The sequence <span class="math inline">\(a(n)\)</span> is defined
-by:<span class="math inline">\(a(1)=\text{next-prime}(10^{14})\)</span>
-and <span class="math inline">\(a(n)=\text{next-prime}(a(n-1))\)</span>
-for <span class="math inline">\(n&gt;1\)</span>.</p>
-<p>The fibonacci sequence <span class="math inline">\(f(n)\)</span> is
-defined by: <span class="math inline">\(f(0)=0, f(1)=1\)</span> and
-<span class="math inline">\(f(n)=f(n-1)+f(n-2)\)</span> for <span class="math inline">\(n&gt;1\)</span>.</p>
-<p>The sequence <span class="math inline">\(b(n)\)</span> is defined as
-<span class="math inline">\(f(a(n))\)</span>.</p>
-<p>Find <span class="math inline">\(\sum b(n)\)</span> for <span class="math inline">\(1\le n\le100 000\)</span>. Give your answer <span class="math inline">\(\mod 1234567891011\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>将斐波那契数的通项公式写成矩阵形式：</p>
-<p><span class="math display">\[
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-304"><a href="#Project-Euler-304" class="headerlink" title="Project Euler 304"></a>Project Euler 304</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Primonacci"><a href="#Primonacci" class="headerlink" title="Primonacci"></a>Primonacci</h3><p>For any positive integer $n$ the function $\text{next-prime}(n)$ returns the smallest prime $p$ such that $p&gt;n$.</p>
+<p>The sequence $a(n)$ is defined by:$a(1)=\text{next-prime}(10^{14})$ and $a(n)=\text{next-prime}(a(n-1))$ for $n&gt;1$.</p>
+<p>The fibonacci sequence $f(n)$ is defined by: $f(0)=0, f(1)=1$ and $f(n)=f(n-1)+f(n-2)$ for $n&gt;1$.</p>
+<p>The sequence $b(n)$ is defined as $f(a(n))$.</p>
+<p>Find $\sum b(n)$ for $1\le n\le100 000$. Give your answer $\mod 1234567891011$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>将斐波那契数的通项公式写成矩阵形式：</p>
+<script type="math/tex; mode=display">
 \begin{bmatrix}
-0 &amp; 1\\
-1 &amp; 1
+0 & 1\\
+1 & 1
 \end{bmatrix}
 \begin{bmatrix}
 f(i-2)\\
@@ -291,12 +279,9 @@ f(i-1)
 \begin{bmatrix}
 f(i-1)\\
 f(i)
-\end{bmatrix}
-\]</span></p>
-<p>令<span class="math inline">\(B=\begin{bmatrix} 0 &amp; 1\\ 1 &amp; 1
-\end{bmatrix}\)</span>，那么通过矩阵快速幂，可以<span class="math inline">\(O\log(n)\)</span>的时间复杂度内求解出第<span class="math inline">\(n\)</span>项的值。</p>
+\end{bmatrix}</script><p>令$B=\begin{bmatrix}<br>0 &amp; 1\\<br>1 &amp; 1<br>\end{bmatrix}$，那么通过矩阵快速幂，可以$O\log(n)$的时间复杂度内求解出第$n$项的值。</p>
 <p>另外，上面的等式可以写成</p>
-<p><span class="math display">\[
+<script type="math/tex; mode=display">
 B^d
 \begin{bmatrix}
 f(i-d-1)\\
@@ -306,12 +291,9 @@ f(i-d)
 \begin{bmatrix}
 f(i-1)\\
 f(i)
-\end{bmatrix}
-\]</span></p>
-<p>这<span class="math inline">\(10^5\)</span>次的询问是独立的，并且之间的间隔<span class="math inline">\(d\)</span>也比较小。我们可以基于上式来减少矩阵乘法的运算次数，用上一次的结果继续转移，计算出当前结果。</p>
+\end{bmatrix}</script><p>这$10^5$次的询问是独立的，并且之间的间隔$d$也比较小。我们可以基于上式来减少矩阵乘法的运算次数，用上一次的结果继续转移，计算出当前结果。</p>
 <p>求一个数的下一个质数，使用sympy的nextprime函数，效率可以接受。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">14</span></span><br><span class="line">Q = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">mod = <span class="number">1234567891011</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">a: <span class="built_in">list</span>, b: <span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">return</span> [[<span class="built_in">sum</span>(a[i][k] * b[k][j] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b))) % mod <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b[<span class="number">0</span>]))] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(a))]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b_pre = [[[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>]]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(<span class="built_in">bin</span>(M+Q))+<span class="number">2</span>):</span><br><span class="line">    b_pre.append(mul(b_pre[-<span class="number">1</span>], b_pre[-<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">a, n</span>):</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        <span class="keyword">if</span> n &amp; <span class="number">1</span>:</span><br><span class="line">            a = mul(a, b_pre[i])</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = [[<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line">pre = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(Q):</span><br><span class="line">    M = nextprime(M)</span><br><span class="line">    val = M - pre</span><br><span class="line">    a = cal(a, val)</span><br><span class="line">    ans = (ans + a[<span class="number">0</span>][<span class="number">0</span>]) % mod</span><br><span class="line">    pre = M</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"></span><br><span class="line">M = <span class="number">10</span> ** <span class="number">14</span></span><br><span class="line">Q = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">mod = <span class="number">1234567891011</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">a: <span class="built_in">list</span>, b: <span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">return</span> [[<span class="built_in">sum</span>(a[i][k] * b[k][j] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b))) % mod <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b[<span class="number">0</span>]))] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(a))]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">b_pre = [[[<span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">1</span>]]]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(<span class="built_in">bin</span>(M+Q))+<span class="number">2</span>):</span><br><span class="line">    b_pre.append(mul(b_pre[-<span class="number">1</span>], b_pre[-<span class="number">1</span>]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">a, n</span>):</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> n:</span><br><span class="line">        <span class="keyword">if</span> n &amp; <span class="number">1</span>:</span><br><span class="line">            a = mul(a, b_pre[i])</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">        n &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> a</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = [[<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line">pre = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(Q):</span><br><span class="line">    M = nextprime(M)</span><br><span class="line">    val = M - pre</span><br><span class="line">    a = cal(a, val)</span><br><span class="line">    ans = (ans + a[<span class="number">0</span>][<span class="number">0</span>]) % mod</span><br><span class="line">    pre = M</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -396,7 +378,7 @@ f(i)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-304"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 304</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#primonacci"><span class="nav-number">1.1.1.</span> <span class="nav-text">Primonacci</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-304"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 304</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Primonacci"><span class="nav-number">1.1.1.</span> <span class="nav-text">Primonacci</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -410,14 +392,14 @@ f(i)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -454,13 +436,13 @@ f(i)
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

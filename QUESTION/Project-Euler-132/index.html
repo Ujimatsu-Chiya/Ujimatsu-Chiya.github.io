@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>621</span>
+              <span>573</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,25 +257,17 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-132">Project Euler 132</h1>
-<h2 id="题目">题目</h2>
-<h3 id="large-repunit-factors">Large repunit factors</h3>
-<p>A number consisting entirely of ones is called a repunit. We shall
-define <span class="math inline">\(R(k)\)</span> to be a repunit of
-length <span class="math inline">\(k\)</span>.</p>
-<p>For example, <span class="math inline">\(R(10) = 1111111111 =
-11×41×271×9091\)</span>, and the sum of these prime factors is <span class="math inline">\(9414\)</span>.</p>
-<p>Find the sum of the first forty prime factors of <span class="math inline">\(R(10^9)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>可以通过用等比数列数列求和将<span class="math inline">\(R(k)\)</span>表示出来：</p>
-<p><span class="math display">\[R(k)=\dfrac{10^k-1}{9}\]</span></p>
-<p>如果质数<span class="math inline">\(p\)</span>满足<span class="math inline">\(p|R(k)\)</span>，即<span class="math inline">\(9p|(10^k-1)\)</span>，那么有<span class="math inline">\(10^k-1\equiv 0 (\mod 9p)\)</span>，也就是<span class="math inline">\(10^k\equiv 1(\mod 9p)\)</span>。</p>
-<p>质数<span class="math inline">\(3\)</span>则进行特判。对于大于<span class="math inline">\(5\)</span>的质数，如果<span class="math inline">\(p|R(k)\)</span>，那么<span class="math inline">\(p|10^k-1\)</span>。因此，可以通过<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/FermatsLittleTheorem.html">费马小定理</a>加速判断<span class="math inline">\(10^k\equiv 1(\mod p)\)</span>是否满足。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-132"><a href="#Project-Euler-132" class="headerlink" title="Project Euler 132"></a>Project Euler 132</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Large-repunit-factors"><a href="#Large-repunit-factors" class="headerlink" title="Large repunit factors"></a>Large repunit factors</h3><p>A number consisting entirely of ones is called a repunit. We shall define $R(k)$ to be a repunit of length $k$.</p>
+<p>For example, $R(10) = 1111111111 = 11×41×271×9091$, and the sum of these prime factors is $9414$.</p>
+<p>Find the sum of the first forty prime factors of $R(10^9)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>可以通过用等比数列数列求和将$R(k)$表示出来：</p>
+<script type="math/tex; mode=display">R(k)=\dfrac{10^k-1}{9}</script><p>如果质数$p$满足$p|R(k)$，即$9p|(10^k-1)$，那么有$10^k-1\equiv 0 (\mod 9p)$，也就是$10^k\equiv 1(\mod 9p)$。</p>
+<p>质数$3$则进行特判。对于大于$5$的质数，如果$p|R(k)$，那么$p|10^k-1$。因此，可以通过<a target="_blank" rel="noopener" href="https://mathworld.wolfram.com/FermatsLittleTheorem.html">费马小定理</a>加速判断$10^k\equiv 1(\mod p)$是否满足。</p>
 <p>直接从小到大判断所有质数是否可行。</p>
-<p>当质数<span class="math inline">\(p\)</span>大于<span class="math inline">\(5\)</span>时，还有另外一种判断方式：元素<span class="math inline">\(10\)</span>在乘法群<span class="math inline">\(Z_p^*\)</span>的阶<span class="math inline">\(\lambda_{p}(10)\)</span>是否为<span class="math inline">\(10^9\)</span>的因数。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line">Q = <span class="number">40</span></span><br><span class="line">a = []</span><br><span class="line"><span class="keyword">if</span> N % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">    a.append(<span class="number">3</span>)</span><br><span class="line">pr = <span class="number">5</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">len</span>(a) &lt; Q:</span><br><span class="line">    pr = nextprime(pr)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">pow</span>(<span class="number">10</span>, N % (pr - <span class="number">1</span>), pr) == <span class="number">1</span>:</span><br><span class="line">        a.append(pr)</span><br><span class="line">ans = <span class="built_in">sum</span>(a)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当质数$p$大于$5$时，还有另外一种判断方式：元素$10$在乘法群$Z_p^*$的阶$\lambda_{p}(10)$是否为$10^9$的因数。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> nextprime</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line">Q = <span class="number">40</span></span><br><span class="line">a = []</span><br><span class="line"><span class="keyword">if</span> N % <span class="number">3</span> == <span class="number">0</span>:</span><br><span class="line">    a.append(<span class="number">3</span>)</span><br><span class="line">pr = <span class="number">5</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">len</span>(a) &lt; Q:</span><br><span class="line">    pr = nextprime(pr)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">pow</span>(<span class="number">10</span>, N % (pr - <span class="number">1</span>), pr) == <span class="number">1</span>:</span><br><span class="line">        a.append(pr)</span><br><span class="line">ans = <span class="built_in">sum</span>(a)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -359,7 +351,7 @@ length <span class="math inline">\(k\)</span>.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-132"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 132</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#large-repunit-factors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Large repunit factors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-132"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 132</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Large-repunit-factors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Large repunit factors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -373,14 +365,14 @@ length <span class="math inline">\(k\)</span>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -417,13 +409,13 @@ length <span class="math inline">\(k\)</span>.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

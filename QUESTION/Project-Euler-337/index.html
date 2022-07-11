@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>603</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,56 +259,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-337">Project Euler 337</h1>
-<h2 id="题目">题目</h2>
-<h3 id="totient-stairstep-sequences">Totient Stairstep Sequences</h3>
-<p>Let <span class="math inline">\(\{a_1, a_2,\dots, a_n\}\)</span> be
-an integer sequence of length n such that:</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-337"><a href="#Project-Euler-337" class="headerlink" title="Project Euler 337"></a>Project Euler 337</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Totient-Stairstep-Sequences"><a href="#Totient-Stairstep-Sequences" class="headerlink" title="Totient Stairstep Sequences"></a>Totient Stairstep Sequences</h3><p>Let $\{a_1, a_2,\dots, a_n\}$ be an integer sequence of length n such that:</p>
 <ul>
-<li><span class="math inline">\(a_1 = 6\)</span></li>
-<li>for all <span class="math inline">\(1 \le i &lt; n\)</span> : <span class="math inline">\(\varphi(a_i) &lt; \varphi(a_{i+1}) &lt; a_i &lt;
-a_{i+1}\quad ^1\)</span></li>
+<li>$a_1 = 6$</li>
+<li>for all $1 \le i &lt; n$ : $\varphi(a_i) &lt; \varphi(a_{i+1}) &lt; a_i &lt; a_{i+1}\quad ^1$</li>
 </ul>
-<p>Let <span class="math inline">\(S(N)\)</span> be the number of such
-sequences with <span class="math inline">\(a_n \le N\)</span>.</p>
-<p>For example, <span class="math inline">\(S(10) = 4: \{6\}, \{6, 8\},
-\{6, 8, 9\}\)</span> and <span class="math inline">\(\{6,
-10\}\)</span>.</p>
-<p>We can verify that <span class="math inline">\(S(100) =
-482073668\)</span> and <span class="math inline">\(S(10 000) \mod 10^8 =
-73808307\)</span>.</p>
-<p>Find <span class="math inline">\(S(20 000 000) \mod
-10^8\)</span>.</p>
-<p><span class="math inline">\(^1 \quad \varphi\)</span> denotes
-<strong>Euler’s totient function</strong>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>在一个序列中，只有相邻的两个数才会有特定的放置关系，因此很容易想到动态规划的做法。</p>
-<p>和往常一样，假设<span class="math inline">\(f(i)(i\ge
-6)\)</span>为以数<span class="math inline">\(i\)</span>为结尾的序列的数量，那么我们可以得到以下状态转移方程：</p>
-<p><span class="math display">\[
+<p>Let $S(N)$ be the number of such sequences with $a_n \le N$.</p>
+<p>For example, $S(10) = 4: \{6\}, \{6, 8\}, \{6, 8, 9\}$ and $\{6, 10\}$.</p>
+<p>We can verify that $S(100) = 482073668$ and $S(10 000) \mod 10^8 = 73808307$.</p>
+<p>Find $S(20 000 000) \mod 10^8$.</p>
+<p>$^1 \quad \varphi$ denotes <strong>Euler’s totient function</strong>.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>在一个序列中，只有相邻的两个数才会有特定的放置关系，因此很容易想到动态规划的做法。</p>
+<p>和往常一样，假设$f(i)(i\ge 6)$为以数$i$为结尾的序列的数量，那么我们可以得到以下状态转移方程：</p>
+<script type="math/tex; mode=display">
 f(i)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=6 \\
-  &amp;\sum_{j,\varphi(j)&lt;\varphi(i)&lt;j&lt;i} f(j) &amp; &amp;
-\mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>不过，这种转移方式是<span class="math inline">\(O(n^2)\)</span>的，如果为了使用树状数组优化，将转移过程下降到<span class="math inline">\(O(n\log
-n)\)</span>，那么需要进行大量的预处理（因为根据上面的式子，<span class="math inline">\(\varphi(a_{i+1})\)</span>的位置的难以确定）。</p>
-<p>因此，使用另外一种转移方式。令<span class="math inline">\(N=20000000\)</span>。假设<span class="math inline">\(f(i)(6\le i\le N)\)</span>为以数<span class="math inline">\(i\)</span>为<strong>开头</strong>的序列的数量，那么我们可以得到以下状态转移方程：</p>
-<p><span class="math display">\[
+  &1  & & \mathrm{if\quad} i=6 \\
+  &\sum_{j,\varphi(j)<\varphi(i)<j<i} f(j) & & \mathrm{else}
+\end{aligned}\right.</script><p>不过，这种转移方式是$O(n^2)$的，如果为了使用树状数组优化，将转移过程下降到$O(n\log n)$，那么需要进行大量的预处理（因为根据上面的式子，$\varphi(a_{i+1})$的位置的难以确定）。</p>
+<p>因此，使用另外一种转移方式。令$N=20000000$。假设$f(i)(6\le i\le N)$为以数$i$为<strong>开头</strong>的序列的数量，那么我们可以得到以下状态转移方程：</p>
+<script type="math/tex; mode=display">
 f(i)=
 \left \{\begin{aligned}
-  &amp;1  &amp; &amp; \mathrm{if\quad} i=N \\
-  &amp;1+\sum_{j,\varphi(i)&lt;\phi(j)&lt;i&lt;j} f(j) &amp; &amp;
-\mathrm{else}
-\end{aligned}\right.
-\]</span></p>
-<p>在计算<span class="math inline">\(f(i)\)</span>时，树状数组已经保存了所有大于<span class="math inline">\(i\)</span>时的状态值。因此，求出此时满足<span class="math inline">\(\varphi(i)&lt;\varphi(j)&lt; i\)</span>的所有<span class="math inline">\(j\)</span>，进行求和，而树状数组可以很方便地维护这一段的值之和。</p>
-<p>在后面这个转移过程中，<span class="math inline">\(f(6)\)</span>为最终答案。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> lb(x) ((x)&amp;-(x))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">20000000</span>;</span><br><span class="line"><span class="type">int</span> phi[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> s[N+<span class="number">4</span>],f[N+<span class="number">4</span>],mod=<span class="number">1e8</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i&lt;=N;i+=<span class="built_in">lb</span>(i))</span><br><span class="line">        s[i]=(s[i]+x)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">que</span><span class="params">(<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i;i-=<span class="built_in">lb</span>(i))</span><br><span class="line">        ans=(ans+s[i])%mod;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        phi[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(phi[i]==i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=N;j+=i)</span><br><span class="line">                phi[j]=phi[j]/i*(i<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=N;i&gt;=<span class="number">6</span>;i--)&#123;</span><br><span class="line">        <span class="type">int</span> w=(<span class="built_in">que</span>(i<span class="number">-1</span>)-<span class="built_in">que</span>(phi[i])+<span class="number">1</span>+mod)%mod;</span><br><span class="line">        <span class="built_in">add</span>(phi[i],w);</span><br><span class="line">        f[i]=w;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=f[<span class="number">6</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &1  & & \mathrm{if\quad} i=N \\
+  &1+\sum_{j,\varphi(i)<\phi(j)<i<j} f(j) & & \mathrm{else}
+\end{aligned}\right.</script><p>在计算$f(i)$时，树状数组已经保存了所有大于$i$时的状态值。因此，求出此时满足$\varphi(i)&lt;\varphi(j)&lt; i$的所有$j$，进行求和，而树状数组可以很方便地维护这一段的值之和。</p>
+<p>在后面这个转移过程中，$f(6)$为最终答案。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> lb(x) ((x)&amp;-(x))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">20000000</span>;</span><br><span class="line"><span class="type">int</span> phi[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> s[N+<span class="number">4</span>],f[N+<span class="number">4</span>],mod=<span class="number">1e8</span>;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> p,<span class="type">int</span> x)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i&lt;=N;i+=<span class="built_in">lb</span>(i))</span><br><span class="line">        s[i]=(s[i]+x)%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">que</span><span class="params">(<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=p;i;i-=<span class="built_in">lb</span>(i))</span><br><span class="line">        ans=(ans+s[i])%mod;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        phi[i]=i;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(phi[i]==i)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=N;j+=i)</span><br><span class="line">                phi[j]=phi[j]/i*(i<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=N;i&gt;=<span class="number">6</span>;i--)&#123;</span><br><span class="line">        <span class="type">int</span> w=(<span class="built_in">que</span>(i<span class="number">-1</span>)-<span class="built_in">que</span>(phi[i])+<span class="number">1</span>+mod)%mod;</span><br><span class="line">        <span class="built_in">add</span>(phi[i],w);</span><br><span class="line">        f[i]=w;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=f[<span class="number">6</span>];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -394,7 +373,7 @@ f(i)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-337"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 337</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#totient-stairstep-sequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Totient Stairstep Sequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-337"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 337</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Totient-Stairstep-Sequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">Totient Stairstep Sequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -408,14 +387,14 @@ f(i)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -452,13 +431,13 @@ f(i)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

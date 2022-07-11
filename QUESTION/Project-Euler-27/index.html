@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>975</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,37 +257,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-27">Project Euler 27</h1>
-<h2 id="题目">题目</h2>
-<h3 id="quadratic-primes">Quadratic primes</h3>
-<p>Euler discovered the remarkable quadratic formula: <span class="math display">\[n^2 + n + 41\]</span> It turns out that the
-formula will produce <span class="math inline">\(40\)</span> primes for
-the consecutive integer values <span class="math inline">\(0 \le n \le
-39\)</span>. However, when <span class="math inline">\(n = 40\)</span>,
-<span class="math inline">\(40^2 + 40 + 41 = 40(40 + 1) + 41\)</span> is
-divisible by <span class="math inline">\(41\)</span>, and certainly when
-<span class="math inline">\(n = 41\)</span>, <span class="math inline">\(41^2 + 41 + 41\)</span> is clearly divisible by
-<span class="math inline">\(41\)</span>.</p>
-<p>The incredible formula <span class="math inline">\(n^2 - 79n +
-1601\)</span> was discovered, which produces <span class="math inline">\(80\)</span> primes for the consecutive values
-<span class="math inline">\(0 \le n \le 79\)</span>. The product of the
-coefficients, <span class="math inline">\(−79\)</span> and <span class="math inline">\(1601\)</span>, is <span class="math inline">\(−126479\)</span>.</p>
-<p>Considering quadratics of the form: <span class="math inline">\(n^2 +
-an + b\)</span>, where <span class="math inline">\(|a|\lt 1000\)</span>
-and <span class="math inline">\(|b| \le 1000\)</span>;<br>where <span class="math inline">\(|n|\)</span> is the modulus/absolute value of
-<span class="math inline">\(n\)</span>, e.g. <span class="math inline">\(|11| = 11\)</span> and <span class="math inline">\(|-4| = 4\)</span>.</p>
-<p>Find the product of the coefficients, <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>, for the quadratic expression that
-produces the maximum number of primes for consecutive values of <span class="math inline">\(n\)</span>, starting with <span class="math inline">\(n = 0\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>设<span class="math inline">\(p(n)=n^2+an+b\)</span></p>
-<p>先用筛法将所有素数筛选出来（这里筛选的是范围<span class="math inline">\(1000*1000+40\)</span>以内的素数）。</p>
-<p>然后通过枚举<span class="math inline">\(a,b\)</span>的值，再用变量<span class="math inline">\(n\)</span>判断长度。</p>
-<p>一个优化：<span class="math inline">\(b\)</span>必须是一个正数，并且是一个质数。因为当一开始<span class="math inline">\(n=0\)</span>时，判断的值就是<span class="math inline">\(f(0)=b\)</span>本身。</p>
-<p>另一个优化：<span class="math inline">\(a\)</span>可以从<span class="math inline">\(1-b\)</span>开始枚举。因为<span class="math inline">\(f(1)=a+b+1\ge2\)</span> ，因此<span class="math inline">\(a\ge 1-b\)</span>。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-27"><a href="#Project-Euler-27" class="headerlink" title="Project Euler 27"></a>Project Euler 27</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Quadratic-primes"><a href="#Quadratic-primes" class="headerlink" title="Quadratic primes"></a>Quadratic primes</h3><p>Euler discovered the remarkable quadratic formula:</p>
+<script type="math/tex; mode=display">n^2 + n + 41</script><p>It turns out that the formula will produce $40$ primes for the consecutive integer values $0 \le n \le 39$. However, when $n = 40$, $40^2 + 40 + 41 = 40(40 + 1) + 41$ is divisible by $41$, and certainly when $n = 41$, $41^2 + 41 + 41$ is clearly divisible by $41$.</p>
+<p>The incredible formula $n^2 - 79n + 1601$ was discovered, which produces $80$ primes for the consecutive values $0 \le n \le 79$. The product of the coefficients, $−79$ and $1601$, is $−126479$.</p>
+<p>Considering quadratics of the form: $n^2 + an + b$, where $|a|\lt 1000$ and $|b| \le 1000$;<br>where $|n|$ is the modulus/absolute value of $n$, e.g. $|11| = 11$ and $|-4| = 4$.</p>
+<p>Find the product of the coefficients, $a$ and $b$, for the quadratic expression that produces the maximum number of primes for consecutive values of $n$, starting with $n = 0$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>设$p(n)=n^2+an+b$</p>
+<p>先用筛法将所有素数筛选出来（这里筛选的是范围$1000*1000+40$以内的素数）。</p>
+<p>然后通过枚举$a,b$的值，再用变量$n$判断长度。</p>
+<p>一个优化：$b$必须是一个正数，并且是一个质数。因为当一开始$n=0$时，判断的值就是$f(0)=b$本身。</p>
+<p>另一个优化：$a$可以从$1-b$开始枚举。因为$f(1)=a+b+1\ge2$ ，因此$a\ge 1-b$。</p>
 <p>不过，加上了第二个优化后，需要额外进行一些细节上的判断，详见代码。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">2</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=M*M+<span class="number">40</span>;</span><br><span class="line"><span class="type">bool</span> v[N+<span class="number">4</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;pr;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;=M) pr.<span class="built_in">push_back</span>(i);</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">1ll</span>*i*i;j&lt;=N;j+=i)</span><br><span class="line">            v[j]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    v[<span class="number">0</span>]=v[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>,mx=<span class="number">0</span>,n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> b:pr)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">1</span>-b;a&lt;=M<span class="number">-1</span>;++a)&#123;</span><br><span class="line">            <span class="keyword">for</span>(n=<span class="number">0</span>;n*n+n*a+b&gt;=<span class="number">0</span>&amp;&amp;!v[n*n+n*a+b];++n);</span><br><span class="line">            <span class="keyword">if</span>(n&gt;mx) mx=n,ans=a*b;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">2</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=M*M+<span class="number">40</span>;</span><br><span class="line"><span class="type">bool</span> v[N+<span class="number">4</span>];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;pr;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">if</span>(i&lt;=M) pr.<span class="built_in">push_back</span>(i);</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">1ll</span>*i*i;j&lt;=N;j+=i)</span><br><span class="line">            v[j]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    v[<span class="number">0</span>]=v[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>,mx=<span class="number">0</span>,n;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> b:pr)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">1</span>-b;a&lt;=M<span class="number">-1</span>;++a)&#123;</span><br><span class="line">            <span class="keyword">for</span>(n=<span class="number">0</span>;n*n+n*a+b&gt;=<span class="number">0</span>&amp;&amp;!v[n*n+n*a+b];++n);</span><br><span class="line">            <span class="keyword">if</span>(n&gt;mx) mx=n,ans=a*b;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -371,7 +354,7 @@ produces the maximum number of primes for consecutive values of <span class="mat
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-27"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#quadratic-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Quadratic primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-27"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 27</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quadratic-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Quadratic primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,14 +368,14 @@ produces the maximum number of primes for consecutive values of <span class="mat
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -429,13 +412,13 @@ produces the maximum number of primes for consecutive values of <span class="mat
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

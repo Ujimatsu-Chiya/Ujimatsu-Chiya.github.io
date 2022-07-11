@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>976</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,35 +259,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-613">Project Euler 613</h1>
-<h2 id="题目">题目</h2>
-<h3 id="pythagorean-ant">Pythagorean Ant</h3>
-<p>Dave is doing his homework on the balcony and, preparing a
-presentation about Pythagorean triangles, has just cut out a triangle
-with side lengths 30cm, 40cm and 50cm from some cardboard, when a gust
-of wind blows the triangle down into the garden. Another gust blows a
-small ant straight onto this triangle. The poor ant is completely
-disoriented and starts to crawl straight ahead in random direction in
-order to get back into the grass.</p>
-<p>Assuming that all possible positions of the ant within the triangle
-and all possible directions of moving on are equiprobable, what is the
-probability that the ant leaves the triangle along its longest side?
-Give your answer rounded to 10 digits after the decimal point.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>建立一个<span class="math inline">\(Rt\triangle
-AOB\)</span>，其中<span class="math inline">\(A(0,y_0),B(x_0,0)\)</span>。</p>
-<p><img src="../images/p613-1.png"></p>
-<p>假设<span class="math inline">\(Rt\triangle
-ABC\)</span>内任意一点<span class="math inline">\(P(x,y)\)</span>，那么从<span class="math inline">\(P\)</span>移动到最长边的概率为<span class="math inline">\(\angle APB\)</span>占整个<span class="math inline">\(2\pi\)</span>的比率。通过向量内积，可以直接计算出这个比率的值：</p>
-<p><span class="math display">\[p(x,y)=\frac{1}{2\pi}\cos^{-1}
-\frac{x^2+y^2-xx_0-yy_0}{\sqrt{(x_0-x)^2+y^2}\cdot\sqrt{x^2+(y_0-y)^2}}\]</span></p>
-<p>那么，根据题意，可以直接计算以下二重积分的值：</p>
-<p><span class="math display">\[I=\int_0^{x_0}\int_0^{y_0-\frac{y_0}{x_0}}p(x,y)dydx\]</span></p>
-<p>并将三角形的面积归一化，最终答案为：</p>
-<p><span class="math display">\[P=\frac{2}{x_0y_0}I\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> acos, pi</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> dblquad</span><br><span class="line"></span><br><span class="line">x0 = <span class="number">30</span></span><br><span class="line">y0 = <span class="number">40</span></span><br><span class="line"></span><br><span class="line">ans, err = dblquad(</span><br><span class="line">    <span class="keyword">lambda</span> y, x: acos((x * x + y * y - x * x0 - y * y0) </span><br><span class="line">    / ((x0 - x) ** <span class="number">2</span> + y ** <span class="number">2</span>) ** <span class="number">0.5</span> / ((y0 - y) ** <span class="number">2</span> + x ** <span class="number">2</span>) ** <span class="number">0.5</span>) / (<span class="number">2</span> * pi),</span><br><span class="line">    <span class="comment"># y的上下限</span></span><br><span class="line">    <span class="number">0</span>, x0,</span><br><span class="line">    <span class="comment"># x的上下限</span></span><br><span class="line">    <span class="number">0</span>, <span class="keyword">lambda</span> x: y0 - y0 / x0 * x)</span><br><span class="line">ans /= x0 * y0 / <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.10f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"><span class="comment"># 答案是1/2-(a/4pib)*log((a^2+b^2)/a^2)-(b/4pia)*log((a^2+b^2)/b^2)</span></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-613"><a href="#Project-Euler-613" class="headerlink" title="Project Euler 613"></a>Project Euler 613</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Pythagorean-Ant"><a href="#Pythagorean-Ant" class="headerlink" title="Pythagorean Ant"></a>Pythagorean Ant</h3><p>Dave is doing his homework on the balcony and, preparing a presentation about Pythagorean triangles, has just cut out a triangle with side lengths 30cm, 40cm and 50cm from some cardboard, when a gust of wind blows the triangle down into the garden.<br>Another gust blows a small ant straight onto this triangle. The poor ant is completely disoriented and starts to crawl straight ahead in random direction in order to get back into the grass.</p>
+<p>Assuming that all possible positions of the ant within the triangle and all possible directions of moving on are equiprobable, what is the probability that the ant leaves the triangle along its longest side?<br>Give your answer rounded to 10 digits after the decimal point.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>建立一个$Rt\triangle AOB$，其中$A(0,y_0),B(x_0,0)$。</p>
+<p><img src="../images/p613-1.png" alt></p>
+<p>假设$Rt\triangle ABC$内任意一点$P(x,y)$，那么从$P$移动到最长边的概率为$\angle APB$占整个$2\pi$的比率。通过向量内积，可以直接计算出这个比率的值：</p>
+<script type="math/tex; mode=display">p(x,y)=\frac{1}{2\pi}\cos^{-1} \frac{x^2+y^2-xx_0-yy_0}{\sqrt{(x_0-x)^2+y^2}\cdot\sqrt{x^2+(y_0-y)^2}}</script><p>那么，根据题意，可以直接计算以下二重积分的值：</p>
+<script type="math/tex; mode=display">I=\int_0^{x_0}\int_0^{y_0-\frac{y_0}{x_0}}p(x,y)dydx</script><p>并将三角形的面积归一化，最终答案为：</p>
+<script type="math/tex; mode=display">P=\frac{2}{x_0y_0}I</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> acos, pi</span><br><span class="line"><span class="keyword">from</span> scipy.integrate <span class="keyword">import</span> dblquad</span><br><span class="line"></span><br><span class="line">x0 = <span class="number">30</span></span><br><span class="line">y0 = <span class="number">40</span></span><br><span class="line"></span><br><span class="line">ans, err = dblquad(</span><br><span class="line">    <span class="keyword">lambda</span> y, x: acos((x * x + y * y - x * x0 - y * y0) </span><br><span class="line">    / ((x0 - x) ** <span class="number">2</span> + y ** <span class="number">2</span>) ** <span class="number">0.5</span> / ((y0 - y) ** <span class="number">2</span> + x ** <span class="number">2</span>) ** <span class="number">0.5</span>) / (<span class="number">2</span> * pi),</span><br><span class="line">    <span class="comment"># y的上下限</span></span><br><span class="line">    <span class="number">0</span>, x0,</span><br><span class="line">    <span class="comment"># x的上下限</span></span><br><span class="line">    <span class="number">0</span>, <span class="keyword">lambda</span> x: y0 - y0 / x0 * x)</span><br><span class="line">ans /= x0 * y0 / <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.10f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"><span class="comment"># 答案是1/2-(a/4pib)*log((a^2+b^2)/a^2)-(b/4pia)*log((a^2+b^2)/b^2)</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -371,7 +352,7 @@ ABC\)</span>内任意一点<span class="math inline">\(P(x,y)\)</span>，那么�
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-613"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 613</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pythagorean-ant"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pythagorean Ant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-613"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 613</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Pythagorean-Ant"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pythagorean Ant</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -385,14 +366,14 @@ ABC\)</span>内任意一点<span class="math inline">\(P(x,y)\)</span>，那么�
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -429,13 +410,13 @@ ABC\)</span>内任意一点<span class="math inline">\(P(x,y)\)</span>，那么�
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

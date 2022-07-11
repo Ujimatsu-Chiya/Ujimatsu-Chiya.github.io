@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"ujimatsu-chiya.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 451">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-451/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-11T16:16:47.000Z">
+<meta property="article:modified_time" content="2022-07-11T16:16:47.069Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta property="article:tag" content="Project Euler">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-451/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Project Euler 451 | Ujimatsu Chiya</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Ujimatsu Chiya</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-project-euler">
+
+    <a href="/Project-Euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/QUESTION/Project-Euler-451/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 451
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-12 00:16:47" itemprop="dateCreated datePublished" datetime="2022-07-12T00:16:47+08:00">2022-07-12</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-451"><a href="#Project-Euler-451" class="headerlink" title="Project Euler 451"></a>Project Euler 451</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Modular-inverses"><a href="#Modular-inverses" class="headerlink" title="Modular inverses"></a>Modular inverses</h3><p>Consider the number $15$.</p>
+<p>There are eight positive numbers less than $15$ which are coprime to $15: 1,2, 4, 7, 8, 11, 13, 14$.</p>
+<p>The modular inverses of these numbers modulo 15 are: $1, 8, 4, 13, 2, 11, 7, 14$ because</p>
+<p>$\begin{aligned}<br>1 \cdot 1 &amp;\mod 15=1\\<br>2 \cdot 8=16 &amp;\mod 15=1\\<br>4 \cdot 4=16 &amp;\mod 15=1\\<br>7 \cdot 13=91 &amp;\mod 15=1\\<br>11 \cdot 11=121 &amp;\mod 15=1\\<br>14 \cdot 14=196 &amp;\mod 15=1<br>\end{aligned}$</p>
+<p>Let $I(n)$ be the largest positive number $m$ smaller than $n-1$ such that the modular inverse of $m$ modulo $n$ equals $m$ itself.</p>
+<p>So $I(15)=11$.</p>
+<p>Also $I(100)=51$ and $I(7)=1$.</p>
+<p>Find $\sum I(n)$ for $3\le n\le2\cdot10^7$</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>将问题进行正式描述：求$I(n)$的值，其中$I(n)$是方程$x^2\equiv 1(\mod n)$中，小于$n-1$的最大正整数解。方程也可以化为：</p>
+<script type="math/tex; mode=display">(x+1)(x-1)\equiv 0(\mod n)\qquad(1)</script><p>假设$n$的分解质因数为$n=\prod_{i=1}^{k} p_i^{e_i}$，那么不难发现：</p>
+<ol>
+<li>对于任意一个$p_i$为<strong>奇数</strong>的$p_i^{e_i}$，要么$p_i^{e_i}|x-1$，要么$p_i^{e_i}|(x+1)$，因此方程$(x+1)(x-1)\equiv 0(\mod p_i^{e_i})$只有两个解：$1,-1$。</li>
+<li>对于$2^{e}$，在保持上面的性质的基础上，可以发现$4$并不能整除$(x+1)$和$(x-1)$，但是$2$可以，因此对于方程$(x+1)(x-1)\equiv 0(\mod 2^e)$一共有$4$个解：$1,-1,2^{e-1}-1,2^{e-1}+1$.当$e\le 2$时，需要将这些值相同的解合并。</li>
+</ol>
+<p>最终，对于每个$p_i^{e_i}$分量，方程$(x+1)(x-1)\equiv 0(\mod p_i^{e_i})$都有多个解。通过中国剩余定理将它们进行合并成原方程$(1)$的解再取最大值即可。</p>
+<p>不过由于数据范围$N=2\times 10^7$，比较大，因此实际上实现的时候，使用中国剩余定理先将多个形如$x^2\equiv 1(\mod p_i^{e_i})$方程的解两个两个地进行组合。具体方式如下：</p>
+<p>假设$n’=\prod_{i=1}^{k’}p_i^{e_i},k’&lt; k,m=p_{k’+1}^{e_{k’+1}}$，如果我们已经解出了$x^2\equiv 1(\mod n’)$的所有解，那么再方程的所有解$x_b$和方程$x^2\equiv 1(\mod m)$的所有解$x_a$（注意$x_a$要么为$1$，要么为$-1$）一一组合，得到如下方程组：</p>
+<script type="math/tex; mode=display">
+\left \{\begin{aligned}
+  & x\equiv x_a(\mod m)\\
+  & x\equiv x_b(\mod n')\\
+\end{aligned}\right.</script><p>令$x=t_am+x_a=t_bn’+x_b$，那么得到一个以$t_a$和$t_b$为未知数的方程$t_am-t_bn’=x_b-x_a$.</p>
+<p>通过扩展欧几里得算法，我们可以解得方程$t_a’m-t_b’n’=1$的解$(t_a’,t_b’)$。那么得到$t_a=(x_b-x_a)t_a’$</p>
+<p>那么得到$x=t_am+x_a=(x_b-x_a)t_a’m+x_a=x_bt_a’m+x_a(1-t’_am)$。由于$x_a$能够分别取$1$和$-1$，因此每合并一个方程，都能够产生两个解：$x_bt_a’m\pm(1-t’_am)$</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> lb(x) ((x)&amp;(-x))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e7</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">qpow</span><span class="params">(ll n,ll m,ll mod)</span></span>&#123;</span><br><span class="line">    ll a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;m;m&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>) a=a*n%mod;</span><br><span class="line">        n=n*n%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> mxp[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> a[<span class="number">1004</span>],c=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> r[<span class="number">14</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> p=<span class="number">3</span>;p&lt;=N;p++)</span><br><span class="line">        <span class="keyword">if</span>(!mxp[p])</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> i=p;i&lt;=N;i+=p) mxp[i]=p;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">3</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        m=c=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> pw2=<span class="built_in">lb</span>(i);</span><br><span class="line">        <span class="keyword">if</span>((pw2&amp;<span class="number">1</span>)==<span class="number">0</span>)&#123;</span><br><span class="line">            a[c++]=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span>((pw2&amp;<span class="number">2</span>)==<span class="number">0</span>)&#123;</span><br><span class="line">                a[c++]=pw2<span class="number">-1</span>;</span><br><span class="line">                <span class="keyword">if</span>((pw2&amp;<span class="number">4</span>)==<span class="number">0</span>)&#123;</span><br><span class="line">                    a[c++]=(pw2&gt;&gt;<span class="number">1</span>)+<span class="number">1</span>;</span><br><span class="line">                    a[c++]=(pw2&gt;&gt;<span class="number">1</span>)<span class="number">-1</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> a[c++]=<span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> mul=pw2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> v=i/mul;v!=<span class="number">1</span>;)&#123;</span><br><span class="line">            <span class="type">int</span> p=mxp[v],pw=<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span>(;v%p==<span class="number">0</span>;v/=p,pw*=p);</span><br><span class="line">            <span class="type">int</span> nmul=mul*pw;</span><br><span class="line">            ll x=<span class="built_in">qpow</span>(mul,pw/p*(p<span class="number">-1</span>)<span class="number">-1</span>,pw)*mul%nmul;</span><br><span class="line">            ll y=<span class="number">1ll</span>-x;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> pc=c,j=<span class="number">0</span>;j&lt;pc;j++)&#123;</span><br><span class="line">                a[c++]=(a[j]*y+x)%nmul;</span><br><span class="line">                a[j]=(a[j]*y-x)%nmul;</span><br><span class="line">            &#125;</span><br><span class="line">            mul=nmul;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> mx=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;c;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[j]&lt;<span class="number">0</span>) a[j]+=i;</span><br><span class="line">            <span class="keyword">if</span>(a[j]!=i<span class="number">-1</span>) mx=<span class="built_in">max</span>(mx,a[j]);</span><br><span class="line">        &#125;</span><br><span class="line">        ans+=mx;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Project-Euler/" rel="tag"># Project Euler</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/QUESTION/Project-Euler-387/" rel="prev" title="Project Euler 387">
+      <i class="fa fa-chevron-left"></i> Project Euler 387
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/QUESTION/Project-Euler-389/" rel="next" title="Project Euler 389">
+      Project Euler 389 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-451"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 451</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Modular-inverses"><span class="nav-number">1.1.1.</span> <span class="nav-text">Modular inverses</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+      <span class="post-meta-item-text">站点总字数：</span>
+    <span title="站点总字数">367k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">5:34</span>
+  
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        本站访问数：<span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站总访问量：<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>

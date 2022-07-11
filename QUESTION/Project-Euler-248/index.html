@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>401</span>
+              <span>367</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,21 +250,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-248">Project Euler 248</h1>
-<h2 id="题目">题目</h2>
-<h3 id="numbers-for-which-eulers-totient-function-equals-13">Numbers for
-which Euler’s totient function equals 13</h3>
-<p>The first number n for which <span class="math inline">\(\varphi(n)=13!\)</span> is <span class="math inline">\(6227180929\)</span>.</p>
-<p>Find the <span class="math inline">\(150,000^{\text{th}}\)</span>
-such number.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(M=13!\)</span>。如果<span class="math inline">\(\varphi(n)=M\)</span>，那么<span class="math inline">\(n\)</span>的所有质因数<span class="math inline">\(p\)</span>的欧拉函数<span class="math inline">\(\varphi(p)=p-1\)</span>，都有<span class="math inline">\(p-1|M\)</span>。</p>
-<p>那么，先求出<span class="math inline">\(M\)</span>的所有因数<span class="math inline">\(d\)</span>，再将所有是质数的<span class="math inline">\(d+1\)</span>存入数组<span class="math inline">\(pr\)</span>中。</p>
-<p>最终，<span class="math inline">\(n\)</span>一定是由数组<span class="math inline">\(pr\)</span>的一些质因子相乘而得。</p>
-<p>考虑通过深度优先搜索，枚举出所有<span class="math inline">\(\varphi(n)=M\)</span>的<span class="math inline">\(n\)</span>值。<strong>从大到小</strong>枚举所有质因数并逐一尝试，这样做可以有效减少枚举量。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> fac, is_prime, divisors</span><br><span class="line"></span><br><span class="line">N = <span class="number">13</span></span><br><span class="line">Q = <span class="number">150000</span></span><br><span class="line">M = fac(N)</span><br><span class="line">pr = [x + <span class="number">1</span> <span class="keyword">for</span> x <span class="keyword">in</span> divisors(M) <span class="keyword">if</span> is_prime(x + <span class="number">1</span>)][::-<span class="number">1</span>]</span><br><span class="line">ls = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">f, n, rest</span>):</span><br><span class="line">    <span class="keyword">if</span> rest == <span class="number">1</span>:</span><br><span class="line">        ls.append(n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(f, <span class="built_in">len</span>(pr)):</span><br><span class="line">        p = pr[i]</span><br><span class="line">        <span class="keyword">if</span> rest % (p - <span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">            dfs(i + <span class="number">1</span>, n * p, rest // (p - <span class="number">1</span>))</span><br><span class="line">            t_n, t_rest = n * p, rest // (p - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">while</span> t_rest % p == <span class="number">0</span>:</span><br><span class="line">                t_rest //= p</span><br><span class="line">                t_n *= p</span><br><span class="line">                dfs(i + <span class="number">1</span>, t_n, t_rest)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">1</span>, M)</span><br><span class="line">ls.sort()</span><br><span class="line">ans = ls[Q - <span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"><span class="comment"># 16s~17s</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-248"><a href="#Project-Euler-248" class="headerlink" title="Project Euler 248"></a>Project Euler 248</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Numbers-for-which-Euler’s-totient-function-equals-13"><a href="#Numbers-for-which-Euler’s-totient-function-equals-13" class="headerlink" title="Numbers for which Euler’s totient function equals 13"></a>Numbers for which Euler’s totient function equals 13</h3><p>The first number n for which $\varphi(n)=13!$ is $6227180929$.</p>
+<p>Find the $150,000^{\text{th}}$ such number.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$M=13!$。如果$\varphi(n)=M$，那么$n$的所有质因数$p$的欧拉函数$\varphi(p)=p-1$，都有$p-1|M$。</p>
+<p>那么，先求出$M$的所有因数$d$，再将所有是质数的$d+1$存入数组$pr$中。</p>
+<p>最终，$n$一定是由数组$pr$的一些质因子相乘而得。</p>
+<p>考虑通过深度优先搜索，枚举出所有$\varphi(n)=M$的$n$值。<strong>从大到小</strong>枚举所有质因数并逐一尝试，这样做可以有效减少枚举量。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> fac, is_prime, divisors</span><br><span class="line"></span><br><span class="line">N = <span class="number">13</span></span><br><span class="line">Q = <span class="number">150000</span></span><br><span class="line">M = fac(N)</span><br><span class="line">pr = [x + <span class="number">1</span> <span class="keyword">for</span> x <span class="keyword">in</span> divisors(M) <span class="keyword">if</span> is_prime(x + <span class="number">1</span>)][::-<span class="number">1</span>]</span><br><span class="line">ls = []</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">f, n, rest</span>):</span><br><span class="line">    <span class="keyword">if</span> rest == <span class="number">1</span>:</span><br><span class="line">        ls.append(n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(f, <span class="built_in">len</span>(pr)):</span><br><span class="line">        p = pr[i]</span><br><span class="line">        <span class="keyword">if</span> rest % (p - <span class="number">1</span>) == <span class="number">0</span>:</span><br><span class="line">            dfs(i + <span class="number">1</span>, n * p, rest // (p - <span class="number">1</span>))</span><br><span class="line">            t_n, t_rest = n * p, rest // (p - <span class="number">1</span>)</span><br><span class="line">            <span class="keyword">while</span> t_rest % p == <span class="number">0</span>:</span><br><span class="line">                t_rest //= p</span><br><span class="line">                t_n *= p</span><br><span class="line">                dfs(i + <span class="number">1</span>, t_n, t_rest)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">1</span>, M)</span><br><span class="line">ls.sort()</span><br><span class="line">ans = ls[Q - <span class="number">1</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"><span class="comment"># 16s~17s</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -348,8 +342,7 @@ such number.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-248"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 248</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#numbers-for-which-eulers-totient-function-equals-13"><span class="nav-number">1.1.1.</span> <span class="nav-text">Numbers for
-which Euler’s totient function equals 13</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-248"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 248</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Numbers-for-which-Euler%E2%80%99s-totient-function-equals-13"><span class="nav-number">1.1.1.</span> <span class="nav-text">Numbers for which Euler’s totient function equals 13</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -363,14 +356,14 @@ which Euler’s totient function equals 13</span></a></li></ol></li><li class="n
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -407,13 +400,13 @@ which Euler’s totient function equals 13</span></a></li></ol></li><li class="n
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

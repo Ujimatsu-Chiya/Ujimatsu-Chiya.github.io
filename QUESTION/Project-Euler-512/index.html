@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,50 +258,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-512">Project Euler 512</h1>
-<h2 id="题目">题目</h2>
-<h3 id="sums-of-totients-of-powers">Sums of totients of powers</h3>
-<p>Let <span class="math inline">\(\varphi(n)\)</span> be Euler's
-totient function.</p>
-<p>Let <span class="math inline">\(f(n)=(\sum_{i=1}^{n}\varphi(n^i))
-\text{ mod } (n+1)\)</span>.</p>
-<p>Let <span class="math inline">\(g(n)=\sum_{i=1}^{n}
-f(i)\)</span>.</p>
-<p><span class="math inline">\(g(100)=2007\)</span>.</p>
-<p>Find <span class="math inline">\(g(5 \times 10^8)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>根据欧拉函数的性质，不难写出<span class="math inline">\(\varphi(n^i)=\varphi (n)\cdot n^{i-1}\)</span></p>
-<p><span class="math inline">\(f(n)=\sum_{i=1}^n\varphi(n^i)=\varphi(n)\sum_{i=0}^{n-1}
-n^i\)</span></p>
-<p>因此<span class="math inline">\(f(n) = \varphi(n)\cdot
-\sum_{i=0}^{n-1}(-1)^i\mod (n+1)\)</span>。</p>
-<p>如果<span class="math inline">\(n\)</span>为偶数，那么<span class="math inline">\(f(n) = 0\mod (n+1)\)</span></p>
-<p>如果<span class="math inline">\(n\)</span>为奇数，那么<span class="math inline">\(f(n)=\varphi(n) \mod (n+1)\)</span></p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-512"><a href="#Project-Euler-512" class="headerlink" title="Project Euler 512"></a>Project Euler 512</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Sums-of-totients-of-powers"><a href="#Sums-of-totients-of-powers" class="headerlink" title="Sums of totients of powers"></a>Sums of totients of powers</h3><p>Let $\varphi(n)$ be Euler’s totient function.</p>
+<p>Let $f(n)=(\sum_{i=1}^{n}\varphi(n^i)) \text{ mod } (n+1)$.</p>
+<p>Let $g(n)=\sum_{i=1}^{n} f(i)$.</p>
+<p>$g(100)=2007$.</p>
+<p>Find $g(5 \times 10^8)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据欧拉函数的性质，不难写出$\varphi(n^i)=\varphi (n)\cdot n^{i-1}$</p>
+<p>$f(n)=\sum_{i=1}^n\varphi(n^i)=\varphi(n)\sum_{i=0}^{n-1} n^i$</p>
+<p>因此$f(n) = \varphi(n)\cdot \sum_{i=0}^{n-1}(-1)^i\mod (n+1)$。</p>
+<p>如果$n$为偶数，那么$f(n) =  0\mod (n+1)$</p>
+<p>如果$n$为奇数，那么$f(n)=\varphi(n) \mod (n+1)$</p>
 <p>因此，</p>
-<p><span class="math display">\[g(n)=\sum_{i=1}^{\lfloor\dfrac{n+1}{2}\rfloor}\varphi(2i-1)\]</span></p>
-<p>可以直接使用筛法计算奇数的欧拉函数值。</p>
+<script type="math/tex; mode=display">g(n)=\sum_{i=1}^{\lfloor\dfrac{n+1}{2}\rfloor}\varphi(2i-1)</script><p>可以直接使用筛法计算奇数的欧拉函数值。</p>
 <p>为了使用数论分块加速，考虑</p>
-<p><span class="math display">\[\Phi(n)=\sum_{i=1}^n\varphi(n)\]</span></p>
-<p>令<span class="math inline">\(\Phi_p(n)=\sum_{i=1,p|i}^n
-\varphi(n)\)</span>，<span class="math inline">\(p\)</span>是一个质数。那么<span class="math inline">\(g(n)=\Phi(n)-\Phi_2(n)\)</span>。<span class="math inline">\(\Phi_p(n)\)</span>满足：</p>
-<p><span class="math display">\[\Phi_p(n)=\varphi(p)\cdot(\Phi(\dfrac{n}{p})+\Phi(\dfrac{n}{p^2})+\Phi(\dfrac{n}{p^3})+\dots)\]</span></p>
-<p>说明：如果一个数<span class="math inline">\(p^k\cdot x,p\nmid
-x,k&gt;1\)</span>，那么<span class="math inline">\(\varphi(p^k\cdot
-x)=(p-1)p^{k-1}x\)</span>。因此，在上面的式子中，<span class="math inline">\(\varphi(p^k\cdot x)\)</span>的一部分被算进<span class="math inline">\(\varphi(p)\cdot\Phi(\dfrac{n}{p^k})\)</span>，另一部分被算进<span class="math inline">\(\varphi(p)\cdot\Phi(\dfrac{n}{p^{k-1}})\)</span>。</p>
-<p>那么现在的问题就是使用数论分块的方法高效计算<span class="math inline">\(\Phi(n)\)</span>的值。</p>
-<p><span class="math display">\[\begin{aligned}
-\dfrac{n(n+1)}{2}&amp;=|\{(a,b)|1\le a\le b \le n\}|\\
-&amp;=\sum_{d=1}^n\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&amp;=\sum_{d=1}^n\{(a,b)|1\le a\le b \le
-\lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}\\
-&amp;=\sum_{d=1}^n\Phi(\dfrac{n}{d})
-\end{aligned}\]</span></p>
-<p>因此，可以得到关于<span class="math inline">\(\Phi\)</span>的递归式：</p>
-<p><span class="math display">\[\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})\]</span></p>
-<p>其中，右边这一部分可以使用数论分块来解决。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5e8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=(N+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> phi[M+<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        phi[i]=<span class="number">2</span>*i<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        <span class="type">int</span> v=<span class="number">2</span>*i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(phi[i]==v)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=M;j+=v)</span><br><span class="line">                phi[j]=phi[j]/v*(v<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        ans+=phi[i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<script type="math/tex; mode=display">\Phi(n)=\sum_{i=1}^n\varphi(n)</script><p>令$\Phi_p(n)=\sum_{i=1,p|i}^n \varphi(n)$，$p$是一个质数。那么$g(n)=\Phi(n)-\Phi_2(n)$。$\Phi_p(n)$满足：</p>
+<script type="math/tex; mode=display">\Phi_p(n)=\varphi(p)\cdot(\Phi(\dfrac{n}{p})+\Phi(\dfrac{n}{p^2})+\Phi(\dfrac{n}{p^3})+\dots)</script><p>说明：如果一个数$p^k\cdot x,p\nmid x,k&gt;1$，那么$\varphi(p^k\cdot x)=(p-1)p^{k-1}x$。因此，在上面的式子中，$\varphi(p^k\cdot x)$的一部分被算进$\varphi(p)\cdot\Phi(\dfrac{n}{p^k})$，另一部分被算进$\varphi(p)\cdot\Phi(\dfrac{n}{p^{k-1}})$。</p>
+<p>那么现在的问题就是使用数论分块的方法高效计算$\Phi(n)$的值。</p>
+<script type="math/tex; mode=display">\begin{aligned}
+\dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
+&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
+&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}\\
+&=\sum_{d=1}^n\Phi(\dfrac{n}{d})
+\end{aligned}</script><p>因此，可以得到关于$\Phi$的递归式：</p>
+<script type="math/tex; mode=display">\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})</script><p>其中，右边这一部分可以使用数论分块来解决。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5e8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=(N+<span class="number">1</span>)&gt;&gt;<span class="number">1</span>;</span><br><span class="line"><span class="type">int</span> phi[M+<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        phi[i]=<span class="number">2</span>*i<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        <span class="type">int</span> v=<span class="number">2</span>*i<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span>(phi[i]==v)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=M;j+=v)</span><br><span class="line">                phi[j]=phi[j]/v*(v<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)</span><br><span class="line">        ans+=phi[i];</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">5e8</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M= <span class="built_in">pow</span>(N,<span class="number">2.0</span>/<span class="number">3</span>);</span><br><span class="line">ll s[M+<span class="number">2</span>];</span><br><span class="line"><span class="type">int</span> v[M+<span class="number">2</span>],pr[M/<span class="number">10</span>+<span class="number">1000</span>],m=<span class="number">0</span>;</span><br><span class="line">unordered_map&lt;ll,ll&gt;mp;</span><br><span class="line"><span class="function">ll <span class="title">sum_phi</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n&lt;=M) <span class="keyword">return</span> s[n];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(mp.<span class="built_in">count</span>(n)) <span class="keyword">return</span> mp[n];</span><br><span class="line">    ll ans=n*(n+<span class="number">1</span>)/<span class="number">2</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll l=<span class="number">2</span>,r;l&lt;=n;l=r+<span class="number">1</span>)&#123;</span><br><span class="line">        r=n/(n/l);</span><br><span class="line">        ans-=(r-l+<span class="number">1</span>)* <span class="built_in">sum_phi</span>(n/l);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mp[n]=ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    s[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=M;i++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;pr[++m]=i;s[i]=i<span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;M/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">            s[i*pr[j]]=s[i]*(pr[j]==v[i]?pr[j]:pr[j]<span class="number">-1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=M;i++)</span><br><span class="line">        s[i]+=s[i<span class="number">-1</span>];</span><br><span class="line">    ll ans = <span class="built_in">sum_phi</span>(N);</span><br><span class="line">    <span class="keyword">for</span>(ll i=<span class="number">2</span>;i&lt;=N;i*=<span class="number">2</span>)</span><br><span class="line">        ans -= <span class="built_in">sum_phi</span>(N/i);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
@@ -387,7 +369,7 @@ x)=(p-1)p^{k-1}x\)</span>。因此，在上面的式子中，<span class="math i
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-512"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 512</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sums-of-totients-of-powers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sums of totients of powers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-512"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 512</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sums-of-totients-of-powers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sums of totients of powers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -401,14 +383,14 @@ x)=(p-1)p^{k-1}x\)</span>。因此，在上面的式子中，<span class="math i
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -445,13 +427,13 @@ x)=(p-1)p^{k-1}x\)</span>。因此，在上面的式子中，<span class="math i
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

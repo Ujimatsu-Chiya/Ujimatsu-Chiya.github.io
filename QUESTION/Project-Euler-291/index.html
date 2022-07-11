@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>814</span>
+              <span>754</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,30 +257,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-291">Project Euler 291</h1>
-<h2 id="题目">题目</h2>
-<h3 id="panaitopol-primes">Panaitopol Primes</h3>
-<p>A prime number <span class="math inline">\(p\)</span> is called a
-Panaitopol prime if <span class="math inline">\(p = \dfrac{x^4 -
-y^4}{x^3 + y^3}\)</span> for some positive integers <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>.</p>
-<p>Find how many Panaitopol primes are less than <span class="math inline">\(5\times10^{15}\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(g=\gcd(x,y)\)</span>，那么有<span class="math inline">\(x=ga,y=gb\)</span>，其中<span class="math inline">\(\gcd(a,b)=1\)</span>。</p>
-<p>将上式写成<span class="math inline">\(p(x^3+y^3)=x^4-y^4\)</span>，那么可以写成：</p>
-<p><span class="math display">\[p(a^2-ab+b^2)=d(a^2+b^2)(a-b)\]</span></p>
-<p>那么，<span class="math inline">\(a^2-ab+b^2,(a^2+b^2)(a-b)\)</span>这两个数是互质的。</p>
-<p>因此，<span class="math inline">\(p=(a^2+b^2)(a-b),d=a^2-ab+b^2\)</span>。</p>
-<p>但是，<span class="math inline">\(p\)</span>是一个质数，但是有<span class="math inline">\(a^2+b^2\)</span>和<span class="math inline">\(a-b\)</span>两个质因式。因此<span class="math inline">\(a-b=1\)</span>。</p>
-<p>得到<span class="math inline">\(p\)</span>是形如<span class="math inline">\(p=a^2+(a+1)^2\)</span>的质数。</p>
-<p>令<span class="math inline">\(f(n)=2n^2+2n+1\)</span></p>
-<p>那么接下来使用和216题相似的筛法：如果<span class="math inline">\(p|f(n)\)</span>，那么<span class="math inline">\(p|f(kp+n),p|f(kp-n-1)\)</span>，其中<span class="math inline">\(k&gt;0\)</span>。</p>
-<p>原因：<span class="math inline">\(f(kp+n)=2(kp+n)^2+2(kp+n)+1 =
-2k^2p^2+4knp+2kp+2n^2+2n+1\)</span>。我们已经假定了<span class="math inline">\(p|2n^2+2n+1\)</span>，因此<span class="math inline">\(p|f(kp+n)\)</span>成立。<span class="math inline">\(p|f(kp-n-1)\)</span>的情况类似。</p>
-<p>这说明只要发现<span class="math inline">\(f(n)\)</span>有一个质因子<span class="math inline">\(p\)</span>，就可以将它把<span class="math inline">\(f(n+p),f(n+2p),\dots,f(p-n-1),t(2p-n-1),\dots\)</span>筛掉。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-291"><a href="#Project-Euler-291" class="headerlink" title="Project Euler 291"></a>Project Euler 291</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Panaitopol-Primes"><a href="#Panaitopol-Primes" class="headerlink" title="Panaitopol Primes"></a>Panaitopol Primes</h3><p>A prime number $p$ is called a Panaitopol prime if $p = \dfrac{x^4 - y^4}{x^3 + y^3}$ for some positive integers $x$ and $y$.</p>
+<p>Find how many Panaitopol primes are less than $5\times10^{15}$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$g=\gcd(x,y)$，那么有$x=ga,y=gb$，其中$\gcd(a,b)=1$。</p>
+<p>将上式写成$p(x^3+y^3)=x^4-y^4$，那么可以写成：</p>
+<script type="math/tex; mode=display">p(a^2-ab+b^2)=d(a^2+b^2)(a-b)</script><p>那么，$a^2-ab+b^2,(a^2+b^2)(a-b)$这两个数是互质的。</p>
+<p>因此，$p=(a^2+b^2)(a-b),d=a^2-ab+b^2$。</p>
+<p>但是，$p$是一个质数，但是有$a^2+b^2$和$a-b$两个质因式。因此$a-b=1$。</p>
+<p>得到$p$是形如$p=a^2+(a+1)^2$的质数。</p>
+<p>令$f(n)=2n^2+2n+1$</p>
+<p>那么接下来使用和216题相似的筛法：如果$p|f(n)$，那么$p|f(kp+n),p|f(kp-n-1)$，其中$k&gt;0$。</p>
+<p>原因：$f(kp+n)=2(kp+n)^2+2(kp+n)+1 = 2k^2p^2+4knp+2kp+2n^2+2n+1$。我们已经假定了$p|2n^2+2n+1$，因此$p|f(kp+n)$成立。$p|f(kp-n-1)$的情况类似。</p>
+<p>这说明只要发现$f(n)$有一个质因子$p$，就可以将它把$f(n+p),f(n+2p),\dots,f(p-n-1),t(2p-n-1),\dots$筛掉。</p>
 <p>如果有一个数始终无法筛掉，说明它本身就是一个质数。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">5e15</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M= <span class="built_in">sqrt</span>(N/<span class="number">2</span>)+<span class="number">10</span>;</span><br><span class="line">ll f[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        f[i]=<span class="number">2ll</span>*i*(i+<span class="number">1</span>)+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(f[i]&gt;=N)&#123;</span><br><span class="line">            m=i<span class="number">-1</span>;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ll p=f[i];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">2ll</span>*i*(i+<span class="number">1</span>)+<span class="number">1</span>) ++ans;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p+i;j&lt;=m;j+=p)</span><br><span class="line">            <span class="keyword">while</span> (f[j]%p==<span class="number">0</span>) f[j]/=p;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-i<span class="number">-1</span>;j&lt;=m;j+=p)</span><br><span class="line">            <span class="keyword">while</span> (f[j]%p==<span class="number">0</span>) f[j]/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">5e15</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M= <span class="built_in">sqrt</span>(N/<span class="number">2</span>)+<span class="number">10</span>;</span><br><span class="line">ll f[M+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> m;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        f[i]=<span class="number">2ll</span>*i*(i+<span class="number">1</span>)+<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(f[i]&gt;=N)&#123;</span><br><span class="line">            m=i<span class="number">-1</span>;<span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ll p=f[i];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">2ll</span>*i*(i+<span class="number">1</span>)+<span class="number">1</span>) ++ans;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p+i;j&lt;=m;j+=p)</span><br><span class="line">            <span class="keyword">while</span> (f[j]%p==<span class="number">0</span>) f[j]/=p;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-i<span class="number">-1</span>;j&lt;=m;j+=p)</span><br><span class="line">            <span class="keyword">while</span> (f[j]%p==<span class="number">0</span>) f[j]/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +356,7 @@ y^4}{x^3 + y^3}\)</span> for some positive integers <span class="math inline">\(
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-291"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 291</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#panaitopol-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Panaitopol Primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-291"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 291</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Panaitopol-Primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Panaitopol Primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,14 +370,14 @@ y^4}{x^3 + y^3}\)</span> for some positive integers <span class="math inline">\(
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -422,13 +414,13 @@ y^4}{x^3 + y^3}\)</span> for some positive integers <span class="math inline">\(
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

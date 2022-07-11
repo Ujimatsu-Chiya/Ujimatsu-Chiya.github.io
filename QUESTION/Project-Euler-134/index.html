@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>826</span>
+              <span>772</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,34 +257,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-134">Project Euler 134</h1>
-<h2 id="题目">题目</h2>
-<h3 id="prime-pair-connection">Prime pair connection</h3>
-<p>Consider the consecutive primes <span class="math inline">\(p_1 =
-19\)</span> and <span class="math inline">\(p_2 = 23\)</span>. It can be
-verified that <span class="math inline">\(1219\)</span> is the smallest
-number such that the last digits are formed by <span class="math inline">\(p_1\)</span> whilst also being divisible by <span class="math inline">\(p_2\)</span>.</p>
-<p>In fact, with the exception of <span class="math inline">\(p_1 =
-3\)</span> and <span class="math inline">\(p_2 = 5\)</span>, for every
-pair of consecutive primes, <span class="math inline">\(p_2 &gt;
-p_1\)</span>, there exist values of <span class="math inline">\(n\)</span> for which the last digits are formed by
-<span class="math inline">\(p_1\)</span> and <span class="math inline">\(n\)</span> is divisible by <span class="math inline">\(p_2\)</span>. Let <span class="math inline">\(S\)</span> be the smallest of these values of
-<span class="math inline">\(n\)</span>.</p>
-<p>Find <span class="math inline">\(\sum S\)</span> for every pair of
-consecutive primes with <span class="math inline">\(5 \leq p_1 \leq
-1000000\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>设<span class="math inline">\(m\)</span>为<span class="math inline">\(p_1\)</span>十进制下表示的长度（也就是<span class="math inline">\(m=\lfloor\log_{10}n\rfloor+1\)</span>）</p>
-<p>题目中的问题，可以转化为以下标准形式：求一个最小的非负整数<span class="math inline">\(x\)</span>，使得<span class="math inline">\(p_2|(p_1+10^mx)\)</span></p>
-<p>那么就转化成求线性同余方程<span class="math inline">\(10^mx\equiv
--p_1(\mod p_2)\)</span>。</p>
-<p>这是一个线性同余方程<span class="math inline">\(ax\equiv b(\mod
-m)\)</span>的典型。解这类线性同余方程需要使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">扩展欧几里得</a>算法辅助解决。</p>
-<p>另外，如果<span class="math inline">\(m\)</span>是一个质数，可以用费马小定理直接求解得<span class="math inline">\(x\equiv a^{m-2}\cdot b(\mod m)\)</span>。</p>
-<p>最终求出<span class="math inline">\(x\)</span>后，<span class="math inline">\(S=10^mx+p_1\)</span>，对答案相加即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">1000000</span></span><br><span class="line">M = N + <span class="built_in">len</span>(<span class="built_in">bin</span>(N)) * <span class="number">2</span> + <span class="number">4</span></span><br><span class="line">pr = get_prime(<span class="number">4</span>, M)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">    u, v = pr[i - <span class="number">1</span>], pr[i]</span><br><span class="line">    <span class="keyword">if</span> u &gt; N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    pw = <span class="number">10</span> ** <span class="built_in">len</span>(<span class="built_in">str</span>(u))</span><br><span class="line">    x = (v - u) * <span class="built_in">pow</span>(pw,v-<span class="number">2</span>,v) % v</span><br><span class="line">    s = pw * x + u</span><br><span class="line">    ans += s</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-134"><a href="#Project-Euler-134" class="headerlink" title="Project Euler 134"></a>Project Euler 134</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Prime-pair-connection"><a href="#Prime-pair-connection" class="headerlink" title="Prime pair connection"></a>Prime pair connection</h3><p>Consider the consecutive primes $p_1 = 19$ and $p_2 = 23$. It can be verified that $1219$ is the smallest number such that the last digits are formed by $p_1$ whilst also being divisible by $p_2$.</p>
+<p>In fact, with the exception of $p_1 = 3$ and $p_2 = 5$, for every pair of consecutive primes, $p_2 &gt; p_1$, there exist values of $n$ for which the last digits are formed by $p_1$ and $n$ is divisible by $p_2$. Let $S$ be the smallest of these values of $n$.</p>
+<p>Find $\sum S$ for every pair of consecutive primes with $5 \leq p_1 \leq 1000000$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>设$m$为$p_1$十进制下表示的长度（也就是$m=\lfloor\log_{10}n\rfloor+1$）</p>
+<p>题目中的问题，可以转化为以下标准形式：求一个最小的非负整数$x$，使得$p_2|(p_1+10^mx)$</p>
+<p>那么就转化成求线性同余方程$10^mx\equiv -p_1(\mod p_2)$。</p>
+<p>这是一个线性同余方程$ax\equiv b(\mod m)$的典型。解这类线性同余方程需要使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm">扩展欧几里得</a>算法辅助解决。</p>
+<p>另外，如果$m$是一个质数，可以用费马小定理直接求解得$x\equiv a^{m-2}\cdot b(\mod m)$。</p>
+<p>最终求出$x$后，$S=10^mx+p_1$，对答案相加即可。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">1000000</span></span><br><span class="line">M = N + <span class="built_in">len</span>(<span class="built_in">bin</span>(N)) * <span class="number">2</span> + <span class="number">4</span></span><br><span class="line">pr = get_prime(<span class="number">4</span>, M)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">    u, v = pr[i - <span class="number">1</span>], pr[i]</span><br><span class="line">    <span class="keyword">if</span> u &gt; N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    pw = <span class="number">10</span> ** <span class="built_in">len</span>(<span class="built_in">str</span>(u))</span><br><span class="line">    x = (v - u) * <span class="built_in">pow</span>(pw,v-<span class="number">2</span>,v) % v</span><br><span class="line">    s = pw * x + u</span><br><span class="line">    ans += s</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -368,7 +352,7 @@ m)\)</span>的典型。解这类线性同余方程需要使用<a target="_blank"
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-134"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 134</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-pair-connection"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime pair connection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-134"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 134</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prime-pair-connection"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime pair connection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,14 +366,14 @@ m)\)</span>的典型。解这类线性同余方程需要使用<a target="_blank"
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -426,13 +410,13 @@ m)\)</span>的典型。解这类线性同余方程需要使用<a target="_blank"
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

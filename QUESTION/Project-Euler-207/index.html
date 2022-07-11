@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>962</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,38 +257,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-207">Project Euler 207</h1>
-<h2 id="题目">题目</h2>
-<h3 id="integer-partition-equations">Integer partition equations</h3>
-<p>For some positive integers <span class="math inline">\(k\)</span>,
-there exists an integer partition of the form   <span class="math inline">\(4^t = 2^t + k\)</span>, where <span class="math inline">\(4^t, 2^t\)</span> and <span class="math inline">\(k\)</span> are all positive integers and <span class="math inline">\(t\)</span> is a real number.</p>
-<p>The first two such partitions are <span class="math inline">\(4^1 =
-2^1 + 2\)</span> and <span class="math inline">\(4^{1.5849625\dots} =
-2^{1.5849625\dots} + 6\)</span>.</p>
-<p>Partitions where <span class="math inline">\(t\)</span> is also an
-integer are called <em>perfect</em>.</p>
-<p>For any <span class="math inline">\(m \ge 1\)</span> let <span class="math inline">\(P(m)\)</span> be the proportion of such partitions
-that are perfect with <span class="math inline">\(k \le m\)</span>.</p>
-<p>Thus <span class="math inline">\(P(6) = 1/2\)</span>.</p>
-<p>In the following table are listed some values of <span class="math inline">\(P(m)\)</span></p>
-<p><span class="math inline">\(\begin{aligned}    P(5) &amp;= &amp;1/1
-\\    P(10)&amp; = &amp;1/2 \\    P(15) &amp;= &amp;2/3 \\    P(20)
-&amp;= &amp;1/2 \\    P(25) &amp;= &amp;1/2 \\    P(30) &amp;= &amp;2/5
-\\    &amp;\dots&amp;\\    P(180) &amp;=&amp; 1/4\\    P(185)
-&amp;=&amp; 3/13 \end{aligned}\)</span></p>
-<p>Find the smallest <span class="math inline">\(m\)</span> for which
-<span class="math inline">\(P(m) &lt; 1/12345\)</span></p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(x=2^t(x&gt;0)\)</span>，那么上面的方程就可以化成<span class="math inline">\(x^2-x=k\)</span>。</p>
-<p>那么，当<span class="math inline">\(x\)</span>为某一个正整数时，<span class="math inline">\(x^2=x+k\)</span>就是一个划分，那么<span class="math inline">\(k\)</span>就必须满足<span class="math inline">\(k=x^2-x,x=1,2,\dots\)</span>。</p>
-<p>回到题目中，如果<span class="math inline">\(t\)</span>是一个整数，那么<span class="math inline">\(x=2^t\)</span>就必须是一个二次幂。</p>
-<p>这启发我们先从小到大遍历<span class="math inline">\(x\)</span>值，然后再判断<span class="math inline">\(x\)</span>值是否为一个二次方数，计算出完美划分比率，直接进行判断。</p>
-<p>其中，使用如下代码判断一个有符号数<span class="math inline">\(x\)</span>是否为一个二次方数：</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-207"><a href="#Project-Euler-207" class="headerlink" title="Project Euler 207"></a>Project Euler 207</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Integer-partition-equations"><a href="#Integer-partition-equations" class="headerlink" title="Integer partition equations"></a>Integer partition equations</h3><p>For some positive integers $k$, there exists an integer partition of the form   $4^t = 2^t + k$, where $4^t, 2^t$ and $k$ are all positive integers and $t$ is a real number.</p>
+<p>The first two such partitions are $4^1 = 2^1 + 2$ and $4^{1.5849625\dots} = 2^{1.5849625\dots} + 6$.</p>
+<p>Partitions where $t$ is also an integer are called <em>perfect</em>.</p>
+<p>For any $m \ge 1$ let $P(m)$ be the proportion of such partitions that are perfect with $k \le m$.</p>
+<p>Thus $P(6) = 1/2$.</p>
+<p>In the following table are listed some values of $P(m)$</p>
+<p>$\begin{aligned}<br>   P(5) &amp;= &amp;1/1 \\<br>   P(10)&amp; = &amp;1/2 \\<br>   P(15) &amp;= &amp;2/3 \\<br>   P(20) &amp;= &amp;1/2 \\<br>   P(25) &amp;= &amp;1/2 \\<br>   P(30) &amp;= &amp;2/5 \\<br>   &amp;\dots&amp;\\<br>   P(180) &amp;=&amp; 1/4\\<br>   P(185) &amp;=&amp; 3/13<br>\end{aligned}$</p>
+<p>Find the smallest $m$ for which $P(m) &lt; 1/12345$</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$x=2^t(x&gt;0)$，那么上面的方程就可以化成$x^2-x=k$。</p>
+<p>那么，当$x$为某一个正整数时，$x^2=x+k$就是一个划分，那么$k$就必须满足$k=x^2-x,x=1,2,\dots$。</p>
+<p>回到题目中，如果$t$是一个整数，那么$x=2^t$就必须是一个二次幂。</p>
+<p>这启发我们先从小到大遍历$x$值，然后再判断$x$值是否为一个二次方数，计算出完美划分比率，直接进行判断。</p>
+<p>其中，使用如下代码判断一个有符号数$x$是否为一个二次方数：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(x &amp; (x - 1)) == 0</span><br></pre></td></tr></table></figure>
-<p>最终，答案是一个形如<span class="math inline">\(x^2-x\)</span>的整数。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">Q = <span class="number">12345</span></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> count(<span class="number">2</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> (x &amp; (x - <span class="number">1</span>)) == <span class="number">0</span>:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> cnt * Q &lt; x - <span class="number">1</span>:</span><br><span class="line">        ans = x * (x - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>最终，答案是一个形如$x^2-x$的整数。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">Q = <span class="number">12345</span></span><br><span class="line">cnt = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> count(<span class="number">2</span>, <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">if</span> (x &amp; (x - <span class="number">1</span>)) == <span class="number">0</span>:</span><br><span class="line">        cnt += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> cnt * Q &lt; x - <span class="number">1</span>:</span><br><span class="line">        ans = x * (x - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +358,7 @@ that are perfect with <span class="math inline">\(k \le m\)</span>.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-207"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 207</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#integer-partition-equations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Integer partition equations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-207"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 207</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Integer-partition-equations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Integer partition equations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,14 +372,14 @@ that are perfect with <span class="math inline">\(k \le m\)</span>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -430,13 +416,13 @@ that are perfect with <span class="math inline">\(k \le m\)</span>.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

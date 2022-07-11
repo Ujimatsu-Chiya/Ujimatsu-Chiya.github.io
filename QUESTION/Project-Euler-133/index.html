@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,33 +257,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-133">Project Euler 133</h1>
-<h2 id="题目">题目</h2>
-<h3 id="repunit-nonfactors">Repunit nonfactors</h3>
-<p>A number consisting entirely of ones is called a repunit. We shall
-define <span class="math inline">\(R(k)\)</span> to be a repunit of
-length <span class="math inline">\(k\)</span>; for example, <span class="math inline">\(R(6) = 111111\)</span>.</p>
-<p>Let us consider repunits of the form <span class="math inline">\(R(10^n)\)</span>.</p>
-<p>Although <span class="math inline">\(R(10)\)</span>, <span class="math inline">\(R(100)\)</span>, or <span class="math inline">\(R(1000)\)</span> are not divisible by <span class="math inline">\(17\)</span>, <span class="math inline">\(R(10000)\)</span> is divisible by <span class="math inline">\(17\)</span>. Yet there is no value of <span class="math inline">\(n\)</span> for which <span class="math inline">\(R(10^n)\)</span> will divide by <span class="math inline">\(19\)</span>. In fact, it is remarkable that <span class="math inline">\(11, 17, 41\)</span>, and <span class="math inline">\(73\)</span> are the only four primes below
-one-hundred that can be a factor of <span class="math inline">\(R(10^n)\)</span>.</p>
-<p>Find the sum of all the primes below one-hundred thousand that will
-never be a factor of <span class="math inline">\(R(10^n)\)</span>.</p>
-<h2 id="乘法群">乘法群</h2>
-<p>设<span class="math inline">\(\mathbb{Z}_{m}^*\)</span>为模数为<span class="math inline">\(m\)</span>的乘法群。容易知道，乘法群是个循环群，而且其大小为<span class="math inline">\(\varphi(m)\)</span>，其中<span class="math inline">\(\varphi\)</span>为欧拉函数。</p>
-<p>元素<span class="math inline">\(a\)</span>在群<span class="math inline">\(\mathbb{Z}_{m}^*\)</span>上的阶<span class="math inline">\(\lambda_m(a)\)</span>：使得<span class="math inline">\(a^k \equiv 1(\mod m)\)</span>的最小正整数<span class="math inline">\(k\)</span>。</p>
-<p>需要注意，一个元素的阶是群的大小的因数，也就是有<span class="math inline">\(\forall a \in
-\mathbb{Z}_m^*,\lambda_m(a)|\varphi(m)\)</span>。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>对于所有非<span class="math inline">\(2\)</span>和<span class="math inline">\(5\)</span>的质数<span class="math inline">\(p\)</span>，容易知道<span class="math inline">\(\gcd(10,9p)=1\)</span>，因此<span class="math inline">\(10\in \mathbb{Z}_{9m}^*\)</span>。</p>
-<p>因此，如果一个质因数<span class="math inline">\(p\)</span>永远不可能为<span class="math inline">\(R(10^n)\)</span>的阶，也就是永远不会存在<span class="math inline">\(n\)</span>满足以下等式：</p>
-<p><span class="math display">\[10^{10^n}\equiv 1(\mod 9p)\]</span></p>
-<p>那么，就说明不存在<span class="math inline">\(n\)</span>，使得<span class="math inline">\(\lambda_{9p}(10)|10^n\)</span>。</p>
-<p>因此，找出<span class="math inline">\(\varphi(9p)\)</span>的所有因数，然后从小到大判断这个因数是不是<span class="math inline">\(10\)</span>在群<span class="math inline">\(\mathbb{Z}_{9m}^*\)</span>中的阶，最终计算出<span class="math inline">\(\lambda_{9p}(10)\)</span>。</p>
-<p>由于<span class="math inline">\(10^n\)</span>只有质因数<span class="math inline">\(2,5\)</span>。因此，如果<span class="math inline">\(\lambda_{9p}(10)|10^n\)</span>，那么<span class="math inline">\(\lambda_{9p}(10)\)</span>就必须只有质因数<span class="math inline">\(2,5\)</span>。</p>
-<p>本代码使用sympy库中的n_order(a,m)函数计算<span class="math inline">\(\lambda_m(a)\)</span>的值。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime, divisors</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">pr = get_prime(N)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line">N = <span class="number">100000</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> pr:</span><br><span class="line">    <span class="keyword">if</span> x &lt;= <span class="number">5</span>:</span><br><span class="line">        ans += x</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># phi(9x) = 6(x-1)</span></span><br><span class="line">    phi = <span class="number">6</span> * (x - <span class="number">1</span>)</span><br><span class="line">    ls = divisors(phi)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> ls:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">pow</span>(<span class="number">10</span>, k, <span class="number">9</span> * x) == <span class="number">1</span>:</span><br><span class="line">            order = k</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">while</span> order % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        order //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> order &amp; <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">        order &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> order != <span class="number">1</span>:</span><br><span class="line">        ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-133"><a href="#Project-Euler-133" class="headerlink" title="Project Euler 133"></a>Project Euler 133</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Repunit-nonfactors"><a href="#Repunit-nonfactors" class="headerlink" title="Repunit nonfactors"></a>Repunit nonfactors</h3><p>A number consisting entirely of ones is called a repunit. We shall define $R(k)$ to be a repunit of length $k$; for example, $R(6) = 111111$.</p>
+<p>Let us consider repunits of the form $R(10^n)$.</p>
+<p>Although $R(10)$, $R(100)$, or $R(1000)$ are not divisible by $17$, $R(10000)$ is divisible by $17$. Yet there is no value of $n$ for which $R(10^n)$ will divide by $19$. In fact, it is remarkable that $11, 17, 41$, and $73$ are the only four primes below one-hundred that can  be a factor of $R(10^n)$.</p>
+<p>Find the sum of all the primes below one-hundred thousand that will never be a factor of $R(10^n)$.</p>
+<h2 id="乘法群"><a href="#乘法群" class="headerlink" title="乘法群"></a>乘法群</h2><p>设$\mathbb{Z}_{m}^*$为模数为$m$的乘法群。容易知道，乘法群是个循环群，而且其大小为$\varphi(m)$，其中$\varphi$为欧拉函数。</p>
+<p>元素$a$在群$\mathbb{Z}_{m}^*$上的阶$\lambda_m(a)$：使得$a^k \equiv 1(\mod m)$的最小正整数$k$。</p>
+<p>需要注意，一个元素的阶是群的大小的因数，也就是有$\forall a \in \mathbb{Z}_m^*,\lambda_m(a)|\varphi(m)$。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>对于所有非$2$和$5$的质数$p$，容易知道$\gcd(10,9p)=1$，因此$10\in \mathbb{Z}_{9m}^*$。</p>
+<p>因此，如果一个质因数$p$永远不可能为$R(10^n)$的阶，也就是永远不会存在$n$满足以下等式：</p>
+<script type="math/tex; mode=display">10^{10^n}\equiv 1(\mod 9p)</script><p>那么，就说明不存在$n$，使得$\lambda_{9p}(10)|10^n$。</p>
+<p>因此，找出$\varphi(9p)$的所有因数，然后从小到大判断这个因数是不是$10$在群$\mathbb{Z}_{9m}^*$中的阶，最终计算出$\lambda_{9p}(10)$。</p>
+<p>由于$10^n$只有质因数$2,5$。因此，如果$\lambda_{9p}(10)|10^n$，那么$\lambda_{9p}(10)$就必须只有质因数$2,5$。</p>
+<p>本代码使用sympy库中的n_order(a,m)函数计算$\lambda_m(a)$的值。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime, divisors</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">pr = get_prime(N)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line">N = <span class="number">100000</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> pr:</span><br><span class="line">    <span class="keyword">if</span> x &lt;= <span class="number">5</span>:</span><br><span class="line">        ans += x</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="comment"># phi(9x) = 6(x-1)</span></span><br><span class="line">    phi = <span class="number">6</span> * (x - <span class="number">1</span>)</span><br><span class="line">    ls = divisors(phi)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> ls:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">pow</span>(<span class="number">10</span>, k, <span class="number">9</span> * x) == <span class="number">1</span>:</span><br><span class="line">            order = k</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">while</span> order % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        order //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> order &amp; <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">        order &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> order != <span class="number">1</span>:</span><br><span class="line">        ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> n_order</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line">pr = get_prime(N)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line">N = <span class="number">100000</span></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> pr:</span><br><span class="line">    <span class="keyword">if</span> x &lt;= <span class="number">5</span>:</span><br><span class="line">        ans += x</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    order = n_order(<span class="number">10</span>, <span class="number">9</span> * x)</span><br><span class="line">    <span class="keyword">while</span> order % <span class="number">5</span> == <span class="number">0</span>:</span><br><span class="line">        order //= <span class="number">5</span></span><br><span class="line">    <span class="keyword">while</span> order &amp; <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">        order &gt;&gt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> order != <span class="number">1</span>:</span><br><span class="line">        ans += x</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -368,7 +357,7 @@ never be a factor of <span class="math inline">\(R(10^n)\)</span>.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-133"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 133</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#repunit-nonfactors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Repunit nonfactors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E7%BE%A4"><span class="nav-number">1.2.</span> <span class="nav-text">乘法群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-133"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 133</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Repunit-nonfactors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Repunit nonfactors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%98%E6%B3%95%E7%BE%A4"><span class="nav-number">1.2.</span> <span class="nav-text">乘法群</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,14 +371,14 @@ never be a factor of <span class="math inline">\(R(10^n)\)</span>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -426,13 +415,13 @@ never be a factor of <span class="math inline">\(R(10^n)\)</span>.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

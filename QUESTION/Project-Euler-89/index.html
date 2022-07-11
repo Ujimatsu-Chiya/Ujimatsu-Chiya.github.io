@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,37 +259,18 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-89">Project Euler 89</h1>
-<h2 id="题目">题目</h2>
-<h3 id="roman-numerals">Roman numerals</h3>
-<p>For a number written in Roman numerals to be considered valid there
-are basic rules which must be followed. Even though the rules allow some
-numbers to be expressed in more than one way there is always a “best”
-way of writing a particular number. For example, it would appear that
-there are at least six ways of writing the number sixteen:</p>
-<p><span style="font-family:courier new,monospace;">IIIIIIIIIIIIIIII</span>
-<br><span style="font-family:courier new,monospace;">VIIIIIIIIIII</span>
-<br><span style="font-family:courier new,monospace;">VVIIIIII</span>
-<br><span style="font-family:courier new,monospace;">XIIIIII</span><br><span style="font-family:courier new,monospace;">VVVI</span> <br><span style="font-family:courier new,monospace;">XVI</span><br></p>
-<p>However, according to the rules only <span style="font-family:courier new,monospace;">XIIIIII</span> and <span style="font-family:courier new,monospace;">XVI</span> are valid, and the
-last example is considered to be the most efficient, as it uses the
-least number of numerals.</p>
-<p>The 11K text file, <a href="../resources/p089_roman.txt">roman.txt</a> (right click and ‘Save
-Link/Target As…’), contains one thousand numbers written in valid, but
-not necessarily minimal, Roman numerals; see
-<a href="https://projecteuler.net/about=roman_numerals" target="_blank" rel="noopener">About…
-Roman Numerals</a> for the definitive rules for this problem.</p>
-<p>Find the number of characters saved by writing each of these in their
-minimal form. Note: You can assume that all the Roman numerals in the
-file contain no more than four consecutive identical units.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>根据罗马数字的规则，可以先把所有字母对应的数直接全部用字典存。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-89"><a href="#Project-Euler-89" class="headerlink" title="Project Euler 89"></a>Project Euler 89</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Roman-numerals"><a href="#Roman-numerals" class="headerlink" title="Roman numerals"></a>Roman numerals</h3><p>For a number written in Roman numerals to be considered valid there are basic rules which must be followed. Even though the rules allow some numbers to be expressed in more than one way there is always a “best” way of writing a particular number.<br>For example, it would appear that there are at least six ways of writing the number sixteen:</p>
+<p><span style="font-family:courier new,monospace;">IIIIIIIIIIIIIIII</span> &lt;/br&gt;<span style="font-family:courier new,monospace;">VIIIIIIIIIII</span> &lt;/br&gt;<span style="font-family:courier new,monospace;">VVIIIIII</span> &lt;/br&gt;<span style="font-family:courier new,monospace;">XIIIIII</span>&lt;/br&gt;<span style="font-family:courier new,monospace;">VVVI</span> &lt;/br&gt;<span style="font-family:courier new,monospace;">XVI</span>&lt;/br&gt;</p>
+<p>However, according to the rules only <span style="font-family:courier new,monospace;">XIIIIII</span> and <span style="font-family:courier new,monospace;">XVI</span> are valid, and the last example is considered to be the most efficient, as it uses the least number of numerals.</p>
+<p>The 11K text file, <a href="../resources/p089_roman.txt">roman.txt</a> (right click and ‘Save Link/Target As…’), contains one thousand numbers written in valid, but not necessarily minimal, Roman numerals; see <a href="https://projecteuler.net/about=roman_numerals" target="_blank" rel="noopener">About… Roman Numerals</a> for the definitive rules for this problem.</p>
+<p>Find the number of characters saved by writing each of these in their minimal form.<br>Note: You can assume that all the Roman numerals in the file contain no more than four consecutive identical units.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据罗马数字的规则，可以先把所有字母对应的数直接全部用字典存。</p>
 <p>不过，罗马数字处理减法规则时可能有点麻烦。为解决这个困难，本代码使用的方案是将所有减法规则当作一个“标记”，也存在字典中。</p>
 <p>对罗马数进行解析的时候，需要先判断当前字母有没有应用到减法规则。如果有，那就和下一个字母一起计算，否则单独计算。</p>
 <p>将整数转化成罗马数的时候，对应使用贪心思想，每次取最大的进行拼接即可。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p089_roman.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">mp = &#123;</span><br><span class="line">    <span class="string">&#x27;IV&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;IX&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;XL&#x27;</span>: <span class="number">40</span>, <span class="string">&#x27;XC&#x27;</span>: <span class="number">90</span>, <span class="string">&#x27;CD&#x27;</span>: <span class="number">400</span>, <span class="string">&#x27;CM&#x27;</span>: <span class="number">900</span>,</span><br><span class="line">    <span class="string">&#x27;M&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">500</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">100</span>, <span class="string">&#x27;L&#x27;</span>: <span class="number">50</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;V&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;I&#x27;</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">ln = []</span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> mp.items():</span><br><span class="line">    ln.append([y, x])</span><br><span class="line">ln.sort()</span><br><span class="line">ln.reverse()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将一个任意形式的罗马数转化为整数。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">r2n</span>(<span class="params">s: <span class="built_in">str</span></span>):</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> s != <span class="string">&quot;&quot;</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt;= <span class="number">2</span> <span class="keyword">and</span> s[<span class="number">0</span>:<span class="number">2</span>] <span class="keyword">in</span> mp.keys():</span><br><span class="line">            ans += mp[s[<span class="number">0</span>:<span class="number">2</span>]]</span><br><span class="line">            s = s[<span class="number">2</span>:]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ans += mp[s[<span class="number">0</span>]]</span><br><span class="line">            s = s[<span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将一个整数转化为有效的罗马数。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">n2r</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    s = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> ln:</span><br><span class="line">        cnt = n // x</span><br><span class="line">        s += y * cnt</span><br><span class="line">        n -= x * cnt</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">    s = s.replace(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    ans += <span class="built_in">len</span>(s) - <span class="built_in">len</span>(n2r(r2n(s)))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">ls = <span class="built_in">open</span>(<span class="string">&#x27;p089_roman.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>).readlines()</span><br><span class="line">mp = &#123;</span><br><span class="line">    <span class="string">&#x27;IV&#x27;</span>: <span class="number">4</span>, <span class="string">&#x27;IX&#x27;</span>: <span class="number">9</span>, <span class="string">&#x27;XL&#x27;</span>: <span class="number">40</span>, <span class="string">&#x27;XC&#x27;</span>: <span class="number">90</span>, <span class="string">&#x27;CD&#x27;</span>: <span class="number">400</span>, <span class="string">&#x27;CM&#x27;</span>: <span class="number">900</span>,</span><br><span class="line">    <span class="string">&#x27;M&#x27;</span>: <span class="number">1000</span>, <span class="string">&#x27;D&#x27;</span>: <span class="number">500</span>, <span class="string">&#x27;C&#x27;</span>: <span class="number">100</span>, <span class="string">&#x27;L&#x27;</span>: <span class="number">50</span>, <span class="string">&#x27;X&#x27;</span>: <span class="number">10</span>, <span class="string">&#x27;V&#x27;</span>: <span class="number">5</span>, <span class="string">&#x27;I&#x27;</span>: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">ln = []</span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> mp.items():</span><br><span class="line">    ln.append([y, x])</span><br><span class="line">ln.sort()</span><br><span class="line">ln.reverse()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将一个任意形式的罗马数转化为整数。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">r2n</span>(<span class="params">s: <span class="built_in">str</span></span>):</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> s != <span class="string">&quot;&quot;</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt;= <span class="number">2</span> <span class="keyword">and</span> s[<span class="number">0</span>:<span class="number">2</span>] <span class="keyword">in</span> mp.keys():</span><br><span class="line">            ans += mp[s[<span class="number">0</span>:<span class="number">2</span>]]</span><br><span class="line">            s = s[<span class="number">2</span>:]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ans += mp[s[<span class="number">0</span>]]</span><br><span class="line">            s = s[<span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将一个整数转化为有效的罗马数。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">n2r</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    s = <span class="string">&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> ln:</span><br><span class="line">        cnt = n // x</span><br><span class="line">        s += y * cnt</span><br><span class="line">        n -= x * cnt</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> ls:</span><br><span class="line">    s = s.replace(<span class="string">&#x27;\n&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    ans += <span class="built_in">len</span>(s) - <span class="built_in">len</span>(n2r(r2n(s)))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -375,7 +356,7 @@ file contain no more than four consecutive identical units.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-89"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 89</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#roman-numerals"><span class="nav-number">1.1.1.</span> <span class="nav-text">Roman numerals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-89"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 89</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Roman-numerals"><span class="nav-number">1.1.1.</span> <span class="nav-text">Roman numerals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,14 +370,14 @@ file contain no more than four consecutive identical units.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -433,13 +414,13 @@ file contain no more than four consecutive identical units.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

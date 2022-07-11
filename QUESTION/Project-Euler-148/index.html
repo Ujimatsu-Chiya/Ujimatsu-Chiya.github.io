@@ -238,14 +238,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -257,15 +257,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-148">Project Euler 148</h1>
-<h2 id="题目">题目</h2>
-<h3 id="exploring-pascals-triangle">Exploring Pascal’s triangle</h3>
-<p>We can easily verify that none of the entries in the first seven rows
-of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-148"><a href="#Project-Euler-148" class="headerlink" title="Project Euler 148"></a>Project Euler 148</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Exploring-Pascal’s-triangle"><a href="#Exploring-Pascal’s-triangle" class="headerlink" title="Exploring Pascal’s triangle"></a>Exploring Pascal’s triangle</h3><p>We can easily verify that none of the entries in the first seven rows of Pascal’s triangle are divisible by $7$:</p>
+<div class="table-container">
 <table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -280,7 +295,7 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -295,7 +310,7 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -310,7 +325,7 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td></td>
 <td></td>
@@ -325,7 +340,7 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 <td></td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td></td>
 <td></td>
 <td>1</td>
@@ -340,7 +355,7 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 <td></td>
 <td></td>
 </tr>
-<tr class="even">
+<tr>
 <td></td>
 <td>1</td>
 <td></td>
@@ -355,7 +370,7 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 <td>1</td>
 <td></td>
 </tr>
-<tr class="odd">
+<tr>
 <td>1</td>
 <td></td>
 <td>6</td>
@@ -372,40 +387,26 @@ of Pascal’s triangle are divisible by <span class="math inline">\(7\)</span>:<
 </tr>
 </tbody>
 </table>
-<p>However, if we check the first one hundred rows, we will find that
-only <span class="math inline">\(2361\)</span> of the <span class="math inline">\(5050\)</span> entries are not divisible by <span class="math inline">\(7\)</span>.</p>
-<p>Find the number of entries which are not divisible by <span class="math inline">\(7\)</span> in the first one billion (<span class="math inline">\(10^9\)</span>) rows of Pascal’s triangle.</p>
-<h2 id="卢卡斯定理">卢卡斯定理</h2>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lucas%27s_theorem">卢卡斯定理</a>：如果<span class="math inline">\(p\)</span>是一个质数，那么计算组合数<span class="math inline">\(C_n^m\% p\)</span>时可用以下公式。</p>
-<p><span class="math display">\[C_n^m \equiv C_{n\%p}^{m\%p} \cdot
-C_{\lfloor\frac{n}{p}\rfloor}^{\lfloor\frac{m}{p}\rfloor}( \mod
-p)\]</span></p>
-<p>其中，在计算过程中，如果发生了<span class="math inline">\(m&gt;n\)</span>，那么<span class="math inline">\(C_n^m\%p=0\)</span>。</p>
-<p>可以看成是假设有两个等长的<span class="math inline">\(p\)</span>进制数（可以有前导<span class="math inline">\(0\)</span>）：<span class="math inline">\(a=a_{k-1}\dots a_2a_1a_0,b= b_{k-1}\dots
-b_2b_1b_0\)</span>。那么</p>
-<p><span class="math display">\[C_a^b\equiv  C_{a_{k-1}}^{b_{k-1}}\dots
-C_{a_2}^{b_2}C_{a_1}^{b_1}C_{a_0}^{b_0}(\mod p) \]</span></p>
-<h2 id="解决方案">解决方案</h2>
-<p>根据卢卡斯定理，上面的问题可以转化成另一种形式。有多少对<span class="math inline">\((i,j)(0\leq j \le i &lt;n
-)\)</span>，满足以下条件：</p>
-<p>将<span class="math inline">\(i\)</span>和<span class="math inline">\(j\)</span>写成两个长度为<span class="math inline">\(k\)</span>的<span class="math inline">\(p\)</span>进制数：<span class="math inline">\(i=i_{k-1}\dots i_2i_1i_0,j=j_{k-1}\dots
-j_2j_1j_0\)</span>。那么$q:0q&lt;k ,j_qi_q $.</p>
-<p>根据卢卡斯定理的描述，如果有一个<span class="math inline">\(j_q&gt;i_q\)</span>，那么整个式子模<span class="math inline">\(p\)</span>的值为<span class="math inline">\(0\)</span>，也就是能被<span class="math inline">\(p\)</span>整除。</p>
-<p>设<span class="math inline">\(p\)</span>进制数<span class="math inline">\(n=n_{k-1}\dots
-n_2n_1n_0\)</span>，那么对于每一个<span class="math inline">\(q\in[0,k-1]\)</span>，如果<span class="math inline">\(n_{k-1}=i_{k-1},n_{k-2}=i_{k-2},\dots,i_{q+1}=n_{q+1},i_q&lt;n_q\)</span>，可以将这一些数位的下标划分成独立的三个部分：</p>
-<ol type="1">
-<li><p><span class="math inline">\(q-1,q-2,\dots 0\)</span>这一部分。
-<span class="math inline">\(i_{q-1},i_{q-2},\dots,i_0\)</span>都可以随便填<span class="math inline">\(0,1,\dots,p-1\)</span>这<span class="math inline">\(p\)</span>个数，而每个<span class="math inline">\(j_{k-1}\le i_{k-1},j_{k-2}\le i_{k-2},\dots,j_0\le
-i_0\)</span>都要得到保证，因此后面这些数一共有<span class="math inline">\((\dfrac{p(p+1)}{2})^{k+1}\)</span>种填法。</p></li>
-<li><p><span class="math inline">\(q\)</span>自己的一部分。<span class="math inline">\(0\le j_q\le
-i_q&lt;n_q\)</span>，满足这个条件的<span class="math inline">\((j_q,i_q)\)</span>对数为<span class="math inline">\(\dfrac{n_q(n_q+1)}{2}\)</span>。</p></li>
-<li><p><span class="math inline">\(k-1,k-2,\dots,q+1\)</span>这一部分。这一部分的<span class="math inline">\(n\)</span>和<span class="math inline">\(i\)</span>的数位相等，<span class="math inline">\(i\)</span>的部分是固定的，<span class="math inline">\(j\)</span>是变动的，都有<span class="math inline">\(0\le j_m\le
-i_m=n_m\)</span>。因此每个独立数位都有<span class="math inline">\(n_m+1\)</span>种填法。</p></li>
+</div>
+<p>However, if we check the first one hundred rows, we will find that only $2361$ of the $5050$ entries are not divisible by $7$.</p>
+<p>Find the number of entries which are not divisible by $7$ in the first one billion ($10^9$) rows of Pascal’s triangle.</p>
+<h2 id="卢卡斯定理"><a href="#卢卡斯定理" class="headerlink" title="卢卡斯定理"></a>卢卡斯定理</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lucas%27s_theorem">卢卡斯定理</a>：如果$p$是一个质数，那么计算组合数$C_n^m\% p$时可用以下公式。</p>
+<script type="math/tex; mode=display">C_n^m \equiv C_{n\%p}^{m\%p} \cdot C_{\lfloor\frac{n}{p}\rfloor}^{\lfloor\frac{m}{p}\rfloor}( \mod p)</script><p>其中，在计算过程中，如果发生了$m&gt;n$，那么$C_n^m\%p=0$。</p>
+<p>可以看成是假设有两个等长的$p$进制数（可以有前导$0$）：$a=a_{k-1}\dots a_2a_1a_0,b= b_{k-1}\dots b_2b_1b_0$。那么</p>
+<script type="math/tex; mode=display">C_a^b\equiv  C_{a_{k-1}}^{b_{k-1}}\dots C_{a_2}^{b_2}C_{a_1}^{b_1}C_{a_0}^{b_0}(\mod p)</script><h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据卢卡斯定理，上面的问题可以转化成另一种形式。有多少对$(i,j)(0\leq j \le i &lt;n )$，满足以下条件：</p>
+<p>将$i$和$j$写成两个长度为$k$的$p$进制数：$i=i_{k-1}\dots i_2i_1i_0,j=j_{k-1}\dots j_2j_1j_0$。那么$\forall q:0\le q&lt;k ,j_q\le i_q $.</p>
+<p>根据卢卡斯定理的描述，如果有一个$j_q&gt;i_q$，那么整个式子模$p$的值为$0$，也就是能被$p$整除。</p>
+<p>设$p$进制数$n=n_{k-1}\dots n_2n_1n_0$，那么对于每一个$q\in[0,k-1]$，如果$n_{k-1}=i_{k-1},n_{k-2}=i_{k-2},\dots,i_{q+1}=n_{q+1},i_q&lt;n_q$，可以将这一些数位的下标划分成独立的三个部分：</p>
+<ol>
+<li><p>$q-1,q-2,\dots 0$这一部分。 $i_{q-1},i_{q-2},\dots,i_0$都可以随便填$0,1,\dots,p-1$这$p$个数，而每个$j_{k-1}\le i_{k-1},j_{k-2}\le i_{k-2},\dots,j_0\le i_0$都要得到保证，因此后面这些数一共有$(\dfrac{p(p+1)}{2})^{k+1}$种填法。</p>
+</li>
+<li><p>$q$自己的一部分。$0\le j_q\le i_q&lt;n_q$，满足这个条件的$(j_q,i_q)$对数为$\dfrac{n_q(n_q+1)}{2}$。</p>
+</li>
+<li><p>$k-1,k-2,\dots,q+1$这一部分。这一部分的$n$和$i$的数位相等，$i$的部分是固定的，$j$是变动的，都有$0\le j_m\le i_m=n_m$。因此每个独立数位都有$n_m+1$种填法。</p>
+</li>
 </ol>
-<p>三种情况独立考虑，因此最终答案为<span class="math display">\[\sum_{q=0}^{k-1} (\dfrac{p(p+1)}{2})^{k+1}\cdot
-\dfrac{n_q(n_q+1)}{2}\cdot \prod_{m=q+1}^{k-1}n_m\]</span></p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">N, p = <span class="number">10</span> ** <span class="number">9</span>, <span class="number">7</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span> n * (n + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">while</span> N:</span><br><span class="line">    ls.append(N % p)</span><br><span class="line">    N //= p</span><br><span class="line"></span><br><span class="line">ans, mul = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ls) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    ans += mul * (fun(p) ** k) * fun(ls[k])</span><br><span class="line">    mul *= (ls[k] + <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>三种情况独立考虑，因此最终答案为<script type="math/tex">\sum_{q=0}^{k-1} (\dfrac{p(p+1)}{2})^{k+1}\cdot \dfrac{n_q(n_q+1)}{2}\cdot \prod_{m=q+1}^{k-1}n_m</script></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">N, p = <span class="number">10</span> ** <span class="number">9</span>, <span class="number">7</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fun</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span> n * (n + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">while</span> N:</span><br><span class="line">    ls.append(N % p)</span><br><span class="line">    N //= p</span><br><span class="line"></span><br><span class="line">ans, mul = <span class="number">0</span>, <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ls) - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    ans += mul * (fun(p) ** k) * fun(ls[k])</span><br><span class="line">    mul *= (ls[k] + <span class="number">1</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -489,7 +490,7 @@ i_m=n_m\)</span>。因此每个独立数位都有<span class="math inline">\(n_m
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-148"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 148</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#exploring-pascals-triangle"><span class="nav-number">1.1.1.</span> <span class="nav-text">Exploring Pascal’s triangle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%A2%E5%8D%A1%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">卢卡斯定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-148"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 148</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Exploring-Pascal%E2%80%99s-triangle"><span class="nav-number">1.1.1.</span> <span class="nav-text">Exploring Pascal’s triangle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%A2%E5%8D%A1%E6%96%AF%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">卢卡斯定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -503,14 +504,14 @@ i_m=n_m\)</span>。因此每个独立数位都有<span class="math inline">\(n_m
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -547,13 +548,13 @@ i_m=n_m\)</span>。因此每个独立数位都有<span class="math inline">\(n_m
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

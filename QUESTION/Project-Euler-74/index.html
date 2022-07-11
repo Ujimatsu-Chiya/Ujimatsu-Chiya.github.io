@@ -257,40 +257,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-74">Project Euler 74</h1>
-<h2 id="题目">题目</h2>
-<h3 id="digit-factorial-chains">Digit factorial chains</h3>
-<p>The number <span class="math inline">\(145\)</span> is well known for
-the property that the sum of the factorial of its digits is equal to
-<span class="math inline">\(145\)</span>: <span class="math display">\[1! + 4! + 5! = 1 + 24 + 120 = 145\]</span>
-Perhaps less well known is <span class="math inline">\(169\)</span>, in
-that it produces the longest chain of numbers that link back to <span class="math inline">\(169\)</span>; it turns out that there are only
-three such loops that exist: <span class="math display">\[\begin{aligned}
-&amp; 169 \rightarrow 363601 \rightarrow 1454 \rightarrow 169 \\
-&amp; 871 \rightarrow 45361 \rightarrow 871\\
-&amp; 872 \rightarrow 45362 \rightarrow 872
-\end{aligned}\]</span></p>
-<p>It is not difficult to prove that EVERY starting number will
-eventually get stuck in a loop. For example,</p>
-<p><span class="math display">\[\begin{aligned}
-&amp; 69 \rightarrow 363600 \rightarrow 1454 \rightarrow 169 \rightarrow
-363601 (\rightarrow 1454)\\
-&amp; 78 \rightarrow 45360 \rightarrow 871 \rightarrow 45361
-(\rightarrow 871)\\
-&amp; 540 \rightarrow 145 (\rightarrow 145)
-  \end{aligned}\]</span></p>
-<p>Starting with <span class="math inline">\(69\)</span> produces a
-chain of five non-repeating terms, but the longest non-repeating chain
-with a starting number below one million is sixty terms.</p>
-<p>How many chains, with a starting number below one million, contain
-exactly sixty non-repeating terms?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>根据题目可以看到，有些数经过多次变换后，就会陷入一个循环，不会回到自身了。</p>
-<p>因此，本代码实现时，考虑了这个当前数是在环上还是在链上。如果是在环上，那么需要记录循环节和周期。如果是在链上，取下一轮迭代的结果进行加<span class="math inline">\(1\)</span>即可。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-74"><a href="#Project-Euler-74" class="headerlink" title="Project Euler 74"></a>Project Euler 74</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Digit-factorial-chains"><a href="#Digit-factorial-chains" class="headerlink" title="Digit factorial chains"></a>Digit factorial chains</h3><p>The number $145$ is well known for the property that the sum of the factorial of its digits is equal to $145$:</p>
+<script type="math/tex; mode=display">1! + 4! + 5! = 1 + 24 + 120 = 145</script><p>Perhaps less well known is $169$, in that it produces the longest chain of numbers that link back to $169$; it turns out that there are only three such loops that exist:</p>
+<script type="math/tex; mode=display">\begin{aligned}
+& 169 \rightarrow 363601 \rightarrow 1454 \rightarrow 169 \\
+& 871 \rightarrow 45361 \rightarrow 871\\
+& 872 \rightarrow 45362 \rightarrow 872
+\end{aligned}</script><p>It is not difficult to prove that EVERY starting number will eventually get stuck in a loop. For example,</p>
+<script type="math/tex; mode=display">\begin{aligned}
+& 69 \rightarrow 363600 \rightarrow 1454 \rightarrow 169 \rightarrow 363601 (\rightarrow 1454)\\
+& 78 \rightarrow 45360 \rightarrow 871 \rightarrow 45361 (\rightarrow 871)\\
+& 540 \rightarrow 145 (\rightarrow 145)
+  \end{aligned}</script><p>Starting with $69$ produces a chain of five non-repeating terms, but the longest non-repeating chain with a starting number below one million is sixty terms.</p>
+<p>How many chains, with a starting number below one million, contain exactly sixty non-repeating terms?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据题目可以看到，有些数经过多次变换后，就会陷入一个循环，不会回到自身了。</p>
+<p>因此，本代码实现时，考虑了这个当前数是在环上还是在链上。如果是在环上，那么需要记录循环节和周期。如果是在链上，取下一轮迭代的结果进行加$1$即可。</p>
 <p>本代码采用了记忆化搜索，每个值的后继都只会被计算一次。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>,M=<span class="number">60</span>;</span><br><span class="line"><span class="type">int</span> f[N&lt;&lt;<span class="number">2</span>],fac[<span class="number">14</span>];</span><br><span class="line"><span class="type">int</span> st[N&lt;&lt;<span class="number">2</span>],pos[N&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> fl)</span></span>&#123;</span><br><span class="line">    st[fl]=u;</span><br><span class="line">    <span class="keyword">if</span>(f[u]) <span class="keyword">return</span> f[u];</span><br><span class="line">    <span class="keyword">if</span>(pos[u])</span><br><span class="line">        <span class="keyword">return</span> f[u]=fl-pos[u];</span><br><span class="line">    pos[u]=fl;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=u;k;k/=<span class="number">10</span>)</span><br><span class="line">        s+=fac[k%<span class="number">10</span>];</span><br><span class="line">    <span class="type">int</span> x=<span class="built_in">dfs</span>(s,fl+<span class="number">1</span>);</span><br><span class="line">    pos[u]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(f[u]) <span class="keyword">return</span> f[u];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> f[u]=x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fac[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">        fac[i]=fac[i<span class="number">-1</span>]*i;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">dfs</span>(i,<span class="number">1</span>)==M) ++ans;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>,M=<span class="number">60</span>;</span><br><span class="line"><span class="type">int</span> f[N&lt;&lt;<span class="number">2</span>],fac[<span class="number">14</span>];</span><br><span class="line"><span class="type">int</span> st[N&lt;&lt;<span class="number">2</span>],pos[N&lt;&lt;<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">dfs</span><span class="params">(<span class="type">int</span> u,<span class="type">int</span> fl)</span></span>&#123;</span><br><span class="line">    st[fl]=u;</span><br><span class="line">    <span class="keyword">if</span>(f[u]) <span class="keyword">return</span> f[u];</span><br><span class="line">    <span class="keyword">if</span>(pos[u])</span><br><span class="line">        <span class="keyword">return</span> f[u]=fl-pos[u];</span><br><span class="line">    pos[u]=fl;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=u;k;k/=<span class="number">10</span>)</span><br><span class="line">        s+=fac[k%<span class="number">10</span>];</span><br><span class="line">    <span class="type">int</span> x=<span class="built_in">dfs</span>(s,fl+<span class="number">1</span>);</span><br><span class="line">    pos[u]=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(f[u]) <span class="keyword">return</span> f[u];</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> f[u]=x+<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fac[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">10</span>;i++)</span><br><span class="line">        fac[i]=fac[i<span class="number">-1</span>]*i;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">dfs</span>(i,<span class="number">1</span>)==M) ++ans;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -374,7 +359,7 @@ exactly sixty non-repeating terms?</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-74"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 74</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#digit-factorial-chains"><span class="nav-number">1.1.1.</span> <span class="nav-text">Digit factorial chains</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-74"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 74</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Digit-factorial-chains"><span class="nav-number">1.1.1.</span> <span class="nav-text">Digit factorial chains</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -388,14 +373,14 @@ exactly sixty non-repeating terms?</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -432,13 +417,13 @@ exactly sixty non-repeating terms?</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>990</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,33 +257,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-429">Project Euler 429</h1>
-<h2 id="题目">题目</h2>
-<h3 id="sum-of-squares-of-unitary-divisors">Sum of squares of unitary
-divisors</h3>
-<p>A unitary divisor <span class="math inline">\(d\)</span> of a number
-<span class="math inline">\(n\)</span> is a divisor of <span class="math inline">\(n\)</span> that has the property <span class="math inline">\(\gcd(d, \dfrac{n}{d}) = 1\)</span>.</p>
-<p>The unitary divisors of <span class="math inline">\(4! = 24\)</span>
-are <span class="math inline">\(1, 3, 8\)</span> and <span class="math inline">\(24\)</span>.</p>
-<p>The sum of their squares is <span class="math inline">\(1^2 + 3^2 +
-8^2 + 24^2 = 650\)</span>.</p>
-<p>Let <span class="math inline">\(S(n)\)</span> represent the sum of
-the squares of the unitary divisors of <span class="math inline">\(n\)</span>. Thus <span class="math inline">\(S(4!)=650\)</span>.</p>
-<p>Find <span class="math inline">\(S(100 000 000!) \text{ modulo } 1
-000 000 009\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>如果一个正整数<span class="math inline">\(n\)</span>分解后成为：</p>
-<p><span class="math display">\[n=\prod_{i=1}^m p_i^{e_i}\]</span></p>
-<p>对于<span class="math inline">\(n\)</span>的某个因子<span class="math inline">\(d=\prod_{i=1}^mp_i^{e_i&#39;}\)</span>而言，如果<span class="math inline">\(\gcd(d,\dfrac{n}{d})=1\)</span>，那么对于所有<span class="math inline">\(i\in [1,m]\)</span>，都有$e_i'{0,e_i} $。</p>
-<p>原因：如果<span class="math inline">\(d\)</span>的一个质因子<span class="math inline">\(p_i\)</span>的指数<span class="math inline">\(e_i&#39;\notin\{0,e_i\}\)</span>，也就是<span class="math inline">\(0&lt;e_i&#39;&lt;e_i\)</span>，那么<span class="math inline">\(\dfrac{n}{d}\)</span>对应下的质因子的指数为<span class="math inline">\(0&lt;e_i-e_i&#39;&lt;e_i\)</span>，因此<span class="math inline">\(\gcd(d,\dfrac{n}{d})\)</span>一定是<span class="math inline">\(p_i\)</span>的倍数，所以原来的命题成立。</p>
-<p>这些因子一共有<span class="math inline">\(2^m\)</span>个，因为对于所有<span class="math inline">\(i\in [1,m]\)</span>，<span class="math inline">\(e_i&#39;\)</span>都有两个选择。因此，这<span class="math inline">\(2^m\)</span>个因子的平方和为：</p>
-<p><span class="math display">\[S(n)=\prod_{i=1}^m(p_i^{2e_i}+1)\]</span></p>
-<p>另一个问题则是：<span class="math inline">\(n!\)</span>中质因子<span class="math inline">\(p\)</span>出现了多少次？</p>
-<p>设<span class="math inline">\(f(n, p)\)</span>是质因子<span class="math inline">\(p\)</span>在<span class="math inline">\(n!\)</span>中的次数，那么<span class="math inline">\(f(n,p)=\lfloor\dfrac{n}{p}\rfloor+\lfloor\dfrac{n}{p^2}\rfloor+\lfloor\dfrac{n}{p^3}\rfloor+\dots\)</span>，每一项分别表示<span class="math inline">\(1\sim n\)</span>中有多少个数是<span class="math inline">\(p,p^2,p^3\dots\)</span>的倍数。</p>
-<p>最终，将这<span class="math inline">\(2\)</span>个过程相结合，直接计算<span class="math inline">\(S(N!)\)</span>的值，其中<span class="math inline">\(N=10^8\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e8</span>;</span><br><span class="line">ll mod=<span class="number">1e9</span>+<span class="number">9</span>;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll n,ll m)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;m;m&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>) ans=ans*n%mod;</span><br><span class="line">        n=n*n%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n;n/=p)</span><br><span class="line">        ans+=n/p;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> pr[N+<span class="number">4</span>],v[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;pr[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ll cnt=<span class="built_in">cal</span>(N,pr[i]);</span><br><span class="line">        ans=ans*(<span class="built_in">qpow</span>(pr[i],cnt*<span class="number">2</span>)+<span class="number">1</span>)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-429"><a href="#Project-Euler-429" class="headerlink" title="Project Euler 429"></a>Project Euler 429</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Sum-of-squares-of-unitary-divisors"><a href="#Sum-of-squares-of-unitary-divisors" class="headerlink" title="Sum of squares of unitary divisors"></a>Sum of squares of unitary divisors</h3><p>A unitary divisor $d$ of a number $n$ is a divisor of $n$ that has the property $\gcd(d, \dfrac{n}{d}) = 1$.</p>
+<p>The unitary divisors of $4! = 24$ are $1, 3, 8$ and $24$.</p>
+<p>The sum of their squares is $1^2 + 3^2 + 8^2 + 24^2 = 650$.</p>
+<p>Let $S(n)$ represent the sum of the squares of the unitary divisors of $n$. Thus $S(4!)=650$.</p>
+<p>Find $S(100 000 000!) \text{ modulo } 1 000 000 009$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>如果一个正整数$n$分解后成为：</p>
+<script type="math/tex; mode=display">n=\prod_{i=1}^m p_i^{e_i}</script><p>对于$n$的某个因子$d=\prod_{i=1}^mp_i^{e_i’}$而言，如果$\gcd(d,\dfrac{n}{d})=1$，那么对于所有$i\in [1,m]$，都有$e_i’\in\{0,e_i\} $。</p>
+<p>原因：如果$d$的一个质因子$p_i$的指数$e_i’\notin\{0,e_i\}$，也就是$0&lt;e_i’&lt;e_i$，那么$\dfrac{n}{d}$对应下的质因子的指数为$0&lt;e_i-e_i’&lt;e_i$，因此$\gcd(d,\dfrac{n}{d})$一定是$p_i$的倍数，所以原来的命题成立。</p>
+<p>这些因子一共有$2^m$个，因为对于所有$i\in [1,m]$，$e_i’$都有两个选择。因此，这$2^m$个因子的平方和为：</p>
+<script type="math/tex; mode=display">S(n)=\prod_{i=1}^m(p_i^{2e_i}+1)</script><p>另一个问题则是：$n!$中质因子$p$出现了多少次？</p>
+<p>设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\lfloor\dfrac{n}{p}\rfloor+\lfloor\dfrac{n}{p^2}\rfloor+\lfloor\dfrac{n}{p^3}\rfloor+\dots$，每一项分别表示$1\sim n$中有多少个数是$p,p^2,p^3\dots$的倍数。</p>
+<p>最终，将这$2$个过程相结合，直接计算$S(N!)$的值，其中$N=10^8$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1e8</span>;</span><br><span class="line">ll mod=<span class="number">1e9</span>+<span class="number">9</span>;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll n,ll m)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(;m;m&gt;&gt;=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>) ans=ans*n%mod;</span><br><span class="line">        n=n*n%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> p)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n;n/=p)</span><br><span class="line">        ans+=n/p;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> pr[N+<span class="number">4</span>],v[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>)&#123;</span><br><span class="line">            v[i]=i;pr[++m]=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ll cnt=<span class="built_in">cal</span>(N,pr[i]);</span><br><span class="line">        ans=ans*(<span class="built_in">qpow</span>(pr[i],cnt*<span class="number">2</span>)+<span class="number">1</span>)%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -367,8 +355,7 @@ the squares of the unitary divisors of <span class="math inline">\(n\)</span>. T
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-429"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 429</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-of-squares-of-unitary-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sum of squares of unitary
-divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-429"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 429</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sum-of-squares-of-unitary-divisors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sum of squares of unitary divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,14 +369,14 @@ divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -426,13 +413,13 @@ divisors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

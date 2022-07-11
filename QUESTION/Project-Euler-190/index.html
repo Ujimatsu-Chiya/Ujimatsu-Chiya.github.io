@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,41 +257,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-190">Project Euler 190</h1>
-<h2 id="题目">题目</h2>
-<h3 id="maximising-a-weighted-product">Maximising a weighted
-product</h3>
-<p>Let <span class="math inline">\(S_m = (x_1, x_2, \dots ,
-x_m)\)</span> be the <span class="math inline">\(m\)</span>-tuple of
-positive real numbers with <span class="math inline">\(x_1 + x_2 + \dots
-+ x_m = m\)</span> for which <span class="math inline">\(P_m = x_1
-*x_2^2* \dots * x_m^m\)</span> is maximised.</p>
-<p>For example, it can be verified that <span class="math inline">\([P_{10}] = 4112\)</span> ([ ] is the integer part
-function).</p>
-<p>Find <span class="math inline">\(\sum[P_m]\)</span> for <span class="math inline">\(2 \le m \le 15\)</span>.</p>
-<h2 id="拉格朗日乘数法">拉格朗日乘数法</h2>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">拉格朗日乘数法</a>（等式约束，与不等式约束相对）用于求多元函数在一定约束下的极值。拉格朗日乘数法可以将一个<span class="math inline">\(n\)</span>元函数和<span class="math inline">\(k\)</span>个约束条件的最优化问题转化成一个解<span class="math inline">\(n+k\)</span>元方程组的解的问题。引入的一组新参数<span class="math inline">\(\lambda\)</span>，称为拉格朗日乘数。</p>
-<p>令<span class="math inline">\(f(x_1,x_2,\dots,x_n)\)</span>为需要求极值的多元函数，<span class="math inline">\(g_1(x_1,x_2,\dots,x_n)=0\)</span>,<span class="math inline">\(\dots\)</span>为<span class="math inline">\(k\)</span>个等式的约束，那么构造以下<span class="math inline">\(n+k\)</span>元拉格朗日函数：</p>
-<p><span class="math display">\[\mathcal{L}(x_1,x_2,\dots,x_n,\lambda_1,\lambda_2,\dots,\lambda_k)=f(x_1,x_2,\dots,x_n)-\sum_{i=1}^k\lambda_ig_i(x_1,x_2,\dots,x_n)\]</span></p>
-<p>问题转化成对函数<span class="math inline">\(\mathcal{L}\)</span>求极值。</p>
-<h2 id="解决方案">解决方案</h2>
-<p>令<span class="math inline">\(f(x_1,x_2,\dots,x_m)=\prod_{i=1}^mx_i^i,g(x_1,x_2,\dots,x_m)=\sum_{i=1}^mx_i-m\)</span>。</p>
-<p>那么利用拉格朗日乘数法，构造拉格朗日函数：</p>
-<p><span class="math display">\[\mathcal{L}(x_1,x_2,\dots,x_n,\lambda)=f(x_1,x_2,\dots,x_n)-\lambda
-g(x_1,x_2,\dots,x_n)=\prod_{i=1}^mx_i^i-\lambda(\sum_{i=1}^mx_i-m)\]</span></p>
-<p>为求最大值，对每个<span class="math inline">\(x_i\)</span>求偏导数，有</p>
-<p><span class="math display">\[\dfrac{\partial \mathcal{L}}{\partial
-x_i}=\dfrac{i \cdot f(x_1,x_2,\dots,x_n)}{x_i}-\lambda\]</span></p>
-<p>令<span class="math inline">\(\dfrac{\partial \mathcal{L}}{\partial
-x_i}=0\)</span>，得到<span class="math inline">\(x_i=\dfrac{i \cdot
-f(x_1,x_2,\dots,x_n)}{\lambda}\)</span>。</p>
-<p>由这个式子不难发现，<span class="math inline">\(x_i\)</span>的值，都是按比例分配的，即<span class="math inline">\(\forall
-i,j\in[1,m],\dfrac{x_i}{x_j}=\dfrac{i}{j}\)</span>。</p>
-<p>因此根据<span class="math inline">\(g\)</span>这个约束，可以得到最大值点为<span class="math inline">\(x_i=\dfrac{2i}{m+1}\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">15</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    w = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m + <span class="number">1</span>):</span><br><span class="line">        w *= (<span class="number">2</span> * i / (m + <span class="number">1</span>)) ** i</span><br><span class="line">    ans += <span class="built_in">int</span>(w)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <escape><span id="more"></span></escape>
 
+<h1 id="Project-Euler-190"><a href="#Project-Euler-190" class="headerlink" title="Project Euler 190"></a>Project Euler 190</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Maximising-a-weighted-product"><a href="#Maximising-a-weighted-product" class="headerlink" title="Maximising a weighted product"></a>Maximising a weighted product</h3><p>Let $S_m = (x_1, x_2, \dots , x_m)$ be the $m$-tuple of positive real numbers with $x_1 + x_2 + \dots + x_m = m$ for which $P_m = x_1 <em>x_2^2</em> \dots * x_m^m$ is maximised.</p>
+<p>For example, it can be verified that $[P_{10}] = 4112$ ([ ] is the integer part function).</p>
+<p>Find $\sum[P_m]$ for $2 \le m \le 15$.</p>
+<h2 id="拉格朗日乘数法"><a href="#拉格朗日乘数法" class="headerlink" title="拉格朗日乘数法"></a>拉格朗日乘数法</h2><p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Lagrange_multiplier">拉格朗日乘数法</a>（等式约束，与不等式约束相对）用于求多元函数在一定约束下的极值。拉格朗日乘数法可以将一个$n$元函数和$k$个约束条件的最优化问题转化成一个解$n+k$元方程组的解的问题。引入的一组新参数$\lambda$，称为拉格朗日乘数。</p>
+<p>令$f(x_1,x_2,\dots,x_n)$为需要求极值的多元函数，$g_1(x_1,x_2,\dots,x_n)=0$,$\dots$为$k$个等式的约束，那么构造以下$n+k$元拉格朗日函数：</p>
+<script type="math/tex; mode=display">\mathcal{L}(x_1,x_2,\dots,x_n,\lambda_1,\lambda_2,\dots,\lambda_k)=f(x_1,x_2,\dots,x_n)-\sum_{i=1}^k\lambda_ig_i(x_1,x_2,\dots,x_n)</script><p>问题转化成对函数$\mathcal{L}$求极值。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$f(x_1,x_2,\dots,x_m)=\prod_{i=1}^mx_i^i,g(x_1,x_2,\dots,x_m)=\sum_{i=1}^mx_i-m$。</p>
+<p>那么利用拉格朗日乘数法，构造拉格朗日函数：</p>
+<script type="math/tex; mode=display">\mathcal{L}(x_1,x_2,\dots,x_n,\lambda)=f(x_1,x_2,\dots,x_n)-\lambda g(x_1,x_2,\dots,x_n)=\prod_{i=1}^mx_i^i-\lambda(\sum_{i=1}^mx_i-m)</script><p>为求最大值，对每个$x_i$求偏导数，有</p>
+<script type="math/tex; mode=display">\dfrac{\partial \mathcal{L}}{\partial x_i}=\dfrac{i \cdot f(x_1,x_2,\dots,x_n)}{x_i}-\lambda</script><p>令$\dfrac{\partial \mathcal{L}}{\partial x_i}=0$，得到$x_i=\dfrac{i \cdot f(x_1,x_2,\dots,x_n)}{\lambda}$。</p>
+<p>由这个式子不难发现，$x_i$的值，都是按比例分配的，即$\forall i,j\in[1,m],\dfrac{x_i}{x_j}=\dfrac{i}{j}$。</p>
+<p>因此根据$g$这个约束，可以得到最大值点为$x_i=\dfrac{2i}{m+1}$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">15</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    w = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, m + <span class="number">1</span>):</span><br><span class="line">        w *= (<span class="number">2</span> * i / (m + <span class="number">1</span>)) ** i</span><br><span class="line">    ans += <span class="built_in">int</span>(w)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -374,8 +354,7 @@ i,j\in[1,m],\dfrac{x_i}{x_j}=\dfrac{i}{j}\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-190"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 190</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#maximising-a-weighted-product"><span class="nav-number">1.1.1.</span> <span class="nav-text">Maximising a weighted
-product</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">拉格朗日乘数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-190"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 190</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximising-a-weighted-product"><span class="nav-number">1.1.1.</span> <span class="nav-text">Maximising a weighted product</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%89%E6%A0%BC%E6%9C%97%E6%97%A5%E4%B9%98%E6%95%B0%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">拉格朗日乘数法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -389,14 +368,14 @@ product</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -433,13 +412,13 @@ product</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

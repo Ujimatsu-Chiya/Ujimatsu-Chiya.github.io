@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>811</span>
+              <span>777</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,34 +252,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-265">Project Euler 265</h1>
-<h2 id="题目">题目</h2>
-<h3 id="binary-circles">Binary Circles</h3>
-<p><span class="math inline">\(2^N\)</span> binary digits can be placed
-in a circle so that all the <span class="math inline">\(N\)</span>-digit
-clockwise subsequences are distinct.</p>
-<p>For <span class="math inline">\(N=3\)</span>, two such circular
-arrangements are possible, ignoring rotations:</p>
-<p><img src="../images/p265_BinaryCircles.gif"></p>
-<p>For the first arrangement, the <span class="math inline">\(3\)</span>-digit subsequences, in clockwise order,
-are: <span class="math inline">\(000, 001, 010, 101, 011, 111,
-110\)</span> and <span class="math inline">\(100\)</span>.</p>
-<p>Each circular arrangement can be encoded as a number by concatenating
-the binary digits starting with the subsequence of all zeros as the most
-significant bits and proceeding clockwise. The two arrangements for
-<span class="math inline">\(N=3\)</span> are thus represented as <span class="math inline">\(23\)</span> and <span class="math inline">\(29\)</span>:</p>
-<p><span class="math display">\[\begin{aligned}
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-265"><a href="#Project-Euler-265" class="headerlink" title="Project Euler 265"></a>Project Euler 265</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Binary-Circles"><a href="#Binary-Circles" class="headerlink" title="Binary Circles"></a>Binary Circles</h3><p>$2^N$ binary digits can be placed in a circle so that all the $N$-digit clockwise subsequences are distinct.</p>
+<p>For $N=3$, two such circular arrangements are possible, ignoring rotations:</p>
+<p><img src="../images/p265_BinaryCircles.gif" alt></p>
+<p>For the first arrangement, the $3$-digit subsequences, in clockwise order, are: $000, 001, 010, 101, 011, 111, 110$ and $100$.</p>
+<p>Each circular arrangement can be encoded as a number by concatenating the binary digits starting with the subsequence of all zeros as the most significant bits and proceeding clockwise. The two arrangements for $N=3$ are thus represented as $23$ and $29$:</p>
+<script type="math/tex; mode=display">\begin{aligned}
 00010111_2 = 23\\
 00011101_2 = 29
-\end{aligned}\]</span></p>
-<p>Calling <span class="math inline">\(S(N)\)</span> the sum of the
-unique numeric representations, we can see that <span class="math inline">\(S(3) = 23 + 29 = 52\)</span>. Find <span class="math inline">\(S(5)\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>本题没有太多需要注意的地方。直接把一个个二进制数视为一个节点，每个节点都有两条出边。然后再在图上寻找<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hamiltonian_path">哈密顿回路</a>即可。</p>
-<p>OEIS上的数列<a target="_blank" rel="noopener" href="https://oeis.org/A016031">A016031</a>提到，<span class="math inline">\(2^N\)</span>个<span class="math inline">\(N\)</span>比特串上述的环排列一共有<span class="math inline">\(2^{2^{N-1}-N}\)</span>个。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">5</span></span><br><span class="line">M = <span class="number">1</span> &lt;&lt; N</span><br><span class="line">mask = (<span class="number">1</span> &lt;&lt; N) - <span class="number">1</span></span><br><span class="line">g = [[i &lt;&lt; <span class="number">1</span> &amp; mask, (i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>) &amp; mask] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M)]</span><br><span class="line">vis = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M)]</span><br><span class="line">vis[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">f: <span class="built_in">int</span>, u: <span class="built_in">int</span>, s: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> f == M - <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> u == (M &gt;&gt; <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">global</span> ans</span><br><span class="line">            ans += s &gt;&gt; (N - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> g[u]:</span><br><span class="line">        <span class="keyword">if</span> vis[v]:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        vis[v] = <span class="number">1</span></span><br><span class="line">        dfs(f + <span class="number">1</span>, v, s &lt;&lt; <span class="number">1</span> | (v &amp; <span class="number">1</span>))</span><br><span class="line">        vis[v] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+\end{aligned}</script><p>Calling $S(N)$ the sum of the unique numeric representations, we can see that $S(3) = 23 + 29 = 52$.<br>Find $S(5)$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题没有太多需要注意的地方。直接把一个个二进制数视为一个节点，每个节点都有两条出边。然后再在图上寻找<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Hamiltonian_path">哈密顿回路</a>即可。</p>
+<p>OEIS上的数列<a target="_blank" rel="noopener" href="https://oeis.org/A016031">A016031</a>提到，$2^N$个$N$比特串上述的环排列一共有$2^{2^{N-1}-N}$个。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">5</span></span><br><span class="line">M = <span class="number">1</span> &lt;&lt; N</span><br><span class="line">mask = (<span class="number">1</span> &lt;&lt; N) - <span class="number">1</span></span><br><span class="line">g = [[i &lt;&lt; <span class="number">1</span> &amp; mask, (i &lt;&lt; <span class="number">1</span> | <span class="number">1</span>) &amp; mask] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M)]</span><br><span class="line">vis = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M)]</span><br><span class="line">vis[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">f: <span class="built_in">int</span>, u: <span class="built_in">int</span>, s: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> f == M - <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> u == (M &gt;&gt; <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">global</span> ans</span><br><span class="line">            ans += s &gt;&gt; (N - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> g[u]:</span><br><span class="line">        <span class="keyword">if</span> vis[v]:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        vis[v] = <span class="number">1</span></span><br><span class="line">        dfs(f + <span class="number">1</span>, v, s &lt;&lt; <span class="number">1</span> | (v &amp; <span class="number">1</span>))</span><br><span class="line">        vis[v] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -363,7 +349,7 @@ unique numeric representations, we can see that <span class="math inline">\(S(3)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-265"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 265</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#binary-circles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Binary Circles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-265"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 265</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Binary-Circles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Binary Circles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,14 +363,14 @@ unique numeric representations, we can see that <span class="math inline">\(S(3)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -421,13 +407,13 @@ unique numeric representations, we can see that <span class="math inline">\(S(3)
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -257,34 +257,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-234">Project Euler 234</h1>
-<h2 id="题目">题目</h2>
-<h3 id="semidivisible-numbers">Semidivisible numbers</h3>
-<p>For an integer <span class="math inline">\(n \ge 4\)</span>, we
-define the <em>lower prime square root</em> of n, denoted by <span class="math inline">\(\text{lps}(n)\)</span>, as the largest prime <span class="math inline">\(\le \sqrt{n}\)</span> and the <em>upper prime
-square root</em> of <span class="math inline">\(n\)</span>, <span class="math inline">\(\text{ups}(n)\)</span>, as the smallest prime
-<span class="math inline">\(\ge \sqrt{n}\)</span>.</p>
-<p>So, for example, <span class="math inline">\(\text{lps}(4) = 2 =
-\text{ups}(4), \text{lps}(1000) = 31, \text{ups}(1000) =
-37\)</span>.</p>
-<p>Let us call an integer <span class="math inline">\(n \ge 4\)</span>
-<em>semidivisible</em>, if one of <span class="math inline">\(\text{lps}(n)\)</span> and <span class="math inline">\(\text{ups}(n)\)</span> divides <span class="math inline">\(n\)</span>, but not both.</p>
-<p>The sum of the semidivisible numbers not exceeding <span class="math inline">\(15\)</span> is <span class="math inline">\(30\)</span>, the numbers are <span class="math inline">\(8, 10\)</span> and <span class="math inline">\(12\)</span>. <span class="math inline">\(15\)</span> is not semidivisible because it is a
-multiple of both <span class="math inline">\(\text{lps}(15)=3\)</span>
-and <span class="math inline">\(\text{ups}(15)=5\)</span>.</p>
-<p>As a further example, the sum of the <span class="math inline">\(92\)</span> semidivisible numbers up to <span class="math inline">\(1000\)</span> is <span class="math inline">\(34825\)</span>.</p>
-<p>What is the sum of all semidivisible numbers not exceeding <span class="math inline">\(999966663333\)</span> ?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>当一个数<span class="math inline">\(n\)</span>是一个质数<span class="math inline">\(p\)</span>的平方数时，<span class="math inline">\(\text{lps}(n) =
-\text{ups}(n)\)</span>。这种数不属于本题考虑的范围内；</p>
-<p>否则，<span class="math inline">\(\text{lps}(n),\text{ups}(n)\)</span>是两个相邻的质数（因为它们以<span class="math inline">\(\sqrt{n}\)</span>为分界点）。</p>
-<p>令<span class="math inline">\(p\)</span>为一个质数，<span class="math inline">\(q\)</span>是和<span class="math inline">\(p\)</span>相邻并且大于<span class="math inline">\(p\)</span>质数。那么<span class="math inline">\(\forall
-p^2&lt;x&lt;q^2,\text{lps}(x)=p,\text{ups}(x)=q\)</span>。</p>
-<p>每次枚举到一对相邻的质数<span class="math inline">\((p,q)\)</span>，我们可以在<strong>开区间</strong><span class="math inline">\((p^2,q^2)\)</span>寻找所有只被<span class="math inline">\(p,q\)</span>之一整除的数。尽管区间<span class="math inline">\((p^2,q^2)\)</span>范围很大，但是枚举步长是<span class="math inline">\(p\)</span>，因此其实每个区间中枚举的数量是很少的。</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-234"><a href="#Project-Euler-234" class="headerlink" title="Project Euler 234"></a>Project Euler 234</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Semidivisible-numbers"><a href="#Semidivisible-numbers" class="headerlink" title="Semidivisible numbers"></a>Semidivisible numbers</h3><p>For an integer $n \ge 4$, we define the <em>lower prime square root</em> of n, denoted by $\text{lps}(n)$, as the largest prime $\le \sqrt{n}$ and the <em>upper prime square root</em> of $n$, $\text{ups}(n)$, as the smallest prime $\ge \sqrt{n}$.</p>
+<p>So, for example, $\text{lps}(4) = 2 = \text{ups}(4), \text{lps}(1000) = 31, \text{ups}(1000) = 37$.</p>
+<p>Let us call an integer $n \ge 4$ <em>semidivisible</em>, if one of $\text{lps}(n)$ and $\text{ups}(n)$ divides $n$, but not both.</p>
+<p>The sum of the semidivisible numbers not exceeding $15$ is $30$, the numbers are $8, 10$ and $12$. $15$ is not semidivisible because it is a multiple of both $\text{lps}(15)=3$ and $\text{ups}(15)=5$.</p>
+<p>As a further example, the sum of the $92$ semidivisible numbers up to $1000$ is $34825$.</p>
+<p>What is the sum of all semidivisible numbers not exceeding $999966663333$ ?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>当一个数$n$是一个质数$p$的平方数时，$\text{lps}(n) = \text{ups}(n)$。这种数不属于本题考虑的范围内；</p>
+<p>否则，$\text{lps}(n),\text{ups}(n)$是两个相邻的质数（因为它们以$\sqrt{n}$为分界点）。</p>
+<p>令$p$为一个质数，$q$是和$p$相邻并且大于$p$质数。那么$\forall p^2&lt;x&lt;q^2,\text{lps}(x)=p,\text{ups}(x)=q$。</p>
+<p>每次枚举到一对相邻的质数$(p,q)$，我们可以在<strong>开区间</strong>$(p^2,q^2)$寻找所有只被$p,q$之一整除的数。尽管区间$(p^2,q^2)$范围很大，但是枚举步长是$p$，因此其实每个区间中枚举的数量是很少的。</p>
 <p>也可以通过容斥原理加速计算，省去枚举的时间。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">999966663333</span></span><br><span class="line">pr = get_prime(<span class="built_in">int</span>(N ** <span class="number">0.5</span> + <span class="number">4</span>))</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">    vl, vr = pr[i - <span class="number">1</span>], pr[i]</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>((vl * vl + vr - <span class="number">1</span>) // vr * vr, <span class="built_in">min</span>(N + <span class="number">1</span>, vr * vr), vr):</span><br><span class="line">        <span class="keyword">if</span> v % vl:</span><br><span class="line">            ans += v</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>(vl * (vl + <span class="number">1</span>), <span class="built_in">min</span>(N + <span class="number">1</span>, vr * vr), vl):</span><br><span class="line">        <span class="keyword">if</span> v % vr:</span><br><span class="line">            ans += v</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">999966663333</span></span><br><span class="line">pr = get_prime(<span class="built_in">int</span>(N ** <span class="number">0.5</span> + <span class="number">4</span>))</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">    vl, vr = pr[i - <span class="number">1</span>], pr[i]</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>((vl * vl + vr - <span class="number">1</span>) // vr * vr, <span class="built_in">min</span>(N + <span class="number">1</span>, vr * vr), vr):</span><br><span class="line">        <span class="keyword">if</span> v % vl:</span><br><span class="line">            ans += v</span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>(vl * (vl + <span class="number">1</span>), <span class="built_in">min</span>(N + <span class="number">1</span>, vr * vr), vl):</span><br><span class="line">        <span class="keyword">if</span> v % vr:</span><br><span class="line">            ans += v</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">999966663333</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">l, r, v</span>):</span><br><span class="line">    l, r = (l - <span class="number">1</span>) // v, r // v</span><br><span class="line">    <span class="keyword">return</span> (r * (r + <span class="number">1</span>) // <span class="number">2</span> - l * (l + <span class="number">1</span>) // <span class="number">2</span>) * v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pr = get_prime(<span class="built_in">int</span>(N ** <span class="number">0.5</span> + <span class="number">4</span>))</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(pr)):</span><br><span class="line">    vl, vr = pr[i - <span class="number">1</span>], pr[i]</span><br><span class="line">    l, r = <span class="built_in">min</span>(vl * vl + <span class="number">1</span>, N + <span class="number">1</span>), <span class="built_in">min</span>(vr * vr - <span class="number">1</span>, N + <span class="number">1</span>)</span><br><span class="line">    <span class="comment"># pq的倍数被算了两次，所以要减去两次。</span></span><br><span class="line">    ans += cal(l, r, vl) + cal(l, r, vr) - cal(l, r, vl * vr) * <span class="number">2</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
@@ -369,7 +355,7 @@ p^2&lt;x&lt;q^2,\text{lps}(x)=p,\text{ups}(x)=q\)</span>。</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-234"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 234</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#semidivisible-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Semidivisible numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-234"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 234</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Semidivisible-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Semidivisible numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -383,14 +369,14 @@ p^2&lt;x&lt;q^2,\text{lps}(x)=p,\text{ups}(x)=q\)</span>。</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -427,13 +413,13 @@ p^2&lt;x&lt;q^2,\text{lps}(x)=p,\text{ups}(x)=q\)</span>。</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>863</span>
+              <span>791</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,39 +250,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-609">Project Euler 609</h1>
-<h2 id="题目">题目</h2>
-<h3 id="π-sequences">π sequences</h3>
-<p>For every <span class="math inline">\(n \ge 1\)</span> the
-<strong>prime-counting</strong> function <span class="math inline">\(\pi(n)\)</span> is equal to the number of primes
-not exceeding <span class="math inline">\(n\)</span>.</p>
-<p>E.g. <span class="math inline">\(\pi(6)=3\)</span> and <span class="math inline">\(\pi(100)=25\)</span>.</p>
-<p>We say that a sequence of integers <span class="math inline">\(u =
-(u_0,\cdots,u_m)\)</span> is a <em><span class="math inline">\(\pi\)</span> sequence</em> if</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-609"><a href="#Project-Euler-609" class="headerlink" title="Project Euler 609"></a>Project Euler 609</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="π-sequences"><a href="#π-sequences" class="headerlink" title="π sequences"></a>π sequences</h3><p>For every $n \ge 1$ the <strong>prime-counting</strong> function $\pi(n)$ is equal to the number of primes not exceeding $n$.</p>
+<p>E.g. $\pi(6)=3$ and $\pi(100)=25$.</p>
+<p>We say that a sequence of integers $u  = (u_0,\cdots,u_m)$ is a <em>$\pi$ sequence</em> if</p>
 <ul>
-<li><span class="math inline">\(u_n \ge 1\)</span> for every <span class="math inline">\(n\)</span></li>
-<li><span class="math inline">\(u_{n+1}= \pi(u_n)\)</span></li>
-<li><span class="math inline">\(u\)</span> has two or more elements</li>
+<li>$u_n \ge 1$ for every $n$</li>
+<li>$u_{n+1}= \pi(u_n)$</li>
+<li>$u$ has two or more elements</li>
 </ul>
-<p>For <span class="math inline">\(u_0=10\)</span> there are three
-distinct <span class="math inline">\(\pi\)</span> sequences: <span class="math inline">\((10,4), (10,4,2)\)</span> and <span class="math inline">\((10,4,2,1)\)</span>.</p>
-<p>Let <span class="math inline">\(c(u)\)</span> be the number of
-elements of <span class="math inline">\(u\)</span> that are not
-prime.</p>
-<p>Let <span class="math inline">\(p(n,k)\)</span> be the number of
-<span class="math inline">\(\pi\)</span> sequences <span class="math inline">\(u\)</span> for which <span class="math inline">\(u_0\le n\)</span> and <span class="math inline">\(c(u)=k\)</span>.</p>
-<p>Let <span class="math inline">\(P(n)\)</span> be the product of all
-<span class="math inline">\(p(n,k)\)</span> that are larger than <span class="math inline">\(0\)</span>.</p>
-<p>You are given: <span class="math inline">\(P(10)=3\times8\times9\times3=648\)</span> and
-<span class="math inline">\(P(100)=31038676032\)</span>.</p>
-<p>Find <span class="math inline">\(P(10^8)\)</span>. Give your answer
-modulo <span class="math inline">\(1000000007\)</span>.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>利用线性筛生成所有质数，并直接计算出函数<span class="math inline">\(\pi\)</span>的值。<span class="math inline">\(u\)</span>序列直接通过迭代<span class="math inline">\(\pi\)</span>值产生。</p>
-<p>注意到，对于相邻两个质数<span class="math inline">\(p,q\)</span>，发现<span class="math inline">\(\pi(p)=\pi(p+1)=\pi(p+2)=\dots=\pi(q-1)\)</span>。因此，同时处理开头为<span class="math inline">\(p\sim q-1\)</span>的<span class="math inline">\(u\)</span>序列。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">4</span>*<span class="built_in">log2</span>(N+<span class="number">4</span>);</span><br><span class="line"><span class="type">int</span> s[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> v[N+<span class="number">4</span>],pr[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> cnt[M+<span class="number">4</span>];</span><br><span class="line">ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>) v[i]=i,pr[++m]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">        s[i]=s[i<span class="number">-1</span>]+(v[i]==i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> l=pr[i],r=(i==m?N:pr[i+<span class="number">1</span>]<span class="number">-1</span>);</span><br><span class="line">        <span class="type">int</span> c=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=s[l];j;j=s[j])&#123;</span><br><span class="line">            <span class="keyword">if</span>(v[j]!=j) ++c;</span><br><span class="line">            cnt[c+<span class="number">1</span>]+=r-l;</span><br><span class="line">            ++cnt[c];</span><br><span class="line">            <span class="keyword">if</span>(j==<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=M;j++)</span><br><span class="line">        <span class="keyword">if</span>(cnt[j]&gt;<span class="number">0</span>) ans=ans*cnt[j]%mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>For $u_0=10$ there are three distinct $\pi$ sequences: $(10,4),  (10,4,2)$ and $(10,4,2,1)$.</p>
+<p>Let $c(u)$ be the number of elements of $u$ that are not prime.</p>
+<p>Let $p(n,k)$ be the number of $\pi$ sequences $u$  for which $u_0\le n$ and $c(u)=k$.</p>
+<p>Let $P(n)$ be the product of all $p(n,k)$ that are larger than $0$.</p>
+<p>You are given: $P(10)=3\times8\times9\times3=648$ and $P(100)=31038676032$.</p>
+<p>Find $P(10^8)$. Give your answer modulo $1000000007$.</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>利用线性筛生成所有质数，并直接计算出函数$\pi$的值。$u$序列直接通过迭代$\pi$值产生。</p>
+<p>注意到，对于相邻两个质数$p,q$，发现$\pi(p)=\pi(p+1)=\pi(p+2)=\dots=\pi(q-1)$。因此，同时处理开头为$p\sim q-1$的$u$序列。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">4</span>*<span class="built_in">log2</span>(N+<span class="number">4</span>);</span><br><span class="line"><span class="type">int</span> s[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">int</span> v[N+<span class="number">4</span>],pr[N+<span class="number">4</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> cnt[M+<span class="number">4</span>];</span><br><span class="line">ll mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>) v[i]=i,pr[++m]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">        s[i]=s[i<span class="number">-1</span>]+(v[i]==i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        <span class="type">int</span> l=pr[i],r=(i==m?N:pr[i+<span class="number">1</span>]<span class="number">-1</span>);</span><br><span class="line">        <span class="type">int</span> c=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=s[l];j;j=s[j])&#123;</span><br><span class="line">            <span class="keyword">if</span>(v[j]!=j) ++c;</span><br><span class="line">            cnt[c+<span class="number">1</span>]+=r-l;</span><br><span class="line">            ++cnt[c];</span><br><span class="line">            <span class="keyword">if</span>(j==<span class="number">1</span>) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=M;j++)</span><br><span class="line">        <span class="keyword">if</span>(cnt[j]&gt;<span class="number">0</span>) ans=ans*cnt[j]%mod;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -366,7 +352,7 @@ modulo <span class="math inline">\(1000000007\)</span>.</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-609"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 609</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%CF%80-sequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">π sequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-609"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 609</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%CF%80-sequences"><span class="nav-number">1.1.1.</span> <span class="nav-text">π sequences</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -380,14 +366,14 @@ modulo <span class="math inline">\(1000000007\)</span>.</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -424,13 +410,13 @@ modulo <span class="math inline">\(1000000007\)</span>.</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

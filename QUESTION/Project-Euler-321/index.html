@@ -242,14 +242,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
+              <span>1 分钟</span>
             </span>
 
         </div>
@@ -261,59 +261,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-321">Project Euler 321</h1>
-<h2 id="题目">题目</h2>
-<h3 id="swapping-counters">Swapping Counters</h3>
-<p>A horizontal row comprising of <span class="math inline">\(2n +
-1\)</span> squares has <span class="math inline">\(n\)</span> red
-counters placed at one end and <span class="math inline">\(n\)</span>
-blue counters at the other end, being separated by a single empty square
-in the centre. For example, when <span class="math inline">\(n =
-3\)</span>.</p>
-<p><img src="../images/p321_swapping_counters_1.gif"></p>
-<p>A counter can move from one square to the next (slide) or can jump
-over another counter (hop) as long as the square next to that counter is
-unoccupied.</p>
-<p><img src="../images/p321_swapping_counters_2.gif"></p>
-<p>Let <span class="math inline">\(M(n)\)</span> represent the minimum
-number of moves/actions to completely reverse the positions of the
-coloured counters; that is, move all the red counters to the right and
-all the blue counters to the left.</p>
-<p>It can be verified <span class="math inline">\(M(3) = 15\)</span>,
-which also happens to be a triangle number.</p>
-<p>If we create a sequence based on the values of n for which <span class="math inline">\(M(n)\)</span> is a triangle number then the first
-five terms would be: <span class="math inline">\(1, 3, 10, 22,\)</span>
-and <span class="math inline">\(63\)</span>, and their sum would be
-<span class="math inline">\(99\)</span>.</p>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-321"><a href="#Project-Euler-321" class="headerlink" title="Project Euler 321"></a>Project Euler 321</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Swapping-Counters"><a href="#Swapping-Counters" class="headerlink" title="Swapping Counters"></a>Swapping Counters</h3><p>A horizontal row comprising of $2n + 1$ squares has $n$ red counters placed at one end and $n$ blue counters at the other end, being separated by a single empty square in the centre. For example, when $n = 3$.</p>
+<p><img src="../images/p321_swapping_counters_1.gif" alt></p>
+<p>A counter can move from one square to the next (slide) or can jump over another counter (hop) as long as the square next to that counter is unoccupied.</p>
+<p><img src="../images/p321_swapping_counters_2.gif" alt></p>
+<p>Let $M(n)$ represent the minimum number of moves/actions to completely reverse the positions of the coloured counters; that is, move all the red counters to the right and all the blue counters to the left.</p>
+<p>It can be verified $M(3) = 15$, which also happens to be a triangle number.</p>
+<p>If we create a sequence based on the values of n for which $M(n)$ is a triangle number then the first five terms would be: $1, 3, 10, 22,$ and $63$, and their sum would be $99$.</p>
 <p>Find the sum of the first forty terms of this sequence.</p>
-<h2 id="解决方案">解决方案</h2>
-<p>第一个问题：<span class="math inline">\(M(n)\)</span>的式子是什么？</p>
-<p>可以发现，每一枚筹码如果移动到它的目标格子，都需要前进<span class="math inline">\(n+1\)</span>格，因此<span class="math inline">\(2n\)</span>枚筹码就总共需要前进<span class="math inline">\(2n(n+1)\)</span>格子。</p>
-<p>但是，当两个不同颜色的筹码相遇时，一个筹码就可以朝另一个筹码跳跃，一次操作就会前进<span class="math inline">\(2\)</span>格格子。这样的相遇一共会发生<span class="math inline">\(n^2\)</span>次。</p>
-<p>因此，<span class="math inline">\(M(n)=2n(n+1)-n^2=n^2+2n\)</span>。</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>第一个问题：$M(n)$的式子是什么？</p>
+<p>可以发现，每一枚筹码如果移动到它的目标格子，都需要前进$n+1$格，因此$2n$枚筹码就总共需要前进$2n(n+1)$格子。</p>
+<p>但是，当两个不同颜色的筹码相遇时，一个筹码就可以朝另一个筹码跳跃，一次操作就会前进$2$格格子。这样的相遇一共会发生$n^2$次。</p>
+<p>因此，$M(n)=2n(n+1)-n^2=n^2+2n$。</p>
 <p>第二个问题：求解问题中要求的数。</p>
-<p>如果<span class="math inline">\(M(n)\)</span>为三角数，设存在m，使得<span class="math inline">\(n^2+2n=\dfrac{m(m+1)}{2}\)</span>。</p>
-<p>移项，两边同乘一个数<span class="math inline">\(8\)</span>，得到<span class="math inline">\(4m(m+1)-8(n^2+2n)=0\)</span></p>
-<p>进行配方，移项后得到<span class="math inline">\((2m+1)^2-8(n+1)^2=-7\)</span>。</p>
-<p>令<span class="math inline">\(x=2m+1,y=n+1\)</span>，那么得到<span class="math inline">\(x^2-8y^2=-7\)</span>，该类方程为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pell%27s_equation#Generalized_Pell&#39;s_equation">广义佩尔方程</a>：<span class="math inline">\(x^2-Dy^2=N\)</span>。</p>
-<p>但是，广义佩尔方程的基础解有多个，不像<span class="math inline">\(N=1,-1\)</span>时的情形。</p>
-<p>经过一定范围的搜索，发现这个方程有<span class="math inline">\(6\)</span>个基本解：</p>
-<p><span class="math inline">\((1, 1), (5, 2)\)</span></p>
-<p>使用与第137题类似的方法，每一组<span class="math inline">\(x^2-8y^2=-7\)</span>的通解由它的一个基础解<span class="math inline">\((x_1,y_1)\)</span>和<span class="math inline">\(x^2-8y^2=1\)</span>的通解<span class="math inline">\((a_k,b_k)\)</span>得到。</p>
-<p><span class="math display">\[\left \{\begin{aligned}
-  &amp; x_{k+1}=x_1a_k+Dy_1b_k\\
-  &amp; y_{k+1}=y_1a_k+x_1b_k
-\end{aligned}\right.
-\]</span></p>
-<p>再根据第66题的算法，可以得到<span class="math inline">\(x^2-8y^2=1\)</span>的通解： <span class="math display">\[a_1=3,b_1=1\]</span> <span class="math display">\[\left \{\begin{aligned}
-  &amp; a_{k+1}=3a_k+8b_k\\
-  &amp; b_{k+1}=a_k+3b_k
-\end{aligned}\right.
-\]</span></p>
-<p>计算出每一对<span class="math inline">\((x,y)\)</span>后，需要回代<span class="math inline">\(m=\dfrac{x-1}{2},n=y-1\)</span>。判断这时<span class="math inline">\(m,n\)</span>是否为正整数。最终求出这些<span class="math inline">\(n\)</span>的和</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">40</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_solution</span>():</span><br><span class="line">    D = <span class="number">8</span></span><br><span class="line">    base_sol = [(<span class="number">1</span>, <span class="number">1</span>), (<span class="number">5</span>, <span class="number">2</span>)]</span><br><span class="line">    a, b = <span class="number">3</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> base_sol:</span><br><span class="line">        <span class="keyword">yield</span> x, y</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(base_sol)):</span><br><span class="line">            x, y = base_sol[i]</span><br><span class="line">            x, y = x * a + D * y * b, x * b + y * a</span><br><span class="line">            <span class="keyword">yield</span> x, y</span><br><span class="line">        a, b = <span class="number">3</span> * a + <span class="number">8</span> * b, a + <span class="number">3</span> * b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> gen_solution():</span><br><span class="line">    <span class="keyword">if</span> (x - <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">and</span> (x - <span class="number">1</span>) // <span class="number">2</span> &gt; <span class="number">0</span>:</span><br><span class="line">        ls.append(y - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(ls) == N:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">ans = <span class="built_in">sum</span>(ls)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果$M(n)$为三角数，设存在m，使得$n^2+2n=\dfrac{m(m+1)}{2}$。</p>
+<p>移项，两边同乘一个数$8$，得到$4m(m+1)-8(n^2+2n)=0$</p>
+<p>进行配方，移项后得到$(2m+1)^2-8(n+1)^2=-7$。</p>
+<p>令$x=2m+1,y=n+1$，那么得到$x^2-8y^2=-7$，该类方程为<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pell%27s_equation#Generalized_Pell&#39;s_equation">广义佩尔方程</a>：$x^2-Dy^2=N$。</p>
+<p>但是，广义佩尔方程的基础解有多个，不像$N=1,-1$时的情形。</p>
+<p>经过一定范围的搜索，发现这个方程有$6$个基本解：</p>
+<p>$(1, 1), (5, 2)$</p>
+<p>使用与第137题类似的方法，每一组$x^2-8y^2=-7$的通解由它的一个基础解$(x_1,y_1)$和$x^2-8y^2=1$的通解$(a_k,b_k)$得到。</p>
+<script type="math/tex; mode=display">\left \{\begin{aligned}
+  & x_{k+1}=x_1a_k+Dy_1b_k\\
+  & y_{k+1}=y_1a_k+x_1b_k
+\end{aligned}\right.</script><p>再根据第66题的算法，可以得到$x^2-8y^2=1$的通解：</p>
+<script type="math/tex; mode=display">a_1=3,b_1=1</script><script type="math/tex; mode=display">\left \{\begin{aligned}
+  & a_{k+1}=3a_k+8b_k\\
+  & b_{k+1}=a_k+3b_k
+\end{aligned}\right.</script><p>计算出每一对$(x,y)$后，需要回代$m=\dfrac{x-1}{2},n=y-1$。判断这时$m,n$是否为正整数。最终求出这些$n$的和</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">40</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_solution</span>():</span><br><span class="line">    D = <span class="number">8</span></span><br><span class="line">    base_sol = [(<span class="number">1</span>, <span class="number">1</span>), (<span class="number">5</span>, <span class="number">2</span>)]</span><br><span class="line">    a, b = <span class="number">3</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> x, y <span class="keyword">in</span> base_sol:</span><br><span class="line">        <span class="keyword">yield</span> x, y</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(base_sol)):</span><br><span class="line">            x, y = base_sol[i]</span><br><span class="line">            x, y = x * a + D * y * b, x * b + y * a</span><br><span class="line">            <span class="keyword">yield</span> x, y</span><br><span class="line">        a, b = <span class="number">3</span> * a + <span class="number">8</span> * b, a + <span class="number">3</span> * b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> gen_solution():</span><br><span class="line">    <span class="keyword">if</span> (x - <span class="number">1</span>) % <span class="number">2</span> == <span class="number">0</span> <span class="keyword">and</span> (x - <span class="number">1</span>) // <span class="number">2</span> &gt; <span class="number">0</span>:</span><br><span class="line">        ls.append(y - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(ls) == N:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">ans = <span class="built_in">sum</span>(ls)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -398,7 +377,7 @@ and <span class="math inline">\(63\)</span>, and their sum would be
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-321"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 321</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#swapping-counters"><span class="nav-number">1.1.1.</span> <span class="nav-text">Swapping Counters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-321"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 321</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Swapping-Counters"><span class="nav-number">1.1.1.</span> <span class="nav-text">Swapping Counters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -412,14 +391,14 @@ and <span class="math inline">\(63\)</span>, and their sum would be
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -456,13 +435,13 @@ and <span class="math inline">\(63\)</span>, and their sum would be
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

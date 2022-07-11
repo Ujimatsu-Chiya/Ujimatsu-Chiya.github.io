@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2.2k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,65 +258,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-145">Project Euler 145</h1>
-<h2 id="题目">题目</h2>
-<h3 id="how-many-reversible-numbers-are-there-below-one-billion">How
-many reversible numbers are there below one-billion?</h3>
-<p>Some positive integers n have the property that the sum <span class="math inline">\([ n + \mathrm{reverse}(n) ]\)</span> consists
-entirely of odd (decimal) digits. For instance, <span class="math inline">\(36 + 63 = 99\)</span> and <span class="math inline">\(409 + 904 = 1313\)</span>. We will call such
-numbers <em>reversible</em>; so <span class="math inline">\(36, 63,
-409\)</span>, and <span class="math inline">\(904\)</span> are
-reversible. Leading zeroes are not allowed in either n or
-reverse(n).</p>
-<p>There are <span class="math inline">\(120\)</span> reversible numbers
-below one-thousand.</p>
-<p>How many reversible numbers are there below one-billion (<span class="math inline">\(10^9\)</span>)?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>首先假设<span class="math inline">\(g(n)=[n+\mathrm{reverse}(n)
-]\)</span></p>
-<p>假设<span class="math inline">\(f_1(i)(i&gt;0)\)</span>满足以下条件的<span class="math inline">\(i\)</span>位数<span class="math inline">\(n\)</span>的个数：<strong>无</strong>前导<span class="math inline">\(0\)</span>；<span class="math inline">\(g(n)\)</span>是一个<span class="math inline">\(i\)</span>位数；<span class="math inline">\(g(n)\)</span>每一个数位都是奇数。</p>
-<p>类似的，<span class="math inline">\(f_2(i)(i&gt;0)\)</span>：<strong>可能有</strong>前导<span class="math inline">\(0\)</span>；<span class="math inline">\(g(n)\)</span>是一个<span class="math inline">\(i\)</span>位数；<span class="math inline">\(g(n)\)</span>每一个数位都是奇数。</p>
-<p><span class="math inline">\(f_3(i)(i&gt;0)\)</span>：<strong>无</strong>前导<span class="math inline">\(0\)</span>；<span class="math inline">\(g(n)\)</span>是一个<span class="math inline">\(i+1\)</span>位数；<span class="math inline">\(g(n)\)</span>每一个数位都是奇数（明显加法产生进位的第<span class="math inline">\(i+1\)</span>位肯定是<span class="math inline">\(1\)</span>）。</p>
-<p><span class="math inline">\(f_4(i)(i&gt;0)\)</span>：<strong>可能有</strong>前导0；<span class="math inline">\(g(n)\)</span>是一个<span class="math inline">\(i\)</span>位数；<span class="math inline">\(g(n)\)</span>中高<span class="math inline">\(i-1\)</span>位都是奇数，最低位则是偶数。</p>
-<p>本题通过将为一个<span class="math inline">\(i-2\)</span>位数高位前面添加一个数位<span class="math inline">\(l\)</span>，低位后面添加一个数位<span class="math inline">\(r\)</span>进行考虑。</p>
-<p>如果对<span class="math inline">\(f_2(i-2)\)</span>中的所有数的添加方案为：<span class="math inline">\(0&lt;l+r\le9\)</span>，<span class="math inline">\(l+r\)</span>为奇数，<span class="math inline">\(l,r&gt;0\)</span>，那么就变成了<span class="math inline">\(f_1(i)\)</span>中的数，每个数有<span class="math inline">\(20\)</span>种添加方案；而如果是<span class="math inline">\(0\le l+r\le9\)</span>，<span class="math inline">\(l+r\)</span>为奇数，那么就变成了<span class="math inline">\(f_2(i)\)</span>中的数，每一个数有<span class="math inline">\(30\)</span>种添加方案。</p>
-<p>如果对<span class="math inline">\(f_4(i-2)\)</span>中的所有数的添加方案为：<span class="math inline">\(l+r&gt;9\)</span>，<span class="math inline">\(l+r\)</span>为奇数 ，那么每个数就变成了<span class="math inline">\(f_3(i)\)</span>中的数，每个数有<span class="math inline">\(20\)</span>种添加方案。注意到，由于<span class="math inline">\(l+r\)</span>有一个进位，那么添加后相比添加前的数有：前面的进位导致<span class="math inline">\(g(n)\)</span>从<span class="math inline">\(i-2\)</span>位数变成<span class="math inline">\(i+1\)</span>位数，后面的进位将<span class="math inline">\(g(n)\)</span>最后一位偶数<span class="math inline">\(+1\)</span>变成奇数。</p>
-<p>如果对<span class="math inline">\(f_3(i-2)\)</span>中的所有数的添加方案为：<span class="math inline">\(0\leq l+r&lt;9\)</span>，<span class="math inline">\(l+r\)</span>为<strong>偶数</strong>
-，那么每个数就变成了<span class="math inline">\(f_3(i)\)</span>中的数，每个数有<span class="math inline">\(25\)</span>种添加方案。由于<span class="math inline">\(f_3(i-2)\)</span>中的<span class="math inline">\(g(n)\)</span>是<span class="math inline">\(i-1\)</span>位数（最高位为<span class="math inline">\(1\)</span>），因此添加的<span class="math inline">\(l\)</span>就直接影响<span class="math inline">\(g(n)\)</span>第<span class="math inline">\(i-1\)</span>位；并且，<span class="math inline">\(l+r\)</span>是一个偶数，因此添加后<span class="math inline">\(g(n)\)</span>的最高位<span class="math inline">\(l+r+1\)</span>是一个奇数。而<span class="math inline">\(g(n)\)</span>最低位则是直接被添加了一个偶数<span class="math inline">\(l+r\)</span>。</p>
-<p>将<span class="math inline">\(f_1,f_2,f_3,f_4\)</span>写成状态转移方程，有：</p>
-<p><span class="math display">\[
+        <escape><span id="more"></span></escape>
+
+
+
+
+<h1 id="Project-Euler-145"><a href="#Project-Euler-145" class="headerlink" title="Project Euler 145"></a>Project Euler 145</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="How-many-reversible-numbers-are-there-below-one-billion"><a href="#How-many-reversible-numbers-are-there-below-one-billion" class="headerlink" title="How many reversible numbers are there below one-billion?"></a>How many reversible numbers are there below one-billion?</h3><p>Some positive integers n have the property that the sum $[ n + \mathrm{reverse}(n) ]$ consists entirely of odd (decimal) digits. For instance, $36 + 63 = 99$ and $409 + 904 = 1313$. We will call such numbers <em>reversible</em>; so $36, 63, 409$, and $904$ are reversible. Leading zeroes are not allowed in either n or reverse(n).</p>
+<p>There are $120$ reversible numbers below one-thousand.</p>
+<p>How many reversible numbers are there below one-billion ($10^9$)?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>首先假设$g(n)=[n+\mathrm{reverse}(n) ]$</p>
+<p>假设$f_1(i)(i&gt;0)$满足以下条件的$i$位数$n$的个数：<strong>无</strong>前导$0$；$g(n)$是一个$i$位数；$g(n)$每一个数位都是奇数。</p>
+<p>类似的，$f_2(i)(i&gt;0)$：<strong>可能有</strong>前导$0$；$g(n)$是一个$i$位数；$g(n)$每一个数位都是奇数。</p>
+<p>$f_3(i)(i&gt;0)$：<strong>无</strong>前导$0$；$g(n)$是一个$i+1$位数；$g(n)$每一个数位都是奇数（明显加法产生进位的第$i+1$位肯定是$1$）。</p>
+<p>$f_4(i)(i&gt;0)$：<strong>可能有</strong>前导0；$g(n)$是一个$i$位数；$g(n)$中高$i-1$位都是奇数，最低位则是偶数。</p>
+<p>本题通过将为一个$i-2$位数高位前面添加一个数位$l$，低位后面添加一个数位$r$进行考虑。</p>
+<p>如果对$f_2(i-2)$中的所有数的添加方案为：$0<l+r\le9$，$l+r$为奇数，$l,r>0$，那么就变成了$f_1(i)$中的数，每个数有$20$种添加方案；而如果是$0\le l+r\le9$，$l+r$为奇数，那么就变成了$f_2(i)$中的数，每一个数有$30$种添加方案。</l+r\le9$，$l+r$为奇数，$l,r></p>
+<p>如果对$f_4(i-2)$中的所有数的添加方案为：$l+r&gt;9$，$l+r$为奇数 ，那么每个数就变成了$f_3(i)$中的数，每个数有$20$种添加方案。注意到，由于$l+r$有一个进位，那么添加后相比添加前的数有：前面的进位导致$g(n)$从$i-2$位数变成$i+1$位数，后面的进位将$g(n)$最后一位偶数$+1$变成奇数。</p>
+<p>如果对$f_3(i-2)$中的所有数的添加方案为：$0\leq l+r&lt;9$，$l+r$为<strong>偶数</strong> ，那么每个数就变成了$f_3(i)$中的数，每个数有$25$种添加方案。由于$f_3(i-2)$中的$g(n)$是$i-1$位数（最高位为$1$），因此添加的$l$就直接影响$g(n)$第$i-1$位；并且，$l+r$是一个偶数，因此添加后$g(n)$的最高位$l+r+1$是一个奇数。而$g(n)$最低位则是直接被添加了一个偶数$l+r$。</p>
+<p>将$f_1,f_2,f_3,f_4$写成状态转移方程，有：</p>
+<script type="math/tex; mode=display">
 f_1(i)=
 \left \{\begin{aligned}
-  &amp;0  &amp; &amp; \mathrm{if\quad} i=1 \\
-  &amp;20  &amp; &amp; \mathrm{else if\quad} i=2 \\
-  &amp;20f_2(i-2) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span> <span class="math display">\[
+  &0  & & \mathrm{if\quad} i=1 \\
+  &20  & & \mathrm{else if\quad} i=2 \\
+  &20f_2(i-2) & & \mathrm{else}
+\end{aligned}\right.</script><script type="math/tex; mode=display">
 f_2(i)=
 \left \{\begin{aligned}
-  &amp;0  &amp; &amp; \mathrm{if\quad} i=1 \\
-  &amp;30  &amp; &amp; \mathrm{else if\quad} i=2 \\
-  &amp;30f_2(i-2) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span> <span class="math display">\[
+  &0  & & \mathrm{if\quad} i=1 \\
+  &30  & & \mathrm{else if\quad} i=2 \\
+  &30f_2(i-2) & & \mathrm{else}
+\end{aligned}\right.</script><script type="math/tex; mode=display">
 f_3(i)=
 \left \{\begin{aligned}
-  &amp;0  &amp; &amp; \mathrm{if\quad} i=1,2 \\
-  &amp;20f_4(i-2) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span> <span class="math display">\[
+  &0  & & \mathrm{if\quad} i=1,2 \\
+  &20f_4(i-2) & & \mathrm{else}
+\end{aligned}\right.</script><script type="math/tex; mode=display">
 f_4(i)=
 \left \{\begin{aligned}
-  &amp;5  &amp; &amp; \mathrm{if\quad} i=1 \\
-  &amp;0  &amp; &amp; \mathrm{else if\quad} i=2 \\
-  &amp;25f_3(i-2) &amp; &amp; \mathrm{else}
-\end{aligned}\right.
-\]</span> 这里的每一个初值都是直接暴力计算出来。</p>
-<p>令<span class="math inline">\(N=9\)</span>，那么答案就是<span class="math inline">\(\sum_{i=1}^Nf_1(i)+f_3(i)\)</span>。</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">9</span></span><br><span class="line">f1, f2, f3, f4 = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">20</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, N + <span class="number">1</span>):</span><br><span class="line">    f1.append(<span class="number">20</span> * f2[i - <span class="number">2</span>])</span><br><span class="line">    f2.append(<span class="number">30</span> * f2[i - <span class="number">2</span>])</span><br><span class="line">    f3.append(<span class="number">20</span> * f4[i - <span class="number">2</span>])</span><br><span class="line">    f4.append(<span class="number">25</span> * f3[i - <span class="number">2</span>])</span><br><span class="line">ans = <span class="built_in">sum</span>(f1[<span class="number">1</span>:] + f3[<span class="number">1</span>:])</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
+  &5  & & \mathrm{if\quad} i=1 \\
+  &0  & & \mathrm{else if\quad} i=2 \\
+  &25f_3(i-2) & & \mathrm{else}
+\end{aligned}\right.</script><p>这里的每一个初值都是直接暴力计算出来。</p>
+<p>令$N=9$，那么答案就是$\sum_{i=1}^Nf_1(i)+f_3(i)$。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">9</span></span><br><span class="line">f1, f2, f3, f4 = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">20</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">30</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">5</span>, <span class="number">0</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, N + <span class="number">1</span>):</span><br><span class="line">    f1.append(<span class="number">20</span> * f2[i - <span class="number">2</span>])</span><br><span class="line">    f2.append(<span class="number">30</span> * f2[i - <span class="number">2</span>])</span><br><span class="line">    f3.append(<span class="number">20</span> * f4[i - <span class="number">2</span>])</span><br><span class="line">    f4.append(<span class="number">25</span> * f3[i - <span class="number">2</span>])</span><br><span class="line">ans = <span class="built_in">sum</span>(f1[<span class="number">1</span>:] + f3[<span class="number">1</span>:])</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -400,8 +385,7 @@ f_4(i)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-145"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 145</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#how-many-reversible-numbers-are-there-below-one-billion"><span class="nav-number">1.1.1.</span> <span class="nav-text">How
-many reversible numbers are there below one-billion?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-145"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 145</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-many-reversible-numbers-are-there-below-one-billion"><span class="nav-number">1.1.1.</span> <span class="nav-text">How many reversible numbers are there below one-billion?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -415,14 +399,14 @@ many reversible numbers are there below one-billion?</span></a></li></ol></li><l
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -459,13 +443,13 @@ many reversible numbers are there below one-billion?</span></a></li></ol></li><l
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

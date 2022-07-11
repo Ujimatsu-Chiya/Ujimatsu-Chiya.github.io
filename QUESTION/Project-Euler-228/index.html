@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>986</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,44 +252,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><escape><span id="more"></span></escape></p>
-<h1 id="project-euler-228">Project Euler 228</h1>
-<h2 id="题目">题目</h2>
-<h3 id="minkowski-sums">Minkowski Sums</h3>
-<p>Let <span class="math inline">\(S_n\)</span> be the regular <span class="math inline">\(n\)</span>-sided polygon – or <em>shape</em> –
-whose vertices <span class="math inline">\(v_k (k=1,2,\dots,n)\)</span>
-have coordinates:</p>
-<p><span class="math display">\[x_k= \cos(\dfrac{2k-1}{n} \times
-180°)\quad y_k= \sin(\dfrac{2k-1}{n} \times 180°)\]</span></p>
-<p>Each <span class="math inline">\(S_n\)</span> is to be interpreted as
-a filled shape consisting of all points on the perimeter and in the
-interior.</p>
-<p>The <em>Minkowski sum</em>, <span class="math inline">\(S+T\)</span>,
-of two shapes <span class="math inline">\(S\)</span> and <span class="math inline">\(T\)</span> is the result of adding every point in
-<span class="math inline">\(S\)</span> to every point in <span class="math inline">\(T\)</span>, where point addition is performed
-coordinate-wise: <span class="math inline">\((u,v) + (x,y) =
-(u+x,v+y)\)</span>.</p>
-<p>For example, the sum of <span class="math inline">\(S_3\)</span> and
-<span class="math inline">\(S_4\)</span> is the six-sided shape shown in
-pink below:</p>
-<p><img src="../images/p228.png"></p>
-<p>How many sides does <span class="math inline">\(S_{1864}+S_{1865}+\dots+S_{1909}\)</span>
-have?</p>
-<h2 id="解决方案">解决方案</h2>
-<p>这个<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minkowski_addition#Two_convex_polygons_in_the_plane">页面</a>描述了求两个<strong>凸包</strong><span class="math inline">\(P,Q\)</span>的闵可夫斯基和的方法：</p>
-<ol type="1">
-<li><p>分别逆时针沿着两个正<span class="math inline">\(n\)</span>多边形<span class="math inline">\(P,Q\)</span>的边界行走，枚举出<span class="math inline">\(n\)</span>个边界的向量（如下图所示）。</p></li>
-<li><p>将这些向量按照<strong>极角</strong>进行排序。</p></li>
-<li><p>按顺序将这些向量首尾拼接，那么拼接出来的必定是一个封闭图形。这个图形就是<span class="math inline">\(P,Q\)</span>的闵可夫斯基和。</p></li>
+        <escape><span id="more"></span></escape>
+
+<h1 id="Project-Euler-228"><a href="#Project-Euler-228" class="headerlink" title="Project Euler 228"></a>Project Euler 228</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Minkowski-Sums"><a href="#Minkowski-Sums" class="headerlink" title="Minkowski Sums"></a>Minkowski Sums</h3><p>Let $S_n$ be the regular $n$-sided polygon – or <em>shape</em> – whose vertices $v_k (k=1,2,\dots,n)$ have coordinates:</p>
+<script type="math/tex; mode=display">x_k= \cos(\dfrac{2k-1}{n} \times 180°)\quad y_k= \sin(\dfrac{2k-1}{n} \times 180°)</script><p>Each $S_n$ is to be interpreted as a filled shape consisting of all points on the perimeter and in the interior.</p>
+<p>The <em>Minkowski sum</em>, $S+T$, of two shapes $S$ and $T$ is the result of adding every point in $S$ to every point in $T$, where point addition is performed coordinate-wise: $(u,v) + (x,y) = (u+x,v+y)$.</p>
+<p>For example, the sum of $S_3$ and $S_4$ is the six-sided shape shown in pink below:</p>
+<p><img src="../images/p228.png" alt></p>
+<p>How many sides does $S_{1864}+S_{1865}+\dots+S_{1909}$ have?</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这个<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Minkowski_addition#Two_convex_polygons_in_the_plane">页面</a>描述了求两个<strong>凸包</strong>$P,Q$的闵可夫斯基和的方法：</p>
+<ol>
+<li><p>分别逆时针沿着两个正$n$多边形$P,Q$的边界行走，枚举出$n$个边界的向量（如下图所示）。</p>
+</li>
+<li><p>将这些向量按照<strong>极角</strong>进行排序。</p>
+</li>
+<li><p>按顺序将这些向量首尾拼接，那么拼接出来的必定是一个封闭图形。这个图形就是$P,Q$的闵可夫斯基和。</p>
+</li>
 </ol>
 <p>回到题目中，在求闵可夫斯基和的第三个步骤中，如果两个向量的极角相同，那么说明构造出来的新凸包中，这两个向量构造的边界实际上是同一条。</p>
 <p>因此，问题就转化为了这些边界中，总共有多少个向量是极角不同的。</p>
-<p>以<span class="math inline">\(y\)</span>轴正半轴为基准，那么不难发现，正<span class="math inline">\(n\)</span>变形的边界的极角分别是<span class="math inline">\(0,\dfrac{1}{n}\cdot 2\pi,\dfrac{2}{n}\cdot
-2\pi,\dots,\dfrac{n-1}{n}\cdot 2\pi\)</span>。</p>
-<p>那么问题进一步转化成：分母在范围<span class="math inline">\(1864\sim
-1909\)</span>的<strong>真分数</strong>中，一共有多少个不同值的分数（包括<span class="math inline">\(0\)</span>）？</p>
-<h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fractions <span class="keyword">import</span> Fraction</span><br><span class="line"></span><br><span class="line">L, R = <span class="number">1864</span>, <span class="number">1909</span></span><br><span class="line">ans = <span class="built_in">len</span>(<span class="built_in">set</span>(Fraction(i, j) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(L, R + <span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(j)))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>以$y$轴正半轴为基准，那么不难发现，正$n$变形的边界的极角分别是$0,\dfrac{1}{n}\cdot 2\pi,\dfrac{2}{n}\cdot 2\pi,\dots,\dfrac{n-1}{n}\cdot 2\pi$。</p>
+<p>那么问题进一步转化成：分母在范围$1864\sim 1909$的<strong>真分数</strong>中，一共有多少个不同值的分数（包括$0$）？</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> fractions <span class="keyword">import</span> Fraction</span><br><span class="line"></span><br><span class="line">L, R = <span class="number">1864</span>, <span class="number">1909</span></span><br><span class="line">ans = <span class="built_in">len</span>(<span class="built_in">set</span>(Fraction(i, j) <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(L, R + <span class="number">1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(j)))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -373,7 +357,7 @@ have?</p>
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-228"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 228</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#minkowski-sums"><span class="nav-number">1.1.1.</span> <span class="nav-text">Minkowski Sums</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-228"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 228</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Minkowski-Sums"><span class="nav-number">1.1.1.</span> <span class="nav-text">Minkowski Sums</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -387,14 +371,14 @@ have?</p>
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">337</span>
+          <span class="site-state-item-count">349</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -431,13 +415,13 @@ have?</p>
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">381k</span>
+    <span title="站点总字数">367k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:47</span>
+    <span title="站点阅读时长">5:34</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
