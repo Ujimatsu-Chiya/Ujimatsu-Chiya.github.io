@@ -2,6 +2,7 @@
 title: Project Euler 186
 tags:
   - Project Euler
+  - 并查集
 mathjax: true
 date: 2022-05-19 21:57:01
 ---
