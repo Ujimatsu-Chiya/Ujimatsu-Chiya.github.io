@@ -38,10 +38,51 @@ $$\left \{\begin{aligned}
 
 那么$a$可以很简单地表示成$a=m_1\cdot \text{inv}(m_1,m_2)$，其中$\text{inv}(a,m)$表示$a\%m$在群$\mathbb{Z}_m^{\star}$上的逆元。
 
-此外，为了能够尽快分解质因数，我们首先将$N=10^7$以内的所有数的最大质因数。在正式分解的时候能够有效加速。
+此外，为了能够尽快分解质因数，我们首先将$N=10^7$以内的所有数的最大质因数$g(n)$求出，在正式分解$N$的时候能够根据$g(n)$有效加速。
 
-
+最终，直接枚举每个$n$并求解即可。
 
 ## 代码
 
 
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N=1e7;
+int mxp[N+4],r[14],m;
+int inv(int a,int m)
+{
+	int b=m,x=1,y=0,t;
+	while(b){
+		int q=a/b;
+		t=a-q*b;a=b;b=t;
+		t=x-q*y;x=y;y=t;
+	}
+	return x<0?x+m:x;
+}
+int main(){
+    for(int p=2;p<=N;p++)
+        if(!mxp[p])
+            for(int i=p;i<=N;i+=p) mxp[i]=p;
+    ll ans=0;
+    for(int n=1;n<=N;n++){
+        m=0;
+        for(int x=n;x!=1;){
+            int w=1,p=mxp[x];
+            for(;x%p==0;x/=p,w*=p);
+            r[m++]=w;
+        }
+        ll mx=0;
+        for(int s=0;s<(1<<m);s++){
+            ll m1=1,m2=1;
+            for(int i=0;i<m;i++)
+                s>>i&1?m1*=r[i]:m2*=r[i];
+            mx=max(mx,m1*inv(m1,m2));
+        }
+        ans+=mx;
+    }
+    printf("%lld\n",ans);
+}
+
+```
