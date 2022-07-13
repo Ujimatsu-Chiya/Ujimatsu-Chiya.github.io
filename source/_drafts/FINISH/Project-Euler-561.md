@@ -70,3 +70,21 @@ $\sum_{k=0}^{\lfloor\frac{N+1}{4}\rfloor-1}m\cdot(f(k+1)+1)+\sum_{k=1}^{\lfloor\
 ## 代码
 
 
+```py
+N = 10 ** 12
+M = 904962
+
+
+def F(n):
+    return sum(((n >> i) - (n >> (i + 1))) * i for i in range(len(bin(n)) - 2))
+
+
+c0 = N // 4
+c3 = (N + 1) // 4
+if M % 2 == 0:
+    ans = M * F(c3) + M * c3 + F(c0) + c0 + F(c0 + 1) + (bin(M)[::-1].find('1')) * c0
+else:
+    ans = M * F(c3) + M * c3 + F(c0) + c0
+print(ans)
+
+```
