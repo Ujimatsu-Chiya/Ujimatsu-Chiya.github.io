@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.4k</span>
+              <span>1.5k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,27 +257,52 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-317"><a href="#Project-Euler-317" class="headerlink" title="Project Euler 317"></a>Project Euler 317</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Firecracker"><a href="#Firecracker" class="headerlink" title="Firecracker"></a>Firecracker</h3><p>A firecracker explodes at a height of $100 \text{m}$ above level ground. It breaks into a large number of very small fragments, which move in every direction; all of them have the same initial velocity of $20 \text{m/s}$.</p>
-<p>We assume that the fragments move without air resistance, in a uniform gravitational field with $g=9.81 \text{m/s}^2$.</p>
-<p>Find the volume (in $\text{m}^3$) of the region through which the fragments move before reaching the ground.</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-317">Project Euler 317</h1>
+<h2 id="题目">题目</h2>
+<h3 id="firecracker">Firecracker</h3>
+<p>A firecracker explodes at a height of <span class="math inline">\(100
+\text{m}\)</span> above level ground. It breaks into a large number of
+very small fragments, which move in every direction; all of them have
+the same initial velocity of <span class="math inline">\(20
+\text{m/s}\)</span>.</p>
+<p>We assume that the fragments move without air resistance, in a
+uniform gravitational field with <span class="math inline">\(g=9.81
+\text{m/s}^2\)</span>.</p>
+<p>Find the volume (in <span class="math inline">\(\text{m}^3\)</span>)
+of the region through which the fragments move before reaching the
+ground.</p>
 <p>Give your answer rounded to four decimal places.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>可以发现，所要求解的物体是一个绕$y$轴旋转体。</p>
-<p>假设抛出的物体的方向和$x$轴正方向的夹角为$\theta$，并且当前时间为$t$。那么可以列出如下$(x,y)$关于$(\theta,t)$的参数方程：</p>
-<script type="math/tex; mode=display">\left \{\begin{aligned}
-  & x=vt\cos\theta\\
-  & y=h+vt\sin\theta-\dfrac{1}{2}gt^2
-\end{aligned}\right.</script><p>将$y$固定，在此约束下$t$和$\theta$要取适当的值使得$x$取到最大值，这个过程用拉格朗日乘数法解决。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可以发现，所要求解的物体是一个绕<span class="math inline">\(y\)</span>轴旋转体。</p>
+<p>假设抛出的物体的方向和<span class="math inline">\(x\)</span>轴正方向的夹角为<span class="math inline">\(\theta\)</span>，并且当前时间为<span class="math inline">\(t\)</span>。那么可以列出如下<span class="math inline">\((x,y)\)</span>关于<span class="math inline">\((\theta,t)\)</span>的参数方程：</p>
+<p><span class="math display">\[\left \{\begin{aligned}
+  &amp; x=vt\cos\theta\\
+  &amp; y=h+vt\sin\theta-\dfrac{1}{2}gt^2
+\end{aligned}\right.\]</span></p>
+<p>将<span class="math inline">\(y\)</span>固定，在此约束下<span class="math inline">\(t\)</span>和<span class="math inline">\(\theta\)</span>要取适当的值使得<span class="math inline">\(x\)</span>取到最大值，这个过程用拉格朗日乘数法解决。</p>
 <p>因此，可以写出</p>
-<script type="math/tex; mode=display">\mathcal{L}(\lambda,\theta,t)=vt\cos\theta-\lambda(h+vt\sin\theta-\dfrac{1}{2}gt^2-y)=0</script><p>计算得到：</p>
-<script type="math/tex; mode=display">\dfrac{\partial \mathcal{L}}{\partial t}=v\cos\theta-\lambda v\sin\theta+\lambda gt</script><script type="math/tex; mode=display">\dfrac{\partial \mathcal{L}}{\partial \theta}=-vt\sin\theta-\lambda vt\cos\theta</script><p>令$\dfrac{\partial \mathcal{L}}{\partial t}=0,\dfrac{\partial \mathcal{L}}{\partial \theta}=0$，那么得到式子$v=gt\sin\theta$。然后联立$x=vt\cos\theta,y=h+vt\sin\theta-\dfrac{1}{2}gt^2$，那么得到最终的曲线的方程：</p>
-<script type="math/tex; mode=display">x^2=\dfrac{v^2}{g}(2h+\dfrac{v^2}{g}-2y)</script><p>当物体从竖直向上抛出时，能够达到的高度最高，为$H=h+\dfrac{v^2}{2g}$。</p>
+<p><span class="math display">\[\mathcal{L}(\lambda,\theta,t)=vt\cos\theta-\lambda(h+vt\sin\theta-\dfrac{1}{2}gt^2-y)=0\]</span></p>
+<p>计算得到：</p>
+<p><span class="math display">\[\dfrac{\partial \mathcal{L}}{\partial
+t}=v\cos\theta-\lambda v\sin\theta+\lambda gt\]</span></p>
+<p><span class="math display">\[\dfrac{\partial \mathcal{L}}{\partial
+\theta}=-vt\sin\theta-\lambda vt\cos\theta\]</span></p>
+<p>令<span class="math inline">\(\dfrac{\partial \mathcal{L}}{\partial
+t}=0,\dfrac{\partial \mathcal{L}}{\partial
+\theta}=0\)</span>，那么得到式子<span class="math inline">\(v=gt\sin\theta\)</span>。然后联立<span class="math inline">\(x=vt\cos\theta,y=h+vt\sin\theta-\dfrac{1}{2}gt^2\)</span>，那么得到最终的曲线的方程：</p>
+<p><span class="math display">\[x^2=\dfrac{v^2}{g}(2h+\dfrac{v^2}{g}-2y)\]</span></p>
+<p>当物体从竖直向上抛出时，能够达到的高度最高，为<span class="math inline">\(H=h+\dfrac{v^2}{2g}\)</span>。</p>
 <p>因此，答案为</p>
-<script type="math/tex; mode=display">\begin{aligned}
-I&=\int_{0}^H \pi x^2dy=\dfrac{\pi v^2}{g}\int_{0}^H2h+\dfrac{v^2}{g}-2ydy=\dfrac{2\pi v^2}{g}\int_{0}^HH-ydy \\
-&=\dfrac{\pi v^2}{g}\cdot H^2=\dfrac{\pi v^2}{g}\cdot(h+\dfrac{v^2}{2g})^2
-\end{aligned}</script><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</span><br><span class="line"></span><br><span class="line">h = <span class="number">100</span></span><br><span class="line">v = <span class="number">20</span></span><br><span class="line">g = <span class="number">9.81</span></span><br><span class="line">ans = pi * (<span class="number">2</span> * g * v * h + v ** <span class="number">3</span>) ** <span class="number">2</span> / (<span class="number">4</span> * g ** <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.4f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[\begin{aligned}
+I&amp;=\int_{0}^H \pi x^2dy=\dfrac{\pi
+v^2}{g}\int_{0}^H2h+\dfrac{v^2}{g}-2ydy=\dfrac{2\pi
+v^2}{g}\int_{0}^HH-ydy \\
+&amp;=\dfrac{\pi v^2}{g}\cdot H^2=\dfrac{\pi
+v^2}{g}\cdot(h+\dfrac{v^2}{2g})^2
+\end{aligned}\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi</span><br><span class="line"></span><br><span class="line">h = <span class="number">100</span></span><br><span class="line">v = <span class="number">20</span></span><br><span class="line">g = <span class="number">9.81</span></span><br><span class="line">ans = pi * (<span class="number">2</span> * g * v * h + v ** <span class="number">3</span>) ** <span class="number">2</span> / (<span class="number">4</span> * g ** <span class="number">3</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.4f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -361,7 +386,7 @@ I&=\int_{0}^H \pi x^2dy=\dfrac{\pi v^2}{g}\int_{0}^H2h+\dfrac{v^2}{g}-2ydy=\dfra
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-317"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 317</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Firecracker"><span class="nav-number">1.1.1.</span> <span class="nav-text">Firecracker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-317"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 317</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#firecracker"><span class="nav-number">1.1.1.</span> <span class="nav-text">Firecracker</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,7 +400,7 @@ I&=\int_{0}^H \pi x^2dy=\dfrac{\pi v^2}{g}\int_{0}^H2h+\dfrac{v^2}{g}-2ydy=\dfra
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -419,13 +444,13 @@ I&=\int_{0}^H \pi x^2dy=\dfrac{\pi v^2}{g}\int_{0}^H2h+\dfrac{v^2}{g}-2ydy=\dfra
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

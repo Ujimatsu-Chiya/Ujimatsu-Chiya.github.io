@@ -250,27 +250,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-387"><a href="#Project-Euler-387" class="headerlink" title="Project Euler 387"></a>Project Euler 387</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Harshad-Numbers"><a href="#Harshad-Numbers" class="headerlink" title="Harshad Numbers"></a>Harshad Numbers</h3><p>A <strong>Harshad or Niven number</strong> is a number that is divisible by the sum of its digits.</p>
-<p>$201$ is a Harshad number because it is divisible by $3$ (the sum of its digits.)</p>
-<p>When we truncate the last digit from $201$, we get $20$, which is a Harshad number.</p>
-<p>When we truncate the last digit from $20$, we get $2$, which is also a Harshad number.</p>
-<p>Let’s call a Harshad number that, while recursively truncating the last digit, always results in a Harshad number a <em>right truncatable Harshad number.</em></p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-387">Project Euler 387</h1>
+<h2 id="题目">题目</h2>
+<h3 id="harshad-numbers">Harshad Numbers</h3>
+<p>A <strong>Harshad or Niven number</strong> is a number that is
+divisible by the sum of its digits.</p>
+<p><span class="math inline">\(201\)</span> is a Harshad number because
+it is divisible by <span class="math inline">\(3\)</span> (the sum of
+its digits.)</p>
+<p>When we truncate the last digit from <span class="math inline">\(201\)</span>, we get <span class="math inline">\(20\)</span>, which is a Harshad number.</p>
+<p>When we truncate the last digit from <span class="math inline">\(20\)</span>, we get <span class="math inline">\(2\)</span>, which is also a Harshad number.</p>
+<p>Let's call a Harshad number that, while recursively truncating the
+last digit, always results in a Harshad number a <em>right truncatable
+Harshad number.</em></p>
 <p>Also:</p>
-<p>$201/3=67$ which is prime.</p>
-<p>Let’s call a Harshad number that, when divided by the sum of its digits, results in a prime a <em>strong Harshad number</em>.</p>
-<p>Now take the number $2011$ which is prime.</p>
-<p>When we truncate the last digit from it we get $201$, a strong Harshad number that is also right truncatable.</p>
-<p>Let’s call such primes <em>strong, right truncatable Harshad primes</em>.</p>
-<p>You are given that the sum of the strong, right truncatable Harshad primes less than $10000$ is $90619$.</p>
-<p>Find the sum of the strong, right truncatable Harshad primes less than $10^{14}$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=14.$不难发现，$1$位质数不是可右截强Harshad数，因为一位数与自己数位和的商为$1$，不是一个质数。</p>
-<p>本题主要关注可右截Harshad数。这种数的有一种生成思想：如果当前数$x$是一个可右截Harshad数，并且$10x+d$（$d$是一个新的数位）也是一个Harshad数，那么$10x+d$就是一个可右截Harshad数。</p>
-<p>很明显，$1\sim 9$本身就是可右截Harshad数，将作为起点进行扩展。最终发现，$10^{N-1}$以内的可右截Harshad数的数量不多。</p>
+<p><span class="math inline">\(201/3=67\)</span> which is prime.</p>
+<p>Let's call a Harshad number that, when divided by the sum of its
+digits, results in a prime a <em>strong Harshad number</em>.</p>
+<p>Now take the number <span class="math inline">\(2011\)</span> which
+is prime.</p>
+<p>When we truncate the last digit from it we get <span class="math inline">\(201\)</span>, a strong Harshad number that is also
+right truncatable.</p>
+<p>Let's call such primes <em>strong, right truncatable Harshad
+primes</em>.</p>
+<p>You are given that the sum of the strong, right truncatable Harshad
+primes less than <span class="math inline">\(10000\)</span> is <span class="math inline">\(90619\)</span>.</p>
+<p>Find the sum of the strong, right truncatable Harshad primes less
+than <span class="math inline">\(10^{14}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=14.\)</span>不难发现，<span class="math inline">\(1\)</span>位质数不是可右截强Harshad数，因为一位数与自己数位和的商为<span class="math inline">\(1\)</span>，不是一个质数。</p>
+<p>本题主要关注可右截Harshad数。这种数的有一种生成思想：如果当前数<span class="math inline">\(x\)</span>是一个可右截Harshad数，并且<span class="math inline">\(10x+d\)</span>（<span class="math inline">\(d\)</span>是一个新的数位）也是一个Harshad数，那么<span class="math inline">\(10x+d\)</span>就是一个可右截Harshad数。</p>
+<p>很明显，<span class="math inline">\(1\sim
+9\)</span>本身就是可右截Harshad数，将作为起点进行扩展。最终发现，<span class="math inline">\(10^{N-1}\)</span>以内的可右截Harshad数的数量不多。</p>
 <p>接下来，我们将枚举出来的可右截Harshad数，逐一直接判断是否为强Harshad数，并保留强Harshad数的一部分。</p>
-<p>对每个右截强Harshad数$y$，后面都填上$1,3,7,9$这$4$个数位$d$中的一个，那么构造出了$10y+d$。最终如果$10y+d$是质数，那么就添加到答案中。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">14</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_harshad</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span> n % <span class="built_in">sum</span>(<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">str</span>(n)) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">tp = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N - <span class="number">2</span>):</span><br><span class="line">    ls.append([])</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> ls[i]:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            t = x * <span class="number">10</span> + j</span><br><span class="line">            <span class="keyword">if</span> is_harshad(t):</span><br><span class="line">                ls[i + <span class="number">1</span>].append(t)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> ls:</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> v:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_prime(n // <span class="built_in">sum</span>(<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">str</span>(n))):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> tp:</span><br><span class="line">            w = n * <span class="number">10</span> + y</span><br><span class="line">            <span class="keyword">if</span> is_prime(w):</span><br><span class="line">                ans += w</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>对每个右截强Harshad数<span class="math inline">\(y\)</span>，后面都填上<span class="math inline">\(1,3,7,9\)</span>这<span class="math inline">\(4\)</span>个数位<span class="math inline">\(d\)</span>中的一个，那么构造出了<span class="math inline">\(10y+d\)</span>。最终如果<span class="math inline">\(10y+d\)</span>是质数，那么就添加到答案中。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> is_prime</span><br><span class="line"></span><br><span class="line">N = <span class="number">14</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_harshad</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">return</span> n % <span class="built_in">sum</span>(<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">str</span>(n)) == <span class="number">0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ls = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">tp = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">9</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N - <span class="number">2</span>):</span><br><span class="line">    ls.append([])</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> ls[i]:</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            t = x * <span class="number">10</span> + j</span><br><span class="line">            <span class="keyword">if</span> is_harshad(t):</span><br><span class="line">                ls[i + <span class="number">1</span>].append(t)</span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> v <span class="keyword">in</span> ls:</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> v:</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> is_prime(n // <span class="built_in">sum</span>(<span class="built_in">int</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">str</span>(n))):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> tp:</span><br><span class="line">            w = n * <span class="number">10</span> + y</span><br><span class="line">            <span class="keyword">if</span> is_prime(w):</span><br><span class="line">                ans += w</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -354,7 +370,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-387"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 387</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Harshad-Numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Harshad Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-387"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 387</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#harshad-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Harshad Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +384,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -412,13 +428,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

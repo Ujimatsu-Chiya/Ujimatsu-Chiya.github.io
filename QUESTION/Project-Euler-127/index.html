@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>993</span>
+              <span>1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,30 +257,48 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-127"><a href="#Project-Euler-127" class="headerlink" title="Project Euler 127"></a>Project Euler 127</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="abc-hits"><a href="#abc-hits" class="headerlink" title="abc-hits"></a>abc-hits</h3><p>The radical of $n$, $\mathrm{rad}(n)$, is the product of the distinct prime factors of $n$. For example, $504 = 2^3 × 3^2 × 7$, so $\mathrm{rad}(504) = 2 × 3 × 7 = 42$.</p>
-<p>We shall define the triplet of positive integers $(a, b, c)$ to be an $abc$-hit if:</p>
-<ol>
-<li>$\gcd(a, b) = \gcd(a, c) = \gcd(b, c) = 1$</li>
-<li>$a &lt; b$</li>
-<li>$a + b = c$</li>
-<li>$\mathrm{rad}(abc) &lt; c $;</li>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-127">Project Euler 127</h1>
+<h2 id="题目">题目</h2>
+<h3 id="abc-hits">abc-hits</h3>
+<p>The radical of <span class="math inline">\(n\)</span>, <span class="math inline">\(\mathrm{rad}(n)\)</span>, is the product of the
+distinct prime factors of <span class="math inline">\(n\)</span>. For
+example, <span class="math inline">\(504 = 2^3 × 3^2 × 7\)</span>, so
+<span class="math inline">\(\mathrm{rad}(504) = 2 × 3 × 7 =
+42\)</span>.</p>
+<p>We shall define the triplet of positive integers <span class="math inline">\((a, b, c)\)</span> to be an <span class="math inline">\(abc\)</span>-hit if:</p>
+<ol type="1">
+<li><span class="math inline">\(\gcd(a, b) = \gcd(a, c) = \gcd(b, c) =
+1\)</span></li>
+<li><span class="math inline">\(a &lt; b\)</span></li>
+<li><span class="math inline">\(a + b = c\)</span></li>
+<li>$(abc) &lt; c $;</li>
 </ol>
-<p>For example, $(5, 27, 32)$ is an abc-hit, because:</p>
-<ol>
-<li>$\gcd(5, 27) = \gcd(5, 32) = \gcd(27, 32) = 1$</li>
-<li>$5 &lt; 27$</li>
-<li>$5 + 27 = 32$</li>
-<li>$\mathrm{rad}(4320) = 30 &lt; 32$</li>
+<p>For example, <span class="math inline">\((5, 27, 32)\)</span> is an
+abc-hit, because:</p>
+<ol type="1">
+<li><span class="math inline">\(\gcd(5, 27) = \gcd(5, 32) = \gcd(27, 32)
+= 1\)</span></li>
+<li><span class="math inline">\(5 &lt; 27\)</span></li>
+<li><span class="math inline">\(5 + 27 = 32\)</span></li>
+<li><span class="math inline">\(\mathrm{rad}(4320) = 30 &lt;
+32\)</span></li>
 </ol>
-<p>It turns out that abc-hits are quite rare and there are only thirty-one abc-hits for $c &lt; 1000$, with $\sum c = 12523$.</p>
-<p>Find $\sum c$ for $c &lt; 120000$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>按照第124题的方式计算出所有$\mathrm{rad}$的值。</p>
-<p>由于第三条$a+b=c$，因此判断$a,b,c$的两两互质性，只需要判断其中的某一对。因为由求其中一对的最大公因数时，可以通过辗转相除法，转成另外两对。</p>
-<p>根据$\mathrm{rad}(n)$的定义，是由$n$的不同的质因数相乘得出的值。那么由于$a,b,c$两两互质，它们之间没有相同的质因数，因此$\mathrm{rad}(abc)=\mathrm{rad}(a)\cdot \mathrm{rad}(b)\cdot \mathrm{rad}(c)$。</p>
-<p>这给我们提供了一个思路，首先将$1\sim N$中的所有值按照函数值$\mathrm{rad}$从小到大排序。先从小到大枚举$c$的值，然后再按照$\mathrm{rad}$的大小从小到大枚举$a$的值。当$\mathrm{rad}(a)\cdot \mathrm{rad}(c)\ge c$时，就可以停止枚举$a$了。剩下的就是判断其它答案是否符合条件。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">120000</span><span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> rad[N+<span class="number">4</span>],rk[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        rk[i]=i,rad[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(rad[i]==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=N;j+=i)</span><br><span class="line">                rad[j]*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(rk+<span class="number">1</span>,rk+N+<span class="number">1</span>,[&amp;](<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)&#123;</span><br><span class="line">         <span class="keyword">return</span> rad[x]&lt;rad[y]||rad[x]==rad[y]&amp;&amp;x&lt;y;</span><br><span class="line">         &#125;);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> c=<span class="number">1</span>;c&lt;=N;c++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="type">int</span> a=rk[i];</span><br><span class="line">            <span class="keyword">if</span>(rad[a]*rad[c]&gt;=c)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(__gcd(a,c)!=<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> b=c-a;</span><br><span class="line">            <span class="keyword">if</span>(a&lt;b &amp;&amp; <span class="number">1ll</span>*rad[a]*rad[b]*rad[c]&lt;c)</span><br><span class="line">                ans+=c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>It turns out that abc-hits are quite rare and there are only
+thirty-one abc-hits for <span class="math inline">\(c &lt;
+1000\)</span>, with <span class="math inline">\(\sum c =
+12523\)</span>.</p>
+<p>Find <span class="math inline">\(\sum c\)</span> for <span class="math inline">\(c &lt; 120000\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>按照第124题的方式计算出所有<span class="math inline">\(\mathrm{rad}\)</span>的值。</p>
+<p>由于第三条<span class="math inline">\(a+b=c\)</span>，因此判断<span class="math inline">\(a,b,c\)</span>的两两互质性，只需要判断其中的某一对。因为由求其中一对的最大公因数时，可以通过辗转相除法，转成另外两对。</p>
+<p>根据<span class="math inline">\(\mathrm{rad}(n)\)</span>的定义，是由<span class="math inline">\(n\)</span>的不同的质因数相乘得出的值。那么由于<span class="math inline">\(a,b,c\)</span>两两互质，它们之间没有相同的质因数，因此<span class="math inline">\(\mathrm{rad}(abc)=\mathrm{rad}(a)\cdot
+\mathrm{rad}(b)\cdot \mathrm{rad}(c)\)</span>。</p>
+<p>这给我们提供了一个思路，首先将<span class="math inline">\(1\sim
+N\)</span>中的所有值按照函数值<span class="math inline">\(\mathrm{rad}\)</span>从小到大排序。先从小到大枚举<span class="math inline">\(c\)</span>的值，然后再按照<span class="math inline">\(\mathrm{rad}\)</span>的大小从小到大枚举<span class="math inline">\(a\)</span>的值。当<span class="math inline">\(\mathrm{rad}(a)\cdot \mathrm{rad}(c)\ge
+c\)</span>时，就可以停止枚举<span class="math inline">\(a\)</span>了。剩下的就是判断其它答案是否符合条件。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">120000</span><span class="number">-1</span>;</span><br><span class="line"><span class="type">int</span> rad[N+<span class="number">4</span>],rk[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)</span><br><span class="line">        rk[i]=i,rad[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(rad[i]==<span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=N;j+=i)</span><br><span class="line">                rad[j]*=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">sort</span>(rk+<span class="number">1</span>,rk+N+<span class="number">1</span>,[&amp;](<span class="type">int</span> &amp;x,<span class="type">int</span> &amp;y)&#123;</span><br><span class="line">         <span class="keyword">return</span> rad[x]&lt;rad[y]||rad[x]==rad[y]&amp;&amp;x&lt;y;</span><br><span class="line">         &#125;);</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> c=<span class="number">1</span>;c&lt;=N;c++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">            <span class="type">int</span> a=rk[i];</span><br><span class="line">            <span class="keyword">if</span>(rad[a]*rad[c]&gt;=c)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span>(__gcd(a,c)!=<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="type">int</span> b=c-a;</span><br><span class="line">            <span class="keyword">if</span>(a&lt;b &amp;&amp; <span class="number">1ll</span>*rad[a]*rad[b]*rad[c]&lt;c)</span><br><span class="line">                ans+=c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +382,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-127"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 127</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#abc-hits"><span class="nav-number">1.1.1.</span> <span class="nav-text">abc-hits</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-127"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 127</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#abc-hits"><span class="nav-number">1.1.1.</span> <span class="nav-text">abc-hits</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,7 +396,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,13 +440,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

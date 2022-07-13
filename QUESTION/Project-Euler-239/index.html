@@ -231,7 +231,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -250,26 +250,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-239"><a href="#Project-Euler-239" class="headerlink" title="Project Euler 239"></a>Project Euler 239</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Twenty-two-Foolish-Primes"><a href="#Twenty-two-Foolish-Primes" class="headerlink" title="Twenty-two Foolish Primes"></a>Twenty-two Foolish Primes</h3><p>A set of disks numbered $1$ through $100$ are placed in a line in random order.</p>
-<p>What is the probability that we have a partial derangement such that exactly $22$ prime number discs are found away from their natural positions? (Any number of non-prime disks may also be found in or out of their natural positions.)</p>
-<p>Give your answer rounded to $12$ places behind the decimal point in the form $0.abcdefghijkl$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=100,O=22$，并且$N$以内一共有$M=25$个质数。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-239">Project Euler 239</h1>
+<h2 id="题目">题目</h2>
+<h3 id="twenty-two-foolish-primes">Twenty-two Foolish Primes</h3>
+<p>A set of disks numbered <span class="math inline">\(1\)</span>
+through <span class="math inline">\(100\)</span> are placed in a line in
+random order.</p>
+<p>What is the probability that we have a partial derangement such that
+exactly <span class="math inline">\(22\)</span> prime number discs are
+found away from their natural positions? (Any number of non-prime disks
+may also be found in or out of their natural positions.)</p>
+<p>Give your answer rounded to <span class="math inline">\(12\)</span>
+places behind the decimal point in the form <span class="math inline">\(0.abcdefghijkl\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=100,O=22\)</span>，并且<span class="math inline">\(N\)</span>以内一共有<span class="math inline">\(M=25\)</span>个质数。</p>
 <p>不难以下两个过程是独立的：</p>
-<ol>
-<li>从$M$个质数中选择$M-O$个，将它们放在原地，一共有$C_M^O$种方法。之后便不考虑这$M-O$个质数。</li>
-<li>这$O$个质数不应该在原地，但是剩下的$N-M$个非质数则随便排列。</li>
+<ol type="1">
+<li>从<span class="math inline">\(M\)</span>个质数中选择<span class="math inline">\(M-O\)</span>个，将它们放在原地，一共有<span class="math inline">\(C_M^O\)</span>种方法。之后便不考虑这<span class="math inline">\(M-O\)</span>个质数。</li>
+<li>这<span class="math inline">\(O\)</span>个质数不应该在原地，但是剩下的<span class="math inline">\(N-M\)</span>个非质数则随便排列。</li>
 </ol>
-<p>考虑使用动态规划的思想解决第二个步骤的问题。令$f(i,j)(0\le j\le i)$表示有多少个长度为$i$的排列$p_1,p_2,p_3,\dots,p_{i-1},p_i$，对于特定的$j$个两两不同下标$a_1,a_2,\dots,a_j$（注意些下标是可以随意假设的，这里你可以假设成$a_i=i$），满足$p_{a_1}\neq a_1,p_{a_2}\neq a_2,\dots,p_{a_j}\neq a_j$.那么可以写出如下状态转移方程：</p>
-<script type="math/tex; mode=display">
+<p>考虑使用动态规划的思想解决第二个步骤的问题。令<span class="math inline">\(f(i,j)(0\le j\le
+i)\)</span>表示有多少个长度为<span class="math inline">\(i\)</span>的排列<span class="math inline">\(p_1,p_2,p_3,\dots,p_{i-1},p_i\)</span>，对于特定的<span class="math inline">\(j\)</span>个两两不同下标<span class="math inline">\(a_1,a_2,\dots,a_j\)</span>（注意些下标是可以随意假设的，这里你可以假设成<span class="math inline">\(a_i=i\)</span>），满足<span class="math inline">\(p_{a_1}\neq a_1,p_{a_2}\neq a_2,\dots,p_{a_j}\neq
+a_j\)</span>.那么可以写出如下状态转移方程：</p>
+<p><span class="math display">\[
 f(i,j)=
 \left \{\begin{aligned}
-  &i!  & & \mathrm{if\quad} j=0 \\
-  &f(i,j-1)-f(i-1,j-1)& & \mathrm{else}
-\end{aligned}\right.</script><p>对于方程最后一行，$f(i-1,j-1)$中的每个排列$p_1,p_2,\dots,p_{i-1}$，都可以映射到$f(i,j-1)$中的$p_1,p_2,\dots,p_{i-1},\underline{i}$。在$f(i-1,j-1)$中的$j-1$个特定下标中，如果再加上一个$a_j=i$，那么就相当于在$f(i,j-1)$中去掉被$f(i-1,j-1)$映射出来的排列，剩下的就成为$f(i,j)$中的排列。</p>
-<p>合并两个步骤，最终题目的答案为$\dfrac{C_M^O\cdot f(N-M+O,O)}{N!}$.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> C</span><br><span class="line"></span><br><span class="line">N = <span class="number">100</span></span><br><span class="line">M = <span class="number">25</span></span><br><span class="line">O = <span class="number">22</span></span><br><span class="line"></span><br><span class="line">fac = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    fac.append(fac[-<span class="number">1</span>] * i)</span><br><span class="line">f = [[<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(y + <span class="number">1</span>)] <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]  <span class="comment"># A047920</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    f[i][<span class="number">0</span>] = fac[i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i + <span class="number">1</span>):</span><br><span class="line">        f[i][j] = f[i][j - <span class="number">1</span>] - f[i - <span class="number">1</span>][j - <span class="number">1</span>]</span><br><span class="line">ans = C(M, O) * f[N - (M - O)][O] / fac[N]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.12f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;i!  &amp; &amp; \mathrm{if\quad} j=0 \\
+  &amp;f(i,j-1)-f(i-1,j-1)&amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>对于方程最后一行，<span class="math inline">\(f(i-1,j-1)\)</span>中的每个排列<span class="math inline">\(p_1,p_2,\dots,p_{i-1}\)</span>，都可以映射到<span class="math inline">\(f(i,j-1)\)</span>中的<span class="math inline">\(p_1,p_2,\dots,p_{i-1},\underline{i}\)</span>。在<span class="math inline">\(f(i-1,j-1)\)</span>中的<span class="math inline">\(j-1\)</span>个特定下标中，如果再加上一个<span class="math inline">\(a_j=i\)</span>，那么就相当于在<span class="math inline">\(f(i,j-1)\)</span>中去掉被<span class="math inline">\(f(i-1,j-1)\)</span>映射出来的排列，剩下的就成为<span class="math inline">\(f(i,j)\)</span>中的排列。</p>
+<p>合并两个步骤，最终题目的答案为<span class="math inline">\(\dfrac{C_M^O\cdot f(N-M+O,O)}{N!}\)</span>.</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> C</span><br><span class="line"></span><br><span class="line">N = <span class="number">100</span></span><br><span class="line">M = <span class="number">25</span></span><br><span class="line">O = <span class="number">22</span></span><br><span class="line"></span><br><span class="line">fac = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">    fac.append(fac[-<span class="number">1</span>] * i)</span><br><span class="line">f = [[<span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(y + <span class="number">1</span>)] <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]  <span class="comment"># A047920</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    f[i][<span class="number">0</span>] = fac[i]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, i + <span class="number">1</span>):</span><br><span class="line">        f[i][j] = f[i][j - <span class="number">1</span>] - f[i - <span class="number">1</span>][j - <span class="number">1</span>]</span><br><span class="line">ans = C(M, O) * f[N - (M - O)][O] / fac[N]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.12f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -353,7 +367,7 @@ f(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-239"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 239</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Twenty-two-Foolish-Primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Twenty-two Foolish Primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-239"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 239</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#twenty-two-foolish-primes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Twenty-two Foolish Primes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -367,7 +381,7 @@ f(i,j)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -411,13 +425,13 @@ f(i,j)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

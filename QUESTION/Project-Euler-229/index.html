@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>828</span>
+              <span>894</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,29 +257,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-229"><a href="#Project-Euler-229" class="headerlink" title="Project Euler 229"></a>Project Euler 229</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Four-Representations-using-Squares"><a href="#Four-Representations-using-Squares" class="headerlink" title="Four Representations using Squares"></a>Four Representations using Squares</h3><p>Consider the number 3600. It is very special, because</p>
-<script type="math/tex; mode=display">\begin{aligned}
-3600 &= 48^2 + 36^2 \\
-3600 &= 20^2 + 2\times40^2 \\
-3600 &= 30^2 + 3\times30^2 \\
-3600 &= 45^2 + 7\times15^2 \\
-\end{aligned}</script><p>Similarly, we find that $88201 = 99^2 + 280^2 = 287^2 + 2\times54^2 = 283^2 + 3\times52^2 = 197^2 + 7\times84^2$.</p>
-<p>In 1747, Euler proved which numbers are representable as a sum of two squares.</p>
-<p>We are interested in the numbers n which admit representations of all of the following four types:</p>
-<script type="math/tex; mode=display">\begin{aligned}
-n &= a_1^2 + b_1^2\\
-n &= a_2^2 + 2 b_2^2\\
-n &= a_3^2 + 3 b_3^2\\
-n &= a_7^2 + 7 b_7^2,\\
-\end{aligned}</script><p>where the $a_k$ and $b_k$ are positive integers.</p>
-<p>There are $75373$ such numbers that do not exceed $10^7$.</p>
-<p>How many such numbers are there that do not exceed $2\times10^9$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>为了节省空间，每次对$1\sim N$中连续分块的$M$个数暴力筛选。</p>
-<p>因此，在枚举$a_k^2+kb^2_k$的过程中，需要有四个临时数组$l_k$来存储表示$b$枚举到哪里了。</p>
-<p>同时，$M$的值必须比较大（如$N^{0.7}+1000$），不然筛选的过程会发生错误。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2000000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M= <span class="built_in">pow</span>(N,<span class="number">0.7</span>)+<span class="number">1000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SQN=<span class="built_in">sqrt</span>(N);</span><br><span class="line"><span class="type">int</span> l1[SQN+<span class="number">2</span>],l2[SQN+<span class="number">2</span>],l3[SQN+<span class="number">2</span>],l7[SQN+<span class="number">2</span>];</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> used[M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,M);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=SQN;i++)</span><br><span class="line">        l1[i]=l2[i]=l3[i]=l7[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">0</span>,w,b;l&lt;=N;l+=M) &#123;</span><br><span class="line">        <span class="type">int</span> r = <span class="built_in">min</span>(l + M, N + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l1[a] * l1[a] &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l1[a]; (w = a * a + b * b) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">1</span>;</span><br><span class="line">            l1[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l2[a] * l2[a] * <span class="number">2</span> &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l2[a]; (w = a * a + b * b * <span class="number">2</span>) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">2</span>;</span><br><span class="line">            l2[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l3[a] * l3[a] * <span class="number">3</span> &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l3[a]; (w = a * a + b * b * <span class="number">3</span>) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">4</span>;</span><br><span class="line">            l3[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l7[a] * l7[a] * <span class="number">7</span> &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l7[a]; (w = a * a + b * b * <span class="number">7</span>) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">8</span>;</span><br><span class="line">            l7[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt; r; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (used[i - l] == <span class="number">15</span>) ++ans;</span><br><span class="line">            used[i - l] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-229">Project Euler 229</h1>
+<h2 id="题目">题目</h2>
+<h3 id="four-representations-using-squares">Four Representations using
+Squares</h3>
+<p>Consider the number 3600. It is very special, because</p>
+<p><span class="math display">\[\begin{aligned}
+3600 &amp;= 48^2 + 36^2 \\
+3600 &amp;= 20^2 + 2\times40^2 \\
+3600 &amp;= 30^2 + 3\times30^2 \\
+3600 &amp;= 45^2 + 7\times15^2 \\
+\end{aligned}\]</span></p>
+<p>Similarly, we find that <span class="math inline">\(88201 = 99^2 +
+280^2 = 287^2 + 2\times54^2 = 283^2 + 3\times52^2 = 197^2 +
+7\times84^2\)</span>.</p>
+<p>In 1747, Euler proved which numbers are representable as a sum of two
+squares.</p>
+<p>We are interested in the numbers n which admit representations of all
+of the following four types:</p>
+<p><span class="math display">\[\begin{aligned}
+n &amp;= a_1^2 + b_1^2\\
+n &amp;= a_2^2 + 2 b_2^2\\
+n &amp;= a_3^2 + 3 b_3^2\\
+n &amp;= a_7^2 + 7 b_7^2,\\
+\end{aligned}\]</span></p>
+<p>where the <span class="math inline">\(a_k\)</span> and <span class="math inline">\(b_k\)</span> are positive integers.</p>
+<p>There are <span class="math inline">\(75373\)</span> such numbers
+that do not exceed <span class="math inline">\(10^7\)</span>.</p>
+<p>How many such numbers are there that do not exceed <span class="math inline">\(2\times10^9\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>为了节省空间，每次对<span class="math inline">\(1\sim
+N\)</span>中连续分块的<span class="math inline">\(M\)</span>个数暴力筛选。</p>
+<p>因此，在枚举<span class="math inline">\(a_k^2+kb^2_k\)</span>的过程中，需要有四个临时数组<span class="math inline">\(l_k\)</span>来存储表示<span class="math inline">\(b\)</span>枚举到哪里了。</p>
+<p>同时，<span class="math inline">\(M\)</span>的值必须比较大（如<span class="math inline">\(N^{0.7}+1000\)</span>），不然筛选的过程会发生错误。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2000000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M= <span class="built_in">pow</span>(N,<span class="number">0.7</span>)+<span class="number">1000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SQN=<span class="built_in">sqrt</span>(N);</span><br><span class="line"><span class="type">int</span> l1[SQN+<span class="number">2</span>],l2[SQN+<span class="number">2</span>],l3[SQN+<span class="number">2</span>],l7[SQN+<span class="number">2</span>];</span><br><span class="line"><span class="type">unsigned</span> <span class="type">char</span> used[M];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,M);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=SQN;i++)</span><br><span class="line">        l1[i]=l2[i]=l3[i]=l7[i]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">0</span>,w,b;l&lt;=N;l+=M) &#123;</span><br><span class="line">        <span class="type">int</span> r = <span class="built_in">min</span>(l + M, N + <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l1[a] * l1[a] &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l1[a]; (w = a * a + b * b) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">1</span>;</span><br><span class="line">            l1[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l2[a] * l2[a] * <span class="number">2</span> &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l2[a]; (w = a * a + b * b * <span class="number">2</span>) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">2</span>;</span><br><span class="line">            l2[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l3[a] * l3[a] * <span class="number">3</span> &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l3[a]; (w = a * a + b * b * <span class="number">3</span>) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">4</span>;</span><br><span class="line">            l3[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">1</span>; a * a + l7[a] * l7[a] * <span class="number">7</span> &lt; r; a++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (b = l7[a]; (w = a * a + b * b * <span class="number">7</span>) &lt; r; b++)</span><br><span class="line">                used[w - l] |= <span class="number">8</span>;</span><br><span class="line">            l7[a] = b;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = l; i &lt; r; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (used[i - l] == <span class="number">15</span>) ++ans;</span><br><span class="line">            used[i - l] = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -363,7 +376,8 @@ n &= a_7^2 + 7 b_7^2,\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-229"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 229</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Four-Representations-using-Squares"><span class="nav-number">1.1.1.</span> <span class="nav-text">Four Representations using Squares</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-229"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 229</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#four-representations-using-squares"><span class="nav-number">1.1.1.</span> <span class="nav-text">Four Representations using
+Squares</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +391,7 @@ n &= a_7^2 + 7 b_7^2,\\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -421,13 +435,13 @@ n &= a_7^2 + 7 b_7^2,\\
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

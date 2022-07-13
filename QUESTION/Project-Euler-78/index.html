@@ -239,7 +239,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>692</span>
+              <span>742</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -258,25 +258,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-78"><a href="#Project-Euler-78" class="headerlink" title="Project Euler 78"></a>Project Euler 78</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Coin-partitions"><a href="#Coin-partitions" class="headerlink" title="Coin partitions"></a>Coin partitions</h3><p>Let $p(n)$ represent the number of different ways in which $n$ coins can be separated into piles. For example, five coins can separated into piles in exactly seven different ways, so $p(5)=7$.</p>
-<p>OOOOO<br><br>OOOO O<br><br>OOO OO<br><br>OOO O O<br><br>OO OO O<br><br>OO O O O<br><br>O O O O O</p>
-<p>Find the least value of $n$ for which $p(n)$ is divisible by one million.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题所使用的的状态转移方程和第76题完全一致。不过，由于本体求的是第一个$p(n)$能被$10^6$整除，因此需要更快的方法。</p>
-<p>将$p(n)$的前一些项放进OEIS查询，结果为<a target="_blank" rel="noopener" href="https://oeis.org/A000041">A000041</a>。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-78">Project Euler 78</h1>
+<h2 id="题目">题目</h2>
+<h3 id="coin-partitions">Coin partitions</h3>
+<p>Let <span class="math inline">\(p(n)\)</span> represent the number of
+different ways in which <span class="math inline">\(n\)</span> coins can
+be separated into piles. For example, five coins can separated into
+piles in exactly seven different ways, so <span class="math inline">\(p(5)=7\)</span>.</p>
+<p>OOOOO<br> OOOO O<br> OOO OO<br> OOO O O<br> OO OO O<br> OO O O O<br>
+O O O O O</p>
+<p>Find the least value of <span class="math inline">\(n\)</span> for
+which <span class="math inline">\(p(n)\)</span> is divisible by one
+million.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题所使用的的状态转移方程和第76题完全一致。不过，由于本体求的是第一个<span class="math inline">\(p(n)\)</span>能被<span class="math inline">\(10^6\)</span>整除，因此需要更快的方法。</p>
+<p>将<span class="math inline">\(p(n)\)</span>的前一些项放进OEIS查询，结果为<a target="_blank" rel="noopener" href="https://oeis.org/A000041">A000041</a>。</p>
 <p>在Formula一栏中可以发现以下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(n) - a(n-1) - a(n-2) + a(n-5) + a(n-7) - a(n-12) - a(n-15) + ... = 0, where the sum is over n-k and k is a generalized pentagonal number (A001318) &lt;= n and the sign of the k-th term is (-1)^([(k+1)/2]). See A001318 for a good way to remember this!</span><br></pre></td></tr></table></figure>
 <p>其中，数列<a target="_blank" rel="noopener" href="https://oeis.org/A001318">A001318</a>是一种广义五边形数。</p>
 <p>另外，符号位由确定广义五边形数的自变量的绝对值决定。</p>
-<p>处理以上各种细节，最终可以得到$p(n)$的式子为：</p>
-<script type="math/tex; mode=display">
+<p>处理以上各种细节，最终可以得到<span class="math inline">\(p(n)\)</span>的式子为：</p>
+<p><span class="math display">\[
 p(n)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} n=0  \\
-  &\sum_{m}^{|m|\ge1,\frac{m(3m-1)}{2}\leq n}(-1)^{m+1}p(n-\frac{m(3m-1)}{2}) & & \mathrm{else}
-\end{aligned}\right.</script><p>由于广义五边形数增长是二次的，因此计算$p(N)$的时间复杂度缩减到了$O(N\sqrt{N})$。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_pentagonal</span>():</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">yield</span> i * (<span class="number">3</span> * i - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">yield</span> i * (<span class="number">3</span> * i + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = [<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    val = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gen_pentagonal():</span><br><span class="line">        <span class="keyword">if</span> m &gt; n:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        sgn = i &gt;&gt; <span class="number">1</span> &amp; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> sgn == <span class="number">0</span>:</span><br><span class="line">            val = (val + p[n - m]) % mod</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            val = (val - p[n - m] + mod) % mod</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> val == <span class="number">0</span>:</span><br><span class="line">        ans = n</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    p.append(val)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;1  &amp; &amp; \mathrm{if\quad} n=0  \\
+  &amp;\sum_{m}^{|m|\ge1,\frac{m(3m-1)}{2}\leq
+n}(-1)^{m+1}p(n-\frac{m(3m-1)}{2}) &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>由于广义五边形数增长是二次的，因此计算<span class="math inline">\(p(N)\)</span>的时间复杂度缩减到了<span class="math inline">\(O(N\sqrt{N})\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> count</span><br><span class="line"></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_pentagonal</span>():</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">yield</span> i * (<span class="number">3</span> * i - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">yield</span> i * (<span class="number">3</span> * i + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = [<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> count(<span class="number">1</span>, <span class="number">1</span>):</span><br><span class="line">    i = <span class="number">0</span></span><br><span class="line">    val = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> gen_pentagonal():</span><br><span class="line">        <span class="keyword">if</span> m &gt; n:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        sgn = i &gt;&gt; <span class="number">1</span> &amp; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> sgn == <span class="number">0</span>:</span><br><span class="line">            val = (val + p[n - m]) % mod</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            val = (val - p[n - m] + mod) % mod</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> val == <span class="number">0</span>:</span><br><span class="line">        ans = n</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    p.append(val)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -361,7 +374,7 @@ p(n)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-78"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 78</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Coin-partitions"><span class="nav-number">1.1.1.</span> <span class="nav-text">Coin partitions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-78"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 78</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#coin-partitions"><span class="nav-number">1.1.1.</span> <span class="nav-text">Coin partitions</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -375,7 +388,7 @@ p(n)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -419,13 +432,13 @@ p(n)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

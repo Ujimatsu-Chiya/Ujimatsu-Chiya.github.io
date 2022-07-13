@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>490</span>
+              <span>512</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,15 +257,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-87"><a href="#Project-Euler-87" class="headerlink" title="Project Euler 87"></a>Project Euler 87</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Prime-power-triples"><a href="#Prime-power-triples" class="headerlink" title="Prime power triples"></a>Prime power triples</h3><p>The smallest number expressible as the sum of a prime square, prime cube, and prime fourth power is $28$. In fact, there are exactly four numbers below fifty that can be expressed in such a way:</p>
-<p>$28 = 2^2 + 2^3 + 2^4$<br>$33 = 3^2 + 2^3 + 2^4$<br>$49 = 5^2 + 2^3 + 2^4$<br>$47 = 2^2 + 3^3 + 2^4$</p>
-<p>How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?</p>
-<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>令$N=5\times10^7$。</p>
-<p>观察到，这里的和都是质数的$2$次方及以上。因此，可以先预处理所有$\sqrt N$以内的质数，再将这些质数的$2,3,4$次方按序存放在数组a2, a3, a4中。</p>
-<p>直接枚举$3$个列表中每个组合，再将$3$个数的和存放进集合即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime, int_sqrt</span><br><span class="line"></span><br><span class="line">N = <span class="number">5</span> * <span class="number">10</span> ** <span class="number">7</span></span><br><span class="line">M = int_sqrt(N)</span><br><span class="line">pr = get_prime(M)</span><br><span class="line">a2 = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> pr]</span><br><span class="line">a3 = [x ** <span class="number">3</span> <span class="keyword">for</span> x <span class="keyword">in</span> pr <span class="keyword">if</span> x ** <span class="number">3</span> &lt;= N]</span><br><span class="line">a4 = [x ** <span class="number">4</span> <span class="keyword">for</span> x <span class="keyword">in</span> pr <span class="keyword">if</span> x ** <span class="number">4</span> &lt;= N]</span><br><span class="line">st = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> a2:</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> a3:</span><br><span class="line">        <span class="keyword">if</span> x + y &gt;= N:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">for</span> z <span class="keyword">in</span> a4:</span><br><span class="line">            <span class="keyword">if</span> x + y + z &gt;= N:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            st.add(x + y + z)</span><br><span class="line">ans = <span class="built_in">len</span>(st)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-87">Project Euler 87</h1>
+<h2 id="题目">题目</h2>
+<h3 id="prime-power-triples">Prime power triples</h3>
+<p>The smallest number expressible as the sum of a prime square, prime
+cube, and prime fourth power is <span class="math inline">\(28\)</span>.
+In fact, there are exactly four numbers below fifty that can be
+expressed in such a way:</p>
+<p><span class="math inline">\(28 = 2^2 + 2^3 + 2^4\)</span> <span class="math inline">\(33 = 3^2 + 2^3 + 2^4\)</span> <span class="math inline">\(49 = 5^2 + 2^3 + 2^4\)</span> <span class="math inline">\(47 = 2^2 + 3^3 + 2^4\)</span></p>
+<p>How many numbers below fifty million can be expressed as the sum of a
+prime square, prime cube, and prime fourth power?</p>
+<h3 id="解决方案">解决方案</h3>
+<p>令<span class="math inline">\(N=5\times10^7\)</span>。</p>
+<p>观察到，这里的和都是质数的<span class="math inline">\(2\)</span>次方及以上。因此，可以先预处理所有<span class="math inline">\(\sqrt N\)</span>以内的质数，再将这些质数的<span class="math inline">\(2,3,4\)</span>次方按序存放在数组a2, a3, a4中。</p>
+<p>直接枚举<span class="math inline">\(3\)</span>个列表中每个组合，再将<span class="math inline">\(3\)</span>个数的和存放进集合即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime, int_sqrt</span><br><span class="line"></span><br><span class="line">N = <span class="number">5</span> * <span class="number">10</span> ** <span class="number">7</span></span><br><span class="line">M = int_sqrt(N)</span><br><span class="line">pr = get_prime(M)</span><br><span class="line">a2 = [x * x <span class="keyword">for</span> x <span class="keyword">in</span> pr]</span><br><span class="line">a3 = [x ** <span class="number">3</span> <span class="keyword">for</span> x <span class="keyword">in</span> pr <span class="keyword">if</span> x ** <span class="number">3</span> &lt;= N]</span><br><span class="line">a4 = [x ** <span class="number">4</span> <span class="keyword">for</span> x <span class="keyword">in</span> pr <span class="keyword">if</span> x ** <span class="number">4</span> &lt;= N]</span><br><span class="line">st = <span class="built_in">set</span>()</span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> a2:</span><br><span class="line">    <span class="keyword">for</span> y <span class="keyword">in</span> a3:</span><br><span class="line">        <span class="keyword">if</span> x + y &gt;= N:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">for</span> z <span class="keyword">in</span> a4:</span><br><span class="line">            <span class="keyword">if</span> x + y + z &gt;= N:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            st.add(x + y + z)</span><br><span class="line">ans = <span class="built_in">len</span>(st)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -349,7 +357,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-87"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 87</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Prime-power-triples"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime power triples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-87"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 87</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prime-power-triples"><span class="nav-number">1.1.1.</span> <span class="nav-text">Prime power triples</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.1.2.</span> <span class="nav-text">解决方案</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -363,7 +371,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -407,13 +415,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

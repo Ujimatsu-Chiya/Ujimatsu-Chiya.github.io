@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>579</span>
+              <span>623</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,18 +257,29 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-216"><a href="#Project-Euler-216" class="headerlink" title="Project Euler 216"></a>Project Euler 216</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Investigating-the-primality-of-numbers-of-the-form-2n-2-1"><a href="#Investigating-the-primality-of-numbers-of-the-form-2n-2-1" class="headerlink" title="Investigating the primality of numbers of the form $2n^2-1$"></a>Investigating the primality of numbers of the form $2n^2-1$</h3><p>Consider numbers $t(n)$ of the form $t(n) = 2n^2-1$ with $n &gt; 1$.</p>
-<p>The first such numbers are $7, 17, 31, 49, 71, 97, 127$ and $161$.</p>
-<p>It turns out that only $49 = 7\times7$ and $161 = 7\times23$ are not prime.</p>
-<p>For $n \le 10000$ there are $2202$ numbers $t(n)$ that are prime.</p>
-<p>How many numbers $t(n)$ are prime for $n \le 50,000,000$ ?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>一个结论：如果$p|t(n)$，那么$p|t(kp\pm n)$，其中$k\ge0$。</p>
-<p>原因：$t(kp\pm n)=2(kp^2\pm n)^2-1=2k^2p^4\pm4kp^2n+2n^2-1$。我们已经假定了$p|2n^2-1$，因此$p|t(kp\pm n)$成立。</p>
-<p>这说明只要发现$t(n)$有一个质因子$p$，就可以将它把$t(n+p),t(n+2p),\dots,t(p-n),t(2p-n),\dots$筛掉。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-216">Project Euler 216</h1>
+<h2 id="题目">题目</h2>
+<h3 id="investigating-the-primality-of-numbers-of-the-form-2n2-1">Investigating
+the primality of numbers of the form <span class="math inline">\(2n^2-1\)</span></h3>
+<p>Consider numbers <span class="math inline">\(t(n)\)</span> of the
+form <span class="math inline">\(t(n) = 2n^2-1\)</span> with <span class="math inline">\(n &gt; 1\)</span>.</p>
+<p>The first such numbers are <span class="math inline">\(7, 17, 31, 49,
+71, 97, 127\)</span> and <span class="math inline">\(161\)</span>.</p>
+<p>It turns out that only <span class="math inline">\(49 =
+7\times7\)</span> and <span class="math inline">\(161 =
+7\times23\)</span> are not prime.</p>
+<p>For <span class="math inline">\(n \le 10000\)</span> there are <span class="math inline">\(2202\)</span> numbers <span class="math inline">\(t(n)\)</span> that are prime.</p>
+<p>How many numbers <span class="math inline">\(t(n)\)</span> are prime
+for <span class="math inline">\(n \le 50,000,000\)</span> ?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>一个结论：如果<span class="math inline">\(p|t(n)\)</span>，那么<span class="math inline">\(p|t(kp\pm n)\)</span>，其中<span class="math inline">\(k\ge0\)</span>。</p>
+<p>原因：<span class="math inline">\(t(kp\pm n)=2(kp^2\pm
+n)^2-1=2k^2p^4\pm4kp^2n+2n^2-1\)</span>。我们已经假定了<span class="math inline">\(p|2n^2-1\)</span>，因此<span class="math inline">\(p|t(kp\pm n)\)</span>成立。</p>
+<p>这说明只要发现<span class="math inline">\(t(n)\)</span>有一个质因子<span class="math inline">\(p\)</span>，就可以将它把<span class="math inline">\(t(n+p),t(n+2p),\dots,t(p-n),t(2p-n),\dots\)</span>筛掉。</p>
 <p>如果有一个数始终无法筛掉，说明它本身就是一个质数。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">50000000</span>;</span><br><span class="line">ll T[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">2</span>;n&lt;=N;n++)</span><br><span class="line">        T[n]=<span class="number">2ll</span>*n*n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">2</span>;n&lt;=N;n++)&#123;</span><br><span class="line">        ll p=T[n];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">2ll</span>*n*n<span class="number">-1</span>) ++ans;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p+n;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(T[j]%p==<span class="number">0</span>) T[j]/=p;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-n;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(T[j]%p==<span class="number">0</span>) T[j]/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">50000000</span>;</span><br><span class="line">ll T[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">2</span>;n&lt;=N;n++)</span><br><span class="line">        T[n]=<span class="number">2ll</span>*n*n<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">2</span>;n&lt;=N;n++)&#123;</span><br><span class="line">        ll p=T[n];</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">2ll</span>*n*n<span class="number">-1</span>) ++ans;</span><br><span class="line">        <span class="keyword">if</span>(p==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p+n;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(T[j]%p==<span class="number">0</span>) T[j]/=p;</span><br><span class="line">        <span class="keyword">for</span>(ll j=p-n;j&lt;=N;j+=p)</span><br><span class="line">            <span class="keyword">while</span>(T[j]%p==<span class="number">0</span>) T[j]/=p;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -352,7 +363,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-216"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 216</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Investigating-the-primality-of-numbers-of-the-form-2n-2-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Investigating the primality of numbers of the form $2n^2-1$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-216"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 216</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#investigating-the-primality-of-numbers-of-the-form-2n2-1"><span class="nav-number">1.1.1.</span> <span class="nav-text">Investigating
+the primality of numbers of the form \(2n^2-1\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -366,7 +378,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -410,13 +422,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

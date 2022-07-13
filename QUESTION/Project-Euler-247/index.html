@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>875</span>
+              <span>931</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,31 +252,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-247"><a href="#Project-Euler-247" class="headerlink" title="Project Euler 247"></a>Project Euler 247</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Squares-under-a-hyperbola"><a href="#Squares-under-a-hyperbola" class="headerlink" title="Squares under a hyperbola"></a>Squares under a hyperbola</h3><p>Consider the region constrained by $1 \le x$ and $0 \le y \le \dfrac{1}{x}$.</p>
-<p>Let $S_1$ be the largest square that can fit under the curve.</p>
-<p>Let $S_2$ be the largest square that fits in the remaining area, and so on.</p>
-<p>Let the <em>index</em> of $S_n$ be the pair (left, below) indicating the number of squares to the left of $S_n$ and the number of squares below $S_n$.</p>
-<p><img src="../images/p247_hypersquares.gif" alt></p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-247">Project Euler 247</h1>
+<h2 id="题目">题目</h2>
+<h3 id="squares-under-a-hyperbola">Squares under a hyperbola</h3>
+<p>Consider the region constrained by <span class="math inline">\(1 \le
+x\)</span> and <span class="math inline">\(0 \le y \le
+\dfrac{1}{x}\)</span>.</p>
+<p>Let <span class="math inline">\(S_1\)</span> be the largest square
+that can fit under the curve.</p>
+<p>Let <span class="math inline">\(S_2\)</span> be the largest square
+that fits in the remaining area, and so on.</p>
+<p>Let the <em>index</em> of <span class="math inline">\(S_n\)</span> be
+the pair (left, below) indicating the number of squares to the left of
+<span class="math inline">\(S_n\)</span> and the number of squares below
+<span class="math inline">\(S_n\)</span>.</p>
+<p><img src="../images/p247_hypersquares.gif"></p>
 <p>The diagram shows some such squares labelled by number.</p>
-<p>$S_2$ has one square to its left and none below, so the index of $S_2$ is $(1,0)$.</p>
-<p>It can be seen that the index of $S_{32}$ is $(1,1)$ as is the index of $S_{50}$.</p>
-<p>$50$ is the largest $n$ for which the index of $S_n$ is $(1,1)$.</p>
-<p>What is the largest $n$ for which the index of $S_n$ is $(3,3)$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>假设当前正方形的左下角顶点为$(x_0,y_0)$，那么通过以下步骤可以计算这个正方形的最大边长：</p>
-<ol>
-<li>联立两个方程：$y=\dfrac{1}{x},y-y_0=x-x_0$，最终解得出右上角的定点为$(x,y)$</li>
-<li>这个正方形的边长为$x-x_0$。</li>
+<p><span class="math inline">\(S_2\)</span> has one square to its left
+and none below, so the index of <span class="math inline">\(S_2\)</span>
+is <span class="math inline">\((1,0)\)</span>.</p>
+<p>It can be seen that the index of <span class="math inline">\(S_{32}\)</span> is <span class="math inline">\((1,1)\)</span> as is the index of <span class="math inline">\(S_{50}\)</span>.</p>
+<p><span class="math inline">\(50\)</span> is the largest <span class="math inline">\(n\)</span> for which the index of <span class="math inline">\(S_n\)</span> is <span class="math inline">\((1,1)\)</span>.</p>
+<p>What is the largest <span class="math inline">\(n\)</span> for which
+the index of <span class="math inline">\(S_n\)</span> is <span class="math inline">\((3,3)\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>假设当前正方形的左下角顶点为<span class="math inline">\((x_0,y_0)\)</span>，那么通过以下步骤可以计算这个正方形的最大边长：</p>
+<ol type="1">
+<li>联立两个方程：<span class="math inline">\(y=\dfrac{1}{x},y-y_0=x-x_0\)</span>，最终解得出右上角的定点为<span class="math inline">\((x,y)\)</span></li>
+<li>这个正方形的边长为<span class="math inline">\(x-x_0\)</span>。</li>
 </ol>
 <p>为了进行加速，代码实现没有使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Priority_queue">优先队列</a>，而是使用了两次深度优先搜索：</p>
 <ul>
-<li>第一次用于找到坐标为$(3,3)$的最小正方形，假设边长$l$。</li>
-<li>第二次用于找到比$l$大的所有正方形边长。</li>
+<li>第一次用于找到坐标为<span class="math inline">\((3,3)\)</span>的最小正方形，假设边长<span class="math inline">\(l\)</span>。</li>
+<li>第二次用于找到比<span class="math inline">\(l\)</span>大的所有正方形边长。</li>
 </ul>
-<p>两次搜索完成后，找到的个数加$1$就是答案。</p>
+<p>两次搜索完成后，找到的个数加<span class="math inline">\(1\)</span>就是答案。</p>
 <p>由于第二次深度优先搜索递归深度太大，故使用非递归进行模拟。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">3</span></span><br><span class="line">M = <span class="number">3</span></span><br><span class="line">min_size = <span class="number">1</span></span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">x, y</span>):</span><br><span class="line">    b = y - x</span><br><span class="line">    <span class="keyword">return</span> (-b + (b ** <span class="number">2</span> + <span class="number">4</span>) ** <span class="number">0.5</span>) / <span class="number">2</span> - x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">x, y, fx, fy</span>):</span><br><span class="line">    <span class="keyword">if</span> fx &gt; N <span class="keyword">or</span> fy &gt; M:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    size = cal(x, y)</span><br><span class="line">    <span class="keyword">global</span> min_size</span><br><span class="line">    <span class="keyword">if</span> fx == N <span class="keyword">and</span> fy == M <span class="keyword">and</span> size &lt; min_size:</span><br><span class="line">        min_size = size</span><br><span class="line">    dfs(x + size, y, fx + <span class="number">1</span>, fy)</span><br><span class="line">    dfs(x, y + size, fx, fy + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">st = [(<span class="number">1</span>, <span class="number">0</span>)]</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">len</span>(st) &gt; <span class="number">0</span>:</span><br><span class="line">    x, y = st.pop()</span><br><span class="line">    size = cal(x, y)</span><br><span class="line">    <span class="keyword">if</span> size &gt; min_size:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line">        st.append((x + size, y))</span><br><span class="line">        st.append((x, y + size))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">3</span></span><br><span class="line">M = <span class="number">3</span></span><br><span class="line">min_size = <span class="number">1</span></span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">cal</span>(<span class="params">x, y</span>):</span><br><span class="line">    b = y - x</span><br><span class="line">    <span class="keyword">return</span> (-b + (b ** <span class="number">2</span> + <span class="number">4</span>) ** <span class="number">0.5</span>) / <span class="number">2</span> - x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">x, y, fx, fy</span>):</span><br><span class="line">    <span class="keyword">if</span> fx &gt; N <span class="keyword">or</span> fy &gt; M:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    size = cal(x, y)</span><br><span class="line">    <span class="keyword">global</span> min_size</span><br><span class="line">    <span class="keyword">if</span> fx == N <span class="keyword">and</span> fy == M <span class="keyword">and</span> size &lt; min_size:</span><br><span class="line">        min_size = size</span><br><span class="line">    dfs(x + size, y, fx + <span class="number">1</span>, fy)</span><br><span class="line">    dfs(x, y + size, fx, fy + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dfs(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">st = [(<span class="number">1</span>, <span class="number">0</span>)]</span><br><span class="line"><span class="keyword">while</span> <span class="built_in">len</span>(st) &gt; <span class="number">0</span>:</span><br><span class="line">    x, y = st.pop()</span><br><span class="line">    size = cal(x, y)</span><br><span class="line">    <span class="keyword">if</span> size &gt; min_size:</span><br><span class="line">        ans += <span class="number">1</span></span><br><span class="line">        st.append((x + size, y))</span><br><span class="line">        st.append((x, y + size))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -360,7 +374,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-247"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 247</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Squares-under-a-hyperbola"><span class="nav-number">1.1.1.</span> <span class="nav-text">Squares under a hyperbola</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-247"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 247</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#squares-under-a-hyperbola"><span class="nav-number">1.1.1.</span> <span class="nav-text">Squares under a hyperbola</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,7 +388,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -418,13 +432,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

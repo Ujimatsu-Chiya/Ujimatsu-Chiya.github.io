@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,11 +257,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-218"><a href="#Project-Euler-218" class="headerlink" title="Project Euler 218"></a>Project Euler 218</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Perfect-right-angled-triangles"><a href="#Perfect-right-angled-triangles" class="headerlink" title="Perfect right-angled triangles"></a>Perfect right-angled triangles</h3><p>Consider the right angled triangle with sides $a=7, b=24$ and $c=25$. The area of this triangle is $84$, which is divisible by the perfect numbers $6$ and $28$.</p>
-<p>Moreover it is a primitive right angled triangle as $\gcd(a,b)=1$ and $\gcd(b,c)=1$.</p>
-<p>Also $c$ is a perfect square.<br>We will call a right angled triangle perfect if</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-218">Project Euler 218</h1>
+<h2 id="题目">题目</h2>
+<h3 id="perfect-right-angled-triangles">Perfect right-angled
+triangles</h3>
+<p>Consider the right angled triangle with sides <span class="math inline">\(a=7, b=24\)</span> and <span class="math inline">\(c=25\)</span>. The area of this triangle is <span class="math inline">\(84\)</span>, which is divisible by the perfect
+numbers <span class="math inline">\(6\)</span> and <span class="math inline">\(28\)</span>.</p>
+<p>Moreover it is a primitive right angled triangle as <span class="math inline">\(\gcd(a,b)=1\)</span> and <span class="math inline">\(\gcd(b,c)=1\)</span>.</p>
+<p>Also <span class="math inline">\(c\)</span> is a perfect square. We
+will call a right angled triangle perfect if</p>
 <ul>
 <li>it is a primitive right angled triangle</li>
 <li>its hypotenuse is a perfect square</li>
@@ -269,35 +274,52 @@
 <p>We will call a right angled triangle super-perfect if</p>
 <ul>
 <li>it is a perfect right angled triangle and</li>
-<li>its area is a multiple of the perfect numbers $6$ and $28$.</li>
+<li>its area is a multiple of the perfect numbers <span class="math inline">\(6\)</span> and <span class="math inline">\(28\)</span>.</li>
 </ul>
-<p>How many perfect right-angled triangles with $c\le10^{16}$ exist that are not super-perfect?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本题一个让人出乎意料之外的地方是，题目要求的三角形并不存在。也就是说，答案为$0$。</p>
+<p>How many perfect right-angled triangles with <span class="math inline">\(c\le10^{16}\)</span> exist that are not
+super-perfect?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题一个让人出乎意料之外的地方是，题目要求的三角形并不存在。也就是说，答案为<span class="math inline">\(0\)</span>。</p>
 <p>接下来证明这个过程：</p>
-<p>勾股数组$(a,b,c)$的产生。枚举一系列的二元组$(s,t)$，其中$s&gt;t$，那么可以产生勾股数组$(2st,s^2-t^2,s^2+t^2)$。</p>
-<p>由于$c$是一个完全平方数，那么存在一个数$m,c=m^2$，那么也就是有$s^2+t^2=m^2$，而这恰好又是一个勾股数组，因此，我们使用$p,q(p&gt;q)$来产生勾股数组$(s,t,m)$。那么$s=\max(2pq,p^2-q^2),t=\min(2pq,p^2-q^2)$。</p>
+<p>勾股数组<span class="math inline">\((a,b,c)\)</span>的产生。枚举一系列的二元组<span class="math inline">\((s,t)\)</span>，其中<span class="math inline">\(s&gt;t\)</span>，那么可以产生勾股数组<span class="math inline">\((2st,s^2-t^2,s^2+t^2)\)</span>。</p>
+<p>由于<span class="math inline">\(c\)</span>是一个完全平方数，那么存在一个数<span class="math inline">\(m,c=m^2\)</span>，那么也就是有<span class="math inline">\(s^2+t^2=m^2\)</span>，而这恰好又是一个勾股数组，因此，我们使用<span class="math inline">\(p,q(p&gt;q)\)</span>来产生勾股数组<span class="math inline">\((s,t,m)\)</span>。那么<span class="math inline">\(s=\max(2pq,p^2-q^2),t=\min(2pq,p^2-q^2)\)</span>。</p>
 <p>因此，</p>
-<p>$\begin{aligned}<br>&amp; a=2st=4pq(p^2-q^2)\\<br>&amp; b=s^2-t^2=|(p^2-q^2)^2-4p^2q^2|=|p^4+q^4-6p^2q^2|<br>\end{aligned}$</p>
+<p><span class="math inline">\(\begin{aligned} &amp;
+a=2st=4pq(p^2-q^2)\\ &amp;
+b=s^2-t^2=|(p^2-q^2)^2-4p^2q^2|=|p^4+q^4-6p^2q^2|
+\end{aligned}\)</span></p>
 <p>那么三角形的面积为</p>
-<script type="math/tex; mode=display">S=\dfrac{1}{2}ab=2pq(p^2-q^2)|p^4+q^4-6p^2q^2|</script><p>接下来是三个部分的证明：$3|S,4|S,7|S$。因为$\text{lcm}(6,28)=84=2^2\times 3\times 7$。遵循一致的方法。</p>
-<p>不过，注意到式子中的所有变量，除了项$pq$，都是以平方的出现。</p>
-<h3 id="3-S"><a href="#3-S" class="headerlink" title="$3|S$"></a>$3|S$</h3><p>如果$p$或$q$是$3$的倍数，那么结论成立。</p>
-<p>对于任意的$x\in \mathbb{N}$，发现$x^2\% 3 \in\{0,1\}$。</p>
-<p>如果$p^2\%3=q^2\%3=1$，那么$(p^2-q^2)\%3=0$，原结论成立。</p>
-<h3 id="4-S"><a href="#4-S" class="headerlink" title="$4|S$"></a>$4|S$</h3><p>注意到，$S$有个常数因子$2$。</p>
-<p>如果$p$或$q$是$2$的倍数，那么结论成立。</p>
-<p>对于任意的$x\in \mathbb{N}$，发现$x^2\% 2 \in\{0,1\}$。</p>
-<p>如果$p^2\%2=q^2\%2=1$，那么$(p^2-q^2)\%2=0$，原结论成立。</p>
-<h3 id="7-S"><a href="#7-S" class="headerlink" title="$7|S$"></a>$7|S$</h3><p>如果$p$或$q$是$7$的倍数，那么结论成立。</p>
-<p>对于任意的$x\in \mathbb{N}$，发现$x^2\% 7 \in\{0,1,2,4\}$。</p>
-<p>如果$p^2\%7=q^2\%7$，那么$(p^2-q^2)\%2=0$，原结论成立。</p>
+<p><span class="math display">\[S=\dfrac{1}{2}ab=2pq(p^2-q^2)|p^4+q^4-6p^2q^2|\]</span></p>
+<p>接下来是三个部分的证明：<span class="math inline">\(3|S,4|S,7|S\)</span>。因为<span class="math inline">\(\text{lcm}(6,28)=84=2^2\times 3\times
+7\)</span>。遵循一致的方法。</p>
+<p>不过，注意到式子中的所有变量，除了项<span class="math inline">\(pq\)</span>，都是以平方的出现。</p>
+<h3 id="s"><span class="math inline">\(3|S\)</span></h3>
+<p>如果<span class="math inline">\(p\)</span>或<span class="math inline">\(q\)</span>是<span class="math inline">\(3\)</span>的倍数，那么结论成立。</p>
+<p>对于任意的<span class="math inline">\(x\in
+\mathbb{N}\)</span>，发现<span class="math inline">\(x^2\% 3
+\in\{0,1\}\)</span>。</p>
+<p>如果<span class="math inline">\(p^2\%3=q^2\%3=1\)</span>，那么<span class="math inline">\((p^2-q^2)\%3=0\)</span>，原结论成立。</p>
+<h3 id="s-1"><span class="math inline">\(4|S\)</span></h3>
+<p>注意到，<span class="math inline">\(S\)</span>有个常数因子<span class="math inline">\(2\)</span>。</p>
+<p>如果<span class="math inline">\(p\)</span>或<span class="math inline">\(q\)</span>是<span class="math inline">\(2\)</span>的倍数，那么结论成立。</p>
+<p>对于任意的<span class="math inline">\(x\in
+\mathbb{N}\)</span>，发现<span class="math inline">\(x^2\% 2
+\in\{0,1\}\)</span>。</p>
+<p>如果<span class="math inline">\(p^2\%2=q^2\%2=1\)</span>，那么<span class="math inline">\((p^2-q^2)\%2=0\)</span>，原结论成立。</p>
+<h3 id="s-2"><span class="math inline">\(7|S\)</span></h3>
+<p>如果<span class="math inline">\(p\)</span>或<span class="math inline">\(q\)</span>是<span class="math inline">\(7\)</span>的倍数，那么结论成立。</p>
+<p>对于任意的<span class="math inline">\(x\in
+\mathbb{N}\)</span>，发现<span class="math inline">\(x^2\% 7
+\in\{0,1,2,4\}\)</span>。</p>
+<p>如果<span class="math inline">\(p^2\%7=q^2\%7\)</span>，那么<span class="math inline">\((p^2-q^2)\%2=0\)</span>，原结论成立。</p>
 <p>不失一般性，</p>
-<p>如果$p^2\%7=1,q^2\%7=2$，那么$(p^4+q^4-6p^2q^2)\%7=0$</p>
-<p>如果$p^2\%7=1,q^2\%7=4$，那么$(p^4+q^4-6p^2q^2)\%7=0$</p>
-<p>如果$p^2\%7=2,q^2\%7=4$，那么$(p^4+q^4-6p^2q^2)\%7=0$</p>
-<p>因此，$7|S$</p>
-<p>最终，$84|S$，因此题目所求三角形并不存在。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<p>如果<span class="math inline">\(p^2\%7=1,q^2\%7=2\)</span>，那么<span class="math inline">\((p^4+q^4-6p^2q^2)\%7=0\)</span></p>
+<p>如果<span class="math inline">\(p^2\%7=1,q^2\%7=4\)</span>，那么<span class="math inline">\((p^4+q^4-6p^2q^2)\%7=0\)</span></p>
+<p>如果<span class="math inline">\(p^2\%7=2,q^2\%7=4\)</span>，那么<span class="math inline">\((p^4+q^4-6p^2q^2)\%7=0\)</span></p>
+<p>因此，<span class="math inline">\(7|S\)</span></p>
+<p>最终，<span class="math inline">\(84|S\)</span>，因此题目所求三角形并不存在。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -381,7 +403,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-218"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 218</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Perfect-right-angled-triangles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Perfect right-angled triangles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-S"><span class="nav-number">1.2.1.</span> <span class="nav-text">$3|S$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-S"><span class="nav-number">1.2.2.</span> <span class="nav-text">$4|S$</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-S"><span class="nav-number">1.2.3.</span> <span class="nav-text">$7|S$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-218"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 218</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perfect-right-angled-triangles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Perfect right-angled
+triangles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#s"><span class="nav-number">1.2.1.</span> <span class="nav-text">\(3|S\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#s-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">\(4|S\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#s-2"><span class="nav-number">1.2.3.</span> <span class="nav-text">\(7|S\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -395,7 +418,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -439,13 +462,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

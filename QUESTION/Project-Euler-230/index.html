@@ -250,22 +250,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-230"><a href="#Project-Euler-230" class="headerlink" title="Project Euler 230"></a>Project Euler 230</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Fibonacci-Words"><a href="#Fibonacci-Words" class="headerlink" title="Fibonacci Words"></a>Fibonacci Words</h3><p>For any two strings of digits, $A$ and $B$, we define $F_{A,B}$ to be the sequence $(A,B,AB,BAB,ABBAB,\dots)$ in which each term is the concatenation of the previous two.</p>
-<p>Further, we define $D_{A,B}(n)$ to be the $n^{\text{th}}$ digit in the first term of $F_{A,B}$ that contains at least $n$ digits.<br>Example:</p>
-<p>Let $A=1415926535, B=8979323846$. We wish to find $D_{A,B}(35)$, say.</p>
-<p>The first few terms of $F_{A,B}$ are:</p>
-<p>$1415926535$<br><br>$8979323846$<br><br>$14159265358979323846$<br><br>$897932384614159265358979323846$<br><br>$1415926535897932384689793238461415\color{red}{9}$ $265358979323846$</p>
-<p>Then $D_{A,B}(35)$ is the $35^{\text{th}}$ digit in the fifth term, which is $9$.</p>
-<p>Now we use for $A$ the first $100$ digits of $\pi$ behind the decimal point:</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-230">Project Euler 230</h1>
+<h2 id="题目">题目</h2>
+<h3 id="fibonacci-words">Fibonacci Words</h3>
+<p>For any two strings of digits, <span class="math inline">\(A\)</span>
+and <span class="math inline">\(B\)</span>, we define <span class="math inline">\(F_{A,B}\)</span> to be the sequence <span class="math inline">\((A,B,AB,BAB,ABBAB,\dots)\)</span> in which each
+term is the concatenation of the previous two.</p>
+<p>Further, we define <span class="math inline">\(D_{A,B}(n)\)</span> to
+be the <span class="math inline">\(n^{\text{th}}\)</span> digit in the
+first term of <span class="math inline">\(F_{A,B}\)</span> that contains
+at least <span class="math inline">\(n\)</span> digits. Example:</p>
+<p>Let <span class="math inline">\(A=1415926535, B=8979323846\)</span>.
+We wish to find <span class="math inline">\(D_{A,B}(35)\)</span>,
+say.</p>
+<p>The first few terms of <span class="math inline">\(F_{A,B}\)</span>
+are:</p>
+<p><span class="math inline">\(1415926535\)</span><br> <span class="math inline">\(8979323846\)</span><br> <span class="math inline">\(14159265358979323846\)</span><br> <span class="math inline">\(897932384614159265358979323846\)</span><br> <span class="math inline">\(1415926535897932384689793238461415\color{red}{9}\)</span>
+<span class="math inline">\(265358979323846\)</span></p>
+<p>Then <span class="math inline">\(D_{A,B}(35)\)</span> is the <span class="math inline">\(35^{\text{th}}\)</span> digit in the fifth term,
+which is <span class="math inline">\(9\)</span>.</p>
+<p>Now we use for <span class="math inline">\(A\)</span> the first <span class="math inline">\(100\)</span> digits of <span class="math inline">\(\pi\)</span> behind the decimal point:</p>
 <p>1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679</p>
 <p>and for B the next hundred digits:</p>
-<p>8214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196 .</p>
-<p>Find $\sum_{n = 0,1,\dots,17}  10^n\times D_{A,B}((127+19n)\times7^n)$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这题不需要真正地计算出这些字符串数组$F_{A,B}$的具体内容，只需要通过递推式计算出$F_{A,B}$中每个字符串的长度。</p>
-<p>假设$F_{A,B}[i][j]$为序列$F_{A,B}$的第$i$个字符串的第$j$个字符。由于$F_{A,B}[i]$是由$F_{A,B}[i-2]$和$F_{A,B}[i-1]$拼接而成。因此只需通过长度判断，就可以通过下标定位到前面两个字符串。如果需要查询的下标$k$落在$F_{A,B}[i-2]$中，那么转而在字符串$F_{A,B}[i-2]$继续查找，否则在$F_{A,B}[i-1]$中继续查找。如此迭代，直到回到初始字符串$A,B$，即可得到答案。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">17</span></span><br><span class="line">A = <span class="string">&quot;1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679&quot;</span></span><br><span class="line">B = <span class="string">&quot;8214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196&quot;</span></span><br><span class="line"></span><br><span class="line">M = <span class="number">100</span></span><br><span class="line">len_F = [<span class="built_in">len</span>(A), <span class="built_in">len</span>(B)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    len_F.append(len_F[-<span class="number">2</span>] + len_F[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_digit</span>(<span class="params">f: <span class="built_in">int</span>, pos: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> f == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> A[pos - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">elif</span> f == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> B[pos - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> pos &lt;= len_F[f - <span class="number">2</span>]:</span><br><span class="line">            <span class="keyword">return</span> get_digit(f - <span class="number">2</span>, pos)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> get_digit(f - <span class="number">1</span>, pos - len_F[f - <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    p = (<span class="number">127</span> + <span class="number">19</span> * n) * (<span class="number">7</span> ** n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">        <span class="keyword">if</span> len_F[i] &gt;= p:</span><br><span class="line">            ans += <span class="built_in">int</span>(get_digit(i, p)) * <span class="number">10</span> ** n</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>8214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196
+.</p>
+<p>Find <span class="math inline">\(\sum_{n = 0,1,\dots,17} 10^n\times
+D_{A,B}((127+19n)\times7^n)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>这题不需要真正地计算出这些字符串数组<span class="math inline">\(F_{A,B}\)</span>的具体内容，只需要通过递推式计算出<span class="math inline">\(F_{A,B}\)</span>中每个字符串的长度。</p>
+<p>假设<span class="math inline">\(F_{A,B}[i][j]\)</span>为序列<span class="math inline">\(F_{A,B}\)</span>的第<span class="math inline">\(i\)</span>个字符串的第<span class="math inline">\(j\)</span>个字符。由于<span class="math inline">\(F_{A,B}[i]\)</span>是由<span class="math inline">\(F_{A,B}[i-2]\)</span>和<span class="math inline">\(F_{A,B}[i-1]\)</span>拼接而成。因此只需通过长度判断，就可以通过下标定位到前面两个字符串。如果需要查询的下标<span class="math inline">\(k\)</span>落在<span class="math inline">\(F_{A,B}[i-2]\)</span>中，那么转而在字符串<span class="math inline">\(F_{A,B}[i-2]\)</span>继续查找，否则在<span class="math inline">\(F_{A,B}[i-1]\)</span>中继续查找。如此迭代，直到回到初始字符串<span class="math inline">\(A,B\)</span>，即可得到答案。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">17</span></span><br><span class="line">A = <span class="string">&quot;1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679&quot;</span></span><br><span class="line">B = <span class="string">&quot;8214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196&quot;</span></span><br><span class="line"></span><br><span class="line">M = <span class="number">100</span></span><br><span class="line">len_F = [<span class="built_in">len</span>(A), <span class="built_in">len</span>(B)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    len_F.append(len_F[-<span class="number">2</span>] + len_F[-<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_digit</span>(<span class="params">f: <span class="built_in">int</span>, pos: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> f == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> A[pos - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">elif</span> f == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> B[pos - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> pos &lt;= len_F[f - <span class="number">2</span>]:</span><br><span class="line">            <span class="keyword">return</span> get_digit(f - <span class="number">2</span>, pos)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> get_digit(f - <span class="number">1</span>, pos - len_F[f - <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    p = (<span class="number">127</span> + <span class="number">19</span> * n) * (<span class="number">7</span> ** n)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">        <span class="keyword">if</span> len_F[i] &gt;= p:</span><br><span class="line">            ans += <span class="built_in">int</span>(get_digit(i, p)) * <span class="number">10</span> ** n</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -349,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-230"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 230</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Fibonacci-Words"><span class="nav-number">1.1.1.</span> <span class="nav-text">Fibonacci Words</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-230"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 230</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fibonacci-words"><span class="nav-number">1.1.1.</span> <span class="nav-text">Fibonacci Words</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -363,7 +379,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -407,13 +423,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

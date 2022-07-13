@@ -240,7 +240,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -259,24 +259,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-226"><a href="#Project-Euler-226" class="headerlink" title="Project Euler 226"></a>Project Euler 226</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="A-Scoop-of-Blancmange"><a href="#A-Scoop-of-Blancmange" class="headerlink" title="A Scoop of Blancmange"></a>A Scoop of Blancmange</h3><p>The <em>blancmange curve</em> is the set of points $(x, y)$ such that $0 \le x \le 1$ and $y = \sum \limits_{n = 0}^{\infty} {\dfrac{s(2^n x)}{2^n}}$, where $s(x)$ is the distance from $x$ to the nearest integer.</p>
-<p>The area under the blancmange curve is equal to $\dfrac{1}{2}$, shown in pink in the diagram below.</p>
-<p><img src="../images/p226_scoop2.gif" alt></p>
-<p>Let $C$ be the circle with centre $(\dfrac{1}{4},\dfrac{1}{2})$ and radius $\dfrac{1}{4}$, shown in black in the diagram.</p>
-<p>What area under the blancmange curve is enclosed by $C$?</p>
-<p>Give your answer rounded to eight decimal places in the form $0.abcdefgh$</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>该<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Blancmange_curve#Integrating_the_Blancmange_curve">页面</a>给出了求解牛奶冻曲线积分的递推公式。如果$f(x)=\sum \limits_{n = 0}^{\infty} {\dfrac{s(2^n x)}{2^n}}$，那么有$I(x)$：</p>
-<script type="math/tex; mode=display">I(x)=\int_{0}^x f(x)dx=
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-226">Project Euler 226</h1>
+<h2 id="题目">题目</h2>
+<h3 id="a-scoop-of-blancmange">A Scoop of Blancmange</h3>
+<p>The <em>blancmange curve</em> is the set of points <span class="math inline">\((x, y)\)</span> such that <span class="math inline">\(0 \le x \le 1\)</span> and <span class="math inline">\(y = \sum \limits_{n = 0}^{\infty} {\dfrac{s(2^n
+x)}{2^n}}\)</span>, where <span class="math inline">\(s(x)\)</span> is
+the distance from <span class="math inline">\(x\)</span> to the nearest
+integer.</p>
+<p>The area under the blancmange curve is equal to <span class="math inline">\(\dfrac{1}{2}\)</span>, shown in pink in the
+diagram below.</p>
+<p><img src="../images/p226_scoop2.gif"></p>
+<p>Let <span class="math inline">\(C\)</span> be the circle with centre
+<span class="math inline">\((\dfrac{1}{4},\dfrac{1}{2})\)</span> and
+radius <span class="math inline">\(\dfrac{1}{4}\)</span>, shown in black
+in the diagram.</p>
+<p>What area under the blancmange curve is enclosed by <span class="math inline">\(C\)</span>?</p>
+<p>Give your answer rounded to eight decimal places in the form <span class="math inline">\(0.abcdefgh\)</span></p>
+<h2 id="解决方案">解决方案</h2>
+<p>该<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Blancmange_curve#Integrating_the_Blancmange_curve">页面</a>给出了求解牛奶冻曲线积分的递推公式。如果<span class="math inline">\(f(x)=\sum \limits_{n = 0}^{\infty} {\dfrac{s(2^n
+x)}{2^n}}\)</span>，那么有<span class="math inline">\(I(x)\)</span>：</p>
+<p><span class="math display">\[I(x)=\int_{0}^x f(x)dx=
 \left \{\begin{aligned}
-  &\dfrac{I(2x)}{4}+\dfrac{x^2}{2}  & & \mathrm{if\quad} 0\le x\le \dfrac{1}{2} \\
-  &\dfrac{1}{2}-I(1-x)  & & \mathrm{if\quad} \dfrac{1}{2}\le x\le 1 \\
-  &\dfrac{n}{2}+I(x-n)  & & \mathrm{if\quad} n\le x\le(n+1) \\
-\end{aligned}\right.</script><p>为方便计算，我们假设圆$C$和曲线中只有两个交点，其中右交点在$B(0.5,f(0.5))$，左交点通过二分法来求出，假设为为$A(a,f(a))$。</p>
-<p>接下来使用该<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Circular_segment">页面</a>的一些公式计算了弓形$\mathop{AB}\limits^{\frown}$的面积，从而计算出弧$\mathop{AB}\limits^{\frown}$竖直向下的那一块面积$S$，也就是说，</p>
-<script type="math/tex; mode=display">S=\int_a^{\frac{1}{2}} \frac{1}{2} - \sqrt{\frac{1}{4}^2 - \left(x - \frac{1}{2}\right)^2}dx</script><p>最终答案为$I(\dfrac{1}{2})-I(a)-S$。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> asin, sin</span><br><span class="line"></span><br><span class="line">f = <span class="keyword">lambda</span> x: <span class="built_in">sum</span>(<span class="built_in">abs</span>(x * (<span class="number">1</span> &lt;&lt; n) - <span class="built_in">round</span>(x * (<span class="number">1</span> &lt;&lt; n))) / (<span class="number">1</span> &lt;&lt; n) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">60</span>))</span><br><span class="line">g = <span class="keyword">lambda</span> x: <span class="number">0.5</span> - (x / <span class="number">2</span> - x * x) ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">I</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">1e-13</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x &lt;= <span class="number">0.5</span>:</span><br><span class="line">        <span class="keyword">return</span> I(<span class="number">2</span> * x) / <span class="number">4</span> + x * x / <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.5</span> - I(<span class="number">1</span> - x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">l, r = <span class="number">0</span>, <span class="number">0.5</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    mid = (l + r) * <span class="number">0.5</span></span><br><span class="line">    <span class="keyword">if</span> f(mid) &gt; g(mid):</span><br><span class="line">        r = mid</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        l = mid</span><br><span class="line">xl, xr = l, <span class="number">0.5</span></span><br><span class="line">yl, yr = g(xl), g(xr)</span><br><span class="line">cr = <span class="number">1</span> / <span class="number">4</span></span><br><span class="line">d = ((xl - xr) ** <span class="number">2</span> + (yl - yr) ** <span class="number">2</span>) ** <span class="number">0.5</span></span><br><span class="line">theta = <span class="number">2</span> * asin(d / (<span class="number">2</span> * cr))</span><br><span class="line">arc_area = cr * cr / <span class="number">2</span> * (theta - sin(theta))</span><br><span class="line">circle_integral = (yl + yr) * (xr - xl) / <span class="number">2</span> - arc_area</span><br><span class="line">ans = I(xr) - I(xl) - circle_integral</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.8f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;\dfrac{I(2x)}{4}+\dfrac{x^2}{2}  &amp; &amp; \mathrm{if\quad}
+0\le x\le \dfrac{1}{2} \\
+  &amp;\dfrac{1}{2}-I(1-x)  &amp; &amp; \mathrm{if\quad} \dfrac{1}{2}\le
+x\le 1 \\
+  &amp;\dfrac{n}{2}+I(x-n)  &amp; &amp; \mathrm{if\quad} n\le x\le(n+1)
+\\
+\end{aligned}\right.
+\]</span></p>
+<p>为方便计算，我们假设圆<span class="math inline">\(C\)</span>和曲线中只有两个交点，其中右交点在<span class="math inline">\(B(0.5,f(0.5))\)</span>，左交点通过二分法来求出，假设为为<span class="math inline">\(A(a,f(a))\)</span>。</p>
+<p>接下来使用该<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Circular_segment">页面</a>的一些公式计算了弓形<span class="math inline">\(\mathop{AB}\limits^{\frown}\)</span>的面积，从而计算出弧<span class="math inline">\(\mathop{AB}\limits^{\frown}\)</span>竖直向下的那一块面积<span class="math inline">\(S\)</span>，也就是说，</p>
+<p><span class="math display">\[S=\int_a^{\frac{1}{2}} \frac{1}{2} -
+\sqrt{\frac{1}{4}^2 - \left(x - \frac{1}{2}\right)^2}dx\]</span></p>
+<p>最终答案为<span class="math inline">\(I(\dfrac{1}{2})-I(a)-S\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> asin, sin</span><br><span class="line"></span><br><span class="line">f = <span class="keyword">lambda</span> x: <span class="built_in">sum</span>(<span class="built_in">abs</span>(x * (<span class="number">1</span> &lt;&lt; n) - <span class="built_in">round</span>(x * (<span class="number">1</span> &lt;&lt; n))) / (<span class="number">1</span> &lt;&lt; n) <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">60</span>))</span><br><span class="line">g = <span class="keyword">lambda</span> x: <span class="number">0.5</span> - (x / <span class="number">2</span> - x * x) ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">I</span>(<span class="params">x</span>):</span><br><span class="line">    <span class="keyword">if</span> x &lt; <span class="number">1e-13</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> x &lt;= <span class="number">0.5</span>:</span><br><span class="line">        <span class="keyword">return</span> I(<span class="number">2</span> * x) / <span class="number">4</span> + x * x / <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0.5</span> - I(<span class="number">1</span> - x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">l, r = <span class="number">0</span>, <span class="number">0.5</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    mid = (l + r) * <span class="number">0.5</span></span><br><span class="line">    <span class="keyword">if</span> f(mid) &gt; g(mid):</span><br><span class="line">        r = mid</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        l = mid</span><br><span class="line">xl, xr = l, <span class="number">0.5</span></span><br><span class="line">yl, yr = g(xl), g(xr)</span><br><span class="line">cr = <span class="number">1</span> / <span class="number">4</span></span><br><span class="line">d = ((xl - xr) ** <span class="number">2</span> + (yl - yr) ** <span class="number">2</span>) ** <span class="number">0.5</span></span><br><span class="line">theta = <span class="number">2</span> * asin(d / (<span class="number">2</span> * cr))</span><br><span class="line">arc_area = cr * cr / <span class="number">2</span> * (theta - sin(theta))</span><br><span class="line">circle_integral = (yl + yr) * (xr - xl) / <span class="number">2</span> - arc_area</span><br><span class="line">ans = I(xr) - I(xl) - circle_integral</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.8f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -360,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-226"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 226</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#A-Scoop-of-Blancmange"><span class="nav-number">1.1.1.</span> <span class="nav-text">A Scoop of Blancmange</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-226"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 226</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-scoop-of-blancmange"><span class="nav-number">1.1.1.</span> <span class="nav-text">A Scoop of Blancmange</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -374,7 +393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -418,13 +437,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

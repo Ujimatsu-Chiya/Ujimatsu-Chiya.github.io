@@ -254,79 +254,108 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-315"><a href="#Project-Euler-315" class="headerlink" title="Project Euler 315"></a>Project Euler 315</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Digital-root-clocks"><a href="#Digital-root-clocks" class="headerlink" title="Digital root clocks"></a>Digital root clocks</h3><p><img src="../images/p315_clocks.gif" alt></p>
-<p>Sam and Max are asked to transform two digital clocks into two “digital root” clocks.</p>
-<p>A digital root clock is a digital clock that calculates digital roots step by step.</p>
-<p>When a clock is fed a number, it will show it and then it will start the calculation, showing all the intermediate values until it gets to the result.</p>
-<p>For example, if the clock is fed the number $137$, it will show: “<strong>137</strong>“ → “<strong>11</strong>“ → “<strong>2</strong>“ and then it will go black, waiting for the next number.</p>
-<p>Every digital number consists of some light segments: three horizontal (top, middle, bottom) and four vertical (top-left, top-right, bottom-left, bottom-right).</p>
-<p>Number “<strong>1</strong>“ is made of vertical top-right and bottom-right, number “<strong>4</strong>“ is made by middle horizontal and vertical top-left, top-right and bottom-right. Number “<strong>8</strong>“ lights them all.</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-315">Project Euler 315</h1>
+<h2 id="题目">题目</h2>
+<h3 id="digital-root-clocks">Digital root clocks</h3>
+<p><img src="../images/p315_clocks.gif"></p>
+<p>Sam and Max are asked to transform two digital clocks into two
+“digital root” clocks.</p>
+<p>A digital root clock is a digital clock that calculates digital roots
+step by step.</p>
+<p>When a clock is fed a number, it will show it and then it will start
+the calculation, showing all the intermediate values until it gets to
+the result.</p>
+<p>For example, if the clock is fed the number <span class="math inline">\(137\)</span>, it will show: “<strong>137</strong>“
+→ “<strong>11</strong>“ → “<strong>2</strong>“ and then it will go
+black, waiting for the next number.</p>
+<p>Every digital number consists of some light segments: three
+horizontal (top, middle, bottom) and four vertical (top-left, top-right,
+bottom-left, bottom-right).</p>
+<p>Number “<strong>1</strong>“ is made of vertical top-right and
+bottom-right, number “<strong>4</strong>“ is made by middle horizontal
+and vertical top-left, top-right and bottom-right. Number
+“<strong>8</strong>“ lights them all.</p>
 <p>The clocks consume energy only when segments are turned on/off.</p>
-<p>To turn on a “<strong>2</strong>“ will cost 5 transitions, while a “<strong>7</strong>“ will cost only 4 transitions.</p>
+<p>To turn on a “<strong>2</strong>“ will cost 5 transitions, while a
+“<strong>7</strong>“ will cost only 4 transitions.</p>
 <p>Sam and Max built two different clocks.</p>
-<p>Sam’s clock is fed e.g. number 137: the clock shows “<strong>137</strong>“, then the panel is turned off, then the next number (“<strong>11</strong>“) is turned on, then the panel is turned off again and finally the last number (“<strong>2</strong>“) is turned on and, after some time, off.</p>
-<p>For the example, with number $137$, Sam’s clock requires:</p>
-<div class="table-container">
+<p>Sam’s clock is fed e.g. number 137: the clock shows
+“<strong>137</strong>“, then the panel is turned off, then the next
+number (“<strong>11</strong>“) is turned on, then the panel is turned
+off again and finally the last number (“<strong>2</strong>“) is turned
+on and, after some time, off.</p>
+<p>For the example, with number <span class="math inline">\(137\)</span>, Sam’s clock requires:</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <tbody>
-<tr>
+<tr class="odd">
 <td>“<strong>137</strong>“:</td>
-<td>$(2 + 5 + 4)  \times 2 = 22$ transitions (“<strong>137</strong>“ on/off).</td>
+<td><span class="math inline">\((2 + 5 + 4) \times 2 = 22\)</span>
+transitions (“<strong>137</strong>“ on/off).</td>
 </tr>
-<tr>
+<tr class="even">
 <td>“<strong>11</strong>“:</td>
-<td>$(2 + 2)  \times 2 = 8$ transitions (“<strong>11</strong>“ on/off).</td>
+<td><span class="math inline">\((2 + 2) \times 2 = 8\)</span>
+transitions (“<strong>11</strong>“ on/off).</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>“<strong>2</strong>“:</td>
-<td>$(5)  \times 2 = 10$ transitions (“<strong>2</strong>“ on/off).</td>
+<td><span class="math inline">\((5) \times 2 = 10\)</span> transitions
+(“<strong>2</strong>“ on/off).</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>For a grand total of 40 transitions.<br>Max’s clock works differently. Instead of turning off the whole panel, it is smart enough to turn off only those segments that won’t be needed for the next number.<br>For number 137, Max’s clock requires:</p>
-<div class="table-container">
+<p>For a grand total of 40 transitions. Max’s clock works differently.
+Instead of turning off the whole panel, it is smart enough to turn off
+only those segments that won’t be needed for the next number.<br>For
+number 137, Max’s clock requires:</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
 <tbody>
-<tr>
+<tr class="odd">
 <td>“<strong>137</strong>“:</td>
-<td>$2 + 5 + 4 = 11$ transitions (“<strong>137</strong>“ on)<br>$7$ transitions (to turn off the segments that are not needed for number “<strong>11</strong>“).</td>
+<td><span class="math inline">\(2 + 5 + 4 = 11\)</span> transitions
+(“<strong>137</strong>“ on)<br><span class="math inline">\(7\)</span>
+transitions (to turn off the segments that are not needed for number
+“<strong>11</strong>“).</td>
 </tr>
-<tr>
+<tr class="even">
 <td>“<strong>11</strong>“:</td>
-<td>$0$ transitions (number “<strong>11</strong>“ is already turned on correctly)<br>$3$ transitions (to turn off the first “<strong>1</strong>“ and the bottom part of the second “<strong>1</strong>“;<br>the top part is common with number “<strong>2</strong>“).</td>
+<td><span class="math inline">\(0\)</span> transitions (number
+“<strong>11</strong>“ is already turned on correctly)<br><span class="math inline">\(3\)</span> transitions (to turn off the first
+“<strong>1</strong>“ and the bottom part of the second
+“<strong>1</strong>“;<br>the top part is common with number
+“<strong>2</strong>“).</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>“<strong>2</strong>“:</td>
-<td>$4$ transitions (to turn on the remaining segments in order to get a “<strong>2</strong>“)<br>$5$ transitions (to turn off number “<strong>2</strong>“).</td>
+<td><span class="math inline">\(4\)</span> transitions (to turn on the
+remaining segments in order to get a “<strong>2</strong>“)<br><span class="math inline">\(5\)</span> transitions (to turn off number
+“<strong>2</strong>“).</td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>For a grand total of $30$ transitions.</p>
+<p>For a grand total of <span class="math inline">\(30\)</span>
+transitions.</p>
 <p>Of course, Max’s clock consumes less power than Sam’s one.</p>
-<p>The two clocks are fed all the prime numbers between $A = 10^7$ and $B = 2\times10^7$.</p>
-<p>Find the difference between the total number of transitions needed by Sam’s clock and that needed by Max’s one.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>对于一个数位上的数码管，有$2^7$种不同的使用情况。每一种使用情况用一个$7$位二进制数表示。如图下图是一种比较随机的编码。如果第$i$个管是亮的，那么这个二进制数的第$i$位为$1$，否则为$0$。</p>
-<p><img src="../images/p315-1.png" alt></p>
-<p>不过实际上，我们只使用了其中的$10$种情况，用来表示$0\sim9$。我们用$b[i]$表示这个数位的显示情况。</p>
-<p>如果一个数$x$要变成$y$，那么能够节省能量的地方满足：变化前和变化后对应的两个数位$(x_i,y_i)$，有$b[x_i]\&amp;b[y_i]&gt;0$。此时$b[x_i]\&amp;b[y_i]$的比特数就是节省的能量数。</p>
-<p>需要注意的是，最终答案需要乘$2$，因为它减少了从亮到灭和从灭到亮的两个过程。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e7</span>,M=<span class="number">1e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> O=<span class="number">10</span>,P=<span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> v[N+<span class="number">4</span>],pr[N/<span class="number">10</span>+<span class="number">100</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b[O]=&#123;<span class="number">119</span>, <span class="number">36</span>, <span class="number">93</span>, <span class="number">109</span>, <span class="number">46</span>, <span class="number">107</span>, <span class="number">123</span>, <span class="number">39</span>, <span class="number">127</span>, <span class="number">111</span>&#125;;</span><br><span class="line"><span class="type">int</span> g[O][O],c[<span class="number">1</span>&lt;&lt;P];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal_sum</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n;n/=<span class="number">10</span>) s+=n%<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal_bits</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n&amp;&amp;m;n/=<span class="number">10</span>,m/=<span class="number">10</span>)</span><br><span class="line">        s+=g[n%<span class="number">10</span>][m%<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n&gt;=<span class="number">10</span>;)&#123;</span><br><span class="line">        <span class="type">int</span> m=<span class="built_in">cal_sum</span>(n);</span><br><span class="line">        s+=<span class="built_in">cal_bits</span>(n,m);</span><br><span class="line">        n=m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;P);i++)</span><br><span class="line">        c[i]=__builtin_popcount(i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>) v[i]=i,pr[++m]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;O;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;O;j++)</span><br><span class="line">            g[i][j]=c[b[i]&amp;b[j]];</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        <span class="keyword">if</span>(pr[i]&gt;M) ans+=<span class="built_in">cal</span>(pr[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>The two clocks are fed all the prime numbers between <span class="math inline">\(A = 10^7\)</span> and <span class="math inline">\(B = 2\times10^7\)</span>.</p>
+<p>Find the difference between the total number of transitions needed by
+Sam’s clock and that needed by Max’s one.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>对于一个数位上的数码管，有<span class="math inline">\(2^7\)</span>种不同的使用情况。每一种使用情况用一个<span class="math inline">\(7\)</span>位二进制数表示。如图下图是一种比较随机的编码。如果第<span class="math inline">\(i\)</span>个管是亮的，那么这个二进制数的第<span class="math inline">\(i\)</span>位为<span class="math inline">\(1\)</span>，否则为<span class="math inline">\(0\)</span>。</p>
+<p><img src="../images/p315-1.png"></p>
+<p>不过实际上，我们只使用了其中的<span class="math inline">\(10\)</span>种情况，用来表示<span class="math inline">\(0\sim9\)</span>。我们用<span class="math inline">\(b[i]\)</span>表示这个数位的显示情况。</p>
+<p>如果一个数<span class="math inline">\(x\)</span>要变成<span class="math inline">\(y\)</span>，那么能够节省能量的地方满足：变化前和变化后对应的两个数位<span class="math inline">\((x_i,y_i)\)</span>，有<span class="math inline">\(b[x_i]\&amp;b[y_i]&gt;0\)</span>。此时<span class="math inline">\(b[x_i]\&amp;b[y_i]\)</span>的比特数就是节省的能量数。</p>
+<p>需要注意的是，最终答案需要乘<span class="math inline">\(2\)</span>，因为它减少了从亮到灭和从灭到亮的两个过程。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">2e7</span>,M=<span class="number">1e7</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> O=<span class="number">10</span>,P=<span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> v[N+<span class="number">4</span>],pr[N/<span class="number">10</span>+<span class="number">100</span>],m=<span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> b[O]=&#123;<span class="number">119</span>, <span class="number">36</span>, <span class="number">93</span>, <span class="number">109</span>, <span class="number">46</span>, <span class="number">107</span>, <span class="number">123</span>, <span class="number">39</span>, <span class="number">127</span>, <span class="number">111</span>&#125;;</span><br><span class="line"><span class="type">int</span> g[O][O],c[<span class="number">1</span>&lt;&lt;P];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal_sum</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n;n/=<span class="number">10</span>) s+=n%<span class="number">10</span>;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal_bits</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n&amp;&amp;m;n/=<span class="number">10</span>,m/=<span class="number">10</span>)</span><br><span class="line">        s+=g[n%<span class="number">10</span>][m%<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">cal</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(;n&gt;=<span class="number">10</span>;)&#123;</span><br><span class="line">        <span class="type">int</span> m=<span class="built_in">cal_sum</span>(n);</span><br><span class="line">        s+=<span class="built_in">cal_bits</span>(n,m);</span><br><span class="line">        n=m;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s*<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;(<span class="number">1</span>&lt;&lt;P);i++)</span><br><span class="line">        c[i]=__builtin_popcount(i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(v[i]==<span class="number">0</span>) v[i]=i,pr[++m]=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=m;j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(pr[j]&gt;v[i]||pr[j]&gt;N/i) <span class="keyword">break</span>;</span><br><span class="line">            v[i*pr[j]]=pr[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;O;i++)</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;O;j++)</span><br><span class="line">            g[i][j]=c[b[i]&amp;b[j]];</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)</span><br><span class="line">        <span class="keyword">if</span>(pr[i]&gt;M) ans+=<span class="built_in">cal</span>(pr[i]);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -410,7 +439,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-315"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 315</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Digital-root-clocks"><span class="nav-number">1.1.1.</span> <span class="nav-text">Digital root clocks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-315"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 315</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#digital-root-clocks"><span class="nav-number">1.1.1.</span> <span class="nav-text">Digital root clocks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -424,7 +453,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -468,13 +497,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

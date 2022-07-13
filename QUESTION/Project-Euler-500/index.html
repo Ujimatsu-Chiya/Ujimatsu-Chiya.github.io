@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>577</span>
+              <span>631</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,20 +257,28 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-500"><a href="#Project-Euler-500" class="headerlink" title="Project Euler 500"></a>Project Euler 500</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Problem-500"><a href="#Problem-500" class="headerlink" title="Problem 500"></a>Problem 500</h3><p>The number of divisors of $120$ is $16$.</p>
-<p>In fact $120$ is the smallest number having $16$ divisors.</p>
-<p>Find the smallest number with $2^{500500}$ divisors.</p>
-<p>Give your answer modulo $500500507$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>注意到，所求的数的除数是一个二次幂（$2^{N},N=500500$）,那么所求的这个数一定是形如这种形式：</p>
-<script type="math/tex; mode=display">2^{2^{e_1}-1}\times3^{2^{e_2}-1}\times 5^{2^{e_3}-1}\times \dots</script><p>如果要令一个数$n$的因子数翻倍，观察$n$的因数个数公式$\prod (e_i+1)$，有以下两个操作办法：</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-500">Project Euler 500</h1>
+<h2 id="题目">题目</h2>
+<h3 id="problem-500">Problem 500</h3>
+<p>The number of divisors of <span class="math inline">\(120\)</span> is
+<span class="math inline">\(16\)</span>.</p>
+<p>In fact <span class="math inline">\(120\)</span> is the smallest
+number having <span class="math inline">\(16\)</span> divisors.</p>
+<p>Find the smallest number with <span class="math inline">\(2^{500500}\)</span> divisors.</p>
+<p>Give your answer modulo <span class="math inline">\(500500507\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>注意到，所求的数的除数是一个二次幂（<span class="math inline">\(2^{N},N=500500\)</span>）,那么所求的这个数一定是形如这种形式：</p>
+<p><span class="math display">\[2^{2^{e_1}-1}\times3^{2^{e_2}-1}\times
+5^{2^{e_3}-1}\times \dots\]</span></p>
+<p>如果要令一个数<span class="math inline">\(n\)</span>的因子数翻倍，观察<span class="math inline">\(n\)</span>的因数个数公式<span class="math inline">\(\prod (e_i+1)\)</span>，有以下两个操作办法：</p>
 <ul>
-<li>为$n$乘上一个$n$中还未存在的质因数，这相当于添加了一个新的项$(1+1)$。</li>
-<li>$n$的分解质因数中，假设其中一项为$p_i^{e_i}$，那么就为$n$乘上$p_i^{e_i+1}$，这相当于把项$(e_i+1)$变成了$(2e_i+2)$。另外，如果当前对应质因子$p_i$的一项是$x$，那么下一次待添加的就是$x^2$。</li>
+<li>为<span class="math inline">\(n\)</span>乘上一个<span class="math inline">\(n\)</span>中还未存在的质因数，这相当于添加了一个新的项<span class="math inline">\((1+1)\)</span>。</li>
+<li><span class="math inline">\(n\)</span>的分解质因数中，假设其中一项为<span class="math inline">\(p_i^{e_i}\)</span>，那么就为<span class="math inline">\(n\)</span>乘上<span class="math inline">\(p_i^{e_i+1}\)</span>，这相当于把项<span class="math inline">\((e_i+1)\)</span>变成了<span class="math inline">\((2e_i+2)\)</span>。另外，如果当前对应质因子<span class="math inline">\(p_i\)</span>的一项是<span class="math inline">\(x\)</span>，那么下一次待添加的就是<span class="math inline">\(x^2\)</span>。</li>
 </ul>
-<p>因此，使用优先队列维护这些等待被$n$相乘的数，找出最小的一个为$n$乘上即可，过程迭代$N$次。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> PriorityQueue</span><br><span class="line"></span><br><span class="line">M = <span class="number">500500</span></span><br><span class="line">mod = <span class="number">500500507</span></span><br><span class="line">pr = get_prime(M * <span class="built_in">int</span>(<span class="built_in">len</span>(<span class="built_in">bin</span>(M)) - <span class="number">2</span>) + <span class="number">14</span>)</span><br><span class="line">N = M * <span class="built_in">int</span>(<span class="built_in">len</span>(<span class="built_in">bin</span>(M)) - <span class="number">2</span>)</span><br><span class="line">q = PriorityQueue()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    q.put(pr[i])</span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    x = q.get()</span><br><span class="line">    ans = ans * x % mod</span><br><span class="line">    q.put(x * x)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>因此，使用优先队列维护这些等待被<span class="math inline">\(n\)</span>相乘的数，找出最小的一个为<span class="math inline">\(n\)</span>乘上即可，过程迭代<span class="math inline">\(N\)</span>次。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> get_prime</span><br><span class="line"><span class="keyword">from</span> queue <span class="keyword">import</span> PriorityQueue</span><br><span class="line"></span><br><span class="line">M = <span class="number">500500</span></span><br><span class="line">mod = <span class="number">500500507</span></span><br><span class="line">pr = get_prime(M * <span class="built_in">int</span>(<span class="built_in">len</span>(<span class="built_in">bin</span>(M)) - <span class="number">2</span>) + <span class="number">14</span>)</span><br><span class="line">N = M * <span class="built_in">int</span>(<span class="built_in">len</span>(<span class="built_in">bin</span>(M)) - <span class="number">2</span>)</span><br><span class="line">q = PriorityQueue()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    q.put(pr[i])</span><br><span class="line">ans = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    x = q.get()</span><br><span class="line">    ans = ans * x % mod</span><br><span class="line">    q.put(x * x)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -354,7 +362,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-500"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 500</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Problem-500"><span class="nav-number">1.1.1.</span> <span class="nav-text">Problem 500</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-500"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 500</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#problem-500"><span class="nav-number">1.1.1.</span> <span class="nav-text">Problem 500</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -368,7 +376,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -412,13 +420,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

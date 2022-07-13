@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,38 +252,64 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-371"><a href="#Project-Euler-371" class="headerlink" title="Project Euler 371"></a>Project Euler 371</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Licence-plates"><a href="#Licence-plates" class="headerlink" title="Licence plates"></a>Licence plates</h3><p>Oregon licence plates consist of three letters followed by a three digit number (each digit can be from $[0..9]$).</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-371">Project Euler 371</h1>
+<h2 id="题目">题目</h2>
+<h3 id="licence-plates">Licence plates</h3>
+<p>Oregon licence plates consist of three letters followed by a three
+digit number (each digit can be from <span class="math inline">\([0..9]\)</span>).</p>
 <p>While driving to work Seth plays the following game:</p>
-<p>Whenever the numbers of two licence plates seen on his trip add to $1000$ that’s a win.</p>
-<p>E.g. $\text{MIC}-012$ and $\text{HAN}-988$ is a win and $\text{RYU}-500$ and $\text{SET}-500$ too (as long as he sees them in the same trip).</p>
+<p>Whenever the numbers of two licence plates seen on his trip add to
+<span class="math inline">\(1000\)</span> that's a win.</p>
+<p>E.g. <span class="math inline">\(\text{MIC}-012\)</span> and <span class="math inline">\(\text{HAN}-988\)</span> is a win and <span class="math inline">\(\text{RYU}-500\)</span> and <span class="math inline">\(\text{SET}-500\)</span> too (as long as he sees
+them in the same trip).</p>
 <p>Find the expected number of plates he needs to see for a win.</p>
-<p>Give your answer rounded to $8$ decimal places behind the decimal point.</p>
-<p><strong>Note:</strong> We assume that each licence plate seen is equally likely to have any three digit number on it.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=3$，表示号码牌位数。不难想到使用动态规划的思想解决。</p>
-<p>这一些数主要分成三块来看：$0,5\cdot 10^{N-1}$，以及其它剩下的数。</p>
-<p>当遇到一个数$0$时，那么对当前状态不会产生任何影响。而对于除$5\cdot 10^{N-1}$之外的其它数而言，如果遇到了$x$，那么当只有遇到$1000-x$时才算胜利（注意此时$x\neq 10^N-x$），我们称$x$和$10^N-x$是一对号码牌；但是对于$5\cdot 10^{N-1}$，只要单独遇到两次则胜利。</p>
-<p>因此将$5\cdot 10^{N-1}$分开考虑。考虑状态$g(i)(0\le i&lt;5\cdot 10^{N-1})$表示<strong>已经</strong>遇到一次$5\cdot 10^{N-1}$时，并且已经遇到了独立的$i$对号码牌之中的一对，接下来进行游戏的期望轮数。那么就可以写出$g$的递推式如下：</p>
-<p>$g(i)=\dfrac{1\cdot g(i)+1\cdot 0+i\cdot g(i)+i\cdot 0+(10^{N}-2i-2)\cdot g(i+1)}{10^N}+1$</p>
-<p>其中$5$项分别表示：遇到了一个$0$号牌；再次遇到了一个$5\cdot 10^{N-1}$号牌；遇到了$i$对号码牌中某一对的同一个；遇到了$i$对号码牌中某一对的另外一个；遇到了一对新的号码牌中的一个。</p>
-<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态$i$依赖于自身）。不过，这种情况下消除后效性很简单。右边项也是$g(i)$，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
-<p>为了方便正式状态转移方程，假设存在状态$g(5\cdot 10^{N-1})$,并令其为$0$,整理关于$g$的方程，消除后效性后可以写成:</p>
-<script type="math/tex; mode=display">
+<p>Give your answer rounded to <span class="math inline">\(8\)</span>
+decimal places behind the decimal point.</p>
+<p><strong>Note:</strong> We assume that each licence plate seen is
+equally likely to have any three digit number on it.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=3\)</span>，表示号码牌位数。不难想到使用动态规划的思想解决。</p>
+<p>这一些数主要分成三块来看：<span class="math inline">\(0,5\cdot
+10^{N-1}\)</span>，以及其它剩下的数。</p>
+<p>当遇到一个数<span class="math inline">\(0\)</span>时，那么对当前状态不会产生任何影响。而对于除<span class="math inline">\(5\cdot
+10^{N-1}\)</span>之外的其它数而言，如果遇到了<span class="math inline">\(x\)</span>，那么当只有遇到<span class="math inline">\(1000-x\)</span>时才算胜利（注意此时<span class="math inline">\(x\neq 10^N-x\)</span>），我们称<span class="math inline">\(x\)</span>和<span class="math inline">\(10^N-x\)</span>是一对号码牌；但是对于<span class="math inline">\(5\cdot
+10^{N-1}\)</span>，只要单独遇到两次则胜利。</p>
+<p>因此将<span class="math inline">\(5\cdot
+10^{N-1}\)</span>分开考虑。考虑状态<span class="math inline">\(g(i)(0\le
+i&lt;5\cdot 10^{N-1})\)</span>表示<strong>已经</strong>遇到一次<span class="math inline">\(5\cdot
+10^{N-1}\)</span>时，并且已经遇到了独立的<span class="math inline">\(i\)</span>对号码牌之中的一对，接下来进行游戏的期望轮数。那么就可以写出<span class="math inline">\(g\)</span>的递推式如下：</p>
+<p><span class="math inline">\(g(i)=\dfrac{1\cdot g(i)+1\cdot 0+i\cdot
+g(i)+i\cdot 0+(10^{N}-2i-2)\cdot g(i+1)}{10^N}+1\)</span></p>
+<p>其中<span class="math inline">\(5\)</span>项分别表示：遇到了一个<span class="math inline">\(0\)</span>号牌；再次遇到了一个<span class="math inline">\(5\cdot 10^{N-1}\)</span>号牌；遇到了<span class="math inline">\(i\)</span>对号码牌中某一对的同一个；遇到了<span class="math inline">\(i\)</span>对号码牌中某一对的另外一个；遇到了一对新的号码牌中的一个。</p>
+<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态<span class="math inline">\(i\)</span>依赖于自身）。不过，这种情况下消除后效性很简单。右边项也是<span class="math inline">\(g(i)\)</span>，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
+<p>为了方便正式状态转移方程，假设存在状态<span class="math inline">\(g(5\cdot 10^{N-1})\)</span>,并令其为<span class="math inline">\(0\)</span>,整理关于<span class="math inline">\(g\)</span>的方程，消除后效性后可以写成:</p>
+<p><span class="math display">\[
 g(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=5\cdot 10^{N-1} \\
-  &\dfrac{(10^N-2i-2)\cdot g(i+1)+10^N}{10^N-1-i} & & \mathrm{else}
-\end{aligned}\right.</script><p>类似的，定义状态$f(i)(0\le i&lt;5\cdot 10^{N-1})$表示<strong>已经</strong>遇到一次$5\cdot 10^{N-1}$时，并且已经遇到了独立的$i$对号码牌之中的一对，接下来进行游戏的期望轮数。那么理解了$g$的状递推式，不难写出关于$f$的递推式：</p>
-<p>$f(i)=\dfrac{1\cdot f(i)+1\cdot g(i)+i\cdot f(i)+i\cdot 0+(10^{N}-2i-2)\cdot f(i+1)}{10^N}+1$</p>
+  &amp;0  &amp; &amp; \mathrm{if\quad} i=5\cdot 10^{N-1} \\
+  &amp;\dfrac{(10^N-2i-2)\cdot g(i+1)+10^N}{10^N-1-i} &amp; &amp;
+\mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>类似的，定义状态<span class="math inline">\(f(i)(0\le i&lt;5\cdot
+10^{N-1})\)</span>表示<strong>已经</strong>遇到一次<span class="math inline">\(5\cdot
+10^{N-1}\)</span>时，并且已经遇到了独立的<span class="math inline">\(i\)</span>对号码牌之中的一对，接下来进行游戏的期望轮数。那么理解了<span class="math inline">\(g\)</span>的状递推式，不难写出关于<span class="math inline">\(f\)</span>的递推式：</p>
+<p><span class="math inline">\(f(i)=\dfrac{1\cdot f(i)+1\cdot
+g(i)+i\cdot f(i)+i\cdot 0+(10^{N}-2i-2)\cdot
+f(i+1)}{10^N}+1\)</span></p>
 <p>类似的，整理后可以写成</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 f(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=5\cdot 10^{N-1} \\
-  &\dfrac{g(i)+(10^N-2i-2)\cdot f(i+1)+10^N}{10^N-1-i} & & \mathrm{else}
-\end{aligned}\right.</script><p>那么，最终的答案为$f(0)$.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">3</span></span><br><span class="line">k = <span class="number">10</span> ** N // <span class="number">2</span> - <span class="number">1</span></span><br><span class="line">f, g = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    g = ((<span class="number">10</span> ** N - <span class="number">2</span> * i - <span class="number">2</span>) * g + <span class="number">10</span> ** N) / (<span class="number">10</span> ** N - <span class="number">1</span> - i)</span><br><span class="line">    f = (g + (<span class="number">10</span> ** N - <span class="number">2</span> * i - <span class="number">2</span>) * f + <span class="number">10</span> ** N) / (<span class="number">10</span> ** N - <span class="number">1</span> - i)</span><br><span class="line">ans = f</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.8f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;0  &amp; &amp; \mathrm{if\quad} i=5\cdot 10^{N-1} \\
+  &amp;\dfrac{g(i)+(10^N-2i-2)\cdot f(i+1)+10^N}{10^N-1-i} &amp; &amp;
+\mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>那么，最终的答案为<span class="math inline">\(f(0)\)</span>.</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">3</span></span><br><span class="line">k = <span class="number">10</span> ** N // <span class="number">2</span> - <span class="number">1</span></span><br><span class="line">f, g = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(k, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">    g = ((<span class="number">10</span> ** N - <span class="number">2</span> * i - <span class="number">2</span>) * g + <span class="number">10</span> ** N) / (<span class="number">10</span> ** N - <span class="number">1</span> - i)</span><br><span class="line">    f = (g + (<span class="number">10</span> ** N - <span class="number">2</span> * i - <span class="number">2</span>) * f + <span class="number">10</span> ** N) / (<span class="number">10</span> ** N - <span class="number">1</span> - i)</span><br><span class="line">ans = f</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.8f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -369,7 +395,7 @@ f(i)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-371"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 371</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Licence-plates"><span class="nav-number">1.1.1.</span> <span class="nav-text">Licence plates</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-371"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 371</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#licence-plates"><span class="nav-number">1.1.1.</span> <span class="nav-text">Licence plates</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -383,7 +409,7 @@ f(i)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -427,13 +453,13 @@ f(i)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

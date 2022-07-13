@@ -235,7 +235,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.9k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -254,43 +254,72 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-306"><a href="#Project-Euler-306" class="headerlink" title="Project Euler 306"></a>Project Euler 306</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Paper-strip-Game"><a href="#Paper-strip-Game" class="headerlink" title="Paper-strip Game"></a>Paper-strip Game</h3><p>The following game is a classic example of Combinatorial Game Theory:</p>
-<p>Two players start with a strip of $n$ white squares and they take alternate turns.</p>
-<p>On each turn, a player picks two contiguous white squares and paints them black.</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-306">Project Euler 306</h1>
+<h2 id="题目">题目</h2>
+<h3 id="paper-strip-game">Paper-strip Game</h3>
+<p>The following game is a classic example of Combinatorial Game
+Theory:</p>
+<p>Two players start with a strip of <span class="math inline">\(n\)</span> white squares and they take alternate
+turns.</p>
+<p>On each turn, a player picks two contiguous white squares and paints
+them black.</p>
 <p>The first player who cannot make a move loses.</p>
 <ul>
-<li>$n = 1$: No valid moves, so the first player loses automatically.</li>
-<li>$n = 2$: Only one valid move, after which the second player loses.</li>
-<li>$n = 3$: Two valid moves, but both leave a situation where the second player loses.</li>
-<li>$n = 4$: Three valid moves for the first player, who is able to win the game by painting the two middle squares.</li>
-<li>$n = 5$: Four valid moves for the first player (shown below in red), but no matter what the player does, the second player (blue) wins.</li>
+<li><span class="math inline">\(n = 1\)</span>: No valid moves, so the
+first player loses automatically.</li>
+<li><span class="math inline">\(n = 2\)</span>: Only one valid move,
+after which the second player loses.</li>
+<li><span class="math inline">\(n = 3\)</span>: Two valid moves, but
+both leave a situation where the second player loses.</li>
+<li><span class="math inline">\(n = 4\)</span>: Three valid moves for
+the first player, who is able to win the game by painting the two middle
+squares.</li>
+<li><span class="math inline">\(n = 5\)</span>: Four valid moves for the
+first player (shown below in red), but no matter what the player does,
+the second player (blue) wins.</li>
 </ul>
-<p><img src="../images/p306_pstrip.gif" alt></p>
-<p>So, for $1 \le n \le 5$, there are $3$ values of $n$ for which the first player can force a win.</p>
-<p>Similarly, for $1 \le n \le 50$, there are 40 values of $n$ for which the first player can force a win.</p>
-<p>For $1 \le n \le 1 000 000$, how many values of $n$ are there for which the first player can force a win?</p>
-<h2 id="Sprague–Grundy定理"><a href="#Sprague–Grundy定理" class="headerlink" title="Sprague–Grundy定理"></a>Sprague–Grundy定理</h2><p>$sg$函数是一个用来解决公平组合游戏(ICG)问题的一种工具。</p>
-<p>定义一个非负整数集合上的运算$\text{mex}(s)$：表示集合$s$中未出现的最小的非负整数。</p>
-<p>我们定义一个游戏状态$n$，令$sg(n)=\text{mex}(\{sg(m)|n\rightarrow m\})$.$m$是从$n$能够抵达的所有游戏状态。如果$sg(n)&gt;0$，那么状态$n$为必胜态；如果$sg(n)=0$，那么为必败态。</p>
-<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem">Sprague–Grundy，SG定理</a>说明了，如果这个游戏当前的状态$n$，它可以看做是多个状态$(n_1,n_2,\dots,n_k)$的组合，那么就可以写成：</p>
-<script type="math/tex; mode=display">sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots \oplus sg(n_k)</script><p>以NIM游戏为例，如果当前有$n$堆石头，其中第$i$堆为$a_i$。那么状态$sg(a_1,a_2,\dots,a_n)$可以看成是$sg(a_1),sg(a_2),\dots,sg(a_n)$的组合，当前的状态是必胜态还是必败态由$sg(a_1)\oplus sg(a_2)\oplus\dots\oplus sg(a_n)$决定。</p>
+<p><img src="../images/p306_pstrip.gif"></p>
+<p>So, for <span class="math inline">\(1 \le n \le 5\)</span>, there are
+<span class="math inline">\(3\)</span> values of <span class="math inline">\(n\)</span> for which the first player can force a
+win.</p>
+<p>Similarly, for <span class="math inline">\(1 \le n \le 50\)</span>,
+there are 40 values of <span class="math inline">\(n\)</span> for which
+the first player can force a win.</p>
+<p>For <span class="math inline">\(1 \le n \le 1 000 000\)</span>, how
+many values of <span class="math inline">\(n\)</span> are there for
+which the first player can force a win?</p>
+<h2 id="spraguegrundy定理">Sprague–Grundy定理</h2>
+<p><span class="math inline">\(sg\)</span>函数是一个用来解决公平组合游戏(ICG)问题的一种工具。</p>
+<p>定义一个非负整数集合上的运算<span class="math inline">\(\text{mex}(s)\)</span>：表示集合<span class="math inline">\(s\)</span>中未出现的最小的非负整数。</p>
+<p>我们定义一个游戏状态<span class="math inline">\(n\)</span>，令<span class="math inline">\(sg(n)=\text{mex}(\{sg(m)|n\rightarrow
+m\})\)</span>.<span class="math inline">\(m\)</span>是从<span class="math inline">\(n\)</span>能够抵达的所有游戏状态。如果<span class="math inline">\(sg(n)&gt;0\)</span>，那么状态<span class="math inline">\(n\)</span>为必胜态；如果<span class="math inline">\(sg(n)=0\)</span>，那么为必败态。</p>
+<p><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Sprague%E2%80%93Grundy_theorem">Sprague–Grundy，SG定理</a>说明了，如果这个游戏当前的状态<span class="math inline">\(n\)</span>，它可以看做是多个状态<span class="math inline">\((n_1,n_2,\dots,n_k)\)</span>的组合，那么就可以写成：</p>
+<p><span class="math display">\[sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots
+\oplus sg(n_k)\]</span></p>
+<p>以NIM游戏为例，如果当前有<span class="math inline">\(n\)</span>堆石头，其中第<span class="math inline">\(i\)</span>堆为<span class="math inline">\(a_i\)</span>。那么状态<span class="math inline">\(sg(a_1,a_2,\dots,a_n)\)</span>可以看成是<span class="math inline">\(sg(a_1),sg(a_2),\dots,sg(a_n)\)</span>的组合，当前的状态是必胜态还是必败态由<span class="math inline">\(sg(a_1)\oplus sg(a_2)\oplus\dots\oplus
+sg(a_n)\)</span>决定。</p>
 <p>因此一般使用SG定理解决问题，主要依靠的是分治的思想。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>当双方每一次占用相邻的格子时，可以把它看成是将一个长度为$n$的纸条，将其中相邻的两格占用后，产生了两个长度分别为$i,n-2-i(0\le i\le n-2-i)$的纸条。</p>
-<p>因此我们可以将一个长度为$n$的纸条看做是一个状态，设其为$sg(n)(n\ge 0)$.那么$sg(n)$的值就可以通过以下值计算出：</p>
-<script type="math/tex; mode=display">
+<h2 id="解决方案">解决方案</h2>
+<p>当双方每一次占用相邻的格子时，可以把它看成是将一个长度为<span class="math inline">\(n\)</span>的纸条，将其中相邻的两格占用后，产生了两个长度分别为<span class="math inline">\(i,n-2-i(0\le i\le n-2-i)\)</span>的纸条。</p>
+<p>因此我们可以将一个长度为<span class="math inline">\(n\)</span>的纸条看做是一个状态，设其为<span class="math inline">\(sg(n)(n\ge 0)\)</span>.那么<span class="math inline">\(sg(n)\)</span>的值就可以通过以下值计算出：</p>
+<p><span class="math display">\[
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n\le 1 \\
-  &\text{mex}(\{sg(i)\oplus sg(n-2-i)|0\le i\le n-2-i\}) & & \mathrm{else}
-\end{aligned}\right.</script><p>使用如下代码打印出这个游戏的$sg$函数前一部分序列，在OEIS中查询到结果为<a target="_blank" rel="noopener" href="http://oeis.org/A002187">A002187</a>。</p>
+  &amp;0 &amp; &amp; \mathrm{if\quad} n\le 1 \\
+  &amp;\text{mex}(\{sg(i)\oplus sg(n-2-i)|0\le i\le n-2-i\}) &amp; &amp;
+\mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>使用如下代码打印出这个游戏的<span class="math inline">\(sg\)</span>函数前一部分序列，在OEIS中查询到结果为<a target="_blank" rel="noopener" href="http://oeis.org/A002187">A002187</a>。</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ull;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> sg[N+<span class="number">4</span>];</span><br><span class="line"><span class="type">bool</span> mex[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(mex,<span class="number">0</span>,<span class="built_in">sizeof</span>(mex));</span><br><span class="line">        <span class="type">int</span> j=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;=i-j<span class="number">-2</span>;j++)</span><br><span class="line">            mex[sg[j]^sg[i-j<span class="number">-2</span>]]=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(j=<span class="number">0</span>;mex[j];++j);</span><br><span class="line">        sg[i]=j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;=N;i++)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,sg[i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>在FORMULA一栏中查找到这个信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Has period 34 with the only exceptions at n=0, 14, 16, 17, 31, 34 and 51.</span><br></pre></td></tr></table></figure>
-<p>这说明这个$sg$函数是一个以$34$为周期的序列，除了$0,14,16,17,31,34,51$这几个状态。</p>
-<p>因此，计算时只需要单独考虑$1\sim 51$这几个项即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">a = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>,</span><br><span class="line">     <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">t = [<span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">9</span>]</span><br><span class="line">ans = <span class="built_in">sum</span>(a[i] &gt; <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">min</span>(N, <span class="built_in">len</span>(a))))</span><br><span class="line"><span class="keyword">if</span> N &gt; <span class="built_in">len</span>(a):</span><br><span class="line">    N -= <span class="built_in">len</span>(a)</span><br><span class="line">    block, res = <span class="built_in">divmod</span>(N, <span class="built_in">len</span>(t))</span><br><span class="line">    ans += block * (<span class="built_in">len</span>(t) - t.count(<span class="number">0</span>)) + res - t[:res].count(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>这说明这个<span class="math inline">\(sg\)</span>函数是一个以<span class="math inline">\(34\)</span>为周期的序列，除了<span class="math inline">\(0,14,16,17,31,34,51\)</span>这几个状态。</p>
+<p>因此，计算时只需要单独考虑<span class="math inline">\(1\sim
+51\)</span>这几个项即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">a = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">2</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>,</span><br><span class="line">     <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">2</span>]</span><br><span class="line">t = [<span class="number">3</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">4</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">5</span>, <span class="number">9</span>]</span><br><span class="line">ans = <span class="built_in">sum</span>(a[i] &gt; <span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">min</span>(N, <span class="built_in">len</span>(a))))</span><br><span class="line"><span class="keyword">if</span> N &gt; <span class="built_in">len</span>(a):</span><br><span class="line">    N -= <span class="built_in">len</span>(a)</span><br><span class="line">    block, res = <span class="built_in">divmod</span>(N, <span class="built_in">len</span>(t))</span><br><span class="line">    ans += block * (<span class="built_in">len</span>(t) - t.count(<span class="number">0</span>)) + res - t[:res].count(<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -376,7 +405,7 @@ sg(n)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-306"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 306</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Paper-strip-Game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Paper-strip Game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sprague%E2%80%93Grundy%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">Sprague–Grundy定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-306"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 306</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#paper-strip-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Paper-strip Game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spraguegrundy%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">Sprague–Grundy定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -390,7 +419,7 @@ sg(n)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -434,13 +463,13 @@ sg(n)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

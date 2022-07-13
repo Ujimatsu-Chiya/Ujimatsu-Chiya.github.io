@@ -233,14 +233,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -252,31 +252,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-232"><a href="#Project-Euler-232" class="headerlink" title="Project Euler 232"></a>Project Euler 232</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="The-Race"><a href="#The-Race" class="headerlink" title="The Race"></a>The Race</h3><p>Two players share an unbiased coin and take it in turns to play <em>The Race</em>.</p>
-<p>On Player $1$’s turn, the coin is tossed once. If it comes up Heads, then Player $1$ scores one point; if it comes up Tails, then no points are scored.</p>
-<p>On Player $2$’s turn, a positive integer, $T$, is chosen by Player $2$ and the coin is tossed $T$ times. If it comes up all Heads, then Player $2$ scores $2^{T-1}$ points; otherwise, no points are scored.</p>
-<p>Player $1$ goes first and the winner is the first to $100$ or more points.</p>
-<p>Player $2$ will always selects the number, $T$, of coin tosses that maximises the probability of winning.</p>
-<p>What is the probability that Player $2$ wins?</p>
-<p>Give your answer rounded to eight decimal places in the form $0.abcdefgh$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>不难想到可以使用动态规划的思想解决。</p>
-<p>令$N=100$。令状态$f(i,j)(0\le i,j\le N)$表示当前是<strong>玩家</strong>$\mathbf{2}$的回合，玩家$1$<strong>仍需要</strong>获得$i$分，玩家$2$<strong>仍需要</strong>获得$j$分的情况下，玩家$2$的胜率。</p>
-<p>假设$w_1=0.5,l_1=0.5$分别是玩家$1$单个回合的成功率和失败率，$w_2(T)=2^{T},l_2(T)=1-2^{T}$对玩家$2$同理。令$g(j,T)=\max(j-2^{T-1},0)$，那么对$f(i,j)$的其中一个决策$T$可以写出如下方程：</p>
-<p>$\begin{aligned}<br>f(i,j)=&amp;w_1\cdot w_2(T)\cdot f(i-1,g(j,T))+l_1\cdot w_2(T)\cdot f(i,g(j,T))+\\<br>&amp;w_1\cdot l_2(T)\cdot f(i-1,j) + l_1\cdot l_2(T)\cdot f(i,j)<br>\end{aligned}$</p>
-<p>这个方程表示玩家$2$先玩，接下来玩家$1$玩，两人分别成功和失败的组合，一共有四对。</p>
-<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态$(i,j)$依赖于自身）。不过，这种情况下消除后效性很简单。右边有一个项也是$f(i,j)$，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
-<p>因此，可以正式地写出$f(i,j)$的状态转移方程：</p>
-<script type="math/tex; mode=display">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-232">Project Euler 232</h1>
+<h2 id="题目">题目</h2>
+<h3 id="the-race">The Race</h3>
+<p>Two players share an unbiased coin and take it in turns to play
+<em>The Race</em>.</p>
+<p>On Player <span class="math inline">\(1\)</span>'s turn, the coin is
+tossed once. If it comes up Heads, then Player <span class="math inline">\(1\)</span> scores one point; if it comes up Tails,
+then no points are scored.</p>
+<p>On Player <span class="math inline">\(2\)</span>'s turn, a positive
+integer, <span class="math inline">\(T\)</span>, is chosen by Player
+<span class="math inline">\(2\)</span> and the coin is tossed <span class="math inline">\(T\)</span> times. If it comes up all Heads, then
+Player <span class="math inline">\(2\)</span> scores <span class="math inline">\(2^{T-1}\)</span> points; otherwise, no points are
+scored.</p>
+<p>Player <span class="math inline">\(1\)</span> goes first and the
+winner is the first to <span class="math inline">\(100\)</span> or more
+points.</p>
+<p>Player <span class="math inline">\(2\)</span> will always selects the
+number, <span class="math inline">\(T\)</span>, of coin tosses that
+maximises the probability of winning.</p>
+<p>What is the probability that Player <span class="math inline">\(2\)</span> wins?</p>
+<p>Give your answer rounded to eight decimal places in the form <span class="math inline">\(0.abcdefgh\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>不难想到可以使用动态规划的思想解决。</p>
+<p>令<span class="math inline">\(N=100\)</span>。令状态<span class="math inline">\(f(i,j)(0\le i,j\le
+N)\)</span>表示当前是<strong>玩家</strong><span class="math inline">\(\mathbf{2}\)</span>的回合，玩家<span class="math inline">\(1\)</span><strong>仍需要</strong>获得<span class="math inline">\(i\)</span>分，玩家<span class="math inline">\(2\)</span><strong>仍需要</strong>获得<span class="math inline">\(j\)</span>分的情况下，玩家<span class="math inline">\(2\)</span>的胜率。</p>
+<p>假设<span class="math inline">\(w_1=0.5,l_1=0.5\)</span>分别是玩家<span class="math inline">\(1\)</span>单个回合的成功率和失败率，<span class="math inline">\(w_2(T)=2^{T},l_2(T)=1-2^{T}\)</span>对玩家<span class="math inline">\(2\)</span>同理。令<span class="math inline">\(g(j,T)=\max(j-2^{T-1},0)\)</span>，那么对<span class="math inline">\(f(i,j)\)</span>的其中一个决策<span class="math inline">\(T\)</span>可以写出如下方程：</p>
+<p><span class="math inline">\(\begin{aligned} f(i,j)=&amp;w_1\cdot
+w_2(T)\cdot f(i-1,g(j,T))+l_1\cdot w_2(T)\cdot f(i,g(j,T))+\\
+&amp;w_1\cdot l_2(T)\cdot f(i-1,j) + l_1\cdot l_2(T)\cdot f(i,j)
+\end{aligned}\)</span></p>
+<p>这个方程表示玩家<span class="math inline">\(2\)</span>先玩，接下来玩家<span class="math inline">\(1\)</span>玩，两人分别成功和失败的组合，一共有四对。</p>
+<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态<span class="math inline">\((i,j)\)</span>依赖于自身）。不过，这种情况下消除后效性很简单。右边有一个项也是<span class="math inline">\(f(i,j)\)</span>，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
+<p>因此，可以正式地写出<span class="math inline">\(f(i,j)\)</span>的状态转移方程：</p>
+<p><span class="math display">\[
 f(i,j)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\max_{2^{T-2}\le j}\dfrac{w_1\cdot w_2(T)\cdot f(i-1,g(j,T))+l_1\cdot w_2(T)\cdot f(i,g(j,T))+w_1\cdot l_2(T)\cdot f(i-1,j)}{1-l_1\cdot l_2(T)} & & \mathrm{else}
-\end{aligned}\right.</script><p>需要注意的是，$(0,0)$本身不是一个合法的状态，但是为了方便计算故列出。因为玩家$2$在他自己的回合已经胜出游戏，因此$f(0,0)=1$。</p>
-<p>由于这个游戏是一开始是玩家$1$的回合，玩家$2$的胜率是以玩家$1$的回合结束<strong>作为条件</strong>的。因此玩家$2$在整场游戏的胜率为$w_1\cdot f(N-1,N)+l_1\cdot f(N,N)$.</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">w1 = l1 = <span class="number">0.5</span></span><br><span class="line">f = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">            f[i][j] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> i == <span class="number">0</span>:</span><br><span class="line">            f[i][j] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pw = <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                w2 = <span class="number">0.5</span> / pw</span><br><span class="line">                l2 = <span class="number">1.0</span> - w2</span><br><span class="line">                t = <span class="built_in">max</span>(j - pw, <span class="number">0</span>)</span><br><span class="line">                nw = w1 * w2 * f[i - <span class="number">1</span>][t] + l1 * w2 * f[i][t] + w1 * l2 * f[i - <span class="number">1</span>][j]</span><br><span class="line">                nw /= <span class="number">1</span> - l1 * l2</span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], nw)</span><br><span class="line">                <span class="keyword">if</span> t == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                pw &lt;&lt;= <span class="number">1</span></span><br><span class="line">ans = l1 * f[N][N] + w1 * f[N - <span class="number">1</span>][N]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.8f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;1 &amp; &amp; \mathrm{if\quad} j=0 \\
+  &amp;0 &amp; &amp; \mathrm{else if\quad} i=0 \\
+  &amp;\max_{2^{T-2}\le j}\dfrac{w_1\cdot w_2(T)\cdot
+f(i-1,g(j,T))+l_1\cdot w_2(T)\cdot f(i,g(j,T))+w_1\cdot l_2(T)\cdot
+f(i-1,j)}{1-l_1\cdot l_2(T)} &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>需要注意的是，<span class="math inline">\((0,0)\)</span>本身不是一个合法的状态，但是为了方便计算故列出。因为玩家<span class="math inline">\(2\)</span>在他自己的回合已经胜出游戏，因此<span class="math inline">\(f(0,0)=1\)</span>。</p>
+<p>由于这个游戏是一开始是玩家<span class="math inline">\(1\)</span>的回合，玩家<span class="math inline">\(2\)</span>的胜率是以玩家<span class="math inline">\(1\)</span>的回合结束<strong>作为条件</strong>的。因此玩家<span class="math inline">\(2\)</span>在整场游戏的胜率为<span class="math inline">\(w_1\cdot f(N-1,N)+l_1\cdot f(N,N)\)</span>.</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">100</span></span><br><span class="line">w1 = l1 = <span class="number">0.5</span></span><br><span class="line">f = [[<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(N + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> j == <span class="number">0</span>:</span><br><span class="line">            f[i][j] = <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> i == <span class="number">0</span>:</span><br><span class="line">            f[i][j] = <span class="number">0</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pw = <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">                w2 = <span class="number">0.5</span> / pw</span><br><span class="line">                l2 = <span class="number">1.0</span> - w2</span><br><span class="line">                t = <span class="built_in">max</span>(j - pw, <span class="number">0</span>)</span><br><span class="line">                nw = w1 * w2 * f[i - <span class="number">1</span>][t] + l1 * w2 * f[i][t] + w1 * l2 * f[i - <span class="number">1</span>][j]</span><br><span class="line">                nw /= <span class="number">1</span> - l1 * l2</span><br><span class="line">                f[i][j] = <span class="built_in">max</span>(f[i][j], nw)</span><br><span class="line">                <span class="keyword">if</span> t == <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                pw &lt;&lt;= <span class="number">1</span></span><br><span class="line">ans = l1 * f[N][N] + w1 * f[N - <span class="number">1</span>][N]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.8f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -362,7 +385,7 @@ f(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-232"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 232</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Race"><span class="nav-number">1.1.1.</span> <span class="nav-text">The Race</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-232"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 232</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-race"><span class="nav-number">1.1.1.</span> <span class="nav-text">The Race</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -376,7 +399,7 @@ f(i,j)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -420,13 +443,13 @@ f(i,j)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

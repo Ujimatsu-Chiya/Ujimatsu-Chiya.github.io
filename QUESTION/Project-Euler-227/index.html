@@ -233,7 +233,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.2k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -252,46 +252,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-227"><a href="#Project-Euler-227" class="headerlink" title="Project Euler 227"></a>Project Euler 227</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="The-Chase"><a href="#The-Chase" class="headerlink" title="The Chase"></a>The Chase</h3><p><em>The Chase</em> is a game played with two dice and an even number of players.</p>
-<p>The players sit around a table; the game begins with two opposite players having one die each. On each turn, the two players with a die roll it.</p>
-<p>If a player rolls a $1$, he passes the die to his neighbour on the left; if he rolls a $6$, he passes the die to his neighbour on the right; otherwise, he keeps the die for the next turn.</p>
-<p>The game ends when one player has both dice after they have been rolled and passed; that player has then lost.</p>
-<p>In a game with $100$ players, what is the expected number of turns the game lasts?</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-227">Project Euler 227</h1>
+<h2 id="题目">题目</h2>
+<h3 id="the-chase">The Chase</h3>
+<p><em>The Chase</em> is a game played with two dice and an even number
+of players.</p>
+<p>The players sit around a table; the game begins with two opposite
+players having one die each. On each turn, the two players with a die
+roll it.</p>
+<p>If a player rolls a <span class="math inline">\(1\)</span>, he passes
+the die to his neighbour on the left; if he rolls a <span class="math inline">\(6\)</span>, he passes the die to his neighbour on
+the right; otherwise, he keeps the die for the next turn.</p>
+<p>The game ends when one player has both dice after they have been
+rolled and passed; that player has then lost.</p>
+<p>In a game with <span class="math inline">\(100\)</span> players, what
+is the expected number of turns the game lasts?</p>
 <p>Give your answer rounded to ten significant digits.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令$N=100$，注意$N$必须是偶数，并令$M=\dfrac{N}{2}$。不难发现，当前游戏的状态并不取决于是哪两个人拿着骰子，而只取决于拿着骰子的两个人的距离（注意这个距离是指比较短的那段距离，也就是两个人在圆上的<strong>劣弧</strong>长度）。</p>
-<p>那么，令$d_N(x)=\min(x\%N,(-x)\%N)$，其中$x$是两人在优弧或者劣弧上的距离，$d_N(x)$用于求出两人在劣弧上的距离。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=100\)</span>，注意<span class="math inline">\(N\)</span>必须是偶数，并令<span class="math inline">\(M=\dfrac{N}{2}\)</span>。不难发现，当前游戏的状态并不取决于是哪两个人拿着骰子，而只取决于拿着骰子的两个人的距离（注意这个距离是指比较短的那段距离，也就是两个人在圆上的<strong>劣弧</strong>长度）。</p>
+<p>那么，令<span class="math inline">\(d_N(x)=\min(x\%N,(-x)\%N)\)</span>，其中<span class="math inline">\(x\)</span>是两人在优弧或者劣弧上的距离，<span class="math inline">\(d_N(x)\)</span>用于求出两人在劣弧上的距离。</p>
 <p>根据题意，两人同时抛骰子，那么两个人距离的<strong>变化值</strong>的分布律可以写出：</p>
-<div class="table-container">
-<table>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
 <thead>
-<tr>
-<th>$d$</th>
-<th>$-2$</th>
-<th>$-1$</th>
-<th>$0$</th>
-<th>$1$</th>
-<th>$2$</th>
+<tr class="header">
+<th><span class="math inline">\(d\)</span></th>
+<th><span class="math inline">\(-2\)</span></th>
+<th><span class="math inline">\(-1\)</span></th>
+<th><span class="math inline">\(0\)</span></th>
+<th><span class="math inline">\(1\)</span></th>
+<th><span class="math inline">\(2\)</span></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>$p(d)$</td>
-<td>$\dfrac{1}{36}$</td>
-<td>$\dfrac{2}{9}$</td>
-<td>$\dfrac{1}{2}$</td>
-<td>$\dfrac{2}{9}$</td>
-<td>$\dfrac{1}{36}$</td>
+<tr class="odd">
+<td><span class="math inline">\(p(d)\)</span></td>
+<td><span class="math inline">\(\dfrac{1}{36}\)</span></td>
+<td><span class="math inline">\(\dfrac{2}{9}\)</span></td>
+<td><span class="math inline">\(\dfrac{1}{2}\)</span></td>
+<td><span class="math inline">\(\dfrac{2}{9}\)</span></td>
+<td><span class="math inline">\(\dfrac{1}{36}\)</span></td>
 </tr>
 </tbody>
 </table>
-</div>
-<p>那么，令状态$f(i)(0\le i\le M)$表示从游戏一开始后，两个骰子之间的距离第一次达到$i$的期望游戏轮数。对于$\forall i,0\le i&lt; M$，可以写出：</p>
-<script type="math/tex; mode=display">f(i)=1+\sum_{d=-2}^2f(d_N(i+d))\cdot p(d)\qquad(1)</script><p>由于游戏的初始状态是$M$，因此$f(M)=0$。</p>
-<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态$i$依赖于自身）。不过，这种情况下消除后效性很简单。右边有一个项也是$f(i)$，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
-<p>那么，将$f$中的每一个值全部当成是未知数，那么方程$(1)$和$f(M)=0$构成了一个$M+1$元的线性方程组，解这个方程组即可，最终$f(0)$即为答案。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">N = <span class="number">100</span></span><br><span class="line">con = [<span class="number">1</span>, <span class="number">8</span>, -<span class="number">18</span>, <span class="number">8</span>, <span class="number">1</span>]</span><br><span class="line">M = N &gt;&gt; <span class="number">1</span></span><br><span class="line">b = [-<span class="number">36</span>] * M + [<span class="number">0</span>]</span><br><span class="line">a = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    t = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(M + <span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        x = i + j - <span class="number">2</span></span><br><span class="line">        t[<span class="built_in">min</span>(x % N, -x % N)] += con[j]</span><br><span class="line">    a.append(t)</span><br><span class="line">a.append([<span class="number">0</span>] * M + [<span class="number">1</span>])</span><br><span class="line">x = np.linalg.solve(a, b)</span><br><span class="line">ans = x[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.6f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>那么，令状态<span class="math inline">\(f(i)(0\le i\le
+M)\)</span>表示从游戏一开始后，两个骰子之间的距离第一次达到<span class="math inline">\(i\)</span>的期望游戏轮数。对于<span class="math inline">\(\forall i,0\le i&lt; M\)</span>，可以写出：</p>
+<p><span class="math display">\[f(i)=1+\sum_{d=-2}^2f(d_N(i+d))\cdot
+p(d)\qquad(1)\]</span></p>
+<p>由于游戏的初始状态是<span class="math inline">\(M\)</span>，因此<span class="math inline">\(f(M)=0\)</span>。</p>
+<p>这是一个<strong>有后效性</strong>的动态规划方程，因为状态之间形成了循环的依赖（状态<span class="math inline">\(i\)</span>依赖于自身）。不过，这种情况下消除后效性很简单。右边有一个项也是<span class="math inline">\(f(i)\)</span>，只需要挪到左边消除就可以完成消除后效性，从而正确计算结果。</p>
+<p>那么，将<span class="math inline">\(f\)</span>中的每一个值全部当成是未知数，那么方程<span class="math inline">\((1)\)</span>和<span class="math inline">\(f(M)=0\)</span>构成了一个<span class="math inline">\(M+1\)</span>元的线性方程组，解这个方程组即可，最终<span class="math inline">\(f(0)\)</span>即为答案。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">N = <span class="number">100</span></span><br><span class="line">con = [<span class="number">1</span>, <span class="number">8</span>, -<span class="number">18</span>, <span class="number">8</span>, <span class="number">1</span>]</span><br><span class="line">M = N &gt;&gt; <span class="number">1</span></span><br><span class="line">b = [-<span class="number">36</span>] * M + [<span class="number">0</span>]</span><br><span class="line">a = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(M):</span><br><span class="line">    t = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(M + <span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">        x = i + j - <span class="number">2</span></span><br><span class="line">        t[<span class="built_in">min</span>(x % N, -x % N)] += con[j]</span><br><span class="line">    a.append(t)</span><br><span class="line">a.append([<span class="number">0</span>] * M + [<span class="number">1</span>])</span><br><span class="line">x = np.linalg.solve(a, b)</span><br><span class="line">ans = x[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;&#123;:.6f&#125;&quot;</span>.<span class="built_in">format</span>(ans))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -377,7 +397,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-227"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 227</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-Chase"><span class="nav-number">1.1.1.</span> <span class="nav-text">The Chase</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-227"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 227</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-chase"><span class="nav-number">1.1.1.</span> <span class="nav-text">The Chase</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -391,7 +411,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -435,13 +455,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -234,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,31 +253,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-364"><a href="#Project-Euler-364" class="headerlink" title="Project Euler 364"></a>Project Euler 364</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Comfortable-distance"><a href="#Comfortable-distance" class="headerlink" title="Comfortable distance"></a>Comfortable distance</h3><p>There are $N$ seats in a row. $N$ people come after each other to fill the seats according to the following rules:</p>
-<ol>
-<li>If there is any seat whose adjacent seat(s) are not occupied take such a seat.</li>
-<li>If there is no such seat and there is any seat for which only one adjacent seat is occupied take such a seat.</li>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-364">Project Euler 364</h1>
+<h2 id="题目">题目</h2>
+<h3 id="comfortable-distance">Comfortable distance</h3>
+<p>There are <span class="math inline">\(N\)</span> seats in a row.
+<span class="math inline">\(N\)</span> people come after each other to
+fill the seats according to the following rules:</p>
+<ol type="1">
+<li>If there is any seat whose adjacent seat(s) are not occupied take
+such a seat.</li>
+<li>If there is no such seat and there is any seat for which only one
+adjacent seat is occupied take such a seat.</li>
 <li>Otherwise take one of the remaining available seats.</li>
 </ol>
-<p>Let $T(N)$ be the number of possibilities that $N$ seats are occupied by $N$ people with the given rules. The following figure shows $T(4)=8$.</p>
-<p><img src="../images/p364_comf_dist.gif" alt></p>
-<p>We can verify that $T(10) = 61632$ and $T(1 000) \mod 100 000 007 = 47255094$.</p>
-<p>Find $T(1 000 000) \mod 100 000 007$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>题目中的第$1$轮的占座位过程完成后，相邻的两个被占座位距离要么间隔$1$个空座位，要么间隔$2$个空座位。我们考虑第$1$步占座完成后的情形。</p>
-<p>由于第$1$个座位和第$n$个空座位比较特殊，因此首先进行考虑。在第$1$轮完成后，要么第$1$座位占了，要么第$2$个座位被占了；同理，要么第$n$个座位被占了，要么第$n-1$个座位被占了。</p>
-<p>假设$h\in\{0,1,2\}$是第一轮结束后，第$1$个和第$n$个是空座位的个数，这$h$个座位将在第$2$轮占座位过程中被占用。排除这一特殊的部分后，假设$m$是长度$1$的空隙数，$k$是长度$2$的空隙数，那么$n,m,h,k$就满足这个关系：$m+2k+(m+k+1)=n-h$，化简后，得到$m=\dfrac{n-h-1-3k}{2}$。</p>
-<p>固定$h$后，枚举$k$，枚举过程需要检验$k$以保证$m$计算出来后是一个整数。假设$f(n,h)$为考虑好特殊的$h$个座位后，不同的入座顺序后，那么$f(n,h)$可以写成：</p>
-<script type="math/tex; mode=display">f(n,h)=\sum_{2m+3k=n-h-1} C_{m+k}^m\cdot (m+k+1)!\cdot(k+h)!\cdot 2^{k}\cdot(k+m)!</script><p>枚举给定的$k$后，中间的$m$个$1$空隙和$k$个$2$空隙不同的安排顺序有$C_{m+k}^{m}$种；接下来第$1$轮占座的人对$(m+k+1)$个间隔进行占座，有$(m+k+1)!$种方式，第$1$轮结束后，一排座位被切分成多个空隙；第$2$轮将对$2$空隙和$h$个座位进行占用，但是$2$空隙在第$2$轮只能占用一个，因此有$(k+h)!\cdot2^k$种；第$3$轮则将第$2$轮中$2$空隙的另一个位置和$1$空隙全部占满，一共有$(k+m)!$种。</p>
-<p>最终$T(n)=f(n,0)+2f(n,1)+f(n,2)$.</p>
-<p>为了方便求模$p$中$1\sim N$的逆元，有一种线性求出这些值的逆元的方法：假设目前要求$i$的逆元$i^{-1}\%p$，那么</p>
-<p>设$q=\lfloor\dfrac{p}{i}\rfloor,r=p\%i$，那么可以写成$p=qi+r$，也就是$qi+r\equiv 0(\mod p)$，即$r\equiv -qi(\mod p)$.</p>
-<p>两边同时除以$ir$，那么有$i^{-1}\equiv -q\cdot r^{-1}(\mod p)$.</p>
-<p>最终将$q=\lfloor\dfrac{p}{i}\rfloor,r=p\%i$回代到上式，那么得到$i^{-1}\equiv-\lfloor\dfrac{p}{i}\rfloor\cdot(p\%i)^{-1}(\mod p)$.</p>
-<p>因此，将$i$从$1$到$N$按顺序求解即得到逆元。</p>
+<p>Let <span class="math inline">\(T(N)\)</span> be the number of
+possibilities that <span class="math inline">\(N\)</span> seats are
+occupied by <span class="math inline">\(N\)</span> people with the given
+rules. The following figure shows <span class="math inline">\(T(4)=8\)</span>.</p>
+<p><img src="../images/p364_comf_dist.gif"></p>
+<p>We can verify that <span class="math inline">\(T(10) = 61632\)</span>
+and <span class="math inline">\(T(1 000) \mod 100 000 007 =
+47255094\)</span>.</p>
+<p>Find <span class="math inline">\(T(1 000 000) \mod 100 000
+007\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>题目中的第<span class="math inline">\(1\)</span>轮的占座位过程完成后，相邻的两个被占座位距离要么间隔<span class="math inline">\(1\)</span>个空座位，要么间隔<span class="math inline">\(2\)</span>个空座位。我们考虑第<span class="math inline">\(1\)</span>步占座完成后的情形。</p>
+<p>由于第<span class="math inline">\(1\)</span>个座位和第<span class="math inline">\(n\)</span>个空座位比较特殊，因此首先进行考虑。在第<span class="math inline">\(1\)</span>轮完成后，要么第<span class="math inline">\(1\)</span>座位占了，要么第<span class="math inline">\(2\)</span>个座位被占了；同理，要么第<span class="math inline">\(n\)</span>个座位被占了，要么第<span class="math inline">\(n-1\)</span>个座位被占了。</p>
+<p>假设<span class="math inline">\(h\in\{0,1,2\}\)</span>是第一轮结束后，第<span class="math inline">\(1\)</span>个和第<span class="math inline">\(n\)</span>个是空座位的个数，这<span class="math inline">\(h\)</span>个座位将在第<span class="math inline">\(2\)</span>轮占座位过程中被占用。排除这一特殊的部分后，假设<span class="math inline">\(m\)</span>是长度<span class="math inline">\(1\)</span>的空隙数，<span class="math inline">\(k\)</span>是长度<span class="math inline">\(2\)</span>的空隙数，那么<span class="math inline">\(n,m,h,k\)</span>就满足这个关系：<span class="math inline">\(m+2k+(m+k+1)=n-h\)</span>，化简后，得到<span class="math inline">\(m=\dfrac{n-h-1-3k}{2}\)</span>。</p>
+<p>固定<span class="math inline">\(h\)</span>后，枚举<span class="math inline">\(k\)</span>，枚举过程需要检验<span class="math inline">\(k\)</span>以保证<span class="math inline">\(m\)</span>计算出来后是一个整数。假设<span class="math inline">\(f(n,h)\)</span>为考虑好特殊的<span class="math inline">\(h\)</span>个座位后，不同的入座顺序后，那么<span class="math inline">\(f(n,h)\)</span>可以写成：</p>
+<p><span class="math display">\[f(n,h)=\sum_{2m+3k=n-h-1} C_{m+k}^m\cdot
+(m+k+1)!\cdot(k+h)!\cdot 2^{k}\cdot(k+m)!\]</span></p>
+<p>枚举给定的<span class="math inline">\(k\)</span>后，中间的<span class="math inline">\(m\)</span>个<span class="math inline">\(1\)</span>空隙和<span class="math inline">\(k\)</span>个<span class="math inline">\(2\)</span>空隙不同的安排顺序有<span class="math inline">\(C_{m+k}^{m}\)</span>种；接下来第<span class="math inline">\(1\)</span>轮占座的人对<span class="math inline">\((m+k+1)\)</span>个间隔进行占座，有<span class="math inline">\((m+k+1)!\)</span>种方式，第<span class="math inline">\(1\)</span>轮结束后，一排座位被切分成多个空隙；第<span class="math inline">\(2\)</span>轮将对<span class="math inline">\(2\)</span>空隙和<span class="math inline">\(h\)</span>个座位进行占用，但是<span class="math inline">\(2\)</span>空隙在第<span class="math inline">\(2\)</span>轮只能占用一个，因此有<span class="math inline">\((k+h)!\cdot2^k\)</span>种；第<span class="math inline">\(3\)</span>轮则将第<span class="math inline">\(2\)</span>轮中<span class="math inline">\(2\)</span>空隙的另一个位置和<span class="math inline">\(1\)</span>空隙全部占满，一共有<span class="math inline">\((k+m)!\)</span>种。</p>
+<p>最终<span class="math inline">\(T(n)=f(n,0)+2f(n,1)+f(n,2)\)</span>.</p>
+<p>为了方便求模<span class="math inline">\(p\)</span>中<span class="math inline">\(1\sim
+N\)</span>的逆元，有一种线性求出这些值的逆元的方法：假设目前要求<span class="math inline">\(i\)</span>的逆元<span class="math inline">\(i^{-1}\%p\)</span>，那么</p>
+<p>设<span class="math inline">\(q=\lfloor\dfrac{p}{i}\rfloor,r=p\%i\)</span>，那么可以写成<span class="math inline">\(p=qi+r\)</span>，也就是<span class="math inline">\(qi+r\equiv 0(\mod p)\)</span>，即<span class="math inline">\(r\equiv -qi(\mod p)\)</span>.</p>
+<p>两边同时除以<span class="math inline">\(ir\)</span>，那么有<span class="math inline">\(i^{-1}\equiv -q\cdot r^{-1}(\mod p)\)</span>.</p>
+<p>最终将<span class="math inline">\(q=\lfloor\dfrac{p}{i}\rfloor,r=p\%i\)</span>回代到上式，那么得到<span class="math inline">\(i^{-1}\equiv-\lfloor\dfrac{p}{i}\rfloor\cdot(p\%i)^{-1}(\mod
+p)\)</span>.</p>
+<p>因此，将<span class="math inline">\(i\)</span>从<span class="math inline">\(1\)</span>到<span class="math inline">\(N\)</span>按顺序求解即得到逆元。</p>
 <p>将前一部分数在OEIS中查询，结果为<a target="_blank" rel="noopener" href="https://oeis.org/A192008">A192008</a>。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line">ll fac[N+<span class="number">4</span>],inv[N+<span class="number">4</span>],finv[N+<span class="number">4</span>],pw2[N+<span class="number">4</span>],mod=<span class="number">1e8</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fac[n]*finv[n-m]%mod*finv[m]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">f</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> h)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;<span class="number">3</span>*k&lt;=n<span class="number">-1</span>-h;k++)&#123;</span><br><span class="line">        <span class="type">int</span> m=n<span class="number">-1</span>-h<span class="number">-3</span>*k;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        ans=(ans+fac[m+k+<span class="number">1</span>]*<span class="built_in">C</span>(m+k,m)%mod*pw2[k]%mod*fac[k+h]%mod*fac[k+m])%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">T</span><span class="params">(<span class="type">int</span> N)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">f</span>(N,<span class="number">0</span>)+<span class="built_in">f</span>(N,<span class="number">1</span>)*<span class="number">2</span>+<span class="built_in">f</span>(N,<span class="number">2</span>))%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fac[<span class="number">0</span>]=fac[<span class="number">1</span>]=inv[<span class="number">1</span>]=finv[<span class="number">0</span>]=finv[<span class="number">1</span>]=pw2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    pw2[<span class="number">1</span>]=<span class="number">2</span>%mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        fac[i]=fac[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">        inv[i]=(mod-mod/i)*inv[mod%i]%mod;</span><br><span class="line">        finv[i]=finv[i<span class="number">-1</span>]*inv[i]%mod;</span><br><span class="line">        pw2[i]=pw2[i<span class="number">-1</span>]*<span class="number">2</span>%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">T</span>(N));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line">ll fac[N+<span class="number">4</span>],inv[N+<span class="number">4</span>],finv[N+<span class="number">4</span>],pw2[N+<span class="number">4</span>],mod=<span class="number">1e8</span>+<span class="number">7</span>;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fac[n]*finv[n-m]%mod*finv[m]%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">f</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> h)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">0</span>;<span class="number">3</span>*k&lt;=n<span class="number">-1</span>-h;k++)&#123;</span><br><span class="line">        <span class="type">int</span> m=n<span class="number">-1</span>-h<span class="number">-3</span>*k;</span><br><span class="line">        <span class="keyword">if</span>(m&amp;<span class="number">1</span>) <span class="keyword">continue</span>;</span><br><span class="line">        m&gt;&gt;=<span class="number">1</span>;</span><br><span class="line">        ans=(ans+fac[m+k+<span class="number">1</span>]*<span class="built_in">C</span>(m+k,m)%mod*pw2[k]%mod*fac[k+h]%mod*fac[k+m])%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">T</span><span class="params">(<span class="type">int</span> N)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">f</span>(N,<span class="number">0</span>)+<span class="built_in">f</span>(N,<span class="number">1</span>)*<span class="number">2</span>+<span class="built_in">f</span>(N,<span class="number">2</span>))%mod;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    fac[<span class="number">0</span>]=fac[<span class="number">1</span>]=inv[<span class="number">1</span>]=finv[<span class="number">0</span>]=finv[<span class="number">1</span>]=pw2[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    pw2[<span class="number">1</span>]=<span class="number">2</span>%mod;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;=N;i++)&#123;</span><br><span class="line">        fac[i]=fac[i<span class="number">-1</span>]*i%mod;</span><br><span class="line">        inv[i]=(mod-mod/i)*inv[mod%i]%mod;</span><br><span class="line">        finv[i]=finv[i<span class="number">-1</span>]*inv[i]%mod;</span><br><span class="line">        pw2[i]=pw2[i<span class="number">-1</span>]*<span class="number">2</span>%mod;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">T</span>(N));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -362,7 +380,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-364"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 364</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Comfortable-distance"><span class="nav-number">1.1.1.</span> <span class="nav-text">Comfortable distance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-364"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 364</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#comfortable-distance"><span class="nav-number">1.1.1.</span> <span class="nav-text">Comfortable distance</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -376,7 +394,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -420,13 +438,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

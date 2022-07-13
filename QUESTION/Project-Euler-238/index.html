@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,30 +251,55 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-238"><a href="#Project-Euler-238" class="headerlink" title="Project Euler 238"></a>Project Euler 238</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Infinite-string-tour"><a href="#Infinite-string-tour" class="headerlink" title="Infinite string tour"></a>Infinite string tour</h3><p>Create a sequence of numbers using the “Blum Blum Shub” pseudo-random number generator:</p>
-<p>$\begin{aligned}<br>s_0&amp;=14025256\\<br>s_{n+1}&amp;=s_n^2 \mod 20300713<br>\end{aligned}$</p>
-<p>Concatenate these numbers  $s_0s_1s_2\dots$ to create a string $w$ of infinite length.</p>
-<p>Then, $w = \color{blue}14025256741014958470038053646\dots$</p>
-<p>For a positive integer $k$, if no substring of $w$ exists with a sum of digits equal to $k$, $p(k)$ is defined to be zero. If at least one substring of $w$ exists with a sum of digits equal to $k$, we define $p(k) = z$, where $z$ is the starting position of the earliest such substring.</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-238">Project Euler 238</h1>
+<h2 id="题目">题目</h2>
+<h3 id="infinite-string-tour">Infinite string tour</h3>
+<p>Create a sequence of numbers using the “Blum Blum Shub” pseudo-random
+number generator:</p>
+<p><span class="math inline">\(\begin{aligned} s_0&amp;=14025256\\
+s_{n+1}&amp;=s_n^2 \mod 20300713 \end{aligned}\)</span></p>
+<p>Concatenate these numbers  <span class="math inline">\(s_0s_1s_2\dots\)</span> to create a string <span class="math inline">\(w\)</span> of infinite length.</p>
+<p>Then, <span class="math inline">\(w = \color{blue}14025256741014958470038053646\dots\)</span></p>
+<p>For a positive integer <span class="math inline">\(k\)</span>, if no
+substring of <span class="math inline">\(w\)</span> exists with a sum of
+digits equal to <span class="math inline">\(k\)</span>, <span class="math inline">\(p(k)\)</span> is defined to be zero. If at least
+one substring of <span class="math inline">\(w\)</span> exists with a
+sum of digits equal to <span class="math inline">\(k\)</span>, we define
+<span class="math inline">\(p(k) = z\)</span>, where <span class="math inline">\(z\)</span> is the starting position of the
+earliest such substring.</p>
 <p>For instance:</p>
-<p>The substrings $\color{blue}1, 14, 1402, \dots$ with respective sums of digits equal to $1, 5, 7, \dots$</p>
-<p>start at position $\mathbf{1}$, hence $p(1) = p(5) = p(7) = \dots = \mathbf{1}$.</p>
-<p>The substrings $\color{blue}4, 402, 4025, \dots$<br>with respective sums of digits equal to $4, 6, 11, \dots$</p>
-<p>start at position $\mathbf{2}$, hence $p(4) = p(6) = p(11) = \dots = 2$.</p>
-<p>The substrings $\color{blue} 02, 0252, \dots$<br>with respective sums of digits equal to $2, 9, \dots$</p>
-<p>start at position $\mathbf{3}$, hence $p(2) = p(9) = \dots = \mathbf{3}$.</p>
-<p>Note that substring $\color{blue}025$ starting at position $3$, has a sum of digits equal to $7$, but there was an earlier substring (starting at position $1$) with a sum of digits equal to $7$, so $p(7) = 1$, not $3$.</p>
-<p>We can verify that, for $0 &lt; k \le 10^3, \sum p(k) = 4742$. Find $\sum p(k)$, for $0 &lt; k \le 2\cdot10^{15}$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>不难发现，序列$s$是一个周期序列，其周期为$2534198$.</p>
-<p>因此，字符串$w$必定也是一个周期序列。$w$的字符串周期为$t=18886117$。单个周期中，所有数之和为$T=80846691$.因此有$p(k)=p(k+T)$，因此这里只需要求出所有$1\le k\le T$的$p(k)$值即可。</p>
-<p>本方案通过暴力枚举的方式直接找到这一部分的$p$值，时间复杂度为$O(t^2)$。</p>
-<p>为了压缩时间，考虑以下缩减时间复杂度的方法：在枚举起点的时候，如果发现对于某个值$s$，$p(s+1),p(s+2),\dots,p(T)$都已经求解出来，那么在枚举区间右端点$r$时，保持$\sum_{i=l}^r w_i\le s$。每次枚举$i$时，都先要将$s$维护好。经过测试，这种方式让外层循环进行了不到$100$次，效率可以接受。</p>
-<p>对于某个$k$，计算出$p(k)$后，那么就需要计算$1\sim N$中有多少个值和$k$关于模$T$同余。这个值不难计算出是$\lfloor \dfrac{N}{T}\rfloor+[k\neq T \wedge k\le n\%T]$,其中$[]$是示性函数。</p>
-<p>需要注意的是，有一部分$p$值，以$p(k)$为起点，$k$为和值的字符串跨越了两个周期，本代码给第二个区间预留了$C=100$位数字。</p>
+<p>The substrings <span class="math inline">\(\color{blue}1, 14, 1402,
+\dots\)</span> with respective sums of digits equal to <span class="math inline">\(1, 5, 7, \dots\)</span></p>
+<p>start at position <span class="math inline">\(\mathbf{1}\)</span>,
+hence <span class="math inline">\(p(1) = p(5) = p(7) = \dots = \mathbf{1}\)</span>.</p>
+<p>The substrings <span class="math inline">\(\color{blue}4, 402, 4025,
+\dots\)</span> with respective sums of digits equal to <span class="math inline">\(4, 6, 11, \dots\)</span></p>
+<p>start at position <span class="math inline">\(\mathbf{2}\)</span>,
+hence <span class="math inline">\(p(4) = p(6) = p(11) = \dots = 2\)</span>.</p>
+<p>The substrings <span class="math inline">\(\color{blue} 02, 0252,
+\dots\)</span> with respective sums of digits equal to <span class="math inline">\(2, 9, \dots\)</span></p>
+<p>start at position <span class="math inline">\(\mathbf{3}\)</span>,
+hence <span class="math inline">\(p(2) = p(9) = \dots = \mathbf{3}\)</span>.</p>
+<p>Note that substring <span class="math inline">\(\color{blue}025\)</span> starting at position
+<span class="math inline">\(3\)</span>, has a sum of digits equal to
+<span class="math inline">\(7\)</span>, but there was an earlier
+substring (starting at position <span class="math inline">\(1\)</span>)
+with a sum of digits equal to <span class="math inline">\(7\)</span>, so
+<span class="math inline">\(p(7) = 1\)</span>, not <span class="math inline">\(3\)</span>.</p>
+<p>We can verify that, for <span class="math inline">\(0 &lt; k \le 10^3, \sum p(k) = 4742\)</span>. Find
+<span class="math inline">\(\sum p(k)\)</span>, for <span class="math inline">\(0 &lt; k \le 2\cdot10^{15}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>不难发现，序列<span class="math inline">\(s\)</span>是一个周期序列，其周期为<span class="math inline">\(2534198\)</span>.</p>
+<p>因此，字符串<span class="math inline">\(w\)</span>必定也是一个周期序列。<span class="math inline">\(w\)</span>的字符串周期为<span class="math inline">\(t=18886117\)</span>。单个周期中，所有数之和为<span class="math inline">\(T=80846691\)</span>.因此有<span class="math inline">\(p(k)=p(k+T)\)</span>，因此这里只需要求出所有<span class="math inline">\(1\le k\le T\)</span>的<span class="math inline">\(p(k)\)</span>值即可。</p>
+<p>本方案通过暴力枚举的方式直接找到这一部分的<span class="math inline">\(p\)</span>值，时间复杂度为<span class="math inline">\(O(t^2)\)</span>。</p>
+<p>为了压缩时间，考虑以下缩减时间复杂度的方法：在枚举起点的时候，如果发现对于某个值<span class="math inline">\(s\)</span>，<span class="math inline">\(p(s+1),p(s+2),\dots,p(T)\)</span>都已经求解出来，那么在枚举区间右端点<span class="math inline">\(r\)</span>时，保持<span class="math inline">\(\sum_{i=l}^r w_i\le s\)</span>。每次枚举<span class="math inline">\(i\)</span>时，都先要将<span class="math inline">\(s\)</span>维护好。经过测试，这种方式让外层循环进行了不到<span class="math inline">\(100\)</span>次，效率可以接受。</p>
+<p>对于某个<span class="math inline">\(k\)</span>，计算出<span class="math inline">\(p(k)\)</span>后，那么就需要计算<span class="math inline">\(1\sim N\)</span>中有多少个值和<span class="math inline">\(k\)</span>关于模<span class="math inline">\(T\)</span>同余。这个值不难计算出是<span class="math inline">\(\lfloor \dfrac{N}{T}\rfloor+[k\neq T \wedge k\le
+n\%T]\)</span>,其中<span class="math inline">\([]\)</span>是示性函数。</p>
+<p>需要注意的是，有一部分<span class="math inline">\(p\)</span>值，以<span class="math inline">\(p(k)\)</span>为起点，<span class="math inline">\(k\)</span>为和值的字符串跨越了两个周期，本代码给第二个区间预留了<span class="math inline">\(C=100\)</span>位数字。</p>
 <p>对于</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">2e15</span>;</span><br><span class="line"><span class="type">int</span> s0 = <span class="number">14025256</span>;</span><br><span class="line"><span class="type">int</span> mod = <span class="number">20300713</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> A=<span class="number">2e7</span>+<span class="number">1004</span>,B=<span class="number">9e7</span>+<span class="number">4</span>,C=<span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> d[A+C],t=<span class="number">0</span>,T=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> vis[B+C];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> pre=t;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> s=s0;;)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x=s;x;d[++t]=x%<span class="number">10</span>,T+=d[t],x/=<span class="number">10</span>);</span><br><span class="line">        <span class="built_in">reverse</span>(d+pre+<span class="number">1</span>,d+t+<span class="number">1</span>);</span><br><span class="line">        pre=t;</span><br><span class="line">        s=<span class="number">1ll</span>*s*s%mod;</span><br><span class="line">        <span class="keyword">if</span>(s==s0) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> rs=T;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=C;i++)</span><br><span class="line">        d[t+i]=d[i],rs+=d[i];</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,ps=T;l&lt;=t+C;l++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;<span class="number">1</span>&amp;&amp;d[l<span class="number">-1</span>]==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">// 关键代码，大于$ps$的那一部分不需要再枚举。</span></span><br><span class="line">        ps=<span class="built_in">min</span>(ps,rs);</span><br><span class="line">        <span class="keyword">for</span>(;ps&gt;<span class="number">0</span>&amp;&amp;vis[ps];ps--);</span><br><span class="line">        <span class="keyword">if</span>(ps==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> r=l,s=<span class="number">0</span>;r&lt;=t+C&amp;&amp;s+d[r]&lt;=ps;r++)&#123;</span><br><span class="line">            s+=d[r];</span><br><span class="line">            <span class="keyword">if</span>(s&gt;<span class="number">0</span>&amp;&amp;!vis[s])&#123;</span><br><span class="line">                ll cnt=N/T+(s==T?<span class="number">0</span>:s&lt;=N%T);</span><br><span class="line">                ans+=cnt*l;</span><br><span class="line">                vis[s]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        rs-=d[l];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N=<span class="number">2e15</span>;</span><br><span class="line"><span class="type">int</span> s0 = <span class="number">14025256</span>;</span><br><span class="line"><span class="type">int</span> mod = <span class="number">20300713</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> A=<span class="number">2e7</span>+<span class="number">1004</span>,B=<span class="number">9e7</span>+<span class="number">4</span>,C=<span class="number">100</span>;</span><br><span class="line"><span class="type">int</span> d[A+C],t=<span class="number">0</span>,T=<span class="number">0</span>;</span><br><span class="line"><span class="type">bool</span> vis[B+C];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> pre=t;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> s=s0;;)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> x=s;x;d[++t]=x%<span class="number">10</span>,T+=d[t],x/=<span class="number">10</span>);</span><br><span class="line">        <span class="built_in">reverse</span>(d+pre+<span class="number">1</span>,d+t+<span class="number">1</span>);</span><br><span class="line">        pre=t;</span><br><span class="line">        s=<span class="number">1ll</span>*s*s%mod;</span><br><span class="line">        <span class="keyword">if</span>(s==s0) <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> rs=T;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=C;i++)</span><br><span class="line">        d[t+i]=d[i],rs+=d[i];</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> l=<span class="number">1</span>,ps=T;l&lt;=t+C;l++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;<span class="number">1</span>&amp;&amp;d[l<span class="number">-1</span>]==<span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">// 关键代码，大于$ps$的那一部分不需要再枚举。</span></span><br><span class="line">        ps=<span class="built_in">min</span>(ps,rs);</span><br><span class="line">        <span class="keyword">for</span>(;ps&gt;<span class="number">0</span>&amp;&amp;vis[ps];ps--);</span><br><span class="line">        <span class="keyword">if</span>(ps==<span class="number">0</span>) <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> r=l,s=<span class="number">0</span>;r&lt;=t+C&amp;&amp;s+d[r]&lt;=ps;r++)&#123;</span><br><span class="line">            s+=d[r];</span><br><span class="line">            <span class="keyword">if</span>(s&gt;<span class="number">0</span>&amp;&amp;!vis[s])&#123;</span><br><span class="line">                ll cnt=N/T+(s==T?<span class="number">0</span>:s&lt;=N%T);</span><br><span class="line">                ans+=cnt*l;</span><br><span class="line">                vis[s]=<span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        rs-=d[l];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -359,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-238"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 238</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Infinite-string-tour"><span class="nav-number">1.1.1.</span> <span class="nav-text">Infinite string tour</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-238"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 238</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#infinite-string-tour"><span class="nav-number">1.1.1.</span> <span class="nav-text">Infinite string tour</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -373,7 +398,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -417,13 +442,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

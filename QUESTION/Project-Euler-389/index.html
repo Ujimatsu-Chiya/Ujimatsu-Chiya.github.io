@@ -233,14 +233,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.6k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -252,33 +252,54 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-389"><a href="#Project-Euler-389" class="headerlink" title="Project Euler 389"></a>Project Euler 389</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Platonic-Dice"><a href="#Platonic-Dice" class="headerlink" title="Platonic Dice"></a>Platonic Dice</h3><p>An unbiased single 4-sided die is thrown and its value, $T$, is noted.</p>
-<p>$T$ unbiased $6$-sided dice are thrown and their scores are added together. The sum, $C$, is noted.</p>
-<p>$C$ unbiased $8$-sided dice are thrown and their scores are added together. The sum, $O$, is noted.</p>
-<p>$O$ unbiased $12$-sided dice are thrown and their scores are added together. The sum, $D$, is noted.</p>
-<p>$D$ unbiased $20$-sided dice are thrown and their scores are added together. The sum, $I$, is noted.</p>
-<p>Find the variance of $I$, and give your answer rounded to $4$ decimal places.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>不难想到使用动态规划解决本题。</p>
-<p>当前先考虑一轮的过程：假设当前使用的是$m$面的骰子，那么令状态$g_m(i,j)(i,j\ge 0)$表示具有$i$个$m$面骰子的情况下，能够掷出$j$个点的概率。不难写出$g_m$的状态转移方程：</p>
-<script type="math/tex; mode=display">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-389">Project Euler 389</h1>
+<h2 id="题目">题目</h2>
+<h3 id="platonic-dice">Platonic Dice</h3>
+<p>An unbiased single 4-sided die is thrown and its value, <span class="math inline">\(T\)</span>, is noted.</p>
+<p><span class="math inline">\(T\)</span> unbiased <span class="math inline">\(6\)</span>-sided dice are thrown and their scores
+are added together. The sum, <span class="math inline">\(C\)</span>, is
+noted.</p>
+<p><span class="math inline">\(C\)</span> unbiased <span class="math inline">\(8\)</span>-sided dice are thrown and their scores
+are added together. The sum, <span class="math inline">\(O\)</span>, is
+noted.</p>
+<p><span class="math inline">\(O\)</span> unbiased <span class="math inline">\(12\)</span>-sided dice are thrown and their scores
+are added together. The sum, <span class="math inline">\(D\)</span>, is
+noted.</p>
+<p><span class="math inline">\(D\)</span> unbiased <span class="math inline">\(20\)</span>-sided dice are thrown and their scores
+are added together. The sum, <span class="math inline">\(I\)</span>, is
+noted.</p>
+<p>Find the variance of <span class="math inline">\(I\)</span>, and give
+your answer rounded to <span class="math inline">\(4\)</span> decimal
+places.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>不难想到使用动态规划解决本题。</p>
+<p>当前先考虑一轮的过程：假设当前使用的是<span class="math inline">\(m\)</span>面的骰子，那么令状态<span class="math inline">\(g_m(i,j)(i,j\ge 0)\)</span>表示具有<span class="math inline">\(i\)</span>个<span class="math inline">\(m\)</span>面骰子的情况下，能够掷出<span class="math inline">\(j\)</span>个点的概率。不难写出<span class="math inline">\(g_m\)</span>的状态转移方程：</p>
+<p><span class="math display">\[
 g_m(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0 \\
-  &\sum_{k=\max(j-m,0)}^{j-1}\dfrac{g_m(i-1,k)}{m} & & \mathrm{else}
-\end{aligned}\right.</script><p>这个方程说明对于一个状态$f(i-1,k)$，它有$\dfrac{1}{m}$的概率转移到$g_m(i,k+1)$，也有$\dfrac{1}{m}$的概率转移到$g_m(i+1,k+2),\dots$</p>
-<p>假设整个过程使用的骰子的面的序列为$d=\{4,6,8,12,20\}$，其中第$i$轮使用的骰子的面数为$d[i]$，令$N=5$为这个序列长度，$M=\prod_{k=1}^Nd_k$。令状态$f(i,j)(0\le i\le N,0\le j\le M)$在第$i$轮过后，投掷出$j$个点的概率。那么根据序列，不难写出状态转移方程为</p>
-<script type="math/tex; mode=display">
+  &amp;1  &amp; &amp; \mathrm{if\quad} i=0 \\
+  &amp;\sum_{k=\max(j-m,0)}^{j-1}\dfrac{g_m(i-1,k)}{m} &amp; &amp;
+\mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>这个方程说明对于一个状态<span class="math inline">\(f(i-1,k)\)</span>，它有<span class="math inline">\(\dfrac{1}{m}\)</span>的概率转移到<span class="math inline">\(g_m(i,k+1)\)</span>，也有<span class="math inline">\(\dfrac{1}{m}\)</span>的概率转移到<span class="math inline">\(g_m(i+1,k+2),\dots\)</span></p>
+<p>假设整个过程使用的骰子的面的序列为<span class="math inline">\(d=\{4,6,8,12,20\}\)</span>，其中第<span class="math inline">\(i\)</span>轮使用的骰子的面数为<span class="math inline">\(d[i]\)</span>，令<span class="math inline">\(N=5\)</span>为这个序列长度，<span class="math inline">\(M=\prod_{k=1}^Nd_k\)</span>。令状态<span class="math inline">\(f(i,j)(0\le i\le N,0\le j\le M)\)</span>在第<span class="math inline">\(i\)</span>轮过后，投掷出<span class="math inline">\(j\)</span>个点的概率。那么根据序列，不难写出状态转移方程为</p>
+<p><span class="math display">\[
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0 \\
-  &\sum_{k=1}^jf(i-1,k)\cdot g_{d[i]}(k,j) & & \mathrm{else}
-\end{aligned}\right.</script><p>这个方程说明对于一个状态$f(i-1,k)$抛出了$k$个$d[i]$面的骰子后，会有$g_{d[i]}(k,j)$的概率抛出$j$面，从而转移到$f(i,j)$。</p>
-<p>那么令$p(j)(0\le j\le M)=f(n,j)$，那么最终的变量$I$将会服从如$p$所示的分布。</p>
-<p>为了计算随机变量$I$的方差$D[I]$，利用公式$D[I]=E[I^2]-E^2[I]$进行计算即可。</p>
-<p>朴素实现一次$g_m(i,j)$的转移需要花费$O(m)$的时间复杂度。为了加速，我们注意到在实现$g_m$一个状态$g_m(i-1,j)$会<strong>等概率</strong>转移到下一个状态中的连续一段：$g(i,j+1),g(i,j+2),\dots,g(i,j+m)$，因此考虑使用一个差分数组$g’_m[i][j]$进行转移的保存：将$g’[i][j+1]$加上$\dfrac{g_m(i-1,j)}{m}$，将$g’[i][j+m+1]$减去$\dfrac{g_m(i-1,j)}{m}$。最终$g_m(i,j)=\sum_{k=1}^j g’[i][k]$就可以一次循环求出来，平均一个状态只有$O(1)$的时间复杂度。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;d=&#123;<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">20</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> m=<span class="number">1</span>;</span><br><span class="line">    vector&lt;<span class="type">double</span>&gt;<span class="built_in">fp</span>(<span class="number">2</span>);</span><br><span class="line">    fp[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:d)&#123;</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt;<span class="built_in">gp</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt;<span class="built_in">fn</span>(m*x+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            vector&lt;<span class="type">double</span>&gt;<span class="built_in">gn</span>(x*i+<span class="number">1</span>+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=x*(i<span class="number">-1</span>);j++)&#123;</span><br><span class="line">                gn[j+<span class="number">1</span>]+=gp[j]/x;</span><br><span class="line">                gn[j+x+<span class="number">1</span>]-=gp[j]/x;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=x*i;j++)</span><br><span class="line">                gn[j]+=gn[j<span class="number">-1</span>];</span><br><span class="line">            gp=gn;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=x*i;j++)</span><br><span class="line">                fn[j]+=fp[i]*gp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        fp=fn;</span><br><span class="line">        m*=x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> ex1=<span class="number">0</span>,ex2=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ex1+=fp[i]*i;</span><br><span class="line">        ex2+=fp[i]*i*i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> ans=ex2-ex1*ex1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.4f\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;1  &amp; &amp; \mathrm{if\quad} i=0 \\
+  &amp;\sum_{k=1}^jf(i-1,k)\cdot g_{d[i]}(k,j) &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>这个方程说明对于一个状态<span class="math inline">\(f(i-1,k)\)</span>抛出了<span class="math inline">\(k\)</span>个<span class="math inline">\(d[i]\)</span>面的骰子后，会有<span class="math inline">\(g_{d[i]}(k,j)\)</span>的概率抛出<span class="math inline">\(j\)</span>面，从而转移到<span class="math inline">\(f(i,j)\)</span>。</p>
+<p>那么令<span class="math inline">\(p(j)(0\le j\le
+M)=f(n,j)\)</span>，那么最终的变量<span class="math inline">\(I\)</span>将会服从如<span class="math inline">\(p\)</span>所示的分布。</p>
+<p>为了计算随机变量<span class="math inline">\(I\)</span>的方差<span class="math inline">\(D[I]\)</span>，利用公式<span class="math inline">\(D[I]=E[I^2]-E^2[I]\)</span>进行计算即可。</p>
+<p>朴素实现一次<span class="math inline">\(g_m(i,j)\)</span>的转移需要花费<span class="math inline">\(O(m)\)</span>的时间复杂度。为了加速，我们注意到在实现<span class="math inline">\(g_m\)</span>一个状态<span class="math inline">\(g_m(i-1,j)\)</span>会<strong>等概率</strong>转移到下一个状态中的连续一段：<span class="math inline">\(g(i,j+1),g(i,j+2),\dots,g(i,j+m)\)</span>，因此考虑使用一个差分数组<span class="math inline">\(g&#39;_m[i][j]\)</span>进行转移的保存：将<span class="math inline">\(g&#39;[i][j+1]\)</span>加上<span class="math inline">\(\dfrac{g_m(i-1,j)}{m}\)</span>，将<span class="math inline">\(g&#39;[i][j+m+1]\)</span>减去<span class="math inline">\(\dfrac{g_m(i-1,j)}{m}\)</span>。最终<span class="math inline">\(g_m(i,j)=\sum_{k=1}^j
+g&#39;[i][k]\)</span>就可以一次循环求出来，平均一个状态只有<span class="math inline">\(O(1)\)</span>的时间复杂度。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;d=&#123;<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">12</span>,<span class="number">20</span>&#125;;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> m=<span class="number">1</span>;</span><br><span class="line">    vector&lt;<span class="type">double</span>&gt;<span class="built_in">fp</span>(<span class="number">2</span>);</span><br><span class="line">    fp[<span class="number">1</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> x:d)&#123;</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt;<span class="built_in">gp</span>(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line">        vector&lt;<span class="type">double</span>&gt;<span class="built_in">fn</span>(m*x+<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">            vector&lt;<span class="type">double</span>&gt;<span class="built_in">gn</span>(x*i+<span class="number">1</span>+<span class="number">1</span>);</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=x*(i<span class="number">-1</span>);j++)&#123;</span><br><span class="line">                gn[j+<span class="number">1</span>]+=gp[j]/x;</span><br><span class="line">                gn[j+x+<span class="number">1</span>]-=gp[j]/x;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=x*i;j++)</span><br><span class="line">                gn[j]+=gn[j<span class="number">-1</span>];</span><br><span class="line">            gp=gn;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=x*i;j++)</span><br><span class="line">                fn[j]+=fp[i]*gp[j];</span><br><span class="line">        &#125;</span><br><span class="line">        fp=fn;</span><br><span class="line">        m*=x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> ex1=<span class="number">0</span>,ex2=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;</span><br><span class="line">        ex1+=fp[i]*i;</span><br><span class="line">        ex2+=fp[i]*i*i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">double</span> ans=ex2-ex1*ex1;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%.4f\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -364,7 +385,7 @@ f(i,j)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-389"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 389</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Platonic-Dice"><span class="nav-number">1.1.1.</span> <span class="nav-text">Platonic Dice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-389"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 389</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#platonic-dice"><span class="nav-number">1.1.1.</span> <span class="nav-text">Platonic Dice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,7 +399,7 @@ f(i,j)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -422,13 +443,13 @@ f(i,j)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

@@ -232,7 +232,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
+              <span>1.9k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -251,40 +251,67 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-359"><a href="#Project-Euler-359" class="headerlink" title="Project Euler 359"></a>Project Euler 359</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Hilbert’s-New-Hotel"><a href="#Hilbert’s-New-Hotel" class="headerlink" title="Hilbert’s New Hotel"></a>Hilbert’s New Hotel</h3><p>An infinite number of people (numbered $1, 2, 3,$ etc.) are lined up to get a room at Hilbert’s newest infinite hotel. The hotel contains an infinite number of floors (numbered $1, 2, 3,$ etc.), and each floor contains an infinite number of rooms (numbered $1, 2, 3,$ etc.).</p>
-<p>Initially the hotel is empty. Hilbert declares a rule on how the n^th person is assigned a room: person n gets the first vacant room in the lowest numbered floor satisfying either of the following:</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-359">Project Euler 359</h1>
+<h2 id="题目">题目</h2>
+<h3 id="hilberts-new-hotel">Hilbert’s New Hotel</h3>
+<p>An infinite number of people (numbered <span class="math inline">\(1,
+2, 3,\)</span> etc.) are lined up to get a room at Hilbert’s newest
+infinite hotel. The hotel contains an infinite number of floors
+(numbered <span class="math inline">\(1, 2, 3,\)</span> etc.), and each
+floor contains an infinite number of rooms (numbered <span class="math inline">\(1, 2, 3,\)</span> etc.).</p>
+<p>Initially the hotel is empty. Hilbert declares a rule on how the n^th
+person is assigned a room: person n gets the first vacant room in the
+lowest numbered floor satisfying either of the following:</p>
 <ul>
 <li>the floor is empty</li>
-<li>the floor is not empty, and if the latest person taking a room in that floor is person m, then m + n is a perfect square</li>
+<li>the floor is not empty, and if the latest person taking a room in
+that floor is person m, then m + n is a perfect square</li>
 </ul>
-<p>Person $1$ gets room $1$ in floor $1$ since floor $1$ is empty.<br>Person $2$ does not get room $2$ in floor $1$ since $1 + 2 = 3$ is not a perfect square. Person $2$ instead gets room $1$ in floor $2$ since floor $2$ is empty. Person $3$ gets room $2$ in floor $1$ since $1 + 3 = 4$ is a perfect square.</p>
+<p>Person <span class="math inline">\(1\)</span> gets room <span class="math inline">\(1\)</span> in floor <span class="math inline">\(1\)</span> since floor <span class="math inline">\(1\)</span> is empty. Person <span class="math inline">\(2\)</span> does not get room <span class="math inline">\(2\)</span> in floor <span class="math inline">\(1\)</span> since <span class="math inline">\(1 + 2
+= 3\)</span> is not a perfect square. Person <span class="math inline">\(2\)</span> instead gets room <span class="math inline">\(1\)</span> in floor <span class="math inline">\(2\)</span> since floor <span class="math inline">\(2\)</span> is empty. Person <span class="math inline">\(3\)</span> gets room <span class="math inline">\(2\)</span> in floor <span class="math inline">\(1\)</span> since <span class="math inline">\(1 + 3
+= 4\)</span> is a perfect square.</p>
 <p>Eventually, every person in the line gets a room in the hotel.</p>
-<p>Define $P(f, r)$ to be $n$ if person $n$ occupies room $r$ in floor $f$, and $0$ if no person occupies the room. Here are a few examples:</p>
-<p>$\begin{aligned}<br>&amp;P(1, 1) = 1\\<br>&amp;P(1, 2) = 3\\<br>&amp;P(2, 1) = 2\\<br>&amp;P(10, 20) = 440\\<br>&amp;P(25, 75) = 4863\\<br>&amp;P(99, 100) = 19454<br>\end{aligned}$</p>
-<p>Find the sum of all $P(f, r)$ for all positive $f$ and $r$ such that $f \times r = 71328803586048$ and give the last $8$ digits as your answer.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>通过暴力枚举前几项，可以在OEIS查询到结果为<a target="_blank" rel="noopener" href="https://oeis.org/A083362">A083362</a>。</p>
+<p>Define <span class="math inline">\(P(f, r)\)</span> to be <span class="math inline">\(n\)</span> if person <span class="math inline">\(n\)</span> occupies room <span class="math inline">\(r\)</span> in floor <span class="math inline">\(f\)</span>, and <span class="math inline">\(0\)</span> if no person occupies the room. Here
+are a few examples:</p>
+<p><span class="math inline">\(\begin{aligned} &amp;P(1, 1) = 1\\
+&amp;P(1, 2) = 3\\ &amp;P(2, 1) = 2\\ &amp;P(10, 20) = 440\\ &amp;P(25,
+75) = 4863\\ &amp;P(99, 100) = 19454 \end{aligned}\)</span></p>
+<p>Find the sum of all <span class="math inline">\(P(f, r)\)</span> for
+all positive <span class="math inline">\(f\)</span> and <span class="math inline">\(r\)</span> such that <span class="math inline">\(f
+\times r = 71328803586048\)</span> and give the last <span class="math inline">\(8\)</span> digits as your answer.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>通过暴力枚举前几项，可以在OEIS查询到结果为<a target="_blank" rel="noopener" href="https://oeis.org/A083362">A083362</a>。</p>
 <p>找到FORMULA一栏，给出了如下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">T(0, k) = (k+1)*(k+2)/2 for k&gt;=0, T(n, 0) = floor((n+1)^2/2) for n&gt;0, T(n, k+1) = (2*floor((n+1)/2) + k+1)^2 - T(n, k) for n&gt;0 and k&gt;=0.</span><br></pre></td></tr></table></figure>
-<p>这些信息给出的公式是以$0$为初始下标的。转化成以$1$为初始下标后，有</p>
-<script type="math/tex; mode=display">
+<p>这些信息给出的公式是以<span class="math inline">\(0\)</span>为初始下标的。转化成以<span class="math inline">\(1\)</span>为初始下标后，有</p>
+<p><span class="math display">\[
 p(f,r)=
 \left \{\begin{aligned}
-  &\dfrac{r(r+1)}{2}  & & \mathrm{if\quad} f=1 \\
-  &\lfloor\dfrac{f^2}{2}\rfloor & & \mathrm{else if\quad} f>1\wedge r=1 \\
-  &(2\cdot\lfloor\dfrac{f}{2}\rfloor+r-1)^2-p(f,r-1) & & \mathrm{else}
-\end{aligned}\right.</script><p>可以看到第三条式子是一个递推式，为了加速计算的过程，我们考虑将它改写成通式。</p>
+  &amp;\dfrac{r(r+1)}{2}  &amp; &amp; \mathrm{if\quad} f=1 \\
+  &amp;\lfloor\dfrac{f^2}{2}\rfloor &amp; &amp; \mathrm{else if\quad}
+f&gt;1\wedge r=1 \\
+  &amp;(2\cdot\lfloor\dfrac{f}{2}\rfloor+r-1)^2-p(f,r-1) &amp; &amp;
+\mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>可以看到第三条式子是一个递推式，为了加速计算的过程，我们考虑将它改写成通式。</p>
 <p>通过Mathematica输入以下代码：</p>
 <figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">RSolve</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="variable">p</span><span class="punctuation">[</span><span class="variable">r</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="variable">p</span><span class="punctuation">[</span><span class="variable">r</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">]</span> <span class="operator">==</span> <span class="punctuation">(</span><span class="number">2</span><span class="operator">*</span><span class="built_in">Floor</span><span class="punctuation">[</span><span class="variable">f</span><span class="operator">/</span><span class="number">2</span><span class="punctuation">]</span> <span class="operator">+</span> <span class="variable">r</span> <span class="operator">-</span> <span class="number">1</span><span class="punctuation">)</span><span class="operator">^</span><span class="number">2</span><span class="operator">,</span> <span class="variable">p</span><span class="punctuation">[</span><span class="number">1</span><span class="punctuation">]</span> <span class="operator">==</span> <span class="built_in">Floor</span><span class="punctuation">[</span><span class="variable">f</span><span class="operator">^</span><span class="number">2</span><span class="operator">/</span><span class="number">2</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="variable">p</span><span class="punctuation">[</span><span class="variable">r</span><span class="punctuation">]</span><span class="operator">,</span> <span class="variable">r</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
 <p>运行后得出一个很长的式子。经过化简，得到通项公式：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 p(f,r)=
 \left \{\begin{aligned}
-  &\dfrac{r(r+1)}{2} & & \mathrm{if\quad} f=1 \\
-  &\dfrac{r(r-1)}{2} +\lfloor\dfrac{f}{2}\rfloor\cdot(\lfloor\dfrac{f}{2}\rfloor+r-(r+f)\%2)& & \mathrm{else}
-\end{aligned}\right.</script><p>直接进行计算即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> divisors</span><br><span class="line"></span><br><span class="line">N = <span class="number">71328803586048</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">P</span>(<span class="params">f, r</span>):</span><br><span class="line">    <span class="keyword">if</span> f == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> r * (r + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> r * (r - <span class="number">1</span>) // <span class="number">2</span> + f // <span class="number">2</span> * (f // <span class="number">2</span> + r - (r + f) % <span class="number">2</span>) * <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="built_in">sum</span>(P(d, N // d) <span class="keyword">for</span> d <span class="keyword">in</span> divisors(N)) % mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;\dfrac{r(r+1)}{2} &amp; &amp; \mathrm{if\quad} f=1 \\
+  &amp;\dfrac{r(r-1)}{2}
++\lfloor\dfrac{f}{2}\rfloor\cdot(\lfloor\dfrac{f}{2}\rfloor+r-(r+f)\%2)&amp;
+&amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>直接进行计算即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> divisors</span><br><span class="line"></span><br><span class="line">N = <span class="number">71328803586048</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">P</span>(<span class="params">f, r</span>):</span><br><span class="line">    <span class="keyword">if</span> f == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> r * (r + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> r * (r - <span class="number">1</span>) // <span class="number">2</span> + f // <span class="number">2</span> * (f // <span class="number">2</span> + r - (r + f) % <span class="number">2</span>) * <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="built_in">sum</span>(P(d, N // d) <span class="keyword">for</span> d <span class="keyword">in</span> divisors(N)) % mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
     </div>
 
     
@@ -368,7 +395,7 @@ p(f,r)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-359"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 359</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Hilbert%E2%80%99s-New-Hotel"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hilbert’s New Hotel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-359"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 359</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hilberts-new-hotel"><span class="nav-number">1.1.1.</span> <span class="nav-text">Hilbert’s New Hotel</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -382,7 +409,7 @@ p(f,r)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -426,13 +453,13 @@ p(f,r)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

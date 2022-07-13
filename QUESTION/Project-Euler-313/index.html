@@ -234,7 +234,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1k</span>
+              <span>1.1k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -253,33 +253,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-313"><a href="#Project-Euler-313" class="headerlink" title="Project Euler 313"></a>Project Euler 313</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Sliding-game"><a href="#Sliding-game" class="headerlink" title="Sliding game"></a>Sliding game</h3><p>In a sliding game a counter may slide horizontally or vertically into an empty space. The objective of the game is to move the red counter from the top left corner of a grid to the bottom right corner; the space always starts in the bottom right corner. For example, the following sequence of pictures show how the game can be completed in five moves on a $2$ by $2$ grid.</p>
-<p><img src="../images/p313_sliding_game_1.gif" alt></p>
-<p>Let $S(m,n)$ represent the minimum number of moves to complete the game on an $m$ by $n$ grid. For example, it can be verified that $S(5,4) = 25$.</p>
-<p><img src="../images/p313_sliding_game_2.gif" alt></p>
-<p>There are exactly $5482$ grids for which $S(m,n) = p^2$, where $p &lt; 100$ is prime.</p>
-<p>How many grids does $S(m,n) = p^2$, where $p &lt; 10^6$ is prime?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>以一个比较低效的广度优先搜索打印出一部分$S(n,m)(n,m\ge2)$的值：</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-313">Project Euler 313</h1>
+<h2 id="题目">题目</h2>
+<h3 id="sliding-game">Sliding game</h3>
+<p>In a sliding game a counter may slide horizontally or vertically into
+an empty space. The objective of the game is to move the red counter
+from the top left corner of a grid to the bottom right corner; the space
+always starts in the bottom right corner. For example, the following
+sequence of pictures show how the game can be completed in five moves on
+a <span class="math inline">\(2\)</span> by <span class="math inline">\(2\)</span> grid.</p>
+<p><img src="../images/p313_sliding_game_1.gif"></p>
+<p>Let <span class="math inline">\(S(m,n)\)</span> represent the minimum
+number of moves to complete the game on an <span class="math inline">\(m\)</span> by <span class="math inline">\(n\)</span> grid. For example, it can be verified
+that <span class="math inline">\(S(5,4) = 25\)</span>.</p>
+<p><img src="../images/p313_sliding_game_2.gif"></p>
+<p>There are exactly <span class="math inline">\(5482\)</span> grids for
+which <span class="math inline">\(S(m,n) = p^2\)</span>, where <span class="math inline">\(p &lt; 100\)</span> is prime.</p>
+<p>How many grids does <span class="math inline">\(S(m,n) =
+p^2\)</span>, where <span class="math inline">\(p &lt; 10^6\)</span> is
+prime?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>以一个比较低效的广度优先搜索打印出一部分<span class="math inline">\(S(n,m)(n,m\ge2)\)</span>的值：</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">15</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">n, m</span>):</span><br><span class="line">    <span class="keyword">from</span> queue <span class="keyword">import</span> Queue</span><br><span class="line">    dx, dy = [-<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">0</span>, -<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">    st = <span class="number">1</span>, <span class="number">1</span>, n, m</span><br><span class="line">    mp = &#123;st: <span class="number">0</span>&#125;</span><br><span class="line">    q = Queue()</span><br><span class="line">    q.put(st)</span><br><span class="line">    <span class="keyword">while</span> q.qsize() &gt; <span class="number">0</span>:</span><br><span class="line">        rx, ry, ex, ey = q.get()</span><br><span class="line">        <span class="keyword">if</span> rx == n <span class="keyword">and</span> ry == m:</span><br><span class="line">            <span class="keyword">return</span> mp[rx, ry, ex, ey]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">            fx, fy = ex + dx[i], ey + dy[i]</span><br><span class="line">            <span class="keyword">if</span> rx == fx <span class="keyword">and</span> ry == fy:</span><br><span class="line">                sx, sy = ex, ey</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                sx, sy = rx, ry</span><br><span class="line">            <span class="keyword">if</span> <span class="number">1</span> &lt;= fx &lt;= n <span class="keyword">and</span> <span class="number">1</span> &lt;= fy &lt;= m <span class="keyword">and</span> (sx, sy, fx, fy) <span class="keyword">not</span> <span class="keyword">in</span> mp.keys():</span><br><span class="line">                mp[sx, sy, fx, fy] = mp[rx, ry, ex, ey] + <span class="number">1</span></span><br><span class="line">                q.put((sx, sy, fx, fy))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N):</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N):</span><br><span class="line">        <span class="built_in">print</span>(solve(n, m), end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>可以发现以下规律：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 s(m,n)=
 \left \{\begin{aligned}
-  &6m+2n-13  & & \mathrm{if\quad} m>n \\
-  &8m-11 & & \mathrm{else if\quad} m=n \\
-  &s(n,m) & & \mathrm{else}
-\end{aligned}\right.</script><p>不难证明，不存在一个平方数，其模$8$的值为$5$，因此不考虑$s(m,m)$的情况。</p>
-<p>对于每一个质数$p$，现在的问题就是求有多少$m$满足以下条件：</p>
-<ol>
-<li>$n=\dfrac{p^2+13-6m}{2}$</li>
-<li>$1&lt;n$</li>
-<li>$n&lt;m$</li>
+  &amp;6m+2n-13  &amp; &amp; \mathrm{if\quad} m&gt;n \\
+  &amp;8m-11 &amp; &amp; \mathrm{else if\quad} m=n \\
+  &amp;s(n,m) &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>不难证明，不存在一个平方数，其模<span class="math inline">\(8\)</span>的值为<span class="math inline">\(5\)</span>，因此不考虑<span class="math inline">\(s(m,m)\)</span>的情况。</p>
+<p>对于每一个质数<span class="math inline">\(p\)</span>，现在的问题就是求有多少<span class="math inline">\(m\)</span>满足以下条件：</p>
+<ol type="1">
+<li><span class="math inline">\(n=\dfrac{p^2+13-6m}{2}\)</span></li>
+<li><span class="math inline">\(1&lt;n\)</span></li>
+<li><span class="math inline">\(n&lt;m\)</span></li>
 </ol>
-<p>联立第一个和第二个，得到$m&lt;\dfrac{p^2+11}{6}$。联立第一个和第三个，得到$m&gt;\dfrac{p^2+13}{8}$。最终就是求区间$(\dfrac{p^2+13}{8},\dfrac{p^2+11}{6})$的整数个数。</p>
-<p>枚举所有质数$p$将这些区间中的整数个数相加即可。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;pr;</span><br><span class="line"><span class="type">bool</span> b[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b[i]) <span class="keyword">continue</span>;</span><br><span class="line">        pr.<span class="built_in">push_back</span>(i);</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">1ll</span>*i*i;j&lt;N;j+=i)</span><br><span class="line">            b[j]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> p:pr)</span><br><span class="line">        ans+=(<span class="number">1ll</span>*p*p+<span class="number">11</span>+<span class="number">5</span>)/<span class="number">6</span><span class="number">-1</span>-(<span class="number">1ll</span>*p*p+<span class="number">13</span>)/<span class="number">8</span>;</span><br><span class="line">    ans&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>联立第一个和第二个，得到<span class="math inline">\(m&lt;\dfrac{p^2+11}{6}\)</span>。联立第一个和第三个，得到<span class="math inline">\(m&gt;\dfrac{p^2+13}{8}\)</span>。最终就是求区间<span class="math inline">\((\dfrac{p^2+13}{8},\dfrac{p^2+11}{6})\)</span>的整数个数。</p>
+<p>枚举所有质数<span class="math inline">\(p\)</span>将这些区间中的整数个数相加即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000000</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt;pr;</span><br><span class="line"><span class="type">bool</span> b[N+<span class="number">4</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">2</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b[i]) <span class="keyword">continue</span>;</span><br><span class="line">        pr.<span class="built_in">push_back</span>(i);</span><br><span class="line">        <span class="keyword">for</span>(ll j=<span class="number">1ll</span>*i*i;j&lt;N;j+=i)</span><br><span class="line">            b[j]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> p:pr)</span><br><span class="line">        ans+=(<span class="number">1ll</span>*p*p+<span class="number">11</span>+<span class="number">5</span>)/<span class="number">6</span><span class="number">-1</span>-(<span class="number">1ll</span>*p*p+<span class="number">13</span>)/<span class="number">8</span>;</span><br><span class="line">    ans&lt;&lt;=<span class="number">1</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -363,7 +379,7 @@ s(m,n)=
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-313"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 313</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sliding-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sliding game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-313"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 313</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sliding-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sliding game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -377,7 +393,7 @@ s(m,n)=
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -421,13 +437,13 @@ s(m,n)=
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

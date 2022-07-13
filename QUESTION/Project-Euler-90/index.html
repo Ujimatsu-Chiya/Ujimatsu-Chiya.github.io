@@ -259,21 +259,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-90"><a href="#Project-Euler-90" class="headerlink" title="Project Euler 90"></a>Project Euler 90</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Cube-digit-pairs"><a href="#Cube-digit-pairs" class="headerlink" title="Cube digit pairs"></a>Cube digit pairs</h3><p>Each of the six faces on a cube has a different digit ($0$ to $9$) written on it; the same is done to a second cube. By placing the two cubes side-by-side in different positions we can form a variety of $2$-digit numbers.<br>For example, the square number $64$ could be formed:</p>
-<p><img src="../images/p090.png" alt></p>
-<p>In fact, by carefully choosing the digits on both cubes it is possible to display all of the square numbers below one-hundred: $01, 04, 09, 16, 25, 36, 49, 64$, and $81$.</p>
-<p>For example, one way this can be achieved is by placing $\{0, 5, 6, 7, 8, 9\}$ on one cube and $\{1, 2, 3, 4, 8, 9\}$ on the other cube.</p>
-<p>However, for this problem we shall allow the $6$ or $9$ to be turned upside-down so that an arrangement like $\{0, 5, 6, 7, 8, 9\}$ and $\{1, 2, 3, 4, 6, 7\}$ allows for all nine square numbers to be displayed; otherwise it would be impossible to obtain $09$.</p>
-<p>In determining a distinct arrangement we are interested in the digits on each cube, not the order.</p>
-<p>$\{1, 2, 3, 4, 5, 6\}$ is equivalent to $\{3, 6, 4, 1, 2, 5\}$<br>$\{1, 2, 3, 4, 5, 6\}$ is distinct from $\{1, 2, 3, 4, 5, 9\}$</p>
-<p>But because we are allowing $6$ and $9$ to be reversed, the two distinct sets in the last example both represent the extended set $\{1, 2, 3, 4, 5, 6, 9\}$ for the purpose of forming $2$-digit numbers.</p>
-<p>How many distinct arrangements of the two cubes allow for all of the square numbers to be displayed?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>每个盒子一共有$C_{10}^6=210$种情况可以填数。两个盒子一起则有$\dfrac{210\times(210+1)}{2}=22155$种。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-90">Project Euler 90</h1>
+<h2 id="题目">题目</h2>
+<h3 id="cube-digit-pairs">Cube digit pairs</h3>
+<p>Each of the six faces on a cube has a different digit (<span class="math inline">\(0\)</span> to <span class="math inline">\(9\)</span>) written on it; the same is done to a
+second cube. By placing the two cubes side-by-side in different
+positions we can form a variety of <span class="math inline">\(2\)</span>-digit numbers. For example, the square
+number <span class="math inline">\(64\)</span> could be formed:</p>
+<p><img src="../images/p090.png"></p>
+<p>In fact, by carefully choosing the digits on both cubes it is
+possible to display all of the square numbers below one-hundred: <span class="math inline">\(01, 04, 09, 16, 25, 36, 49, 64\)</span>, and <span class="math inline">\(81\)</span>.</p>
+<p>For example, one way this can be achieved is by placing <span class="math inline">\(\{0, 5, 6, 7, 8, 9\}\)</span> on one cube and
+<span class="math inline">\(\{1, 2, 3, 4, 8, 9\}\)</span> on the other
+cube.</p>
+<p>However, for this problem we shall allow the <span class="math inline">\(6\)</span> or <span class="math inline">\(9\)</span> to be turned upside-down so that an
+arrangement like <span class="math inline">\(\{0, 5, 6, 7, 8,
+9\}\)</span> and <span class="math inline">\(\{1, 2, 3, 4, 6,
+7\}\)</span> allows for all nine square numbers to be displayed;
+otherwise it would be impossible to obtain <span class="math inline">\(09\)</span>.</p>
+<p>In determining a distinct arrangement we are interested in the digits
+on each cube, not the order.</p>
+<p><span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span> is
+equivalent to <span class="math inline">\(\{3, 6, 4, 1, 2, 5\}\)</span>
+<span class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span> is distinct
+from <span class="math inline">\(\{1, 2, 3, 4, 5, 9\}\)</span></p>
+<p>But because we are allowing <span class="math inline">\(6\)</span>
+and <span class="math inline">\(9\)</span> to be reversed, the two
+distinct sets in the last example both represent the extended set <span class="math inline">\(\{1, 2, 3, 4, 5, 6, 9\}\)</span> for the purpose
+of forming <span class="math inline">\(2\)</span>-digit numbers.</p>
+<p>How many distinct arrangements of the two cubes allow for all of the
+square numbers to be displayed?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>每个盒子一共有<span class="math inline">\(C_{10}^6=210\)</span>种情况可以填数。两个盒子一起则有<span class="math inline">\(\dfrac{210\times(210+1)}{2}=22155\)</span>种。</p>
 <p>此处使用itertools库的combinations产生所有组合。</p>
 <p>枚举所有的组合，然后判断平方数中的两个位是否分别在两个集合中。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"></span><br><span class="line">x, y = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>], [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> combinations([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], <span class="number">6</span>):</span><br><span class="line">    st = <span class="built_in">set</span>(s)</span><br><span class="line">    <span class="keyword">if</span> <span class="number">6</span> <span class="keyword">in</span> st <span class="keyword">or</span> <span class="number">9</span> <span class="keyword">in</span> st:</span><br><span class="line">        st.add(<span class="number">6</span>)</span><br><span class="line">        st.add(<span class="number">9</span>)</span><br><span class="line">    ls.append(st)</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ls)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, <span class="built_in">len</span>(ls)):</span><br><span class="line">        sa, sb = ls[i], ls[j]</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> (x[k] <span class="keyword">in</span> sa <span class="keyword">and</span> y[k] <span class="keyword">in</span> sb <span class="keyword">or</span> x[k] <span class="keyword">in</span> sb <span class="keyword">and</span> y[k] <span class="keyword">in</span> sa):</span><br><span class="line">                ok = <span class="literal">False</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        ans += ok</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"></span><br><span class="line">x, y = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>], [<span class="number">1</span>, <span class="number">4</span>, <span class="number">9</span>, <span class="number">6</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">9</span>, <span class="number">4</span>, <span class="number">1</span>]</span><br><span class="line">ls = []</span><br><span class="line"><span class="keyword">for</span> s <span class="keyword">in</span> combinations([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], <span class="number">6</span>):</span><br><span class="line">    st = <span class="built_in">set</span>(s)</span><br><span class="line">    <span class="keyword">if</span> <span class="number">6</span> <span class="keyword">in</span> st <span class="keyword">or</span> <span class="number">9</span> <span class="keyword">in</span> st:</span><br><span class="line">        st.add(<span class="number">6</span>)</span><br><span class="line">        st.add(<span class="number">9</span>)</span><br><span class="line">    ls.append(st)</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ls)):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, <span class="built_in">len</span>(ls)):</span><br><span class="line">        sa, sb = ls[i], ls[j]</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> (x[k] <span class="keyword">in</span> sa <span class="keyword">and</span> y[k] <span class="keyword">in</span> sb <span class="keyword">or</span> x[k] <span class="keyword">in</span> sb <span class="keyword">and</span> y[k] <span class="keyword">in</span> sa):</span><br><span class="line">                ok = <span class="literal">False</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        ans += ok</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -357,7 +379,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-90"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 90</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cube-digit-pairs"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cube digit pairs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-90"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 90</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cube-digit-pairs"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cube digit pairs</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -371,7 +393,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -415,13 +437,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

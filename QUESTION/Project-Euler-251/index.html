@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
+              <span>1.4k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,38 +257,59 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-251"><a href="#Project-Euler-251" class="headerlink" title="Project Euler 251"></a>Project Euler 251</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Cardano-Triplets"><a href="#Cardano-Triplets" class="headerlink" title="Cardano Triplets"></a>Cardano Triplets</h3><p>A triplet of positive integers $(a,b,c)$ is called a Cardano Triplet if it satisfies the condition:</p>
-<script type="math/tex; mode=display">\sqrt[3]{a + b \sqrt{c}} + \sqrt[3]{a - b \sqrt{c}} = 1</script><p>For example, $(2,1,5)$ is a Cardano Triplet.</p>
-<p>There exist $149$ Cardano Triplets for which $a+b+c \le 1000$.</p>
-<p>Find how many Cardano Triplets exist such that $a+b+c \le 110,000,000$.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>本解决方案参考了Thread的内容。</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-251">Project Euler 251</h1>
+<h2 id="题目">题目</h2>
+<h3 id="cardano-triplets">Cardano Triplets</h3>
+<p>A triplet of positive integers <span class="math inline">\((a,b,c)\)</span> is called a Cardano Triplet if it
+satisfies the condition:</p>
+<p><span class="math display">\[\sqrt[3]{a + b \sqrt{c}} + \sqrt[3]{a -
+b \sqrt{c}} = 1\]</span></p>
+<p>For example, <span class="math inline">\((2,1,5)\)</span> is a
+Cardano Triplet.</p>
+<p>There exist <span class="math inline">\(149\)</span> Cardano Triplets
+for which <span class="math inline">\(a+b+c \le 1000\)</span>.</p>
+<p>Find how many Cardano Triplets exist such that <span class="math inline">\(a+b+c \le 110,000,000\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本解决方案参考了Thread的内容。</p>
 <p>先将整个方程去除根号：</p>
-<ol>
+<ol type="1">
 <li>等式两边立方，整理后得</li>
 </ol>
-<script type="math/tex; mode=display">2a+3\sqrt[3]{a^2-b^2c}\cdot(\sqrt[3]{a + b \sqrt{c}} + \sqrt[3]{a - b \sqrt{c}})=1</script><ol>
-<li>代入原来的$\sqrt[3]{a + b \sqrt{c}} + \sqrt[3]{a - b \sqrt{c}}=1$，移项后，整理得：</li>
+<p><span class="math display">\[2a+3\sqrt[3]{a^2-b^2c}\cdot(\sqrt[3]{a +
+b \sqrt{c}} + \sqrt[3]{a - b \sqrt{c}})=1\]</span></p>
+<ol start="2" type="1">
+<li>代入原来的<span class="math inline">\(\sqrt[3]{a + b \sqrt{c}} +
+\sqrt[3]{a - b \sqrt{c}}=1\)</span>，移项后，整理得：</li>
 </ol>
-<script type="math/tex; mode=display">2a-1=-3\sqrt[3]{a^2-b^2c}</script><ol>
+<p><span class="math display">\[2a-1=-3\sqrt[3]{a^2-b^2c}\]</span></p>
+<ol start="3" type="1">
 <li>等式两边再取立方，整理后得：</li>
 </ol>
-<script type="math/tex; mode=display">8a^3+15a^2+6a-1=27b^2c\qquad(1)</script><p>原式等价于求$8a^3+15a^2+6a-1=27b^2c$的解。</p>
-<p>左边的式子可以分解为$(a+1)^2(8a-1)$，不难发现，只有当$a$满足$a\equiv 2(\mod 3)$时，$3|(a+1)^2(8a-1)$。</p>
-<p>因此，令$a=3k+2,k\ge0$，将此式代回$(1)$，整理后，问题转化为求有多少个三元组$(k,b,c)$，满足以下方程：</p>
-<script type="math/tex; mode=display">(k+1)^2(8k+5)=b^2c\qquad (2)</script><p>其中，$k\ge0,b&gt;0,c&gt;0,3k+2+b+c\le N,N=110000000$。</p>
-<p>观察到$(2)$两侧都是一个平方项乘以一个一次项，令$g=\gcd(k+1,b)$，那么令$p,q$满足$k+1=gp,b=gq$，其中$\gcd(p,q)=1$。那么将$p,q$代入$(2)$，有</p>
-<script type="math/tex; mode=display">p^2(8k+5)=q^2c\qquad(3)</script><p>由于$\gcd(p,q)=1$，因此存在$m$，使得$c=mp^2,8k+5=mq^2$。</p>
-<p>联立$a=3k+2,b=gq,c=mp^2,k+1=gp,8k+5=mq^2$，可将问题转化为如下形式：<br>有多少个整数三元组$(a=3gp-1,b=gq,c=mp^2)$满足以下条件：</p>
-<ol>
-<li>$\gcd(p,q)=1$</li>
-<li>$8gp=mq^2+3$</li>
-<li>$3gp+gq+mp^2\le N+1$</li>
-<li>$p,q,g,m&gt;0$</li>
+<p><span class="math display">\[8a^3+15a^2+6a-1=27b^2c\qquad(1)\]</span></p>
+<p>原式等价于求<span class="math inline">\(8a^3+15a^2+6a-1=27b^2c\)</span>的解。</p>
+<p>左边的式子可以分解为<span class="math inline">\((a+1)^2(8a-1)\)</span>，不难发现，只有当<span class="math inline">\(a\)</span>满足<span class="math inline">\(a\equiv
+2(\mod 3)\)</span>时，<span class="math inline">\(3|(a+1)^2(8a-1)\)</span>。</p>
+<p>因此，令<span class="math inline">\(a=3k+2,k\ge0\)</span>，将此式代回<span class="math inline">\((1)\)</span>，整理后，问题转化为求有多少个三元组<span class="math inline">\((k,b,c)\)</span>，满足以下方程：</p>
+<p><span class="math display">\[(k+1)^2(8k+5)=b^2c\qquad
+(2)\]</span></p>
+<p>其中，<span class="math inline">\(k\ge0,b&gt;0,c&gt;0,3k+2+b+c\le
+N,N=110000000\)</span>。</p>
+<p>观察到<span class="math inline">\((2)\)</span>两侧都是一个平方项乘以一个一次项，令<span class="math inline">\(g=\gcd(k+1,b)\)</span>，那么令<span class="math inline">\(p,q\)</span>满足<span class="math inline">\(k+1=gp,b=gq\)</span>，其中<span class="math inline">\(\gcd(p,q)=1\)</span>。那么将<span class="math inline">\(p,q\)</span>代入<span class="math inline">\((2)\)</span>，有</p>
+<p><span class="math display">\[p^2(8k+5)=q^2c\qquad(3)\]</span></p>
+<p>由于<span class="math inline">\(\gcd(p,q)=1\)</span>，因此存在<span class="math inline">\(m\)</span>，使得<span class="math inline">\(c=mp^2,8k+5=mq^2\)</span>。</p>
+<p>联立<span class="math inline">\(a=3k+2,b=gq,c=mp^2,k+1=gp,8k+5=mq^2\)</span>，可将问题转化为如下形式：
+有多少个整数三元组<span class="math inline">\((a=3gp-1,b=gq,c=mp^2)\)</span>满足以下条件：</p>
+<ol type="1">
+<li><span class="math inline">\(\gcd(p,q)=1\)</span></li>
+<li><span class="math inline">\(8gp=mq^2+3\)</span></li>
+<li><span class="math inline">\(3gp+gq+mp^2\le N+1\)</span></li>
+<li><span class="math inline">\(p,q,g,m&gt;0\)</span></li>
 </ol>
-<p>我们可以枚举每对互质的$(p,q)$后进行统计。使用扩展欧几里得算法来计算出条件$2$的$g,m$值，假设一对最小正整数解为$(g_0,m_0)$，那么这个方程的通解为$g’=tq^2+g_0,m’=8tp+m_0$，其中$t\ge 0$。最终，将通解代入条件$3$，那么$t$满足$t(q^3+3pq^2+8p^3)+g_0q+m_0p^2+3g_0p\le N+1$。统计满足条件的所有$t$的个数。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N = <span class="number">110000000</span>;</span><br><span class="line"><span class="function">ll <span class="title">ex_gcd</span><span class="params">(ll a,ll b,ll &amp;x,ll &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        x=<span class="number">1</span>;y=<span class="number">0</span>;<span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll g=<span class="built_in">ex_gcd</span>(b,a%b,x,y);</span><br><span class="line">    ll z=x-(a/b)*y;</span><br><span class="line">    x=y;y=z;<span class="keyword">return</span> g;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//解不定方程ax+my=c。</span></span><br><span class="line"><span class="function">ll <span class="title">congruence</span><span class="params">(ll a,ll c,ll m,ll &amp;x,ll &amp;y)</span> </span>&#123;</span><br><span class="line">    ll g = <span class="built_in">ex_gcd</span>(a, m, x, y);</span><br><span class="line">    <span class="keyword">if</span> (c % g != <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    ll mc = c / g;</span><br><span class="line">    ll ma = <span class="built_in">abs</span>(a / g);</span><br><span class="line">    y *= mc;</span><br><span class="line">    y = (y % ma + ma) % ma;</span><br><span class="line">    x = (c - m * y) / a;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">abs</span>(g);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll g,m;</span><br><span class="line">    <span class="comment">//两个上限暂时还没证明出怎么来的。</span></span><br><span class="line">    ll mxQ = <span class="built_in">sqrt</span>(((N+<span class="number">1</span>)/<span class="number">3</span>*<span class="number">8</span><span class="number">-3</span>)/<span class="number">5</span>)+<span class="number">3</span>;</span><br><span class="line">    ll mxP = <span class="built_in">sqrt</span>((N+<span class="number">1</span>)/<span class="number">5</span>)+<span class="number">3</span>;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll q=<span class="number">1</span>;q&lt;=mxQ;q+=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll p=<span class="number">1</span>;p&lt;=mxP&amp;&amp;q*q*<span class="number">3</span>+p*p*<span class="number">8</span>+q*<span class="number">8</span>&lt;=N*<span class="number">8</span><span class="number">-1</span>;p++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">congruence</span>(p*<span class="number">8</span>,<span class="number">3</span>,-q*q,g,m) != <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            ll s = g*q+m*p*p+g*p*<span class="number">3</span>,d = q*q*q+p*q*q*<span class="number">3</span>+p*p*p*<span class="number">8</span>;</span><br><span class="line">            ans += (s &lt;= N + <span class="number">1</span> ? (N+<span class="number">1</span>-s)/d+<span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>我们可以枚举每对互质的<span class="math inline">\((p,q)\)</span>后进行统计。使用扩展欧几里得算法来计算出条件<span class="math inline">\(2\)</span>的<span class="math inline">\(g,m\)</span>值，假设一对最小正整数解为<span class="math inline">\((g_0,m_0)\)</span>，那么这个方程的通解为<span class="math inline">\(g&#39;=tq^2+g_0,m&#39;=8tp+m_0\)</span>，其中<span class="math inline">\(t\ge 0\)</span>。最终，将通解代入条件<span class="math inline">\(3\)</span>，那么<span class="math inline">\(t\)</span>满足<span class="math inline">\(t(q^3+3pq^2+8p^3)+g_0q+m_0p^2+3g_0p\le
+N+1\)</span>。统计满足条件的所有<span class="math inline">\(t\)</span>的个数。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N = <span class="number">110000000</span>;</span><br><span class="line"><span class="function">ll <span class="title">ex_gcd</span><span class="params">(ll a,ll b,ll &amp;x,ll &amp;y)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(b==<span class="number">0</span>)&#123;</span><br><span class="line">        x=<span class="number">1</span>;y=<span class="number">0</span>;<span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">    ll g=<span class="built_in">ex_gcd</span>(b,a%b,x,y);</span><br><span class="line">    ll z=x-(a/b)*y;</span><br><span class="line">    x=y;y=z;<span class="keyword">return</span> g;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//解不定方程ax+my=c。</span></span><br><span class="line"><span class="function">ll <span class="title">congruence</span><span class="params">(ll a,ll c,ll m,ll &amp;x,ll &amp;y)</span> </span>&#123;</span><br><span class="line">    ll g = <span class="built_in">ex_gcd</span>(a, m, x, y);</span><br><span class="line">    <span class="keyword">if</span> (c % g != <span class="number">0</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    ll mc = c / g;</span><br><span class="line">    ll ma = <span class="built_in">abs</span>(a / g);</span><br><span class="line">    y *= mc;</span><br><span class="line">    y = (y % ma + ma) % ma;</span><br><span class="line">    x = (c - m * y) / a;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">abs</span>(g);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ll g,m;</span><br><span class="line">    <span class="comment">//两个上限暂时还没证明出怎么来的。</span></span><br><span class="line">    ll mxQ = <span class="built_in">sqrt</span>(((N+<span class="number">1</span>)/<span class="number">3</span>*<span class="number">8</span><span class="number">-3</span>)/<span class="number">5</span>)+<span class="number">3</span>;</span><br><span class="line">    ll mxP = <span class="built_in">sqrt</span>((N+<span class="number">1</span>)/<span class="number">5</span>)+<span class="number">3</span>;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(ll q=<span class="number">1</span>;q&lt;=mxQ;q+=<span class="number">2</span>)&#123;</span><br><span class="line">        <span class="keyword">for</span>(ll p=<span class="number">1</span>;p&lt;=mxP&amp;&amp;q*q*<span class="number">3</span>+p*p*<span class="number">8</span>+q*<span class="number">8</span>&lt;=N*<span class="number">8</span><span class="number">-1</span>;p++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">congruence</span>(p*<span class="number">8</span>,<span class="number">3</span>,-q*q,g,m) != <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            ll s = g*q+m*p*p+g*p*<span class="number">3</span>,d = q*q*q+p*q*q*<span class="number">3</span>+p*p*p*<span class="number">8</span>;</span><br><span class="line">            ans += (s &lt;= N + <span class="number">1</span> ? (N+<span class="number">1</span>-s)/d+<span class="number">1</span>:<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +393,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-251"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 251</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Cardano-Triplets"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cardano Triplets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-251"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 251</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cardano-triplets"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cardano Triplets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -386,7 +407,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -430,13 +451,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

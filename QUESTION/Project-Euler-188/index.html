@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>592</span>
+              <span>820</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,22 +257,36 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-188"><a href="#Project-Euler-188" class="headerlink" title="Project Euler 188"></a>Project Euler 188</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="The-hyperexponentiation-of-a-number"><a href="#The-hyperexponentiation-of-a-number" class="headerlink" title="The hyperexponentiation of a number"></a>The hyperexponentiation of a number</h3><p>The <em>hyperexponentiation</em> or <em>tetration</em> of a number a by a positive integer b, denoted by $a\uparrow\uparrow b$ or $^ba$, is recursively defined by:</p>
-<p>$a\uparrow\uparrow1 = a, a\uparrow\uparrow(k+1) = a^{(a\uparrow\uparrow k)}$.</p>
-<p>Thus we have e.g. $3\uparrow\uparrow2 = 3^3 = 27$, hence $3\uparrow\uparrow3 = 3^{27} = 7625597484987$ and $3\uparrow\uparrow4$ is roughly $10^{3.6383346400240996*10^{12}}$.</p>
-<p>Find the last $8$ digits of $1777\uparrow\uparrow1855$.</p>
-<h2 id="欧拉降幂公式"><a href="#欧拉降幂公式" class="headerlink" title="欧拉降幂公式"></a>欧拉降幂公式</h2><p>欧拉降幂公式，用于高效计算$a^b\% m$的值（尤其$b$很大时）：</p>
-<script type="math/tex; mode=display">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-188">Project Euler 188</h1>
+<h2 id="题目">题目</h2>
+<h3 id="the-hyperexponentiation-of-a-number">The hyperexponentiation of
+a number</h3>
+<p>The <em>hyperexponentiation</em> or <em>tetration</em> of a number a
+by a positive integer b, denoted by <span class="math inline">\(a\uparrow\uparrow b\)</span> or <span class="math inline">\(^ba\)</span>, is recursively defined by:</p>
+<p><span class="math inline">\(a\uparrow\uparrow1 = a,
+a\uparrow\uparrow(k+1) = a^{(a\uparrow\uparrow k)}\)</span>.</p>
+<p>Thus we have e.g. <span class="math inline">\(3\uparrow\uparrow2 =
+3^3 = 27\)</span>, hence <span class="math inline">\(3\uparrow\uparrow3
+= 3^{27} = 7625597484987\)</span> and <span class="math inline">\(3\uparrow\uparrow4\)</span> is roughly <span class="math inline">\(10^{3.6383346400240996*10^{12}}\)</span>.</p>
+<p>Find the last <span class="math inline">\(8\)</span> digits of <span class="math inline">\(1777\uparrow\uparrow1855\)</span>.</p>
+<h2 id="欧拉降幂公式">欧拉降幂公式</h2>
+<p>欧拉降幂公式，用于高效计算<span class="math inline">\(a^b\%
+m\)</span>的值（尤其<span class="math inline">\(b\)</span>很大时）：</p>
+<p><span class="math display">\[
 a^b\equiv
 \left \{\begin{aligned}
-  &a^{b\% \varphi(m)}  & & \mathrm{if\quad} \gcd(a,m)=1 \\
-  &a^b & & \mathrm{else if\quad} b<\varphi(m) &(\mod p)\\
-  &a^{b\%\varphi(m)+\varphi(m)} & & \mathrm{else}
-\end{aligned}\right.</script><p>其中$\varphi$为欧拉函数。</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>根据式子的定义，通过欧拉降幂公式直接递归计算指数，再计算出式子的值本身。可以知道，递归的层数很低。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> factorization</span><br><span class="line"></span><br><span class="line">n = <span class="number">1777</span></span><br><span class="line">m = <span class="number">1855</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">phi</span>(<span class="params">n</span>):</span><br><span class="line">    ls = factorization(n)</span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> ls:</span><br><span class="line">        n = n // p * (p - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">a: <span class="built_in">int</span>, f: <span class="built_in">int</span>, mod: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> f &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(a, f, mod)</span><br><span class="line">    <span class="keyword">elif</span> mod == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ph = phi(mod)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(a, dfs(a, f - <span class="number">1</span>, ph) % ph, mod)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="string">&quot;&#123;:08&#125;&quot;</span>.<span class="built_in">format</span>(dfs(n, m, mod))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  &amp;a^{b\% \varphi(m)}  &amp; &amp; \mathrm{if\quad} \gcd(a,m)=1 \\
+  &amp;a^b &amp; &amp; \mathrm{else if\quad} b&lt;\varphi(m) &amp;(\mod
+p)\\
+  &amp;a^{b\%\varphi(m)+\varphi(m)} &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>其中<span class="math inline">\(\varphi\)</span>为欧拉函数。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>根据式子的定义，通过欧拉降幂公式直接递归计算指数，再计算出式子的值本身。可以知道，递归的层数很低。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> factorization</span><br><span class="line"></span><br><span class="line">n = <span class="number">1777</span></span><br><span class="line">m = <span class="number">1855</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">phi</span>(<span class="params">n</span>):</span><br><span class="line">    ls = factorization(n)</span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> ls:</span><br><span class="line">        n = n // p * (p - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> n</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">a: <span class="built_in">int</span>, f: <span class="built_in">int</span>, mod: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> f &lt;= <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(a, f, mod)</span><br><span class="line">    <span class="keyword">elif</span> mod == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        ph = phi(mod)</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">pow</span>(a, dfs(a, f - <span class="number">1</span>, ph) % ph, mod)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = <span class="string">&quot;&#123;:08&#125;&quot;</span>.<span class="built_in">format</span>(dfs(n, m, mod))</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -356,7 +370,8 @@ a^b\equiv
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-188"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 188</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#The-hyperexponentiation-of-a-number"><span class="nav-number">1.1.1.</span> <span class="nav-text">The hyperexponentiation of a number</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E9%99%8D%E5%B9%82%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">欧拉降幂公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-188"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 188</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#the-hyperexponentiation-of-a-number"><span class="nav-number">1.1.1.</span> <span class="nav-text">The hyperexponentiation of
+a number</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E9%99%8D%E5%B9%82%E5%85%AC%E5%BC%8F"><span class="nav-number">1.2.</span> <span class="nav-text">欧拉降幂公式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -370,7 +385,7 @@ a^b\equiv
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -414,13 +429,13 @@ a^b\equiv
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

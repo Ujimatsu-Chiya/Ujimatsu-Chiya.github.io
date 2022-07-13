@@ -242,7 +242,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.2k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -261,36 +261,50 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-237"><a href="#Project-Euler-237" class="headerlink" title="Project Euler 237"></a>Project Euler 237</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Tours-on-a-4-x-n-playing-board"><a href="#Tours-on-a-4-x-n-playing-board" class="headerlink" title="Tours on a 4 x n playing board"></a>Tours on a 4 x n playing board</h3><p>Let $T(n)$ be the number of tours over a $4 \times n$ playing board such that:</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-237">Project Euler 237</h1>
+<h2 id="题目">题目</h2>
+<h3 id="tours-on-a-4-x-n-playing-board">Tours on a 4 x n playing
+board</h3>
+<p>Let <span class="math inline">\(T(n)\)</span> be the number of tours
+over a <span class="math inline">\(4 \times n\)</span> playing board
+such that:</p>
 <ul>
 <li>The tour starts in the top left corner.</li>
-<li>The tour consists of moves that are up, down, left, or right one square.</li>
+<li>The tour consists of moves that are up, down, left, or right one
+square.</li>
 <li>The tour visits each square exactly once.</li>
 <li>The tour ends in the bottom left corner.</li>
 </ul>
-<p>The diagram shows one tour over a $4 \times 10$ board:</p>
-<p><img src="../images/p237.gif" alt></p>
-<p>$T(10)$ is $2329$. What is $T(10^{12}) \text{ modulo } 10^8$?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>两个子问题：</p>
-<p>第一个问题：求出关于$4\times n$格子上以$(1,1)$为起点，以$(4,1)$为终点的路径数$T(n)$的关系式。（参考了Thread中的信息。）</p>
+<p>The diagram shows one tour over a <span class="math inline">\(4
+\times 10\)</span> board:</p>
+<p><img src="../images/p237.gif"></p>
+<p><span class="math inline">\(T(10)\)</span> is <span class="math inline">\(2329\)</span>. What is <span class="math inline">\(T(10^{12}) \text{ modulo } 10^8\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>两个子问题：</p>
+<p>第一个问题：求出关于<span class="math inline">\(4\times
+n\)</span>格子上以<span class="math inline">\((1,1)\)</span>为起点，以<span class="math inline">\((4,1)\)</span>为终点的路径数<span class="math inline">\(T(n)\)</span>的关系式。（参考了Thread中的信息。）</p>
 <p>使用暴力程序找出前几项后，查找OEIS，发现结果为<a target="_blank" rel="noopener" href="https://oeis.org/A181688">A181688</a>。在FORMULA一栏中，发现如下信息：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a(n) = 2*a(n-1) + 2*a(n-2) - 2*a(n-3) + a(n-4), n &gt; 4.</span><br></pre></td></tr></table></figure>
-<p>再根据前几项枚举出来的值，不难发现$T$的递推公式为：</p>
-<script type="math/tex; mode=display">
+<p>再根据前几项枚举出来的值，不难发现<span class="math inline">\(T\)</span>的递推公式为：</p>
+<p><span class="math display">\[
 T(n)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i\le 2\\
-  &4 & & \mathrm{else if\quad} i=3 \\
-  &8 & & \mathrm{else if\quad} i=4 \\
-  &2T(n-1)+2T(n-2)-2T(n-3)+T(n-4) & & \mathrm{else}
-\end{aligned}\right.</script><p>第二个问题：优化</p>
-<p>上面的递推式需要$O(n)$的时间复杂度才能计算出具体值，因此改用矩阵快速幂，将计算递推式的值的时间复杂度降到$O(\log n)$。将线性递推式写成矩阵相乘的形式：</p>
-<p>令矩阵$A$为：</p>
-<p>$A=\begin{bmatrix}<br>2 &amp; 2 &amp; -2 &amp; 1\\<br>1 &amp; 0 &amp; 0 &amp; 0 \\<br>0 &amp; 1 &amp; 0 &amp; 0 \\<br>0 &amp; 0 &amp; 1 &amp; 0<br>\end{bmatrix}$</p>
+  &amp;1  &amp; &amp; \mathrm{if\quad} i\le 2\\
+  &amp;4 &amp; &amp; \mathrm{else if\quad} i=3 \\
+  &amp;8 &amp; &amp; \mathrm{else if\quad} i=4 \\
+  &amp;2T(n-1)+2T(n-2)-2T(n-3)+T(n-4) &amp; &amp; \mathrm{else}
+\end{aligned}\right.
+\]</span></p>
+<p>第二个问题：优化</p>
+<p>上面的递推式需要<span class="math inline">\(O(n)\)</span>的时间复杂度才能计算出具体值，因此改用矩阵快速幂，将计算递推式的值的时间复杂度降到<span class="math inline">\(O(\log
+n)\)</span>。将线性递推式写成矩阵相乘的形式：</p>
+<p>令矩阵<span class="math inline">\(A\)</span>为：</p>
+<p><span class="math inline">\(A=\begin{bmatrix} 2 &amp; 2 &amp; -2
+&amp; 1\\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; 0 \\ 0
+&amp; 0 &amp; 1 &amp; 0 \end{bmatrix}\)</span></p>
 <p>那么可以将递推式写成矩阵相乘的形式：</p>
-<script type="math/tex; mode=display">
+<p><span class="math display">\[
 \begin{bmatrix}
 T(n)\\
 T(n-1)\\
@@ -304,8 +318,11 @@ T(n-1)\\
 T(n-2)\\
 T(n-3)\\
 T(n-4)
-\end{bmatrix}</script><p>通过该递推式可以产生矩阵$A$的幂。而矩阵$A$的幂次方$A^n$也可以在对数时间完成计算。因此能以$O(\log n)$的时间复杂度计算$T(n)$的值。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">12</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">a: <span class="built_in">list</span>, b: <span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">return</span> [[<span class="built_in">sum</span>(a[i][k] * b[k][j] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b))) % mod <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b[<span class="number">0</span>]))] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(a))]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = [[<span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">8</span>]]</span><br><span class="line">b = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">2</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">N -= <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> N:</span><br><span class="line">    <span class="keyword">if</span> N &amp; <span class="number">1</span>:</span><br><span class="line">        a = mul(a, b)</span><br><span class="line">    b = mul(b, b)</span><br><span class="line">    N &gt;&gt;= <span class="number">1</span></span><br><span class="line">ans = a[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"><span class="comment"># A181688</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+\end{bmatrix}
+\]</span></p>
+<p>通过该递推式可以产生矩阵<span class="math inline">\(A\)</span>的幂。而矩阵<span class="math inline">\(A\)</span>的幂次方<span class="math inline">\(A^n\)</span>也可以在对数时间完成计算。因此能以<span class="math inline">\(O(\log n)\)</span>的时间复杂度计算<span class="math inline">\(T(n)\)</span>的值。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">12</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">mul</span>(<span class="params">a: <span class="built_in">list</span>, b: <span class="built_in">list</span></span>):</span><br><span class="line">    <span class="keyword">return</span> [[<span class="built_in">sum</span>(a[i][k] * b[k][j] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b))) % mod <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b[<span class="number">0</span>]))] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(a))]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = [[<span class="number">1</span>, <span class="number">1</span>, <span class="number">4</span>, <span class="number">8</span>]]</span><br><span class="line">b = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>], [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, -<span class="number">2</span>], [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>], [<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>]]</span><br><span class="line">N -= <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> N:</span><br><span class="line">    <span class="keyword">if</span> N &amp; <span class="number">1</span>:</span><br><span class="line">        a = mul(a, b)</span><br><span class="line">    b = mul(b, b)</span><br><span class="line">    N &gt;&gt;= <span class="number">1</span></span><br><span class="line">ans = a[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"><span class="comment"># A181688</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -391,7 +408,8 @@ T(n-4)
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-237"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 237</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Tours-on-a-4-x-n-playing-board"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tours on a 4 x n playing board</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-237"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 237</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tours-on-a-4-x-n-playing-board"><span class="nav-number">1.1.1.</span> <span class="nav-text">Tours on a 4 x n playing
+board</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -405,7 +423,7 @@ T(n-4)
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -449,13 +467,13 @@ T(n-4)
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

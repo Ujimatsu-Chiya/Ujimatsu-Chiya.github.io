@@ -236,7 +236,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.7k</span>
+              <span>1.8k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -255,37 +255,60 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-587"><a href="#Project-Euler-587" class="headerlink" title="Project Euler 587"></a>Project Euler 587</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Concave-triangle"><a href="#Concave-triangle" class="headerlink" title="Concave triangle"></a>Concave triangle</h3><p>A square is drawn around a circle as shown in the diagram below on the left.<br>We shall call the blue shaded region the L-section.</p>
-<p>A line is drawn from the bottom left of the square to the top right as shown in the diagram on the right.</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-587">Project Euler 587</h1>
+<h2 id="题目">题目</h2>
+<h3 id="concave-triangle">Concave triangle</h3>
+<p>A square is drawn around a circle as shown in the diagram below on
+the left. We shall call the blue shaded region the L-section.</p>
+<p>A line is drawn from the bottom left of the square to the top right
+as shown in the diagram on the right.</p>
 <p>We shall call the orange shaded region a concave triangle.</p>
-<p><img src="../images/p587_concave_triangle_1.png" alt></p>
-<p>It should be clear that the concave triangle occupies exactly half of the L-section.</p>
-<p>Two circles are placed next to each other horizontally, a rectangle is drawn around both circles, and a line is drawn from the bottom left to the top right as shown in the diagram below.</p>
-<p><img src="../images/p587_concave_triangle_2.png" alt></p>
-<p>This time the concave triangle occupies approximately 36.46% of the L-section.</p>
-<p>If $n$ circles are placed next to each other horizontally, a rectangle is drawn around the $n$ circles, and a line is drawn from the bottom left to the top right, then it can be shown that the least value of $n$ for which the concave triangle occupies less than $10\%$ of the L-section is $n = 15$.</p>
-<p>What is the least value of $n$ for which the concave triangle occupies less than $0.1\%$ of the L-section?</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>这里假设每个圆的半径都为$1$。</p>
-<p>不难计算出，原本的L-section面积为$S_0=1-\dfrac{\pi}{4}$。</p>
-<p>假设题目中所求的圆的个数为$k$。以下图为例，此时的$k=3$。</p>
-<p><img src="../images/p587-3.png" alt></p>
-<p>以$O$为原点，$OC$为$x$轴正方向建立平面直角坐标系，那么$\odot P$的方程为$(x-1)^2+(y-1)^2=1$，$OB$为$y=\dfrac{x}{k}$。</p>
-<p>联立$OB$和$\odot P$的方程，得到：</p>
-<script type="math/tex; mode=display">(k^2+1)x^2-2k(k+1)x+k^2=0</script><p>那么通过二次方程的求根公式，可以解出$A$的坐标。假设其为$(x_0,y_0)$。</p>
-<p>那么凹三角形$OAC$就被直线$x=x_0$分成了两部分，一部分是左边的直角三角形，面积为$\dfrac{x_0y_0}{2}$。另一部分通过积分进行计算，面积为$I$，其中</p>
-<script type="math/tex; mode=display">\begin{aligned}
-I&=\int_{x_0}^1 1-\sqrt{1-(x-1)^2}dx\\
-&=\int_{x_0-1}^01-\sqrt{1-x^2}dx\\
-&=\int_{0}^{1-x_0}1-\sqrt{1-x^2}dx\\
-&=1-x_0-\int_{0}^{1-x_0}\sqrt{1-x^2}dx
-\end{aligned}</script><p>经过查表，$\int \sqrt{1-x^2}dx=\dfrac{1}{2}(\arcsin x+x\sqrt{1-x^2})+C$</p>
+<p><img src="../images/p587_concave_triangle_1.png"></p>
+<p>It should be clear that the concave triangle occupies exactly half of
+the L-section.</p>
+<p>Two circles are placed next to each other horizontally, a rectangle
+is drawn around both circles, and a line is drawn from the bottom left
+to the top right as shown in the diagram below.</p>
+<p><img src="../images/p587_concave_triangle_2.png"></p>
+<p>This time the concave triangle occupies approximately 36.46% of the
+L-section.</p>
+<p>If <span class="math inline">\(n\)</span> circles are placed next to
+each other horizontally, a rectangle is drawn around the <span class="math inline">\(n\)</span> circles, and a line is drawn from the
+bottom left to the top right, then it can be shown that the least value
+of <span class="math inline">\(n\)</span> for which the concave triangle
+occupies less than <span class="math inline">\(10\%\)</span> of the
+L-section is <span class="math inline">\(n = 15\)</span>.</p>
+<p>What is the least value of <span class="math inline">\(n\)</span> for
+which the concave triangle occupies less than <span class="math inline">\(0.1\%\)</span> of the L-section?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>这里假设每个圆的半径都为<span class="math inline">\(1\)</span>。</p>
+<p>不难计算出，原本的L-section面积为<span class="math inline">\(S_0=1-\dfrac{\pi}{4}\)</span>。</p>
+<p>假设题目中所求的圆的个数为<span class="math inline">\(k\)</span>。以下图为例，此时的<span class="math inline">\(k=3\)</span>。</p>
+<p><img src="../images/p587-3.png"></p>
+<p>以<span class="math inline">\(O\)</span>为原点，<span class="math inline">\(OC\)</span>为<span class="math inline">\(x\)</span>轴正方向建立平面直角坐标系，那么<span class="math inline">\(\odot P\)</span>的方程为<span class="math inline">\((x-1)^2+(y-1)^2=1\)</span>，<span class="math inline">\(OB\)</span>为<span class="math inline">\(y=\dfrac{x}{k}\)</span>。</p>
+<p>联立<span class="math inline">\(OB\)</span>和<span class="math inline">\(\odot P\)</span>的方程，得到：</p>
+<p><span class="math display">\[(k^2+1)x^2-2k(k+1)x+k^2=0\]</span></p>
+<p>那么通过二次方程的求根公式，可以解出<span class="math inline">\(A\)</span>的坐标。假设其为<span class="math inline">\((x_0,y_0)\)</span>。</p>
+<p>那么凹三角形<span class="math inline">\(OAC\)</span>就被直线<span class="math inline">\(x=x_0\)</span>分成了两部分，一部分是左边的直角三角形，面积为<span class="math inline">\(\dfrac{x_0y_0}{2}\)</span>。另一部分通过积分进行计算，面积为<span class="math inline">\(I\)</span>，其中</p>
+<p><span class="math display">\[\begin{aligned}
+I&amp;=\int_{x_0}^1 1-\sqrt{1-(x-1)^2}dx\\
+&amp;=\int_{x_0-1}^01-\sqrt{1-x^2}dx\\
+&amp;=\int_{0}^{1-x_0}1-\sqrt{1-x^2}dx\\
+&amp;=1-x_0-\int_{0}^{1-x_0}\sqrt{1-x^2}dx
+\end{aligned}\]</span></p>
+<p>经过查表，<span class="math inline">\(\int
+\sqrt{1-x^2}dx=\dfrac{1}{2}(\arcsin x+x\sqrt{1-x^2})+C\)</span></p>
 <p>因此</p>
-<script type="math/tex; mode=display">I=1-x_0-\dfrac{1}{2}(\arcsin (1-x_0)+(1-x_0)\sqrt{1-(1-x_0)^2})</script><p>因此凹三角形$OAC$的总面积为</p>
-<script type="math/tex; mode=display">S_k=\dfrac{x_0y_0}{2}+1-x_0-\dfrac{1}{2}(\arcsin (1-x_0)+(1-x_0)\sqrt{1-(1-x_0)^2})</script><p>那么题目所求比例值为$\dfrac{S_k}{S_0}$。</p>
-<p>随着$k$越大，值$\dfrac{S_k}{S_0}$越小，这个值具有<strong>单调性</strong>。为了找到符合题目要求的最小$k$，考虑使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Binary_search_algorithm">二分查找算法</a>解决。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi, asin</span><br><span class="line"></span><br><span class="line">R = <span class="number">0.001</span></span><br><span class="line">S0 = <span class="number">1</span> - pi / <span class="number">4</span></span><br><span class="line">k = <span class="number">1</span></span><br><span class="line">l, r = <span class="number">1</span>, <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    k = (l + r) &gt;&gt; <span class="number">1</span></span><br><span class="line">    a = <span class="number">1</span> + k * k</span><br><span class="line">    b = -k * k * <span class="number">2</span> - k * <span class="number">2</span></span><br><span class="line">    c = k * k</span><br><span class="line">    d = b * b - <span class="number">4</span> * a * c</span><br><span class="line">    x = (-b - d ** <span class="number">0.5</span>) / (a * <span class="number">2</span>)</span><br><span class="line">    t = <span class="number">1</span> - x</span><br><span class="line">    Sk = x * x / k / <span class="number">2</span> + t - <span class="number">0.5</span> * (asin(t) + t * (<span class="number">1</span> - t ** <span class="number">2</span>) ** <span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> Sk / S0 &lt; R:</span><br><span class="line">        r = k</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        l = k + <span class="number">1</span></span><br><span class="line">ans = l</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span class="math display">\[I=1-x_0-\dfrac{1}{2}(\arcsin
+(1-x_0)+(1-x_0)\sqrt{1-(1-x_0)^2})\]</span></p>
+<p>因此凹三角形<span class="math inline">\(OAC\)</span>的总面积为</p>
+<p><span class="math display">\[S_k=\dfrac{x_0y_0}{2}+1-x_0-\dfrac{1}{2}(\arcsin
+(1-x_0)+(1-x_0)\sqrt{1-(1-x_0)^2})\]</span></p>
+<p>那么题目所求比例值为<span class="math inline">\(\dfrac{S_k}{S_0}\)</span>。</p>
+<p>随着<span class="math inline">\(k\)</span>越大，值<span class="math inline">\(\dfrac{S_k}{S_0}\)</span>越小，这个值具有<strong>单调性</strong>。为了找到符合题目要求的最小<span class="math inline">\(k\)</span>，考虑使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Binary_search_algorithm">二分查找算法</a>解决。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> pi, asin</span><br><span class="line"></span><br><span class="line">R = <span class="number">0.001</span></span><br><span class="line">S0 = <span class="number">1</span> - pi / <span class="number">4</span></span><br><span class="line">k = <span class="number">1</span></span><br><span class="line">l, r = <span class="number">1</span>, <span class="number">10</span> ** <span class="number">9</span></span><br><span class="line"><span class="keyword">while</span> l &lt; r:</span><br><span class="line">    k = (l + r) &gt;&gt; <span class="number">1</span></span><br><span class="line">    a = <span class="number">1</span> + k * k</span><br><span class="line">    b = -k * k * <span class="number">2</span> - k * <span class="number">2</span></span><br><span class="line">    c = k * k</span><br><span class="line">    d = b * b - <span class="number">4</span> * a * c</span><br><span class="line">    x = (-b - d ** <span class="number">0.5</span>) / (a * <span class="number">2</span>)</span><br><span class="line">    t = <span class="number">1</span> - x</span><br><span class="line">    Sk = x * x / k / <span class="number">2</span> + t - <span class="number">0.5</span> * (asin(t) + t * (<span class="number">1</span> - t ** <span class="number">2</span>) ** <span class="number">0.5</span>)</span><br><span class="line">    <span class="keyword">if</span> Sk / S0 &lt; R:</span><br><span class="line">        r = k</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        l = k + <span class="number">1</span></span><br><span class="line">ans = l</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -370,7 +393,7 @@ I&=\int_{x_0}^1 1-\sqrt{1-(x-1)^2}dx\\
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-587"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 587</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Concave-triangle"><span class="nav-number">1.1.1.</span> <span class="nav-text">Concave triangle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-587"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 587</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#concave-triangle"><span class="nav-number">1.1.1.</span> <span class="nav-text">Concave triangle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -384,7 +407,7 @@ I&=\int_{x_0}^1 1-\sqrt{1-(x-1)^2}dx\\
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -428,13 +451,13 @@ I&=\int_{x_0}^1 1-\sqrt{1-(x-1)^2}dx\\
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动

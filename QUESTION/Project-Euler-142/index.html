@@ -238,7 +238,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>515</span>
+              <span>535</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -257,17 +257,27 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <escape><span id="more"></span></escape>
-
-<h1 id="Project-Euler-142"><a href="#Project-Euler-142" class="headerlink" title="Project Euler 142"></a>Project Euler 142</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><h3 id="Perfect-Square-Collection"><a href="#Perfect-Square-Collection" class="headerlink" title="Perfect Square Collection"></a>Perfect Square Collection</h3><p>Find the smallest $x + y + z$ with integers $x &gt; y &gt; z &gt; 0$ such that $x + y, x - y, x + z, x - z, y + z, y - z$ are all perfect squares.</p>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>令这六个数分别为六个平方数：</p>
-<p>$\begin{aligned}<br>&amp;x+y=a^2\\<br>&amp;x-y=b^2\\<br>&amp;x+z=c^2\\<br>&amp;x-z=d^2\\<br>&amp;y+z=e^2\\<br>&amp;y-z=f^2<br>\end{aligned}$</p>
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-142">Project Euler 142</h1>
+<h2 id="题目">题目</h2>
+<h3 id="perfect-square-collection">Perfect Square Collection</h3>
+<p>Find the smallest <span class="math inline">\(x + y + z\)</span> with
+integers <span class="math inline">\(x &gt; y &gt; z &gt; 0\)</span>
+such that <span class="math inline">\(x + y, x - y, x + z, x - z, y + z,
+y - z\)</span> are all perfect squares.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令这六个数分别为六个平方数：</p>
+<p><span class="math inline">\(\begin{aligned} &amp;x+y=a^2\\
+&amp;x-y=b^2\\ &amp;x+z=c^2\\ &amp;x-z=d^2\\ &amp;y+z=e^2\\ &amp;y-z=f^2
+\end{aligned}\)</span></p>
 <p>将其中的一些式子相减，代入，可以得到以下式子：</p>
-<p>$\begin{aligned}<br>&amp;e^2=a^2-d^2\\<br>&amp;f^2=a^2-c^2\\<br>&amp;b^2=c^2-e^2\\<br>\end{aligned}$</p>
-<p>我们最终枚举$a,c,e$三个值寻找答案，另外不难发现$a&gt;c&gt;e$。</p>
-<p>由于本题的每个平方数的上限难以确定，故拟定为$10^6$。</p>
-<p>另外，在枚举过程中，需要保证$a&gt;b,c&gt;d,e&gt;f$。以及最终算出来的$x,y,z$必须是个正整数。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000000</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i*i&lt;=N;i++)</span><br><span class="line">        st.<span class="built_in">insert</span>(i*i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">1</span>,a2;(a2=a*a)&lt;=N;a++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> c=<span class="number">1</span>;c&lt;a;c++)&#123;</span><br><span class="line">            <span class="type">int</span> c2=c*c;</span><br><span class="line">            <span class="type">int</span> f2=a2-c2;</span><br><span class="line">            <span class="keyword">if</span>(!st.<span class="built_in">count</span>(f2)) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> e=<span class="number">1</span>;e&lt;c;e++)&#123;</span><br><span class="line">                <span class="type">int</span> e2=e*e;</span><br><span class="line">                <span class="type">int</span> b2=c*c-e*e;</span><br><span class="line">                <span class="keyword">if</span>(!st.<span class="built_in">count</span>(b2)) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> d2=a2-e2;</span><br><span class="line">                <span class="keyword">if</span>(st.<span class="built_in">count</span>(d2))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(a2&gt;b2&amp;&amp;c2&gt;d2&amp;&amp;e2&gt;f2&amp;&amp;(a2+b2)%<span class="number">2</span>==<span class="number">0</span>&amp;&amp;(e2+f2)%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> (a2+c2+e2)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">solve</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span class="math inline">\(\begin{aligned} &amp;e^2=a^2-d^2\\
+&amp;f^2=a^2-c^2\\ &amp;b^2=c^2-e^2\\ \end{aligned}\)</span></p>
+<p>我们最终枚举<span class="math inline">\(a,c,e\)</span>三个值寻找答案，另外不难发现<span class="math inline">\(a&gt;c&gt;e\)</span>。</p>
+<p>由于本题的每个平方数的上限难以确定，故拟定为<span class="math inline">\(10^6\)</span>。</p>
+<p>另外，在枚举过程中，需要保证<span class="math inline">\(a&gt;b,c&gt;d,e&gt;f\)</span>。以及最终算出来的<span class="math inline">\(x,y,z\)</span>必须是个正整数。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000000</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    unordered_set&lt;<span class="type">int</span>&gt;st;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i*i&lt;=N;i++)</span><br><span class="line">        st.<span class="built_in">insert</span>(i*i);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> a=<span class="number">1</span>,a2;(a2=a*a)&lt;=N;a++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> c=<span class="number">1</span>;c&lt;a;c++)&#123;</span><br><span class="line">            <span class="type">int</span> c2=c*c;</span><br><span class="line">            <span class="type">int</span> f2=a2-c2;</span><br><span class="line">            <span class="keyword">if</span>(!st.<span class="built_in">count</span>(f2)) <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> e=<span class="number">1</span>;e&lt;c;e++)&#123;</span><br><span class="line">                <span class="type">int</span> e2=e*e;</span><br><span class="line">                <span class="type">int</span> b2=c*c-e*e;</span><br><span class="line">                <span class="keyword">if</span>(!st.<span class="built_in">count</span>(b2)) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> d2=a2-e2;</span><br><span class="line">                <span class="keyword">if</span>(st.<span class="built_in">count</span>(d2))&#123;</span><br><span class="line">                    <span class="keyword">if</span>(a2&gt;b2&amp;&amp;c2&gt;d2&amp;&amp;e2&gt;f2&amp;&amp;(a2+b2)%<span class="number">2</span>==<span class="number">0</span>&amp;&amp;(e2+f2)%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> (a2+c2+e2)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">solve</span>());</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -351,7 +361,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Project-Euler-142"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 142</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Perfect-Square-Collection"><span class="nav-number">1.1.1.</span> <span class="nav-text">Perfect Square Collection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-142"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 142</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#perfect-square-collection"><span class="nav-number">1.1.1.</span> <span class="nav-text">Perfect Square Collection</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -365,7 +375,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">349</span>
+          <span class="site-state-item-count">362</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -409,13 +419,13 @@
       <i class="fa fa-chart-area"></i>
     </span>
       <span class="post-meta-item-text">站点总字数：</span>
-    <span title="站点总字数">367k</span>
+    <span title="站点总字数">415k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span class="post-meta-item-text">站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">5:34</span>
+    <span title="站点阅读时长">6:17</span>
   
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
