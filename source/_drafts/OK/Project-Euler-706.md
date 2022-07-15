@@ -43,8 +43,58 @@ Find $F(10^5)$. Give your answer modulo $1\,000\,000\,007$.
 
 本题转移过程考虑进行我为人人式。
 
-不难知道初值
+不难知道初值$f(1,0,0,0,1)=f(1,1,0,1,0)=f(1,0,1,2,0)=3$，这$3$种情况分别对应一位数模$3$余$0$，模$3$余$1$，模$3$余$2$的情况。
+
+以$k=0$为例，那么有三种方式转移：
+
+$\begin{aligned}
+& f(i,c_1,c_2,0,t)\cdot 4\rightarrow f(i+1,c_1,c_2,0,(t+c_0)\%3) \\
+& f(i,c_1,c_2,0,t)\cdot 3\rightarrow f(i+1,(c_1+1)\%3,c_2,1,(t+c_1)\%3) \\
+& f(i,c_1,c_2,0,t)\cdot 3\rightarrow f(i+1,c_1,(c_2+1)\%3,1,(t+c_2)\%3) \\
+\end{aligned}$
+
+由于目前的前缀和$s[i]=0$，那么添加
 
 ## 代码
 
 
+```C++
+# include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N=100000;
+ll f[N+4][3][3][3][3],mod=1e9+7;
+void add(ll &x,ll y){
+    x=(x+y)%mod;
+}
+int main() {
+    f[1][0][0][0][1] = 3;
+    f[1][1][0][1][0] = 3;
+    f[1][0][1][2][0] = 3;
+    for (int i = 1; i < N; i++)
+        for (int c1 = 0; c1 < 3; c1++)
+            for (int c2 = 0; c2 < 3; c2++)
+                for (int t = 0; t < 3; t++) {
+                    int c0 = (i + 1 - c1 - c2 + 6) % 3;
+                    ll &now0 = f[i][c1][c2][0][t], &now1 = f[i][c1][c2][1][t], &now2 = f[i][c1][c2][2][t];
+                    add(f[i + 1][c1][c2][0][(t + c0) % 3], now0 * 4); //0,3,6,9
+                    add(f[i + 1][(c1 + 1) % 3][c2][1][(t + c1) % 3], now0 * 3);//1,4,7
+                    add(f[i + 1][c1][(c2 + 1) % 3][2][(t + c2) % 3], now0 * 3);//2,5,8
+
+                    add(f[i + 1][(c1 + 1) % 3][c2][1][(t + c1) % 3], now1 * 4);//0,3,6,9
+                    add(f[i + 1][c1][(c2 + 1) % 3][2][(t + c2) % 3], now1 * 3);// 1,4,7
+                    add(f[i + 1][c1][c2][0][(t + c0) % 3], now1 * 3);//2,5,8
+
+                    add(f[i + 1][c1][(c2 + 1) % 3][2][(t + c2) % 3], now2 * 4);//0,3,6,9
+                    add(f[i + 1][c1][c2][0][(t + c0) % 3], now2 * 3);//1,4,7
+                    add(f[i + 1][(c1 + 1) % 3][c2][1][(t + c1) % 3], now2 * 3);//2,5,8
+                }
+    ll ans = 0;
+    for (int c1 = 0; c1 < 3; c1++)
+        for (int c2 = 0; c2 < 3; c2++)
+            for (int k = 0; k < 3; k++)
+                add(ans, f[N][c1][c2][k][0]);
+    printf("%lld\n", ans);
+}
+
+```
