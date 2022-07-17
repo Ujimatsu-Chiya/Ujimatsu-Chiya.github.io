@@ -2,14 +2,18 @@
 title: Project Euler 751
 tags:
   - Project Euler
+  - 二分
 mathjax: true
+date: 2022-07-17 23:12:09
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 751
-## 题目
-### Concatenation Coincidence
 
+<escape><!-- more --></escape>
+
+# Project Euler 751
+
+## 题目
+
+### Concatenation Coincidence
 
 A non-decreasing sequence of integers $a_n$ can be generated from any positive real value $\theta$ by the following procedure:
 
@@ -31,13 +35,11 @@ For example, the Fibonacci sequence constructed from $\theta=2.956938891377988\d
 
 Find the only value of $\theta$ for which the generated sequence starts at $a_1=2$ and the concatenation of the generated sequence equals the original value: $\tau = \theta$. Give your answer rounded to 24 places after the decimal point.
 
-
 ## 解决方案
 
 当$a_1=2$时，也就是说$\theta$的整数部分只能是$2$，也就是说$2\le\theta<3$。在这个范围内，在浮点数上二分算法逼近所求$\theta$的值。虽然这个二分算法并非正确，但是它仍然输出了正确的答案。**整体上**$\tau$的增长速度比$\theta$快。
 
 ## 代码
-
 
 ```py
 N = 2

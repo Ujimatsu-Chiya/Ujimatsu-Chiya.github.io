@@ -3,26 +3,24 @@ title: Project Euler 757
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-17 23:12:16
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 757
+
 ## 题目
+
 ### Stealthy Numbers
-
-
 
 A positive integer $N$ is *stealthy*, if there exist positive integers $a$, $b$, $c$, $d$ such that $ab = cd = N$ and $a+b = c+d+1$.
 
 For example, $36 = 4\times 9 = 6\times 6$ is stealthy.
 
-
 You are also given that there are 2851 stealthy numbers not exceeding $10^6$.
 
-
 How many stealthy numbers  are there that don't exceed $10^{14}$?
-
-
 
 ## 解决方案
 
@@ -39,7 +37,6 @@ N&=x(x+1)y(y+1)
 那么由$x$和$y$通过构造出所有的$N$，接下来只需要对$N$进行去重即可。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

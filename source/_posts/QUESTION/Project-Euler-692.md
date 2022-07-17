@@ -5,7 +5,9 @@ tags:
   - 博弈论
   - 齐肯多夫定理
 mathjax: true
+date: 2022-07-17 23:11:29
 ---
+
 <escape><!-- more --></escape>
 
 # Project Euler 692

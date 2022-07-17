@@ -4,21 +4,23 @@ tags:
   - Project Euler
   - 容斥原理
 mathjax: true
+date: 2022-07-17 23:12:13
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 754
+
 ## 题目
+
 ### Product of Gauss Factorials
 
-
-The **Gauss Factorial** of a number $n$ is defined as the product of all positive numbers $\leq n$ that are relatively prime to $n$. For example $g(10)=1\times 3\times 7\times 9 = 189$. 
+The **Gauss Factorial** of a number $n$ is defined as the product of all positive numbers $\leq n$ that are relatively prime to $n$. For example $g(10)=1\times 3\times 7\times 9 = 189$.
 Also we define
 $$\displaystyle G(n) = \prod_{i=1}^{n}g(i)$$
 You are given $G(10) = 23044331520000$.
 
 Find $G(10^8)$. Give your answer modulo $1\,000\,000\,007$.
-
 
 ## 解决方案
 
@@ -33,7 +35,6 @@ $$f(N,n)=\sum_{d|n}\mu(d)(\lfloor\dfrac{N}{d}\rfloor-\lfloor\dfrac{n}{d}\rfloor)
 注意式子后面第二项是减去$n$以内的数。
 
 最终直接进行计算即可，时间复杂度为$O(N\log N)$。
-
 
 ## 代码
 

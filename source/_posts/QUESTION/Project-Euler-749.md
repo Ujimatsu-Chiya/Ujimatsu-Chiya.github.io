@@ -3,27 +3,24 @@ title: Project Euler 749
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-17 23:12:06
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 749
+
 ## 题目
+
 ### Near Power Sums
-
-
 
 A positive integer, $n$, is a *near power sum* if there exists a positive integer, $k$, such that the sum of the $k\text{th}$ powers of the digits in its decimal representation is equal to either $n+1$ or $n-1$. For example $35$ is a near power sum number because $3^2+5^2 = 34$.
 
-
-Define $S(d)$ to be the sum of all near power sum numbers of $d$ digits or less. 
+Define $S(d)$ to be the sum of all near power sum numbers of $d$ digits or less.
 
 Then $S(2) = 110$ and $S(6) = 2562701$.
 
-
 Find $S(16)$.
-
-
-
 
 ## 解决方案
 
@@ -42,7 +39,6 @@ $\sum_{i=0}^{m-1}(d_i^k-d_i 10^i)\%3=\sum_{i=0}^{m-1}(d_i^k-d_i)\%3=\sum_{i=0}^{
 因此，当$k$为奇数时，求和式的值永远为$0$，不满足题目要求。因此搜索时，可以将$k$为奇数跳过。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>
