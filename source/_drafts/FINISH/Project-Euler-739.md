@@ -62,3 +62,52 @@ $$C(n+1,i)=\dfrac{k\cdot C_{2n-k-1}^{n-k}}{n}$$
 额外的发现。对于$n>1$的情况下，$C(n,k)$的所有值是上面这个三角形的第$n-1$列的逆序，并且$0$还被排除了，这里参考[A009766](http://oeis.org/A009766)。
 
 ## 代码
+
+```C++
+#include <bits/stdc++.h>
+typedef long long ll;
+using namespace std;
+const int N = 1e8;
+const int M = N*2;
+const int n=N-1;
+ll mod=1e9+7;
+ll inv(ll n,ll p){
+    ll ans=1,m=p-2;
+    for(;m;m>>=1){
+        if(m&1) ans=ans*n%mod;
+        n=n*n%mod;
+    }
+    return ans;
+}
+
+int *fac,*finv;
+int l[N+4],invn=inv(n,mod);
+int C(int n,int m){
+    return 1ll*fac[n]*finv[m]%mod*finv[n-m]%mod;
+}
+int T(int n,int k){
+    if(n==0) return 0;
+    else return 1ll*C(2*n-k-1,n-k)*k%mod*invn%mod;
+}
+int main(){
+    fac = new int[M+4];
+    finv = new int[M+4];
+    fac[0]=fac[1]=1;
+    finv[0]=1;
+    for(int i=2;i<=M;i++)
+        fac[i]=1ll*fac[i-1]*i%mod;
+    finv[M]=inv(fac[M],mod);
+    for(int i=M-1;i>0;i--)
+        finv[i]=1ll*finv[i+1]*(i+1)%mod;
+    int x=1,y=3;
+    int ans=0;
+    for(int i=0;i<=n;i++){
+        ans=(ans+1ll*T(n,i)*x)%mod;
+        int t=(x+y)%mod;
+        x=y;y=t;
+    }
+    delete fac;
+    delete finv;
+    printf("%d\n",ans);
+}
+```

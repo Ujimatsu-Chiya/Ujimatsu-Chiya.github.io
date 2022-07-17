@@ -31,3 +31,19 @@ Find $f(10)$.
 ## 代码
 
 
+```py
+from tools import get_pascals_triangle
+
+N = 2022
+mod = 10 ** 9 + 7
+C = get_pascals_triangle(N, mod)
+pw9 = [1]
+for i in range(N + 1):
+    pw9.append(pw9[-1] * 9 % mod)
+ans = 0
+for n in range(1, N + 1):
+    for i in range(n // 2 + 1, n + 1):
+        ans = (ans + pw9[n - i + 1] * C[n][i]) % mod
+print(ans)
+
+```

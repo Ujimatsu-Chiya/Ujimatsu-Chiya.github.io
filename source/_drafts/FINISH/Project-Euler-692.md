@@ -3,6 +3,7 @@ title: Project Euler 692
 tags:
   - Project Euler
   - 博弈论
+  - 齐肯多夫定理
 mathjax: true
 ---
 <escape><!-- more --></escape>

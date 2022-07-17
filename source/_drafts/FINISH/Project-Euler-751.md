@@ -34,7 +34,31 @@ Find the only value of $\theta$ for which the generated sequence starts at $a_1=
 
 ## 解决方案
 
+当$a_1=2$时，也就是说$\theta$的整数部分只能是$2$，也就是说$2\le\theta<3$。在这个范围内，在浮点数上二分算法逼近所求$\theta$的值。虽然这个二分算法并非正确，但是它仍然输出了正确的答案。**整体上**$\tau$的增长速度比$\theta$快。
 
 ## 代码
 
 
+```py
+N = 2
+M = 24
+l, r = N, N + 1
+for _ in range(100):
+    theta = 0.5 * (l + r)
+    b = [theta]
+    a = [int(theta)]
+    for i in range(M):
+        b.append(int(b[-1]) * (b[-1] - int(b[-1]) + 1))
+        a.append(int(b[-1]))
+    tau = str(a[0]) + "."
+    for i in range(1, M):
+        tau += str(a[i])
+    tau = float(tau)
+    if tau < theta:
+        r = theta
+    else:
+        l = theta
+ans = "{}.".format(a[0]) + "".join(str(x) for x in a[1:])[:M]
+print(ans)
+
+```
