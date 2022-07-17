@@ -5,11 +5,11 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-
 
 # Project Euler 700
+
 ## 题目
+
 ### Eulercoin
 
 Leonhard Euler was born on $15$ April $1707$.
@@ -24,7 +24,6 @@ The sum of the first $2$ Eulercoins is therefore $1513083232796311$.
 
 Find the sum of all Eulercoins.
 
-
 ## 解决方案
 
 令$A=1504170715041707,B=4503599627370517.$
@@ -36,7 +35,6 @@ Find the sum of all Eulercoins.
 令$e_0=B,e_1=A,e_n=-e_{n-2}\%e_{n-1}$，存在一个项最终为$e_m=0$，那么对于$1\le i< m$，$e_i$都是欧拉币。
 
 ## 代码
-
 
 ```py
 A = 1504170715041707

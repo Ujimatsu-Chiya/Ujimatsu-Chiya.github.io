@@ -6,11 +6,12 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
-# Project Euler 710
-## 题目
-### One Million Members
 
+# Project Euler 710
+
+## 题目
+
+### One Million Members
 
 **On Sunday 5 April 2020 the Project Euler membership first exceeded one million members. We would like to present this problem to celebrate that milestone. Thank you to everyone for being a part of Project Euler.**
 
@@ -30,10 +31,8 @@ In searching for the answer to the ultimate question of life, the universe, and 
 
 However, your challenge to the "ultimatest" question of life, the universe, and everything is to find the least value of $n \gt 42$ such that $t(n)$ is divisible by one million.
 
-
-
-
 ## 解决方案
+
 不难想到使用动态规划解决本题。
 
 由于回文序列的左右两半是完全相同的，因此只考虑其中的一半。
@@ -50,7 +49,6 @@ $$
 
 上面的方程表示将状态$f_0(i-j)$中的所有序列都添加一个$i$，那么就成为了$f_0(i)$中的序列，当然$j$不能为$2$，因此后面减去$f_0(i-2)$。
 
-
 令$f_1(i)(i\ge 0)$表示当前序列**存在**$2$的情况下，能够组成和为$i$的任意长度序列有多少个，那么不难写出状态转移方程为：
 
 $$
@@ -64,13 +62,13 @@ $$
 上面的方程表示将状态$f_1(i-j)$中的所有序列都添加一个$i$，那么就成为了$f_1(i)$中的序列；此外，将$f_0(i-2)$中的序列再添加一个$2$，那么这个序列就存在了$2$，变成了状态$f_1(i)$.
 
 回到本题，如果需要求$t(N)$，那么
+
 - 当$N$为奇数时，这个回文序列必定为奇数长度，并且中间的数必为奇数，所以两边的数必定有$2$。因此$t(N)=\sum_{i=1}^{\frac{N-1}{2}}f_1(i).$
 - 当$N$为偶数时，考虑严格在序列两边的数，这些数必定存在一个为$2$（这种情况和奇数时一样）；如果没有$2$，那么序列的长度必定为奇数长度，并且中间的值为$2$。因此$t(N)=\sum_{i=1}^{\frac{N}{2}}f_1(i)+f_0(\dfrac{N}{2}-1).$
 
 最终从小到大枚举$N$即可。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

@@ -6,25 +6,20 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
+
 # Project Euler 706
+
 ## 题目
+
 ### 3-Like Numbers
-
-
 
 For a positive integer $n$, define $f(n)$ to be the number of non-empty substrings of $n$ that are divisible by $3$. For example, the string "$2573$" has $10$ non-empty substrings, three of which represent numbers that are divisible by $3$, namely $57, 573$ and $3$. So $f(2573) = 3$.
 
-
 If $f(n)$ is divisible by $3$ then we say that $n$ is *$3$-like*.
-
 
 Define $F(d)$ to be how many $d$ digit numbers are $3$-like. For example, $F(2) = 30$ and $F(6) = 290898$.
 
-
 Find $F(10^5)$. Give your answer modulo $1\,000\,000\,007$.
-
-
 
 ## 解决方案
 
@@ -62,7 +57,6 @@ $$\sum_{c_1=0}^3\sum_{c_2=0}^3\sum_{k=0}^3f(N,c_0,c_1,k,0)$$
 本题也可以将整个状态转移过程写成一个$81\times81$大小的矩阵，通过矩阵快速幂以$O(\log N)$直接计算出结果。此处不再详述这个优化。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>

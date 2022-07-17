@@ -6,30 +6,24 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
+
 # Project Euler 704
+
 ## 题目
+
 ### Factors of Two in Binomial Coefficients
 
+Define $g(n, m)$ to be the largest integer $k$ such that $2^k$ divides $\binom{n}m$.
 
-
-Define $g(n, m)$ to be the largest integer $k$ such that $2^k$ divides $\binom{n}m$. 
-
-For example, $\binom{12}5 = 792 = 2^3 \cdot 3^2 \cdot 11$, hence $g(12, 5) = 3$. 
+For example, $\binom{12}5 = 792 = 2^3 \cdot 3^2 \cdot 11$, hence $g(12, 5) = 3$.
 
 Then define $F(n) = \max \{ g(n, m) : 0 \le m \le n \}$. $F(10) = 3$ and $F(100) = 6$.
 
-
 Let $S(N)$ = $\displaystyle\sum_{n=1}^N{F(n)}$. You are given that $S(100) = 389$ and $S(10^7) = 203222840$.
-
 
 Find $S(10^{16})$.
 
-
-
-
 ## 解决方案
-
 
 枚举$F$的前几项，观察到以下序列：
 
@@ -61,12 +55,7 @@ $$
 
 OEIS相关序列：[A119387](https://oeis.org/A119387)
 
-
-
-
-
 ## 代码
-
 
 ```py
 N = 10 ** 16

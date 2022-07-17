@@ -6,26 +6,20 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
+
 # Project Euler 725
+
 ## 题目
+
 ### Digit sum numbers
-
-
 
 A number where one digit is the sum of the **other** digits is called a *digit sum number* or DS-number for short. For example, $352, 3003$ and $32812$ are DS-numbers.
 
-
 We define $S(n)$ to be the sum of all DS-numbers of $n$ digits or less.
-
 
 You are given $S(3) = 63270$ and $S(7) = 85499991450$.
 
-
 Find $S(2020)$. Give your answer modulo $10^{16}$.
-
-
-
 
 ## 解决方案
 
@@ -43,7 +37,6 @@ $c(i,t,m)\rightarrow c(i+1,t+d,\max(m,d))$
 
 添加一个数位$d$后，那么数位和就变成了$t+d$，最大数位也变成了$\max(m,d).$
 
-
 令状态$s(i,t,m)(1\le i\le N,0\le t\le18,0\le m\le9)$表示$i$位**有前导0**并满足以下条件的所有数之和：数位之和为$t$，并且这$i$个数位中最大数位为$m.$
 
 同样不难知道，对于初值$i=1,0\le j\le 9$，都有$s(i,j,j)=j.$
@@ -58,10 +51,7 @@ $10s(i,t,m)+d\cdot c(i,t,m)\rightarrow s(i+1,t+d,\max(m,d))$
 
 $$\sum_{d=0}^9s(N,2d,d)$$
 
-
-
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

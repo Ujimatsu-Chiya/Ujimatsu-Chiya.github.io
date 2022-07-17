@@ -7,30 +7,25 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
+
 # Project Euler 713
+
 ## 题目
+
 ### Turán's water heating system
-
-
 
 Turan has the electrical water heating system outside his house in a shed. The electrical system uses two fuses in series, one in the house and one in the shed. (Nowadays old fashioned fuses are often replaced with reusable mini circuit breakers, but Turan's system still uses old fashioned fuses.)
 For the heating system to work both fuses must work.
-
 
 Turan has $N$ fuses. He knows that $m$ of them are working and the rest are blown. However, he doesn't know which ones are blown. So he tries different combinations until the heating system turns on.
 
 We denote by $T(N,m)$ the smallest number of tries required to *ensure* the heating system turns on.
 $T(3,2)=3$ and $T(8,4)=7$.
 
-
 Let $L(N)$ be the sum of all $T(N, m)$ for $2 \leq m \leq N$.
 $L(10^3)=3281346$
 
-
 Find $L(10^7)$.
-
-
 
 ## 解决方案
 
@@ -47,13 +42,12 @@ $$(1-\dfrac{1}{r})\dfrac{n^2-s^2}{2}+\dfrac{s(s-1)}{2}$$
 那么我们只需要求$T_{N,m-1}$补图边数即为答案。
 
 如果不知道图兰图与图兰定理这些内容，考虑小范围内枚举出一部分项，在OEIS中查询到结果为[A134546](https://oeis.org/A134546)。在FORMULA一栏，找到：
+
 ```
 T(n,k) = k*floor(n/k)*floor((n+k)/k)/2 - floor(n/k)*(k-1-(n mod k)). - Bob Selcoe, Aug 21 2016
 ```
 
 那么直接模拟这段式子直接计算$L$即可。
-
-
 
 ## 代码
 

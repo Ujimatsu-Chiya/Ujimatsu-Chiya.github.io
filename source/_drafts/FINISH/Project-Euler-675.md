@@ -5,31 +5,26 @@ tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
-    
+
 # Project Euler 675
+
 ## 题目
+
 ### $2^{\omega(n)}$
-
-
 
 Let $\omega(n)$ denote the number of distinct prime divisors of a positive integer $n$.
 
 So  $\omega(1) = 0$ and  $\omega(360) = \omega(2^{3} \times 3^{2} \times 5) = 3$.
 
-
 Let $S(n)$ be $\Sigma_{d | n} 2^{\omega(d)}$.
 
-
 E.g. $S(6) = 2^{\omega(1)}+2^{\omega(2)}+2^{\omega(3)}+2^{\omega(6)} = 2^0+2^1+2^1+2^2 = 9$.
-
 
 Let $F(n)=\Sigma_{i=2}^n S(i!)$.
 
 $F(10)=4821$.
 
 Find $F(10\,000\,000)$. Give your answer modulo  $1\,000\,000\,087$.
-
-
 
 ## 解决方案
 
@@ -44,7 +39,6 @@ Find $F(10\,000\,000)$. Give your answer modulo  $1\,000\,000\,087$.
 由于本题计算的是$S(n!)$的前缀和，因此从小到大枚举$n$，并对$n$进行分解质因数。在整个过程中，用一个数组维护$n!$的分解质因数的结果，在此过程维护$S(n!)$的值。对于单独的一个$n$，如果使用线性逆元，那么维护成本为$O(\log n)$。
 
 ## 代码
-
 
 ```C++
 # include <bits/stdc++.h>
