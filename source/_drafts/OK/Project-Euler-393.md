@@ -2,6 +2,7 @@
 title: Project Euler 393
 tags:
   - Project Euler
+  - 动态规划
 mathjax: true
 ---
 <escape><!-- more --></escape>
