@@ -5,32 +5,27 @@ tags:
   - 二分
   - 双指针
 mathjax: true
+date: 2022-07-19 00:28:50
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 793
+
 ## 题目
+
 ### Median of Products
 
-
-
 Let $S_i$ be an integer sequence produced with the following pseudo-random number generator:
-
 
 - $S_0 = 290797$
 - $S_{i+1} = S_i ^2 \bmod 50515093$
 
-
 Let $M(n)$ be the median of the pairwise products $ S_i S_j $ for $0 \le i \lt j \lt n$.
-
 
 You are given $M(3) = 3878983057768$ and $M(103) = 492700616748525$.
 
-
 Find $M(1\,000\,003)$.
-
-
-
 
 ## 解决方案
 
@@ -43,7 +38,6 @@ Find $M(1\,000\,003)$.
 考虑当前对答案$w$进行判定，使用双指针法。左指针$l$从左到右遍历，右指针则逐渐向左移动，当$s[l]\cdot s[r]\le w$时停下。那么，$s[l]\cdot s[i],l< i\le r$这一段数都小于等于$w$，产生了$r-l$的贡献。最终，两个指针相遇时停止计算。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

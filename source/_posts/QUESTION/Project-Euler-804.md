@@ -3,17 +3,20 @@ title: Project Euler 804
 tags:
   - Project Euler
 mathjax: true
+date: 2022-07-19 00:28:38
 ---
+
 <escape><!-- more --></escape>
 
-
 # Project Euler 804
+
 ## 题目
+
 ### Balanced Numbers
 
-Let $g(n)$ denote the number of ways a positive integer $n$ can be represented in the form: 
+Let $g(n)$ denote the number of ways a positive integer $n$ can be represented in the form:
 
-$$x^2+xy+41y^2$$ 
+$$x^2+xy+41y^2$$
 
 where $x$ and $y$ are integers. For example, $g(53)=4$ due to $(x,y) \in \{(-4,1),(-3,-1),(3,1),(4,-1)\}$.
 
@@ -21,9 +24,7 @@ Define $\displaystyle T(N)=\sum_{n=1}^{N}g(n)$. You are given $T(10^3)=474$ and 
 
 Find $T(10^{16})$.
 
-
 ## 解决方案
-
 
 令$N=10^{16},F(x,y)=x^2+xy+41y^2$。不难证明，$F(x,y)>0$恒成立，除了$(x,y)=(0,0)$。
 
@@ -40,7 +41,6 @@ $$F(x,y)=(x+\dfrac{y}{2})^2+\dfrac{163y^2}{4}$$
 否则，区间$[\dfrac{-y-\sqrt{4N-163y^2}}{2},\dfrac{-y+\sqrt{4N-163y^2}}{2}]$种的所有整数解都是答案，直接统计即可。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

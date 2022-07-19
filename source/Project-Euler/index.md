@@ -9,7 +9,7 @@ date: 2022-04-30 19:47:58
 |[1](../QUESTION/Project-Euler-1)|[101](../QUESTION/Project-Euler-101)|[201](../QUESTION/Project-Euler-201)|[301](../QUESTION/Project-Euler-301)|[401](../QUESTION/Project-Euler-401)|[501](../QUESTION/Project-Euler-501)|[601](../QUESTION/Project-Euler-601)|-|-|
 |[2](../QUESTION/Project-Euler-2)|[102](../QUESTION/Project-Euler-102)|[202](../QUESTION/Project-Euler-202)|-|-|-|-|-|-|
 |[3](../QUESTION/Project-Euler-3)|[103](../QUESTION/Project-Euler-103)|[203](../QUESTION/Project-Euler-203)|[303](../QUESTION/Project-Euler-303)|-|-|-|-|-|
-|[4](../QUESTION/Project-Euler-4)|[104](../QUESTION/Project-Euler-104)|[204](../QUESTION/Project-Euler-204)|[304](../QUESTION/Project-Euler-304)|-|[504](../QUESTION/Project-Euler-504)|-|[704](../QUESTION/Project-Euler-704)|-|
+|[4](../QUESTION/Project-Euler-4)|[104](../QUESTION/Project-Euler-104)|[204](../QUESTION/Project-Euler-204)|[304](../QUESTION/Project-Euler-304)|-|[504](../QUESTION/Project-Euler-504)|-|[704](../QUESTION/Project-Euler-704)|[804](../QUESTION/Project-Euler-804)|
 |[5](../QUESTION/Project-Euler-5)|[105](../QUESTION/Project-Euler-105)|[205](../QUESTION/Project-Euler-205)|-|-|-|-|-|-|
 |[6](../QUESTION/Project-Euler-6)|[106](../QUESTION/Project-Euler-106)|[206](../QUESTION/Project-Euler-206)|[306](../QUESTION/Project-Euler-306)|-|[506](../QUESTION/Project-Euler-506)|-|[706](../QUESTION/Project-Euler-706)|-|
 |[7](../QUESTION/Project-Euler-7)|[107](../QUESTION/Project-Euler-107)|[207](../QUESTION/Project-Euler-207)|[307](../QUESTION/Project-Euler-307)|[407](../QUESTION/Project-Euler-407)|-|[607](../QUESTION/Project-Euler-607)|-|-|
@@ -60,7 +60,7 @@ date: 2022-04-30 19:47:58
 |[52](../QUESTION/Project-Euler-52)|[152](../QUESTION/Project-Euler-152)|[252](../QUESTION/Project-Euler-252)|-|-|-|-|-|-|
 |[53](../QUESTION/Project-Euler-53)|[153](../QUESTION/Project-Euler-153)|[253](../QUESTION/Project-Euler-253)|[353](../QUESTION/Project-Euler-353)|-|-|-|-|-|
 |[54](../QUESTION/Project-Euler-54)|[154](../QUESTION/Project-Euler-154)|[254](../QUESTION/Project-Euler-254)|-|-|-|-|[754](../QUESTION/Project-Euler-754)|-|
-|[55](../QUESTION/Project-Euler-55)|[155](../QUESTION/Project-Euler-155)|-|-|-|-|-|-|-|
+|[55](../QUESTION/Project-Euler-55)|[155](../QUESTION/Project-Euler-155)|-|-|-|-|-|[755](../QUESTION/Project-Euler-755)|-|
 |[56](../QUESTION/Project-Euler-56)|[156](../QUESTION/Project-Euler-156)|-|-|-|-|-|-|-|
 |[57](../QUESTION/Project-Euler-57)|[157](../QUESTION/Project-Euler-157)|-|[357](../QUESTION/Project-Euler-357)|-|-|-|[757](../QUESTION/Project-Euler-757)|-|
 |[58](../QUESTION/Project-Euler-58)|[158](../QUESTION/Project-Euler-158)|[258](../QUESTION/Project-Euler-258)|[358](../QUESTION/Project-Euler-358)|[458](../QUESTION/Project-Euler-458)|-|-|-|-|
@@ -98,9 +98,9 @@ date: 2022-04-30 19:47:58
 |[90](../QUESTION/Project-Euler-90)|[190](../QUESTION/Project-Euler-190)|-|-|-|-|-|-|-|
 |[91](../QUESTION/Project-Euler-91)|[191](../QUESTION/Project-Euler-191)|[291](../QUESTION/Project-Euler-291)|-|[491](../QUESTION/Project-Euler-491)|-|-|-|-|
 |[92](../QUESTION/Project-Euler-92)|[192](../QUESTION/Project-Euler-192)|-|-|-|-|[692](../QUESTION/Project-Euler-692)|-|-|
-|[93](../QUESTION/Project-Euler-93)|[193](../QUESTION/Project-Euler-193)|[293](../QUESTION/Project-Euler-293)|-|[493](../QUESTION/Project-Euler-493)|-|-|-|-|
+|[93](../QUESTION/Project-Euler-93)|[193](../QUESTION/Project-Euler-193)|[293](../QUESTION/Project-Euler-293)|[393](../QUESTION/Project-Euler-393)|[493](../QUESTION/Project-Euler-493)|-|-|[793](../QUESTION/Project-Euler-793)|-|
 |[94](../QUESTION/Project-Euler-94)|[194](../QUESTION/Project-Euler-194)|[294](../QUESTION/Project-Euler-294)|-|-|-|[694](../QUESTION/Project-Euler-694)|-|-|
-|[95](../QUESTION/Project-Euler-95)|[195](../QUESTION/Project-Euler-195)|-|[395](../QUESTION/Project-Euler-395)|-|-|-|-|-|
+|[95](../QUESTION/Project-Euler-95)|[195](../QUESTION/Project-Euler-195)|-|[395](../QUESTION/Project-Euler-395)|-|-|-|[795](../QUESTION/Project-Euler-795)|-|
 |[96](../QUESTION/Project-Euler-96)|[196](../QUESTION/Project-Euler-196)|-|-|-|-|-|-|-|
 |[97](../QUESTION/Project-Euler-97)|[197](../QUESTION/Project-Euler-197)|[297](../QUESTION/Project-Euler-297)|-|-|-|-|-|-|
 |[98](../QUESTION/Project-Euler-98)|[198](../QUESTION/Project-Euler-198)|-|-|-|-|-|-|-|

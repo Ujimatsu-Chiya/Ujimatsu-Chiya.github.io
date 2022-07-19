@@ -4,32 +4,29 @@ tags:
   - Project Euler
   - 动态规划
 mathjax: true
+date: 2022-07-19 00:28:44
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 755
+
 ## 题目
+
 ### Not Zeckendorf
-
-
 
 Consider the Fibonacci sequence $\{1,2,3,5,8,13,21,\ldots\}$.
 
-
 We let $f(n)$ be the number of ways of representing an integer $n\ge 0$ as the sum of different Fibonacci numbers.
 
-For example, $16 = 3+13 = 1+2+13 = 3+5+8 = 1+2+5+8$ and hence $f(16) = 4$. 
+For example, $16 = 3+13 = 1+2+13 = 3+5+8 = 1+2+5+8$ and hence $f(16) = 4$.
 By convention $f(0) = 1$.
-
 
 Further we define
 $$\displaystyle S(n) = \sum_{k=0}^n f(k)$$
 You are given $S(100) = 415$ and $S(10^4) = 312807$.
 
-
 Find $\displaystyle S(10^{13})$.
-
-
 
 ## 解决方案
 
@@ -54,7 +51,6 @@ $$
 如果添加上记忆化，那么求解$f$的效率将会很高。
 
 ## 代码
-
 
 ```py
 N = 10 ** 13

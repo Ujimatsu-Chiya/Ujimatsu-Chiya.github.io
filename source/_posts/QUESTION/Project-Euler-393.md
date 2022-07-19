@@ -4,15 +4,15 @@ tags:
   - Project Euler
   - 动态规划
 mathjax: true
+date: 2022-07-19 00:28:41
 ---
+
 <escape><!-- more --></escape>
-    
-
-
-
 
 # Project Euler 393
+
 ## 题目
+
 ### Migrating ants
 
 An $n\times n$ grid of squares contains $n^2$ ants, one ant per square.
@@ -24,7 +24,6 @@ We define $f(n)$ to be the number of ways this can happen without any ants endin
 You are given that $f(4) = 88$.
 
 Find $f(10)$.
-
 
 ## 解决方案
 
@@ -49,7 +48,6 @@ Find $f(10)$.
 
 令状态$f(i,j)(0\le i\le N,0\le j\le 3^N)$表示拼接完第$i$行的格子后，第$i$行所有格子的下方的箭头状态集合为$j$的拼接方案数。那么不难写出如下状态转移方程：
 
-
 $$
 f(i,j)=
 \left \{\begin{aligned}
@@ -64,7 +62,6 @@ $$
 最终答案为$f(N,0).$
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>
