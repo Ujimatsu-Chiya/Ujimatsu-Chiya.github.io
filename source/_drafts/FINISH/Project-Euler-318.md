@@ -48,6 +48,15 @@ Find $\displaystyle \sum N(p,q) \,\, \text{ for } p+q \le 2011$.
 
 ## 解决方案
 
+不难知道，$(\sqrt{p}+\sqrt{q})^{2n}+(\sqrt{q}-\sqrt{p})^{2n}$一定是一个整数（通过二项式定理将两个式子拆开不难证明）。
+
+并且，如果需要得到题目中的那种收敛情况，那么就必须满足$\sqrt{q}-\sqrt{p}<1$。那么随着$n$增大，值$(\sqrt{q}-\sqrt{p})^{2n}$将无限逼近于$0$.并且，通过加法可以知道$(\sqrt{p}+\sqrt{q})^{2n}$的连续$9$的个数和$(\sqrt{p}-\sqrt{q})^{2n}$的连续$0$个数相同。
+
+计算$(\sqrt{q}-\sqrt{p})^{2n}$的连续$0$个数不难想到使用对数解决。通过计算，$(\sqrt{q}-\sqrt{p})^{2n}$的连续$0$个数为$\lfloor-2n\lg (\sqrt{q}-\sqrt{p})\rfloor$.
+
+那么令$M=2011$，取对数后，随着$n$增长，数$-2n\lg (\sqrt{q}-\sqrt{p})$也是线性增长的，因此可以计算出$N(p,q)$得:
+
+$$N(p,q)=\lceil-\dfrac{M}{2\lg(\sqrt{q}-\sqrt{p})}\rceil$$
 
 ## 代码
 
