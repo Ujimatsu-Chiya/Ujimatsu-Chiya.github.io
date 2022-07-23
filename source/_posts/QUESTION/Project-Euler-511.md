@@ -73,7 +73,7 @@ $$
 
 $f(a,i)\cdot f(b,j)\rightarrow f(a+b,(i+j)\%M)$
 
-因此，这给了我们一个方案：依次求出$f(2^0,\cdot),f(2^1,\cdot),f(2^2,\cdot),\dots$。然后针对$N$，选择这些求出的$f(2^i,\cdot,\cdot)$进行合并即可。这种做法的时间复杂度为$O(M^2\cdot \log N)$。
+因此，这给了我们一个方案：依次求出$f(2^0,\cdot),f(2^1,\cdot),f(2^2,\cdot),\dots$。然后针对$N$，选择这些求出的$f(2^i,\cdot)$进行合并即可。这种做法的时间复杂度为$O(M^2\cdot \log N)$。
 
 ## 代码
 
