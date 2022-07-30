@@ -119,7 +119,6 @@ int main() {
         for (ll j = i + 1; j <= m && pr[j + 1] <= (tmp = N / (1ll * pr[i] * pr[j])); j++)
             ans += pi(tmp) - pi(pr[j]);
     printf("%lld\n", ans);
-    return 0;
 }
 
 ```
