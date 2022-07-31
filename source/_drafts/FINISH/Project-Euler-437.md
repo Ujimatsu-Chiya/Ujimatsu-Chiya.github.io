@@ -59,7 +59,7 @@ $\forall n,g^n+g^{n+1}-g^{n+2}\equiv 0(\mod p)$
 
 令$f(n)=n^2-n-1$，那么使用216题的分解方式对$f(n)$进行分解：如果$p|f(n)$，那么$p|f(kp+n),p|f(kp-n+1)$，其中$k>0$。那么最终若$f(n)$被筛剩一个质因子$p$，那么$n$就是方程$g^2-g-1\equiv 0(\mod p)$的一个解。
 
-判断一个元素$g$是否为$g$的原根方法也比较简单：枚举$\varphi(p)=p-1$的所有质因数$k$，如果存在$k$使得$g^{\frac{p-1}{k}}\equiv 1(\mod p)$，那么$g$就不是原根，否则$g$是原根。
+判断一个元素$g$是否为$\mathbb{Z}_p^{\star}$的原根方法也比较简单：枚举$\varphi(p)=p-1$的所有质因数$k$，如果存在$k$使得$g^{\frac{p-1}{k}}\equiv 1(\mod p)$，那么$g$就不是原根，否则$g$是原根。
 
 ## 代码
 
@@ -71,8 +71,8 @@ typedef long long ll;
 
 const int N=100000000;
 
-ll f[N];
-int v[N],pr[N/10+1000],m=0;
+ll f[N+4];
+int v[N+4],pr[N/10+1000],m=0;
 ll qpow(ll n,ll m,ll p){
     ll a=1;
     for(;m;m>>=1){
