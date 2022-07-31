@@ -3,6 +3,7 @@ title: Project Euler 269
 tags:
   - Project Euler
   - 容斥原理
+  - 动态规划
 mathjax: true
 ---
 <escape><!-- more --></escape>
