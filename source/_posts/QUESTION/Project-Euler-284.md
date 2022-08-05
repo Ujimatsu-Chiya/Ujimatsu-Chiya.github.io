@@ -3,13 +3,16 @@ title: Project Euler 284
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:41:01
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 284
-## 题目
-### Steady Squares
 
+<escape><!-- more --></escape>
+
+# Project Euler 284
+
+## 题目
+
+### Steady Squares
 
 The $3$-digit number $376$ in the decimal numbering system is an example of numbers with the special property that its square ends with the same digits: $376^2 = 141376$. Let's call a number with this property a steady square.
 
@@ -18,8 +21,6 @@ Steady squares can also be observed in other numbering systems. In the base $14$
 For $1 \le n \le 9$, the sum of the digits of all the $n$-digit steady squares in the base $14$ numbering system is $2d8$ ($582$ decimal). Steady squares with leading $0$'s are not allowed.
 
 Find the sum of the digits of all the n-digit steady squares in the base $14$ numbering system for $1 \le n \le 10000$ (decimal) and give your answer in the base $14$ system using lower case letters where necessary.
-
-
 
 ## 解决方案
 

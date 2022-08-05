@@ -3,14 +3,16 @@ title: Project Euler 437
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:41:17
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 437
+
 ## 题目
+
 ### Fibonacci primitive roots
-
-
 
 When we calculate $8^n$ modulo $11$ for $n=0$ to $9$ we get: $1, 8, 9, 6, 4, 10, 3, 2, 5, 7$.
 
@@ -42,7 +44,6 @@ There are $323$ primes less than $10000$ with one or more Fibonacci primitive ro
 
 Find the sum of the primes less than $100,000,000$ with at least one Fibonacci primitive root.
 
-
 ## 解决方案
 
 假设群$\mathbb{Z}_p^{\star}$上的一个原根为$g$，那么按照上面对斐波那契原根的定义，可以写成：
@@ -62,7 +63,6 @@ $\forall n,g^n+g^{n+1}-g^{n+2}\equiv 0(\mod p)$
 判断一个元素$g$是否为$\mathbb{Z}_p^{\star}$的原根方法也比较简单：枚举$\varphi(p)=p-1$的所有质因数$k$，如果存在$k$使得$g^{\frac{p-1}{k}}\equiv 1(\mod p)$，那么$g$就不是原根，否则$g$是原根。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

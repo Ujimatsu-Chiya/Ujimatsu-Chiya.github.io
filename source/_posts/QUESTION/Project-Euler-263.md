@@ -3,15 +3,15 @@ title: Project Euler 263
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:40:32
 ---
+
 <escape><!-- more --></escape>
-    
-
-
-
 
 # Project Euler 263
+
 ## 题目
+
 ### An engineers’ dream come true
 
 Consider the number $6$. The divisors of $6$ are: $1,2,3$ and $6$.
@@ -28,13 +28,12 @@ We may occasionally find a triple-pair, which means three consecutive sexy prime
 
 We shall call a number $n$ such that:
 
-- $(n-9, n-3), (n-3,n+3), (n+3, n+9)$ form a triple-pair, and 
+- $(n-9, n-3), (n-3,n+3), (n+3, n+9)$ form a triple-pair, and
 - the numbers $n-8, n-4, n, n+4$ and $n+8$ are all practical,
 
 an engineers’ paradise.
 
 Find the sum of the first four engineers’ paradises.
-
 
 ## 解决方案
 
@@ -63,7 +62,9 @@ $n-3$是质数，因此$3\nmid n$。
 根据$2$的情况，要么$n=4k_4$，要么$n=4k_4+2$.
 
 当$n=4_k+2$时，$n-8,n-4,n,n+4,n+8$都不是$4$的倍数，但是无论$k$取什么，总有一个数不是$3$的倍数。因此$4|n$。
+
 ### $5$
+
 由于$n-9,n-3,n+3,n+9$都是质数，只有当$n\equiv 0(\mod 5)$时，这$4$个数都不是$5$的倍数。
 
 ### $7$
@@ -89,10 +90,7 @@ $$\begin{aligned}
 
 暴力求出所有候选值，并进行判断即可。
 
-
-
 ## 代码
-
 
 ```PY
 from itertools import count

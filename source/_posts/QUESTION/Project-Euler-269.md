@@ -5,12 +5,15 @@ tags:
   - 容斥原理
   - 动态规划
 mathjax: true
+date: 2022-08-05 21:40:36
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 269
+
 ## 题目
+
 ### Polynomials with at least one integer root
 
 A root or zero of a polynomial $P(x)$ is a solution to the equation $P(x) = 0$.
@@ -29,7 +32,6 @@ Define $Z(k)$ as the number of positive integers, $n$, not exceeding $k$ for whi
 It can be verified that $Z(100 000)$ is $14696$.
 
 What is $Z(10^{16})$?
-
 
 ## 解决方案
 
@@ -65,7 +67,6 @@ $f_2,f_1$的计算过程也类似。
 最终用容斥原理将它们整合在一起即可。实际上，$|b_1|,|b_2|,|b_3|$这几个值都比较小。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

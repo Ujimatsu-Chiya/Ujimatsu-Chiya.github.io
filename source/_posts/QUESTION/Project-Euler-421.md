@@ -3,14 +3,16 @@ title: Project Euler 421
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:41:08
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 421
+
 ## 题目
+
 ### Prime factors of $n^{15}+1$
-
-
 
 Numbers of the form $n^{15}+1$ are composite for every integer $n > 1$.
 
@@ -25,8 +27,6 @@ Also $10^{15}+1 = 7\times11\times13\times211\times241\times2161\times9091$.
 So $s(10,100) = 31$ and $s(10,1000) = 483$.
 
 Find $\sum s(n,10^8)$ for $1 \le n \le 10^{11}$.
-
-
 
 ## 解决方案
 
@@ -55,8 +55,8 @@ $$Ki\equiv 0(\mod p-1)\qquad(2)$$
 为了解回原方程$n^{K}\equiv -1(\mod p)$，那么首先判断$\dfrac{p-1}{d}$是否为偶数。如果不是，那么原方程无解（注意到这里$K=15$，因此$d$必为奇数，因此原方程必定有解，无需判断）；如果是，令$l=g^{\frac{p-1}{2d}}$，那么原方程的解为$l\cdot h^j$，其中$j=0,1,\dots,d-1$。
 
 枚举方程$n^{K}\equiv -1(\mod p)$中的每个解$x$，那么这个解一共做出了$\lfloor\dfrac{N-x}{p}\rfloor+1$次贡献。
-## 代码
 
+## 代码
 
 ```C++
 #include <bits/stdc++.h>

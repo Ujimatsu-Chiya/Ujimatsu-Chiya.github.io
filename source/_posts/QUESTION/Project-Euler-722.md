@@ -4,13 +4,16 @@ tags:
   - Project Euler
   - 论文
 mathjax: true
+date: 2022-08-05 21:41:39
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 722
-## 题目
-### Slowly converging series
 
+<escape><!-- more --></escape>
+
+# Project Euler 722
+
+## 题目
+
+### Slowly converging series
 
 For a non-negative integer $k$, define
 
@@ -35,9 +38,6 @@ All the above values are given in scientific notation rounded to twelve digits a
 Find the value of $E_{15}(1 - \frac{1}{2^{25}})$.
 
 Give the answer in scientific notation rounded to twelve digits after the decimal point.
-
-
-
 
 ## 解决方案
 
@@ -78,10 +78,7 @@ E_k(q)&=\sum_{n=1}^\infty n^k\cdot\dfrac{ q^n}{1-q^n}=\mathscr{L}_q(k,1)\\
 
 $$E_k(q)\approx\dfrac{k!\cdot \zeta(k+1)}{(\log \dfrac{1}{q})^{1+k}}$$
 
-
-
 ## 代码
-
 
 ```Mathematica
 NumberForm[NSum[n^15*q^n/(1-q^n), {n,1,Infinity}, Method -> "EulerMaclaurin"], 13]

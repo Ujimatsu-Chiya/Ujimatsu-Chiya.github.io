@@ -5,15 +5,15 @@ tags:
   - 动态规划
   - 快速数论变换
 mathjax: true
+date: 2022-08-05 21:40:55
 ---
+
 <escape><!-- more --></escape>
 
-
-
-
-
 # Project Euler 537
+
 ## 题目
+
 ### Counting tuples
 
 Let $\pi(x)$ be the prime counting function, i.e. the number of prime numbers less than or equal to $x$.
@@ -27,7 +27,7 @@ Let $T(n,k)$ be the number of $k$-tuples $(x_1,\dots,x_k)$ which satisfy:
 
 For example $T(3,3)=19$.
 
-The $19$ tuples are 
+The $19$ tuples are
 
 $\begin{aligned}
 & (1,1,5), (1,5,1), (5,1,1), (1,1,6), (1,6,1), (6,1,1), (1,2,3), \\
@@ -38,7 +38,6 @@ $\begin{aligned}
 You are given $T(10,10) = 869 985$ and $T(10^3,10^3) ≡ 578 270 566 (\mod 1 004 535 809)$.
 
 Find $T(20 000, 20 000) \mod 1 004 535 809$.
-
 
 ## 解决方案
 
@@ -69,9 +68,7 @@ $T(a,i)\cdot T(b,j)\rightarrow T(a+b,i+j)$
 
 因此，这给了我们一个方案：依次求出$Tg(2^0,\cdot),T(2^1,\cdot),T(2^2,\cdot),\dots$。然后针对$Q$，选择这些求出的$T(2^i,\cdot)$进行合并即可。
 
-
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

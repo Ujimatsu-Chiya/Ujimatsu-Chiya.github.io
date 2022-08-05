@@ -3,26 +3,24 @@ title: Project Euler 355
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:41:48
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 355
+
 ## 题目
+
 ### Maximal coprime subset
-
-
 
 Define $Co(n)$ to be the maximal possible sum of a set of mutually co-prime elements from $\{1, 2, \dots, n\}$.
 
  For example $Co(10)$ is $30$ and hits that maximum on the subset $\{1, 5, 7, 8, 9\}$.
 
-
-
-You are given that $Co(30) = 193$ and $Co(100) = 1356$. 
-
+You are given that $Co(30) = 193$ and $Co(100) = 1356$.
 
 Find $Co(200000)$.
-
 
 ## 解决方案
 
@@ -40,7 +38,6 @@ Find $Co(200000)$.
 最终使用networkx库中的max_flow_min_cost方法完成计算。将答案添加到$s$中，成为最终答案。需要注意的是，我们求的费用是最大值，因此整张图的费用权值都是负数。
 
 ## 代码
-
 
 ```py
 from tools import get_prime

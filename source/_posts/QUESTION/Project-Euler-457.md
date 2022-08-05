@@ -3,12 +3,15 @@ title: Project Euler 457
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:41:26
 ---
+
 <escape><!-- more --></escape>
-    
 
 # Project Euler 457
+
 ## 题目
+
 ### A polynomial modulo the square of a prime
 
 Let $f(n) = n^2 - 3n - 1$.
@@ -70,6 +73,7 @@ $$f(r+tp^{k-1})\equiv 0(\mod p^k)\qquad(1)$$
 1. 如果$f'(r)\not\equiv 0(\mod p)$，那么存在唯一的正整数$t$使得$(1)$成立。这个$t$满足
 
 $$\displaystyle tf'(r)\equiv -\dfrac{f(r)}{p^{k-1}}{\pmod {p}}$$
+
 2. 如果$f'(r)\equiv 0(\mod p),f(r)\equiv0(\mod p)$，那么对于任意$t$，方程$(1)$恒成立。
 3. 如果$f'(r)\equiv 0(\mod p),f(r)\not\equiv0(\mod p)$，那么方程$(1)$无解。
 
@@ -92,7 +96,6 @@ $$(2n-3)^2\equiv13(\mod p^2)$$
 最终分别计算出两个$x$后，回代出两个$n$的值，取最小值即可。
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

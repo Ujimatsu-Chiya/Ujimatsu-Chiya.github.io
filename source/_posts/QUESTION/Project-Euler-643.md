@@ -40,8 +40,8 @@ f(n)&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^n\sum_{p=1}^{q}[\gcd(p,q
 
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
-&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}\\
+&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
+&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}|\\
 &=\sum_{d=1}^n\Phi(\dfrac{n}{d})
 \end{aligned}$$
 

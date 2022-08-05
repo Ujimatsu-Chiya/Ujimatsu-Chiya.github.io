@@ -41,8 +41,8 @@ G(N)&=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)=\sum_{g=1}^Ng\sum_{j=1}^N\sum_{i=
 
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
-&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}\\
+&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
+&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}|\\
 &=\sum_{d=1}^n\Phi(\dfrac{n}{d})
 \end{aligned}$$
 

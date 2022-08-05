@@ -57,8 +57,8 @@ $$\Phi_p(n)=\varphi(p)\cdot(\Phi(\dfrac{n}{p})+\Phi(\dfrac{n}{p^2})+\Phi(\dfrac{
 
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
-&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&=\sum_{d=1}^n\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}\\
+&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
+&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}|\\
 &=\sum_{d=1}^n\Phi(\dfrac{n}{d})
 \end{aligned}$$
 

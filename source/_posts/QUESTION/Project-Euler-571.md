@@ -3,13 +3,16 @@ title: Project Euler 571
 tags:
   - Project Euler
 mathjax: true
+date: 2022-08-05 21:41:22
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 571
-## 题目
-### Super Pandigital Numbers
 
+<escape><!-- more --></escape>
+
+# Project Euler 571
+
+## 题目
+
+### Super Pandigital Numbers
 
 A positive number is **pandigital** in base $b$ if it contains all digits from $0$ to $b - 1$ at least once when written in base $b$.
 
@@ -22,8 +25,6 @@ Similarly, $1093265784$ is the smallest $10$-super-pandigital number.
 The sum of the $10$ smallest $10$-super-pandigital numbers is $20319792309$.
 
 What is the sum of the $10$ smallest $12$-super-pandigital numbers?
-
-
 
 ## 解决方案
 
@@ -76,4 +77,3 @@ int main(){
 }
 
 ```
-

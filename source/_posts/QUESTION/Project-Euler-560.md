@@ -5,13 +5,16 @@ tags:
   - SG定理
   - 快速沃尔什变换
 mathjax: true
+date: 2022-08-05 21:41:12
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 560
-## 题目
-### Coprime Nim
 
+<escape><!-- more --></escape>
+
+# Project Euler 560
+
+## 题目
+
+### Coprime Nim
 
 Coprime Nim is just like ordinary normal play Nim, but the players may only remove a number of stones from a pile  that is **coprime** with the current size of the pile. Two players remove stones in turn. The player who removes the last stone wins.
 
@@ -111,7 +114,6 @@ $g(a,i)\cdot g(b,j)\rightarrow g(a+b,i\oplus j)$
 因此，这给了我们一个方案：依次求出$g(2^0,\cdot),g(2^1,\cdot),g(2^2,\cdot),\dots$。然后针对$Q$，选择这些求出的$g(2^i,\cdot)$进行合并即可。
 
 最终答案为$g(Q,0)$。
-
 
 ## 代码
 

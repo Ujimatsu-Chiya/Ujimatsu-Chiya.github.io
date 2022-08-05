@@ -43,7 +43,7 @@ f(i,st)=
   &1  & & \mathrm{if\quad} i=0\&st=0 \\
   &0  & & \mathrm{else if\quad} i=0 \\
   &f(i-1,st)  & & \mathrm{else if\quad} st\&i\neq i \\
-  &f(i-1,st)+f(i-1,st \bigoplus i) \times cnt[i] & & \mathrm{else}
+  &f(i-1,st)+f(i-1,st \oplus i) \times cnt[i] & & \mathrm{else}
 \end{aligned}\right.
 $$
 
