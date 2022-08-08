@@ -1,7 +1,8 @@
 ---
 title: Project Euler 392
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 392
 ## 题目
 ### Enmeshed unit circle
-
+
+
 
 A rectilinear grid is an orthogonal grid where the spacing between the gridlines does not have to be equidistant.<br />
 An example of such grid is logarithmic graph paper.

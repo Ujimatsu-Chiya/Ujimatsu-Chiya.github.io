@@ -1,7 +1,8 @@
 ---
 title: Project Euler 748
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 748
 ## 题目
 ### Upside down Diophantine equation
-
+
+
 
 Upside Down is a modification of the famous Pythagorean equation:
 \begin{align}

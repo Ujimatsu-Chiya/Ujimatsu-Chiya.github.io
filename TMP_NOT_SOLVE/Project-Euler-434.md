@@ -1,7 +1,8 @@
 ---
 title: Project Euler 434
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 434
 ## 题目
 ### Rigid graphs
-
+
+
 Recall that a graph is a collection of vertices and edges connecting the vertices, and that two vertices connected by an edge are called adjacent.<br />
 Graphs can be embedded in Euclidean space by associating each vertex with a point in the Euclidean space.<br />
 A **flexible** graph is an embedding of a graph where it is possible to move one or more vertices continuously so that the distance between at least two nonadjacent vertices is altered while the distances between each pair of adjacent vertices is kept constant.<br />

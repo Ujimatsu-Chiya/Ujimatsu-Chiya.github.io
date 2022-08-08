@@ -1,7 +1,8 @@
 ---
 title: Project Euler 600
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 600
 ## 题目
 ### Integer sided equiangular hexagons
-
+
+
 Let <var>H</var>(<var>n</var>) be the number of distinct integer sided <b>equiangular</b> convex hexagons with perimeter not exceeding <var>n</var>.<br />
 Hexagons are distinct if and only if they are not <b>congruent</b>.
 

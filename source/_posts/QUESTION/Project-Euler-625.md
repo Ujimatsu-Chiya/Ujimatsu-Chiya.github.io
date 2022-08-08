@@ -1,7 +1,8 @@
 ---
 title: Project Euler 625
-tags:
+category:
   - Project Euler
+tags:
   - 数论分块
 mathjax: true
 date: 2022-06-13 21:21:46

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 785
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 785
 ## 题目
 ### Symmetric Diophantine equation
-
+
+
 
 Consider the following Diophantine equation:
 $$15  (x^2 + y^2 + z^2) = 34  (xy + yz + zx)$$

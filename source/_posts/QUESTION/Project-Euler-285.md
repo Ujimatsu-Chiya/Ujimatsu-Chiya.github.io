@@ -1,7 +1,8 @@
 ---
 title: Project Euler 285
-tags:
+category:
   - Project Euler
+tags:
   - 概率
 mathjax: true
 date: 2022-04-30 10:31:08

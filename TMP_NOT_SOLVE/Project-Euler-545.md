@@ -1,7 +1,8 @@
 ---
 title: Project Euler 545
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 545
 ## 题目
 ### Faulhaber's Formulas
-
+
+
 The sum of the <var>k</var>^th powers of the first <var>n</var> positive integers can be expressed as a polynomial of degree <var>k</var>+1 with rational coefficients, the <b>Faulhaber's Formulas</b>:<br />
 $1^k + 2^k + \dots + n^k = \sum_{i=1}^n i^k = \sum_{i=1}^{k+1} a_{i} n^i = a_{1} n + a_{2} n^2 + \dots + a_{k} n^k + a_{k+1} n^{k + 1}$,<br />
 where <var>a_i</var>'s are rational coefficients that can be written as reduced fractions <var>p_i</var>/<var>q_i</var> (if <var>a_i</var> = 0, we shall consider <var>q_i</var> = 1).

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 767
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 767
 ## 题目
 ### Window into a Matrix II
-
+
+
 A window into a matrix is a contiguous sub matrix.
 
 Consider a $16\times n$ matrix where every entry is either 0 or 1.

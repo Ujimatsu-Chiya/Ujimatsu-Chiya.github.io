@@ -1,7 +1,8 @@
 ---
 title: Project Euler 452
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 452
 ## 题目
 ### Long Products
-
+
+
 Define F(<var>m</var>,<var>n</var>) as the number of <var>n</var>-tuples of positive integers for which the product of the elements doesn't exceed <var>m</var>.
 F(10, 10) = 571.
 F(10^6, 10^6) mod 1 234 567 891 = 252903833.

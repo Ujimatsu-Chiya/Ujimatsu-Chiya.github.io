@@ -1,7 +1,8 @@
 ---
 title: Project Euler 368
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 368
 ## 题目
 ### A Kempner-like series
-
+
+
 The <b> harmonic series </b> $1 + \dfrac{1}{2} + \dfrac{1}{3} + \dfrac{1}{4} + \dots$ is well known to be divergent.
 
 If we however omit from this series every term where the denominator has a 9 in it, the series remarkably enough converges to approximately 22.9206766193.<br />

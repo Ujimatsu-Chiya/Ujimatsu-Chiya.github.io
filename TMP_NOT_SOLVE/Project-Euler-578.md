@@ -1,7 +1,8 @@
 ---
 title: Project Euler 578
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 578
 ## 题目
 ### Integers with decreasing prime powers
-
+
+
 Any positive integer can be written as a product of prime powers: <var>p</var>_1^<var>a</var>_1 \times <var>p</var>_2^<var>a</var>_2 \times \dots \times <var>p_k^a_k</var>,<br />
 where <var>p_i</var> are distinct prime integers, <var>a_i</var> > 0 and <var>p_i</var> < <var>p_j</var> if <var>i</var> < <var>j</var>.
 

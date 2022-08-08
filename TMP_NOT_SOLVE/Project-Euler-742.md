@@ -1,7 +1,8 @@
 ---
 title: Project Euler 742
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 742
 ## 题目
 ### Minimum area of a convex grid polygon
-
+
+
 A <i>symmetrical convex grid polygon</i> is a polygon such that:
 <ul><li>All its vertices have integer coordinates.</li>
 <li>All its internal angles are strictly smaller than $180°$.</li>

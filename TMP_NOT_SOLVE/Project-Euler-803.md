@@ -1,7 +1,8 @@
 ---
 title: Project Euler 803
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 803
 ## 题目
 ### Pseudorandom sequence
-
+
+
 
 <b>Rand48</b> is a pseudorandom number generator used by some programming languages. It generates a sequence from any given integer $a_0$ using the rule $a_n = (25214903917 \cdot a_{n - 1} + 11) \bmod 2^{48}$.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 729
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 729
 ## 题目
 ### Range of periodic sequence
-
+
+
 Consider the sequence of real numbers $a_n$ defined by the starting value $a_0$ and the recurrence
 $\displaystyle a_{n+1}=a_n-\frac 1 {a_n}$ for any $n  \ge 0$.
 

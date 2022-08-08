@@ -1,7 +1,8 @@
 ---
 title: Project Euler 672
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 672
 ## 题目
 ### One more one
-
+
+
 Consider the following process that can be applied recursively to any positive integer $n$:
 <ul><li>if $n = 1$ do nothing and the process stops,</li>
 <li>if $n$ is divisible by 7 divide it by 7,</li>

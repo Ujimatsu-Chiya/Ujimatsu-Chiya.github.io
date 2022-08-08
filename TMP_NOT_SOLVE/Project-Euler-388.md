@@ -1,7 +1,8 @@
 ---
 title: Project Euler 388
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 388
 ## 题目
 ### Distinct Lines
-
+
+
 
 Consider all lattice points (a,b,c) with 0 \le a,b,c \le N.
 

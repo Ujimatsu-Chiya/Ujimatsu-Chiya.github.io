@@ -1,7 +1,8 @@
 ---
 title: Project Euler 732
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 732
 ## 题目
 ### Standing on the shoulders of trolls
-
+
+
 
 $N$ trolls are in a hole that is $D_N$ cm deep. The $n$-th troll is characterized by:
 

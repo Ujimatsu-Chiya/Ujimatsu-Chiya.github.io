@@ -1,7 +1,8 @@
 ---
 title: Project Euler 698
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 698
 ## 题目
 ### 123 Numbers
-
+
+
 
 We define <i>123-numbers</i> as follows:
 

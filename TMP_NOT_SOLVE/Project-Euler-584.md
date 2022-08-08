@@ -1,7 +1,8 @@
 ---
 title: Project Euler 584
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 584
 ## 题目
 ### Birthday Problem Revisited
-
+
+
 A long long time ago in a galaxy far far away, the Wimwians, inhabitants of planet WimWi, discovered an unmanned drone that had landed on their planet. On examining the drone, they uncovered a device that sought the answer for the so called "<b>Birthday Problem</b>". The description of the problem was as follows:
 
 <i>If people on your planet were to enter a very large room one by one, what will be the expected number of people in the room when you first find <b>3 people with Birthdays within 1 day from each other</b>.</i>

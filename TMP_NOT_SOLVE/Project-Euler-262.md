@@ -1,15 +1,18 @@
 ---
 title: Project Euler 262
-tags:
+category:
   - Project Euler
+category:
 mathjax: true
+tags:
 ---
 <escape><!-- more --></escape>
     
 # Project Euler 262
 ## 题目
 ### Mountain Range
-
+
+
 The following equation represents the <i>continuous</i> topography of a mountainous region, giving the <dfn title="height above sea level">elevation</dfn> <var>h</var> at any point (<var>x</var>,<var>y</var>):
 
 <div align="center">

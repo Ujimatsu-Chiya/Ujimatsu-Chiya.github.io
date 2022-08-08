@@ -1,7 +1,8 @@
 ---
 title: Project Euler 398
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 398
 ## 题目
 ### Cutting rope
-
+
+
 
 Inside a rope of length <var>n</var>, <var>n</var>-1 points are placed with distance 1 from each other and from the endpoints. Among these points, we choose <var>m</var>-1 points at random and cut the rope at these points to create <var>m</var> segments.
 

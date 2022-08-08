@@ -1,7 +1,8 @@
 ---
 title: Project Euler 492
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 492
 ## 题目
 ### Exploding sequence
-
+
+
 Define the sequence a_1, a_2, a_3, \dots as:
 <ul><li>a_1 = 1</li>
 <li>a_<var>n</var>+1 = 6a_<var>n</var>^2 + 10a_<var>n</var> + 3 for <var>n</var> \ge 1.</li>

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 674
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 674
 ## 题目
 ### Solving $\mathcal{I}$-equations
-
+
+
 We define the $\mathcal{I}$ operator as the function
 \[\mathcal{I}(x,y) = (1+x+y)^2+y-x\]
 and $\mathcal{I}$-expressions as arithmetic expressions built only from variables names and applications of $\mathcal{I}$. A variable name may consist of one or more letters. For example, the three expressions $x$, $\mathcal{I}(x,y)$, and $\mathcal{I}(\mathcal{I}(x,ab),x)$ are all $\mathcal{I}$-expressions.

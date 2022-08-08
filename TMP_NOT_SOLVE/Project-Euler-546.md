@@ -1,7 +1,8 @@
 ---
 title: Project Euler 546
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 546
 ## 题目
 ### The Floor's Revenge
-
+
+
 Define <var>f</var>_<var>k</var>(<var>n</var>) = $\sum_{i=0}^{n}$ <var>f</var>_<var>k</var>($\lfloor\frac{i}{k}\rfloor$) where <var>f</var>_<var>k</var>(0) = 1 and $\lfloor x \rfloor$ denotes the floor function.
 
 For example, <var>f</var>_5(10) = 18, <var>f</var>_7(100) = 1003, and <var>f</var>_2(10^3) = 264830889564.

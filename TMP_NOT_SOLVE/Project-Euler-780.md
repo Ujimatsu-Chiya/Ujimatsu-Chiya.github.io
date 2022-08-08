@@ -1,7 +1,8 @@
 ---
 title: Project Euler 780
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 780
 ## 题目
 ### Toriangulations
-
+
+
 For positive real numbers $a,b$, an $a\times b$ <i>torus</i> is a rectangle of width $a$ and height $b$, with left and right sides identified, as well as top and bottom sides identified. In other words, when tracing a path on the rectangle, reaching an edge results in "wrapping round" to the corresponding point on the opposite edge.
 
 A <i>tiling</i> of a torus is a way to dissect it into equilateral triangles of edge length 1. For example, the following three diagrams illustrate respectively a $1\times \frac{\sqrt{3}}{2}$ torus with two triangles, a $\sqrt{3}\times 1$ torus with four triangles, and an approximately $2.8432\times 2.1322$ torus with fourteen triangles:

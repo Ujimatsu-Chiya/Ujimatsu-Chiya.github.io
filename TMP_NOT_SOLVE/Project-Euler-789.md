@@ -1,7 +1,8 @@
 ---
 title: Project Euler 789
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 789
 ## 题目
 ### Minimal pairing modulo $p$
-
+
+
 Given an odd prime $p$, put the numbers $1,\dots,p-1$ into $\frac{p-1}{2}$ pairs such that each number appears exactly once. Each pair $(a,b)$ has a cost of $ab \bmod p$. For example, if $p=5$ the pair $(3,4)$ has a cost of $12 \bmod 5 = 2$.
 
 The <i>total cost</i> of a pairing is the sum of the costs of its pairs. We say that such pairing is optimal if its total cost is minimal for that $p$.

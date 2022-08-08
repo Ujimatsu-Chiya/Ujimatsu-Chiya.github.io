@@ -1,7 +1,8 @@
 ---
 title: Project Euler 441
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 441
 ## 题目
 ### The inverse summation of coprime couples
-
+
+
 
 For an integer <var>M</var>, we define R(<var>M</var>) as the sum of 1/(<var>p</var>·<var>q</var>) for all the integer pairs <var>p</var> and <var>q</var> which satisfy all of these conditions:
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 96
-tags:
+category:
   - Project Euler
+tags:
   - 模拟
 mathjax: true
 date: 2022-04-30 10:32:55

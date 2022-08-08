@@ -1,7 +1,8 @@
 ---
 title: Project Euler 764
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 764
 ## 题目
 ### Asymmetric Diophantine Equation
-
+
+
 
 Consider the following Diophantine equation:
 $$16x^2+y^4=z^2$$

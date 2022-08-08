@@ -1,7 +1,8 @@
 ---
 title: Project Euler 186
-tags:
+category:
   - Project Euler
+tags:
   - 并查集
 mathjax: true
 date: 2022-05-19 21:57:01

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 738
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 738
 ## 题目
 ### Counting Ordered Factorisations
-
+
+
 Define $d(n,k)$ to be the number of ways to write $n$ as a product of $k$ ordered integers
 \[
 n = x_1\times x_2\times x_3\times \ldots\times x_k\qquad 1\le x_1\le x_2\le\ldots\le x_k

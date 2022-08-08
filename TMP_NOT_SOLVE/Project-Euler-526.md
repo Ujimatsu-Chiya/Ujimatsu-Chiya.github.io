@@ -1,7 +1,8 @@
 ---
 title: Project Euler 526
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 526
 ## 题目
 ### Largest prime factors of consecutive numbers
-
+
+
 Let <var>f</var>(<var>n</var>) be the largest prime factor of <var>n</var>.
 Let <var>g</var>(<var>n</var>) = <var>f</var>(<var>n</var>) + <var>f</var>(<var>n</var>+1) + <var>f</var>(<var>n</var>+2) + <var>f</var>(<var>n</var>+3) + <var>f</var>(<var>n</var>+4) + <var>f</var>(<var>n</var>+5) + <var>f</var>(<var>n</var>+6) + <var>f</var>(<var>n</var>+7) + <var>f</var>(<var>n</var>+8), the sum of the largest prime factor of each of nine consecutive numbers starting with <var>n</var>.
 Let <var>h</var>(<var>n</var>) be the maximum value of <var>g</var>(<var>k</var>) for 2 \le <var>k</var> \le <var>n</var>.

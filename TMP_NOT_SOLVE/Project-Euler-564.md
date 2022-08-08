@@ -1,7 +1,8 @@
 ---
 title: Project Euler 564
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 564
 ## 题目
 ### Maximal polygons
-
+
+
 A line segment of length $2n-3$ is randomly split into $n$ segments of integer length ($n \ge 3$). In the sequence given by this split, the segments are then used as consecutive sides of a convex $n$-polygon, formed in such a way that its area is maximal.  All of the $\binom{2n-4} {n-1}$ possibilities for splitting up the initial line segment occur with the same probability. 
 
 Let $E(n)$ be the expected value of the area that is obtained by this procedure.<br />

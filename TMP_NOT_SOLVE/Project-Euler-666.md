@@ -1,7 +1,8 @@
 ---
 title: Project Euler 666
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 666
 ## 题目
 ### Polymorphic Bacteria
-
+
+
 Members of a species of bacteria occur in two different types: $\alpha$ and $\beta$. Individual bacteria are capable of multiplying and mutating between the types according to the following rules:
 <ul><li>Every minute, each individual will simultaneously undergo some kind of transformation.</li>
 <li>Each individual $A$ of type $\alpha$ will, independently, do one of the following (at random with equal probability):

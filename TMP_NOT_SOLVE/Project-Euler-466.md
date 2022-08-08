@@ -1,7 +1,8 @@
 ---
 title: Project Euler 466
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 466
 ## 题目
 ### Distinct terms in a multiplication table
-
+
+
 Let P(<var>m</var>,<var>n</var>) be the number of <i>distinct</i> terms in an <var>m</var>\times<var>n</var> multiplication table.
 
 For example, a 3\times4 multiplication table looks like this:

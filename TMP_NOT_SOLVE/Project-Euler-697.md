@@ -1,7 +1,8 @@
 ---
 title: Project Euler 697
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 697
 ## 题目
 ### Randomly Decaying Sequence
-
+
+
 Given a fixed real number $c$, define a random sequence $(X_n)_{n\ge 0}$ by the following random process:
 <ul><li>$X_0 = c$ (with probability 1).</li>
 <li>For $n>0$, $X_n = U_n X_{n-1}$ where $U_n$ is a real number chosen at random between zero and one, uniformly, and independently of all previous choices $(U_m)_{m<n}$.</li>

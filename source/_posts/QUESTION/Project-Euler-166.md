@@ -1,7 +1,8 @@
 ---
 title: Project Euler 166
-tags:
+category:
   - Project Euler
+tags:
   - meet-in-the-middle
 mathjax: true
 date: 2022-05-11 19:27:28

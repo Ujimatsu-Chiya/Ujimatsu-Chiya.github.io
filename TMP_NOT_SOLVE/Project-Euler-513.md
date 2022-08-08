@@ -1,7 +1,8 @@
 ---
 title: Project Euler 513
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 513
 ## 题目
 ### Integral median
-
+
+
 
 ABC is an integral sided triangle with sides a\leb\lec.<br />
 m_c is the median connecting C and the midpoint of AB. <br />

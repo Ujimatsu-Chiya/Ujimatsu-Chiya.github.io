@@ -1,7 +1,8 @@
 ---
 title: Project Euler 322
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 322
 ## 题目
 ### Binomial coefficients divisible by 10
-
+
+
 
 Let T(<var>m</var>, <var>n</var>) be the number of the binomial coefficients ^<var>i</var>C_<var>n</var> that are divisible by 10 for <var>n</var> \le <var>i</var> < <var>m</var>(<var>i</var>, <var>m</var> and <var>n</var> are positive integers).<br />
 You are given that T(10^9, 10^7-10) = 989697000.

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 448
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 448
 ## 题目
 ### Average least common multiple
-
+
+
 
 The function <b>lcm</b>(a,b) denotes the least common multiple of a and b.<br />
 Let A(n) be the average of the values of lcm(n,i) for 1\lei\len.<br />

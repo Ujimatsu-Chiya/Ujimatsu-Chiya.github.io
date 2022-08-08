@@ -1,7 +1,8 @@
 ---
 title: Project Euler 352
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 352
 ## 题目
 ### Blood tests
-
+
+
 
 Each one of the 25 sheep in a flock must be tested for a rare virus, known to affect 2% of the sheep population.
 An accurate and extremely sensitive PCR test exists for blood samples, producing a clear positive / negative result, but it is very time-consuming and expensive.

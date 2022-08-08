@@ -1,7 +1,8 @@
 ---
 title: Project Euler 295
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 295
 ## 题目
 ### Lenticular holes
-
+
+
 We call the convex area enclosed by two circles a <i>lenticular hole</i> if:
 <ul><li>The centres of both circles are on lattice points.</li>
 <li>The two circles intersect at two distinct lattice points.</li>

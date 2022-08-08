@@ -1,7 +1,8 @@
 ---
 title: Project Euler 710
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-07-17 23:11:44

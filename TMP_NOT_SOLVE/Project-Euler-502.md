@@ -1,7 +1,8 @@
 ---
 title: Project Euler 502
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 502
 ## 题目
 ### Counting Castles
-
+
+
 We define a <i>block</i> to be a rectangle with a height of 1 and an integer-valued length. Let a <i>castle</i> be a configuration of stacked blocks.
 
 Given a game grid that is <var>w</var> units wide and <var>h</var> units tall, a castle is generated according to the following rules:

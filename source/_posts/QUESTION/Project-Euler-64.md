@@ -1,7 +1,8 @@
 ---
 title: Project Euler 64
-tags:
+category:
   - Project Euler
+tags:
   - 论文
 mathjax: true
 date: 2022-05-03 09:22:17

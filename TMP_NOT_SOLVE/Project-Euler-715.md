@@ -1,7 +1,8 @@
 ---
 title: Project Euler 715
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 715
 ## 题目
 ### Sextuplet Norms
-
+
+
 Let $f(n)$ be the number of $6$-tuples $(x_1,x_2,x_3,x_4,x_5,x_6)$ such that:
 <ul><li>All $x_i$ are integers with $0 \leq x_i < n$</li>
 <li>$\gcd(x_1^2+x_2^2+x_3^2+x_4^2+x_5^2+x_6^2,\ n^2)=1$</li>

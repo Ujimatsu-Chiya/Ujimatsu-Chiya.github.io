@@ -1,7 +1,8 @@
 ---
 title: Project Euler 531
-tags:
+category:
   - Project Euler
+tags:
   - 中国剩余定理
 mathjax: true
 date: 2022-07-13 22:57:33

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 616
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 616
 ## 题目
 ### Creative numbers
-
+
+
 Alice plays the following game, she starts with a list of integers $L$ and on each step she can either:
 <ul><li>remove two elements $a$ and $b$ from $L$ and add $a^b$ to $L$</li>
 <li>or conversely remove an element $c$ from $L$ that can be written as $a^b$, with $a$ and $b$ being two integers such that $a, b > 1$, and add both $a$ and $b$ to $L$</li></ul>For example starting from the list $L=\{8\}$, Alice can remove $8$ and add $2$ and $3$ resulting in $L=\{2,3\}$ in a first step. Then she can obtain $L=\{9\}$ in a second step.

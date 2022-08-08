@@ -1,7 +1,8 @@
 ---
 title: Project Euler 552
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 552
 ## 题目
 ### Chinese leftovers II
-
+
+
 
 Let <var>A_n</var> be the smallest positive integer satisfying  <var>A_n</var> mod <var>p_i</var> = <var>i</var>  for all 1 \le <var>i</var> \le <var>n</var>, where <var>p_i</var> is the
 <var>i</var>-th prime.

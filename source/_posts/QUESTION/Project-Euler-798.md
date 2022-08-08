@@ -1,7 +1,8 @@
 ---
 title: Project Euler 798
-tags:
+category:
   - Project Euler
+tags:
   - 快速沃尔什变换
   - SG定理
 mathjax: true

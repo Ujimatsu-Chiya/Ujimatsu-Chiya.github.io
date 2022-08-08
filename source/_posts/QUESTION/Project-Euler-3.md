@@ -1,7 +1,8 @@
 ---
 title: Project Euler 3
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-04-24 14:09:22
 ---

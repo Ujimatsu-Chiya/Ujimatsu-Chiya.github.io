@@ -1,7 +1,8 @@
 ---
 title: Project Euler 664
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 664
 ## 题目
 ### An infinite game
-
+
+
 Peter is playing a solitaire game on an infinite checkerboard, each square of which can hold an unlimited number of tokens.
 
 Each move of the game consists of the following steps:

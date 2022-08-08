@@ -1,7 +1,8 @@
 ---
 title: Project Euler 473
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 473
 ## 题目
 ### Phigital number base
-
+
+
 
 Let $\varphi$ be the golden ratio: $\varphi=\frac{1+\sqrt{5}}{2}.$<br />
 Remarkably it is possible to write every positive integer as a sum of powers of $\varphi$ even if we require that every power of $\varphi$ is used at most once in this sum.<br />

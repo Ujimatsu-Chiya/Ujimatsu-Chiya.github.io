@@ -1,7 +1,8 @@
 ---
 title: Project Euler 595
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 595
 ## 题目
 ### Incremental Random Sort
-
+
+
 
 A deck of cards numbered from 1 to n is shuffled randomly such that each permutation is equally likely.
 

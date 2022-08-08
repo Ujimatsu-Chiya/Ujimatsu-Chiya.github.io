@@ -1,7 +1,8 @@
 ---
 title: Project Euler 791
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 791
 ## 题目
 ### Average and Variance
-
+
+
 Denote the average of $k$ numbers $x_1, \dots, x_k$ by $\bar{x} = \frac{1}{k} \sum_i x_i$. Their variance is defined as $\frac{1}{k} \sum_i \left( x_i - \bar{x} \right) ^ 2$.
 
 Let $S(n)$ be the sum of all quadruples of integers $(a,b,c,d)$ satisfying $1 \leq a \leq b \leq c \leq d \leq n$ such that their average is exactly twice their variance.

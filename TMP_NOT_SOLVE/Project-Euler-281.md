@@ -1,7 +1,8 @@
 ---
 title: Project Euler 281
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 281
 ## 题目
 ### Pizza Toppings
-
+
+
 You are given a pizza (perfect circle) that has been cut into <var>m</var>·<var>n</var> equal pieces and you want to have exactly one topping on each slice.
 
 Let <var>f</var>(<var>m</var>,<var>n</var>) denote the number of ways you can have toppings on the pizza with <var>m</var> different toppings (<var>m</var> \ge 2), using each topping on exactly <var>n</var> slices (<var>n</var> \ge 1). <br />Reflections are considered distinct, rotations are not. 

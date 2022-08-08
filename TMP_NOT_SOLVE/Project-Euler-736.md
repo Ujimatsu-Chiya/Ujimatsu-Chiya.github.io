@@ -1,7 +1,8 @@
 ---
 title: Project Euler 736
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 736
 ## 题目
 ### Paths to Equality
-
+
+
 Define two functions on lattice points:
 <center>$r(x,y) = (x+1,2y)$</center>
 <center>$s(x,y) = (2x,y+1)$</center>

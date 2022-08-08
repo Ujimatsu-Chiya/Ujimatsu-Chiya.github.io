@@ -1,7 +1,8 @@
 ---
 title: Project Euler 332
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 332
 ## 题目
 ### Spherical triangles
-
+
+
 A <b>spherical triangle</b> is a figure formed on the surface of a sphere by three <b>great circular arcs</b> intersecting pairwise in three vertices.
 
 <div align="center"><img src="project/images/p332_spherical.jpg" class="dark_img" alt="p332_spherical.jpg" /></div>

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 137
-tags:
+category:
   - Project Euler
+tags:
   - 佩尔方程
   - OEIS
 mathjax: true

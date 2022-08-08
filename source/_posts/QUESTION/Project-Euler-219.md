@@ -1,7 +1,8 @@
 ---
 title: Project Euler 219
-tags:
+category:
   - Project Euler
+tags:
   - 贪心
   - 动态规划
 mathjax: true

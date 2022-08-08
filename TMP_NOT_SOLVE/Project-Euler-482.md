@@ -1,7 +1,8 @@
 ---
 title: Project Euler 482
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 482
 ## 题目
 ### The incenter of a triangle
-
+
+
 
 ABC is an integer sided triangle with incenter I and perimeter p.<br />
 The segments IA, IB and IC have integral length as well. 

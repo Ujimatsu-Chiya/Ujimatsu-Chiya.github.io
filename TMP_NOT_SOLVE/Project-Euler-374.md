@@ -1,7 +1,8 @@
 ---
 title: Project Euler 374
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 374
 ## 题目
 ### Maximum Integer Partition Product
-
+
+
 An integer partition of a number <var>n</var> is a way of writing <var>n</var> as a sum of positive integers.
 
 Partitions that differ only in the order of their summands are considered the same.

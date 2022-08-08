@@ -1,7 +1,8 @@
 ---
 title: Project Euler 744
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 744
 ## 题目
 ### What? Where? When?
-
+
+
 "What? Where? When?" is a TV game show in which a team of experts attempt to answer questions. The following is a simplified version of the game.
 
 It begins with $2n+1$ envelopes. $2n$ of them contain a question and one contains a RED card.

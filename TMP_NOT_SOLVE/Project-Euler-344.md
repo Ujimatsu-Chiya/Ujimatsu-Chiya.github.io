@@ -1,7 +1,8 @@
 ---
 title: Project Euler 344
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 344
 ## 题目
 ### Silver dollar game
-
+
+
 One variant of N.G. de Bruijn's <b>silver dollar</b> game can be described as follows:
 
 On a strip of squares a number of coins are placed, at most one coin per square. Only one coin, called the <b>silver dollar</b>, has any value. Two players take turns making moves. At each turn a player must make either a <i>regular</i> or a <i>special</i> move.

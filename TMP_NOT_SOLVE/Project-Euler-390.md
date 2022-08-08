@@ -1,7 +1,8 @@
 ---
 title: Project Euler 390
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 390
 ## 题目
 ### Triangles with non rational sides and integral area
-
+
+
 Consider the triangle with sides $\sqrt 5$, $\sqrt {65}$ and $\sqrt {68}$.
 It can be shown that this triangle has area $9$.
 

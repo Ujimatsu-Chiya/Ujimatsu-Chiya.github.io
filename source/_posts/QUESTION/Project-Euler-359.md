@@ -1,7 +1,8 @@
 ---
 title: Project Euler 359
-tags:
+category:
   - Project Euler
+tags:
   - OEIS
 mathjax: true
 date: 2022-07-12 00:16:55

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 393
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-07-19 00:28:41

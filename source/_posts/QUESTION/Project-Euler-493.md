@@ -1,7 +1,8 @@
 ---
 title: Project Euler 493
-tags:
+category:
   - Project Euler
+tags:
   - 概率
 mathjax: true
 date: 2022-06-05 09:28:48

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 679
-tags:
+category:
   - Project Euler
+tags:
   - AC自动机
   - 动态规划
 mathjax: true

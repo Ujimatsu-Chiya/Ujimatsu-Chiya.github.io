@@ -1,7 +1,8 @@
 ---
 title: Project Euler 406
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 406
 ## 题目
 ### Guessing Game
-
+
+
 We are trying to find a hidden number selected from the set of integers {1, 2, \dots, <var>n</var>} by asking questions. 
 Each number (question) we ask, we get one of three possible answers:<br /><ul><li> "Your guess is lower than the hidden number" (and you incur a cost of <var>a</var>), or</li>
 <li> "Your guess is higher than the hidden number" (and you incur a cost of <var>b</var>), or</li>

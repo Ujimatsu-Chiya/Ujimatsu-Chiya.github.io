@@ -1,7 +1,8 @@
 ---
 title: Project Euler 587
-tags:
+category:
   - Project Euler
+tags:
   - 二分
 mathjax: true
 date: 2022-06-13 21:21:38

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 562
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 562
 ## 题目
 ### Maximal perimeter
-
+
+
 Construct triangle ABC such that:
 <ul><li>Vertices A, B and C are lattice points inside or on the circle of radius <var>r</var> centered at the origin;</li>
 <li>the triangle contains no other lattice point inside or on its edges;</li>

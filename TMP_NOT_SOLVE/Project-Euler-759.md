@@ -1,7 +1,8 @@
 ---
 title: Project Euler 759
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 759
 ## 题目
 ### A squared recurrence relation
-
+
+
 The function $f$ is defined for all positive integers as follows:
 \begin{align*}
 f(1) &amp;=  1\\

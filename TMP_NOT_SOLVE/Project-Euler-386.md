@@ -1,7 +1,8 @@
 ---
 title: Project Euler 386
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 386
 ## 题目
 ### Maximum length of an antichain
-
+
+
 Let <var>n</var> be an integer and <var>S</var>(<var>n</var>) be the set of factors of <var>n</var>.
 
 A subset <var>A</var> of <var>S</var>(<var>n</var>) is called an <b>antichain</b> of <var>S</var>(<var>n</var>) if <var>A</var> contains only one element or if none of the elements of <var>A</var> divides any of the other elements of <var>A</var>.

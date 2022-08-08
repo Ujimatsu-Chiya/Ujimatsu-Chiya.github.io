@@ -1,7 +1,8 @@
 ---
 title: Project Euler 282
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 282
 ## 题目
 ### The Ackermann function
-
+
+
 $\def\htmltext#1{\style{font-family:inherit;}{\text{#1}}}$
 
 For non-negative integers $m$, $n$, the Ackermann function $A(m,n)$ is defined as follows:

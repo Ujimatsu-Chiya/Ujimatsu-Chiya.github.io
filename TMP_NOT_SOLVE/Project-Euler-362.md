@@ -1,7 +1,8 @@
 ---
 title: Project Euler 362
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 362
 ## 题目
 ### Squarefree factors
-
+
+
 
 Consider the number 54.<br />
 54 can be factored in 7 distinct ways into one or more factors larger than 1:<br />

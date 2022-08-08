@@ -1,7 +1,8 @@
 ---
 title: Project Euler 782
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 782
 ## 题目
 ### Distinct Rows and Columns
-
+
+
 The <i>complexity</i> of an $n\times n$ binary matrix is the number of distinct rows and columns.
 
 For example, consider the $3\times 3$ matrices

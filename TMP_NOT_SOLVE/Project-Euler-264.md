@@ -1,15 +1,18 @@
 ---
 title: Project Euler 264
-tags:
+category:
   - Project Euler
+category:
 mathjax: true
+tags:
 ---
 <escape><!-- more --></escape>
     
 # Project Euler 264
 ## 题目
 ### Triangle Centres
-
+
+
 Consider all the triangles having:
 <ul><li>All their vertices on <dfn title="Integer coordinates">lattice points</dfn>.</li>
 <li><dfn title="Centre of the circumscribed circle">Circumcentre</dfn> at the origin O.</li>

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 705
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 705
 ## 题目
 ### Total Inversion Count of Divided Sequences
-
+
+
 
 The <i>inversion count</i> of a sequence of digits is the smallest number of adjacent pairs that must be swapped to sort the sequence.<br />
 For example, 34214 has inversion count of 5:

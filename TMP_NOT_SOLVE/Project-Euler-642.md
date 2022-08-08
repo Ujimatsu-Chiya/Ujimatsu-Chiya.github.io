@@ -1,7 +1,8 @@
 ---
 title: Project Euler 642
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 642
 ## 题目
 ### Sum of largest prime factors
-
+
+
 Let $f(n)$ be the largest prime factor of $n$ and $\displaystyle F(n) = \sum_{i=2}^{n}f(i)$.<br />
 For example $F(10)=32$, $F(100)=1915$ and $F(10000)=10118280$.
 

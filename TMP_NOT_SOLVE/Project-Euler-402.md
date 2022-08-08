@@ -1,7 +1,8 @@
 ---
 title: Project Euler 402
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 402
 ## 题目
 ### Integer-valued polynomials
-
+
+
 
 It can be shown that the polynomial <var>n</var>^4 + 4<var>n</var>^3 + 2<var>n</var>^2 + 5<var>n</var> is a multiple of 6 for every integer <var>n</var>. It can also be shown that 6 is the largest integer satisfying this property.
 

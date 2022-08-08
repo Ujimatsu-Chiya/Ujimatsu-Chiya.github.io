@@ -1,7 +1,8 @@
 ---
 title: Project Euler 682
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 682
 ## 题目
 ### 5-Smooth Pairs
-
+
+
 5-smooth numbers are numbers whose largest prime factor doesn't exceed 5.<br />
 5-smooth numbers are also called Hamming numbers.
 

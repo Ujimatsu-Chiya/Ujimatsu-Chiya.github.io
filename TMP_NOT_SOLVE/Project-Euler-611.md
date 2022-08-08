@@ -1,7 +1,8 @@
 ---
 title: Project Euler 611
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 611
 ## 题目
 ### Hallway of square steps
-
+
+
 Peter moves in a hallway with <var>N</var>+1 doors consecutively numbered from 0 through <var>N</var>. All doors are initially closed. Peter starts in front of door 0, and repeatedly performs the following steps:
 <ul><li>First, he walks a positive square number of doors away from his position.</li>
 <li>Then he walks another, larger square number of doors away from his new position.</li>

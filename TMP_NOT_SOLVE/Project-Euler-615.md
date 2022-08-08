@@ -1,7 +1,8 @@
 ---
 title: Project Euler 615
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 615
 ## 题目
 ### The millionth number with at least one million prime factors
-
+
+
 
 Consider the natural numbers having at least 5 prime factors, which don't have to be distinct.<br /> Sorting these numbers by size gives a list which starts with:
 

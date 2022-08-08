@@ -1,7 +1,8 @@
 ---
 title: Project Euler 18
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-04-27 09:55:45

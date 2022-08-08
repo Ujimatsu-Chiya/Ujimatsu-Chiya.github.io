@@ -1,7 +1,8 @@
 ---
 title: Project Euler 460
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 460
 ## 题目
 ### An ant on the move
-
+
+
 
 On the Euclidean plane, an ant travels from point A(0, 1) to point B(<var>d</var>, 1) for an integer <var>d</var>.
 

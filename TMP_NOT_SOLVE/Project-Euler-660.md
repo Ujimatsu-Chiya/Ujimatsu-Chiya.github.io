@@ -1,7 +1,8 @@
 ---
 title: Project Euler 660
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 660
 ## 题目
 ### Pandigital Triangles
-
+
+
 We call an integer sided triangle <i>$n$-pandigital</i> if it contains one angle of 120 degrees and, when the sides of the triangle are written in base $n$, together they use all $n$ digits of that base exactly once.
 
 

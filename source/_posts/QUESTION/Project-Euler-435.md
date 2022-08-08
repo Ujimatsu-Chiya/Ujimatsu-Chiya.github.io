@@ -1,7 +1,8 @@
 ---
 title: Project Euler 435
-tags:
+category:
   - Project Euler
+tags:
   - 矩阵快速幂
 mathjax: true
 date: 2022-07-27 23:50:06

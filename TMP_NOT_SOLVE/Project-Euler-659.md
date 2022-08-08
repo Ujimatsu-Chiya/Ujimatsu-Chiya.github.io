@@ -1,7 +1,8 @@
 ---
 title: Project Euler 659
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 659
 ## 题目
 ### Largest prime
-
+
+
 
 Consider the sequence  $n^2+3$ with $n \ge 1$. <br /> 
 If we write down the first terms of this sequence we get:<br />

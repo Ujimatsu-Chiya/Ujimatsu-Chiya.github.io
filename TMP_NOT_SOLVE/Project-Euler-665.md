@@ -1,7 +1,8 @@
 ---
 title: Project Euler 665
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 665
 ## 题目
 ### Proportionate Nim
-
+
+
 Two players play a game with two piles of stones, alternating turns.
 On each turn, the corresponding player chooses a positive integer $n$ and does one of the following:
 <ul><li>removes $n$ stones from one pile;</li>

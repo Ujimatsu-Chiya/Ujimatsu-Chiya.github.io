@@ -1,7 +1,8 @@
 ---
 title: Project Euler 316
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 316
 ## 题目
 ### Numbers in decimal expansions
-
+
+
 Let <var>p</var> = <var>p_<font size="-2">1</font> p_<font size="-2">2</font> p_<font size="-2">3</font></var> \dots be an infinite sequence of random digits, selected from {0,1,2,3,4,5,6,7,8,9} with equal probability.<br />
 It can be seen that <var>p</var> corresponds to the real number 0.<var>p_<font size="-2">1</font> p_<font size="-2">2</font> p_<font size="-2">3</font></var> \dots. <br />
 It can also be seen that choosing a random real number from the interval [0,1) is equivalent to choosing an infinite sequence of random digits selected from {0,1,2,3,4,5,6,7,8,9} with equal probability.

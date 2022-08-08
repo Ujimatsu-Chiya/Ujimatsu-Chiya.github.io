@@ -1,7 +1,8 @@
 ---
 title: Project Euler 499
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 499
 ## 题目
 ### St. Petersburg Lottery
-
+
+
 A gambler decides to participate in a special lottery. In this lottery the gambler plays a series of one or more games.<br />
 Each game costs <var>m</var> pounds to play and starts with an initial pot of 1 pound. The gambler flips an unbiased coin. Every time a head appears, the pot is doubled and the gambler continues. When a tail appears, the game ends and the gambler collects the current value of the pot. The gambler is certain to win at least 1 pound, the starting value of the pot, at the cost of <var>m</var> pounds, the initial fee.
 

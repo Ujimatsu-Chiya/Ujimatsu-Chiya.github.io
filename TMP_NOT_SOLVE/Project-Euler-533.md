@@ -1,7 +1,8 @@
 ---
 title: Project Euler 533
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 533
 ## 题目
 ### Minimum values of the Carmichael function
-
+
+
 The <b>Carmichael function</b> λ(<var>n</var>) is defined as the smallest positive integer <var>m</var> such that <var>a^m</var> = 1 modulo <var>n</var> for all integers <var>a</var> coprime with <var>n</var>.<br />
 For example λ(8) = 2 and λ(240) = 4.
 

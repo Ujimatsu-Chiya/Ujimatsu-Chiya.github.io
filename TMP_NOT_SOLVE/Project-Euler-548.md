@@ -1,7 +1,8 @@
 ---
 title: Project Euler 548
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 548
 ## 题目
 ### Gozinta Chains
-
+
+
 
 A <b>gozinta chain </b>for <var>n</var> is a sequence {1,a,b,\dots,<var>n</var>} where each element properly divides the next.<br />
 There are eight gozinta chains for 12:<br />

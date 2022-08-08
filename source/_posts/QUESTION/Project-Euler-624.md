@@ -1,7 +1,8 @@
 ---
 title: Project Euler 624
-tags:
+category:
   - Project Euler
+tags:
   - 矩阵快速幂
   - 马尔科夫链
 mathjax: true

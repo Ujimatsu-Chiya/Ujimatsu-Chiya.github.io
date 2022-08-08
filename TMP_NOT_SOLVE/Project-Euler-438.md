@@ -1,7 +1,8 @@
 ---
 title: Project Euler 438
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 438
 ## 题目
 ### Integer part of polynomial equation's solutions
-
+
+
 
 For an <var>n</var>-tuple of integers <var>t</var> = (<var>a</var>_1, \dots, <var>a</var>_<var>n</var>), let (<var>x</var>_1, \dots, <var>x</var>_<var>n</var>) be the solutions of the polynomial equation <var>x</var>^<var>n</var> + <var>a</var>_1<var>x</var>^<var>n</var>-1 + <var>a</var>_2<var>x</var>^<var>n</var>-2 + \dots + <var>a</var>_<var>n</var>-1<var>x</var> + <var>a</var>_<var>n</var> = 0.
 

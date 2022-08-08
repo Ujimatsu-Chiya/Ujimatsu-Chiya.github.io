@@ -1,7 +1,8 @@
 ---
 title: Project Euler 331
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 331
 ## 题目
 ### Cross flips
-
+
+
 <var>N</var>\times<var>N</var> disks are placed on a square game board. Each disk has a black side and white side.
 
 At each turn, you may choose a disk and flip all the disks in the same row and the same column as this disk: thus 2\times<var>N</var>-1 disks are flipped. The game ends when all disks show their white side. The following example shows a game on a 5\times5 board.

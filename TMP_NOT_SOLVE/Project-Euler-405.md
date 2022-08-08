@@ -1,7 +1,8 @@
 ---
 title: Project Euler 405
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 405
 ## 题目
 ### A rectangular tiling
-
+
+
 
 We wish to tile a rectangle whose length is twice its width.<br />
 Let <var>T</var>(0) be the tiling consisting of a single rectangle.<br />

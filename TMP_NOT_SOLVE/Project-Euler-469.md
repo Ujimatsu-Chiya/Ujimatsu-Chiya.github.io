@@ -1,7 +1,8 @@
 ---
 title: Project Euler 469
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 469
 ## 题目
 ### Empty chairs
-
+
+
 
 In a room <var>N</var> chairs are placed around a round table.<br />
 Knights enter the room one by one and choose at random an available empty chair.<br />

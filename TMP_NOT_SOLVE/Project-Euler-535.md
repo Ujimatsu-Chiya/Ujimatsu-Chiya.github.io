@@ -1,7 +1,8 @@
 ---
 title: Project Euler 535
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 535
 ## 题目
 ### Fractal Sequence
-
+
+
 Consider the infinite integer sequence S starting with:<br /><var>S</var> = 1, 1, 2, 1, 3, 2, 4, 1, 5, 3, 6, 2, 7, 8, 4, 9, 1, 10, 11, 5, \dots
 
 Circle the first occurrence of each integer.<br /><var>S</var> = ①, 1, ②, 1, ③, 2, ④, 1, ⑤, 3, ⑥, 2, ⑦, ⑧, 4, ⑨, 1, ⑩, ⑪, 5, \dots

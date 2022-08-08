@@ -1,7 +1,8 @@
 ---
 title: Project Euler 193
-tags:
+category:
   - Project Euler
+tags:
   - 容斥原理
 mathjax: true
 date: 2022-05-19 21:56:35

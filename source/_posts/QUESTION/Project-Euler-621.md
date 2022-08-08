@@ -1,7 +1,8 @@
 ---
 title: Project Euler 621
-tags:
+category:
   - Project Euler
+tags:
   - 论文
 mathjax: true
 date: 2022-08-05 21:41:55

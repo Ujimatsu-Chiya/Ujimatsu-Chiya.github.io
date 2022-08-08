@@ -1,7 +1,8 @@
 ---
 title: Project Euler 447
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 447
 ## 题目
 ### Retractions C
-
+
+
 
 For every integer $n>1$, the family of functions $f_{n,a,b}$ is defined 
 by  <br />

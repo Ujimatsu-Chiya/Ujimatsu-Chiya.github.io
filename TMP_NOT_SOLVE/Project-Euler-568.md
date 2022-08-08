@@ -1,7 +1,8 @@
 ---
 title: Project Euler 568
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 568
 ## 题目
 ### Reciprocal games II
-
+
+
 Tom has built a random generator that is connected to a row of $n$ light bulbs. Whenever the random generator is activated each of the $n$ lights is turned on with the probability of $\frac 1 2$, independently of its former state or the state of the other light bulbs.
 
 While discussing with his friend Jerry how to use his generator, they invent two different games, they call the <i>reciprocal games</i>:<br />

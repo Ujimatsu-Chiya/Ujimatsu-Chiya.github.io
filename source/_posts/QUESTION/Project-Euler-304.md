@@ -1,7 +1,8 @@
 ---
 title: Project Euler 304
-tags:
+category:
   - Project Euler
+tags:
   - 矩阵快速幂
 mathjax: true
 date: 2022-06-08 22:37:36

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 805
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 805
 ## 题目
 ### Shifted Multiples
-
+
+
 
 For a positive integer $n$, let $s(n)$ be the integer obtained by shifting the leftmost digit of the decimal representation of $n$ to the rightmost position.<br />
 For example, $s(142857)=428571$ and $s(10)=1$.

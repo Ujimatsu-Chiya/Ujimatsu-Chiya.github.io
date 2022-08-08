@@ -1,7 +1,8 @@
 ---
 title: Project Euler 787
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 787
 ## 题目
 ### Bézout's Game
-
+
+
 Two players play a game with two piles of stones. They take alternating turns. If there are currently $a$ stones in the first pile and $b$ stones in the second, a turn consists of removing $c\geq 0$ stones from the first pile and $d\geq 0$ from the second in such a way that $ad-bc=\pm1$. The winner is the player who first empties one of the piles.
 
 Note that the game is only playable if the sizes of the two piles are coprime.

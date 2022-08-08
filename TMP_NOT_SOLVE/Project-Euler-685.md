@@ -1,7 +1,8 @@
 ---
 title: Project Euler 685
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 685
 ## 题目
 ### Inverse Digit Sum II
-
+
+
 Writing down the numbers which have a digit sum of 10 in ascending order, we get:
 $19, 28, 37, 46,55,64,73,82,91,109, 118,\dots$
 

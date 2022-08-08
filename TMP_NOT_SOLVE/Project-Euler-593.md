@@ -1,7 +1,8 @@
 ---
 title: Project Euler 593
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 593
 ## 题目
 ### Fleeting Medians
-
+
+
 We define two sequences $S = \{S(1), S(2), \dots, S(n)\}$ and $S_2 = \{S_2(1), S_2(2), \dots, S_2(n)\}$:
 
 $S(k) = (p_k)^k$ mod $10007$ where $p_k$ is the $k$th prime number.

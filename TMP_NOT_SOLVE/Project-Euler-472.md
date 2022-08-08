@@ -1,7 +1,8 @@
 ---
 title: Project Euler 472
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 472
 ## 题目
 ### Comfortable Distance II
-
+
+
 There are <var>N</var> seats in a row. <var>N</var> people come one after another to fill the seats according to the following rules:
 <ol><li>No person sits beside another.</li>
 <li>The first person chooses any seat.</li>

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 741
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 741
 ## 题目
 ### Binary grid colouring
-
+
+
 
 Let $f(n)$ be the number of ways an $n\times n$ square grid can be coloured, each cell either black or white, such that each row and each column contains exactly two black cells.<br />
 For example, $f(4)=90$, $f(7) = 3110940$ and $f(8) = 187530840$.

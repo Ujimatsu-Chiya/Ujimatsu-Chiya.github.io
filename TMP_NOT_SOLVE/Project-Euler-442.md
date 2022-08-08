@@ -1,7 +1,8 @@
 ---
 title: Project Euler 442
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 442
 ## 题目
 ### Eleven-free integers
-
+
+
 An integer is called <i>eleven-free</i> if its decimal expansion does not contain any substring representing a power of 11 except 1.
 
 For example, 2404 and 13431 are eleven-free, while 911 and 4121331 are not.

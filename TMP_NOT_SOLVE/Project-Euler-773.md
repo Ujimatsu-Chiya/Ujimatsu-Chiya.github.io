@@ -1,7 +1,8 @@
 ---
 title: Project Euler 773
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 773
 ## 题目
 ### Ruff Numbers
-
+
+
 
 Let $S_k$ be the set containing 2 and 5 and the first $k$ primes that end in 7. For example, $S_3 = \{2,5,7,17,37\}$.
 

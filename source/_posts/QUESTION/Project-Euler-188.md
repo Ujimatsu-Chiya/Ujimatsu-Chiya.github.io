@@ -1,7 +1,8 @@
 ---
 title: Project Euler 188
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-05-15 10:16:03
 ---

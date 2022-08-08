@@ -1,7 +1,8 @@
 ---
 title: Project Euler 269
-tags:
+category:
   - Project Euler
+tags:
   - 容斥原理
   - 动态规划
 mathjax: true

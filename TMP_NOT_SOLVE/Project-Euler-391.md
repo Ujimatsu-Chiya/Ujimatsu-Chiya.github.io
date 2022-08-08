@@ -1,7 +1,8 @@
 ---
 title: Project Euler 391
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 391
 ## 题目
 ### Hopping Game
-
+
+
 Let $s_k$ be the number of 1’s when writing the numbers from 0 to $k$ in binary.<br />
 For example, writing 0 to 5 in binary, we have $0, 1, 10, 11, 100, 101$. There are seven 1’s, so $s_5 = 7$.<br />
 The sequence $S = \{s_k : k \ge 0\}$ starts $\{0, 1, 2, 4, 5, 7, 9, 12, \dots\}$.

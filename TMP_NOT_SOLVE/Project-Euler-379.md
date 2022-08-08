@@ -1,7 +1,8 @@
 ---
 title: Project Euler 379
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 379
 ## 题目
 ### Least common multiple count
-
+
+
 
 Let <var>f</var>(<var>n</var>) be the number of couples (<var>x</var>,<var>y</var>) with <var>x</var> and <var>y</var> positive integers, <var>x</var> \le <var>y</var> and the least common multiple of <var>x</var> and <var>y</var> equal to <var>n</var>.
 

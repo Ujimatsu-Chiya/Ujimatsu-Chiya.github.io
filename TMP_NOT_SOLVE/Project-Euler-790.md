@@ -1,7 +1,8 @@
 ---
 title: Project Euler 790
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 790
 ## 题目
 ### Clock Grid
-
+
+
 There is a grid of length and width 50515093 points. A clock is placed on each grid point. The clocks are all analogue showing a single hour hand initially pointing at 12.  
 
 A sequence $S_t$ is created where:

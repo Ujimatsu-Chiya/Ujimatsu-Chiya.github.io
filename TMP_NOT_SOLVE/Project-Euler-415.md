@@ -1,7 +1,8 @@
 ---
 title: Project Euler 415
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 415
 ## 题目
 ### Titanic sets
-
+
+
 A set of lattice points S is called a <i>titanic set</i> if there exists a line passing through exactly two points in S.
 
 An example of a titanic set is S = {(0, 0), (0, 1), (0, 2), (1, 1), (2, 0), (1, 0)}, where the line passing through (0, 1) and (2, 0) does not pass through any other point in S.

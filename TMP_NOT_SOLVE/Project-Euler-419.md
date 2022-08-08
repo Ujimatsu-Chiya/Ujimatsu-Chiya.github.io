@@ -1,7 +1,8 @@
 ---
 title: Project Euler 419
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 419
 ## 题目
 ### Look and say sequence
-
+
+
 
 The <b>look and say</b> sequence goes 1, 11, 21, 1211, 111221, 312211, 13112221, 1113213211, \dots<br />
 The sequence starts with 1 and all other members are obtained by describing the previous member in terms of consecutive digits.<br />

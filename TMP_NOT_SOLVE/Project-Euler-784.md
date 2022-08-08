@@ -1,7 +1,8 @@
 ---
 title: Project Euler 784
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 784
 ## 题目
 ### Reciprocal Pairs
-
+
+
 
 Let's call a pair of positive integers $p$, $q$ ($p \lt q$) <i>reciprocal</i>, if there is a positive integer $r\lt p$ such that $r$ equals both the inverse of $p$ modulo $q$ and the inverse of $q$ modulo $p$.
 

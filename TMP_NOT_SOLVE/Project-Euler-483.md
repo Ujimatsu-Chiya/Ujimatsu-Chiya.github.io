@@ -1,7 +1,8 @@
 ---
 title: Project Euler 483
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 483
 ## 题目
 ### Repeated permutation
-
+
+
 
 We define a <i>permutation</i> as an operation that rearranges the order of the elements {1, 2, 3, \dots, n}.
 There are n! such permutations, one of which leaves the elements in their initial order.

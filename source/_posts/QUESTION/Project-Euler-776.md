@@ -1,7 +1,8 @@
 ---
 title: Project Euler 776
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-07-27 23:49:26

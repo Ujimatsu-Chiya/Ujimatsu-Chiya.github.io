@@ -1,7 +1,8 @@
 ---
 title: Project Euler 677
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 677
 ## 题目
 ### Coloured Graphs
-
+
+
 Let $g(n)$ be the number of <b>undirected graphs</b> with $n$ nodes satisfying the following properties:
 <ul><li>The graph is connected and has no cycles or multiple edges.</li>
 <li>Each node is either red, blue, or yellow.</li>

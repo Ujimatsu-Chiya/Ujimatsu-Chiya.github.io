@@ -1,7 +1,8 @@
 ---
 title: Project Euler 299
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 299
 ## 题目
 ### Three similar triangles
-
+
+
 Four points with integer coordinates are selected:<br />A(<var>a</var>, 0), B(<var>b</var>, 0), C(0, <var>c</var>) and D(0, <var>d</var>), 
 with 0 < <var>a</var> < <var>b</var> and 0 < <var>c</var> < <var>d</var>.<br />
 Point P, also with integer coordinates, is chosen on the line AC so that the three triangles ABP, CDP and BDP are all <dfn title="Have equal angles">similar</dfn>.

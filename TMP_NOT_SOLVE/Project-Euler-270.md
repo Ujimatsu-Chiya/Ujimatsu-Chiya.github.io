@@ -1,7 +1,8 @@
 ---
 title: Project Euler 270
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 270
 ## 题目
 ### Cutting Squares
-
+
+
 A square piece of paper with integer dimensions N\timesN is placed with a corner at the origin and two of its sides along the <var>x</var>- and <var>y</var>-axes. Then, we cut it up respecting the following rules:
 <ul><li>We only make straight cuts between two points lying on different sides of the square, and having integer coordinates.</li>
 <li>Two cuts cannot cross, but several cuts can meet at the same border point.</li>

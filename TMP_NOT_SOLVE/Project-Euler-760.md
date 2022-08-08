@@ -1,7 +1,8 @@
 ---
 title: Project Euler 760
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 760
 ## 题目
 ### Sum over Bitwise Operators
-
+
+
 Define
 $$\displaystyle g(m,n) = (m\oplus n)+(m\vee n)+(m\wedge n)$$
 where $\oplus, \vee, \wedge$ are the bitwise XOR, OR and AND operator respectively.

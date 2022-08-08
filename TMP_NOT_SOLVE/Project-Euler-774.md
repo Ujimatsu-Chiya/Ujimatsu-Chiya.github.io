@@ -1,7 +1,8 @@
 ---
 title: Project Euler 774
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 774
 ## 题目
 ### Conjunctive Sequences
-
+
+
 Let '$\&amp;$' denote the bitwise AND operation.<br />
 For example, $10\,\&amp;\, 12 = 1010_2\,\&amp;\, 1100_2 = 1000_2 = 8$.
 

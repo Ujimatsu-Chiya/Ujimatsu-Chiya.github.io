@@ -1,7 +1,8 @@
 ---
 title: Project Euler 654
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 654
 ## 题目
 ### Neighbourly Constraints
-
+
+
 
 Let $T(n, m)$ be the number of $m$-tuples of positive integers such that the sum of any two neighbouring elements of the tuple is $\le n$.
 

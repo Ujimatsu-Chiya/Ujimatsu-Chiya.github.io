@@ -1,7 +1,8 @@
 ---
 title: Project Euler 328
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 328
 ## 题目
 ### Lowest-cost Search
-
+
+
 We are trying to find a hidden number selected from the set of integers {1, 2, \dots, <var>n</var>} by asking questions. 
 Each number (question) we ask, has a <u>cost equal to the number asked</u> and we get one of three possible answers:<br /><ul><li> "Your guess is lower than the hidden number", or</li>
 <li> "Yes, that's it!", or</li>

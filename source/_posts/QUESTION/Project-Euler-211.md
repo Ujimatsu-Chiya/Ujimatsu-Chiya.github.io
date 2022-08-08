@@ -1,7 +1,8 @@
 ---
 title: Project Euler 211
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-06-02 21:04:06
 ---

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 566
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 566
 ## 题目
 ### Cake Icing Puzzle
-
+
+
 Adam plays the following game with his birthday cake.
 
 He cuts a piece forming a circular sector of 60 degrees and flips the piece upside down, with the icing on the bottom.<br />

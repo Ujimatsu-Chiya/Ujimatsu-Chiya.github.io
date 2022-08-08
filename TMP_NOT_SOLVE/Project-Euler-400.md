@@ -1,7 +1,8 @@
 ---
 title: Project Euler 400
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 400
 ## 题目
 ### Fibonacci tree game
-
+
+
 
 A <b>Fibonacci tree</b> is a binary tree recursively defined as:<ul><li>T(0) is the empty tree.
 </li><li>T(1) is the binary tree with only one node.

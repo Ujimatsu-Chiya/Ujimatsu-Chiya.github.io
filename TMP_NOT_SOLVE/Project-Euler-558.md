@@ -1,7 +1,8 @@
 ---
 title: Project Euler 558
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 558
 ## 题目
 ### Irrational base
-
+
+
 Let <var>r</var> be the real root of the equation <var>x</var>^3 = <var>x</var>^2 + 1.<br />
 Every positive integer can be written as the sum of distinct increasing powers of <var>r</var>.<br />
 If we require the number of terms to be finite and the difference between any two exponents to be three or more, then the representation is unique.<br />

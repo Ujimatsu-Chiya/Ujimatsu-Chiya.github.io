@@ -1,7 +1,8 @@
 ---
 title: Project Euler 551
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 551
 ## 题目
 ### Sum of digits sequence
-
+
+
 Let <var>a</var>_0, <var>a</var>_1, <var>a</var>_2, \dots be an integer sequence defined by:
 <ul><li><var>a</var>_0 = 1;</li>
 <li>for <var>n</var> \ge 1, <var>a_n</var> is the sum of the digits of all preceding terms.</li>

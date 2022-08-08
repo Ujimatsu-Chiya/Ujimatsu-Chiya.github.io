@@ -1,7 +1,8 @@
 ---
 title: Project Euler 576
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 576
 ## 题目
 ### Irrational jumps
-
+
+
 
 A bouncing point moves counterclockwise along a circle with circumference $1$ with  jumps of constant length $l<1$, until it hits a gap of length $g<1$, that is placed in a distance $d$ counterclockwise from the starting point. The gap does not include the starting point, that is $g+d<1$.
 

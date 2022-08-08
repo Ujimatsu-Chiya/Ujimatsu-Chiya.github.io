@@ -1,7 +1,8 @@
 ---
 title: Project Euler 370
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 370
 ## 题目
 ### Geometric triangles
-
+
+
 Let us define a <i>geometric triangle</i> as an integer sided triangle with sides <var>a</var> \le <var>b</var> \le <var>c</var> so that its sides form a <b>geometric progression</b>, i.e. <var>b^2</var> = <var>a</var> · <var>c</var> .  
 
 An example of such a geometric triangle is the triangle with sides <var>a</var> = 144, <var>b</var> = 156 and <var>c</var> = 169.

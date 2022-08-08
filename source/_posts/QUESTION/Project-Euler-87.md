@@ -1,7 +1,8 @@
 ---
 title: Project Euler 87
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-05-02 16:36:56
 ---
@@ -23,7 +24,7 @@ $47 = 2^2 + 3^3 + 2^4$
 
 How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?
 
-### 解决方案
+## 解决方案
 
 令$N=5\times10^7$。
 

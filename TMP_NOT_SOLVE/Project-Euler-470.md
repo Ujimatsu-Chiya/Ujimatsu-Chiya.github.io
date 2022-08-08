@@ -1,7 +1,8 @@
 ---
 title: Project Euler 470
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 470
 ## 题目
 ### Super Ramvok
-
+
+
 Consider a single game of Ramvok:
 
 Let <var>t</var> represent the maximum number of turns the game lasts. If <var>t</var> = 0, then the game ends immediately. Otherwise, on each turn <var>i</var>, the player rolls a die. After rolling, if <var>i</var> < <var>t</var> the player can either stop the game and receive a prize equal to the value of the current roll, or discard the roll and try again next turn. If <var>i</var> = <var>t</var>, then the roll cannot be discarded and the prize must be accepted. Before the game begins, <var>t</var> is chosen by the player, who must then pay an up-front cost <var>ct</var> for some constant <var>c</var>. For <var>c</var> = 0, <var>t</var> can be chosen to be infinite (with an up-front cost of 0). Let R(<var>d</var>, <var>c</var>) be the expected profit (i.e. net gain) that the player receives from a single game of optimally-played Ramvok, given a fair <var>d</var>-sided die and cost constant <var>c</var>. For example, R(4, 0.2) = 2.65. Assume that the player has sufficient funds for paying any/all up-front costs.

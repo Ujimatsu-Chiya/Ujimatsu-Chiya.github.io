@@ -1,7 +1,8 @@
 ---
 title: Project Euler 683
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 683
 ## 题目
 ### The Chase II
-
+
+
 Consider the following variant of "The Chase" game. This game is played between $n$ players sitting around a circular table using two dice. It consists of $n-1$ rounds, and at the end of each round one player is eliminated and has to pay a certain amount of money into a pot. The last player remaining is the winner and receives the entire contents of the pot.
 
 At the beginning of a round, each die is given to a randomly selected player. A round then consists of a number of turns.

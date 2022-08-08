@@ -1,7 +1,8 @@
 ---
 title: Project Euler 423
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 423
 ## 题目
 ### Consecutive die throws
-
+
+
 Let <var>n</var> be a positive integer.<br />
 A 6-sided die is thrown <var>n</var> times. Let <var>c</var> be the number of pairs of consecutive throws that give the same value.
 

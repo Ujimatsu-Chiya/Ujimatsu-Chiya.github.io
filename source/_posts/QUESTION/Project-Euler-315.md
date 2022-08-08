@@ -1,7 +1,8 @@
 ---
 title: Project Euler 315
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-07-08 17:06:24
 ---

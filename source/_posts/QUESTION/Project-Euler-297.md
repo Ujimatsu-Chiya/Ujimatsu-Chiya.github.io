@@ -1,7 +1,8 @@
 ---
 title: Project Euler 297
-tags:
+category:
   - Project Euler
+tags:
   - 贪心
   - 齐肯多夫定理
 mathjax: true

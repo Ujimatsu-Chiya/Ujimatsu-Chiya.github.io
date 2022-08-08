@@ -1,7 +1,8 @@
 ---
 title: Project Euler 305
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 305
 ## 题目
 ### Reflexive Position
-
+
+
 
 Let's call S the (infinite) string that is made by concatenating the consecutive positive integers (starting from 1)  written down in base 10.<br /> 
 Thus, S = 1234567891011121314151617181920212223242\dots

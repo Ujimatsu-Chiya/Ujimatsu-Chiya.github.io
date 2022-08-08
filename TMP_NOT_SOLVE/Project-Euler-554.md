@@ -1,7 +1,8 @@
 ---
 title: Project Euler 554
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 554
 ## 题目
 ### Centaurs on a chess board
-
+
+
 On a chess board, a centaur moves like a king or a knight. The diagram below shows the valid moves of a centaur (represented by an inverted king) on an 8x8 board.
 
 <div align="center"><img src="project/images/p554-centaurs.png" alt="p554-centaurs.png" /></div>

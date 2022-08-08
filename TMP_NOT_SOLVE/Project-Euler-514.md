@@ -1,7 +1,8 @@
 ---
 title: Project Euler 514
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 514
 ## 题目
 ### Geoboard Shapes
-
+
+
 A <b>geoboard</b> (of order <var>N</var>) is a square board with equally-spaced pins protruding from the surface, representing an integer point lattice for coordinates 0 \le <var>x</var>,<var>y</var> \le <var>N</var>.
 
 John begins with a pinless geoboard. Each position on the board is a hole that can be filled with a pin. John decides to generate a random integer between 1 and <var>N</var>+1 (inclusive) for each hole in the geoboard. If the random integer is equal to 1 for a given hole, then a pin is placed in that hole.

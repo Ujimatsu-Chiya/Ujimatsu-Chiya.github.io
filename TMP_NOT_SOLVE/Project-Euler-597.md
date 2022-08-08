@@ -1,7 +1,8 @@
 ---
 title: Project Euler 597
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 597
 ## 题目
 ### Torpids
-
+
+
 The Torpids are rowing races held annually in Oxford, following some curious rules:
 
 <ul><li>

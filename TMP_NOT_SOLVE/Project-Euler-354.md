@@ -1,7 +1,8 @@
 ---
 title: Project Euler 354
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 354
 ## 题目
 ### Distances in a bee's honeycomb 
-
+
+
 Consider a honey bee's honeycomb where each cell is a perfect regular hexagon with side length $1$.
 
 <div align="center">

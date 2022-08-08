@@ -1,7 +1,8 @@
 ---
 title: Project Euler 109
-tags:
+category:
   - Project Euler
+tags:
   - 模拟
 mathjax: true
 date: 2022-05-06 22:23:50

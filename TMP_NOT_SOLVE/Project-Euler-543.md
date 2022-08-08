@@ -1,7 +1,8 @@
 ---
 title: Project Euler 543
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 543
 ## 题目
 ### Prime-Sum Numbers
-
+
+
 Define function P(<var>n</var>,<var>k</var>) = 1 if <var>n</var> can be written as the sum of <var>k</var> prime numbers (with repetitions allowed), and P(<var>n</var>,<var>k</var>) = 0 otherwise.
 
 For example, P(10,2) = 1 because 10 can be written as either 3 + 7 or 5 + 5, but P(11,2) = 0 because no two primes can sum to 11.

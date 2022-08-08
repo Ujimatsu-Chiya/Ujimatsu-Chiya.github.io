@@ -1,7 +1,8 @@
 ---
 title: Project Euler 503
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 503
 ## 题目
 ### Compromise or persist
-
+
+
 Alice is playing a game with <var>n</var> cards numbered 1 to <var>n</var>.
 
 A game consists of iterations of the following steps.<br />

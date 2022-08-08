@@ -1,7 +1,8 @@
 ---
 title: Project Euler 646
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 646
 ## 题目
 ### Bounded Divisors
-
+
+
 
 Let $n$ be a natural number and  $p_1^{\alpha_1}\cdot p_2^{\alpha_2}\dotsp_k^{\alpha_k}$ its prime factorisation.<br />
 Define the <b>Liouville function</b> $\lambda(n)$ as $\lambda(n) = (-1)^{\sum\limits_{i=1}^{k}\alpha_i}$.<br />

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 408
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 408
 ## 题目
 ### Admissible paths through a grid
-
+
+
 Let's call a lattice point (<var>x</var>, <var>y</var>) <i>inadmissible</i> if <var>x</var>, <var>y</var> and <var>x</var> + <var>y</var> are all positive perfect squares.<br />
 For example, (9, 16) is inadmissible, while (0, 4), (3, 1) and (9, 4) are not.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 324
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 324
 ## 题目
 ### Building a tower
-
+
+
 Let <var>f</var>(<var>n</var>) represent the number of ways one can fill a 3\times3\times<var>n</var> tower with blocks of 2\times1\times1. <br />You're allowed to rotate the blocks in any way you like; however, rotations, reflections etc of the tower itself are counted as distinct.
 For example (with <var>q</var> = 100000007) :<br /><var>f</var>(2) = 229,<br /><var>f</var>(4) = 117805,<br /><var>f</var>(10) mod <var>q</var> = 96149360,<br /><var>f</var>(10^3) mod <var>q</var> = 24806056,<br /><var>f</var>(10^6) mod <var>q</var> = 30808124.
 

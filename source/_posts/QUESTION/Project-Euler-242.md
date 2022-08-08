@@ -1,7 +1,8 @@
 ---
 title: Project Euler 242
-tags:
+category:
   - Project Euler
+tags:
   - 卢卡斯定理
 mathjax: true
 date: 2022-07-04 18:02:33

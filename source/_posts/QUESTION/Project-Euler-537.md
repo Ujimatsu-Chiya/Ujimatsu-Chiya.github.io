@@ -1,7 +1,8 @@
 ---
 title: Project Euler 537
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
   - 快速数论变换
 mathjax: true

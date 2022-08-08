@@ -1,7 +1,8 @@
 ---
 title: Project Euler 471
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 471
 ## 题目
 ### Triangle inscribed in ellipse
-
+
+
 The triangle ΔABC is inscribed in an ellipse with equation $\frac {x^2} {a^2} + \frac {y^2} {b^2} = 1$, 0 < 2<var>b</var> < <var>a</var>, <var>a</var> and <var>b</var> integers.
 Let <var>r</var>(<var>a</var>,<var>b</var>) be the radius of the incircle of ΔABC when the incircle has center (2<var>b</var>, 0) and A has coordinates $\left( \frac a 2, \frac {\sqrt 3} 2 b\right)$.
 For example, <var>r</var>(3,1) = ½, <var>r</var>(6,2) = 1, <var>r</var>(12,3) = 2.

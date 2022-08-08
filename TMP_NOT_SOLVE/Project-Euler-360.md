@@ -1,7 +1,8 @@
 ---
 title: Project Euler 360
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 360
 ## 题目
 ### Scary Sphere
-
+
+
 
 Given two points (x_1,y_1,z_1) and (x_2,y_2,z_2) in three dimensional space, the <b>Manhattan distance</b>  between those points is defined as <br /> |x_1-x_2|+|y_1-y_2|+|z_1-z_2|.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 781
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 781
 ## 题目
 ### Feynman Diagrams
-
+
+
 Let $F(n)$ be the number of connected graphs with blue edges (directed) and red edges (undirected) containing:
 <ul>
 <li>two vertices of degree 1, one with a single outgoing blue edge and the other with a single incoming blue edge.</li>

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 302
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 302
 ## 题目
 ### Strong Achilles Numbers
-
+
+
 
 A positive integer <var>n</var> is <b>powerful</b> if p^2 is a divisor of <var>n</var> for every prime factor p in <var>n</var>.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 540
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 540
 ## 题目
 ### Counting primitive Pythagorean triples
-
+
+
 
 A <b>Pythagorean triple</b> consists of three positive integers $a, b$ and $c$ satisfying $a^2+b^2=c^2$.<br />
 The triple is called primitive if $a, b$ and $c$ are relatively prime.<br />

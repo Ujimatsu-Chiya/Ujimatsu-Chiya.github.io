@@ -1,7 +1,8 @@
 ---
 title: Project Euler 588
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 588
 ## 题目
 ### Quintinomial coefficients
-
+
+
 
 The coefficients in the expansion of $(x+1)^k$ are called <b>binomial coefficients</b>.<br />
 Analoguously the coefficients in the expansion of $(x^4+x^3+x^2+x+1)^k$ are called <b>quintinomial coefficients</b>.<br /> (quintus= Latin for fifth).

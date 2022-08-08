@@ -1,7 +1,8 @@
 ---
 title: Project Euler 634
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 634
 ## 题目
 ### Numbers of the form $a^2b^3$
-
+
+
 
 Define $F(n)$ to be the number of integers $x\len$ that can be written in the form $x=a^2b^3$, where $a$ and $b$ are integers not necessarily different and both greater than 1.
 

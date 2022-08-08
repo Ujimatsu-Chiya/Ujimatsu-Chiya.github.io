@@ -1,7 +1,8 @@
 ---
 title: Project Euler 162
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-05-15 10:15:40
 ---

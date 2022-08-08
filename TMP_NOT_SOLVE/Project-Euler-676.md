@@ -1,7 +1,8 @@
 ---
 title: Project Euler 676
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 676
 ## 题目
 ### Matching Digit Sums
-
+
+
 
 Let $d(i,b)$ be the <b>digit sum</b> of the number $i$ in base $b$. For example $d(9,2)=2$, since $9=1001_2$.
 When using different bases, the respective digit sums most of the time deviate from each other, for example $d(9,4)=3 \ne d(9,2)$.

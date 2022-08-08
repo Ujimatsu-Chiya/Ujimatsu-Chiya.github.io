@@ -1,7 +1,8 @@
 ---
 title: Project Euler 718
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 718
 ## 题目
 ### Unreachable Numbers
-
+
+
 Consider the equation
 $17^pa+19^pb+23^pc = n$ where $a$, $b$, $c$ and $p$ are positive integers, i.e.
 $a,b,c,p>0$.

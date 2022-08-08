@@ -1,7 +1,8 @@
 ---
 title: Project Euler 525
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 525
 ## 题目
 ### Rolling Ellipse
-
+
+
 An ellipse <var>E</var>(<var>a</var>, <var>b</var>) is given at its initial position by equation:<br />
 $\frac {x^2} {a^2} + \frac {(y - b)^2} {b^2} = 1$
 

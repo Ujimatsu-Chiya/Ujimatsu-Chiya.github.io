@@ -1,7 +1,8 @@
 ---
 title: Project Euler 640
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 640
 ## 题目
 ### Shut the Box
-
+
+
 Bob plays a single-player game of chance using two standard 6-sided dice and twelve cards numbered 1 to 12. When the game starts, all cards are placed face up on a table.
 
 Each turn, Bob rolls both dice, getting numbers $x$ and $y$ respectively, each in the range 1,\dots,6. He must choose amongst three options: turn over card $x$, card $y$, or card $x+y$. (If the chosen card is already face down, it is turned to face up, and vice versa.)

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 376
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 376
 ## 题目
 ### Nontransitive sets of dice
-
+
+
 
 Consider the following set of dice with nonstandard pips:
 

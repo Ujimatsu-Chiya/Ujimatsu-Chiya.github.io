@@ -1,7 +1,8 @@
 ---
 title: Project Euler 639
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 639
 ## 题目
 ### Summing a multiplicative function
-
+
+
 A <b>multiplicative function</b> $f(x)$ is a function over positive integers satisfying $f(1)=1$ and $f(a b)=f(a) f(b)$ for any two coprime positive integers $a$ and $b$.
 
 For integer $k$ let $f_k(n)$ be a multiplicative function additionally satisfying $f_k(p^e)=p^k$ for any prime $p$ and any integer $e>0$.<br /> 

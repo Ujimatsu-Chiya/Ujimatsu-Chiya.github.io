@@ -1,7 +1,8 @@
 ---
 title: Project Euler 366
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 366
 ## 题目
 ### Stone Game III
-
+
+
 
 Two players, Anton and Bernhard, are playing the following game.<br />
 There is one pile of n stones.<br />

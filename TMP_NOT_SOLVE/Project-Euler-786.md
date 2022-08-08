@@ -1,7 +1,8 @@
 ---
 title: Project Euler 786
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 786
 ## 题目
 ### Billiard
-
+
+
 
 The following diagram shows a billiard table of a special quadrilateral shape.
 The four angles $A, B, C, D$ are $120^\circ, 90^\circ, 60^\circ, 90^\circ$ respectively, and the lengths $AB$ and $AD$ are equal.

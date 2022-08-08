@@ -1,7 +1,8 @@
 ---
 title: Project Euler 244
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-07-04 18:02:37
 ---

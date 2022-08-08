@@ -1,7 +1,8 @@
 ---
 title: Project Euler 139
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-05-06 22:23:12
 ---

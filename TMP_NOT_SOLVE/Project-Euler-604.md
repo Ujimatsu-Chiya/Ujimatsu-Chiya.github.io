@@ -1,7 +1,8 @@
 ---
 title: Project Euler 604
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 604
 ## 题目
 ### Convex path in square
-
+
+
 
 Let $F(N)$ be the maximum number of lattice points in an axis-aligned $N\times N$ square that the graph of a single <b>strictly convex</b> increasing function can pass through.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 656
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 656
 ## 题目
 ### Palindromic sequences
-
+
+
 
 Given an irrational number $\alpha$, let $S_\alpha(n)$ be the sequence $S_\alpha(n)=\lfloor {\alpha \cdot n} \rfloor - \lfloor {\alpha \cdot (n-1)} \rfloor$ for $n \ge 1$.<br /> 
 ($\lfloor \dots \rfloor$ is the floor-function.)

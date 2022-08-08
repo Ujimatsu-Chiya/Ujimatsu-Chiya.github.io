@@ -1,7 +1,8 @@
 ---
 title: Project Euler 296
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 296
 ## 题目
 ### Angular Bisector and Tangent
-
+
+
 
 Given is an integer sided triangle <var>ABC</var> with <var>BC</var> \le <var>AC</var> \le <var>AB</var>.<br /><var>k</var> is the angular bisector of angle <var>ACB</var>.<br /><var>m</var> is the tangent at <var>C</var> to the circumscribed circle of <var>ABC</var>.<br /><var>n</var> is a line parallel to <var>m</var> through <var>B</var>.<br />
 The intersection of <var>n</var> and <var>k</var> is called <var>E</var>.

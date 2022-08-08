@@ -1,7 +1,8 @@
 ---
 title: Project Euler 599
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 599
 ## 题目
 ### Distinct Colourings of a Rubik's Cube
-
+
+
 
 The well-known **Rubik's Cube** puzzle has many fascinating mathematical properties. The 2\times2\times2 variant has 8 cubelets with a total of 24 visible faces, each with a coloured sticker. Successively turning faces will rearrange the cubelets, although not all arrangements of cubelets are reachable without dismantling the puzzle.
 

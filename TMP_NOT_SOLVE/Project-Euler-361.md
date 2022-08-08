@@ -1,7 +1,8 @@
 ---
 title: Project Euler 361
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 361
 ## 题目
 ### Subsequence of Thue-Morse sequence
-
+
+
 The <b>Thue-Morse sequence</b> {T_<var>n</var>} is a binary sequence satisfying:
 <ul><li>T_0 = 0</li>
 <li>T_2<var>n</var> = T_<var>n</var></li>

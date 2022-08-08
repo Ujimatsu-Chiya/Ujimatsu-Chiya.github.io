@@ -1,7 +1,8 @@
 ---
 title: Project Euler 795
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-07-19 00:28:53
 ---

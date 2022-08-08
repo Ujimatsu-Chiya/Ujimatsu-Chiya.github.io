@@ -1,7 +1,8 @@
 ---
 title: Project Euler 663
-tags:
+category:
   - Project Euler
+tags:
   - 线段树
 mathjax: true
 date: 2022-07-27 23:49:44

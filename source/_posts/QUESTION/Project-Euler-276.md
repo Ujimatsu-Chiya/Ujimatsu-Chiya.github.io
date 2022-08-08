@@ -1,7 +1,8 @@
 ---
 title: Project Euler 276
-tags:
+category:
   - Project Euler
+tags:
   - OEIS
   - 数论分块
 mathjax: true

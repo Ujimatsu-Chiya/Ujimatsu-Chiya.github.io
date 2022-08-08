@@ -1,7 +1,8 @@
 ---
 title: Project Euler 692
-tags:
+category:
   - Project Euler
+tags:
   - 博弈论
   - 齐肯多夫定理
 mathjax: true

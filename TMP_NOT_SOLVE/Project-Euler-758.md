@@ -1,7 +1,8 @@
 ---
 title: Project Euler 758
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 758
 ## 题目
 ### Buckets of Water
-
+
+
 
 There are 3 buckets labelled $S$ (small) of 3 litres, $M$ (medium) of 5 litres and $L$ (large) of 8 litres.<br />
 Initially $S$ and $M$ are full of water and $L$ is empty.

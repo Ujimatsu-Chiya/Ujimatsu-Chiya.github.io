@@ -1,7 +1,8 @@
 ---
 title: Project Euler 399
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 399
 ## 题目
 ### Squarefree Fibonacci Numbers
-
+
+
 
 The first 15 fibonacci numbers are:<br />
 1,1,2,3,5,8,13,21,34,55,89,144,233,377,610.<br />

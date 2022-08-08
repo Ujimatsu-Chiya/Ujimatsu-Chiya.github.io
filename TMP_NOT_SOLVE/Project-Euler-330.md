@@ -1,7 +1,8 @@
 ---
 title: Project Euler 330
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 330
 ## 题目
 ### Euler's Number
-
+
+
 An infinite sequence of real numbers <var>a</var>(<var>n</var>) is defined for all integers <var>n</var> as follows:
 $$a(n) = \begin{cases}
 1 &amp; n \lt 0\\

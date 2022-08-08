@@ -1,7 +1,8 @@
 ---
 title: Project Euler 590
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 590
 ## 题目
 ### Sets with a given Least Common Multiple
-
+
+
 
 Let H(<var>n</var>) denote the number of sets of positive integers such that the least common multiple of the integers in the set equals <var>n</var>.<br />
 E.g.:<br />

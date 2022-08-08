@@ -1,7 +1,8 @@
 ---
 title: Project Euler 427
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 427
 ## 题目
 ### n-sequences
-
+
+
 A sequence of integers S = {s_<var>i</var>} is called an <var>n-sequence</var> if it has <var>n</var> elements and each element s_<var>i</var> satisfies 1 \le s_<var>i</var> \le <var>n</var>. Thus there are <var>n</var>^<var>n</var> distinct <var>n</var>-sequences in total.
 For example, the sequence S = {1, 5, 5, 10, 7, 7, 7, 2, 3, 7} is a 10-sequence.
 

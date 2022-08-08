@@ -1,7 +1,8 @@
 ---
 title: Project Euler 122
-tags:
+category:
   - Project Euler
+tags:
   - OEIS
 mathjax: true
 date: 2022-05-06 22:24:41

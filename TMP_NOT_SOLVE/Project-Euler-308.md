@@ -1,7 +1,8 @@
 ---
 title: Project Euler 308
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 308
 ## 题目
 ### An amazing Prime-generating Automaton
-
+
+
 A program written in the programming language Fractran consists of a list of fractions.
 
 The internal state of the Fractran Virtual Machine is a positive integer, which is initially set to a seed value. Each iteration of a Fractran program multiplies the state integer by the first fraction in the list which will leave it an integer.

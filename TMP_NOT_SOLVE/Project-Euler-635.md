@@ -1,7 +1,8 @@
 ---
 title: Project Euler 635
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 635
 ## 题目
 ### Subset sums
-
+
+
 
 Let $A_q(n)$ be the number of subsets, $B$, of the set $\{1, 2, \dots, q \cdot n\}$ that satisfy two conditions:<br />
 1) $B$ has exactly $n$ elements;<br />

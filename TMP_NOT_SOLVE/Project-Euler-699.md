@@ -1,7 +1,8 @@
 ---
 title: Project Euler 699
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 699
 ## 题目
 ### Triffle Numbers
-
+
+
 
 Let $\sigma(n)$ be the sum of all the divisors of the positive integer $n$, for example:<br />
 $\sigma(10) = 1+2+5+10 = 18$.

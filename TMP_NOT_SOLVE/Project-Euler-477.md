@@ -1,7 +1,8 @@
 ---
 title: Project Euler 477
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 477
 ## 题目
 ### Number Sequence Game
-
+
+
 The number sequence game starts with a sequence <var>S</var> of <var>N</var> numbers written on a line.
 Two players alternate turns. The players on their respective turns must select and remove either the first or the last number remaining in the sequence.
 A player's own score is (determined by) the sum of all the numbers that player has taken. Each player attempts to maximize their own sum.

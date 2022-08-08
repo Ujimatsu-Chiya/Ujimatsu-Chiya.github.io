@@ -1,7 +1,8 @@
 ---
 title: Project Euler 463
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 463
 ## 题目
 ### A weird recurrence relation
-
+
+
 
 The function $f$ is defined for all positive integers as follows:
 <ul><li>$f(1)=1$

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 412
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 412
 ## 题目
 ### Gnomon numbering
-
+
+
 For integers <var>m</var>, <var>n</var> (0 \le <var>n</var> < <var>m</var>), let L(<var>m</var>, <var>n</var>) be an <var>m</var>\times<var>m</var> grid with the top-right <var>n</var>\times<var>n</var> grid removed.
 
 For example, L(5, 3) looks like this:

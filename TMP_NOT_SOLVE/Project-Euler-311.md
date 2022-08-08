@@ -1,7 +1,8 @@
 ---
 title: Project Euler 311
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 311
 ## 题目
 ### Biclinic Integral Quadrilaterals
-
+
+
 ABCD is a convex, integer sided quadrilateral with 1 \le AB < BC < CD < AD.<br />
 BD has integer length. O is the midpoint of BD. AO has integer length.<br />
 We'll call ABCD a <i>biclinic integral quadrilateral</i> if AO = CO \le BO = DO.<br />

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 529
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 529
 ## 题目
 ### 10-substrings
-
+
+
 A <i>10-substring</i> of a number is a substring of its digits that sum to 10. For example, the 10-substrings of the number 3523014 are:
 <ul style="list-style-type:none;"><li><b><u>352</u></b>3014</li>
 <li>3<b><u>523</u></b>014</li>

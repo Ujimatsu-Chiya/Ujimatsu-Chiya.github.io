@@ -1,7 +1,8 @@
 ---
 title: Project Euler 690
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 690
 ## 题目
 ### Tom and Jerry
-
+
+
 
 Tom (the cat) and Jerry (the mouse) are playing on a simple graph $G$.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 346
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-06-22 23:27:24
 ---

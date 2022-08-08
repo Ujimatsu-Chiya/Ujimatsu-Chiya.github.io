@@ -1,7 +1,8 @@
 ---
 title: Project Euler 740
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 740
 ## 题目
 ### Secret Santa
-
+
+
 
 Secret Santa is a process that allows $n$ people to give each other presents, so that each person gives a single present and receives a single present. At the beginning each of the $n$ people write their name on a slip of paper and put the slip into a hat. Each person takes a random slip from the hat. If the slip has their name they draw another random slip from the hat and then put the slip with their name back into the hat. At the end everyone buys a Christmas present for the person whose name is on the slip they are holding. This process will fail if the last person draws their own name.
 

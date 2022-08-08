@@ -1,7 +1,8 @@
 ---
 title: Project Euler 626
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 626
 ## 题目
 ### Counting Binary Matrices
-
+
+
 A binary matrix is a matrix consisting entirely of 0s and 1s. Consider the following transformations that can be performed on a binary matrix:
 
 <ul><li>Swap any two rows</li>

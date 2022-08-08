@@ -1,7 +1,8 @@
 ---
 title: Project Euler 766
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 766
 ## 题目
 ### Sliding Block Puzzle
-
+
+
 A <b>sliding block puzzle</b> is a puzzle where pieces are confined to a grid and by sliding the pieces a final configuration is reached. In this problem the pieces can only be slid in multiples of one unit in the directions up, down, left, right. 
 
 A <i>reachable configuration</i> is any arrangement of the pieces that can be achieved by sliding the pieces from the initial configuration.

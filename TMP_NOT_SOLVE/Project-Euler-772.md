@@ -1,7 +1,8 @@
 ---
 title: Project Euler 772
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 772
 ## 题目
 ### Balanceable $k$-bounded partitions
-
+
+
 A $k$-bounded partition of a positive integer $N$ is a way of writing $N$ as a sum of positive integers not exceeding $k$.
 
 A balanceable partition is a partition that can be further divided into two parts of equal sums.

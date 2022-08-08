@@ -1,7 +1,8 @@
 ---
 title: Project Euler 320
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 320
 ## 题目
 ### Factorials divisible by a huge integer
-
+
+
 
 Let N(<var>i</var>) be the smallest integer <var>n</var> such that <var>n</var>! is divisible by (<var>i</var>!)^1234567890
 

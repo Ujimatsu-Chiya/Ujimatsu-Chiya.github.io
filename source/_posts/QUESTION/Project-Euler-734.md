@@ -1,7 +1,8 @@
 ---
 title: Project Euler 734
-tags:
+category:
   - Project Euler
+tags:
   - 快速沃尔什变换
   - 动态规划
 mathjax: true

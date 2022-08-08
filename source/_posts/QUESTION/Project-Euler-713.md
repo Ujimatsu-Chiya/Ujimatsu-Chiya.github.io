@@ -1,7 +1,8 @@
 ---
 title: Project Euler 713
-tags:
+category:
   - Project Euler
+tags:
   - OEIS
   - 图论
 mathjax: true

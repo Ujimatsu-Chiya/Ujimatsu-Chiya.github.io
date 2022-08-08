@@ -1,7 +1,8 @@
 ---
 title: Project Euler 720
-tags:
+category:
   - Project Euler
+tags:
   - 树状数组
 mathjax: true
 date: 2022-08-05 21:41:32

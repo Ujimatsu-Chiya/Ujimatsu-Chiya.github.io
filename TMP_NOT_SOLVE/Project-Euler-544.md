@@ -1,7 +1,8 @@
 ---
 title: Project Euler 544
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 544
 ## 题目
 ### Chromatic Conundrum
-
+
+
 Let F(<var>r</var>,<var>c</var>,<var>n</var>) be the number of ways to colour a rectangular grid with <var>r</var> rows and <var>c</var> columns using at most <var>n</var> colours such that no two adjacent cells share the same colour. Cells that are diagonal to each other are not considered adjacent.
 
 For example, F(2,2,3) = 18, F(2,2,20) = 130340, and F(3,4,6) = 102923670.

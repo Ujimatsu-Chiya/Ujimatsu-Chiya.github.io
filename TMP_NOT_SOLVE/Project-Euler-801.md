@@ -1,7 +1,8 @@
 ---
 title: Project Euler 801
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 801
 ## 题目
 ### $x^y \equiv y^x$
-
+
+
 The positive integral solutions of the equation $x^y=y^x$ are $(2,4)$, $(4,2)$ and $(k,k)$ for all $k > 0$.
 
 For a given positive integer $n$, let $f(n)$ be the number of integral values $0 < x,y \leq n^2-n$ such that

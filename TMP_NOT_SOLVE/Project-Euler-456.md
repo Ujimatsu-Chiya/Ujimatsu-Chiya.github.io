@@ -1,7 +1,8 @@
 ---
 title: Project Euler 456
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 456
 ## 题目
 ### Triangles containing the origin II
-
+
+
 Define:<br /><var>x</var>_<var>n</var> = (1248^<var>n</var> mod 32323) - 16161<br /><var>y</var>_<var>n</var> = (8421^<var>n</var> mod 30103) - 15051<br />
 P_<var>n</var> = {(<var>x</var>_1, <var>y</var>_1), (<var>x</var>_2, <var>y</var>_2), \dots, (<var>x</var>_<var>n</var>, <var>y</var>_<var>n</var>)}
 

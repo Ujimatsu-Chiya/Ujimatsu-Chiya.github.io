@@ -1,7 +1,8 @@
 ---
 title: Project Euler 181
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
   - OEIS
 mathjax: true

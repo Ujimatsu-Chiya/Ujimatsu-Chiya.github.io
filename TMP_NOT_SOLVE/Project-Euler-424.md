@@ -1,7 +1,8 @@
 ---
 title: Project Euler 424
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 424
 ## 题目
 ### Kakuro
-
+
+
 <div class="center"><img src="project/images/p424_kakuro1.gif" class="dark_img" alt="p424_kakuro1.gif" /></div>
 
 The above is an example of a cryptic kakuro (also known as cross sums, or even sums cross) puzzle, with its final solution on the right. (The common rules of kakuro puzzles can be found easily on numerous internet sites. Other related information can also be currently found at <a href="http://krazydad.com/">krazydad.com</a> whose author has provided the puzzle data for this challenge.)

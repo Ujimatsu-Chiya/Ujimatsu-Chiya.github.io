@@ -1,7 +1,8 @@
 ---
 title: Project Euler 756
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 756
 ## 题目
 ### Approximating a Sum
-
+
+
 Consider a function $f(k)$ defined for all positive integers $k>0$. Let $S$ be the sum of the first $n$ values of $f$. That is,
 $$\displaystyle S=f(1)+f(2)+f(3)+\cdots+f(n)=\sum_{k=1}^n f(k)$$
 

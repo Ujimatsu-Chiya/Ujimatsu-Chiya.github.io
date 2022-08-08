@@ -1,7 +1,8 @@
 ---
 title: Project Euler 806
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 806
 ## 题目
 ### Nim on Towers of Hanoi
-
+
+
 This problem combines the game of Nim with the Towers of Hanoi. For a brief introduction to the rules of these games, please refer to <a href="problem=301">Problem 301</a> and <a href="problem=497">Problem 497</a>, respectively.
 
 The unique shortest solution to the Towers of Hanoi problem with $n$ disks and $3$ pegs requires $2^n-1$ moves. Number the positions in the solution from index 0 (starting position, all disks on the first peg) to index $2^n-1$ (final position, all disks on the third peg).

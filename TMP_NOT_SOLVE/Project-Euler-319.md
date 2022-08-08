@@ -1,7 +1,8 @@
 ---
 title: Project Euler 319
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 319
 ## 题目
 ### Bounded Sequences
-
+
+
 
 Let <var>x</var>_1, <var>x</var>_2,\dots, <var>x_n</var> be a sequence of length <var>n</var> such that:
 <ul><li><var>x</var>_1 = 2</li>

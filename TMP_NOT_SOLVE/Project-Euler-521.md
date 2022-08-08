@@ -1,7 +1,8 @@
 ---
 title: Project Euler 521
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 521
 ## 题目
 ### Smallest prime factor
-
+
+
 
 Let smpf(<var>n</var>) be the smallest prime factor of <var>n</var>.<br />
 smpf(91)=7 because 91=7\times13 and smpf(45)=3 because 45=3\times3\times5.<br />

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 475
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 475
 ## 题目
 ### Music festival
-
+
+
 12<var>n</var> musicians participate at a music festival. On the first day, they form 3<var>n</var> quartets and practice all day.
 It is a disaster. At the end of the day, all musicians decide they will never again agree to play with any member of their quartet.
 On the second day, they form 4<var>n</var> trios, with every musician avoiding any previous quartet partners.

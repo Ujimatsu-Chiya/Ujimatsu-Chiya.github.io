@@ -1,7 +1,8 @@
 ---
 title: Project Euler 730
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 730
 ## 题目
 ### Shifted Pythagorean Triples
-
+
+
 
 For a non-negative integer $k$, the triple $(p,q,r)$ of positive integers is called a <dfn>$k$-shifted Pythagorean triple</dfn> if $$p^2 + q^2 + k = r^2$$
 

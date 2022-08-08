@@ -1,7 +1,8 @@
 ---
 title: Project Euler 275
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 275
 ## 题目
 ### Balanced Sculptures
-
+
+
 Let us define a <i>balanced sculpture</i> of order <var>n</var> as follows:
 <ul><li>A <dfn title="An arrangement of identical squares connected through shared edges; holes are allowed.">polyomino</dfn> made up of <var>n</var>+1 tiles known as the <i>blocks</i> (<var>n</var> tiles)<br /> and the <i>plinth</i> (remaining tile);</li>
 <li>the plinth has its centre at position (<var>x</var> = 0, <var>y</var> = 0);</li>

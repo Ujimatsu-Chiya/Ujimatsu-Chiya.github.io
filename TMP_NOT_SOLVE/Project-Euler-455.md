@@ -1,7 +1,8 @@
 ---
 title: Project Euler 455
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 455
 ## 题目
 ### Powers With Trailing Digits
-
+
+
 Let f(n) be the largest positive integer x less than 10^9 such that the last 9 digits of n^x form the number <i>x</i> (including leading zeros), or zero if no such integer exists.
 
 For example:

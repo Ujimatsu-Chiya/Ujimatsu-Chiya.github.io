@@ -1,7 +1,8 @@
 ---
 title: Project Euler 430
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 430
 ## 题目
 ### Range flips
-
+
+
 <var>N</var> disks are placed in a row, indexed 1 to <var>N</var> from left to right.<br />
 Each disk has a black side and white side. Initially all disks show their white side.
 

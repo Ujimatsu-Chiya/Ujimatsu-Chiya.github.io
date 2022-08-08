@@ -1,7 +1,8 @@
 ---
 title: Project Euler 453
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 453
 ## 题目
 ### Lattice Quadrilaterals
-
+
+
 A <b>simple quadrilateral</b> is a polygon that has four distinct vertices, has no straight angles and does not self-intersect.
 
 Let Q(m, n) be the number of simple quadrilaterals whose vertices are lattice points with coordinates (x,y) satisfying 0 \le x \le m and 0 \le y \le n.

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 341
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 341
 ## 题目
 ### Golomb's self-describing sequence
-
+
+
 The <b>Golomb's self-describing sequence</b> $(G(n))$ is the only nondecreasing sequence of natural numbers such that $n$ appears exactly $G(n)$ times in the sequence. The values of $G(n)$ for the first few $n$ are
 
 <div align="center">

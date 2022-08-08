@@ -1,7 +1,8 @@
 ---
 title: Project Euler 768
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 768
 ## 题目
 ### Chandelier
-
+
+
 A certain type of chandelier contains a circular ring of $n$ evenly spaced candleholders.<br />
 If only one candle is fitted, then the chandelier will be imbalanced. However, if a second identical candle is placed in the opposite candleholder (assuming $n$ is even) then perfect balance will be achieved and the chandelier will hang level.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 397
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 397
 ## 题目
 ### Triangle on parabola
-
+
+
 
 On the parabola <var>y</var> = <var>x</var>^2/<var>k</var>, three points A(<var>a</var>, <var>a</var>^2/<var>k</var>), B(<var>b</var>, <var>b</var>^2/<var>k</var>) and C(<var>c</var>, <var>c</var>^2/<var>k</var>) are chosen.
 

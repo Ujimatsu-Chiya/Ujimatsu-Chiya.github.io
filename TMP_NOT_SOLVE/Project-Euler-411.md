@@ -1,7 +1,8 @@
 ---
 title: Project Euler 411
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 411
 ## 题目
 ### Uphill paths
-
+
+
 
 Let <var>n</var> be a positive integer. Suppose there are stations at the coordinates (<var>x</var>, <var>y</var>) = (2^<var>i</var> mod <var>n</var>, 3^<var>i</var> mod <var>n</var>) for 0 \le <var>i</var> \le 2<var>n</var>. We will consider stations with the same coordinates as the same station.
 

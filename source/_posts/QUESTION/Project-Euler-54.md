@@ -1,7 +1,8 @@
 ---
 title: Project Euler 54
-tags:
+category:
   - Project Euler
+tags:
   - 模拟
 mathjax: true
 date: 2022-04-30 10:31:35

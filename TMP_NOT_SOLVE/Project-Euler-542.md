@@ -1,7 +1,8 @@
 ---
 title: Project Euler 542
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 542
 ## 题目
 ### Geometric Progression with Maximum Sum
-
+
+
 Let <var>S</var>(<var>k</var>) be the sum of three or more distinct positive integers having the following properties:
 <ul><li>No value exceeds <var>k</var>.</li>
 <li>The values form a <b>geometric progression</b>.</li>

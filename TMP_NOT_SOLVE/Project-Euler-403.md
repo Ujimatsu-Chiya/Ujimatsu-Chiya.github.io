@@ -1,7 +1,8 @@
 ---
 title: Project Euler 403
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 403
 ## 题目
 ### Lattice points enclosed by parabola and line
-
+
+
 
 For integers <var>a</var> and <var>b</var>, we define <var>D</var>(<var>a</var>, <var>b</var>) as the domain enclosed by the parabola <var>y</var> = <var>x</var>^2 and the line <var>y</var> = <var>a</var>·<var>x</var> + <var>b</var>:<br /><var>D</var>(<var>a</var>, <var>b</var>) = { (<var>x</var>, <var>y</var>) | <var>x</var>^2 \le <var>y</var> \le <var>a</var>·<var>x</var> + <var>b</var> }.
 

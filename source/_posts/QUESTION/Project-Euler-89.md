@@ -1,7 +1,8 @@
 ---
 title: Project Euler 89
-tags:
+category:
   - Project Euler
+tags:
   - 模拟
   - 贪心
 mathjax: true

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 396
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 396
 ## 题目
 ### Weak Goodstein sequence
-
+
+
 
 For any positive integer n, the <b>nth weak Goodstein sequence</b> {g_1, g_2, g_3, \dots} is defined as:
 <ul><li> g_1 = <var>n</var>

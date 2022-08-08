@@ -1,7 +1,8 @@
 ---
 title: Project Euler 512
-tags:
+category:
   - Project Euler
+tags:
   - 数论分块
 mathjax: true
 date: 2022-06-08 22:37:13

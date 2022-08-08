@@ -1,7 +1,8 @@
 ---
 title: Project Euler 733
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
   - 树状数组
 mathjax: true

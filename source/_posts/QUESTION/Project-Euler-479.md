@@ -1,7 +1,8 @@
 ---
 title: Project Euler 479
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-06-05 09:29:30
 ---

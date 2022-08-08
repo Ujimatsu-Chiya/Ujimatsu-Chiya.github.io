@@ -1,7 +1,8 @@
 ---
 title: Project Euler 433
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 433
 ## 题目
 ### Steps in Euclid's algorithm
-
+
+
 
 Let E(<var>x</var>_0, <var>y</var>_0) be the number of steps it takes to determine the greatest common divisor of <var>x</var>_0 and <var>y</var>_0 with <b>Euclid's algorithm</b>. More formally:<br /><var>x</var>_1 = <var>y</var>_0, <var>y</var>_1 = <var>x</var>_0 mod <var>y</var>_0<br /><var>x_n</var> = <var>y</var>_<var>n</var>-1, <var>y</var>_<var>n</var> = <var>x</var>_<var>n</var>-1 mod <var>y</var>_<var>n</var>-1<br />
 E(<var>x</var>_0, <var>y</var>_0) is the smallest <var>n</var> such that <var>y</var>_<var>n</var> = 0.

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 598
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 598
 ## 题目
 ### Split Divisibilities
-
+
+
 
 Consider the number 48.<br />
 There are five pairs of integers $a$ and $b$ ($a \leq b$) such that $a \times b=48$: (1,48), (2,24), (3,16), (4,12) and (6,8).<br />

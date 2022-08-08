@@ -1,7 +1,8 @@
 ---
 title: Project Euler 384
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 384
 ## 题目
 ### Rudin-Shapiro sequence
-
+
+
 Define the sequence a(n) as the number of adjacent pairs of ones in the binary expansion of n (possibly overlapping).
 <br />E.g.: a(5) = a(101_2) = 0, a(6) = a(110_2) = 1, a(7) = a(111_2) = 2
 

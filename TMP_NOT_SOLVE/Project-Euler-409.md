@@ -1,7 +1,8 @@
 ---
 title: Project Euler 409
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 409
 ## 题目
 ### Nim Extreme
-
+
+
 Let <var>n</var> be a positive integer. Consider <b>nim</b> positions where:<ul><li>There are <var>n</var> non-empty piles.
 </li><li>Each pile has size less than 2^<var>n</var>.
 </li><li>No two piles have the same size.

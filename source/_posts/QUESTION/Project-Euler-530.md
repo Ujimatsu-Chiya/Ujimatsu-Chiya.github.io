@@ -1,7 +1,8 @@
 ---
 title: Project Euler 530
-tags:
+category:
   - Project Euler
+tags:
   - 数论分块
 mathjax: true
 date: 2022-08-05 21:40:45

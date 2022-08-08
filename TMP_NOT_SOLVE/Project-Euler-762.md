@@ -1,7 +1,8 @@
 ---
 title: Project Euler 762
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 762
 ## 题目
 ### Amoebas in a 2D grid
-
+
+
 Consider a two dimensional grid of squares. The grid has 4 rows but infinitely many columns.
 An amoeba in square $(x, y)$ can divide itself into two amoebas to occupy the squares $(x+1,y)$ and $(x+1,(y+1) \bmod 4)$, provided these squares are empty.
 

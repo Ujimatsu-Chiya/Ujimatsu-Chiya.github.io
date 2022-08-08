@@ -1,7 +1,8 @@
 ---
 title: Project Euler 779
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 779
 ## 题目
 ### Prime Factor and Exponent
-
+
+
 
 For a positive integer $n>1$, let $p(n)$ be the smallest prime dividing $n$, and let $\alpha(n)$ be its <b><i>p</i>-adic order</b>, i.e. the largest integer such that $p(n)^{\alpha(n)}$ divides $n$.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 763
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 763
 ## 题目
 ### Amoebas in a 3D grid
-
+
+
 
 Consider a three dimensional grid of cubes. An amoeba in cube $(x, y, z)$ can divide itself into three amoebas to occupy the cubes $(x + 1, y, z)$, $(x, y + 1, z)$ and $(x, y, z + 1)$, provided these cubes are empty.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 418
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 418
 ## 题目
 ### Factorisation triples
-
+
+
 
 Let <var>n</var> be a positive integer. An integer triple (<var>a</var>, <var>b</var>, <var>c</var>) is called a <i>factorisation triple</i> of <var>n</var> if:<ul><li> 1 \le <var>a</var> \le <var>b</var> \le <var>c</var>
 </li><li> <var>a</var>·<var>b</var>·<var>c</var> = <var>n</var>.

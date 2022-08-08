@@ -1,7 +1,8 @@
 ---
 title: Project Euler 380
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 380
 ## 题目
 ### Amazing Mazes!
-
+
+
 
 An m\timesn maze is an m\timesn rectangular grid with walls placed between grid cells such that there is exactly one path from the top-left square to any other square. <br />The following are examples of a 9\times12 maze and a 15\times20 maze:
 

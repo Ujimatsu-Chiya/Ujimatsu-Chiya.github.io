@@ -1,7 +1,8 @@
 ---
 title: Project Euler 22
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-04-25 10:44:10
 ---

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 794
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 794
 ## 题目
 ### Seventeen Points
-
+
+
 This problem uses half open interval notation where $[a,b)$ represents $a \le x < b$.
 
 A real number, $x_1$, is chosen in the interval $[0,1)$.<br />

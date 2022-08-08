@@ -1,8 +1,9 @@
 ---
 title: Project Euler 289
-tags:
+category:
   - Project Euler
 mathjax: true
+notshow: true
 ---
 <escape><!-- more --></escape>
     

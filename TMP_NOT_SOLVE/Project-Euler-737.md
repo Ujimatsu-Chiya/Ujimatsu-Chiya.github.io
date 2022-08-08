@@ -1,7 +1,8 @@
 ---
 title: Project Euler 737
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 737
 ## 题目
 ### Coin Loops
-
+
+
 
 A game is played with many identical, round coins on a flat table.
 

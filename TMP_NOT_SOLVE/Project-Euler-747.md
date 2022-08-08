@@ -1,7 +1,8 @@
 ---
 title: Project Euler 747
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 747
 ## 题目
 ### Triangular Pizza
-
+
+
 Mamma Triangolo baked a triangular pizza. She wants to cut the pizza into $n$ pieces. She first chooses a point $P$ in the interior (not boundary) of the triangle pizza, and then performs $n$ cuts, which all start from $P$ and extend straight to the boundary of the pizza so that the $n$ pieces are all triangles and all have the same area.
 
 Let $\psi(n)$ be the number of different ways for Mamma Triangolo to cut the pizza, subject to the constraints.<br />

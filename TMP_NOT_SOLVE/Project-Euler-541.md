@@ -1,7 +1,8 @@
 ---
 title: Project Euler 541
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 541
 ## 题目
 ### Divisibility of Harmonic Number Denominators
-
+
+
 The <var>n</var>^th<b>harmonic number</b> <var>H_n</var> is defined as the sum of the multiplicative inverses of the first <var>n</var> positive integers, and can be written as a <b>reduced fraction</b> <var>a_n/b_n</var>.<br />
 $H_n = \displaystyle \sum_{k=1}^n \frac 1 k = \frac {a_n} {b_n}$, with $\text {gcd}(a_n, b_n)=1$.
 

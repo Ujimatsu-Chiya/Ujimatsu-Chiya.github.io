@@ -1,7 +1,8 @@
 ---
 title: Project Euler 560
-tags:
+category:
   - Project Euler
+tags:
   - SG定理
   - 快速沃尔什变换
 mathjax: true

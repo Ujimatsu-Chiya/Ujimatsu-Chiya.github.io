@@ -1,7 +1,8 @@
 ---
 title: Project Euler 536
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 536
 ## 题目
 ### Modulo power identity 
-
+
+
 
 Let S(<var>n</var>) be the sum of all positive integers <var>m</var> not exceeding <var>n</var> having the following property:<br /><var>a</var> ^<var>m</var>+4 ≡ <var>a</var> (mod <var>m</var>) for all integers <var>a</var>.
 

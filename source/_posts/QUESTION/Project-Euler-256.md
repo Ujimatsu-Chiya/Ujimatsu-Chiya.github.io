@@ -1,7 +1,8 @@
 ---
 title: Project Euler 256
-tags:
+category:
   - Project Euler
+tags:
   - 论文
 mathjax: true
 date: 2022-08-05 21:40:20

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 432
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 432
 ## 题目
 ### Totient sum
-
+
+
 
 Let S(<var>n,m</var>) = \sumφ(<var>n \times i</var>) for 1 \le <var>i \le m</var>. (φ is Euler's totient function)<br />
 You are given that S(510510,10^6 )= 45480596821125120. 

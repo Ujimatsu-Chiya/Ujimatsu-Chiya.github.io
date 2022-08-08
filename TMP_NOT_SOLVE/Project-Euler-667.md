@@ -1,7 +1,8 @@
 ---
 title: Project Euler 667
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 667
 ## 题目
 ### Moving Pentagon
-
+
+
 
 After buying a <i>Gerver Sofa</i> from the <i>Moving Sofa Company</i>, Jack wants to buy a matching cocktail table from the same company. Most important for him is that the table can be pushed through his L-shaped corridor into the living room without having to be lifted from its table legs. <br />
 Unfortunately, the simple square model offered to him is too small for him, so he asks for a bigger model.<br />

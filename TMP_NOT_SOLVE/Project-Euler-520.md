@@ -1,7 +1,8 @@
 ---
 title: Project Euler 520
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 520
 ## 题目
 ### Simbers
-
+
+
 We define a <i>simber</i> to be a positive integer in which any odd digit, if present, occurs an odd number of times, and any even digit, if present, occurs an even number of times.
 
 For example, 141221242 is a 9-digit simber because it has three 1's, four 2's and two 4's. 

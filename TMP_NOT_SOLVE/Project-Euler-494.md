@@ -1,7 +1,8 @@
 ---
 title: Project Euler 494
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 494
 ## 题目
 ### Collatz prefix families
-
+
+
 
 The Collatz sequence is defined as:
 $a_{i+1} = \left\{  \large{\frac {a_i} 2 \atop 3 a_i+1} {\text{if }a_i\text{ is even} \atop \text{if }a_i\text{ is odd}} \right.$.

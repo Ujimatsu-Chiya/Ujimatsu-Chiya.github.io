@@ -1,7 +1,8 @@
 ---
 title: Project Euler 307
-tags:
+category:
   - Project Euler
+tags:
   - 概率
 mathjax: true
 date: 2022-07-06 13:08:50

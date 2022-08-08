@@ -1,7 +1,8 @@
 ---
 title: Project Euler 645
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 645
 ## 题目
 ### Every Day is a Holiday
-
+
+
 On planet J, a year lasts for $D$ days. Holidays are defined by the two following rules.
 <ol><li>At the beginning of the reign of the current Emperor, his birthday is declared a holiday from that year onwards.</li>
 <li>If both the day before and after a day $d$ are holidays, then $d$ also becomes a holiday.</li>

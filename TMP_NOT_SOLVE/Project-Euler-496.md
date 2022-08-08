@@ -1,7 +1,8 @@
 ---
 title: Project Euler 496
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 496
 ## 题目
 ### Incenter and circumcenter of triangle
-
+
+
 Given an integer sided triangle ABC:<br />
 Let I be the incenter of ABC.<br />
 Let D be the intersection between the line AI and the circumcircle of ABC (A ≠ D).

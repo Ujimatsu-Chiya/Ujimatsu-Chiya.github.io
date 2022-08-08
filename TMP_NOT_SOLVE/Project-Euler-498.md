@@ -1,7 +1,8 @@
 ---
 title: Project Euler 498
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 498
 ## 题目
 ### Remainder of polynomial division
-
+
+
 For positive integers <var>n</var> and <var>m</var>, we define two polynomials F_<var>n</var>(<var>x</var>) = <var>x</var>^<var>n</var> and G_<var>m</var>(<var>x</var>) = (<var>x</var>-1)^<var>m</var>.<br />
 We also define a polynomial R_<var>n</var>,<var>m</var>(<var>x</var>) as the remainder of the division of F_<var>n</var>(<var>x</var>) by G_<var>m</var>(<var>x</var>).<br />
 For example, R_6,3(<var>x</var>) = 15<var>x</var>^2 - 24<var>x</var> + 10.

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 555
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 555
 ## 题目
 ### McCarthy 91 function
-
+
+
 
 The McCarthy 91 function is defined as follows:
 $$

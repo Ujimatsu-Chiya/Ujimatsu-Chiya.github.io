@@ -1,7 +1,8 @@
 ---
 title: Project Euler 769
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 769
 ## 题目
 ### Binary Quadratic Form II
-
+
+
 Consider the following binary quadratic form:
 $$
 \begin{align}

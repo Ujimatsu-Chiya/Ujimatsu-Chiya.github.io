@@ -1,7 +1,8 @@
 ---
 title: Project Euler 268
-tags:
+category:
   - Project Euler
+tags:
   - 容斥原理
 mathjax: true
 date: 2022-07-04 18:02:16

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 249
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-05-30 20:28:31

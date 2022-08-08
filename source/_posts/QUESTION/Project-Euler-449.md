@@ -1,8 +1,9 @@
 ---
 title: Project Euler 449
 date: 2022-04-12 18:33:54
-tags: 
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>

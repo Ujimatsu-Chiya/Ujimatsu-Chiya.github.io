@@ -1,7 +1,8 @@
 ---
 title: Project Euler 641
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 641
 ## 题目
 ### A Long Row of Dice
-
+
+
 Consider a row of $n$ dice all showing 1.
 
 First turn every second die,$ (2,4,6,\ldots)$, so that the number showing is increased by 1. Then turn every third die. The sixth die will now show a 3. Then turn every fourth die and so on until every $n$th die (only the last die) is turned. If the die to be turned is showing a 6 then it is changed to show a 1.

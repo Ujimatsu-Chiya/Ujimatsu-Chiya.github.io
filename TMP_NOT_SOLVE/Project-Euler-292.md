@@ -1,7 +1,8 @@
 ---
 title: Project Euler 292
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 292
 ## 题目
 ### Pythagorean Polygons
-
+
+
 We shall define a <i>pythagorean polygon</i>  to be a <b>convex polygon</b> with the following properties:<br /><ul><li>there are at least three vertices,</li>
 <li>no three vertices are aligned,</li>
 <li>each vertex has <b>integer coordinates</b>,</li>

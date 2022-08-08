@@ -1,7 +1,8 @@
 ---
 title: Project Euler 770
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 770
 ## 题目
 ### Delphi Flip
-
+
+
 
 A and B play a game. A has originally $1$ gram of gold and B has an unlimited amount.
 Each round goes as follows:

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 527
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 527
 ## 题目
 ### Randomized Binary Search
-
+
+
 A secret integer <var>t</var> is selected at random within the range 1 \le <var>t</var> \le <var>n</var>. 
 
 The goal is to guess the value of <var>t</var> by making repeated guesses, via integer <var>g</var>. After a guess is made, there are three possible outcomes, in which it will be revealed that either <var>g</var> < <var>t</var>, <var>g</var> = <var>t</var>, or <var>g</var> > <var>t</var>. Then the process can repeat as necessary.

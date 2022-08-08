@@ -1,7 +1,8 @@
 ---
 title: Project Euler 585
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 585
 ## 题目
 ### Nested square roots
-
+
+
 Consider the term $\small \sqrt{x+\sqrt{y}+\sqrt{z}}$ that is representing a <b>nested square root</b>. $x$, $y$ and $z$ are positive integers and $y$ and $z$ are not allowed to be perfect squares, so the number below the outer square root is irrational. Still it can be shown that for some combinations of $x$, $y$ and $z$ the given term can be simplified into a sum and/or difference of simple square roots of integers, actually <b>denesting</b> the square roots in the initial expression. 
 
 Here are some examples of this denesting:<br />

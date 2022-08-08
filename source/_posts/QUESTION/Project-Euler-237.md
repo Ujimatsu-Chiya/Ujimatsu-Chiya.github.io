@@ -1,7 +1,8 @@
 ---
 title: Project Euler 237
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
   - 矩阵快速幂
 mathjax: true

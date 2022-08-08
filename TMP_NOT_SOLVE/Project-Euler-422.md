@@ -1,7 +1,8 @@
 ---
 title: Project Euler 422
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 422
 ## 题目
 ### Sequence of points on a hyperbola
-
+
+
 Let H be the hyperbola defined by the equation 12<var>x</var>^2 + 7<var>x</var><var>y</var> - 12<var>y</var>^2 = 625.
 
 Next, define X as the point (7, 1). It can be seen that X is in H.

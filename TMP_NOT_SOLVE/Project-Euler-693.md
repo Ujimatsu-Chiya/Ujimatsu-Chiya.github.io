@@ -1,7 +1,8 @@
 ---
 title: Project Euler 693
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 693
 ## 题目
 ### Finite Sequence Generator
-
+
+
 Two positive integers $x$ and $y$ ($x > y$) can generate a sequence in the following manner:
 <ul><li>$a_x = y$ is the first term,</li>
 <li>$a_{z+1} = a_z^2 \bmod z$ for $z = x, x+1,x+2,\ldots$ and</li>

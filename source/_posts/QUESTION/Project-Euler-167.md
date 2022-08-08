@@ -1,7 +1,8 @@
 ---
 title: Project Euler 167
-tags:
+category:
   - Project Euler
+tags:
   - 论文
   - OEIS
 mathjax: true

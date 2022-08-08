@@ -1,7 +1,8 @@
 ---
 title: Project Euler 680
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 680
 ## 题目
 ### Yarra Gnisrever
-
+
+
 Let $N$ and $K$ be two positive integers.
 
 $F_n$ is the $n$-th Fibonacci number: $F_1 = F_2 = 1$, $F_n = F_{n - 1} + F_{n - 2}$ for all $n \geq 3$.<br />

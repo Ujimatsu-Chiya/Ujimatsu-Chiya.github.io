@@ -1,7 +1,8 @@
 ---
 title: Project Euler 797
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 797
 ## 题目
 ### Cyclogenic Polynomials
-
+
+
 A <b>monic polynomial</b> is a single-variable polynomial in which the coefficient of highest degree is equal to 1.
 
 Define $\mathcal{F}$ to be the set of all monic polynomials with integer coefficients (including the constant polynomial $p(x)=1$). A polynomial $p(x)\in\mathcal{F}$ is <i>cyclogenic</i> if there exists $q(x)\in\mathcal{F}$ and a positive integer $n$ such that $p(x)q(x)=x^n-1$. If $n$ is the smallest such positive integer then $p(x)$ is $n$<i>-cyclogenic</i>.

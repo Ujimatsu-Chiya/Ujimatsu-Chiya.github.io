@@ -1,7 +1,8 @@
 ---
 title: Project Euler 112
-tags:
+category:
   - Project Euler
+tags:
   - 模拟
 mathjax: true
 date: 2022-05-06 22:24:01

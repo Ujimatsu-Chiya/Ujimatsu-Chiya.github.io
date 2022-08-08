@@ -1,7 +1,8 @@
 ---
 title: Project Euler 254
-tags:
+category:
   - Project Euler
+tags:
   - 贪心
 mathjax: true
 date: 2022-07-04 18:02:50

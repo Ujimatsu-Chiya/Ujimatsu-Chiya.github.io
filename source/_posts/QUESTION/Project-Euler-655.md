@@ -1,7 +1,8 @@
 ---
 title: Project Euler 655
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-08-05 21:40:40
 ---

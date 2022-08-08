@@ -1,7 +1,8 @@
 ---
 title: Project Euler 563
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 563
 ## 题目
 ### Robot Welders
-
+
+
 A company specialises in producing large rectangular metal sheets, starting from unit square metal plates.  The welding is performed by a range of robots of increasing size.  Unfortunately, the programming options of these robots are rather limited.  Each one can only process up to 25 identical rectangles of metal, which they can weld along either edge to produce a larger rectangle.  The only programmable variables are the number of rectangles to be processed (up to and including 25), and whether to weld the long or short edge.
 
 For example, the first robot could be programmed to weld together 11 raw unit square plates to make a 11\times1 strip.  The next could take 10 of these 11\times1 strips, and weld them either to make a longer 110\times1 strip, or a 11\times10 rectangle.  Many, but not all, possible dimensions of  metal sheets can be constructed in this way.

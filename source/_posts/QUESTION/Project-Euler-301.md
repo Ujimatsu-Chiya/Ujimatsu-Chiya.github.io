@@ -1,7 +1,8 @@
 ---
 title: Project Euler 301
-tags:
+category:
   - Project Euler
+tags:
   - 博弈论
   - 动态规划
 mathjax: true

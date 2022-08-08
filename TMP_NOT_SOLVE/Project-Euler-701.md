@@ -1,7 +1,8 @@
 ---
 title: Project Euler 701
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 701
 ## 题目
 ### Random connected area
-
+
+
 
 Consider a rectangle made up of $W \times H$ square cells each with area 1.<br /> Each cell is independently coloured black with probability 0.5 otherwise white. Black cells sharing an edge are assumed to be connected.<br />Consider the maximum area of connected cells.
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 484
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 484
 ## 题目
 ### Arithmetic Derivative
-
+
+
 The **arithmetic derivative** is defined by
 <ul><li><var>p'</var> = 1 for any prime <var>p</var></li>
 <li>(<var>ab</var>)<var>'</var> = <var>a'b</var> + <var>ab'</var> for all integers <var>a</var>, <var>b</var> (Leibniz rule)</li>

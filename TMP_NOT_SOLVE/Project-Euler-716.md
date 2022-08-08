@@ -1,7 +1,8 @@
 ---
 title: Project Euler 716
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 716
 ## 题目
 ### Grid Graphs
-
+
+
 
 Consider a directed graph made from an orthogonal lattice of $H\times W$ nodes. 
 The edges are the horizontal and vertical connections between adjacent nodes.

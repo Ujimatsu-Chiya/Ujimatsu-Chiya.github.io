@@ -1,7 +1,8 @@
 ---
 title: Project Euler 79
-tags:
+category:
   - Project Euler
+tags:
   - 图论
 mathjax: true
 date: 2022-04-30 10:32:36

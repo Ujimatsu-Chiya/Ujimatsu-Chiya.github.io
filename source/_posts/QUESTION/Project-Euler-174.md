@@ -1,7 +1,8 @@
 ---
 title: Project Euler 174
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-05-17 22:21:12
 ---

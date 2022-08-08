@@ -1,7 +1,8 @@
 ---
 title: Project Euler 410
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 410
 ## 题目
 ### Circle and tangent line
-
+
+
 Let C be the circle with radius <var>r</var>, <var>x</var>^2 + <var>y</var>^2 = <var>r</var>^2. We choose two points P(<var>a</var>, <var>b</var>) and Q(-<var>a</var>, <var>c</var>) so that the line passing through P and Q is tangent to C.
 
 For example, the quadruplet (<var>r</var>, <var>a</var>, <var>b</var>, <var>c</var>) = (2, 6, 2, -7) satisfies this property.

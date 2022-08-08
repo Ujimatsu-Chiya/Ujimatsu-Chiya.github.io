@@ -1,7 +1,8 @@
 ---
 title: Project Euler 334
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 334
 ## 题目
 ### Spilling the beans
-
+
+
 In Plato's heaven, there exist an infinite number of bowls in a straight line.<br />
 Each bowl either contains some or none of a finite number of beans.<br />
 A child plays a game, which allows only one kind of move: removing two beans from any bowl, and putting one in each of the two adjacent bowls.<br /> The game ends when each bowl contains either one or no beans.

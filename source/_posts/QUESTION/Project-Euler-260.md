@@ -1,7 +1,8 @@
 ---
 title: Project Euler 260
-tags:
+category:
   - Project Euler
+tags:
   - 博弈论
 mathjax: true
 date: 2022-07-04 18:03:39

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 631
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 631
 ## 题目
 ### Constrained Permutations
-
+
+
 Let $(p_1 p_2 \ldots p_k)$ denote the permutation of the set ${1, \dots, k}$ that maps $p_i\mapsto i$. Define the length of the permutation to be $k$; note that the empty permutation $()$ has length zero.
 
 Define an <i>occurrence</i> of a permutation $p=(p_1 p_2 \ldots p_k)$ in a permutation $P=(P_1 P_2 \ldots P_n)$ to be a sequence $1\leq t_1 < t_2 < \cdots < t_k \leq n$ such that $p_i < p_j$ if and only if $P_{t_i} < P_{t_j}$ for all $i,j \in \{1, \dots, k\}$.

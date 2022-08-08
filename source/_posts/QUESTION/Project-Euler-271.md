@@ -1,7 +1,8 @@
 ---
 title: Project Euler 271
-tags:
+category:
   - Project Euler
+tags:
   - 中国剩余定理
 mathjax: true
 date: 2022-07-06 13:08:28

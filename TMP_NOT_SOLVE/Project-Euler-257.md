@@ -1,15 +1,18 @@
 ---
 title: Project Euler 257
-tags:
+category:
   - Project Euler
+category:
 mathjax: true
+tags:
 ---
 <escape><!-- more --></escape>
     
 # Project Euler 257
 ## 题目
 ### Angular Bisectors
-
+
+
 <span style="font-size:11pt;">
 </span>Given is an integer sided triangle ABC with sides a \le b \le c. 
 (AB = c, BC = a and AC = b).<br />

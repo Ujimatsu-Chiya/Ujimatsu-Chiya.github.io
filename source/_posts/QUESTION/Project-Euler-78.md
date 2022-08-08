@@ -1,7 +1,8 @@
 ---
 title: Project Euler 78
-tags:
+category:
   - Project Euler
+tags:
   - OEIS
 mathjax: true
 date: 2022-05-02 16:36:41

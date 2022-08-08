@@ -1,7 +1,8 @@
 ---
 title: Project Euler 638
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 638
 ## 题目
 ### Weighted lattice paths
-
+
+
 Let $P_{a,b}$ denote a path in a $a\times b$ lattice grid with following properties:
 <ul><li>The path begins at $(0,0)$ and ends at $(a,b)$.</li>
 <li>The path consists only of unit moves upwards or to the right; that is the coordinates are increasing with every move.</li>

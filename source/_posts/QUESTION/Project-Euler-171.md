@@ -1,7 +1,8 @@
 ---
 title: Project Euler 171
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-05-15 10:15:56

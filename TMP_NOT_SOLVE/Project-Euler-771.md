@@ -1,7 +1,8 @@
 ---
 title: Project Euler 771
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 771
 ## 题目
 ### Pseudo Geometric Sequences
-
+
+
 
 We define a <i>pseudo-geometric sequence</i> to be a finite sequence $a_0, a_1, \dotsc, a_n$ of positive integers, satisfying the following conditions:
 <ul>

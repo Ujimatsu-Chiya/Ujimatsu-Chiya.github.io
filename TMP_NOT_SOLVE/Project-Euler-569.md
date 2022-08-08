@@ -1,7 +1,8 @@
 ---
 title: Project Euler 569
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 569
 ## 题目
 ### Prime Mountain Range
-
+
+
 A <i>mountain range</i> consists of a line of mountains with slopes of exactly 45°, and heights governed by the prime numbers, <var>p_n</var>. The up-slope of the <var>k</var>^th mountain is of height <var>p</var>_2<var>k</var>−1, and the downslope is <var>p</var>_2<var>k</var>. The first few foot-hills of this range are illustrated below.
 
 <div class="center">

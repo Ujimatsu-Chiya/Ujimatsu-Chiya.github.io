@@ -1,7 +1,8 @@
 ---
 title: Project Euler 232
-tags:
+category:
   - Project Euler
+tags:
   - 概率
   - 动态规划
 mathjax: true

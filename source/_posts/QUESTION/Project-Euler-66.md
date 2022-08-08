@@ -1,7 +1,8 @@
 ---
 title: Project Euler 66
-tags:
+category:
   - Project Euler
+tags:
   - 佩尔方程
 mathjax: true
 date: 2022-05-03 09:22:21

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 462
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 462
 ## 题目
 ### Permutation of 3-smooth numbers
-
+
+
 
 A <b>3-smooth number</b> is an integer which has no prime factor larger than 3. For an integer <var>N</var>, we define S(<var>N</var>) as the set of 3-smooth numbers less than or equal to <var>N</var> . For example, S(20) = { 1, 2, 3, 4, 6, 8, 9, 12, 16, 18 }.
 

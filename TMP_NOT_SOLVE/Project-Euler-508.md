@@ -1,7 +1,8 @@
 ---
 title: Project Euler 508
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 508
 ## 题目
 ### Integers in base i-1
-
+
+
 Consider the Gaussian integer i-1. A <b>base i-1 representation</b> of a Gaussian integer <var>a</var>+<var>b</var>i is a finite sequence of digits <var>d</var>_<var>n</var>-1<var>d</var>_<var>n</var>-2\dots<var>d</var>_1<var>d</var>_0 such that:
 
 <ul><li><var>a</var>+<var>b</var>i = <var>d</var>_<var>n</var>-1(i-1)^<var>n</var>-1 + <var>d</var>_<var>n</var>-2(i-1)^<var>n</var>-2 + \dots + <var>d</var>_1(i-1) + <var>d</var>_0</li>

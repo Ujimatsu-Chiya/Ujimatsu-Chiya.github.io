@@ -1,7 +1,8 @@
 ---
 title: Project Euler 197
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-05-17 22:20:54
 ---

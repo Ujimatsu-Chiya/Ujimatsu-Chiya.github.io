@@ -1,7 +1,8 @@
 ---
 title: Project Euler 601
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-06-13 21:21:50
 ---

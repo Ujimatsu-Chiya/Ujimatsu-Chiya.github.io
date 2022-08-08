@@ -1,7 +1,8 @@
 ---
 title: Project Euler 628
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 628
 ## 题目
 ### Open chess positions
-
+
+
 
 A position in chess is an (orientated) arrangement of chess pieces placed on a chessboard of given size. In the following, we consider all positions in which $n$ pawns are placed on a  $n \times n$  
 board in such a way, that there is a single pawn in every row and every column.

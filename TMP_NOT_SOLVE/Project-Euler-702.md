@@ -1,7 +1,8 @@
 ---
 title: Project Euler 702
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 702
 ## 题目
 ### Jumping Flea
-
+
+
 A regular hexagon table of side length $N$ is divided into equilateral triangles of side length $1$. The picture below is an illustration of the case $N = 3$.
 
 <div class="center">

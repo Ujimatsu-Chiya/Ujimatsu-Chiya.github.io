@@ -1,7 +1,8 @@
 ---
 title: Project Euler 286
-tags:
+category:
   - Project Euler
+tags:
   - 概率
   - 动态规划
   - 二分

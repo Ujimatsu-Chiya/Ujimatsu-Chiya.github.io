@@ -1,7 +1,8 @@
 ---
 title: Project Euler 553
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 553
 ## 题目
 ### Power sets of power sets
-
+
+
 Let <var>P</var>(<var>n</var>) be the set of the first <var>n</var> positive integers {1, 2, \dots, <var>n</var>}.<br />
 Let Q(<var>n</var>) be the set of all the non-empty subsets of <var>P</var>(<var>n</var>).<br />
 Let R(<var>n</var>) be the set of all the non-empty subsets of <var>Q</var>(<var>n</var>).

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 488
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 488
 ## 题目
 ### Unbalanced Nim
-
+
+
 Alice and Bob have enjoyed playing <b>Nim</b> every day. However, they finally got bored of playing ordinary three-heap Nim.<br />
 So, they added an extra rule:
 

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 793
-tags:
+category:
   - Project Euler
+tags:
   - 二分
   - 双指针
 mathjax: true

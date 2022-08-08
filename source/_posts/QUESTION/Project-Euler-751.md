@@ -1,7 +1,8 @@
 ---
 title: Project Euler 751
-tags:
+category:
   - Project Euler
+tags:
   - 二分
 mathjax: true
 date: 2022-07-17 23:12:09

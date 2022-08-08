@@ -1,7 +1,8 @@
 ---
 title: Project Euler 425
-tags:
+category:
   - Project Euler
+tags:
   - 并查集
 mathjax: true
 date: 2022-07-12 00:16:59

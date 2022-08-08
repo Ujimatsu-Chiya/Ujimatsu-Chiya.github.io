@@ -1,7 +1,8 @@
 ---
 title: Project Euler 98
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-04-30 10:33:04
 ---

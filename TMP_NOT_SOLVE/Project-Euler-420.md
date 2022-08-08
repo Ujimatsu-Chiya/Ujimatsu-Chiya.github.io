@@ -1,7 +1,8 @@
 ---
 title: Project Euler 420
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 420
 ## 题目
 ### 2x2 positive integer matrix
-
+
+
 A <i>positive integer matrix</i> is a matrix whose elements are all positive integers.<br />
 Some positive integer matrices can be expressed as a square of a positive integer matrix in two different ways. Here is an example:
 

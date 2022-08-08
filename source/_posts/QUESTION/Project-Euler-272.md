@@ -1,7 +1,8 @@
 ---
 title: Project Euler 272
-tags:
+category:
   - Project Euler
+tags:
   - OEIS
 mathjax: true
 date: 2022-07-27 23:49:36

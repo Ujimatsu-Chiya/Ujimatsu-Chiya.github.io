@@ -1,7 +1,8 @@
 ---
 title: Project Euler 115
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
 mathjax: true
 date: 2022-05-06 22:24:13

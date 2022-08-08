@@ -1,7 +1,8 @@
 ---
 title: Project Euler 283
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 283
 ## 题目
 ### Integer sided triangles for which the  area/perimeter ratio is integral
-
+
+
 
 Consider the triangle with sides 6, 8 and 10. It can be seen that the perimeter and the area are both equal to 24. 
 So the area/perimeter ratio is equal to 1.<br />

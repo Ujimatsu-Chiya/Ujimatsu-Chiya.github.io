@@ -1,7 +1,8 @@
 ---
 title: Project Euler 436
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 436
 ## 题目
 ### Unfair wager
-
+
+
 Julie proposes the following wager to her sister Louise.<br />
 She suggests they play a game of chance to determine who will wash the dishes.<br />
 For this game, they shall use a generator of independent random numbers uniformly distributed between 0 and 1.<br />

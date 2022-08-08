@@ -1,7 +1,8 @@
 ---
 title: Project Euler 454
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 454
 ## 题目
 ### Diophantine reciprocals III
-
+
+
 In the following equation <var>x</var>, <var>y</var>, and <var>n</var> are positive integers.
 $$\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{n}$$
 For a limit <var>L</var> we define F(<var>L</var>) as the number of solutions which satisfy <var>x</var> < <var>y</var> \le <var>L</var>.

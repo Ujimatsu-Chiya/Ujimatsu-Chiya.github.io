@@ -1,7 +1,8 @@
 ---
 title: Project Euler 306
-tags:
+category:
   - Project Euler
+tags:
   - 博弈论
   - SG定理
 mathjax: true

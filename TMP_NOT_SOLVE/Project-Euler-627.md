@@ -1,7 +1,8 @@
 ---
 title: Project Euler 627
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 627
 ## 题目
 ### Counting products
-
+
+
 Consider the set $S$ of all possible products of $n$ positive integers not exceeding $m$, that is<br /> 
 $S=\{ x_1x_2\dots x_n \, | \, 1 \le x_1, x_2, \dots, x_n \le m \}$.<br />
 

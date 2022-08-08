@@ -1,7 +1,8 @@
 ---
 title: Project Euler 461
-tags:
+category:
   - Project Euler
+tags:
   - meet-in-the-middle
 mathjax: true
 date: 2022-07-13 22:57:23

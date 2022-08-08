@@ -1,7 +1,8 @@
 ---
 title: Project Euler 596
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 596
 ## 题目
 ### Number of lattice points in a hyperball
-
+
+
 Let T(<var>r</var>) be the number of integer quadruplets <var>x</var>, <var>y</var>, <var>z</var>, <var>t</var> such that <var>x</var>^2 + <var>y</var>^2 + <var>z</var>^2 + <var>t</var>^2 \le <var>r</var>^2. In other words, T(<var>r</var>) is the number of lattice points in the four-dimensional hyperball of radius <var>r</var>.
 
 You are given that T(2) = 89, T(5) = 3121, T(100) = 493490641 and T(10^4) = 49348022079085897.

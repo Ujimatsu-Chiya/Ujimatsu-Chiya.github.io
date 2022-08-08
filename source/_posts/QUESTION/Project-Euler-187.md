@@ -1,7 +1,8 @@
 ---
 title: Project Euler 187
-tags:
+category:
   - Project Euler
+tags:
   - 双指针
 mathjax: true
 date: 2022-05-17 22:21:31

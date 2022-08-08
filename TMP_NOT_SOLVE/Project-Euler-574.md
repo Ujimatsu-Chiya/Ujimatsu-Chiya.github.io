@@ -1,7 +1,8 @@
 ---
 title: Project Euler 574
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 574
 ## 题目
 ### Verifying Primes
-
+
+
 Let $q$ be a prime and $A \ge B >0$ be two integers with the following properties:
 <ul><li> $A$ and $B$ have no prime factor in common, that is $\text{gcd}(A,B)=1$.</li>
 <li> The product $AB$ is divisible by every prime less than q.</li>

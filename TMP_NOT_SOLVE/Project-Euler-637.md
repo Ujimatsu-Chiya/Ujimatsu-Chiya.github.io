@@ -1,7 +1,8 @@
 ---
 title: Project Euler 637
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 637
 ## 题目
 ### Flexible digit sum
-
+
+
 
 Given any positive integer $n$, we can construct a new integer by inserting plus signs between some of the digits of the base $B$ representation of $n$, and then carrying out the additions.
 

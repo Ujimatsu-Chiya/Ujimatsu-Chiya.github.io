@@ -1,7 +1,8 @@
 ---
 title: Project Euler 385
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 385
 ## 题目
 ### Ellipses inside triangles
-
+
+
 
 For any triangle <var>T</var> in the plane, it can be shown that there is a unique ellipse with largest area that is completely inside <var>T</var>.
 <p align="center">

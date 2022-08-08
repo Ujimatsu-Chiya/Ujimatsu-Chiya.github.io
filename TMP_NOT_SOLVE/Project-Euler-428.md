@@ -1,7 +1,8 @@
 ---
 title: Project Euler 428
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 428
 ## 题目
 ### Necklace of circles
-
+
+
 Let <var>a</var>, <var>b</var> and <var>c</var> be positive numbers.<br />
 Let W, X, Y, Z be four collinear points where |WX| = <var>a</var>, |XY| = <var>b</var>, |YZ| = <var>c</var> and |WZ| = <var>a</var> + <var>b</var> + <var>c</var>.<br />
 Let C_in be the circle having the diameter XY.<br />

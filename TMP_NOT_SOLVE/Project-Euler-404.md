@@ -1,7 +1,8 @@
 ---
 title: Project Euler 404
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 404
 ## 题目
 ### Crisscross Ellipses
-
+
+
 
 E_<var>a</var> is an ellipse with an equation of the form x^2 + 4y^2 = 4<var>a</var>^2.<br />
 E_<var>a</var>' is the rotated image of E_<var>a</var> by θ degrees counterclockwise around the origin O(0, 0) for 0° < θ < 90°.

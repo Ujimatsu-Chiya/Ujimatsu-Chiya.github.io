@@ -1,7 +1,8 @@
 ---
 title: Project Euler 696
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 696
 ## 题目
 ### Mahjong
-
+
+
 The game of Mahjong is played with tiles belonging to $s$ <i>suits</i>. Each tile also has a <i>number</i> in the range $1\ldots n$, and for each suit/number combination there are exactly four indistinguishable tiles with that suit and number. (The real Mahjong game also contains other bonus tiles, but those will not feature in this problem.)
 
 A <i>winning hand</i> is a collection of $3t+2$ Tiles (where $t$ is a fixed integer) that can be arranged as $t$ <i>Triples</i> and one <i>Pair</i>, where:

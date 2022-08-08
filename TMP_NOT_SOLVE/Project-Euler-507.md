@@ -1,7 +1,8 @@
 ---
 title: Project Euler 507
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 507
 ## 题目
 ### Shortest Lattice Vector
-
+
+
 
 Let $t_n$ be the <b>tribonacci numbers</b> defined as:<br />
 $t_0 = t_1 = 0$;<br />

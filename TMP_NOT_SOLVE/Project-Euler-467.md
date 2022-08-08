@@ -1,7 +1,8 @@
 ---
 title: Project Euler 467
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 467
 ## 题目
 ### Superinteger
-
+
+
 An integer <var>s</var> is called a <em>superinteger</em> of another integer <var>n</var> if the digits of <var>n</var> form a <dfn title="A subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements.">subsequence</dfn> of the digits of <var>s</var>.<br />
 For example, 2718281828 is a superinteger of 18828, while 314159 is not a superinteger of 151.
 

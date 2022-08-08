@@ -1,7 +1,8 @@
 ---
 title: Project Euler 670
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 670
 ## 题目
 ### Colouring a Strip
-
+
+
 A certain type of tile comes in three different sizes - 1\times1, 1\times2, and 1\times3 - and in four different colours: blue, green, red and yellow. There is an unlimited number of tiles available in each combination of size and colour.
 
 These are used to tile a $2\times n$ rectangle, where $n$ is a positive integer, subject to the following conditions:

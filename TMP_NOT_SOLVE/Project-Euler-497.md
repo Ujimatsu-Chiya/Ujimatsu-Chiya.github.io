@@ -1,7 +1,8 @@
 ---
 title: Project Euler 497
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 497
 ## 题目
 ### Drunken Tower of Hanoi
-
+
+
 Bob is very familiar with the famous mathematical puzzle/game, "Tower of Hanoi," which consists of three upright rods and disks of different sizes that can slide onto any of the rods. The game begins with a stack of <var>n</var> disks placed on the leftmost rod in descending order by size. The objective of the game is to move all of the disks from the leftmost rod to the rightmost rod, given the following restrictions:
 
 <ol><li>Only one disk can be moved at a time.</li>

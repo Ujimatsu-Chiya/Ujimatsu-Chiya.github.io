@@ -1,7 +1,8 @@
 ---
 title: Project Euler 138
-tags:
+category:
   - Project Euler
+tags:
   - 佩尔方程
 mathjax: true
 date: 2022-05-08 11:56:14

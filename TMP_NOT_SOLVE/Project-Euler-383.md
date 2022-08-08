@@ -1,7 +1,8 @@
 ---
 title: Project Euler 383
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 383
 ## 题目
 ### Divisibility comparison between factorials
-
+
+
 
 Let f_5(<var>n</var>) be the largest integer <var>x</var> for which 5^<var>x</var> divides <var>n</var>.<br />
 For example, f_5(625000) = 7.

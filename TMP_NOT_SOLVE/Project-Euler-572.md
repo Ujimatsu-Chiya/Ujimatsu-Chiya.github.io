@@ -1,7 +1,8 @@
 ---
 title: Project Euler 572
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 572
 ## 题目
 ### Idempotent matrices
-
+
+
 
 A matrix $M$ is called idempotent if $M^2 = M$.<br />
 Let $M$ be a three by three matrix : 

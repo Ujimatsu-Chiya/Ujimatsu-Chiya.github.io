@@ -1,7 +1,8 @@
 ---
 title: Project Euler 416
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 416
 ## 题目
 ### A frog's trip
-
+
+
 A row of <var>n</var> squares contains a frog in the leftmost square. By successive jumps the frog goes to the rightmost square and then back to the leftmost square. On the outward trip he jumps one, two or three squares to the right, and on the homeward trip he jumps to the left in a similar manner. He cannot jump outside the squares. He repeats the round-trip travel <var>m</var> times.
 
 Let F(<var>m</var>, <var>n</var>) be the number of the ways the frog can travel so that at most one square remains unvisited.<br />

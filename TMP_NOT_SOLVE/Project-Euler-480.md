@@ -1,7 +1,8 @@
 ---
 title: Project Euler 480
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 480
 ## 题目
 ### The Last Question
-
+
+
 Consider all the words which can be formed by selecting letters, in any order, from the phrase:
 <div class="center"><b>thereisasyetinsufficientdataforameaningfulanswer</b></div>
 Suppose those with 15 letters or less are listed in <b>alphabetical order</b> and numbered sequentially starting at 1.<br />

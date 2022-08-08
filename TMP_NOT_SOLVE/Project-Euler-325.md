@@ -1,7 +1,8 @@
 ---
 title: Project Euler 325
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 325
 ## 题目
 ### Stone Game II
-
+
+
 A game is played with two piles of stones and two players.<br />
 On each player's turn, the player may remove a number of stones from the larger pile.<br />
 The number of stones removed must be a positive multiple of the number of stones in the smaller pile.

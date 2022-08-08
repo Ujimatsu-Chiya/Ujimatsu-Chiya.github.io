@@ -1,7 +1,8 @@
 ---
 title: Project Euler 777
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 777
 ## 题目
 ### Lissajous Curves
-
+
+
 For coprime positive integers $a$ and $b$, let $C_{a,b}$ be the curve defined by:
 \[
 \begin{align}

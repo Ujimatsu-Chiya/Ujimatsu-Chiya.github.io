@@ -1,7 +1,8 @@
 ---
 title: Project Euler 519
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 519
 ## 题目
 ### Tricoloured Coin Fountains
-
+
+
 An arrangement of coins in one or more rows with the bottom row being a block without gaps and every coin in a higher row touching exactly two coins in the row below is called a <b>fountain</b> of coins. Let <var>f</var>(<var>n</var>) be the number of possible fountains with <var>n</var> coins. For 4 coins there are three possible arrangements:
 <div align="center"><img src="project/images/p519_coin_fountain.png" alt="p519_coin_fountain.png" /></div>
 Therefore <var>f</var>(4) = 3 while <var>f</var>(10) = 78.

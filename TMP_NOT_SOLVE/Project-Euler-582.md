@@ -1,7 +1,8 @@
 ---
 title: Project Euler 582
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 582
 ## 题目
 ### Nearly isosceles 120 degree triangles
-
+
+
 
 Let a, b and c be the sides of an integer sided triangle with one angle of 120 degrees, a\leb\lec and b-a\le100.<br />
 Let T(<var>n</var>) be the number of such triangles with c\le<var>n</var>.<br />

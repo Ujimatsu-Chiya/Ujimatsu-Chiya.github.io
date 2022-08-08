@@ -1,7 +1,8 @@
 ---
 title: Project Euler 623
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 623
 ## 题目
 ### Lambda Count
-
+
+
 The <i>lambda-calculus</i> is a universal model of computation at the core of functional programming languages. It is based on <i>lambda-terms</i>, a minimal programming language featuring only function definitions, function calls and variables. Lambda-terms are built according to the following rules:
 <ul><li>Any <i>variable</i> $x$ (single letter, from some infinite alphabet) is a lambda-term.</li>
 <li>If $M$ and $N$ are lambda-terms, then $(M N)$ is a lambda-term, called the <i>application</i> of $M$ to $N$.</li>

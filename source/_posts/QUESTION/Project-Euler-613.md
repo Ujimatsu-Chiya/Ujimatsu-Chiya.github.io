@@ -1,8 +1,9 @@
 ---
 title: Project Euler 613
 date: 2022-04-22 13:17:26
-tags: 
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 

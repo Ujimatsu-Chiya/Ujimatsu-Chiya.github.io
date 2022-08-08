@@ -1,7 +1,8 @@
 ---
 title: Project Euler 565
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 565
 ## 题目
 ### Divisibility of sum of divisors
-
+
+
 Let $\sigma(n)$ be the sum of the divisors of $n$.<br />
 E.g. the divisors of 4 are 1, 2 and 4, so $\sigma(4)=7$.
 

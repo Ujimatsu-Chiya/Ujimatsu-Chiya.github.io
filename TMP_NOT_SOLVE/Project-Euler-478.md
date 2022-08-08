@@ -1,7 +1,8 @@
 ---
 title: Project Euler 478
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 478
 ## 题目
 ### Mixtures
-
+
+
 Let us consider <b>mixtures</b> of three substances: <b>A</b>, <b>B</b> and <b>C</b>. A mixture can be described by a ratio of the amounts of <b>A</b>, <b>B</b>, and <b>C</b> in it, i.e., (<var>a</var> : <var>b</var> : <var>c</var>). For example, a mixture described by the ratio (2 : 3 : 5) contains 20% <b>A</b>, 30% <b>B</b> and 50% <b>C</b>.
 
 For the purposes of this problem, we cannot separate the individual components from a mixture. However, we can combine different amounts of different mixtures to form mixtures with new ratios.

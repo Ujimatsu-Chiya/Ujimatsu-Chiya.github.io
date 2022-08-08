@@ -1,7 +1,8 @@
 ---
 title: Project Euler 444
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 444
 ## 题目
 ### The Roundtable Lottery
-
+
+
 A group of $p$ people decide to sit down at a round table and play a lottery-ticket trading game. Each person starts off with a randomly-assigned, unscratched lottery ticket. Each ticket, when scratched, reveals a whole-pound prize ranging anywhere from £1 to £$p$, with no two tickets alike. The goal of the game is for all of the players to maximize the winnings of the ticket they hold upon leaving the game.
 
 An arbitrary person is chosen to be the first player. Going around the table, each player has only one of two options:

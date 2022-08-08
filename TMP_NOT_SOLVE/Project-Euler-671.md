@@ -1,7 +1,8 @@
 ---
 title: Project Euler 671
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 671
 ## 题目
 ### Colouring a Loop
-
+
+
 A certain type of flexible tile comes in three different sizes - 1\times1, 1\times2, and 1\times3 - and in $k$ different colours. There is an unlimited number of tiles available in each combination of size and colour.
 
 These are used to tile a closed loop of width $2$ and length (circumference) $n$, where $n$ is a positive integer, subject to the following conditions:

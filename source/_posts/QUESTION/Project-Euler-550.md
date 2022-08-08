@@ -1,7 +1,8 @@
 ---
 title: Project Euler 550
-tags:
+category:
   - Project Euler
+tags:
   - SG定理
   - 动态规划
   - 矩阵快速幂&#43;

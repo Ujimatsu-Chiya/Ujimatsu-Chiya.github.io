@@ -1,7 +1,8 @@
 ---
 title: Project Euler 586
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 586
 ## 题目
 ### Binary Quadratic Form
-
+
+
 
 The number 209 can be expressed as $a^2 + 3ab + b^2$ in two distinct ways:
 

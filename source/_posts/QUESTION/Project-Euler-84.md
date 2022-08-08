@@ -1,7 +1,8 @@
 ---
 title: Project Euler 84
-tags:
+category:
   - Project Euler
+tags:
   - 模拟
   - 概率
 mathjax: true

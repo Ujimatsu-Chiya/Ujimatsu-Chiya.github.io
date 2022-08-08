@@ -1,7 +1,8 @@
 ---
 title: Project Euler 372
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 372
 ## 题目
 ### Pencils of rays
-
+
+
 
 Let $R(M, N)$ be the number of lattice points $(x, y)$ which satisfy $M\!\lt\!x\!\le\!N$, $M\!\lt\!y\!\le\!N$ and $\large\left\lfloor\!\frac{y^2}{x^2}\!\right\rfloor$ is odd.<br />
 We can verify that $R(0, 100) = 3019$ and $R(100, 10000) = 29750422$.<br />

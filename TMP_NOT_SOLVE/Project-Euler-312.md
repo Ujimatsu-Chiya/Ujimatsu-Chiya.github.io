@@ -1,7 +1,8 @@
 ---
 title: Project Euler 312
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 312
 ## 题目
 ### Cyclic paths on Sierpiński graphs
-
+
+
 - A <b>Sierpiński graph</b> of order-1 (<var>S</var>_1) is an equilateral triangle.<br />
 - <var>S</var>_<var>n</var>+1 is obtained from <var>S</var>_<var>n</var> by positioning three copies of <var>S</var>_<var>n</var> so that every pair of copies has one common corner.
 

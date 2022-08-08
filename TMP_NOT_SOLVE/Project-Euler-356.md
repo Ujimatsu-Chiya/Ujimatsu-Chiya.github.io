@@ -1,7 +1,8 @@
 ---
 title: Project Euler 356
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 356
 ## 题目
 ### Largest roots of cubic polynomials
-
+
+
 
 Let <var>a</var>_<var>n</var> be the largest real root of a polynomial <var>g</var>(x) = x^3 - 2^<var>n</var>·x^2 + <var>n</var>.<br />
 For example, <var>a</var>_2 = 3.86619826\dots

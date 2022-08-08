@@ -1,7 +1,8 @@
 ---
 title: Project Euler 622
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-07-13 22:57:27
 ---

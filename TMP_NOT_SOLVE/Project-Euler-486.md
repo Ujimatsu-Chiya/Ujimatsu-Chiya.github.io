@@ -1,7 +1,8 @@
 ---
 title: Project Euler 486
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 486
 ## 题目
 ### Palindrome-containing strings
-
+
+
 Let F_5(<var>n</var>) be the number of strings <var>s</var> such that:
 <ul><li><var>s</var> consists only of '0's and '1's,
 </li><li><var>s</var> has length at most <var>n</var>, and

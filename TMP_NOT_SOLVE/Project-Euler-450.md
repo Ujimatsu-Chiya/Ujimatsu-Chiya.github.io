@@ -1,7 +1,8 @@
 ---
 title: Project Euler 450
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 450
 ## 题目
 ### Hypocycloid and Lattice points
-
+
+
 A hypocycloid is the curve drawn by a point on a small circle rolling inside a larger circle. The parametric equations of a hypocycloid centered at the origin, and starting at the right most point is given by:
 
 $$x(t) = (R - r) \cos(t) + r \cos(\frac {R - r} r t)$$

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 235
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 date: 2022-06-02 21:03:49
 ---

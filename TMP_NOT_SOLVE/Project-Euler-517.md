@@ -1,7 +1,8 @@
 ---
 title: Project Euler 517
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 517
 ## 题目
 ### A real recursion
-
+
+
 
 For every real number $a \gt 1$ is given the sequence $g_a$ by:<br />
 $g_{a}(x)=1$ for $x \lt a$<br />

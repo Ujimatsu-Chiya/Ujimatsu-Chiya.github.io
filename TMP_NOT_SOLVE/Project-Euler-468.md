@@ -1,7 +1,8 @@
 ---
 title: Project Euler 468
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 468
 ## 题目
 ### Smooth divisors of binomial coefficients
-
+
+
 An integer is called **<var>B</var>-smooth** if none of its prime factors is greater than $B$.
 
 Let $S_B(n)$ be the largest $B$-smooth divisor of $n$.<br />

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 373
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 373
 ## 题目
 ### Circumscribed Circles
-
+
+
 
 Every triangle has a circumscribed circle that goes through the three vertices.
 Consider all integer sided triangles for which the radius of the circumscribed circle is integral as well.

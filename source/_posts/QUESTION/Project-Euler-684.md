@@ -1,7 +1,8 @@
 ---
 title: Project Euler 684
-tags:
+category:
   - Project Euler
+tags:
   - 贪心
 mathjax: true
 date: 2022-06-13 21:21:42

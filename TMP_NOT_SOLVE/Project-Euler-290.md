@@ -1,7 +1,8 @@
 ---
 title: Project Euler 290
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 290
 ## 题目
 ### Digital Signature
-
+
+
 
 How many integers 0 \le <var>n</var> < 10^18 have the property that the sum of the digits of <var>n</var> equals the sum of digits of 137<var>n</var>?
 

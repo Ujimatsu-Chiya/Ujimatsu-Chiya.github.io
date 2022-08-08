@@ -1,7 +1,8 @@
 ---
 title: Project Euler 238
-tags:
+category:
   - Project Euler
+tags:
   - 双指针
 mathjax: true
 date: 2022-07-04 18:02:20

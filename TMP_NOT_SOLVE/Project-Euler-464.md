@@ -1,7 +1,8 @@
 ---
 title: Project Euler 464
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 464
 ## 题目
 ### Möbius function and intervals
-
+
+
 
 The <b>Möbius function</b>, denoted <var>μ</var>(<var>n</var>), is defined as:
 <ul><li><var>μ</var>(<var>n</var>) = (-1)^<var>ω</var>(<var>n</var>) if <var>n</var> is squarefree (where <var>ω</var>(<var>n</var>) is the number of distinct prime factors of <var>n</var>)</li>

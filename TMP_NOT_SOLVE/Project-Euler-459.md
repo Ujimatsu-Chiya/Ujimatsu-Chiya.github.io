@@ -1,7 +1,8 @@
 ---
 title: Project Euler 459
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 459
 ## 题目
 ### Flipping game
-
+
+
 The flipping game is a two player game played on a N by N square board.<br />
 Each square contains a disk with one side white and one side black.<br />
 The game starts with all disks showing their white side.

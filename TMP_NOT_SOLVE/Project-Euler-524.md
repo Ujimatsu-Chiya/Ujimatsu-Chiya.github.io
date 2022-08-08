@@ -1,7 +1,8 @@
 ---
 title: Project Euler 524
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 524
 ## 题目
 ### First Sort II
-
+
+
 Consider the following algorithm for sorting a list:
 <ul style="list-style-type:none;"><li>1. Starting from the beginning of the list, check each pair of adjacent elements in turn.</li>
 <li>2. If the elements are out of order:

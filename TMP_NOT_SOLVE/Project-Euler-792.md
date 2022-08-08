@@ -1,7 +1,8 @@
 ---
 title: Project Euler 792
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 792
 ## 题目
 ### Too Many Twos
-
+
+
 
 We define $\nu_2(n)$ to be the largest integer $r$ such that $2^r$ divides $n$. For example, $\nu_2(24) = 3$.
 

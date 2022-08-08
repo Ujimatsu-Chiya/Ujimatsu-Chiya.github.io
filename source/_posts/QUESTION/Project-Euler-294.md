@@ -1,7 +1,8 @@
 ---
 title: Project Euler 294
-tags:
+category:
   - Project Euler
+tags:
   - 动态规划
   - 矩阵快速幂&#43;
 mathjax: true

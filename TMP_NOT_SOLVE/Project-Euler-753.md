@@ -1,7 +1,8 @@
 ---
 title: Project Euler 753
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 753
 ## 题目
 ### Fermat Equation
-
+
+
 Fermat's Last Theorem states that no three positive integers $a$, $b$, $c$ satisfy the equation 
 $$a^n+b^n=c^n$$
 for any integer value of $n$ greater than 2.

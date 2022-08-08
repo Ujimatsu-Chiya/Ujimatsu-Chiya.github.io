@@ -1,7 +1,8 @@
 ---
 title: Project Euler 538
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 538
 ## 题目
 ### Maximum quadrilaterals
-
+
+
 Consider a positive integer sequence <var>S</var> = (<var>s</var>_1, <var>s</var>_2, \dots, <var>s_n</var>).
 
 Let f(<var>S</var>) be the perimeter of the maximum-area quadrilateral whose side lengths are 4 elements (<var>s_i</var>, <var>s_j</var>, <var>s_k</var>, <var>s_l</var>) of <var>S</var> (all <var>i</var>, <var>j</var>, <var>k</var>, <var>l</var> distinct). If there are many quadrilaterals with the same maximum area, then choose the one with the largest perimeter.

@@ -1,7 +1,8 @@
 ---
 title: Project Euler 752
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 752
 ## 题目
 ### Powers of $1+\sqrt 7$
-
+
+
 
 When $(1+\sqrt 7)$ is raised to an integral power, $n$, we always get a number of the form $(a+b\sqrt 7)$.<br />
 We write $(1+\sqrt 7)^n = \alpha(n) + \beta(n)\sqrt 7$.

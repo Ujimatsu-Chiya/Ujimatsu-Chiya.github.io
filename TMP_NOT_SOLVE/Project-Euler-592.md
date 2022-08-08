@@ -1,7 +1,8 @@
 ---
 title: Project Euler 592
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 592
 ## 题目
 ### Factorial trailing digits 2
-
+
+
 For any <var>N</var>, let <var>f</var>(<var>N</var>) be the last twelve hexadecimal digits before the trailing zeroes in <var>N</var>!.
 
 For example, the hexadecimal representation of 20! is 21C3677C82B40000,<br />

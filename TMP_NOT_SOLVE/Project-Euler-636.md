@@ -1,7 +1,8 @@
 ---
 title: Project Euler 636
-tags:
+category:
   - Project Euler
+tags:
 mathjax: true
 ---
 <escape><!-- more --></escape>
@@ -9,7 +10,8 @@ mathjax: true
 # Project Euler 636
 ## 题目
 ### Restricted Factorisations
-
+
+
 Consider writing a natural number as product of powers of natural numbers with given exponents, additionally requiring different base numbers for each power.
 
 For example, $256$ can be written as a product of a square and a fourth power in three ways such that the base numbers are different.<br />
