@@ -1,3 +1,16 @@
+---
+title: MathJax数学符号
+mathjax: true
+category:
+  - MathJax
+date: 2022-08-14 22:11:32
+tags:
+---
+
+<escape><!-- more --></escape>
+
+本篇文章简要地列出了MathJax中的所有符号（可能不全），并按照形状进行分类。
+
 ## 区间形状
 
 |区间类型|代码|
@@ -11,6 +24,7 @@
 |$\lmoustache\rmoustache$|`\lmoustache\rmoustache`|
 |$\lvert\rvert$|`\lvert\rvert`|
 |$\lVert\rVert$|`\lVert\rVert`|
+|$\lgroup\rgroup$|`\lgroup\rgroup`|
 
 ## 希腊字母
 
@@ -155,24 +169,11 @@
 |${\huge AB}$|`{\huge AB}`|
 |${\Huge AB}$|`{\Huge AB}`|
 
-## 公式字符间隔距离
+## 其它基本符号
 
-|展示|代码|
-|-|-|
-|$0\!0$|`0\!0`|
-|$00$|`00`|
-|$0~0$|`0~0`|
-|$0\,0$|`0\,0`|
-|$0\;0$|`0\;0`|
-|$0\ 0$|`0\ 0`|
-|$0\:0$|`0\:0`|
-|$0\>0$|`0\>0`|
-|$0\quad0$|`0\quad0`|
-|$0\qquad0$|`0\qquad0`|
+`\#,\$,\%,\&,\_,\|`
 
-## 基本符号
-
-
+$\#,\$,\%,\&,\_,\|$
 
 ## 公式上下层符号
 
@@ -265,7 +266,7 @@
 
 |展示|代码|||||
 |-|-|-|-|-|-|
-|$\nabla$|`\nabla`|$\partial$|`\partial`|$\prime$|`\prime`|
+|$\nabla$|`\nabla`|$\partial$|`\partial`|$\prime,'$|`\prime,'`|
 |$\inf$|`\inf`|$\int,\iint,\iiint,\iiiint$|`\int,\iint,\iiint,\iiiint`|$\oint$|`\oint`|
 |$\lim$|`\lim`|$\liminf$|`\liminf`|$\limsup$|`\limsup`|
 |$\injlim$|`\injlim`|$\projlim$|`\projlim`|$\varinjlim$|`\varinjlim`|
@@ -283,7 +284,7 @@
 
 |展示|代码|
 |-|-|
-|$\in,\notin,\ni$|`\in,\notin,\ni`|
+|$\in,\notin,\ni,\owns$|`\in,\notin,\ni,\owns`|
 |$\subset,\Subset,\subseteq,\subsetneq,\nsubseteq,\nsubseteqq$|`\subset,\Subset,\subseteq,\subsetneq,\nsubseteq,\nsubseteqq`|
 |$\supset,\Supset,\supseteq,\supsetneq,\nsupseteq,\nsupseteqq$|`\supset,\Supset,\supseteq,\supsetneq,\nsupseteq,\nsupseteqq`|
 |$\subseteqq,\subsetneqq,\varsubsetneq,\varsubsetneqq$|`\subseteqq,\subsetneqq,\varsubsetneq,\varsubsetneqq`|
@@ -294,8 +295,8 @@
 
 |展示|代码|
 |-|-|
-|$\ge,\geqq,\geqslant,\gg,\ggg,\gt,\gtrdot,\eqslantgtr$|`\ge,\geqq,\geqslant,\gg,\ggg,\gt,\gtrdot,\eqslantgtr`|
-|$\le,\leqq,\leqslant,\ll,\lll,\lt,\lessdot,\eqslantless$|`\le,\leqq,\leqslant,\ll,\lll,\lt,\lessdot,\eqslantless`|
+|$>,\ge,\geqq,\geqslant,\gg,\ggg,\gt,\gtrdot,\eqslantgtr$|`>,\ge,\geqq,\geqslant,\gg,\ggg,\gt,\gtrdot,\eqslantgtr`|
+|$<,\le,\leqq,\leqslant,\ll,\lll,\lt,\lessdot,\eqslantless$|`<,\le,\leqq,\leqslant,\ll,\lll,\lt,\lessdot,\eqslantless`|
 |$\gtrapprox,\gnapprox,\gneq,\gneqq,\gvertneqq,\gtrsim,\gnsim$|`\gtrapprox,\gnapprox,\gneq,\gneqq,\gvertneqq,\gtrsim,\gnsim`|
 |$\lessapprox,\lnapprox,\lneq,\lneqq,\lvertneqq,\lesssim,\lnsim$|`\lessapprox,\lnapprox,\lneq,\lneqq,\lvertneqq,\lesssim,\lnsim`|
 |$\gtreqless,\gtreqqless,\gtrless,\lesseqgtr,\lesseqqgtr,\lessgtr$|`\gtreqless,\gtreqqless,\gtrless,\lesseqgtr,\lesseqqgtr,\lessgtr`|
@@ -311,7 +312,7 @@
 |$\nvdash,\nVdash,\nVDash,\nvDash$|`\nvdash,\nVdash,\nVDash,\nvDash`|
 |$\ntriangleleft,\ntriangleright$|`\ntriangleleft,\ntriangleright`|
 |$\trianglelefteq,\trianglerighteq,\ntrianglelefteq,\ntrianglerighteq$|`\trianglelefteq,\trianglerighteq,\ntrianglelefteq,\ntrianglerighteq`|
-|$\eqcirc,\equiv,\ne,\cong,\ncong$|`\eqcirc,\equiv,\ne,\cong,\ncong`|
+|$=,\eqcirc,\equiv,\ne,\cong,\ncong$|`=,\eqcirc,\equiv,\ne,\cong,\ncong`|
 |$\Doteq,\doteq,\triangleq$|`\Doteq,\doteq,\triangleq`|
 |$\Bumpeq,\bumpeq,\circeq$|`\Bumpeq,\bumpeq,\circeq`|
 |$\propto,\varpropto$|`\propto,\varpropto`|
@@ -323,10 +324,10 @@
 |$\circ,\bullet,\bigcirc$|`\circ,\bullet,\bigcirc`|
 |$\cap,\Cap,\bigcap,\doublecap,\sqcap$|`\cap,\Cap,\bigcap,\doublecap,\sqcap`|
 |$\cup,\Cup,\bigcup,\doublecup,\sqcup,\bigsqcup$|`\cup,\Cup,\bigcup,\doublecup,\sqcup,\bigsqcup`|
-|$\pm,\mp,\dotplus,\uplus,\biguplus$|`\pm,\mp,\dotplus,\uplus,\biguplus`|
-|$\ast,\times,\div,\divideontimes$|`\ast,\times,\div,\divideontimes`|
+|$+,-,\pm,\mp,\dotplus,\uplus,\biguplus,\sum$|`+,-,\pm,\mp,\dotplus,\uplus,\biguplus,\sum`|
+|$\ast,\times,\div,\divideontimes,\prod$|`\ast,\times,\div,\divideontimes,\prod`|
 |$\boxplus,\boxminus,\boxtimes$|`\boxplus,\boxminus,\boxtimes`|
-|$\odot,\ominus,\oplus,\bigoplus,\oslash,\otimes$|`\odot,\ominus,\oplus,\bigoplus,\oslash,\otimes`|
+|$\odot,\bigodot,\ominus,\oplus,\bigoplus,\oslash,\otimes$|`\odot,\bigodot,\ominus,\oplus,\bigoplus,\oslash,\otimes`|
 |$\sqrt{16}=\sqrt[3]{64}$|`\sqrt{16}=\sqrt[3]{64}`|
 |$\lor,\vee,\bigvee,\veebar,\curlyvee$|`\lor,\vee,\bigvee,\veebar,\curlyvee`|
 |$\land,\wedge,\barwedge,\bigwedge,\doublebarwedge,\curlywedge$|`\land,\wedge,\barwedge,\bigwedge,\doublebarwedge,\curlywedge`|
@@ -337,6 +338,7 @@
 ## 几何符号
 
 部分几何符号可能归入了特殊符号中。
+
 |展示|代码|
 |-|-|
 |$\angle,\measuredangle,\sphericalangle$|`\angle,\measuredangle,\sphericalangle`|
@@ -397,10 +399,13 @@
 
 ## 用`\DeclareMathOperator`定义运算符
 
+```latex
 $\DeclareMathOperator{\lcm}{lcm} \lcm(4,6)=2$
 $\lcm(12,18)=24$
+```
 
-${ n+1 \brace m+1 }\quad { n+1 \brack m+1 }$
+$\DeclareMathOperator{\lcm}{lcm} \lcm(4,6)=2$
+$\lcm(12,18)=24$
 
 ## `\buildrel{} \over{}`
 
@@ -619,3 +624,13 @@ x_{31} & x_{32}
 ```
 
 $$\Bigg[\bigg[\Big[\big[ [$$
+
+### `\not`
+
+在任何一个关系运算符前面添加一个`\not`，即可得到划斜线的运算符，如：
+
+|展示|代码|
+|-|-|
+|$\not\equiv$|`\not\equiv`|
+|$\not=$|`\not=`|
+|$\not\in$|`\not\in`|

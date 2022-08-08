@@ -30,7 +30,7 @@ $$x_{k+1} = \Biggl\lfloor{\dfrac{x_k + \lceil{n / x_k}\rceil}{2}}\Biggr\rfloor$$
 
 until $x_{k+1} = x_k$.
 
-As an example, let us find the rounded-square-root of n = 4321.
+As an example, let us find the rounded-square-root of $n = 4321$.
 
 $n$ has $4$ digits, so $x_0 = 7 \times 10^{(4-2)/2} = 70$.
 $$x_1 = \Biggl\lfloor{\dfrac{70 + \lceil{4321 / 70}\rceil}{2}}\Biggr\rfloor = 66$$
