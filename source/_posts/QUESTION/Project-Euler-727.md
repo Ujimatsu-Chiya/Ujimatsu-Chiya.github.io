@@ -37,13 +37,13 @@ Find $\mathbb{E}(d)$, rounded to eight places after the decimal point.
 
 在$\triangle ABC$中，点$D$是其内心。
 
-点$E$是$\bigodot A,\bigodot B,\bigodot C$的内索蒂圆圆心，也叫做$\triangle ABC$的[Equal Detour Point](https://mathworld.wolfram.com/EqualDetourPoint.html).
+点$E$是$\odot A,\odot B,\odot C$的内索蒂圆圆心，也叫做$\triangle ABC$的[Equal Detour Point](https://mathworld.wolfram.com/EqualDetourPoint.html).
 
 三角形内部点$E$的位置满足：$|AE|+|BE|-|AB|=|AE|+|CE|-|AC|=|BE|+|CE|-|BC|$。
 
 设$|BC|=a,|AC|=b,|AB|=c$，那么点$D$重心坐标为$D(a,b,c)$。
 
-点$E$的[重心坐标](https://en.wikipedia.org/wiki/Equal_detour_point)为$E(a+{\frac {\Delta }{s-a}},b+{\frac {\Delta }{s-b}},c+{\frac {\Delta }{s-c}})$，其中，$\Delta$是三角形的面积，$s$三角形的半周长。
+点$E$的[重心坐标](https://en.wikipedia.org/wiki/Equal_detour_point)为$E\left(a+{\dfrac {\Delta }{s-a}},b+{\dfrac {\Delta }{s-b}},c+{\dfrac {\Delta }{s-c}}\right)$，其中，$\Delta$是三角形的面积，$s$三角形的半周长。
 
 假设**规范化**后的两点坐标为$P(x_1,y_1,z_1),Q(x_2,y_2,z_2)$，令$x=x_2-x_1,y=y_2-y_1,z=z_2-z_1$，那么$\overrightarrow {PQ}=(x,y,z)$。
 

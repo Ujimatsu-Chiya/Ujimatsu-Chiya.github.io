@@ -33,16 +33,16 @@ NOTE: Although the example above does not lend itself to the possibility, in gen
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0 \\
-  &f(i-1)+g(i-1) & & \mathrm{else}
+  &1  & & \text{if\quad} i=0 \\
+  &f(i-1)+g(i-1) & & \text{else}
 \end{aligned}\right.
 $$
 
 $$
 g(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i<m \\
-  &\sum_{i=0}^{i-m}f(i) & & \mathrm{else}
+  &0  & & \text{if\quad} i<m \\
+  &\sum_{i=0}^{i-m}f(i) & & \text{else}
 \end{aligned}\right.
 $$
 

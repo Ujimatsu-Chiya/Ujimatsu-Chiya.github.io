@@ -30,13 +30,13 @@ Find $Co(200000)$.
 本题基于这个假设完成：被选上集合的数$n$，必定是以下两类数之一：
 
 - $f(n,p)$.对于$N$以内的任何一个质数$p$。
-- $f(\lfloor\dfrac{n}{q}\rfloor,p)\cdot q$，其中$p$是一个质数，$q$是一个大于$\lfloor\sqrt{N}\rfloor$的质数。
+- $f\left(\left\lfloor\dfrac{n}{q}\right\rfloor,p\right)\cdot q$，其中$p$是一个质数，$q$是一个大于$\lfloor\sqrt{N}\rfloor$的质数。
 
 如果质数$p,q$构造出了候选答案的第二类数，那么其它第二类数必定不能含有$p,q$这两个质因子，因此我们可以将其转化成[最小费用最大流问题](https://en.wikipedia.org/wiki/Minimum-cost_flow_problem)来解决。一开始我们先假设候选答案中只有第一类数，其总和为$s$，往后再逐渐添加第二类数。
 
-假设小于等于$\lfloor\sqrt{N}\rfloor$的质数为集合$P$，其余质数为集合$Q$。对于$p\in P,q \in Q$，如果$f(\lfloor\dfrac{n}{q}\rfloor)\cdot p>f(n,p)+q$，那么从节点$p$到节点$q$连一条容量为$1$，费用为$-(f(\lfloor\dfrac{n}{q}\rfloor)\cdot p-f(n,p)-q)$的边。那么，将源点连向$P$中的每个节点，将$Q$中的每个节点连向汇点，这些边的容量都为$1$，费用都为$0$。
+假设小于等于$\lfloor\sqrt{N}\rfloor$的质数为集合$P$，其余质数为集合$Q$。对于$p\in P,q \in Q$，如果$f\left(\left\lfloor\dfrac{n}{q}\right\rfloor,p\right)\cdot p>f(n,p)+q$，那么从节点$p$到节点$q$连一条容量为$1$，费用为$-\left(f\left(\left\lfloor\dfrac{n}{q}\right\rfloor,p\right)\cdot p-f(n,p)-q\right)$的边。那么，将源点连向$P$中的每个节点，将$Q$中的每个节点连向汇点，这些边的容量都为$1$，费用都为$0$。
 
-最终使用networkx库中的max_flow_min_cost方法完成计算。将答案添加到$s$中，成为最终答案。需要注意的是，我们求的费用是最大值，因此整张图的费用权值都是负数。
+最终使用`networkx`库中的`max_flow_min_cost`方法完成计算。将答案添加到$s$中，成为最终答案。需要注意的是，我们求的费用是最大值，因此整张图的费用权值都是负数。
 
 ## 代码
 

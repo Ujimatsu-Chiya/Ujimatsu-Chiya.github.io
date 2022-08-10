@@ -25,11 +25,11 @@ Find the sum of the terms in the prime factorisation of $\displaystyle \binom {2
 
 ## 解决方案
 
-组合数$C_n^m$的定义为$\dfrac{n!}{(n-m)!m!}$。因此，求一个质因数$p$在组合数的次数，本质上是求在阶乘中出现的次数。
+组合数$\dbinom{n}{m}$的定义为$\dfrac{n!}{(n-m)!m!}$。因此，求一个质因数$p$在组合数的次数，本质上是求在阶乘中出现的次数。
 
-设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\lfloor\dfrac{n}{p}\rfloor+\lfloor\dfrac{n}{p^2}\rfloor+\lfloor\dfrac{n}{p^3}\rfloor+\dots$，每一项分别表示$1\sim n$中有多少个数是$p,p^2,p^3\dots$的倍数。
+设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\left\lfloor\dfrac{n}{p}\right\rfloor+\left\lfloor\dfrac{n}{p^2}\right\rfloor+\left\lfloor\dfrac{n}{p^3}\right\rfloor+\dots$，每一项分别表示$1\sim n$中有多少个数是$p,p^2,p^3\dots$的倍数。
 
-因此根据组合数的定义式，质因子$p$出现的次数为$f(n,p)-f(m,p)-f(n-m,p)$。
+因此根据组合数的定义式，$\dbinom{n}{m}$的质因子$p$出现的次数为$f(n,p)-f(m,p)-f(n-m,p)$。
 
 ## 代码
 

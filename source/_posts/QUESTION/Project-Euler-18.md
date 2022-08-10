@@ -49,7 +49,7 @@ Find the maximum total from top to bottom of the triangle below:
 
 ## 解决方案
 
-将数字三角形直接转化成一个以左下角为顶点的直角三角形，存在p018.txt中，方便读取：
+将数字三角形直接转化成一个以左下角为顶点的直角三角形，存在`p018.txt`中，方便读取：
 
 <left style="font-family:'Courier New',monospace;">
 75<br />
@@ -80,14 +80,14 @@ Find the maximum total from top to bottom of the triangle below:
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &a[i][j]  & & \mathrm{if\quad} i=j=1 \\
-  &f(i-1,j-1)+a[i][j] & & \mathrm{else if\quad} j=i \\
-  &f(i-1,j)+a[i][j] & & \mathrm{else if\quad} j=1 \\
-  &\max(f(i-1,j-1),f(i-1,j)) + a[i][j] & & \mathrm{else}
+  &a[i][j]  & & \text{if\quad} i=j=1 \\
+  &f(i-1,j-1)+a[i][j] & & \text{else if\quad} j=i \\
+  &f(i-1,j)+a[i][j] & & \text{else if\quad} j=1 \\
+  &\max(f(i-1,j-1),f(i-1,j)) + a[i][j] & & \text{else}
 \end{aligned}\right.
 $$
 
-最后的答案则是$\max_{j=1}^nf(n,j)$.
+最后的答案则是$\max_{j=1}^n\{f(n,j)\}$.
 
 ## 代码
 
@@ -103,6 +103,7 @@ int main(){
         scanf("%d",&t);
         f[i][j]=max(f[i-1][j-1],f[i-1][j])+t;
     }
-    printf("%d\n",*max_element(f[N]+1,f[N]+N+1));
+    int ans=*max_element(f[N]+1,f[N]+N+1);
+    printf("%d\n",ans);
 }
 ```

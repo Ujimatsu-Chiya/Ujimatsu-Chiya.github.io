@@ -15,9 +15,9 @@ date: 2022-05-03 09:22:28
 
 ### Prime digit replacements
 
-By replacing the $1^{st}$ digit of the $2$-digit number $*3$, it turns out that six of the nine possible values: $13, 23, 43, 53, 73$, and $83$, are all prime.
+By replacing the $1^{\text{st}}$ digit of the $2$-digit number $*3$, it turns out that six of the nine possible values: $13, 23, 43, 53, 73$, and $83$, are all prime.
 
-By replacing the $3^{rd}$ and $4^{\th}$ digits of $56**3$ with the same digit, this $5$-digit number is the first example having seven primes among the ten generated numbers, yielding the family: $56003, 56113, 56333, 56443, 56663, 56773,$ and $56993$.
+By replacing the $3^{\text{rd}}$ and $4^{\text{th}}$ digits of $56**3$ with the same digit, this $5$-digit number is the first example having seven primes among the ten generated numbers, yielding the family: $56003, 56113, 56333, 56443, 56663, 56773,$ and $56993$.
 
 Consequently $56003$, being the first member of this family, is the smallest prime with this property.
 
@@ -27,24 +27,24 @@ Find the smallest prime which, by replacing part of the number (not necessarily 
 
 此处使用一个术语：模板，用来表示题意中带星号和数字的混合字符串。如题目中的$*3,56**3$等。
 
-这些模板通过将对所有星号(*)填入相同的数位，产生$9\sim10$个数（当模板的最高位是星号时，将不能填入$0$）。
+这些模板通过将对所有星号`(*)`填入相同的数位，产生$9\sim10$个数（当模板的最高位是星号时，将不能填入$0$）。
 
 一个关于模板的结论：
 
 如果一个模板能够产生$8$个质数，那么这个模板的星号个数必须为$3$的倍数。
 
-设模板中星号的个数为$k$，其余的数字之和为$s$，那么产生的数字的数位和为$s,s+k,s+2k,...,s+9k$。
+设模板中星号的个数为$k$，其余的数字之和为$s$，那么产生的数字的数位和为$s,s+k,s+2k,\dots,s+9k$。
 
-1. 当$k$满足$k\equiv 0 (\mod 3)$时，可以发现： $s\equiv s+k\equiv s+2k\equiv...\equiv s+9k(\mod 3)$
+1. 当$k$满足$k\equiv 0 \pmod 3$时，可以发现： $s\equiv s+k\equiv s+2k\equiv\dots\equiv s+9k\pmod 3$。
 
-这种情况下，当$s$*不满足*$s\equiv0(\mod 3)$时，就有可能产生$8$个质数。
+这种情况下，当$s\not\equiv0\pmod 3$时，就有可能产生$8$个质数。
 
 2. 否则，总有
 
 $\begin{aligned}
-& s\equiv s+3k\equiv s+6k\equiv s+9k(\mod 3) \\
-& s+1k\equiv s+4k\equiv s+7k(\mod 3) \\
-& s+2k\equiv s+5k\equiv s+8k(\mod 3)
+& s\equiv s+3k\equiv s+6k\equiv s+9k\pmod 3 \\
+& s+1k\equiv s+4k\equiv s+7k \pmod 3 \\
+& s+2k\equiv s+5k\equiv s+8k \pmod 3
 \end{aligned}$
 
 这三条式子中，总存在一条是和$0$是同余的。在这种情况下，就有$3$个合数，不能构造出$8$个质数，所以，原结论成立。
@@ -53,7 +53,7 @@ $\begin{aligned}
 
 因此，利用上面的结论，直接开始枚举质数。
 
-本代码使用sympy库中的nextprime函数，它将返回当前大于数的下一个质数。
+本代码使用`sympy`库中的`nextprime`函数，它将返回当前大于数的下一个质数。
 
 ## 代码
 

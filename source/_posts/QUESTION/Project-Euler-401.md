@@ -32,23 +32,23 @@ Find $\text{SIGMA2}(10^{15}) \text{ modulo } 10^9$.
 
 这种方法一般用于计算关于某个函数$f$（$f$的前缀和$s(n)$可以很轻松地算出来）的下面的表达式：
 
-$$g(n)=\sum_{d=1}^nf(d)\cdot \lfloor\dfrac{n}{d}\rfloor$$
+$$g(n)=\sum_{d=1}^nf(d)\cdot \left\lfloor\dfrac{n}{d}\right\rfloor$$
 
-对于$d$任意不同的取值，$\lfloor\dfrac{n}{d}\rfloor$只有$O(\sqrt{n})$个值。
+对于$d$任意不同的取值，$\left\lfloor\dfrac{n}{d}\right\rfloor$只有$O(\sqrt{n})$个值。
 
-一个块如果下标从$i$开始，那么到$\lfloor\dfrac{n}{\lfloor\dfrac{n}{i}\rfloor}\rfloor$才结束，而这块内部的所有$\lfloor\dfrac{n}{d}\rfloor$都是相同的。下一个块的起点为$\lfloor\dfrac{n}{\lfloor\dfrac{n}{i}\rfloor}\rfloor+1$开始，这些块是首尾相接的。
+一个块如果下标从$i$开始，那么到$\left\lfloor\dfrac{n}{\left\lfloor\frac{n}{i}\right\rfloor}\right\rfloor$才结束，而这块内部的所有$\left\lfloor\dfrac{n}{d}\right\rfloor$都是相同的。下一个块的起点为$\left\lfloor\dfrac{n}{\left\lfloor\frac{n}{i}\right\rfloor}\right\rfloor+1$开始，这些块是首尾相接的。
 
 因此，从下标$i=1$开始，枚举计算每一块的$f$函数之和，并求和，用表达式来表示就是：
 
-$$g(n)=\sum_{k}\lfloor\dfrac{n}{k}\rfloor\cdot(s(\lfloor\dfrac{n}{\lfloor\dfrac{n}{k}\rfloor}\rfloor)-s(k-1))$$
+$$g(n)=\sum_{k}\left\lfloor\dfrac{n}{k}\right\rfloor\cdot\left(s\left(\left\lfloor\dfrac{n}{\left\lfloor\frac{n}{k}\right\rfloor}\right\rfloor\right)-s(k-1)\right)$$
 
 其中$k$是每一块的起点。
 
 ## 解决方案
 
-不难想到每个因子$d$在$1\sim n$中出现的次数总共为$\lfloor\dfrac{n}{d}\rfloor$次。
+不难想到每个因子$d$在$1\sim n$中出现的次数总共为$\left\lfloor\dfrac{n}{d}\right\rfloor$次。
 
-因此$\text{SIGMA2}(n)=\sum_{i=1}^n\lfloor\dfrac{n}{d}\rfloor\cdot d^2$。
+因此$\text{SIGMA2}(n)=\sum_{i=1}^n\left\lfloor\dfrac{n}{d}\right\rfloor\cdot d^2$。
 
 代入数论分块中，$f(n)=n^2$，那么$s(n)=\dfrac{n(n+1)(2n+1)}{6}$即可。
 

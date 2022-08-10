@@ -20,7 +20,7 @@ Create a sequence of numbers using the “Blum Blum Shub” pseudo-random number
 
 $\begin{aligned}
 s_0&=14025256\\
-s_{n+1}&=s_n^2 \mod 20300713
+s_{n+1}&=s_n^2 \bmod 20300713
 \end{aligned}$
 
 Concatenate these numbers  $s_0s_1s_2\dots$ to create a string $w$ of infinite length.
@@ -59,7 +59,7 @@ We can verify that, for $0 < k \le 10^3, \sum p(k) = 4742$. Find $\sum
 
 为了压缩时间，考虑以下缩减时间复杂度的方法：在枚举起点的时候，如果发现对于某个值$s$，$p(s+1),p(s+2),\dots,p(T)$都已经求解出来，那么在枚举区间右端点$r$时，保持$\sum_{i=l}^r w_i\le s$。每次枚举$i$时，都先要将$s$维护好。经过测试，这种方式让外层循环进行了不到$100$次，效率可以接受。
 
-对于某个$k$，计算出$p(k)$后，那么就需要计算$1\sim N$中有多少个值和$k$关于模$T$同余。这个值不难计算出是$\lfloor \dfrac{N}{T}\rfloor+[k\neq T \wedge k\le n\%T]$,其中$[]$是示性函数。
+对于某个$k$，计算出$p(k)$后，那么就需要计算$1\sim N$中有多少个值和$k$关于模$T$同余。这个值不难计算出是$\left\lfloor \dfrac{N}{T}\right\rfloor+[k\neq T \land k\le n\%T]$,其中$[]$是示性函数。
 
 需要注意的是，有一部分$p$值，以$p(k)$为起点，$k$为和值的字符串跨越了两个周期，本代码给第二个区间预留了$C=100$位数字。
 

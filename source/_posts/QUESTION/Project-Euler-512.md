@@ -32,15 +32,15 @@ Find $g(5 \times 10^8)$.
 
 $f(n)=\sum_{i=1}^n\varphi(n^i)=\varphi(n)\sum_{i=0}^{n-1} n^i$
 
-因此$f(n) = \varphi(n)\cdot \sum_{i=0}^{n-1}(-1)^i\mod (n+1)$。
+因此$f(n) = \varphi(n)\cdot \sum_{i=0}^{n-1}(-1)^i\% (n+1)$。
 
-如果$n$为偶数，那么$f(n) =  0\mod (n+1)$
+如果$n$为偶数，那么$f(n) = 0$
 
-如果$n$为奇数，那么$f(n)=\varphi(n) \mod (n+1)$
+如果$n$为奇数，那么$f(n)=\varphi(n) \% (n+1)$
 
 因此，
 
-$$g(n)=\sum_{i=1}^{\lfloor\dfrac{n+1}{2}\rfloor}\varphi(2i-1)$$
+$$g(n)=\sum_{i=1}^{\left\lfloor\frac{n+1}{2}\right\rfloor}\varphi(2i-1)$$
 
 可以直接使用筛法计算奇数的欧拉函数值。
 
@@ -48,9 +48,9 @@ $$g(n)=\sum_{i=1}^{\lfloor\dfrac{n+1}{2}\rfloor}\varphi(2i-1)$$
 
 $$\Phi(n)=\sum_{i=1}^n\varphi(n)$$
 
-令$\Phi_p(n)=\sum_{i=1,p|i}^n \varphi(n)$，$p$是一个质数。那么$g(n)=\Phi(n)-\Phi_2(n)$。$\Phi_p(n)$满足：
+令$\Phi_p(n)=\sum_{i=1,p\mid i}^n \varphi(n)$，$p$是一个质数。那么$g(n)=\Phi(n)-\Phi_2(n)$。$\Phi_p(n)$满足：
 
-$$\Phi_p(n)=\varphi(p)\cdot(\Phi(\dfrac{n}{p})+\Phi(\dfrac{n}{p^2})+\Phi(\dfrac{n}{p^3})+\dots)$$
+$$\Phi_p(n)=\varphi(p)\cdot\left(\Phi\left(\dfrac{n}{p}\right)+\Phi\left(\dfrac{n}{p^2}\right)+\Phi\left(\dfrac{n}{p^3}\right)+\dots\right)$$
 
 说明：如果一个数$p^k\cdot x,p\nmid x,k>1$，那么$\varphi(p^k\cdot x)=(p-1)p^{k-1}x$。因此，在上面的式子中，$\varphi(p^k\cdot x)$的一部分被算进$\varphi(p)\cdot\Phi(\dfrac{n}{p^k})$，另一部分被算进$\varphi(p)\cdot\Phi(\dfrac{n}{p^{k-1}})$。
 
@@ -59,13 +59,13 @@ $$\Phi_p(n)=\varphi(p)\cdot(\Phi(\dfrac{n}{p})+\Phi(\dfrac{n}{p^2})+\Phi(\dfrac{
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
 &=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}|\\
-&=\sum_{d=1}^n\Phi(\dfrac{n}{d})
+&=\sum_{d=1}^n\left|\left\{(a,b)| 1\le a\le b \le \left\lfloor\dfrac{n}{d}\right\rfloor,\gcd(a,b)=1\right\}\right|\\
+&=\sum_{d=1}^n\Phi\left(\dfrac{n}{d}\right)
 \end{aligned}$$
 
 因此，可以得到关于$\Phi$的递归式：
 
-$$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})$$
+$$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi\left(\dfrac{n}{d}\right)$$
 
 其中，右边这一部分可以使用数论分块来解决。
 

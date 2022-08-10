@@ -16,7 +16,7 @@ date: 2022-04-30 10:32:36
 
 ### Passcode derivation
 
-A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was $531278$, they may ask for the $2\mathrm{nd}$, $3\mathrm{rd}$, and $5\mathrm{th}$ characters; the expected reply would be: $317$.
+A common security method used for online banking is to ask the user for three random characters from a passcode. For example, if the passcode was $531278$, they may ask for the $2\text{nd}$, $3\text{rd}$, and $5\text{th}$ characters; the expected reply would be: $317$.
 
 The text file, [keylog.txt](../resources/p079_keylog.txt), contains fifty successful login attempts.
 
@@ -24,7 +24,7 @@ Given that the three characters are always asked for in order, analyse the file 
 
 ## 解决方案
 
-本题的解题方法依赖于这个事实：所有密码位的出现都是唯一的。
+本题的解题方法依赖于这个假设：所有密码位的出现都是唯一的。
 
 因此，可以通过[建立有向无环图（DAG）](https://en.wikipedia.org/wiki/Directed_acyclic_graph)，表示密码位的关系。（如果这不是一个DAG，那么上述事实不成立）
 
@@ -52,7 +52,7 @@ else
     return L (a topologically sorted order)
 ```
 
-本代码中将实现两种方式：手动实现拓扑排序和使用networkx库导出。
+本代码中将实现两种方式：手动实现拓扑排序和使用`networkx`库导出。
 
 ## 代码
 

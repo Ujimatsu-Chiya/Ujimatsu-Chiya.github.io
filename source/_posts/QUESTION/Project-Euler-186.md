@@ -25,12 +25,12 @@ Here are the records from a busy telephone system with one million users:
 |$3$|$600863$|$701497$|
 |$\dots$|$\dots$|$\dots$|
 
-The telephone number of the caller and the called number in record $n$ are $\mathrm{Caller}(n) = S_{2n-1}$ and $\mathrm{Called}(n) = S_{2n}$ where $S_{1,2,3,\dots}$ come from the “Lagged Fibonacci Generator”:
+The telephone number of the caller and the called number in record $n$ are $\text{Caller}(n) = S_{2n-1}$ and $\text{Called}(n) = S_{2n}$ where $S_{1,2,3,\dots}$ come from the “Lagged Fibonacci Generator”:
 
-For $1 \le k \le 55, S_k = [100003 - 200003k + 300007 k^3] (\mathrm{modulo\ } 1000000)$<br>
-For $56 \le k, S_k = [S_k-24 + S_k-55] (\mathrm{modulo\ } 1000000)$
+For $1 \le k \le 55, S_k = [100003 - 200003k + 300007 k^3] (\text{modulo\ } 1000000)$<br>
+For $56 \le k, S_k = [S_k-24 + S_k-55] (\text{modulo\ } 1000000)$
 
-If $\mathrm{Caller(n)} = \mathrm{Called(n)}$ then the user is assumed to have misdialled and the call fails; otherwise the call is successful.
+If $\text{Caller(n)} = \text{Called(n)}$ then the user is assumed to have misdialled and the call fails; otherwise the call is successful.
 
 From the start of the records, we say that any pair of users $X$ and $Y$ are friends if $X$ calls $Y$ or vice-versa. Similarly, $X$ is a friend of a friend of $Z$ if $X$ is a friend of $Y$ and $Y$ is a friend of $Z$; and so on for longer chains.
 

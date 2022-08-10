@@ -16,15 +16,15 @@ date: 2022-04-27 23:31:59
 
 ### Coin sums
 
-In the United Kingdom the currency is made up of pound (£) and pence (p). There are eight coins in general circulation:
+In the United Kingdom the currency is made up of pound $(£)$ and pence $(p)$. There are eight coins in general circulation:
 
-$$1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), \mathrm{and} £2 (200p).$$
+$$1p, 2p, 5p, 10p, 20p, 50p, £1 (100p), \text{and } £2 (200p).$$
 
-It is possible to make £2 in the following way:
+It is possible to make $£2$ in the following way:
 
 $$1×£1 + 1×50p + 2×20p + 1×5p + 1×2p + 3×1p$$
 
-How many different ways can £2 be made using any number of coins?
+How many different ways can $£2$ be made using any number of coins?
 
 ## 解决方案
 
@@ -39,11 +39,11 @@ How many different ways can £2 be made using any number of coins?
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} j=0 \\
-  &0 & & \mathrm{else if\quad} i=1 \&j<a[i] \\
-  &f(i,j-a[i]) & & \mathrm{else if\quad} i=1& \\
-  &f(i-1,j) & & \mathrm{else if\quad} j < a[i] \\
-  &f(i-1,j) + f(i,j-a[i]) & & \mathrm{else}
+  &1  & & \text{if\quad} j=0 \\
+  &0 & & \text{else if\quad} i=1 \land j<a[i] \\
+  &f(i,j-a[i]) & & \text{else if\quad} i=1& \\
+  &f(i-1,j) & & \text{else if\quad} j < a[i] \\
+  &f(i-1,j) + f(i,j-a[i]) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -59,5 +59,6 @@ f[0] = 1
 for x in ls:
     for i in range(x, N + 1):
         f[i] += f[i - x]
-print(f[N])
+ans = f[N]
+print(ans)
 ```

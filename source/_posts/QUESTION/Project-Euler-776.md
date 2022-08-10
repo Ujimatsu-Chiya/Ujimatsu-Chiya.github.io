@@ -28,7 +28,7 @@ Find $F(1234567890123456789)$. Write your answer in scientific notation rounded 
 
 不难发现，可以将$F$进行改写：
 
-$$F(N)=\sum_{n=1}^{N}\dfrac{n}{d(n)}=\sum_{k=1}^{+\infty}\dfrac{1}{k}\cdot(\sum_{n\le N,d(n)=k}n)$$
+$$F(N)=\sum_{n=1}^{N}\dfrac{n}{d(n)}=\sum_{k=1}^{+\infty}\dfrac{1}{k}\cdot\left(\sum_{n\le N,d(n)=k}n\right)$$
 
 改写后，相当于将$1\sim N$以内的所有数按照数位和分类好，再将它们求和即可，考虑使用动态规划的方法进行。
 
@@ -49,9 +49,9 @@ $$F(N)=\sum_{n=1}^{N}\dfrac{n}{d(n)}=\sum_{k=1}^{+\infty}\dfrac{1}{k}\cdot(\sum_
 $$
 c_0(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1\wedge j<d_1 \\
-  &0 & & \mathrm{else if\quad} i=1 \\
-  &\sum_{k=0}^{\min(9,n)} c_0(i-1,j-k)+\sum_{k=0}^{\min(9,n,d_i-1)} c_1(i-1,j-k) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1\land j<d_1 \\
+  &0 & & \text{else if\quad} i=1 \\
+  &\sum_{k=0}^{\min(9,n)} c_0(i-1,j-k)+\sum_{k=0}^{\min(9,n,d_i-1)} c_1(i-1,j-k) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -62,10 +62,10 @@ $$
 $$
 s_0(i,j)=
 \left \{\begin{aligned}
-  &j  & & \mathrm{if\quad} i=1\wedge j<d_1 \\
-  &0 & & \mathrm{else if\quad} i=1 \\
+  &j  & & \text{if\quad} i=1\land j<d_1 \\
+  &0 & & \text{else if\quad} i=1 \\
   &\sum_{k=0}^{\min(9,n)} (10\cdot s_0(i-1,j-k)+ k\cdot c_0(i-1,j-k))+\\
-  &\sum_{k=0}^{\min(9,n,d_i-1)} (10\cdot s_1(i-1,j-k)+ k\cdot c_1(i-1,j-k)) & & \mathrm{else}
+  &\sum_{k=0}^{\min(9,n,d_i-1)} (10\cdot s_1(i-1,j-k)+ k\cdot c_1(i-1,j-k)) & & \text{else}
 \end{aligned}\right.
 $$
 

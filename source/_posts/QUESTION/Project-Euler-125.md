@@ -32,10 +32,10 @@ Find the sum of all the numbers less than $10^8$ that are both palindromic and c
 ## 代码
 
 ```py
-from tools import isqrt
+from tools import int_sqrt
 
 N = 10 ** 8
-a = [i * i for i in range(1, isqrt(N) + 1)]
+a = [i * i for i in range(1, int_sqrt(N) + 1)]
 st = set()
 for i in range(len(a)):
     if i + 1 < len(a) and a[i] + a[i + 1] >= N:

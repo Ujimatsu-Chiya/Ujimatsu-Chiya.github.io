@@ -37,9 +37,9 @@ Find $S(11^{12})$ and give your answer mod $10^9$.
 $$
 f(i,j,k)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1,0\le i=j\le \min(9,O) \\
-  &0 & & \mathrm{else if\quad} i=1 \\
-  &\sum_{d=0}^{\min(9,k)}\sum_{0\le x<M,(10x+d)\%M=j} f(i-1,x,k-d) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1,0\le i=j\le \min(9,O) \\
+  &0 & & \text{else if\quad} i=1 \\
+  &\sum_{d=0}^{\min(9,k)}\sum_{0\le x<M,(10x+d)\%M=j} f(i-1,x,k-d) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -49,7 +49,7 @@ $$
 
 考虑使用矩阵快速幂进行改善。定义一个转移矩阵$A$，其中这个矩阵的边长为$M(O+1)$，每一个对应下标值$i$的行和列都被编码成一个状态，用两个数$(a_i,b_i)(0\le a_i< M,0\le b_i\le O)$表示。其中$a_i$表示当前的数模$M$的值，$b_i$表示当前的数的数位之和。
 
-如果存在$0\le d<10$，使得($10a_i+d)\%M=a_j\wedge b_i+d=b_j$，那么$A_{ij}=1$，否则$A_{ij}=0$。定义好矩阵$A$后直接通过矩阵快速幂加速转移。此时的时间复杂度为$O(M^3\cdot O^3\cdot \log N)$.时间比起直接求$f$有进步，但依然非常慢。
+如果存在$0\le d<10$，使得$(10a_i+d)\%M=a_j\land b_i+d=b_j$，那么$A_{ij}=1$，否则$A_{ij}=0$。定义好矩阵$A$后直接通过矩阵快速幂加速转移。此时的时间复杂度为$O(M^3\cdot O^3\cdot \log N)$.时间比起直接求$f$有进步，但依然非常慢。
 
 更进一步的改进：如果我们已经求出了$f(a,\cdot,\cdot)$和$f(b,\cdot,\cdot)$中的所有值，我们可以以$O(M^2\cdot N^2)$求出$f(a+b,\cdot,\cdot)$的所有值。
 

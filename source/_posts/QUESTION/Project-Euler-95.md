@@ -31,7 +31,7 @@ Find the smallest member of the longest amicable chain with no element exceeding
 
 将$1\sim N$中所有数的真因数和通过筛法计算出来，这需要$O(N\log N)$的时间。
 
-从图论的角度上看，这是一张所有节点都只有一条出边的有向图（每个节点$i$向其真因数和的节点$\mathrm{sigma}[i]$连边），因此每个节点最多只属于一个环。
+从图论的角度上看，这是一张所有节点都只有一条出边的有向图（每个节点$i$向其真因数和的节点$\text{sigma}[i]$连边），因此每个节点最多只属于一个环。
 
 因此本问题就变成了在这个特殊的图上找出那个最大的环。
 

@@ -27,19 +27,19 @@ Find $A(10^8,10^{16})$. Give your answer modulo $1\,000\,000\,007$.
 
 ## 解决方案
 
-本方案只适用于$k|n$的情况。
+本方案只适用于$k\mid n$的情况。
 
 不难发现，对于$1\le i\le k$，第$i,i+k,i+2k,i+3k,\dots$列中，$1$的个数是相同的。
 
 因此可以只考虑前$k$列的情况。
 
-由于前$2\times k$个格子中，只有$k$个为$1$，因此最多只有$\lfloor\dfrac{k}{2}\rfloor$列是拥有两个$1$。剩下的$1$中，都被分配到了一个$1$的列。
+由于前$2\times k$个格子中，只有$k$个为$1$，因此最多只有$\left\lfloor\dfrac{k}{2}\right\rfloor$列是拥有两个$1$。剩下的$1$中，都被分配到了一个$1$的列。
 
 枚举前$k$个格子中填充两个$1$的列的个数，那么答案为：
 
-$$A(k,n)=\sum_{i=0}^{\lfloor\frac{k}{2}\rfloor}\frac{k!}{(n-2i)!(i!)^2}2^{\frac{n}{k}\cdot(k-2i)}$$
+$$A(k,n)=\sum_{i=0}^{\left\lfloor\frac{k}{2}\right\rfloor}\frac{k!}{(n-2i)!(i!)^2}2^{\frac{n}{k}\cdot(k-2i)}$$
 
-如果有$i$列有两个$1$，那么有$i$列没有$1$，有$k-2i$只有一个$1$。那么，$1$的分配方式就有$C_{k}^i\cdot C_{k-i}^i=\dfrac{k!}{(n-2i)!(i!)^2}$种。整个$2\times n$的格子中，有$\dfrac{n}{k}\cdot(k-2i)$列是只有一个$1$的，每一列有$2$种填法，由此得到$2^{\frac{n}{k}\cdot(k-2i)}$。最终通过组合得到上式。
+如果有$i$列有两个$1$，那么有$i$列没有$1$，有$k-2i$只有一个$1$。那么，$1$的分配方式就有$\dbinom{k}{i}\cdot\dbinom{k-i}{i}=\dfrac{k!}{(n-2i)!(i!)^2}$种。整个$2\times n$的格子中，有$\dfrac{n}{k}\cdot(k-2i)$列是只有一个$1$的，每一列有$2$种填法，由此得到$2^{\frac{n}{k}\cdot(k-2i)}$。最终通过组合得到上式。
 
 ## 代码
 

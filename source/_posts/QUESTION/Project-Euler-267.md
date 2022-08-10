@@ -43,11 +43,11 @@ $$P(n)=(1+2f)^n\cdot(1-f)^{N-n}$$
 
 由于$f>0$，因此移项后就写成$n\ge\dfrac{\log M-N\log(1-f)}{\log(1+2f)-\log(1-f)}$
 
-令函数$h(x)=\dfrac{\log M-N\log(1-x)}{\log(1+2x)-\log(1-x)},0< x<1$.那么此时就是为了求函数$h(x)$的最小值。这里使用scipy.optimize中的fminbound方法求函数$h$的极小值点$x_0$。
+令函数$h(x)=\dfrac{\log M-N\log(1-x)}{\log(1+2x)-\log(1-x)},0< x<1$.那么此时就是为了求函数$h(x)$的最小值。这里使用`scipy.optimize`中的`fminbound`方法求函数$h$的极小值点$x_0$。
 
 那么，最小的$n_0$就满足$n_0=\lceil h(x_0)\rceil$。
 
-根据二项分布的性质，不难得出最终结果为$\dfrac{\sum_{i=n_0}^N C_N^i}{2^N}$.
+根据二项分布的性质，不难得出最终结果为$\dfrac{\sum_{i=n_0}^N\binom{N}{i}}{2^N}$.
 
 ## 代码
 

@@ -26,7 +26,7 @@ For our example, we used the first $20$ points $(T_{2k−1},T_{2k})$, for $k=1,2
 $\begin{aligned}
 S_0&=290797\\
 S_{n+1}&=S_n^2 \text{ mod } 50515093\\
-T_n&=(S_n \mod 2000)-1000
+T_n&=(S_n \bmod 2000)-1000
 \end{aligned}$
 
 *i.e.* $(527,144), (−488,732), (−454,−947), \dots$
@@ -37,7 +37,7 @@ Specify your answer including one digit after the decimal point.
 
 ## 解决方案
 
-本题将尝试找到所有的凸空洞，并且求出它们的最大值。为了减少程序运行时间，我们尽量减少凸空洞的重复寻找次数，采取的措施是：枚举图中的每一个点$A(x_i,y_i)$作为整个坐标系的原点，将满足这些条件的点$(x_j,y_j)$舍去：$y_j<y_i\vee (y_j=y_i \wedge x_j<x_i)$.那么剩下的这些点中，$A$是最下方的，考虑以$A$为空洞的一个特定点进行枚举。
+本题将尝试找到所有的凸空洞，并且求出它们的最大值。为了减少程序运行时间，我们尽量减少凸空洞的重复寻找次数，采取的措施是：枚举图中的每一个点$A(x_i,y_i)$作为整个坐标系的原点，将满足这些条件的点$(x_j,y_j)$舍去：$y_j<y_i\lor (y_j=y_i \and x_j<x_i)$.那么剩下的这些点中，$A$是最下方的，考虑以$A$为空洞的一个特定点进行枚举。
 
 那么，将所有的点都按照极角进行排序。考虑如下图的形式，主要思想是从逆时针方向起找到一个个三角形，这些三角形合并后恰好形成一个凸包。
 
@@ -74,7 +74,7 @@ $$f(i,j)=\max(S_{\triangle AB_iB_j},\max_{k=1}^{k_0}\{f(j,k)+S_{\triangle AB_iB_
 
 另外，对于任意两点$B_i,B_j,S_{\triangle AB_i,B_j}=|\overrightarrow{AB_i}\times\overrightarrow{AB_j}|$.
 
-最终答案为$\max_{i=1}^m\{\max_{j=1}^if(i,j)\}$.
+最终答案为$\displaystyle{\max_{1\le j\le i\le m}\{f(i,j)\}}$.
 
 ## 代码
 

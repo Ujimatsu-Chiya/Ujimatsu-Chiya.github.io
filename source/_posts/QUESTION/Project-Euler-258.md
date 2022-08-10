@@ -19,7 +19,7 @@ A sequence is defined as:
 - $g_k = 1$, for $0 \leq k \leq 1999$
 - $g_k = g_{k-2000} + g_{k-1999}$, for $k \geq 2000$
 
-Find $g_k \mod 20092010$ for $k = 10^{18}$.
+Find $g_k \bmod 20092010$ for $k = 10^{18}$.
 
 ## 哈密顿-凯莱(Caylay-Camilton)定理
 

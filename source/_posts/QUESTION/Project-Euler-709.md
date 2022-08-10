@@ -38,8 +38,8 @@ Find $f(24\,680)$ giving your answer modulo $1\,020\,202\,009$.
 $$
 f(n)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} n=0|n=1 \\
-  &f(n)=\sum_{k=0}^{\lfloor\frac{n-1}{2}\rfloor}C_{n-1}^{2k}\cdot f(2k)\cdot f(n-1-2k) & & \mathrm{else}
+  &1  & & \text{if\quad} n=0\lor n=1 \\
+  &f(n)=\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\dbinom{n-1}{2k}\cdot f(2k)\cdot f(n-1-2k) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -53,7 +53,7 @@ $$
 
 当第$n$个节点到来时，考虑任意选择将$2k$“包裹”在第$n$个节点下，而这$2k$个节点任意组成的森林种类为$f(2k)$种，节点$n$最终将这$2k$个节点形成的森林练成一棵树；剩下的$n-1-2k$个节点中，它们也可以任意组成森林，有$f(n-1-2k)$种。这三个步骤是独立的，故得到以上状态转移方程。
 
-顺带一提，暴力枚举出前几项后，查询OEIS，发现结果为[A000111](https://oeis.org/A000111)。在FORMULA一栏中找到了如下信息：
+顺带一提，暴力枚举出前几项后，查询OEIS，发现结果为[A000111](https://oeis.org/A000111)。在`FORMULA`一栏中找到了如下信息：
 
 ```
 2*a(n+1) = Sum_{k=0..n} binomial(n, k)*a(k)*a(n-k).
@@ -61,7 +61,7 @@ $$
 
 这给出了$f(n)$的另一条递推公式：
 
-$$f(n+1)=\dfrac{\sum_{k=0}^nC_n^k\cdot f(k)\cdot f(n-k)}{2}$$
+$$f(n+1)=\dfrac{\sum_{k=0}^n\binom{n}{k}\cdot f(k)\cdot f(n-k)}{2}$$
 
 ## 代码
 

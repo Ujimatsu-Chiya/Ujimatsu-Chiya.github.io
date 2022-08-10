@@ -15,7 +15,7 @@ date: 2022-04-26 18:35:41
 
 ### Large sum
 
-Work out the first ten digits of the sum of the following one-hundred 50-digit numbers.
+Work out the first ten digits of the sum of the following one-hundred $50$-digit numbers.
 <center style="font-family:'Courier New',monospace;">
 37107287533902102798797998220837590246510135740250<br/>
 46376937677490009712648124896970078050417018260538<br/>
@@ -121,7 +121,7 @@ Work out the first ten digits of the sum of the following one-hundred 50-digit n
 
 ## 解决方案
 
-利用Python能够计算大数的特性，直接计算完成后取前$10$位即可。
+利用`Python`能够计算大数的特性，直接计算完成后取前$10$位即可。
 
 ## 代码
 
@@ -230,5 +230,6 @@ ls = s.split('\n')
 a = []
 for s in ls:
     a.append(int(s))
-print(str(sum(a))[:10])
+ans = str(sum(a))[:10]
+print(ans)
 ```

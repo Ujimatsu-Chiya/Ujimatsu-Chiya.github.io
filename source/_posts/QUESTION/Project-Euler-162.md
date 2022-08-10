@@ -33,17 +33,17 @@ Give your answer as a hexadecimal number.
 
 ## 解决方案
 
-一道明显的数位动态规划。每次都可以在一个数后面添加16种位。
+一道明显的数位动态规划。每次都可以在一个数后面添加$16$种位。
 
 因此，令$N=16$，假设$f(i,j)(i\ge 1,0\le j\le3)$为$i$位十六进制数中，已经使用了$0,1,A$中的$j$个数位的数有多少个。那么可以列出如下状态转移方程：
 
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &2  & & \mathrm{if\quad} i=1\&j=1 \\
-  &13 & & \mathrm{else if\quad} i=1\&j=0\\
-  &13f(i-1,j) & & \mathrm{else if\quad} j=0\\
-  &(13+j)f(i-1,j)+(4-j)f(i-1,j-1) & & \mathrm{else}
+  &2  & & \text{if\quad} i=1\land j=1 \\
+  &13 & & \text{else if\quad} i=1\land j=0\\
+  &13f(i-1,j) & & \text{else if\quad} j=0\\
+  &(13+j)f(i-1,j)+(4-j)f(i-1,j-1) & & \text{else}
 \end{aligned}\right.
 $$
 

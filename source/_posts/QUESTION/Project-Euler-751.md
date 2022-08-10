@@ -34,7 +34,7 @@ The *concatenation* of a sequence of positive integers $a_n$ is a real value den
 
 For example, the Fibonacci sequence constructed from $\theta=2.956938891377988\dots$ yields the concatenation $\tau=2.3581321345589\dots$ Clearly, $\tau \neq \theta$ for this value of $\theta$.
 
-Find the only value of $\theta$ for which the generated sequence starts at $a_1=2$ and the concatenation of the generated sequence equals the original value: $\tau = \theta$. Give your answer rounded to 24 places after the decimal point.
+Find the only value of $\theta$ for which the generated sequence starts at $a_1=2$ and the concatenation of the generated sequence equals the original value: $\tau = \theta$. Give your answer rounded to $24$ places after the decimal point.
 
 ## 解决方案
 

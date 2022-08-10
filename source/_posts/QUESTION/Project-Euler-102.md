@@ -19,8 +19,10 @@ Three distinct points are plotted at random on a Cartesian plane, for which $-10
 
 Consider the following two triangles:
 
-$$A(-340,495), B(-153,-910), C(835,-947)$$
-$$X(-175,41), Y(-421,-714), Z(574,-645)$$
+$$\begin{aligned}
+&A(-340,495), B(-153,-910), C(835,-947)\\
+&X(-175,41), Y(-421,-714), Z(574,-645)
+\end{aligned}$$
 
 It can be verified that triangle $ABC$ contains the origin, whereas triangle $XYZ$ does not.
 
@@ -43,6 +45,9 @@ $$\overrightarrow{a}\times \overrightarrow{b}=x_1y_2-x_2y_1=|\overrightarrow{a}|
 ## 代码
 
 ```py
+ls = open('p102_triangles.txt', 'r').readlines()
+
+
 def cross(va: tuple, vb: tuple):
     return va[0] * vb[1] - va[1] * vb[0]
 
@@ -54,7 +59,6 @@ def ok(vec_list: list):
     return False
 
 
-ls = open('p102_triangles.txt', 'r').readlines()
 ans = 0
 for s in ls:
     t = [int(x) for x in s.split(',')]

@@ -46,8 +46,8 @@ Find $S(123456787654321)\text{ modulo }1234567890$.
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n=1 \\
-  &\text{mex}(\{sg(n-d)|(d \mid n)\wedge d\neq n \}) & & \mathrm{else}
+  &0 & & \text{if\quad} n=1 \\
+  &\text{mex}(\{sg(n-d)|(d \mid n)\land d\neq n \}) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -80,9 +80,9 @@ int main(){
 
 ```
 
-这个数列说明$sg(n)$是最大的正整数$k$使得$2^k|n$。
+这个数列说明$sg(n)$是最大的正整数$k$使得$2^k\mid n$。
 
-那么不难计算得到，$1\sim N$中有$\lfloor\dfrac{N}{2^i}\rfloor-\lfloor\dfrac{N}{2^{i+1}}\rfloor$个数，其$sg$函数值为$i$。
+那么不难计算得到，$1\sim N$中有$\left\lfloor\dfrac{N}{2^i}\right\rfloor-\left\lfloor\dfrac{N}{2^{i+1}}\right\rfloor$个数，其$sg$函数值为$i$。
 
 因此，最终直接三重循环枚举$sg$值，直接求个数之积的和。
 

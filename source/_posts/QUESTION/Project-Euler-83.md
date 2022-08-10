@@ -43,7 +43,7 @@ Find the minimal path sum from the top left to the bottom right by moving left, 
 
 单源最短路以[Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)，[Bellman-Ford](https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm)为代表。多源最短路则以[Floyd](https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm)为代表。
 
-本代码实现主要使用networkx库利用Dijkstra算法导出结果。
+本代码实现主要使用`networkx`库利用`Dijkstra`算法导出结果。
 
 ## 代码
 

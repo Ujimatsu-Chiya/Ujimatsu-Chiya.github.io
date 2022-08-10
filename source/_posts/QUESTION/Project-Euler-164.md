@@ -29,9 +29,9 @@ How many $20$ digit numbers $n$ (without any leading zero) exist such that no th
 $$
 f(i,a,b)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1\&a=0\&b>0 \\
-  &0 & & \mathrm{else if\quad} i=1 \\
-  &\sum_{j=0}^{9-a-b} f(i-1,j,a) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1\land a=0\land b>0 \\
+  &0 & & \text{else if\quad} i=1 \\
+  &\sum_{j=0}^{9-a-b} f(i-1,j,a) & & \text{else}
 \end{aligned}\right.
 $$
 

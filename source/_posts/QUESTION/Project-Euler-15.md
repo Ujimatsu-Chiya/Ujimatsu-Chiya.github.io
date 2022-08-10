@@ -29,9 +29,9 @@ How many such routes are there through a $20\times20$ grid?
 
 但是，走的过程是可以随时变化的，这也对应了每个D和R的序列顺序不一样（但仍然保持有$n$个D和$m$个R）。
 
-问题就转化成了组合数，因此，答案是$C_{n+m}^m$
+问题就转化成了组合数，因此，答案是$\dbinom{n+m}{m}$。
 
-这里使用了sympy的函数binomial求组合数，之后将封装在tools自定义工具类中，以C(n,m)的方式调用。
+这里使用了`sympy`的`binomial`方法求组合数，之后将封装在`tools`自定义工具类中，以`C(n,m)`的方式调用。
 
 ## 代码
 

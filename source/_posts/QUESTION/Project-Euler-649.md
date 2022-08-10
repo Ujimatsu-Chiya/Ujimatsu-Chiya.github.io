@@ -45,8 +45,8 @@ What are the last $9$ digits of $M(10\,000\,019, 100)$?
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n\le 2 \\
-  &\text{mex}(\{sg(n-x)|x\in\{2,3,5,7\}\wedge x<n\}) & & \mathrm{else}
+  &0 & & \text{if\quad} n\le 2 \\
+  &\text{mex}(\{sg(n-x)|x\in\{2,3,5,7\}\land x<n\}) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -87,9 +87,9 @@ int main(){
 $$
 g(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\wedge j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\sum_{k=0}^{2^3-1} g(i-1,j\oplus k) \cdot c[k] & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &\sum_{k=0}^{2^3-1} g(i-1,j\oplus k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -99,7 +99,7 @@ $$
 
 $f(a,i)\cdot f(b,j)\rightarrow f(a+b,i\oplus j)$
 
-因此，这给了我们一个方案：依次求出$f(2^0,\cdot),f(2^1,\cdot),f(2^2,\cdot),\dots$。然后针对$N$，选择这些求出的$f(2^i,\cdot,\cdot)$进行合并即可。
+因此，这给了我们一个方案：依次求出$f(2^0,\cdot),f(2^1,\cdot),f(2^2,\cdot),\dots$。然后针对$N$，选择这些求出的$f(2^i,\cdot)$进行合并即可。
 
 最终答案为$\sum_{i=1}^{2^3-1} f(N,i)$。
 

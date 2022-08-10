@@ -52,8 +52,8 @@ $g(i)=\dfrac{1\cdot g(i)+1\cdot 0+i\cdot g(i)+i\cdot 0+(10^{N}-2i-2)\cdot g(i+1)
 $$
 g(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=5\cdot 10^{N-1} \\
-  &\dfrac{(10^N-2i-2)\cdot g(i+1)+10^N}{10^N-1-i} & & \mathrm{else}
+  &0  & & \text{if\quad} i=5\cdot 10^{N-1} \\
+  &\dfrac{(10^N-2i-2)\cdot g(i+1)+10^N}{10^N-1-i} & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -66,8 +66,8 @@ $f(i)=\dfrac{1\cdot f(i)+1\cdot g(i)+i\cdot f(i)+i\cdot 0+(10^{N}-2i-2)\cdot f(i
 $$
 f(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=5\cdot 10^{N-1} \\
-  &\dfrac{g(i)+(10^N-2i-2)\cdot f(i+1)+10^N}{10^N-1-i} & & \mathrm{else}
+  &0  & & \text{if\quad} i=5\cdot 10^{N-1} \\
+  &\dfrac{g(i)+(10^N-2i-2)\cdot f(i+1)+10^N}{10^N-1-i} & & \text{else}
 \end{aligned}\right.
 $$
 

@@ -59,8 +59,8 @@ Find $\sum M(C,30)$ for $3 \le C \le 40$.
 $$
 M(C,R)=
 \left \{\begin{aligned}
-  &R+1  & & \mathrm{if\quad} R<C \\
-  &(\lfloor \dfrac{f(C,R-1)-(C-1)}{C-2}\rfloor+1)\cdot C + t((f(C,R-1)-(C-1))\%(C-2))& & \mathrm{else}
+  &R+1  & & \text{if\quad} R<C \\
+  &\left(\left\lfloor \dfrac{f(C,R-1)-(C-1)}{C-2}\right\rfloor+1\right)\cdot C + t((f(C,R-1)-(C-1))\%(C-2))& & \text{else}
 \end{aligned}\right.
 $$
 

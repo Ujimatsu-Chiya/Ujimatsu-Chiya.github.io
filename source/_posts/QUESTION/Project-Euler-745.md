@@ -22,6 +22,7 @@ For example, $g(18) = 9$, $g(19) = 1$.
 
 
 Also define
+
 $$\displaystyle	S(N) = \sum_{n=1}^N g(n)$$
 
 
@@ -40,9 +41,9 @@ Find $S(10^{14})$. Give your answer modulo $1\,000\,000\,007$.
 
 令$N=10^{14}$，那么有
 
-$$S(N)=\sum_{i=1}^{\lfloor\sqrt{N}\rfloor} i^2\cdot f(\lfloor\dfrac{N}{i^2}\rfloor)$$
+$$S(N)=\sum_{i=1}^{\lfloor\sqrt{N}\rfloor} i^2\cdot f\left(\left\lfloor\dfrac{N}{i^2}\right\rfloor\right)$$
 
-其中$f(n)$表示$n$以内的无平方因子数。
+其中$f(n)$表示$n$以内的无平方因子数个数。
 
 $f(n)$可以以$O(\sqrt{n})$的时间复杂度计算，在193题已经有提及。那么本题计算$S(N)$的时间复杂度为$O(\sqrt{N}\log N)$。
 

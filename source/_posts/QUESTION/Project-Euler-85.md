@@ -32,7 +32,7 @@ Although there exists no rectangular grid that contains exactly two million rect
 
 因此，一个$n\times m$的矩形包含了$c(n,m)=\dfrac{n(n+1)m(m+1)}{4}$个小矩形。
 
-直接枚举所有$c(n,m)\leq 2*10^6$的矩形进行判断就可以完成。
+直接枚举所有$c(n,m)\leq 2\times10^6$的矩形进行判断就可以完成。
 
 ## 代码
 

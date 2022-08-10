@@ -23,7 +23,7 @@ Find the last ten digits of this prime number.
 
 ## 解决方案
 
-使用python中的pow直接计算。
+使用`python`中的`pow`直接计算。
 
 ## 代码
 

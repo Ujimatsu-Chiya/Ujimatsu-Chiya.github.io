@@ -19,7 +19,7 @@ Let $S_n$ be an integer sequence produced with the following pseudo-random numbe
 $$
 \begin{aligned}
 S_0  &= 290797 \\
-S_{n+1}  &= S_n^2 \mod 50515093
+S_{n+1}  &= S_n^2 \bmod 50515093
 \end{aligned}
 $$
 
@@ -126,6 +126,7 @@ int main(){
             T=i;break;
         }
     }
-    printf("%lld\n",solve());
+    ll ans=solve();
+    printf("%lld\n",ans);
 }
 ```

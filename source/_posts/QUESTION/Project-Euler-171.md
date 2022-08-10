@@ -37,9 +37,9 @@ Find the last nine digits of the sum of all $n$, $0 < n < 10^{20}$, such that $f
 $$
 c(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1\&j\in\{x^2\mid x\in \mathbb{N},1\le x\le 9\} \\
-  &0 & & \mathrm{else if\quad} i=1\\
-  &\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}c(i-1,j-k^2) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1\land j\in\{x^2\mid x\in \mathbb{N},1\le x\le 9\} \\
+  &0 & & \text{else if\quad} i=1\\
+  &\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}c(i-1,j-k^2) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -50,9 +50,9 @@ $$
 $$
 s(i,j)=
 \left \{\begin{aligned}
-  &\sqrt{j}  & & \mathrm{if\quad} i=1\&j\in\{x^2\mid x\in \mathbb{N},1\le x\le 9\} \\
-  &0 & & \mathrm{else if\quad} i=1\\
-  &\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}10\cdot s(i-1,j-k^2)+k\cdot c(i-1,j-k^2) & & \mathrm{else}
+  &\sqrt{j}  & & \text{if\quad} i=1\land j\in\{x^2\mid x\in \mathbb{N},1\le x\le 9\} \\
+  &0 & & \text{else if\quad} i=1\\
+  &\sum_{k=0}^{\min(9,\lfloor\sqrt{j}\rfloor)}10\cdot s(i-1,j-k^2)+k\cdot c(i-1,j-k^2) & & \text{else}
 \end{aligned}\right.
 $$
 

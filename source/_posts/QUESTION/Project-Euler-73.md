@@ -26,11 +26,11 @@ How many fractions lie between $\dfrac{1}{3}$ and $\dfrac{1}{2}$ in the sorted s
 
 ## 解决方案
 
-[Stern-Brocot Tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree)，一种用来表示各种最简分数的数据结构，它的中序遍历结果就是Farey序列。
+[Stern-Brocot Tree](https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree)，一种用来表示各种最简分数的数据结构，它的中序遍历结果就是`Farey`序列。
 
-主要构造方式则是基于Farey的性质（第71题提过）：对于任意的Farey 序列$F_n$，其中任意连续的三个分数序列$\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}$，满足$\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}$。
+主要构造方式则是基于`Farey`的性质（第71题提过）：对于任意的`Farey`序列$F_n$，其中任意连续的三个分数序列$\dfrac{x_1}{y_1},\dfrac{x_2}{y_2},\dfrac{x_3}{y_3}$，满足$\dfrac{x_2}{y_2}=\dfrac{x_1+x_3}{y_1+y_3}$。
 
-本代码直接模拟遍历Stern-Brocot Tree，每一个节点就是一个分数的区间（也表示新生成的分数本身）。相比于直接暴力判断，优化了一个$\log$的级别。
+本代码直接模拟遍历`Stern-Brocot Tree`，每一个节点就是一个分数的区间（也表示新生成的分数本身）。相比于直接暴力判断，优化了一个$\log$的级别。
 
 遍历到分母大于$N=12000$就返回。
 

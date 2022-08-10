@@ -43,9 +43,9 @@ Find $T(10^6,999983)$. Give your answer modulo $1\,000\,000\,007$
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i=1\wedge j\in P \\
-  &0 & & \mathrm{else if\quad} i=1 \\
-  &\sum_{p\in P}\sum_{k|p=j} f(i-1,k) & & \mathrm{else}
+  &1 & & \text{if\quad} i=1\land j\in P \\
+  &0 & & \text{else if\quad} i=1 \\
+  &\sum_{p\in P}\sum_{k|p=j} f(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$
 

@@ -34,8 +34,8 @@ NOTE: This problem is related to <a href="/103">Problem 103</a> and <a href="/10
 
 使用反证法：设一个集合$A$，对于$A$中的两个子集$I,J$，满足$S(I)=S(J)$，有以下两种情况
 
-1. $I \bigcap J = \emptyset$：那么明显$A$集合不符合要求。
-2. $I \bigcap J \neq \emptyset$：此时取$I'=I-J,J'=J-I$，根据集合差运算的定义，有$S(I')=S(I)-S(I \bigcap J),S(J')=S(J)-S(I \bigcap J)$。可以知道，此时$I' \bigcap J' = \emptyset$，但有$S(I')=S(J')$，不符合要求。
+1. $I \cap J = \varnothing$：那么明显$A$集合不符合要求。
+2. $I \cap J \neq \varnothing$：此时取$I'=I-J,J'=J-I$，根据集合差运算的定义，有$S(I')=S(I)-S(I \cap J),S(J')=S(J)-S(I \cap J)$。可以知道，此时$I' \cap J' = \varnothing$，但有$S(I')=S(J')$，不符合要求。
 
 因此原推论成立，判断集合是否为特殊不需要直接枚举一对不相交子集。而是产生所有子集，先判断元素和是否重复，然后根据和的大小进行排序比较集合大小即可（判断第二个条件是否满足）。
 

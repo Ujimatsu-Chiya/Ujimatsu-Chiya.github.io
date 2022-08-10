@@ -38,13 +38,14 @@ $$d_1\times d_{10} \times d_{100} \times d_{1000} \times d_{10000} \times d_{100
 ## 代码
 
 ```py
+from itertools import count
+
 que = [10 ** i for i in range(7)]
 
 
 def cal(x: int):
     x -= 1
-    i = 1
-    while True:
+    for i in count(1, 1):
         l = 10 ** (i - 1)
         r = 10 ** i - 1
         if x >= (r - l + 1) * i:
@@ -54,7 +55,6 @@ def cal(x: int):
             val = d + l
             ans = int(str(val)[pos])
             break
-        i += 1
     return ans
 
 
@@ -62,4 +62,5 @@ ans = 1
 for x in que:
     ans *= cal(x)
 print(ans)
+
 ```

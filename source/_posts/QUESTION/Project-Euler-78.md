@@ -18,13 +18,15 @@ date: 2022-05-02 16:36:41
 
 Let $p(n)$ represent the number of different ways in which $n$ coins can be separated into piles. For example, five coins can separated into piles in exactly seven different ways, so $p(5)=7$.
 
-OOOOO<br>
-OOOO O<br>
-OOO OO<br>
-OOO O O<br>
-OO OO O<br>
-OO O O O<br>
+```
+OOOOO
+OOOO O
+OOO OO
+OOO O O
+OO OO O
+OO O O O
 O O O O O
+```
 
 Find the least value of $n$ for which $p(n)$ is divisible by one million.
 
@@ -34,7 +36,7 @@ Find the least value of $n$ for which $p(n)$ is divisible by one million.
 
 将$p(n)$的前一些项放进OEIS查询，结果为[A000041](https://oeis.org/A000041)。
 
-在Formula一栏中可以发现以下信息：
+在`FORMULA`一栏中可以发现以下信息：
 
 ```
 a(n) - a(n-1) - a(n-2) + a(n-5) + a(n-7) - a(n-12) - a(n-15) + ... = 0, where the sum is over n-k and k is a generalized pentagonal number (A001318) <= n and the sign of the k-th term is (-1)^([(k+1)/2]). See A001318 for a good way to remember this!
@@ -49,8 +51,8 @@ a(n) - a(n-1) - a(n-2) + a(n-5) + a(n-7) - a(n-12) - a(n-15) + ... = 0, where th
 $$
 p(n)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} n=0  \\
-  &\sum_{m}^{|m|\ge1,\frac{m(3m-1)}{2}\leq n}(-1)^{m+1}p(n-\frac{m(3m-1)}{2}) & & \mathrm{else}
+  &1  & & \text{if\quad} n=0  \\
+  &\sum_{|m|\ge1,\frac{m(3m-1)}{2}\leq n}(-1)^{m+1}p\left(n-\frac{m(3m-1)}{2}\right) & & \text{else}
 \end{aligned}\right.
 $$
 

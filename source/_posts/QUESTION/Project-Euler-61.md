@@ -27,7 +27,7 @@ Triangle, square, pentagonal, hexagonal, heptagonal, and octagonal numbers are a
 |Heptagonal|$P_{7,n}=\dfrac{n(5n−3)}{2}$|$1, 7, 18, 34, 55, \dots$|
 |Octagonal|$P_{8,n}=n(3n−2)$|$1, 8, 21, 40, 65, \dots$|
 
-The ordered set of three 4-digit numbers: $8128, 2882, 8281$, has three interesting properties.
+The ordered set of three $4$-digit numbers: $8128, 2882, 8281$, has three interesting properties.
 
 1. The set is cyclic, in that the last two digits of each number is the first two digits of the next number (including the last number with the first).
 2. Each polygonal type: triangle ($P_{3,127}=8128$), square ($P_{4,91}=8281$), and pentagonal ($P_{5,44}=2882$), is represented by a different number in the set.

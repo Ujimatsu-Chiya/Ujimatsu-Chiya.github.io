@@ -27,7 +27,7 @@ Find $S(10^{18})$.
 
 ## 解决方案
 
-令$N=10^{18},M=\lfloor\sqrt[4]{N}\rfloor.$计算$S$时，我们考虑枚举每一个满立方数$w$，那么它们在$N$以内出现的次数为$\lfloor\dfrac{N}{w}\rfloor$.
+令$N=10^{18},M=\lfloor\sqrt[4]{N}\rfloor.$计算$S$时，我们考虑枚举每一个满立方数$w$，那么它们在$N$以内出现的次数为$\left\lfloor\dfrac{N}{w}\right\rfloor$.
 
 通过考察$n$分解质因数$n=\prod_{i=1}^kp_i^{e_i}$的每个$e_i$，可以发现每一个满立方数可以通过$x^3y^4z^5$来**不重不漏**地表出，其中$x,y$是两个无平方因子数，并且$\gcd(x,y)=1.$
 

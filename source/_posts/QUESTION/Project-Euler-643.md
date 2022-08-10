@@ -30,9 +30,9 @@ Find $f(10^{11})\text{ modulo } 1\,000\,000\,007$.
 
 $$\begin{aligned}
 f(n)&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^n\sum_{p=1}^{q}[\gcd(p,q)=2^t]) \\
-&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\sum_{p=1}^{q}[\gcd(p,q)=1])\\
-&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\lfloor\frac{n}{2^t}\rfloor}\varphi(q))\\
-&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(\Phi(\lfloor\frac{n}{2^t}\rfloor)-1)
+&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\left\lfloor\frac{n}{2^t}\right\rfloor}\sum_{p=1}^{q}[\gcd(p,q)=1])\\
+&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^{\left\lfloor\frac{n}{2^t}\right\rfloor}\varphi(q))\\
+&=\sum_{t=1}^{\lfloor \log_2n\rfloor}\left(\Phi\left(\left\lfloor\frac{n}{2^t}\right\rfloor\right)-1\right)
 \end{aligned}$$
 
 其中，$[]$表示示性函数，表示$[]$里面的值是否为真，如果为真，那么值为$1$，否则值为$0$.
@@ -42,13 +42,13 @@ f(n)&=\sum_{t=1}^{\lfloor \log_2n\rfloor}(-1+\sum_{q=1}^n\sum_{p=1}^{q}[\gcd(p,q
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
 &=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}|\\
-&=\sum_{d=1}^n\Phi(\dfrac{n}{d})
+&=\sum_{d=1}^n\left|\left\{(a,b)| 1\le a\le b \le \left\lfloor\dfrac{n}{d}\right\rfloor,\gcd(a,b)=1\right\}\right|\\
+&=\sum_{d=1}^n\Phi\left(\dfrac{n}{d}\right)
 \end{aligned}$$
 
 因此，可以得到关于$\Phi$的递归式：
 
-$$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})$$
+$$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi\left(\dfrac{n}{d}\right)$$
 
 其中，右边这一部分可以使用数论分块来解决。
 

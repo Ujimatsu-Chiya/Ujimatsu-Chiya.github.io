@@ -54,14 +54,14 @@ Give your answer rounded to six decimal places.
 
 本题使用动态规划的思想解决。
 
-令$N=40,M=\lceil\dfrac{M+1}{2}\rceil$。假设$f(i,j,k)(0< k\le M)$表示已经放置了$i$件拼图，并已经形成了$j$个连续的段，并在放置的过程中，段数不超过$k$的放法。那么状态转移方程就可以写作：
+令$N=40,M=\left\lceil\dfrac{M+1}{2}\right\rceil$。假设$f(i,j,k)(0< k\le M)$表示已经放置了$i$件拼图，并已经形成了$j$个连续的段，并在放置的过程中，段数不超过$k$的放法。那么状态转移方程就可以写作：
 
 $$
 f(i,j,k)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i=1,j=1 \\
-  &0 & & \mathrm{else if\quad} i=1|j\le 0| j> k \\
-  &j\cdot f(i-1,j-1,k)+j\cdot f(i-1,j+1,k)+2j\cdot f(i-1,j,k)& & \mathrm{else}
+  &1 & & \text{if\quad} i=1\land j=1 \\
+  &0 & & \text{else if\quad} i=1\lor j\le 0\lor j> k \\
+  &j\cdot f(i-1,j-1,k)+j\cdot f(i-1,j+1,k)+2j\cdot f(i-1,j,k)& & \text{else}
 \end{aligned}\right.
 $$
 

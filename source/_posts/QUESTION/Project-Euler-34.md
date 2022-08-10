@@ -32,24 +32,24 @@ Note: as $1! = 1$ and $2! = 2$ are not sums they are not included.
 ## 代码
 
 ```py
+from itertools import count
+
 fac = [1]
 for i in range(1, 10):
     fac.append(fac[-1] * i)
-n = 1
 ans = 0
-while True:
+for n in count(1, 1):
     mx = min(10 ** (n + 1) - 1, n * fac[9])
-    i = 10 ** n
-    if i > n * fac[9]:
+    st = 10 ** n
+    if st > n * fac[9]:
         break
-    while i <= mx:
+    for i in range(st, mx + 1):
         s, w = 0, i
         while w:
             s += fac[w % 10]
             w //= 10
         if s == i:
             ans += i
-        i += 1
-    n += 1
 print(ans)
+
 ```

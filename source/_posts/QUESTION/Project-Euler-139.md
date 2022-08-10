@@ -27,9 +27,9 @@ Given that the perimeter of the right triangle is less than one-hundred million,
 
 ## 本原勾股数组
 
-[本原](https://mathworld.wolfram.com/PrimitivePythagoreanTriple.html)[勾股数组](https://mathworld.wolfram.com/PythagoreanTriple.html)，即一个正整数三元组$(a,b,c)$，满足$a^2+b^2+c^2\wedge\gcd(a,b,c)=1$。
+[本原](https://mathworld.wolfram.com/PrimitivePythagoreanTriple.html)[勾股数组](https://mathworld.wolfram.com/PythagoreanTriple.html)，即一个正整数三元组$(a,b,c)$，满足$a^2+b^2+c^2\land\gcd(a,b,c)=1$。
 
-通过枚举一系列的二元组$(s,t)$，其中$s>t\geq 1\wedge\gcd(s,t)=1,s,t$为奇数，可以不重不漏地产生本原勾股数组$(st,\dfrac{s^2-t^2}{2},\dfrac{s^2+t^2}{2})$。
+通过枚举一系列的二元组$(s,t)$，其中$s>t\geq 1\land\gcd(s,t)=1,s,t$为奇数，可以不重不漏地产生本原勾股数组$\left(st,\dfrac{s^2-t^2}{2},\dfrac{s^2+t^2}{2}\right)$。
 
 ## 解决方案
 

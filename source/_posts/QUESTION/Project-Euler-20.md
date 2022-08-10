@@ -23,7 +23,7 @@ Find the sum of the digits in the number $100!$.
 
 ## 解决方案
 
-使用sympy库的factorial直接计算阶乘的值，之后将封装在tools自定义工具类中，以fac(n)的方式调用。
+使用`sympy`库的`factorial`直接计算阶乘的值，之后将封装在`tools`自定义工具类中，以`fac(n)`的方式调用。
 
 利用和第16题类似的方式求出其每个数位的和。
 

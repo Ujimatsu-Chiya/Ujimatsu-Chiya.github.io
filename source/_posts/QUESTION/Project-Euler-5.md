@@ -21,19 +21,21 @@ What is the smallest positive number that is *evenly divisible* by all of the nu
 
 ## 解决方案
 
-根据定义，所求的值为$1\sim20$中间的所有数的最小公倍数lcm。
+根据定义，所求的值为$1\sim20$中间的所有数的最小公倍数$\text{lcm}$。
 
-求多个数的lcm和求多个数的最大公因数gcd做法一样，都是两两按顺序求。
+求多个数的$\text{lcm}$和求多个数的最大公因数$\gcd$做法一样，都是两两按顺序求。
 
-使用了sympy库中的lcm，以后将封装到tools工具包中。
+使用了`gmpy2`库中的`lcm`方法，以后将封装到`tools`工具包中。
 
 ## 代码
 
 ```Python
-from sympy import lcm
+from gmpy2 import lcm
+
 N = 20
 ans = 1
 for i in range(1, 21):
     ans = lcm(ans, i)
 print(ans)
+
 ```

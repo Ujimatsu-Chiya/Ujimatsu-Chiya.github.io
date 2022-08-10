@@ -25,7 +25,7 @@ By finding the first arrangement to contain over $10^{12} = 1,000,000,000,000$ d
 
 ## 解决方案
 
-假设盒子中有$n$个彩色碟子，其中$m$个为蓝色，那么得到$P(BB)=\dfrac{C_m^2}{C_n^2}=\dfrac{m(m-1)}{n(n-1)}$。
+假设盒子中有$n$个彩色碟子，其中$m$个为蓝色，那么得到$P(BB)=\dfrac{\binom{m}{2}}{\binom{n}{2}}=\dfrac{m(m-1)}{n(n-1)}$。
 
 令$P(BB)=\dfrac{1}{2}$，得到方程$2m(m-1)=n(n-1)$，
 

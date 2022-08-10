@@ -35,8 +35,8 @@ Now let us do the same for $5000$ line segments. To this end, we generate $20000
 
 $\begin{aligned}
 s_0 &= 290797 \\
-s_{n+1} &= s_n\times s_n (\mathrm{modulo\ } 50515093) \\
-t_n &= s_n (\mathrm{modulo\ } 500) \\
+s_{n+1} &= s_n\times s_n (\text{modulo\ } 50515093) \\
+t_n &= s_n (\text{modulo\ } 500) \\
 \end{aligned}$
 
 To create each line segment, we use four consecutive numbers $t_n$. That is, the first line segment is given by:

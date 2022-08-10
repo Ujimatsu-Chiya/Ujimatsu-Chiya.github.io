@@ -35,9 +35,9 @@ How many coefficients in the expansion of $(x + y + z)^{200000}$ are multiples o
 
 因此，将$(x+y+z)^n$展开后，有：
 
-$$(x+y+z)^n=\sum_{i=0}^n\sum_{j=0}^{n-i}C_n^iC_{n-i}^jx^iy^jz^{n-i-j}$$
+$$(x+y+z)^n=\sum_{i=0}^n\sum_{j=0}^{n-i}\dbinom{n}{i}\dbinom{n-i}{j}x^iy^jz^{n-i-j}$$
 
-其中，明显可以看出，$C_n^iC_{n-i}^j=\dfrac{n!}{i!j!(n-i-j)!}$。
+其中，明显可以看出，$\dbinom{n}{i}\dbinom{n-i}{j}=\dfrac{n!}{i!j!(n-i-j)!}$。
 
 预先计算$i!(0\le i\le n)$中分别有多少个质因数$2,5$。然后直接枚举每个项的系数，根据这个三项式系数的定义式判断是否有$12$个质因子$2$和$12$个质因子$5$。
 
@@ -67,8 +67,6 @@ int main(){
     }
     ll ans=0;
     for(int i=0;i*3<=N;i++){
-        if(i%1000==0)
-            printf("%d\n",i);
         for(int j=i;j+j<=N-i;j++){
             int k=N-i-j;
             int cnt2=f2[N]-f2[i]-f2[j]-f2[k],cnt5=f5[N]-f5[i]-f5[j]-f5[k];

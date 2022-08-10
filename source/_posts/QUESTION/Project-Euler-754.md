@@ -31,7 +31,7 @@ $$G(N)=\prod_{n=2}^N n^{f(N,n)}$$
 
 其中，通过容斥原理和莫比乌斯函数$\mu$的性质，不难写出
 
-$$f(N,n)=\sum_{d|n}\mu(d)(\lfloor\dfrac{N}{d}\rfloor-\lfloor\dfrac{n}{d}\rfloor)$$
+$$f(N,n)=\sum_{d\mid n}\mu(d)\left(\left\lfloor\dfrac{N}{d}\right\rfloor-\left\lfloor\dfrac{n}{d}\right\rfloor\right)$$
 
 注意式子后面第二项是减去$n$以内的数。
 

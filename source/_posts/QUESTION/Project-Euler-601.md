@@ -38,17 +38,17 @@ Find the sum, as $i$ ranges from $1$ to $31$, of $P(i, 4^i)$.
 
 ## 解决方案
 
-不难发现，$k+1|n+k$当且仅当$k+1|n-1$。
+不难发现，$k+1\mid n+k$当且仅当$k+1\mid n-1$。
 
 那么根据$\text{streak}(n)=k$就变成了，找到一个最小的$k$，使得$k+1\nmid n-1$。这也就是说，所有$1,2,\dots,k$都能整除$n-1$，但是$k+1$不行。
 
-可以知道，如果一个数$m$能够被$1,2,3,\dots,k$整除，那么$\text{lcm}(1,2,3,\dots,k)|m$。
+可以知道，如果一个数$m$能够被$1,2,3,\dots,k$整除，那么$\text{lcm}(1,2,3,\dots,k)\mid m$。
 
 令函数$L(m)=\text{lcm}(1,2,3,\dots,m)$。
 
 那么不难确定，函数$P$的表达式为
 
-$$P(s,N)=\lfloor\dfrac{N-1}{L(s)}\rfloor-\lfloor\dfrac{N-1}{L(s+1)}\rfloor-[s=1]$$
+$$P(s,N)=\left\lfloor\dfrac{N-1}{L(s)}\right\rfloor-\left\lfloor\dfrac{N-1}{L(s+1)}\right\rfloor-[s=1]$$
 
 其中，$[]$表示示性函数，表示$[]$里面的值是否为真，如果为真，那么值为$1$，否则值为$0$。
 

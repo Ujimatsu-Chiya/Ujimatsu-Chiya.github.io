@@ -17,7 +17,7 @@ date: 2022-05-06 22:24:33
 
 Let $r$ be the remainder when $(a-1)^n + (a+1)^n$ is divided by $a^2$.
 
-For example, if $a = 7$ and $n = 3$, then $r = 42: 6^3 + 8^3 = 728 \equiv 42 \mod 49$. And as $n$ varies, so too will $r$, but for $a = 7$ it turns out that $r_{\max} = 42$.
+For example, if $a = 7$ and $n = 3$, then $r = 42: 6^3 + 8^3 = 728 \equiv 42 \bmod 49$. And as $n$ varies, so too will $r$, but for $a = 7$ it turns out that $r_{\max} = 42$.
 
 For $3 \le a \le 1000$, find $\sum r_{\max}$.
 
@@ -25,7 +25,7 @@ For $3 \le a \le 1000$, find $\sum r_{\max}$.
 
 二项式定理，即$n$次方二项式$(a+b)^n$的展开式：
 
-$$(a+b)^n=\sum_{i=0}^nC_n^ia^ib^{n-i}$$
+$$(a+b)^n=\sum_{i=0}^n\dbinom{n}{i}a^ib^{n-i}$$
 
 ## 解决方案
 
@@ -35,15 +35,15 @@ $$(a+b)^n=\sum_{i=0}^nC_n^ia^ib^{n-i}$$
 
 因此，满足下式：
 
-$r(a,n) \equiv C_n^1a\cdot(-1)^{n-1}+C_n^0(-1)^n+C_n^1a\cdot 1^{n-1}+C_n^0 1^n\equiv an+1+an\cdot(n-1)^n+(-1)^n$
+$r(a,n) \equiv \dbinom{n}{1}a\cdot(-1)^{n-1}+\dbinom{n}{0}(-1)^n+\dbinom{n}{1}a\cdot 1^{n-1}+\dbinom{n}{0}1^n\equiv an+1+an\cdot(n-1)^n+(-1)^n\pmod{a^2}$
 
 可以写成：
 
 $$
 r(a,n)=
 \left \{\begin{aligned}
-  &2  & & \mathrm{if\quad} n \equiv 0(\mod 2) \\
-  &2an \%a^2 & & \mathrm{else}
+  &2  & & \text{if\quad} n \equiv 0 \pmod 2 \\
+  &2an \%a^2 & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -56,8 +56,8 @@ $$
 $$
 r_{\max}(a)=
 \left \{\begin{aligned}
-  &a(a-2)  & & \mathrm{if\quad} a \equiv 0(\mod 2) \\
-  &a(a-1) & & \mathrm{else}
+  &a(a-2)  & & \text{if\quad} a \equiv 0 \pmod 2 \\
+  &a(a-1) & & \text{else}
 \end{aligned}\right.
 $$
 

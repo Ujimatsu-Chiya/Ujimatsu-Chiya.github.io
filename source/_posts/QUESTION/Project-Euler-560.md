@@ -23,9 +23,9 @@ Let $L(n, k)$ be the number of **losing** starting positions for the first play
 
 For example, $L(5, 2) = 6$ since the losing initial positions are $(1, 1), (2, 2), (2, 4), (3, 3), (4, 2)$ and $(4, 4)$.
 
-You are also given $L(10, 5) = 9964, L(10, 10) = 472400303, L(10^3, 10^3)  \mod 1 000 000 007 = 954021836$.
+You are also given $L(10, 5) = 9964, L(10, 10) = 472400303, L(10^3, 10^3)  \bmod 1 000 000 007 = 954021836$.
 
-Find $L(10^7, 10^7) \mod 1 000 000 007$
+Find $L(10^7, 10^7) \bmod 1 000 000 007$
 
 ## 快速沃尔什变换
 
@@ -50,8 +50,8 @@ $$c_k=\sum_{i \circ j=k} a_i\cdot b_j$$
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n=0 \\
-  &\text{mex}(\{sg(n-d)|\gcd(i,d)=1\}) & & \mathrm{else}
+  &0 & & \text{if\quad} n=0 \\
+  &\text{mex}(\{sg(n-d)|\gcd(i,d)=1\}) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -94,15 +94,13 @@ int main(){
 $$
 g(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\wedge j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\sum_{k} g(i-1,j\oplus k) \cdot c[k] & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &\sum_{k} g(i-1,j\oplus k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$
 
-注意到，此时$sg$函数值比较大，可以达到$O(\dfrac{N}{\log N})$的级别。
-
-但是，对于$Q$这种数据范围而言，直接进行转移效率非常低。
+注意到，此时$sg$函数值比较大，可以达到$O\left(\dfrac{N}{\log N}\right)$的级别。对于$Q$这种数据范围而言，直接进行转移效率非常低。
 
 如果我们已经求出了长度为$a$的序列的各种填法$g(a,\cdot)$和长度为$b$的各种填法$g(b,\cdot)$，不难知道我们可以通过卷积组合出$g(a+b,\cdot)$。
 
@@ -118,7 +116,7 @@ $g(a,i)\cdot g(b,j)\rightarrow g(a+b,i\oplus j)$
 
 ## 代码
 
-为了加速，特地设计了一个powXor的函数。如果直接按照上面的快速沃尔什变换模板使用，那么总共需要做$O(\log Q)$次变换和逆变换。而此处由于是多次求值，因此总共只需要$3$次变换和逆变换。
+为了加速，特地设计了一个`powXor`的函数。如果直接按照上面的快速沃尔什变换模板使用，那么总共需要做$O(\log Q)$次变换和逆变换。而此处由于是多次求值，因此总共只需要$3$次变换和逆变换。
 
 ```C++
 # include <bits/stdc++.h>

@@ -47,9 +47,9 @@ $$r_C=\dfrac{r_Ar_B}{r_A+r_B+2\sqrt{r_Ar_B}}$$
 
 不难看出，如果$r_C$是一个有理数，那么$r_Ar_B$必须是一个平方数。
 
-假设$r_A=ta^2,r_B=tb^2,a\le b,\gcd(a,b)=1,t>0$，那么就可以将$(r_A,r_B,r_C)$写成一个三元组形式$(ta^2,tb^2,\dfrac{ta^2b^2}{(a+b)^2})$
+假设$r_A=ta^2,r_B=tb^2,a\le b,\gcd(a,b)=1,t>0$，那么就可以将$(r_A,r_B,r_C)$写成一个三元组形式$\left(ta^2,tb^2,\dfrac{ta^2b^2}{(a+b)^2}\right)$
 
-因此，$(a+b)^2|t$。
+因此，$(a+b)^2\mid t$。
 
 那么，重新令$r_A=dp^2(p+q)^2,r_B=dq^2(p+q)^2,r_C=dp^2q^2$，其中$p\le q,\gcd(p,q)=1,d>0$，那么枚举出每对互质的$(p,q)$和$d$，就产生了一对符合要求的三元组$(r_A,r_b,r_C)$。
 

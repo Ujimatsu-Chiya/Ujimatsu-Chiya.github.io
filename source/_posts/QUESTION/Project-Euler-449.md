@@ -18,11 +18,11 @@ Phil the confectioner is making a new batch of chocolate covered candy. Each can
 
 Phil wants to know how much chocolate is needed to cover one candy centre with a uniform coat of chocolate one millimeter thick.
 
-If $a=1\mathrm{mm}$  and $a=1\mathrm{mm}$, the amount of chocolate required is $\frac{28}{3}π \mathrm{mm^3}$.
+If $a=1\text{mm}$  and $a=1\text{mm}$, the amount of chocolate required is $\frac{28}{3}π \text{mm}^3$.
 
-If $a=2\mathrm{mm}$  and $a=1\mathrm{mm}$, the amount of chocolate required is approximately $60.35475635 \mathrm{mm^3}$.
+If $a=2\text{mm}$  and $a=1\text{mm}$, the amount of chocolate required is approximately $60.35475635 \text{mm}^3$.
 
-Find the amount of chocolate in $\mathrm{mm^3}$ required if $a=3 \mathrm{mm}$ and $b=1 \mathrm{mm}$. Give your answer as the number rounded to $8$ decimal places behind the decimal point.
+Find the amount of chocolate in $\text{mm}^3$ required if $a=3 \text{mm}$ and $b=1 \text{mm}$. Give your answer as the number rounded to $8$ decimal places behind the decimal point.
 
 ## 平行曲线(Parallel Curves)
 

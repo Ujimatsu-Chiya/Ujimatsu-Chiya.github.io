@@ -25,10 +25,10 @@ For each path, its checksum is calculated by (pseudocode):
 
 $\begin{aligned}
 \text{checksum} &= 0\\
-\text{checksum} &= (\text{checksum} \times 243 + m_1) \mod 100000007\\
-\text{checksum} &= (\text{checksum} \times 243 + m_2) \mod 100000007\\
+\text{checksum} &= (\text{checksum} \times 243 + m_1) \bmod 100000007\\
+\text{checksum} &= (\text{checksum} \times 243 + m_2) \bmod 100000007\\
 &\dots&\\
-\text{checksum} &= (\text{checksum} \times 243 + m_n) \mod 100000007
+\text{checksum} &= (\text{checksum} \times 243 + m_n) \bmod 100000007
 \end{aligned}$
 
 where $m_k$ is the ASCII value of the $k^{\text{th}}$ letter in the move sequence and the ASCII values for the moves are:

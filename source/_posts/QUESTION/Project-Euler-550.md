@@ -40,8 +40,8 @@ Find $f(10^7,10^{12})$.Give your answer modulo $987654321$.
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n=1 \\
-  &\text{mex}(\{sg(d_1)\oplus sg(d_2)|1<d_1\le d_2<n,d_1\mid n,d_2\mid n\}) & & \mathrm{else}
+  &0 & & \text{if\quad} n=1 \\
+  &\text{mex}(\{sg(d_1)\oplus sg(d_2)|1<d_1\le d_2<n,d_1\mid n,d_2\mid n\}) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -60,9 +60,9 @@ $$
 $$
 g(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\wedge j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\sum_{k=0}^{2^6-1} g(i-1,j\oplus k) \cdot c[k] & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &\sum_{k=0}^{2^6-1} g(i-1,j\oplus k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -74,7 +74,7 @@ $$
 
 $g(a,i)\cdot g(b,j)\rightarrow g(a+b,i\oplus j)$
 
-因此，这给了我们一个方案：依次求出$g(2^0,\cdot),g(2^1,\cdot),g(2^2,\cdot),\dots$。然后针对$Q$，选择这些求出的$g(2^i,\cdot,\cdot)$进行合并即可。
+因此，这给了我们一个方案：依次求出$g(2^0,\cdot),g(2^1,\cdot),g(2^2,\cdot),\dots$。然后针对$Q$，选择这些求出的$g(2^i,\cdot)$进行合并即可。
 
 最终答案为$\sum_{i=1}^{2^6-1} g(Q,i)$。
 

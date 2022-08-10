@@ -34,7 +34,7 @@ NOTE: This problem is related to <a href="/103">Problem 103</a> and <a href="/10
 
 容易发现，不需要求和的情形是：对于 $\forall i:1\leq i\leq k$，$B$中的第$i$小元素**都**小于（或大于）$C$中的第$i$小元素。在最后得出需要求和的时候，需要将这部分情形减去，留下的则计入答案。
 
-因此，首先需要从$A$中选取$2k$个元素，其中$k$个分给$B$集合，另外$k$个分给$C$。由于$B,C$的先后不需要关心，因此一共有$\dfrac{C_{2k}^k}{2}$种分法。
+因此，首先需要从$A$中选取$2k$个元素，其中$k$个分给$B$集合，另外$k$个分给$C$。由于$B,C$的先后不需要关心，因此一共有$\dfrac{\binom{2k}{k}}{2}$种分法。
 
 下一个问题的正式描述：已知集合中有$2k$个不同的元素，其中$k$个分给$B$集合，另外$k$个分给$C$。（不失一般性，）对于 $\forall i:1\leq i\leq k$，$B$中的第$i$小元素**都**小于$C$中的第$i$小元素，有多少种划分方法？
 
@@ -59,11 +59,11 @@ NOTE: This problem is related to <a href="/103">Problem 103</a> and <a href="/10
 1. 左圆括号和右圆括号的数量相等
 2. 每个字符串的前缀中，**左圆括号的数量不会少于右圆括号**。这也就说明了，$B$中的每一个数，$C$中总有更大的数和它们一一对应。
 
-符合这种特征的字符串的个数，称为[卡特兰数](https://mathworld.wolfram.com/CatalanNumber.html)，在OEIS中为[A000108](https://oeis.org/A000108)。第$n$项为$C(n)=\dfrac{C_{2n}^n}{n+1}$。
+符合这种特征的字符串的个数，称为[卡特兰数](https://mathworld.wolfram.com/CatalanNumber.html)，在OEIS中为[A000108](https://oeis.org/A000108)。第$n$项为$C(n)=\dfrac{\binom{2n}{n}}{n+1}$。
 
 综上所述，答案为：
 
-$$\sum_{k=1}^{\lfloor\dfrac{n}{2}\rfloor}C_n^{2k}(\dfrac{C_{2k}^k}{2}-\dfrac{C_{2k}^k}{k+1})$$
+$$\sum_{k=1}^{\lfloor\frac{n}{2}\rfloor}\binom{n}{2k}\left(\dfrac{\binom{2k}{k}}{2}-\dfrac{\binom{2k}{k}}{k+1}\right)$$
 
 ## 代码
 

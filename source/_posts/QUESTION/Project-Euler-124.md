@@ -15,9 +15,9 @@ date: 2022-05-06 22:24:49
 
 ### Ordered radicals
 
-The radical of $n$, $\mathrm{rad}(n)$, is the product of the distinct prime factors of $n$. For example, $504 = 2^3 × 3^2 × 7$, so $\mathrm{rad}(504) = 2 × 3 × 7 = 42$.
+The radical of $n$, $\text{rad}(n)$, is the product of the distinct prime factors of $n$. For example, $504 = 2^3 × 3^2 × 7$, so $\text{rad}(504) = 2 × 3 × 7 = 42$.
 
-If we calculate $\mathrm{rad}(n)$ for $1 \le n \le 10$, then sort them on rad(n), and sorting on n if the radical values are equal, we get:
+If we calculate $\text{rad}(n)$ for $1 \le n \le 10$, then sort them on $\text{rad}(n)$, and sorting on $n$ if the radical values are equal, we get:
 
 ||**Unsorted**|||**Sorted**||
 |-|-|-|-|-|-|
@@ -33,13 +33,13 @@ If we calculate $\mathrm{rad}(n)$ for $1 \le n \le 10$, then sort them on rad(n)
 |$9$|$3$||$7$|$7$|$9$|
 |$10$|$10$||$10$|$10$|$10$|
 
-Let $E(k)$ be the $k\mathrm{th}$ element in the sorted n column; for example, $E(4) = 8$ and $E(6) = 9$.
+Let $E(k)$ be the $k\text{th}$ element in the sorted n column; for example, $E(4) = 8$ and $E(6) = 9$.
 
-If $\mathrm{rad}(n)$ is sorted for $1 \le n \le 100000$, find $E(10000)$.
+If $\text{rad}(n)$ is sorted for $1 \le n \le 100000$, find $E(10000)$.
 
 ## 解决方案
 
-使用埃氏筛，可以标记出所有质数，并对质数的倍数进行标记。而在标记的过程中，则将对应的$\mathrm{rad}$函数值数组乘上这个质数。整个埃氏筛结束后，$\mathrm{rad}$数组里面的所有函数值就计算可以完成。
+使用埃氏筛，可以标记出所有质数，并对质数的倍数进行标记。而在标记的过程中，则将对应的$\text{rad}$函数值数组乘上这个质数。整个埃氏筛结束后，$\text{rad}$数组里面的所有函数值就计算可以完成。
 
 同样，线性筛也可以完成这个工作。
 

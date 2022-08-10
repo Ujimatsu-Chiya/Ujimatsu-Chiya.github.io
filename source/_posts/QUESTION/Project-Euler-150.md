@@ -26,7 +26,7 @@ We wish to make such a triangular array with one thousand rows, so we generate 5
 $\begin{aligned}
 &t := 0 \\
 &\text{for }k = 1 \text{ up to } k = 500500: \\
-&\quad t := (615949*t + 797807) \mathrm{modulo\ } 2^{20} \\
+&\quad t := (615949*t + 797807) \text{ modulo } 2^{20} \\
 &\quad s_k := t-2^{19} \\
 \end{aligned}$
 

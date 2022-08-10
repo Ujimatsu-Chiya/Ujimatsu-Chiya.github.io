@@ -55,7 +55,6 @@ $k^3<k^3+k^2<(k+1)^3$
 
 ```py
 from itertools import count
-
 from tools import is_prime
 
 N = 1000000

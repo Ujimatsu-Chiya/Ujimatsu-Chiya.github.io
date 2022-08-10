@@ -16,16 +16,16 @@ date: 2022-07-01 17:37:19
 
 ### Balanced Numbers
 
-A positive integer with $k$ (decimal) digits is called balanced if its first $\lceil\dfrac{k}{2}\rceil$ digits sum to the same value as its last $\lceil\dfrac{k}{2}\rceil$ digits, where $\lceil x\rceil$, pronounced *ceiling* of $x$, is the smallest integer $\ge x$, thus $\lceil \pi\rceil=4$ and $\lceil 5\rceil=5$.
+A positive integer with $k$ (decimal) digits is called balanced if its first $\left\lceil\dfrac{k}{2}\right\rceil$ digits sum to the same value as its last $\left\lceil\dfrac{k}{2}\right\rceil$ digits, where $\lceil x\rceil$, pronounced *ceiling* of $x$, is the smallest integer $\ge x$, thus $\lceil \pi\rceil=4$ and $\lceil 5\rceil=5$.
 
 So, for example, all palindromes are balanced, as is $13722$.
 
 Let $T(n)$ be the sum of all balanced numbers less than $10^n$. Thus: $T(1) = 45, T(2) = 540$ and $T(5) = 334795890$.
-Find $T(47) \mod 3^{15}$.
+Find $T(47) \bmod 3^{15}$.
 
 ## 解决方案
 
-令$N=47,M=\lfloor\dfrac{N}{2}\rfloor$。
+令$N=47,M=\left\lfloor\dfrac{N}{2}\right\rfloor$。
 
 由于数位的前一半位和后面一半位的和相等，那么我们首先通过动态规划的思想枚举一半数字中相同数字和下的所有数，然后再将它们重新组合起来即可。
 
@@ -34,8 +34,8 @@ Find $T(47) \mod 3^{15}$.
 $$
 c(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{k=0}^{\min(j,10)} c(i-1,j-k) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\sum_{k=0}^{\min(j,10)} c(i-1,j-k) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -46,14 +46,14 @@ $$
 $$
 s(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{k=0}^{\min(j,10)} 10 s(i-1,j-k)+k\cdot c(i-1)(j-k) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\sum_{k=0}^{\min(j,10)} 10 s(i-1,j-k)+k\cdot c(i-1)(j-k) & & \text{else}
 \end{aligned}\right.
 $$
 
 其中，最后一行表示从一个数位和为$j-k$的$i-1$位数的最低位后面再添加一个数位$k$。这部分所有数都将乘以一个$10$再加到当前状态。然后还有最低位新添加的$k$，这一部分的数一共有$c(i-1,j-k)$个，因此当前状态还要补上$k\cdot c(i-1,j-k)$的和。
 
-正式求解问题答案时，我们先枚举符合条件的数的数位个数$n$，令$m=\lfloor\dfrac{n}{2}\rfloor$，再枚举一半的数位和$d$。需要注意的是，组合的过程中，高一半位是**不能有**前导$0$，而低一半位是**可以有**前导$0$。而求不能有前导$0$的情况，只需要进行以下差分即可。也就是说，令$C(i,j)=c(i,j)-c(i-1,j),S(i,j)=s(i,j)-s(i-1,j)$。
+正式求解问题答案时，我们先枚举符合条件的数的数位个数$n$，令$m=\left\lfloor\dfrac{n}{2}\right\rfloor$，再枚举一半的数位和$d$。需要注意的是，组合的过程中，高一半位是**不能有**前导$0$，而低一半位是**可以有**前导$0$。而求不能有前导$0$的情况，只需要进行以下差分即可。也就是说，令$C(i,j)=c(i,j)-c(i-1,j),S(i,j)=s(i,j)-s(i-1,j)$。
 
 1. 当$n$为偶数时，直接将前半部分的数直接和后半部分的数一一组合即可得。最终结果为$S(m,d)\cdot c(m,d)\cdot 10^m+s(m,d)\cdot C(m,d)$。
 2. 当$n$为奇数时，注意到最中间的那个数位是可以任取的。那么，分成$3$部分来考虑这一些数的组合之和：左边一部分的数的组合之和为$S(m,d)\cdot c(m,d)\cdot 10^{m+1}\cdot 10$；中间的那个数位的组合之和$45\cdot 10^m\cdot C(m,d)\cdot c(m,d)$；右边一部分的组合之和为$s(m,d)\cdot C(m,d)\cdot 10$。将这三部分相加即可。

@@ -69,9 +69,9 @@ for n in range(2, N):
 $$
 s(m,n)=
 \left \{\begin{aligned}
-  &6m+2n-13  & & \mathrm{if\quad} m>n \\
-  &8m-11 & & \mathrm{else if\quad} m=n \\
-  &s(n,m) & & \mathrm{else}
+  &6m+2n-13  & & \text{if\quad} m>n \\
+  &8m-11 & & \text{else if\quad} m=n \\
+  &s(n,m) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -83,7 +83,7 @@ $$
 2. $1<n$
 3. $n<m$
 
-联立第一个和第二个，得到$m<\dfrac{p^2+11}{6}$。联立第一个和第三个，得到$m>\dfrac{p^2+13}{8}$。最终就是求区间$(\dfrac{p^2+13}{8},\dfrac{p^2+11}{6})$的整数个数。
+联立第一个和第二个，得到$m<\dfrac{p^2+11}{6}$。联立第一个和第三个，得到$m>\dfrac{p^2+13}{8}$。最终就是求区间$\left(\dfrac{p^2+13}{8},\dfrac{p^2+11}{6}\right)$的整数个数。
 
 枚举所有质数$p$将这些区间中的整数个数相加即可。
 

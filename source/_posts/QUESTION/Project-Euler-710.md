@@ -45,8 +45,8 @@ However, your challenge to the "ultimatest" question of life, the universe, and 
 $$
 f_0(i)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i\le1 \\
-  &\sum_{j=1}^{i} f_0(i-j)-f_0(i-2)& & \mathrm{else}
+  &1 & & \text{if\quad} i\le1 \\
+  &\sum_{j=1}^{i} f_0(i-j)-f_0(i-2)& & \text{else}
 \end{aligned}\right.
 $$
 
@@ -57,8 +57,8 @@ $$
 $$
 f_1(i)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} i\le1 \\
-  &\sum_{j=1}^{i} f_1(i-j)+f_0(i-2)& & \mathrm{else}
+  &0 & & \text{if\quad} i\le1 \\
+  &\sum_{j=1}^{i} f_1(i-j)+f_0(i-2)& & \text{else}
 \end{aligned}\right.
 $$
 
@@ -67,7 +67,7 @@ $$
 回到本题，如果需要求$t(N)$，那么
 
 - 当$N$为奇数时，这个回文序列必定为奇数长度，并且中间的数必为奇数，所以两边的数必定有$2$。因此$t(N)=\sum_{i=1}^{\frac{N-1}{2}}f_1(i).$
-- 当$N$为偶数时，考虑严格在序列两边的数，这些数必定存在一个为$2$（这种情况和奇数时一样）；如果没有$2$，那么序列的长度必定为奇数长度，并且中间的值为$2$。因此$t(N)=\sum_{i=1}^{\frac{N}{2}}f_1(i)+f_0(\dfrac{N}{2}-1).$
+- 当$N$为偶数时，考虑严格在序列两边的数，这些数必定存在一个为$2$（这种情况和奇数时一样）；如果没有$2$，那么序列的长度必定为奇数长度，并且中间的值为$2$。因此$t(N)=\sum_{i=1}^{\frac{N}{2}}f_1(i)+f_0\left(\dfrac{N}{2}-1\right).$
 
 最终从小到大枚举$N$即可。
 

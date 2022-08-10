@@ -60,9 +60,9 @@ Find the last nine digits of $\text{Seq}(1234567898765,4321)$.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\wedge j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\sum_{x\in S}f(i-1,(j-x)\%M) & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &\sum_{x\in S}f(i-1,(j-x)\%M) & & \text{else}
 \end{aligned}\right.
 $$
 

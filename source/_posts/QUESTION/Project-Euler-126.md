@@ -80,8 +80,8 @@ int main(){
 $$
 f(x,y,z,n)=
 \left \{\begin{aligned}
-  &xy+yz+xz  & & \mathrm{if\quad} n=1 \\
-  &f(x,y,z,n-1)+8(n-2)+4(x+y+z)& & \mathrm{else}
+  &xy+yz+xz  & & \text{if\quad} n=1 \\
+  &f(x,y,z,n-1)+8(n-2)+4(x+y+z)& & \text{else}
 \end{aligned}\right.
 $$
 

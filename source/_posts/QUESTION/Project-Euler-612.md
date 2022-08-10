@@ -24,7 +24,7 @@ Let $f(n)$ be the number of pairs $(p,q)$ with $1\le p \lt q \lt n$ such that $p
 
 $f(100)=1539$.
 
-Find $f(10^{18}) \mod 1000267129$.
+Find $f(10^{18}) \bmod 1000267129$.
 
 ## 解决方案
 
@@ -37,8 +37,8 @@ Find $f(10^{18}) \mod 1000267129$.
 $$
 f(d)=
 \left \{\begin{aligned}
-  &\sum_{n=1}^N (1(d))^n & & \mathrm{if\quad} d_0=0 \\
-  &\sum_{n=1}^N (1(d))^{n-1} \cdot(1(d)-1) & & \mathrm{else}
+  &\sum_{n=1}^N (1(d))^n & & \text{if\quad} d_0=0 \\
+  &\sum_{n=1}^N (1(d))^{n-1} \cdot(1(d)-1) & & \text{else}
 \end{aligned}\right.
 $$
 

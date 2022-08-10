@@ -51,12 +51,12 @@ How many distinct valid colourings are there for the above configuration?
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{k=0}^{3^{i-1}-1}f(i-1,k)\cdot \prod_{l=0}^{i-1}  \mathrm{excluded}(j_{i,l},j_{i,l+1},k_{i-1,l})& & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\sum_{k=0}^{3^{i-1}-1}f(i-1,k)\cdot \prod_{l=0}^{i-1}  \text{excluded}(j_{i,l},j_{i,l+1},k_{i-1,l})& & \text{else}
 \end{aligned}\right.
 $$
 
-其中，函数$\mathrm{excluded}(a,b,c)$表示集合$\{0,1,2\}$去掉元素$a,b,c$后的大小。
+其中，函数$\text{excluded}(a,b,c)$表示集合$\{0,1,2\}$去掉元素$a,b,c$后的大小。
 
 那么最终结果为：
 

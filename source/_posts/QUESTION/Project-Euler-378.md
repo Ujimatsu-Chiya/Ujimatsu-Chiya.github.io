@@ -42,8 +42,8 @@ Give the last $18$ digits of your answer.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{k<j,dT(k)>j} f(i-1,k) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\sum_{k<j,dT(k)>j} f(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$
 

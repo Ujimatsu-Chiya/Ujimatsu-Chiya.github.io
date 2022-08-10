@@ -28,11 +28,11 @@ Find the lowest sum for a set of five primes for which any two primes concatenat
 
 那么，这个问题就转化为，在这张图上面找一个大小为$5$的[团](https://en.wikipedia.org/wiki/Clique_(graph_theory))（团：无向图上的一个子图，但是这个子图是一个完全图。）
 
-在我没有了解过networkx库时，我写了第一份代码，它是直接深度优先搜索寻找一个大小为$5$的团，并且没有添加太多的优化，最终运行了约$8$秒。
+在我没有了解过`networkx`库时，我写了第一份代码，它是直接深度优先搜索寻找一个大小为$5$的团，并且没有添加太多的优化，最终运行了约$8$秒。
 
-使用networkx的find_cliques函数，它可以找到图中的所有团。
+使用`networkx`的`find_cliques`函数，它可以找到图中的所有团。
 
-另外，寻找图的最大团的算法为[Bron–Kerbosch algorithm](https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm)算法。networkx的find_cliques函数就是基于Bron-Kerbosch算法的迭代版本。
+另外，寻找图的最大团的算法为[Bron–Kerbosch algorithm](https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm)算法。`networkx`的`find_cliques`函数就是基于`Bron-Kerbosch`算法的迭代版本。
 
 ## 代码
 

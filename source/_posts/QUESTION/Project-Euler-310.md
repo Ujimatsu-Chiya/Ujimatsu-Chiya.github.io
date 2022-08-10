@@ -52,8 +52,8 @@ $$sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots \oplus sg(n_k)$$
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n=0 \\
-  &\text{mex}(\{sg(n-i^2)|1\le i^2\le n\}) & & \mathrm{else}
+  &0 & & \text{if\quad} n=0 \\
+  &\text{mex}(\{sg(n-i^2)|1\le i^2\le n\}) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -61,7 +61,7 @@ $$
 
 令$N=10^5$，那么问题就转化成有多少个三元组$(a,b,c),0\le a\le b\le c\le N$，满足$sg(a)\oplus sg(b)\oplus sg(c)=0$。
 
-可以想到先统计在$0\sim N$中有多少个值$n$，其中有$c(i)$个$n$满足$sg(n)=i$。令$O=\max_{i=0}^N sg(i)$。并且其实$O$值很小。那么可以考虑通过枚举$i,j$使得$0\le i\le j\le i\oplus j \le O$，进行组合计数即可。计数的过程中要注意当$i=j$时，$c[i]$和$c[j]$使用的是同一个部分下的所有数。
+可以想到先统计在$0\sim N$中有多少个值$n$，其中有$c(i)$个$n$满足$sg(n)=i$。令$O=\max_{i=0}^N \{sg(i)\}$。并且其实$O$值很小。那么可以考虑通过枚举$i,j$使得$0\le i\le j\le i\oplus j \le O$，进行组合计数即可。计数的过程中要注意当$i=j$时，$c[i]$和$c[j]$使用的是同一个部分下的所有数。
 
 ## 代码
 

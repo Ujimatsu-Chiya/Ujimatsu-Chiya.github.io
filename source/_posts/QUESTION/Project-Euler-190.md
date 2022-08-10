@@ -37,7 +37,7 @@ $$\mathcal{L}(x_1,x_2,\dots,x_n,\lambda_1,\lambda_2,\dots,\lambda_k)=f(x_1,x_2,\
 
 那么利用拉格朗日乘数法，构造拉格朗日函数：
 
-$$\mathcal{L}(x_1,x_2,\dots,x_n,\lambda)=f(x_1,x_2,\dots,x_n)-\lambda g(x_1,x_2,\dots,x_n)=\prod_{i=1}^mx_i^i-\lambda(\sum_{i=1}^mx_i-m)$$
+$$\mathcal{L}(x_1,x_2,\dots,x_n,\lambda)=f(x_1,x_2,\dots,x_n)-\lambda g(x_1,x_2,\dots,x_n)=\prod_{i=1}^mx_i^i-\lambda\left(\sum_{i=1}^mx_i-m\right)$$
 
 为求最大值，对每个$x_i$求偏导数，有
 

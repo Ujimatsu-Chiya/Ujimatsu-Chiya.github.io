@@ -36,16 +36,16 @@ Find the maximum prize fund that should be allocated to a single game in which f
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\&j=0 \\
-  &f(i-1,j) \cdot \dfrac{i}{i+1}  & & \mathrm{if\quad} j=0\\
-  &f(i-1,j-1) \cdot \dfrac{1}{i+1}  & & \mathrm{if\quad} j=i\\
-  &f(i-1,j) \cdot \dfrac{i}{i+1} + f(i-1,j-1) \cdot \dfrac{1}{i+1} & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &f(i-1,j) \cdot \dfrac{i}{i+1}  & & \text{if\quad} j=0\\
+  &f(i-1,j-1) \cdot \dfrac{1}{i+1}  & & \text{if\quad} j=i\\
+  &f(i-1,j) \cdot \dfrac{i}{i+1} + f(i-1,j-1) \cdot \dfrac{1}{i+1} & & \text{else}
 \end{aligned}\right.
 $$
 
 对于最后一行，要么从上一轮的状态$f(i-1,j)$以$\dfrac{i}{i+1}$抽到一个红色碟子转移而来，或者是从$f(i-1,j-1)$以$\dfrac{1}{i+1}$的概率抽到一个蓝色碟子。
 
-因此，胜利的情况概率为$\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$.
+因此，胜利的情况概率为$\sum_{i=\left\lfloor\frac{n}{2}+1\right\rfloor}^n f(n,i)$.
 
 第二个问题：为防止游戏亏损，至多设立的钱数是多少。
 
@@ -53,12 +53,12 @@ $$
 
 |$X$|$P(X)$|
 |-|-|
-|$x-1$|$\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$|
-|$-1$|$1-\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)$|
+|$x-1$|$\sum_{i=\left\lfloor\frac{n}{2}+1\right\rfloor}^n f(n,i)$|
+|$-1$|$1-\sum_{i=\left\lfloor\frac{n}{2}+1\right\rfloor}^n f(n,i)$|
 
 为了防止游戏亏损，那么$X$的数学期望$E[X]$必须满足$E[X]<0$。
 
-由于$x$必须是整数，因此可以解得最高奖金数$x=\lfloor\dfrac{1}{\sum_{i=\lfloor\frac{n}{2}+1\rfloor}^n f(n,i)}\rfloor$
+由于$x$必须是整数，因此可以解得最高奖金数$x=\left\lfloor\dfrac{1}{\sum_{i=\left\lfloor\frac{n}{2}+1\right\rfloor}^n f(n,i)}\right\rfloor$
 
 ## 代码
 

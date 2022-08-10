@@ -3,6 +3,7 @@ title: Project Euler 235
 category:
   - Project Euler
 tags:
+  - 二分
 mathjax: true
 date: 2022-06-02 21:03:49
 ---

@@ -36,7 +36,7 @@ How many solutions has this equation for $1 \leq n \leq 9$?
 
 - 令$t=y-n$，那么$y=n+t$，代入原式子，得到：$x=\dfrac{n(n+t)}{t}=\dfrac{n^2}{t}+n$.
 
-- 如果$x$是一个整数，那么$t |n^2$。
+- 如果$x$是一个整数，那么$t \mid n^2$。
 
 - 那么，$t$取遍$n^2$的各个因数，$x$也取遍不同的值。
 

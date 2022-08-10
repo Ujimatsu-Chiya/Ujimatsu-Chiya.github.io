@@ -68,16 +68,16 @@ b_k=A^kb=\begin{bmatrix}
 
 假设$g(k)$表示经过$k$轮后，首次到达状态$2$的概率值。那么可以写出：
 
-$$g(k)=\dfrac{1}{2}\cdot \dfrac{a_{k-1}}{2^{k-1}}=\dfrac{1}{2\sqrt{5}}((\dfrac{\phi_{+}}{2})^{k-1} -(\dfrac{\phi_{-}}{2})^{k-1})$$
+$$g(k)=\dfrac{1}{2}\cdot \dfrac{a_{k-1}}{2^{k-1}}=\dfrac{1}{2\sqrt{5}}\left(\left(\dfrac{\phi_{+}}{2}\right)^{k-1} -\left(\dfrac{\phi_{-}}{2}\right)^{k-1}\right)$$
 
 其中不难知道为$a_n=\dfrac{1}{\sqrt{5}}(\phi_{+}^{n} -\phi_{-}^n)$.
 
 那么根据定义可以得到：
 
 $$\begin{aligned}
-P(n)&=\sum_{k=1}^{+\infty} g(nk)=\sum_{k=1}^{+\infty} \dfrac{1}{2\sqrt{5}}((\dfrac{\phi_{+}}{2})^{nk-1} -(\dfrac{\phi_{-}}{2})^{nk-1}) \\
-&=\dfrac{1}{2\sqrt{5}}\cdot (\dfrac{(\dfrac{\phi_{+}}{2})^{n-1}}{1-(\dfrac{\phi_{+}}{2})^n}-\dfrac{(\dfrac{\phi_{-}}{2})^{n-1}}{1-(\dfrac{\phi_{-}}{2})^n})&\qquad(1)\\
-&=\dfrac{1}{\sqrt{5}}\cdot (\dfrac{\phi_{+}^{n-1}}{2^n-\phi_{+}^n}-\dfrac{\phi_{-}^{n-1}}{2^n-\phi_{-}^n})\\
+P(n)&=\sum_{k=1}^{+\infty} g(nk)=\sum_{k=1}^{+\infty} \dfrac{1}{2\sqrt{5}}\left(\left(\dfrac{\phi_{+}}{2}\right)^{nk-1} -\left(\dfrac{\phi_{-}}{2}\right)^{nk-1}\right) \\
+&=\dfrac{1}{2\sqrt{5}}\cdot \left(\dfrac{\left(\dfrac{\phi_{+}}{2}\right)^{n-1}}{1-\left(\dfrac{\phi_{+}}{2}\right)^n}-\dfrac{\left(\dfrac{\phi_{-}}{2}\right)^{n-1}}{1-\left(\dfrac{\phi_{-}}{2}\right)^n}\right)&\qquad(1)\\
+&=\dfrac{1}{\sqrt{5}}\cdot \left(\dfrac{\phi_{+}^{n-1}}{2^n-\phi_{+}^n}-\dfrac{\phi_{-}^{n-1}}{2^n-\phi_{-}^n}\right)\\
 &=\dfrac{1}{\sqrt{5}}\cdot\dfrac{2^n(\phi_{+}^{n-1}-\phi_{-}^{n-1})+\sqrt{5}\cdot(-1)^{n-1}}{2^{2n}-2^n\cdot(\phi_{+}^n+\phi_{-}^n)+(-1)^n}\\
 &=\dfrac{2^na_{n-1}+(-1)^{n-1}}{2^{2n}-2^n\cdot b_{n}+(-1)^n}&\qquad(2)\\
 \end{aligned}$$

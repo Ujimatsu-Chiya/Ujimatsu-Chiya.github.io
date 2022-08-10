@@ -33,8 +33,8 @@ Find $S(10^{16})$ giving your answer modulo $1\,000\,000\,007$.
 $$
 f(n,k)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} n<\dfrac{k(k+1)}{2} \\
-  &1+\lfloor\dfrac{n}{k}-\dfrac{k+1}{2}\rfloor & & \mathrm{else}
+  &0  & & \text{if\quad} n<\dfrac{k(k+1)}{2} \\
+  &1+\left\lfloor\dfrac{n}{k}-\dfrac{k+1}{2}\right\rfloor & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -48,7 +48,7 @@ $$S(N)=\sum_{n=1}^N\sum_{k\ge 1}f(n,k)=\sum_{1\le \frac{k(k+1)}{2}\le N}\sum_{n=
 
 式子$\sum_{n=\frac{k(k+1)}{2}}^{N}f(n,k)$的值可以以$O(1)$的时间复杂度进行计算。因为按照此时$n$枚举顺序，$f(n,k)$将会是连续$k$个$1$，$k$个$2$，……考虑分块然后使用等差数列求和进行计算。
 
-令$x=N-\dfrac{k(k+1)}{2}+1$，$q=\lfloor\dfrac{x}{k}\rfloor,r=x\%k$，那么分块后计算得$\sum_{n=\frac{k(k+1)}{2}}^{N}f(n,k)=k\cdot\dfrac{q\cdot(q+1)}{2}+(q+1)\cdot r$。
+令$x=N-\dfrac{k(k+1)}{2}+1$，$q=\left\lfloor\dfrac{x}{k}\right\rfloor,r=x\%k$，那么分块后计算得$\sum_{n=\frac{k(k+1)}{2}}^{N}f(n,k)=k\cdot\dfrac{q\cdot(q+1)}{2}+(q+1)\cdot r$。
 
 最终枚举$k$并将这些值相加即可。
 

@@ -60,8 +60,8 @@ Find the Matrix Sum of:
 $$
 f(st)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} st=0 \\
-  &\max_{i=0,st\&2^i>0}^{N-1} f(st\oplus2^i)+a[c(st)-1][i]& & \mathrm{else}
+  &0  & & \text{if\quad} st=0 \\
+  &\max_{i=0,st\&2^i>0}^{N-1} \{f(st\oplus2^i)+a[c(st)-1][i]\}& & \text{else}
 \end{aligned}\right.
 $$
 
@@ -76,7 +76,7 @@ $$
 
 最终执行完算法后，花费的费用最小，并且每一行，每一列都被用到。取反符号后即为答案。
 
-此处的代码将使用networkx库中的max_flow_min_cost方法完成。
+此处的代码将使用`networkx`库中的`max_flow_min_cost`方法完成。
 
 通过查看费用流的$N^2$条边的使用情况，还可以得知哪$N$个数被选上了。
 

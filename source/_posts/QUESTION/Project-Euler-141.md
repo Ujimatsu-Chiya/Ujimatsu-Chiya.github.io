@@ -35,7 +35,7 @@ Find the sum of all progressive perfect squares below one trillion ($10^{12}$).
 
 $d=\dfrac{a}{b} \cdot r,q=\dfrac{a^2}{b^2}\cdot r$
 
-如果$q$是一个正整数，那么$b^2|r$。因此就存在一个$c$，使得$r=cb^2$。
+如果$q$是一个正整数，那么$b^2\mid r$。因此就存在一个$c$，使得$r=cb^2$。
 
 此时$d=abc,q=a^2c$。
 

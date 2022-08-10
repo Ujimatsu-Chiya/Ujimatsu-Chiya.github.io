@@ -39,9 +39,9 @@ The corresponding values of $x$ for the first five natural numbers are shown bel
 |$\dfrac{\sqrt{89}-5}{8}$|$4$|
 |$\dfrac{\sqrt{34}-3}{5}$|$5$|
 
-We shall call $A_F(x)$ a golden nugget if $x$ is rational, because they become increasingly rarer; for example, the $10\mathrm{th}$ golden nugget is $74049690$.
+We shall call $A_F(x)$ a golden nugget if $x$ is rational, because they become increasingly rarer; for example, the $10\text{th}$ golden nugget is $74049690$.
 
-Find the $15\mathrm{th}$ golden nugget.
+Find the $15\text{th}$ golden nugget.
 
 ## 解决方案
 
@@ -66,7 +66,7 @@ $$A_F(x)=\dfrac{x}{1-x-x^2}$$
 
 $A_F(x)$又称为数列$F$的[**生成函数(母函数)**](https://en.wikipedia.org/wiki/Generating_function)。
 
-令$A_F(x)=n$，$n$是一个正整数，有：$x=n(1-x-x^2)$
+令$A_F(x)=n$，$n$是一个正整数，有$x=n(1-x-x^2)$
 
 化成关于$x$的一元二次方程，有$nx^2+(n+1)x-n=0$
 

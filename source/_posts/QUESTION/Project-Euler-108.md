@@ -36,13 +36,13 @@ What is the least value of $n$ for which the number of distinct solutions exceed
 
 先暴力枚举出前几项的解的个数，然后查询OEIS，发现结果为数列[A018892](https://oeis.org/A018892)。
 
-在FORMULA一栏中可以发现：
+在`FORMULA`一栏中可以发现：
 
 ```
 If n = (p1^a1)(p2^a2)...(pt^at), a(n) = ((2*a1 + 1)(2*a2 + 1) ... (2*at + 1) + 1)/2.
 ```
 
-这说明，如果正整数$n$分解为$n=\prod p_i^{e_i}$，那么本题解的个数为$f(n)=\dfrac{\prod(2e_i+1)+1}{2}$。
+这说明，如果正整数$n$分解为$n=\prod_{i=1}^k p_i^{e_i}$，那么本题解的个数为$f(n)=\dfrac{\prod_{i=1}^k(2e_i+1)+1}{2}$。
 
 因此，通过$n$的分解质因数枚举$n$即可，枚举时，为使$n$取到的最小，注意当$e_i>e_j$时，那么$p_i<p_j$。
 
@@ -52,15 +52,15 @@ If n = (p1^a1)(p2^a2)...(pt^at), a(n) = ((2*a1 + 1)(2*a2 + 1) ... (2*at + 1) + 1
 
 令$t=y-n$，那么$y=n+t$，代入原式子，得到：$x=\dfrac{n(n+t)}{t}=\dfrac{n^2}{t}+n$.
 
-如果$x$是一个整数，那么$t |n^2$。
+如果$x$是一个整数，那么$t \mid n^2$。
 
-那么，$t$取遍$n^2$的各个因数，根据因数个数定理，$x$有$d(n^2)=\prod 2e_i+1$种取值。
+那么，$t$取遍$n^2$的各个因数，根据因数个数定理，$x$有$d(n^2)=\prod_{i=1}^k(2e_i+1)$种取值。
 
 为不失解的一般性，方程$\dfrac{1}{x} + \dfrac{1}{y} = \dfrac{1}{n}$中的每个解都需要满足$x\leq y$。
 
 而当$x=y=2n$时，满足该等于号。
 
-故方程$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$解的总个数为$f(n)=\dfrac{\prod (2e_i+1)+1}{2}$。
+故方程$\dfrac{1}{x}+\dfrac{1}{y}=\dfrac{1}{n}$解的总个数为$f(n)=\dfrac{\prod_{i=1}^k (2e_i+1)+1}{2}$。
 
 ## 代码
 

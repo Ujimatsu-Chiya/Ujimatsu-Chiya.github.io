@@ -35,17 +35,17 @@ Find $\sum D(N)$ for $5 \le N \le 10000$.
 
 ## 解决方案
 
-令函数$y(k)=(\dfrac{N}{k})^k$，其中$k\in \mathbb{N^+}$。
+令函数$y(k)=\left(\dfrac{N}{k}\right)^k$，其中$k\in \mathbb{N^+}$。
 
 由于函数$y(k)$的定义域是在整数域上，不好通过求导求最大值，因此将整数域扩展到实数域。
 
-令$z(x)=(\dfrac{N}{x})^x$，其中$x\in \mathbb{R}$。
+令$z(x)=\left(\dfrac{N}{x}\right)^x$，其中$x\in \mathbb{R}$。
 
-对$z(x)$求导，计算得$z$的导数$z'(x)=(\dfrac{N}{x})^x\cdot (\ln\dfrac{N}{x}-1)$。
+对$z(x)$求导，计算得$z$的导数$z'(x)=\left(\dfrac{N}{x}\right)^x\cdot \left(\ln\dfrac{N}{x}-1\right)$。
 
 令$z'(x)=0$，那么可以计算得到$x=\dfrac{N}{e}$，$z(x)$在$x_0=\dfrac{N}{e}$时将会取到最大值。
 
-回到函数$y(k)$，那么如果$y$要取到最大值，那么最大值点$k$为$\lfloor\dfrac{N}{e}\rfloor,\lceil\dfrac{N}{e}\rceil$两个值之一。
+回到函数$y(k)$，那么如果$y$要取到最大值，那么最大值点$k$为$\left\lfloor\dfrac{N}{e}\right\rfloor,\left\lceil\dfrac{N}{e}\right\rceil$两个值之一。
 
 因此，直接将它们代入函数$y(k)$代入，这种做法是可行的，不过由于$x_0=\dfrac{N}{e}$是在指数上出现的，因此直接代入计算，可能会导致结果失真。这里取而代之的方法是，代入$y(k)$的对数函数$\ln y(k)=k(\ln N-\ln k)$进行比较计算。
 

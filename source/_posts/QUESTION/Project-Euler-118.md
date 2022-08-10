@@ -41,14 +41,14 @@ How many distinct sets containing each of the digits one through nine exactly on
 $$
 f(i,st)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\&st=0 \\
-  &0  & & \mathrm{else if\quad} i=0 \\
-  &f(i-1,st)  & & \mathrm{else if\quad} st\&i\neq i \\
-  &f(i-1,st)+f(i-1,st \oplus i) \times cnt[i] & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land st=0 \\
+  &0  & & \text{else if\quad} i=0 \\
+  &f(i-1,st)  & & \text{else if\quad} st\land i\neq i \\
+  &f(i-1,st)+f(i-1,st \oplus i) \times cnt[i] & & \text{else}
 \end{aligned}\right.
 $$
 
-其中，运算符$\& , \bigoplus$分别表示位运算中的与运算和异或运算。
+其中，运算符$\land , \oplus$分别表示位运算中的与运算和异或运算。
 
 方程最后一行表示，如果不取$i$，那么直接从$f(i-1,st)$转移过来保存；如果取$i$，那么就需要将没有用到$i$的前驱状态再添加一个$mask$属于$i$类中的数，而这类数有$cnt[i]$个。
 
@@ -87,7 +87,7 @@ for i in range(1 << n):
         for j in range(1 << n):
             if (j & i) == 0:
                 f[i | j] += f[j] * cnt[i]
-
-print(f[(1 << n) - 1])
+ans = f[(1 << n) - 1]
+print(ans)
 
 ```

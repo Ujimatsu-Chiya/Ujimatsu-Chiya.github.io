@@ -36,9 +36,9 @@ $\begin{aligned}
 & (2,1,4), (2,4,1), (4,1,2), (4,2,1), (2,2,2).
 \end{aligned}$
 
-You are given $T(10,10) = 869 985$ and $T(10^3,10^3) ≡ 578 270 566 (\mod 1 004 535 809)$.
+You are given $T(10,10) = 869 985$ and $T(10^3,10^3) ≡ 578 270 566 \pmod {1 004 535 809}$.
 
-Find $T(20 000, 20 000) \mod 1 004 535 809$.
+Find $T(20 000, 20 000) \bmod 1 004 535 809$.
 
 ## 解决方案
 
@@ -49,9 +49,9 @@ Find $T(20 000, 20 000) \mod 1 004 535 809$.
 $$
 T(i,j)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i=0\wedge j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\sum_{k=0}^j T(i-1,j-k) \cdot c[k] & & \mathrm{else}
+  &1 & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &\sum_{k=0}^j T(i-1,j-k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$
 

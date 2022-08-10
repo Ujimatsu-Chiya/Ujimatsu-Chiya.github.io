@@ -30,9 +30,9 @@ Find the last $8$ digits of $1777\uparrow\uparrow1855$.
 $$
 a^b\equiv
 \left \{\begin{aligned}
-  &a^{b\% \varphi(m)}  & & \mathrm{if\quad} \gcd(a,m)=1 \\
-  &a^b & & \mathrm{else if\quad} b<\varphi(m) &(\mod p)\\
-  &a^{b\%\varphi(m)+\varphi(m)} & & \mathrm{else}
+  &a^{b\% \varphi(m)}  & & \text{if\quad} \gcd(a,m)=1 \\
+  &a^b & & \text{else if\quad} b<\varphi(m) &\pmod p\\
+  &a^{b\%\varphi(m)+\varphi(m)} & & \text{else}
 \end{aligned}\right.
 $$
 

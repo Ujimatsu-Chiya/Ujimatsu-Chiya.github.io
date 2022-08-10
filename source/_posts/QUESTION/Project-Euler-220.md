@@ -35,7 +35,7 @@ Give your answer in the form $x,y$ with no spaces.
 
 令$N=10^{12}$。并假设机器人第$i$步走到的点为$(x_i,y_i)$。
 
-令$a_0=\emptyset,b_0=\emptyset$，那么可以写出
+令$a_0=\varnothing,b_0=\varnothing$，那么可以写出
 
 $\begin{aligned}
 a_n&\rightarrow a_{n-1}Rb_{n-1}FR\\

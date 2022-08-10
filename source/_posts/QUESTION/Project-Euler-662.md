@@ -38,8 +38,8 @@ Find $F(10\,000,10\,000) \bmod 1\,000\,000\,007$.
 
 $$f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\&j=0 \\
-  &\sum_{x,y,x\le i,y\le j} f(i-x,j-y)& & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &\sum_{x,y,x\le i,y\le j} f(i-x,j-y)& & \text{else}
 \end{aligned}\right.
 $$
 

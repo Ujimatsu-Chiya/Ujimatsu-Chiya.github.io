@@ -32,7 +32,7 @@ How many Sundays fell on the first of the month during the twentieth century ($1
 
 ## 解决方案
 
-可以使用Python中datetime包的date类解决。
+可以使用`Python`中`datetime`包的`date`类解决。
 
 ## 代码
 

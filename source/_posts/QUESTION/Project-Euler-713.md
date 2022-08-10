@@ -40,11 +40,11 @@ Find $L(10^7)$.
 
 图兰定理还给出了图兰图$T_{n,r}$的边数（假设$n=qr+s,0\le s<r$）：
 
-$$(1-\dfrac{1}{r})\dfrac{n^2-s^2}{2}+\dfrac{s(s-1)}{2}$$
+$$\left(1-\dfrac{1}{r}\right)\dfrac{n^2-s^2}{2}+\dfrac{s(s-1)}{2}$$
 
 那么我们只需要求$T_{N,m-1}$补图边数即为答案。
 
-如果不知道图兰图与图兰定理这些内容，考虑小范围内枚举出一部分项，在OEIS中查询到结果为[A134546](https://oeis.org/A134546)。在FORMULA一栏，找到：
+如果不知道图兰图与图兰定理这些内容，考虑小范围内枚举出一部分项，在OEIS中查询到结果为[A134546](https://oeis.org/A134546)。在`FORMULA`一栏，找到：
 
 ```
 T(n,k) = k*floor(n/k)*floor((n+k)/k)/2 - floor(n/k)*(k-1-(n mod k)). - Bob Selcoe, Aug 21 2016

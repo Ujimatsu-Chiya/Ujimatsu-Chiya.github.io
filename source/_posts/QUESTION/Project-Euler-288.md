@@ -19,31 +19,31 @@ For any prime $p$ the number $N(p,q)$ is defined by $N(p,q) = \sum_{n=0\text{ to
 
 $$\begin{aligned}
 S_0 &= 290797\\
-S_{n+1} &= S_n^2 \mod 50515093\\
-T_n &= S_n \mod p
+S_{n+1} &= S_n^2 \bmod 50515093\\
+T_n &= S_n \bmod p
 \end{aligned}$$
 
 Let $\text{Nfac}(p,q)$ be the factorial of $N(p,q)$.
 
 Let $\text{NF}(p,q)$ be the number of factors $p$ in $\text{Nfac}(p,q)$.
 
-You are given that $\text{NF}(3,10000) \mod 3^{20}=624955285$.
+You are given that $\text{NF}(3,10000) \bmod 3^{20}=624955285$.
 
-Find $\text{NF}(61,10^7) \mod 61^{10}$.
+Find $\text{NF}(61,10^7) \bmod 61^{10}$.
 
 ## 解决方案
 
-设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\lfloor\dfrac{n}{p}\rfloor+\lfloor\dfrac{n}{p^2}\rfloor+\lfloor\dfrac{n}{p^3}\rfloor+\dots$，每一项分别表示$1\sim n$中有多少个数是$p,p^2,p^3\dots$的倍数。
+设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\left\lfloor\dfrac{n}{p}\right\rfloor+\left\lfloor\dfrac{n}{p^2}\right\rfloor+\left\lfloor\dfrac{n}{p^3}\right\rfloor+\dots$，每一项分别表示$1\sim n$中有多少个数是$p,p^2,p^3\dots$的倍数。
 
 那么，$\text{NF}(p,q)=f(N(p,q),p)$。
 
 不过，恰巧的是，$N(p,q)$是一个关于$p$的$q$项式。因此，以$f(n,p)$的前两项为例子，有：
 
 $\begin{aligned}
-&\lfloor\dfrac{N(p,q)}{p}\rfloor=\sum_{i=1}^{q} T_ip^{i-1}\\
-&\lfloor\dfrac{N(p,q)}{p^2}\rfloor=\sum_{i=2}^{q} T_ip^{i-2}\\
+&\left\lfloor\dfrac{N(p,q)}{p}\right\rfloor=\sum_{i=1}^{q} T_ip^{i-1}\\
+&\left\lfloor\dfrac{N(p,q)}{p^2}\right\rfloor=\sum_{i=2}^{q} T_ip^{i-2}\\
 &\dots\\
-&\lfloor\dfrac{N(p,q)}{p^q}\rfloor=T_q\\\\
+&\left\lfloor\dfrac{N(p,q)}{p^q}\right\rfloor=T_q\\\\
 \end{aligned}$
 
 那么，可以写出

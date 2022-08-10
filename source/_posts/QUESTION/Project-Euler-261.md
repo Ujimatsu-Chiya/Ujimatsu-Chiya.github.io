@@ -58,7 +58,7 @@ $$
 
 $$m(m+1)(x^2-1)=t^2\qquad(2)$$
 
-令$m=r\cdot p^2,m+1=s\cdot q^2 $，其中$r,s$是一个无平方因数。并且注意，$m$和$m+1$是互质的。因此$rpsq|t$。令$y=\dfrac{t}{rpsq}$，那么将$m,m+1,t$代入方程$(2)$，得到$x^2-1=rsy^2$。将其移项，得到一个[佩尔方程](https://en.wikipedia.org/wiki/Pell%27s_equation)：
+令$m=r\cdot p^2,m+1=s\cdot q^2 $，其中$r,s$是一个无平方因数。并且注意，$m$和$m+1$是互质的。因此$rpsq\mid t$。令$y=\dfrac{t}{rpsq}$，那么将$m,m+1,t$代入方程$(2)$，得到$x^2-1=rsy^2$。将其移项，得到一个[佩尔方程](https://en.wikipedia.org/wiki/Pell%27s_equation)：
 
 $$x^2-rsy^2=1\qquad(3)$$
 

@@ -41,9 +41,9 @@ Find the value of $1000$ for which $\dfrac{1}{d}$ contains the longest recurring
 
 以$\dfrac{2}{11}=0.181818\dots$为例。
 
-$2*10 \mod 11 = 9,\lfloor2* 10 / 11\rfloor = 1$
+$2*10 \% 11 = 9,\lfloor2* 10 / 11\rfloor = 1$
 
-$9*10 \mod 11 = 2,\lfloor9* 10 / 11\rfloor = 8$
+$9*10 \% 11 = 2,\lfloor9* 10 / 11\rfloor = 8$
 
 余数$2$出现在了一开始的结果中，发生了循环，其长度为$2$。小数也计算了出来，分别为$1$和$8$。
 

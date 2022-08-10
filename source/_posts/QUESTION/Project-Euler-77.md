@@ -18,11 +18,13 @@ date: 2022-05-02 16:36:37
 
 It is possible to write ten as the sum of primes in exactly five different ways:
 
-$7 + 3$<br>
-$5 + 5$<br>
-$5 + 3 + 2$<br>
-$3 + 3 + 2 + 2$<br>
-$2 + 2 + 2 + 2 + 2$
+$\begin{aligned}
+&7+3\\
+&5+5\\
+&5+3+2\\
+&3+3+2+2\\
+&2+2+2+2+2\\
+\end{aligned}$
 
 What is the first value which can be written as the sum of primes in over five thousand different ways?
 
@@ -38,10 +40,10 @@ What is the first value which can be written as the sum of primes in over five t
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} j=0 |(i=1 \&j\%p[1]=0)  \\
-  &0  & & \mathrm{else if\quad} i=1 \\
-  &f(i-1,j)  & & \mathrm{else if\quad} j<p[i] \\
-  &f(i-1,j)+f(i,j-p[i]) & & \mathrm{else}
+  &1  & & \text{if\quad} j=0 \lor(i=1 \land j\%p[1]=0)  \\
+  &0  & & \text{else if\quad} i=1 \\
+  &f(i-1,j)  & & \text{else if\quad} j<p[i] \\
+  &f(i-1,j)+f(i,j-p[i]) & & \text{else}
 \end{aligned}\right.
 $$
 

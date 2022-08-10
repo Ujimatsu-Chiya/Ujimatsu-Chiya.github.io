@@ -29,9 +29,9 @@ How many squarefree numbers are there below $2^{50}$?
 $$
 \mu(n)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} n=1 \\
-  &0 & & \mathrm{else if\quad} \text{∃} m\in[1,k],e_m>1 \\
-  &(-1)^k & & \mathrm{else}
+  &1 & & \text{if\quad} n=1 \\
+  &0 & & \text{else if\quad} \exists m\in[1,k],e_m>1 \\
+  &(-1)^k & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -46,7 +46,7 @@ $$
 使用线性筛计算莫比乌斯函数：如果筛出来的是一个新质因子，那么对原来的莫比乌斯函数值乘$-1$就可以得到新数的莫比乌斯函数值，如果是旧的质因子，那么直接赋$0$。
 
 最终答案为：
-$$\sum_{k=1}^{\lfloor\sqrt{N}\rfloor} \lfloor\dfrac{N}{k^2}\rfloor\cdot \mu(k)$$
+$$\sum_{k=1}^{\lfloor\sqrt{N}\rfloor} \left\lfloor\dfrac{N}{k^2}\right\rfloor\cdot \mu(k)$$
 
 ## 代码
 

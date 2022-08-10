@@ -32,9 +32,9 @@ What is the expected number of unoccupied squares after $50$ rings of the bell? 
 $$
 f_{n,m}(i,j,k)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i=0\&j=n\&k=m \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &\sum_{x,y,|j-x|+|k-y|=1,0\le x,y<N}\dfrac{f_{n,m}(i-1,x,y)}{\text{dir}(x,y)} & & \mathrm{else}
+  &1 & & \text{if\quad} i=0\land j=n\land k=m \\
+  &0 & & \text{else if\quad} i=0 \\
+  &\sum_{|j-x|+|k-y|=1,0\le x,y<N}\dfrac{f_{n,m}(i-1,x,y)}{\text{dir}(x,y)} & & \text{else}
 \end{aligned}\right.
 $$
 

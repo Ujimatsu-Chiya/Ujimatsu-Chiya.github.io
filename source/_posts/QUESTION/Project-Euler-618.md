@@ -38,10 +38,10 @@ The Fibonacci sequence is $F_1=1$, $F_2=1$, $F_3=2$, $F_4=3$, $F_5=5$, $\ldots$F
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &f(i-1,j) & & \mathrm{else if\quad} j<p[j] \\
-  &f(i-1,j)+f(i,j-p[i])\times p[i] & & \mathrm{else}
+  &1  & & \text{if\quad} j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &f(i-1,j) & & \text{else if\quad} j<p[j] \\
+  &f(i-1,j)+f(i,j-p[i])\times p[i] & & \text{else}
 \end{aligned}\right.
 $$
 

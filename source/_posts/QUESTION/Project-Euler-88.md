@@ -24,11 +24,13 @@ For example, $6 = 1 + 2 + 3 = 1 \times 2 \times 3$.
 
 For a given set of size, $k$, we shall call the smallest $N$ with this property a minimal product-sum number. The minimal product-sum numbers for sets of size, $k = 2, 3, 4, 5$, and $6$ are as follows.
 
-$k=2:4=2 \times 2 = 2 + 2$<br>
-$k=3:6=1 \times 2 \times 3 = 1 + 2 + 3$<br>
-$k=4:8=1 \times 1 \times 2 \times 4 = 1 + 1 + 2 + 4$<br>
-$k=5:8=1 \times 1 \times 2 \times 2 \times 2  = 1 + 1 + 2 + 2 + 2$<br>
-$k=6:12=1 \times 1 \times 1 \times 1 \times 2 \times 6 = 1 + 1 + 1 + 1 + 2 + 6$
+$\begin{aligned}
+&k=2:4=2 \times 2 = 2 + 2\\
+&k=3:6=1 \times 2 \times 3 = 1 + 2 + 3\\
+&k=4:8=1 \times 1 \times 2 \times 4 = 1 + 1 + 2 + 4\\
+&k=5:8=1 \times 1 \times 2 \times 2 \times 2  = 1 + 1 + 2 + 2 + 2\\
+&k=6:12=1 \times 1 \times 1 \times 1 \times 2 \times 6 = 1 + 1 + 1 + 1 + 2 + 6
+\end{aligned}$
 
 Hence for $2\leq k\leq 6$, the sum of all the minimal product-sum numbers is $4+6+8+12=30;$ note that $8$ is only counted once in the sum.
 
@@ -44,7 +46,7 @@ What is the sum of all the minimal product-sum numbers for $2\leq k\leq12000$?
 
 为了遍历所有情况，本代码遍历时，$a_1,a_2,...,a_m$可以为$1$，这是为了方便求出$k$比较小时的情况。
 
-关于在某个特定的$k$下，和积值$N$的上限。先枚举前几项出来，查询OEIS的结果为[A104173](https://oeis.org/A104173)。在FORMULA一栏，发现：
+关于在某个特定的$k$下，和积值$N$的上限。先枚举前几项出来，查询OEIS的结果为[A104173](https://oeis.org/A104173)。在`FORMULA`一栏，发现：
 
 ```
 a(n) <= 2n, since 1^(n-2)* 2*n = (n-2)*1 + 2 + n. - Étienne Dupuis, Dec 07 2021

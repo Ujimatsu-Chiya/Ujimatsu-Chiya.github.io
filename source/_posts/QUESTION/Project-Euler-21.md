@@ -26,12 +26,13 @@ Evaluate the sum of all the amicable numbers under $10000$.
 ## 因数和定理
 
 如果一个正整数$n$分解后成为：
-$$n=\prod p_i^{e_i}$$
+$$n=\prod_{i=1}^k p_i^{e_i}$$
 那么$n$的因数的和为：
-$$\prod \dfrac{p_i^{e_i+1}-1}{p_i-1}$$
+$$\prod_{i=1}^k \dfrac{p_i^{e_i+1}-1}{p_i-1}$$
 更一般的，因数的$k$次幂的和为
-$$\prod \dfrac{p_i^{k(e_i+1)}-1}{p_i^k-1}$$
-计算因数和的函数将会封装在tools中并且以divisor_sigma(n,k=None)的方式调用。
+$$\prod_{i=1}^k \dfrac{p_i^{k(e_i+1)}-1}{p_i^k-1}$$
+
+计算因数和的函数将会封装在`tools`中并且以`divisor_sigma(n,k=None)`的方式调用。
 
 ## 解决方案
 

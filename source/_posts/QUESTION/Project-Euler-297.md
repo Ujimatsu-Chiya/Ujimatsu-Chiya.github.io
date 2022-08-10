@@ -50,8 +50,8 @@ Find $\sum z(n)$ for $0<n<10^{17}$.
 $$
 f(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n=0 \\
-  &f(g(n)-1)+f(n-g(n))+n-g(n)+1 & & \mathrm{else}
+  &0 & & \text{if\quad} n=0 \\
+  &f(g(n)-1)+f(n-g(n))+n-g(n)+1 & & \text{else}
 \end{aligned}\right.
 $$
 

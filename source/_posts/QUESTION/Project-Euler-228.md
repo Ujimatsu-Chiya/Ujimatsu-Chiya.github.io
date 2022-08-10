@@ -17,7 +17,7 @@ date: 2022-06-13 21:21:26
 
 Let $S_n$ be the regular $n$-sided polygon – or *shape* – whose vertices $v_k (k=1,2,\dots,n)$ have coordinates:
 
-$$x_k= \cos(\dfrac{2k-1}{n} \times 180°)\quad y_k= \sin(\dfrac{2k-1}{n} \times 180°)$$
+$$x_k= \cos\left(\dfrac{2k-1}{n} \times 180°\right)\quad y_k= \sin\left(\dfrac{2k-1}{n} \times 180°\right)$$
 
 Each $S_n$ is to be interpreted as a filled shape consisting of all points on the perimeter and in the interior.
 

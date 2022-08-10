@@ -24,7 +24,7 @@ A well constructed Su Doku puzzle has a unique solution and can be solved by log
 
 The 6K text file, [sudoku.txt](../resources/p096_sudoku.txt) (right click and ‘Save Link/Target As…’), contains fifty different Su Doku puzzles ranging in difficulty, but all with unique solutions (the first puzzle in the file is the example above).
 
-By solving all fifty puzzles find the sum of the 3-digit numbers found in the top left corner of each solution grid; for example, 483 is the 3-digit number found in the top left corner of the solution grid above.
+By solving all fifty puzzles find the sum of the $3$-digit numbers found in the top left corner of each solution grid; for example, $483$ is the $3$-digit number found in the top left corner of the solution grid above.
 
 ## 解决方案
 
@@ -34,7 +34,7 @@ By solving all fifty puzzles find the sum of the 3-digit numbers found in the to
 
 1. 使用位运算。每行/列/宫格都有一个$9$比特编码，用来表示该行/列/宫格有哪些数字已经用了。
 2. 每次填数时，寻找当前可填数最少的格子进行填数。这能够确保如果一个格子没有数填了，就及时返回。
-3. 使用lowbit。将与运算获得填数的候选值，通过lowbit可以直接取出，不需要再用一个for循环遍历9个比特。
+3. 使用`lowbit`。将与运算获得填数的候选值，通过`lowbit`可以直接取出，不需要再用一个`for`循环遍历$9$个比特。
 
 此处提及一下[Dancing Links](https://en.wikipedia.org/wiki/Dancing_Links)算法，一个专门解决精准覆盖问题的算法，如本问题数独游戏。
 

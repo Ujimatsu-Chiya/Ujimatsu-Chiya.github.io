@@ -31,7 +31,7 @@ Given that $0 \leq x_1, y_1, x_2, y_2 \leq 50$, how many right triangles can be 
 由于只有$51\times 51-1$个点，因此每次可以枚举出两个点，通过判断向量内积是否为$0$来找出直角。
 将枚举出来的三角形的每一条边都视为一个向量，两两做内积，就可以完成判断，找到一个直角三角形。
 
-通过查询OEIS该数列的前几项，发现结果为[A155154](https://oeis.org/A155154)。在PROG一栏中，发现如下信息：
+通过查询OEIS该数列的前几项，发现结果为[A155154](https://oeis.org/A155154)。在`PROG`一栏中，发现如下信息：
 
 ```
 (PARI) a(n)=3*n^2+sum(a=1, n, sum(b = 1, n, 2*min(b*gcd(a, b)\a, (n - a)*gcd(a, b)\b) ) ) \\ Yurii Ivanov, Jun 25 2021
@@ -39,7 +39,7 @@ Given that $0 \leq x_1, y_1, x_2, y_2 \leq 50$, how many right triangles can be 
 
 通过这个信息，可以以$O(n^2\log n)$计算出本题的结果：
 
-$$3n^2+\sum_{a=1}^n\sum_{b=1}^n2\min(\lfloor\frac{b\gcd(a,b)}{a}\rfloor),\lfloor\frac{(n-a)\gcd(a,b)}{b}\rfloor))$$
+$$3n^2+\sum_{a=1}^n\sum_{b=1}^n2\min\left(\left\lfloor\frac{b\gcd(a,b)}{a}\right\rfloor,\left\lfloor\frac{(n-a)\gcd(a,b)}{b}\right\rfloor\right)$$
 
 ## 代码
 

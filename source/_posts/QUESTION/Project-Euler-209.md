@@ -58,9 +58,9 @@ $\begin{aligned}
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &3 & & \mathrm{else if\quad} i=2 \\
-  &f(i-1)+f(i-2) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &3 & & \text{else if\quad} i=2 \\
+  &f(i-1)+f(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 

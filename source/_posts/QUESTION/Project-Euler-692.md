@@ -51,9 +51,9 @@ Find $G(23416728348467685)$.
 $$
 G(n)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} n=1 \\
-  &G(n-1)+n  & & \mathrm{else if\quad} f(n)=n \\
-  &G(n-f(n))+G(f(n))& & \mathrm{else}
+  &1 & & \text{if\quad} n=1 \\
+  &G(n-1)+n  & & \text{else if\quad} f(n)=n \\
+  &G(n-f(n))+G(f(n))& & \text{else}
 \end{aligned}\right.
 $$
 

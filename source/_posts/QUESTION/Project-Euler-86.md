@@ -31,7 +31,7 @@ Find the least value of $M$ such that the number of solutions first exceeds one 
 
 因此，可以先枚举$c$的值，再枚举$a+b$的值，在此过程中，判断$(a+b)^2+c^2$是否为平方数即可。
 
-需要注意的是，当$a+b\leq c$，满足$a\leq b$的$(a,b)$对数为$\lfloor\dfrac{a+b}{2}\rfloor$。当$c< a+b\leq 2c$时，满足$a\leq b\leq c$的$(a,b)$对数为$c+1-\lceil\dfrac{a+b}{2}\rceil$。
+需要注意的是，当$a+b\leq c$，满足$a\leq b$的$(a,b)$对数为$\left\lfloor\dfrac{a+b}{2}\right\rfloor$。当$c< a+b\leq 2c$时，满足$a\leq b\leq c$的$(a,b)$对数为$c+1-\left\lceil\dfrac{a+b}{2}\right\rceil$。
 
 ## 代码
 

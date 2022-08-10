@@ -25,13 +25,13 @@ Find $\sum S$ for every pair of consecutive primes with $5 \leq p_1 \leq 1000000
 
 设$m$为$p_1$十进制下表示的长度（也就是$m=\lfloor\log_{10}n\rfloor+1$）
 
-题目中的问题，可以转化为以下标准形式：求一个最小的非负整数$x$，使得$p_2|(p_1+10^mx)$
+题目中的问题，可以转化为以下标准形式：求一个最小的非负整数$x$，使得$p_2\mid (p_1+10^mx)$
 
-那么就转化成求线性同余方程$10^mx\equiv -p_1(\mod p_2)$。
+那么就转化成求线性同余方程$10^mx\equiv -p_1 \pmod {p_2}$。
 
-这是一个线性同余方程$ax\equiv b(\mod m)$的典型。解这类线性同余方程需要使用[扩展欧几里得](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)算法辅助解决。
+这是一个线性同余方程$ax\equiv b \pmod m$的典型。解这类线性同余方程需要使用[扩展欧几里得](https://en.wikipedia.org/wiki/Extended_Euclidean_algorithm)算法辅助解决。
 
-另外，如果$m$是一个质数，可以用费马小定理直接求解得$x\equiv a^{m-2}\cdot b(\mod m)$。
+另外，如果$m$是一个质数，可以用费马小定理直接求解得$x\equiv a^{m-2}\cdot b \pmod m$。
 
 最终求出$x$后，$S=10^mx+p_1$，对答案相加即可。
 

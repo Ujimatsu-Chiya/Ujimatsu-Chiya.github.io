@@ -26,7 +26,7 @@ Find how many positive integers less than $10^{16}$ are divisible by at least fo
 
 那么根据容斥原理，答案为：
 
-$$\sum_{i=K}^M (-1)^{i-K}\cdot C_{i-1}^{K-1}\cdot \sum_{p_1<p_2<\dots<p_i}\dfrac{N}{\prod_{j=1}^ip_j}$$
+$$\sum_{i=K}^M (-1)^{i-K}\cdot \dbinom{i-1}{K-1}\cdot \sum_{p_1<p_2<\dots<p_i}\dfrac{N}{\prod_{j=1}^ip_j}$$
 
 其中前两项是容斥原理的系数，第一个则是将至少$K$个的添加，然后将重复算的$K+1$个减去，再将被重复减去的$K+2$个的补充回来……；第二个表示，这个大小为$i$的集合被之前重复的计算次数。
 

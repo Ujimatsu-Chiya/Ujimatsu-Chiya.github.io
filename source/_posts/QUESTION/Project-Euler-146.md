@@ -23,22 +23,22 @@ What is the sum of all such integers n below $150$ million?
 
 第一步预处理：
 
-假设质数$p$和非负整数$r(0\le r< p)$，如果对于以及任意非负整数$k$，存在$b\in\{1,3,7,9,13,27\}$，有$p|(kp+r)^2+b$，也就是$p|r^2+b$。那么所有满足$n\equiv r(\mod p)$的$n$都可以排除。
+假设质数$p$和非负整数$r(0\le r< p)$，如果对于以及任意非负整数$k$，存在$b\in\{1,3,7,9,13,27\}$，有$p\mid(kp+r)^2+b$，也就是$p\mid r^2+b$。那么所有满足$n\equiv r \pmod p$的$n$都可以排除。
 
 根据这个规律，代入$p=2,3,5,7$，可以排除许多$n$，留下来的$n$一定满足以下所有条件：
 
 $\begin{aligned}
-& n\equiv 0(\mod 2)\\
-& n\equiv 1 \text{ or }2(\mod 3)\\
-& n\equiv 0(\mod 5)\\
-& n\equiv 3 \text{ or }4(\mod 7)
+& n\equiv 0\pmod 2\\
+& n\equiv 1, 2 \pmod 3\\
+& n\equiv 0 \pmod 5\\
+& n\equiv 3, 4 \pmod 7
 \end{aligned}$
 
 那么可以留下大约$\dfrac{2}{105}$个$n$。根据[中国剩余定理](https://mathworld.wolfram.com/ChineseRemainderTheorem.html)，可以认为只有以下$n$才满足条件：
 
-$n\equiv 10\text{ or } 80\text{ or } 130\text{ or } 200(\mod 210)$
+$n\equiv 10, 80, 130, 200\pmod {210}$
 
-第二部预处理：由于sympy库中的素性测试算法isprime对于小数的效率非常低，但是对于大数很高，因此这里利用一些小质数对以上这些$n^2+b$的数进行试除，筛选掉一些合数，减低后面使用isprime的次数。
+第二部预处理：由于`sympy`库中的素性测试算法`isprime`对于小数的效率非常低，但是对于大数很高，因此这里利用一些小质数对以上这些$n^2+b$的数进行试除，筛选掉一些合数，减低后面使用`isprime`的次数。
 
 筛选完成后，正式对这些$n^2+b$使用素性测试算法，统计所有素性测试都能通过的$n$。
 

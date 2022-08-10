@@ -29,9 +29,9 @@ Find $G(10^{11})$. Give your answer modulo $998244353$.
 $$\begin{aligned}
 G(N)&=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)=\sum_{g=1}^Ng\sum_{j=1}^N\sum_{i=1}^j[\gcd(i,j)=g] \\
 &=\sum_{g=1}^Ng\sum_{j=1}^N\sum_{i=1}^j[\gcd(i,j)=g] \\
-&=\sum_{g=1}^Ng\sum_{j=1}^{\frac{N}{g}}\sum_{i=1}^j[\gcd(i,j)=1]\\
-&=\sum_{g=1}^Ng\sum_{j=1}^{\frac{N}{g}}\varphi(i)\\
-&=\sum_{g=1}^Ng\Phi(\dfrac{N}{g})
+&=\sum_{g=1}^Ng\sum_{j=1}^{\left\lfloor\frac{N}{g}\right\rfloor}\sum_{i=1}^j[\gcd(i,j)=1]\\
+&=\sum_{g=1}^Ng\sum_{j=1}^{\left\lfloor\frac{N}{g}\right\rfloor}\varphi(i)\\
+&=\sum_{g=1}^Ng\Phi\left(\dfrac{N}{g}\right)
 \end{aligned}$$
 
 其中，$[]$表示示性函数，表示$[]$里面的值是否为真，如果为真，那么值为$1$，否则值为$0$.
@@ -43,13 +43,13 @@ G(N)&=\sum_{j=1}^N\sum_{i=1}^j \text{gcd}(i,j)=\sum_{g=1}^Ng\sum_{j=1}^N\sum_{i=
 $$\begin{aligned}
 \dfrac{n(n+1)}{2}&=|\{(a,b)|1\le a\le b \le n\}|\\
 &=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le n,\gcd(a,b)=d\}|\\
-&=\sum_{d=1}^n|\{(a,b)|1\le a\le b \le \lfloor\dfrac{n}{d}\rfloor,\gcd(a,b)=1\}|\\
-&=\sum_{d=1}^n\Phi(\dfrac{n}{d})
+&=\sum_{d=1}^n\left|\left\{(a,b)| 1\le a\le b \le \left\lfloor\dfrac{n}{d}\right\rfloor,\gcd(a,b)=1\right\}\right|\\
+&=\sum_{d=1}^n\Phi\left(\dfrac{n}{d}\right)
 \end{aligned}$$
 
 因此，可以得到关于$\Phi$的递归式：
 
-$$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi(\dfrac{n}{d})$$
+$$\Phi(n)=\dfrac{n(n+1)}{2}-\sum_{d=2}^n\Phi\left(\dfrac{n}{d}\right)$$
 
 ## 代码
 

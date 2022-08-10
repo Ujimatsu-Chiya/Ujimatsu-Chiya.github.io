@@ -15,7 +15,7 @@ date: 2022-06-02 21:03:42
 
 ### Four Representations using Squares
 
-Consider the number 3600. It is very special, because
+Consider the number $3600$. It is very special, because
 
 $$\begin{aligned}
 3600 &= 48^2 + 36^2 \\

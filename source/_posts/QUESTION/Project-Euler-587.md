@@ -31,7 +31,7 @@ Two circles are placed next to each other horizontally, a rectangle is drawn aro
 
 ![](../images/p587_concave_triangle_2.png)
 
-This time the concave triangle occupies approximately 36.46% of the L-section.
+This time the concave triangle occupies approximately $36.46\%$ of the L-section.
 
 If $n$ circles are placed next to each other horizontally, a rectangle is drawn around the $n$ circles, and a line is drawn from the bottom left to the top right, then it can be shown that the least value of $n$ for which the concave triangle occupies less than $10\%$ of the L-section is $n = 15$.
 

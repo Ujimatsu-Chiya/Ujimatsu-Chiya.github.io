@@ -19,8 +19,8 @@ date: 2022-07-13 22:57:33
 Let $g(a,n,b,m)$ be the smallest non-negative solution $x$ to the system:
 
 $\begin{aligned}
-& x = a \mod n\\
-& x = b \mod m
+& x = a \bmod n\\
+& x = b \bmod m
 \end{aligned}$
 
 if such a solution exists, otherwise $0$.

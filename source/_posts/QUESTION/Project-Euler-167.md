@@ -24,7 +24,7 @@ $1, 2, 3 = 1 + 2, 4 = 1 + 3, 6 = 2 + 4, 8 = 2 + 6, 11 = 3 + 8;$
 
 $5$ does not belong to it because $5 = 1 + 4 = 2 + 3$ has two representations as the sum of two previous members, likewise $7 = 1 + 6 = 3 + 4$.
 
-Find $\sum U(2,2n+1)_k$ for $2 \leq n \leq 10$, where k = $10^{11}$.
+Find $\sum U(2,2n+1)_k$ for $2 \leq n \leq 10$, where $k = 10^{11}$.
 
 
 ## 解决方案
@@ -48,7 +48,7 @@ Find $\sum U(2,2n+1)_k$ for $2 \leq n \leq 10$, where k = $10^{11}$.
 
 需要注意，循环节的长度非常大，要开足够的数组空间。长度值表示在OEIS的[A100729](http://oeis.org/A100729)中。由于差分序列是周期性的，因此每段周期提供的差值也是一样的，这个差值在OEIS的[A100730](http://oeis.org/A100730)。
 
-其它参考资料：[网页](https://www.sciencedirect.com/science/article/pii/009731659290042S)
+其它参考资料：[页面](https://www.sciencedirect.com/science/article/pii/009731659290042S)
 
 ## 代码
 

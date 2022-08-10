@@ -38,10 +38,10 @@ Find $\displaystyle S(10^{13})$.
 $$
 f(k,s)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} s<0 \\
-  &1 & & \mathrm{else if\quad} k=0 \\
-  &2^k & & \mathrm{else if\quad} \sum_{i=1}^k F_i\le N \\
-  &f(k-1,s)+f(k-1,s-F_k) & & \mathrm{else}
+  &0  & & \text{if\quad} s<0 \\
+  &1 & & \text{else if\quad} k=0 \\
+  &2^k & & \text{else if\quad} \sum_{i=1}^k F_i\le N \\
+  &f(k-1,s)+f(k-1,s-F_k) & & \text{else}
 \end{aligned}\right.
 $$
 

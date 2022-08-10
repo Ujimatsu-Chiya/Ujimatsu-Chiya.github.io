@@ -45,9 +45,9 @@ Find $\sum L(n)$ for $3 \le n \le 100 000 000$.
 
 根据有理数上有理数的除法，不难发现，$L(n)=L(2n)=L(5n)$。那么本题我们仅需考虑$L(n)$，其中$2,5\nmid n$。
 
-这个[页面](https://en.wikipedia.org/wiki/Repeating_decimal#Reciprocals_of_composite_integers_coprime_to_10)指出，如果$n$的分解质因数为$n=\prod_{i=1}^k p_i^{e_i}$，那么$L(n)=\text{lcm}(L(p_1^{e_1}),L(p_2^{e_2}),\dots,L(p_k^{e_k}))$。此外，这个页面还提到，绝大多数情况下，$L(p^e)=p\cdot L(p^{e-1})$，除了$p^e=3,487,56598313$这几个数（OEIS页面为[A045616](https://oeis.org/A045616)），这是因为$p^2|10^{p-1}-1$。
+这个[页面](https://en.wikipedia.org/wiki/Repeating_decimal#Reciprocals_of_composite_integers_coprime_to_10)指出，如果$n$的分解质因数为$n=\prod_{i=1}^k p_i^{e_i}$，那么$L(n)=\text{lcm}(L(p_1^{e_1}),L(p_2^{e_2}),\dots,L(p_k^{e_k}))$。此外，这个页面还提到，绝大多数情况下，$L(p^e)=p\cdot L(p^{e-1})$，除了$p^e=3,487,56598313$这几个数（OEIS页面为[A045616](https://oeis.org/A045616)），这是因为$p^2\mid 10^{p-1}-1$。
 
-那么现在问题就是求$L(p)$，其中$p$是不为$2,5$的质数。本质上，$L(p)$的值相当于元素$10$在乘法群$\mathbb{Z}_p^{\star}$上的阶$\lambda_p(10)$。因此，一开始假设$\lambda_p(10)=p-1$。枚举$p-1$的每个质因子$q$，尝试对$\lambda_p(10)$除$q$。当发现$10^{\lambda_p(10)}\%p$不为$1$时，保留原来的值并停止。
+那么现在问题就是求$L(p)$，其中$p$是不为$2,5$的质数。本质上，$L(p)$的值相当于元素$10$在乘法群$\mathbb{Z}_p^{\ast}$上的阶$\lambda_p(10)$。因此，一开始假设$\lambda_p(10)=p-1$。枚举$p-1$的每个质因子$q$，尝试对$\lambda_p(10)$除$q$。当发现$10^{\lambda_p(10)}\%p$不为$1$时，保留原来的值并停止。
 
 ## 代码
 

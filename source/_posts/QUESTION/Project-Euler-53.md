@@ -30,9 +30,9 @@ How many, not necessarily distinct, values of $\displaystyle \binom n r$ for $1 
 
 根据组合数的递推式，计算出[杨辉三角](https://mathworld.wolfram.com/PascalsTriangle.html)前$101$行的值。
 
-由于Python支持计算大数，因此直接进行枚举判断。
+由于`Python`支持计算大数，因此直接进行枚举判断。
 
-产生杨辉三角的方法将会被封装在自定义的tools工具包中，以get_pascals_triangle(n,mod=None)获得杨辉三角的前n行，其中所有值对mod取模。
+产生杨辉三角的方法将会被封装在自定义的`tools`工具包中，以`get_pascals_triangle(n,mod=None)`获得杨辉三角的前$n+1$行，其中所有值对`mod`取模。
 
 ## 代码
 

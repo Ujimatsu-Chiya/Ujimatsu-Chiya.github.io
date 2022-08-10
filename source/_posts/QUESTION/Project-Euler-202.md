@@ -29,11 +29,11 @@ In how many ways can a laser beam enter at vertex $C$, bounce off $12017639147$ 
 
 [莫比乌斯反演](https://en.wikipedia.org/wiki/M%C3%B6bius_inversion_formula)：假设有两个算术函数$f,g$，其中$f$可以写成$g$的以下关系式：
 
-$$g(n)=\sum_{d|n}f(d)$$
+$$g(n)=\sum_{d\mid n}f(d)$$
 
 那么有
 
-$$f(n)=\sum_{d|n}\mu(\dfrac{n}{d})g(d)$$
+$$f(n)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)g(d)$$
 
 其中$\mu$是莫比乌斯函数。
 
@@ -53,7 +53,7 @@ $$f(n)=\sum_{d|n}\mu(\dfrac{n}{d})g(d)$$
 
 ![](../images/p202-3.png)
 
-那么很容易地观察出，拓展出来的$C(x,y)$满足关系：$y\equiv x(\mod 3)$。
+那么很容易地观察出，拓展出来的$C(x,y)$满足关系：$y\equiv x\pmod 3$。
 
 如果光线不会提前射出，那么说明这个光线在经过拓展出来的点之前，是不会经过其它**格点**的。也就是说，$\gcd(x,y)=1$。
 
@@ -63,22 +63,22 @@ $$f(n)=\sum_{d|n}\mu(\dfrac{n}{d})g(d)$$
 
 那么很明显，当$N$为偶数时，答案为$0$。当$M=\dfrac{N+3}{2}$为$3$的倍数时，答案也为$0$，因为$x+y=3k$上的所有$C$点的横纵坐标的最小公因数为$3$，不合题意。
 
-在上面的图中，当$n$不为$3$的倍数时，很容易数出直线$x+y=n$上有$F(n)=\dfrac{n-G(n)}{3}$个点是$C$点，其中$G(n)\in\{-1,1\},G(n)\equiv n(\mod 3)$。
+在上面的图中，当$n$不为$3$的倍数时，很容易数出直线$x+y=n$上有$F(n)=\dfrac{n-G(n)}{3}$个点是$C$点，其中$G(n)\in\{-1,1\},G(n)\equiv n \pmod 3$。
 
 假设$f(n)$是在直线$x+y=n$上那些能被原点“看见”（也就是$\gcd(x,y)=1$）的$C$点个数，那么$x+y=n$上被挡住的那些$C(x,y)$点将会被点$C'(\dfrac{x}{d},\dfrac{y}{d})$挡住，其中$d=\gcd(x,y)$。注意到$C'$落在直线$x+y=\dfrac{n}{d}$上，并且$\dfrac{n}{d}$是$n$的一个因子。那么可以写出下面关于两个函数$F$和$f$的式子：
 
-$$F(n)=\sum_{d|n}f(d)$$
+$$F(n)=\sum_{d\mid n}f(d)$$
 
 根据莫比乌斯反演，$f$可以写成如下形式：
 
 $$\begin{aligned}
-f(n)&=\sum_{d|n}\mu(\dfrac{n}{d})\cdot F(n)\\
-&=\dfrac{1}{3}(\sum_{d|n}\mu(\dfrac{n}{d})\cdot d-\sum_{d|n}\mu(\dfrac{n}{d})\cdot G(d))\\
+f(n)&=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot F(n)\\
+&=\dfrac{1}{3}\left(\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot d-\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(d)\right)\\
 \end{aligned}$$
 
 在狄利克雷卷积的页面中，发现$\varphi=\mu*\text{Id}$，其中$\text{Id}(n)=n$，$\varphi$为欧拉函数。
 
-令$g(n)=\sum_{d|n}\mu(\dfrac{n}{d})\cdot G(d)=\sum_{d|n}\mu(\dfrac{n}{d})\cdot G(n)\cdot G(\dfrac{n}{d})=G(n)\sum_{d|n}\mu(d)\cdot G(d)$.
+令$g(n)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(d)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(n)\cdot G\left(\dfrac{n}{d}\right)=G(n)\sum_{d\mid n}\mu(d)\cdot G(d)$.
 
 考虑上面求和式$g(n)$的值，但是这里只考虑因数$d$满足$\mu(d)\neq 0$的情况，注意此时$d$是一个无平方因子数。
 

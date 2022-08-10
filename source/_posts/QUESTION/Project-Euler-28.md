@@ -45,7 +45,7 @@ What is the sum of the numbers on the diagonals in a $1001$ by $1001$ spiral for
 
 左上角的通项公式为[A054569](https://oeis.org/A054569)，$4n^2-6n+3$;
 
-右上角的通项公式为$(2n-1)^2$
+右上角的通项公式为$(2n-1)^2$.
 
 因此可以直接取所有值相加。
 

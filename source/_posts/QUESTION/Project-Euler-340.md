@@ -17,7 +17,7 @@ date: 2022-07-08 17:06:12
 
 For fixed integers $a, b, c$, define the *crazy function* $F(n)$ as follows:
 
-$F(n) = n - c$ for all n > b
+$F(n) = n - c$ for all $n > b$
 
 $F(n) = F(a + F(a + F(a + F(a + n))))$ for all $n \le b$
 
@@ -28,7 +28,7 @@ Find the last $9$ digits of $S(21^7, 7^{21}, 12^7)$.
 
 ## 解决方案
 
-本题主要依靠多次调整$a,b,c$的值，利用python来打印出函数的图像来推测$F$的表达式。
+本题主要依靠多次调整$a,b,c$的值，利用`python`来打印出函数的图像来推测$F$的表达式。
 
 用以下代码打印一部分的图像，以$a=12,b=30,c=7$为例打印$F$的形状：
 
@@ -62,7 +62,7 @@ plt.show()
 
 以$b-a+1\sim b$这一块开始，通过等差数列公式可以计算出$t_0=\sum_{i=b-a+1}^b F(i)=\dfrac{a(2b+7a-8c+1)}{2}$
 
-那么计算块间之和。可以发现一共有$m=\lfloor\dfrac{b+1}{a}\rfloor$块，并且首项为$t_0$，公差为$a\cdot(3a-3c)$。再次通过等差数列公式计算出这一些完整的块的$F$值之和。
+那么计算块间之和。可以发现一共有$m=\left\lfloor\dfrac{b+1}{a}\right\rfloor$块，并且首项为$t_0$，公差为$a\cdot(3a-3c)$。再次通过等差数列公式计算出这一些完整的块的$F$值之和。
 
 剩下的不完整的块中有$(b+1)\%a$个元素，单独计算即可。
 

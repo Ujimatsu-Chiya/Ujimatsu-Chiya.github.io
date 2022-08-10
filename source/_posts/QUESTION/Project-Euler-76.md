@@ -18,12 +18,14 @@ date: 2022-05-02 16:36:33
 
 It is possible to write five as a sum in exactly six different ways:
 
-$4 + 1$<br>
-$3 + 2$<br>
-$3 + 1 + 1$<br>
-$2 + 2 + 1$<br>
-$2 + 1 + 1 + 1$<br>
-$1 + 1 + 1 + 1 + 1$
+$\begin{aligned}
+&4+1\\
+&3+2\\
+&3+1+1\\
+&2+2+1\\
+&2+1+1+1\\
+&1+1+1+1+1
+\end{aligned}$
 
 How many different ways can one hundred be written as a sum of at least two positive integers?
 
@@ -36,9 +38,9 @@ How many different ways can one hundred be written as a sum of at least two posi
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} j=0 |i=1 \\
-  &f(i-1,j)  & & \mathrm{else if\quad} j<i \\
-  &f(i-1,j)+f(i,j-i) & & \mathrm{else}
+  &1  & & \text{if\quad} j=0 \lor i=1 \\
+  &f(i-1,j)  & & \text{else if\quad} j<i \\
+  &f(i-1,j)+f(i,j-i) & & \text{else}
 \end{aligned}\right.
 $$
 

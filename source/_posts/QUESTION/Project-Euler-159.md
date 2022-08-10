@@ -46,9 +46,9 @@ The chart below demonstrates all of the DRS values for $24$.
 
 The maximum Digital Root Sum of $24$ is $11$.
 
-The function $\mathrm{mdrs}(n)$ gives the maximum Digital Root Sum of $n$. So $\mathrm{mdrs}(24)=11$.
+The function $\text{mdrs}(n)$ gives the maximum Digital Root Sum of $n$. So $\text{mdrs}(24)=11$.
 
-Find $\sum \mathrm{mdrs}(n)$ for $1 < n < 1,000,000$.
+Find $\sum \text{mdrs}(n)$ for $1 < n < 1,000,000$.
 
 ## 解决方案
 
@@ -60,21 +60,21 @@ $$d=\sum_{i=0}^{k=1}d_i 10^i$$
 
 因此，假设$s(d)$为$d$的数位和，那么有：
 
-$$s(d)=\sum_{i=0}^{k-1}d_i\equiv \sum_{i=0}^{k-1}d_i10^i(\mod 10)$$
+$$s(d)=\sum_{i=0}^{k-1}d_i\equiv \sum_{i=0}^{k-1}d_i10^i \pmod {10}$$
 
 这说明，数位和的值$s(d)$和数本身的值$d$关于$9$同余。因此进行有限次操作后，最终得到的一位数的数字根一定和原来的数关于同余。由于正数的数位和一定大于$0$，因此有$r(x)=(x-1)\%9+1$。
 
-回到本题，通过类似埃氏筛法的思想，对于每个数$n$，用一个集合$D_n$存储$n$的除了$1$和$n$以外的所有不大于$\sqrt{n}$的因子，。
+回到本题，通过类似埃氏筛法的思想，对于每个数$n$，用一个集合$D_n$存储$n$的除了$1$和$n$以外的所有不大于$\sqrt{n}$的因子。
 
-基于动态规划的思想，可以想到，将每个数$i$拆成两个非平凡因子（即不为$1$或$n$）$d$和$\dfrac{i}{d}$的乘积。那么，$\mathrm{mdrs}(d)+\mathrm{mdrs}(\dfrac{i}{d})$有可能成为$\mathrm{mdrs}(i)$。
+基于动态规划的思想，可以想到，将每个数$i$拆成两个非平凡因子（即不为$1$或$n$）$d$和$\dfrac{i}{d}$的乘积。那么，$\text{mdrs}(d)+\text{mdrs}\left(\dfrac{i}{d}\right)$有可能成为$\text{mdrs}(i)$。
 
-设$f(i)=\mathrm{mdrs(i)}(i\ge 1)$。因此，可以列出如下状态转移方程：
+设$f(i)=\text{mdrs(i)}(i\ge 1)$。因此，可以列出如下状态转移方程：
 
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\max(r(i),\max_{d\in D_i}\{f(d)+f(\dfrac{i}{d})\})  & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\max(r(i),\max_{d\in D_i}\{f(d)+f(\dfrac{i}{d})\})  & & \text{else}
 \end{aligned}\right.
 $$
 

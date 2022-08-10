@@ -44,8 +44,8 @@ What is the maximum value of $p(n)$?
 $$
 f(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=1 \\
-  &2f(i-1)+i-1  & & \mathrm{else}
+  &0  & & \text{if\quad} i=1 \\
+  &2f(i-1)+i-1  & & \text{else}
 \end{aligned}\right.
 $$
 

@@ -37,8 +37,8 @@ Calculate $W(32,10)$.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{st[j]\&st[k]=0}  f(i-1,k) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\sum_{st[j]\&st[k]=0}  f(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$
 

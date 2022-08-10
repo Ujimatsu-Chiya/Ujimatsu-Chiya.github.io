@@ -69,7 +69,7 @@ d_0 &= 1 \\
 a_0&=\lfloor\sqrt {S}\rfloor \\
 m_{n+1}&=d_na_n-m_n \\
 d_{n+1}&=\dfrac{S-m_{n+1}^2}{d_n}\\
-a_{n+1}&=\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\rfloor
+a_{n+1}&=\left\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\right\rfloor
 \end{aligned}$
 
 其中，$\{m\},\{d\},\{a\}$三个数列都是整数序列。当计算到$a_n=2a_0$时，算法终止迭代，$n$就是周期本身。

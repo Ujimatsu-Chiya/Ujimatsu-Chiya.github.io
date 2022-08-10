@@ -27,13 +27,13 @@ Find the sum of the first twenty-five composite values of $n$ for which $\gcd(n,
 
 ## 解决方案
 
-明显注意到对于正整数$k$，$3|k\Leftrightarrow3|R(k)$。
+明显注意到对于正整数$k$，$3\mid k\Leftrightarrow3\mid R(k)$。
 
 因此，如果$k$是$3$的倍数，那么$A(k)$也必须是$3$的倍数，但是此时$k-1$不是$3$的倍数，它不能被$A(k)$整除。
 
-本代码将枚举所有正整数$m$满足于$m\equiv 5(\mod 6)$。然后再判断$m$是否为合数。如果是合数，再判断$A(n)$是否为$n-1$的因子。
+本代码将枚举所有正整数$m$满足于$m\equiv 5 \pmod 6$。然后再判断$m$是否为合数。如果是合数，再判断$A(n)$是否为$n-1$的因子。
 
-计算$A(m)$的方式和129题相同，使用sympy库中的n_order(a,m)函数计算元素阶$\lambda_m(a)$的值。
+计算$A(m)$的方式和129题相同，使用`sympy`库中的`n_order(a,m)`函数计算元素阶$\lambda_m(a)$的值。
 
 ## 代码
 

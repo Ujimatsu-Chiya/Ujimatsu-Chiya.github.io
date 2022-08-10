@@ -17,7 +17,7 @@ date: 2022-04-27 23:32:46
 
 The number, $1406357289$, is a $0$ to $9$ pandigital number because it is made up of each of the digits $0$ to $9$ in some order, but it also has a rather interesting sub-string divisibility property.
 
-Let $d_1$ be the $1\mathrm{st}$ digit, $d_2$ be the $2\mathrm{nd}$ digit, and so on. In this way, we note the following:
+Let $d_1$ be the $1\text{st}$ digit, $d_2$ be the $2\text{nd}$ digit, and so on. In this way, we note the following:
 
 $d_2d_3d_4=406$ is divisible by $2$<br>
 $d_3d_4d_5=063$ is divisible by $3$<br>
@@ -31,9 +31,9 @@ Find the sum of all $0$ to $9$ pandigital numbers with this property.
 
 ## 解决方案
 
-可以直接用itertools库中的permutations产生所有置换，然后一个个直接进行判断。
+可以直接用`itertools`库中的`permutations`产生所有置换，然后一个个直接进行判断。
 
-比较一种优化的方法是自己手写dfs生成全排列，但是在恰当的地方及时剪枝，这将比上面的方法快不少。
+比较一种优化的方法是自己手写深度优先搜索生成全排列，在恰当的地方及时剪枝，这将比上面的方法快不少。
 
 ## 代码
 

@@ -41,10 +41,10 @@ Find the minimal path sum, in [matrix.txt](../resources/p081_matrix.txt) (right 
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &a[i][j]  & & \mathrm{if\quad} i=j=1 \\
-  &f(i-1,j)+a[i][j] & & \mathrm{else if\quad} j=1 \\
-  &f(i,j-1)+a[i][j] & & \mathrm{else if\quad} i=1 \\
-  &\min(f(i,j-1),f(i-1,j)) + a[i][j] & & \mathrm{else}
+  &a[i][j]  & & \text{if\quad} i=j=1 \\
+  &f(i-1,j)+a[i][j] & & \text{else if\quad} j=1 \\
+  &f(i,j-1)+a[i][j] & & \text{else if\quad} i=1 \\
+  &\min(f(i,j-1),f(i-1,j)) + a[i][j] & & \text{else}
 \end{aligned}\right.
 $$
 

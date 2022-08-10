@@ -57,7 +57,7 @@ algorithm Kruskal(G) is
 
 根据边权大小的顺序，从小到大遍历每条边。如果边两侧的点不在一个集合中，那么这条边是需要的，并将这两个集合合并；否则跳过这条边。
 
-本代码使用networkx的minimum_spanning_tree函数，直接给出一个最小生成树方案。
+本代码使用`networkx`的`minimum_spanning_tree`函数，直接给出一个最小生成树方案。
 
 ## 代码
 

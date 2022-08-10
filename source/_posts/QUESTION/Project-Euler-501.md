@@ -29,20 +29,20 @@ Find $f(10^{12})$.
 
 [Lehmer公式](https://mathworld.wolfram.com/LehmersFormula.html)给出了质数计数函数$\pi$的一个计算方式：
 
-$$\pi(x)=\varphi(x,a)+\dfrac{(b+a-2)(b-a+1)}{2}-\sum_{i=a+1}^b\pi(\dfrac{x}{p_i})-\sum_{i=a+1}^c\sum_{j=i}^{b_i}(\pi(\dfrac{x}{p_ip_j})-(j-1))$$
+$$\pi(x)=\varphi(x,a)+\dfrac{(b+a-2)(b-a+1)}{2}-\sum_{i=a+1}^b\pi\left(\dfrac{x}{p_i}\right)-\sum_{i=a+1}^c\sum_{j=i}^{b_i}\left(\pi\left(\dfrac{x}{p_ip_j}\right)-(j-1)\right)$$
 
-其中，$p_i$表示第$i$个质数，$a=\pi(\sqrt[4]{x}),b=\pi(\sqrt{x}),c=\pi(\sqrt[3]{x}),b_i=\pi(\sqrt{\dfrac{x}{p_i}})$
+其中，$p_i$表示第$i$个质数，$a=\pi(\sqrt[4]{x}),b=\pi(\sqrt{x}),c=\pi(\sqrt[3]{x}),b_i=\pi\left(\sqrt{\dfrac{x}{p_i}}\right)$
 其中$\varphi(x,a)$是$n$以内的数中，质因数只由第$a+1$个及以后的质数的个数，用容斥原理可以写成：
 
-$$\varphi(x,a)=x-\sum_{i=1}^a\lfloor\dfrac{x}{p_i}\rfloor+\sum_{1\le i\le j\le a}\lfloor\dfrac{x}{p_ip_j}\rfloor-\dots$$
+$$\varphi(x,a)=x-\sum_{i=1}^a\left\lfloor\dfrac{x}{p_i}\right\rfloor+\sum_{1\le i\le j\le a}\left\lfloor\dfrac{x}{p_ip_j}\right\rfloor-\dots$$
 
 为了方便计算，[页面](https://en.wikipedia.org/wiki/Meissel%E2%80%93Lehmer_algorithm#Expanding_%F0%9D%9C%91(x,_a))说明$\varphi(x,a)$还可以写成以下递推式形式：
 
 $$
 \varphi(x,a)=
 \left \{\begin{aligned}
-  &\lceil\dfrac{x}{2}\rceil  & & \mathrm{if\quad}x=0\vee a=1 \\
-  &\varphi(x,a-1)-\varphi(\lfloor\dfrac{x}{p_a}\rfloor,a-1) & & \mathrm{else}
+  &\left\lceil\dfrac{x}{2}\right\rceil  & & \text{if\quad}x=0\lor a=1 \\
+  &\varphi(x,a-1)-\varphi\left(\left\lfloor\dfrac{x}{p_a}\right\rfloor,a-1\right) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -59,12 +59,12 @@ $$
 那么不难写出三种数对应的个数为：
 
 1. $f_1(n)=\pi(\sqrt[7]{N})$
-2. $f_2(n)=\sum_{p_1\le \sqrt[3]{N}}(\pi(\dfrac{N}{p_1^3}))-\pi(\sqrt[4]{N})$
-3. $f_3(n)=\sum_{p_1\le \sqrt[3]{N}}\sum_{p_1<p_2<\sqrt{\frac{N}{p_1}}}(\pi(\dfrac{N}{p_1\cdot p_2})-\pi(p_2))$
+2. $f_2(n)=\sum_{p_1\le \sqrt[3]{N}}\left(\pi\left(\dfrac{N}{p_1^3}\right)\right)-\pi(\sqrt[4]{N})$
+3. $f_3(n)=\sum_{p_1\le \sqrt[3]{N}}\sum_{p_1<p_2<\sqrt{\frac{N}{p_1}}}\left(\pi\left(\dfrac{N}{p_1\cdot p_2}\right)-\pi(p_2)\right)$
 
 最终得到$f(n)=f_1(n)+f_2(n)+f_3(n).$
 
-那么现在问题就转化成了使用Lehmer公式计算函数$\pi.$
+那么现在问题就转化成了使用`Lehmer`公式计算函数$\pi.$
 
 ## 代码
 

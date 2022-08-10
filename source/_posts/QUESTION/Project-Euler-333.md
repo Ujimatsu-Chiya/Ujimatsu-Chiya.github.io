@@ -38,7 +38,7 @@ Find the sum of the primes $q <1000000$ such that $P(q)=1$.
 
 如果$n$的一个划分为$2^{e_1}3^{f_1}+2^{e_2}3^{f_2}+\dots$是有效的，那么不能存在一对$e_i,e_j$或$f_i,f_j$满足$e_i=e_j$或$f_i=f_j$，并且不能够同时满足$e_i<e_j,f_i,f_j$。因此假设$e_1< e_2< e_3< \dots$，那么必须有$f_1>f_2>f_3>\dots$
 
-令$N=10^6,M=\lceil\log_3 N\rceil+1,O=\lfloor\log _2N\rfloor$。考虑用动态规划解决本问题。令状态$f(i,j,k)(-1\le i\le O,0\le j< N,0\le k\le M)$表示当前对数$j$的有效划分方法中，满足$e_1<e_2<\dots\le i,f_1>f_2>\dots \ge k$的方法数。需要注意的是，这里的$i=-1$这个状态并非真正存在，仅仅是为了定初值，然后进行转移。
+令$N=10^6,M=\left\lceil\log_3 N\right\rceil+1,O=\left\lfloor\log _2N\right\rfloor$。考虑用动态规划解决本问题。令状态$f(i,j,k)(-1\le i\le O,0\le j< N,0\le k\le M)$表示当前对数$j$的有效划分方法中，满足$e_1<e_2<\dots\le i,f_1>f_2>\dots \ge k$的方法数。需要注意的是，这里的$i=-1$这个状态并非真正存在，仅仅是为了定初值，然后进行转移。
 
 那么对于$i=-1,f(i,0,M)=1$。对于$i=-1$的其它情况，则为$0$。
 

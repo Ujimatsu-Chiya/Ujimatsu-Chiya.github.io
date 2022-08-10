@@ -29,9 +29,9 @@ In the same way, the differences around tile $17$ are $1, 17, 16, 1, 11$, and $1
 
 It can be shown that the maximum value of $PD(n)$ is $3$.
 
-If all of the tiles for which $PD(n) = 3$ are listed in ascending order to form a sequence, the $10\mathrm{th}$ tile would be $271$.
+If all of the tiles for which $PD(n) = 3$ are listed in ascending order to form a sequence, the $10\text{th}$ tile would be $271$.
 
-Find the $2000\mathrm{th}$ tile in this sequence.
+Find the $2000\text{th}$ tile in this sequence.
 
 ## 解决方案
 
@@ -84,6 +84,6 @@ for n in count(2, 1):
         ls.append(ed)
     if len(ls) >= Q:
         break
-
-print(ls[Q - 1])
+ans = ls[Q - 1]
+print(ans)
 ```

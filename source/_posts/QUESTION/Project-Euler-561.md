@@ -43,13 +43,13 @@ Evaluate $Q(10^{12})$.
 
 因此，
 
-$$S((p_m\#)^n)=(\dfrac{(n+1)(n+2)}{2})^m-(n+1)^m$$
+$$S((p_m\#)^n)=\left(\dfrac{(n+1)(n+2)}{2}\right)^m-(n+1)^m$$
 
-当$n$是奇数时，上式可以改写成$S((p_m\#)^n)=(\dfrac{n+1}{2})^m((n+2)^m-2^m)$，这确保了第二项是奇数。
+当$n$是奇数时，上式可以改写成$S((p_m\#)^n)=\left(\dfrac{n+1}{2}\right)^m((n+2)^m-2^m)$，这确保了第二项是奇数。
 
-当$n$是偶数时，上式可以改写成$S((p_m\#)^n)=(n+1)^m((\dfrac{n+2}{2})^m-1)$，这时第一项是奇数。
+当$n$是偶数时，上式可以改写成$S((p_m\#)^n)=(n+1)^m\left(\left(\dfrac{n+2}{2}\right)^m-1\right)$，这时第一项是奇数。
 
-令函数$f(x)$为：最大的一个$e$使得$2^e|x$。令$n=4k+a,a\in\{0,1,2,3\}$。接下来描述$a$的$4$种情况，$a$将和上面讨论$S((p_m\#)^n)$的奇偶性对应。
+令函数$f(x)$为：最大的一个$e$使得$2^e\mid x$。令$n=4k+a,a\in\{0,1,2,3\}$。接下来描述$a$的$4$种情况，$a$将和上面讨论$S((p_m\#)^n)$的奇偶性对应。
 
 1. 当$a=0$时，代入$S((p_m\#)^n)$的第二项，得到$(2k+1)^m-1$，因式分解后为$2k\cdot \sum_{i=0}^{m-1}(2k+1)^i.$
 a. 如果$m$为奇数，那么式子中的求和项有奇数个，因此整个值为奇数，此时$E(n,m)=f(k)+1$.
@@ -58,11 +58,14 @@ b. 如果$m$为偶数，那么经过对$(2k+1)^m-1$打表后再找规律，发�
 3. 当$a=2$时，代入$S((p_m\#)^n)$的第二项，得到$(2k)^m-1$，这是个奇数，故$E(m,n)=0.$
 4. 当$a=3$时，代入$S((p_m\#)^n)$的第一项，得到$(2k+2)^m$，那么$E(m,n)=m\cdot f(2k+2)=m\cdot(f(k+1)+1)$.
 
-令$m=904961,N=10^{12}.$那么，有$\lfloor\dfrac{N}{4}\rfloor$个数属于$a=0$的情况，有$\lfloor\dfrac{N+1}{4}\rfloor$属于$a=3$种情况。
+令$m=904961,N=10^{12}.$那么，有$\left\lfloor\dfrac{N}{4}\right\rfloor$个数属于$a=0$的情况，有$\left\lfloor\dfrac{N+1}{4}\right\rfloor$属于$a=3$种情况。
 
 令$F(n)=\sum_{i=1}^n f(i)$，当$m$为奇数时，有：
 
-$\sum_{k=0}^{\lfloor\frac{N+1}{4}\rfloor-1}m\cdot(f(k+1)+1)+\sum_{k=1}^{\lfloor\frac{N}{4}\rfloor}f(k)+1=m\cdot F(\lfloor\dfrac{N+1}{4}\rfloor)+m\cdot \lfloor\dfrac{N+1}{4}\rfloor+F(\lfloor\dfrac{N}{4}\rfloor)+\lfloor\dfrac{N}{4}\rfloor$
+$\begin{aligned}
+&\sum_{k=0}^{\left\lfloor\frac{N+1}{4}\right\rfloor-1}m\cdot(f(k+1)+1)+\sum_{k=1}^{\left\lfloor\frac{N}{4}\right\rfloor}f(k)+1\\
+=&m\cdot F\left(\left\lfloor\dfrac{N+1}{4}\right\rfloor\right)+m\cdot\left\lfloor\dfrac{N+1}{4}\right\rfloor+F\left(\left\lfloor\dfrac{N}{4}\right\rfloor\right)+\left\lfloor\dfrac{N}{4}\right\rfloor
+\end{aligned}$
 
 当$m$是偶数时，同样将式子代入即可。
 

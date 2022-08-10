@@ -38,10 +38,10 @@ In how many ways can sixty black objects B and forty white objects W be  thus gr
 $$
 f(i,j,k)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i=0\&j=0 \\
-  &0 & & \mathrm{else if\quad} k=0 \\
-  &f(i,j,k-1)+f(i-x[k],j-y[k],k) & & \mathrm{else if\quad} i\ge x[k]\&j\ge y[k] \\
-  &f(i,j,k-1) & & \mathrm{else}
+  &1 & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} k=0 \\
+  &f(i,j,k-1)+f(i-x[k],j-y[k],k) & & \text{else if\quad} i\ge x[k]\land j\ge y[k] \\
+  &f(i,j,k-1) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -55,7 +55,7 @@ $$
 
 将结果的前几项查询OEIS，发现结果为[A054225](https://oeis.org/A054225)。
 
-找到FORMULA一栏，发现如下信息：
+找到`FORMULA`一栏，发现如下信息：
 
 ```
 G.f.: Product_{ i=1..infinity, j=0..i} 1/(1-x^(i-j)*y^j).

@@ -48,8 +48,8 @@ Find $S(10^6)$ modulo $1\ 000\ 000\ 007$.
 $$
 c(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=1 \\
-  &\sum_{1\leq k<j,a[k]<a[j]} c(i-1,k) & & \mathrm{else}
+  &1  & & \text{if\quad} i=1 \\
+  &\sum_{1\leq k<j,a[k]<a[j]} c(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -62,8 +62,8 @@ $$
 $$
 s(i,j)=
 \left \{\begin{aligned}
-  &a[j]  & & \mathrm{if\quad} i=1 \\
-  &c(i,j)\cdot p[j]+\sum_{1\leq k<j,a[k]<a[j]} s(i-1,k) & & \mathrm{else}
+  &a[j]  & & \text{if\quad} i=1 \\
+  &c(i,j)\cdot p[j]+\sum_{1\leq k<j,a[k]<a[j]} s(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$
 

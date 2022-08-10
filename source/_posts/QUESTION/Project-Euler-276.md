@@ -29,7 +29,7 @@ How many primitive integer sided triangles exist with a perimeter not exceeding 
 
 去除互质的限制后，有多少个三角形？
 
-暴力枚举出一部分项后，查询OEIS，结果为[A001400](https://oeis.org/A001400)，找到FORMULA一栏，它给出了一个$9$阶的递推式：
+暴力枚举出一部分项后，查询OEIS，结果为[A001400](https://oeis.org/A001400)，找到`FORMULA`一栏，它给出了一个$9$阶的递推式：
 
 ```
 a(n) = 1 + (a(n-2) + a(n-3) + a(n-4)) - (a(n-5) + a(n-6) + a(n-7)) + a(n-9). - Norman J. Meluch (norm(AT)iss.gm.com), Mar 09 2000
@@ -39,11 +39,11 @@ a(n) = 1 + (a(n-2) + a(n-3) + a(n-4)) - (a(n-5) + a(n-6) + a(n-7)) + a(n-9). - N
 
 每一个互质的三角形，每条边的边长都延长到原来的$k$倍，那么它的周长也将延长到原来的$k$倍。每一个非互质三角形都对应着一个互质三角形。因此，可以写出$f$和$g$之间的关系：
 
-$$f(n)=\sum_{k=1}^n g(\lfloor\dfrac{n}{k}\rfloor)$$
+$$f(n)=\sum_{k=1}^n g\left(\left\lfloor\dfrac{n}{k}\right\rfloor\right)$$
 
 其中$k$就是不同的倍数。那么就可以写成关于$g(n)$的递推式：
 
-$$g(n)=f(n)-\sum_{k=1}^n g(\lfloor\dfrac{n}{k}\rfloor)$$
+$$g(n)=f(n)-\sum_{k=2}^n g\left(\left\lfloor\dfrac{n}{k}\right\rfloor\right)$$
 
 右边的式子是一个明显的数论分块特征，最终使用数论分块来完成$g(n)$的计算。
 

@@ -36,15 +36,15 @@ Find the value of $n \leq 1,000,000$ for which $n/\varphi(n)$ is a maximum.
 ## [欧拉函数](https://mathworld.wolfram.com/TotientFunction.html)
 
 如果一个正整数$n$分解后成为：
-$$n=\prod p_i^{e_i}$$
+$$n=\prod_{i=1}^k p_i^{e_i}$$
 那么，欧拉函数值为：
-$$\varphi(n)=n\prod(1-\dfrac{1}{p_i})$$
+$$\varphi(n)=n\prod_{i=1}^k\left(1-\dfrac{1}{p_i}\right)$$
 
 ## 解决方案
 
 欧拉筛不仅可以用来筛选素数，还可以以$O(\log n)$的时间复杂度计算积性函数的值。
 
-具体过程是，筛选出一个质数$p$后，遍历其所有倍数$i=kp$时，可以按照上式，对欧拉函数数组phi尽心如此操作：$phi[i]:=phi[i] / p \times (p-1)$。
+具体过程是，筛选出一个质数$p$后，遍历其所有倍数$i=kp$时，可以按照上式，对欧拉函数数组phi进行如此操作：$phi[i]:=phi[i] / p \times (p-1)$。
 
 一开始时，欧拉函数值都是默认为自身。
 

@@ -17,7 +17,7 @@ date: 2022-06-05 09:29:30
 
 Let $a_k$, $b_k$, and $c_k$ represent the three solutions (real or complex numbers) to the equation
 
-$\dfrac{1}{x}=(\dfrac{k}{x})^2(k+x^2)-kx$.
+$\dfrac{1}{x}=\left(\dfrac{k}{x}\right)^2(k+x^2)-kx$.
 
 For instance, for $k=5$, we see that $\{a_5, b_5, c_5 \}$ is approximately $\{5.727244, -0.363622+2.057397i, -0.363622-2.057397i\}$.
 

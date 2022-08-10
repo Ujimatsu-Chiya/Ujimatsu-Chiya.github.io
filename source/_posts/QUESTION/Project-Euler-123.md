@@ -15,9 +15,9 @@ date: 2022-05-06 22:24:45
 
 ### Prime square remainders
 
-Let $p_n$ be the $n^{\mathrm{th}}$ prime: $2, 3, 5, 7, 11, \dots$, and let $r$ be the remainder when $(p_n-1)^n + (p_n+1)^n$ is divided by $p_n^2$.
+Let $p_n$ be the $n^{\text{th}}$ prime: $2, 3, 5, 7, 11, \dots$, and let $r$ be the remainder when $(p_n-1)^n + (p_n+1)^n$ is divided by $p_n^2$.
 
-For example, when $n = 3, p_3 = 5$, and $4^3 + 6^3 = 280 \equiv 5 \mod 25$.
+For example, when $n = 3, p_3 = 5$, and $4^3 + 6^3 = 280 \equiv 5 \bmod 25$.
 
 The least value of $n$ for which the remainder first exceeds $10^9$ is $7037$.
 
@@ -32,8 +32,8 @@ Find the least value of $n$ for which the remainder first exceeds $10^{10}$.
 $$
 r(n)=
 \left \{\begin{aligned}
-  &2  & & \mathrm{if\quad} n \equiv 0(\mod 2) \\
-  &2np_n \%p_n^2 & & \mathrm{else}
+  &2  & & \text{if\quad} n \equiv 0\pmod 2 \\
+  &2np_n \%p_n^2 & & \text{else}
 \end{aligned}\right.
 $$
 

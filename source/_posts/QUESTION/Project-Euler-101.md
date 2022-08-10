@@ -21,7 +21,7 @@ As an example, let us consider the sequence of cube numbers. This is defined by 
 
 Suppose we were only given the first two terms of this sequence. Working on the principle that "simple is best" we should assume a linear relationship and predict the next term to be $15$ (common difference $7$). Even if we were presented with the first three terms, by the same principle of simplicity, a quadratic relationship should be assumed.
 
-We shall define $OP(k, n)$ to be the $n^{\mathrm{th}}$ term of the optimum polynomial generating function for the first $k$ terms of a sequence. It should be clear that $OP(k, n)$ will accurately generate the terms of the sequence for $n \leq k$, and potentially the *first incorrect term* (FIT) will be $OP(k, k+1)$; in which case we shall call it a *bad OP* (BOP).
+We shall define $OP(k, n)$ to be the $n^{\text{th}}$ term of the optimum polynomial generating function for the first $k$ terms of a sequence. It should be clear that $OP(k, n)$ will accurately generate the terms of the sequence for $n \leq k$, and potentially the *first incorrect term* (FIT) will be $OP(k, k+1)$; in which case we shall call it a *bad OP* (BOP).
 
 As a basis, if we were only given the first term of sequence, it would be most sensible to assume constancy; that is, for $n \ge 2$, $OP(1, n) = u_1$.
 Hence we obtain the following OPs for the cubic sequence:

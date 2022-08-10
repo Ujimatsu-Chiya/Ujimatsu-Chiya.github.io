@@ -16,7 +16,7 @@ date: 2022-07-06 13:08:28
 
 ### Modular Cubes, part 1
 
-For a positive number $n$, define $S(n)$ as the sum of the integers $x$, for which $1<x<n$ and $x^3\equiv 1 \mod n$.
+For a positive number $n$, define $S(n)$ as the sum of the integers $x$, for which $1<x<n$ and $x^3\equiv 1 \bmod n$.
 
 When $n=91$, there are $8$ possible values for $x$, namely : $9, 16, 22, 29, 53, 74, 79, 81$.
 
@@ -28,17 +28,17 @@ Find $S(13082761331670030)$.
 
 写在前面：
 
-比较犯规的一种方法：直接使用sympy.ntheory.residue_ntheory库中的nthroot_mod方法。
+比较投机取巧的一种方法：直接使用`sympy.ntheory.residue_ntheory`库中的`nthroot_mod`方法。
 
-这个方法主要传入三个参数：nthroot_mod(a,n,p)，用来求解三次剩余$x^n\equiv a(\mod p)$.
+这个方法主要传入三个参数：`nthroot_mod(a,n,p)`，用来求解三次剩余$x^n\equiv a \pmod p$.
 
 平常做法：
 
-首先将$n=13082761331670030$进行分解，得到$n=\prod_{i} p_i^{e_i}$.
+首先将$n=13082761331670030$进行分解，得到$n=\prod_{i=1}^k p_i^{e_i}$.
 
-那么，求解$x^3\equiv1(\mod n)$就变成了求解一系列的$x_i^3\equiv 1(\mod p_i^{e_i})$，然后再分别将所有解通过[中国剩余定理](https://mathworld.wolfram.com/ChineseRemainderTheorem.html)重新合并起来，就变成了原方程的解。
+那么，求解$x^3\equiv1\pmod n$就变成了求解一系列的$x_i^3\equiv 1\pmod {p_i^{e_i}}$，然后再分别将所有解通过[中国剩余定理](https://mathworld.wolfram.com/ChineseRemainderTheorem.html)重新合并起来，就变成了原方程的解。
 
-并且，可以发现题目中给定的$n$，所有的$p_e^{e_i}$都很小。实际上，所有的$e_i$都为$1$，因此求解$x_i^3\equiv 1(\mod p_i^{e_i})$使用的是暴力枚举。
+并且，可以发现题目中给定的$n$，所有的$p_e^{e_i}$都很小。实际上，所有的$e_i$都为$1$，因此求解$x_i^3\equiv 1\pmod {p_i^{e_i}}$使用的是暴力枚举。
 
 ## 代码
 

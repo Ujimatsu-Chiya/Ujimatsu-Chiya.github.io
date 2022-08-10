@@ -37,22 +37,22 @@ Find the sum of all the numbers that can be written as the sum of fifth powers o
 ## 代码
 
 ```py
+from itertools import count
+
 K = 5
-n = 1
 ans = 0
-while True:
+for n in count(1, 1):
     mx = min(10 ** (n + 1) - 1, n * 9 ** K)
-    i = 10 ** n
-    if i > n * 9 ** K:
+    st = 10 ** n
+    if st > n * 9 ** K:
         break
-    while i <= mx:
+    for i in range(st, mx + 1):
         s, w = 0, i
         while w:
             s += (w % 10) ** K
             w //= 10
         if s == i:
             ans += i
-        i += 1
-    n += 1
 print(ans)
+
 ```

@@ -15,7 +15,7 @@ date: 2022-05-02 16:36:30
 
 ### Singular integer right triangles
 
-It turns out that $12 \mathrm{cm}$ is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
+It turns out that $12 \text{cm}$ is the smallest length of wire that can be bent to form an integer sided right angle triangle in exactly one way, but there are many more examples.
 
 $\begin{aligned}
 & \mathbf{12cm}: (3,4,5) \\
@@ -26,7 +26,7 @@ $\begin{aligned}
 & \mathbf{48cm}: (12,16,20)
 \end{aligned}$
 
-In contrast, some lengths of wire, like $20 \mathrm{cm}$, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using $120 \mathrm{cm}$ it is possible to form exactly three different integer sided right angle triangles.
+In contrast, some lengths of wire, like $20 \text{cm}$, cannot be bent to form an integer sided right angle triangle, and other lengths allow more than one solution to be found; for example, using $120 \text{cm}$ it is possible to form exactly three different integer sided right angle triangles.
 
 $$\mathbf{120cm}: (30,40,50), (20,48,52), (24,45,51)$$
 
@@ -34,9 +34,9 @@ Given that $L$ is the length of the wire, for how many values of $L \leq 1,500,0
 
 ## 本原勾股数组
 
-[本原](https://mathworld.wolfram.com/PrimitivePythagoreanTriple.html)[勾股数组](https://mathworld.wolfram.com/PythagoreanTriple.html)，即一个正整数三元组$(a,b,c)$，满足$a^2+b^2+c^2\wedge\gcd(a,b,c)=1$。
+[本原](https://mathworld.wolfram.com/PrimitivePythagoreanTriple.html)[勾股数组](https://mathworld.wolfram.com/PythagoreanTriple.html)，即一个正整数三元组$(a,b,c)$，满足$a^2+b^2+c^2\land\gcd(a,b,c)=1$。
 
-通过枚举一系列的二元组$(s,t)$，其中$s>t\geq 1\wedge\gcd(s,t)=1,s,t$为奇数，可以不重不漏地产生本原勾股数组$(st,\dfrac{s^2-t^2}{2},\dfrac{s^2+t^2}{2})$。
+通过枚举一系列的二元组$(s,t)$，其中$s>t\geq 1\land\gcd(s,t)=1,s,t$为奇数，可以不重不漏地产生本原勾股数组$\left(st,\dfrac{s^2-t^2}{2},\dfrac{s^2+t^2}{2}\right)$。
 
 ## 解决方案
 

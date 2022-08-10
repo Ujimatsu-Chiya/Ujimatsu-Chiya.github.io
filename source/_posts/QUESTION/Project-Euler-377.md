@@ -37,8 +37,8 @@ Give the last $9$ digits as your answer.
 $$
 c(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0 \\
-  &\sum_{d=1}^{\min(9,i)} c(i-d) & & \mathrm{else}
+  &1  & & \text{if\quad} i=0 \\
+  &\sum_{d=1}^{\min(9,i)} c(i-d) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -49,8 +49,8 @@ $$
 $$
 s(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=0 \\
-  &\sum_{d=1}^{\min(9,i)} 10s(i-d)+d\cdot c(i-d) & & \mathrm{else}
+  &0  & & \text{if\quad} i=0 \\
+  &\sum_{d=1}^{\min(9,i)} 10s(i-d)+d\cdot c(i-d) & & \text{else}
 \end{aligned}\right.
 $$
 

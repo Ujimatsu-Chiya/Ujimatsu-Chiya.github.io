@@ -43,9 +43,9 @@ Give your answer rounded to $10$ digits behind the decimal point in the form $a.
 
 假设现在需要求$M(r)$的值，那么不失一般性，只考虑这些范围内的点$(x,y,z)$的坐标：$0\le x\le y\le r,0\le z\le R$。可以发现枚举量不大，直接枚举即可。
 
-为了方便两点距离的计算，考虑将整个球体向中间缩小到原来的$\dfrac{1}{r}$，原来在$(x,y,z)$上的点，缩放后位于$(\dfrac{x}{r},\dfrac{y}{r},\dfrac{z}{r})$。方便之处在于不再需要考虑球体本身的半径，例如：
+为了方便两点距离的计算，考虑将整个球体向中间缩小到原来的$\dfrac{1}{r}$，原来在$(x,y,z)$上的点，缩放后位于$\left(\dfrac{x}{r},\dfrac{y}{r},\dfrac{z}{r}\right)$。方便之处在于不再需要考虑球体本身的半径，例如：
 
-计算两点之间$A,B$的圆心角的距离时，如果把它们都看作是从原点射出的向量，那么此举就简化了向量夹角公式。它们的夹角就是$\theta=\cos^{-1}\vec{a}\cdot\vec{b}$.因为$|\vec{a}|=|\vec{b}|=1$.那么，两个考察站之间的风险值就是$(\dfrac{\theta}{\pi})^2$.
+计算两点之间$A,B$的圆心角的距离时，如果把它们都看作是从原点射出的向量，那么此举就简化了向量夹角公式。它们的夹角就是$\theta=\cos^{-1}\vec{a}\cdot\vec{b}$.因为$|\vec{a}|=|\vec{b}|=1$.那么，两个考察站之间的风险值就是$\left(\dfrac{\theta}{\pi}\right)^2$.
 
 注意本题采用的[Dijkstra](https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm)算法不使用堆优化，因为这个图是稠密图（甚至是完全图）。如果使用了堆优化那么时间复杂度反而会更差。
 
@@ -59,7 +59,7 @@ Give your answer rounded to $10$ digits behind the decimal point in the form $a.
 
 那么第一条最优路径可以看成是$N\rightarrow A\rightarrow (C\rightarrow) B \rightarrow N$。注意$C$不一定是一个存在的点，故有这种表示方法。此时这种走法的距离将会远于$N\rightarrow A\rightarrow (O_A\rightarrow ) A\rightarrow N$.
 
-因此，如果当前走到$A$点时，跨过赤道到达$A'$后，整条路径的长度就是$2\cdot d(N,A)+(\dfrac{\cos \vec{a}\cdot\vec{a'}}{\pi})^2$.最终结果取这些路径的最小值即可。
+因此，如果当前走到$A$点时，跨过赤道到达$A'$后，整条路径的长度就是$2\cdot d(N,A)+\left(\dfrac{\cos \vec{a}\cdot\vec{a'}}{\pi}\right)^2$.最终结果取这些路径的最小值即可。
 
 ## 代码
 

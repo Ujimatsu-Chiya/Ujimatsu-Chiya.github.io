@@ -25,27 +25,27 @@ Find the sum of all the primes below one-hundred thousand that will never be a f
 
 ## 乘法群
 
-设$\mathbb{Z}_{m}^*$为模数为$m$的乘法群。容易知道，乘法群是个循环群，而且其大小为$\varphi(m)$，其中$\varphi$为欧拉函数。
+设$\mathbb{Z}_{m}^{\ast}$为模数为$m$的乘法群。容易知道，乘法群是个循环群，而且其大小为$\varphi(m)$，其中$\varphi$为欧拉函数。
 
-元素$a$在群$\mathbb{Z}_{m}^*$上的阶$\lambda_m(a)$：使得$a^k \equiv 1(\mod m)$的最小正整数$k$。
+元素$a$在群$\mathbb{Z}_{m}^{\ast}$上的阶$\lambda_m(a)$：使得$a^k \equiv 1\pmod m$的最小正整数$k$。
 
-需要注意，一个元素的阶是群的大小的因数，也就是有$\forall a \in \mathbb{Z}_m^*,\lambda_m(a)|\varphi(m)$。
+需要注意，一个元素的阶是群的大小的因数，也就是有$\forall a \in \mathbb{Z}_m^{\ast},\lambda_m(a)\mid\varphi(m)$。
 
 ## 解决方案
 
-对于所有非$2$和$5$的质数$p$，容易知道$\gcd(10,9p)=1$，因此$10\in \mathbb{Z}_{9m}^*$。
+对于所有非$2$和$5$的质数$p$，容易知道$\gcd(10,9p)=1$，因此$10\in \mathbb{Z}_{9m}^{\ast}$。
 
 因此，如果一个质因数$p$永远不可能为$R(10^n)$的阶，也就是永远不会存在$n$满足以下等式：
 
-$$10^{10^n}\equiv 1(\mod 9p)$$
+$$10^{10^n}\equiv 1 \pmod {9p}$$
 
-那么，就说明不存在$n$，使得$\lambda_{9p}(10)|10^n$。
+那么，就说明不存在$n$，使得$\lambda_{9p}(10)\mid 10^n$。
 
 因此，找出$\varphi(9p)$的所有因数，然后从小到大判断这个因数是不是$10$在群$\mathbb{Z}_{9m}^*$中的阶，最终计算出$\lambda_{9p}(10)$。
 
-由于$10^n$只有质因数$2,5$。因此，如果$\lambda_{9p}(10)|10^n$，那么$\lambda_{9p}(10)$就必须只有质因数$2,5$。
+由于$10^n$只有质因数$2,5$。因此，如果$\lambda_{9p}(10)\mid 10^n$，那么$\lambda_{9p}(10)$就必须只有质因数$2,5$。
 
-本代码使用sympy库中的n_order(a,m)函数计算$\lambda_m(a)$的值。
+本代码使用`sympy`库中的`n_order(a,m)`函数计算$\lambda_m(a)$的值。
 
 ## 代码
 

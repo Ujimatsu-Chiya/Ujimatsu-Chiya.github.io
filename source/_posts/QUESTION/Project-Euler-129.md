@@ -27,9 +27,9 @@ Find the least value of $n$ for which $A(n)$ first exceeds one-million.
 
 设$\mathbb{Z}_{m}^*$为模数为$m$的乘法群。容易知道，乘法群是个循环群，而且其大小为$\varphi(m)$，其中$\varphi$为欧拉函数。
 
-元素$a$在群$\mathbb{Z}_{m}^*$上的阶$\lambda_m(a)$：使得$a^k \equiv 1(\mod m)$的最小正整数$k$。
+元素$a$在群$\mathbb{Z}_{m}^{\ast}$上的阶$\lambda_m(a)$：使得$a^k \equiv 1\pmod m$的最小正整数$k$。
 
-需要注意，一个元素的阶是群的大小的因数，也就是有$\forall a \in \mathbb{Z}_m^*,\lambda_m(a)|\varphi(m)$。
+需要注意，一个元素的阶是群的大小的因数，也就是有$\forall a \in \mathbb{Z}_m^{\ast},\lambda_m(a)\mid\varphi(m)$。
 
 ## 解决方案
 
@@ -37,23 +37,22 @@ Find the least value of $n$ for which $A(n)$ first exceeds one-million.
 
 $$R(k)=\dfrac{10^k-1}{9}$$
 
-如果$n|R(k)$，即$9n|(10^k-1)$，那么有$10^k-1\equiv 0 (\mod 9n)$，也就是$10^k\equiv 1(\mod 9n)$。那么，$A(n)$就是求最小的**正整数**$k$，以使得$k$满足以下方程：
+如果$n\mid R(k)$，即$9n\mid (10^k-1)$，那么有$10^k-1\equiv 0 \pmod {9n}$，也就是$10^k\equiv 1 \pmod {9}$。那么，$A(n)$就是求最小的**正整数**$k$，以使得$k$满足以下方程：
 
-$$10^k\equiv 1(\mod 9n)$$
+$$10^k\equiv 1 \pmod {9n}$$
 
 可以发现该问题为[离散对数问题](https://en.wikipedia.org/wiki/Discrete_logarithm)，主要常见的算法为[BSGS](https://en.wikipedia.org/wiki/Baby-step_giant-step)算法。不过，如果不限制$k$是正整数，BSGS算法将显而易见地给出$k=0$这个解。
 
-根据$k$正整数的定义，可以发现，所求的$k$，其实是元素$10$在模乘法群$\mathbb{Z}_{9n}^*$中的阶$\lambda_{9n}(10)$，即$A(n)=\lambda_{9n}(10)$。
+根据$k$正整数的定义，可以发现，所求的$k$，其实是元素$10$在模乘法群$\mathbb{Z}_{9n}^{\ast}$中的阶$\lambda_{9n}(10)$，即$A(n)=\lambda_{9n}(10)$。
 
 另外，容易观察到，$A(n)\leq n$。因此从$N=10^6$开始搜索。
 
-本代码使用sympy库中的n_order(a,m)函数计算元素阶$\lambda_m(a)$的值。
+本代码使用`sympy`库中的`n_order(a,m)`函数计算元素阶$\lambda_m(a)$的值。
 
 ## 代码
 
 ```py
 from itertools import count
-
 from sympy import n_order
 
 N = 10 ** 6

@@ -33,9 +33,9 @@ What is the probability that Pyramidal Pete beats Cubic Colin? Give your answer 
 $$
 f_{c,n}(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\&j=0 \\
-  &0 & & \mathrm{else if\quad} i=0|j=0 \\
-  &\sum_{k=1}^{\min(j,n)}\dfrac{f_{c,n}(i-1,j-k)}{n} & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0\lor j=0 \\
+  &\sum_{k=1}^{\min(j,n)}\dfrac{f_{c,n}(i-1,j-k)}{n} & & \text{else}
 \end{aligned}\right.
 $$
 

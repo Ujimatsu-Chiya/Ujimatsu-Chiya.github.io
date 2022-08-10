@@ -43,7 +43,7 @@ struct S{
     ll a,c,b,d;
 };
 int main(){
-    int ans=0,cnt=0;
+    int ans=0;
     stack<S>st;
     st.push(S{0,1,1,1});
     while(!st.empty()){
@@ -55,11 +55,10 @@ int main(){
         ll p=a+b,q=c+d;
         ll u=a*d+b*c,v=c*d*2;
         if(u*R<v) ++ans;
-        else ++cnt;
         st.push(S{a,c,p,q});
         st.push(S{p,q,b,d});
     }
-    printf("%d %d\n",cnt,ans);
+    printf("%d\n",ans);
 }
 
 ```

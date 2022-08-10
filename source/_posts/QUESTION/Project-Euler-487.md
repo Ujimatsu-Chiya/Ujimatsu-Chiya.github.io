@@ -21,7 +21,7 @@ For example, $f_2(10) = 1^2 + 2^2 + 3^2 + 4^2 + 5^2 + 6^2 + 7^2 + 8^2 + 9^2 + 10
 
 Let $S_k(n)$ be the sum of $f_k(i)$ for $1 \le i \le n$. For example, $S_4(100) = 35375333830.$
 
-What is $\sum (S_{10000}(10^{12}) \mod p)$ over all primes $p$ between $2\cdot 10^9$ and $2\cdot10^9 + 2000$?
+What is $\sum (S_{10000}(10^{12}) \bmod p)$ over all primes $p$ between $2\cdot 10^9$ and $2\cdot10^9 + 2000$?
 
 ## 解决方案
 
@@ -42,8 +42,8 @@ $$f_k(n)=\sum_{i=1}^n i^k=\dfrac{n^{k+1}}{k+1}+\dfrac{1}{2}n^k+\sum_{i=2}^{k} \d
 
 $$B_n^{+}=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} n=0 \\
-  &1-\sum_{k=0}^{n-1} B_k^{+}\cdot \dfrac{n!}{k!(n-k+1)!}& & \mathrm{else}
+  &1 & & \text{if\quad} n=0 \\
+  &1-\sum_{k=0}^{n-1} B_k^{+}\cdot \dfrac{n!}{k!(n-k+1)!}& & \text{else}
 \end{aligned}\right.
 $$
 
@@ -51,19 +51,19 @@ $$
 
 那么如果直接按照上面的公式计算$f_k(n)$的值，一次计算需要花费$O(k^2)$的时间复杂度。在题目中的区间中一共有$100$个质数，直接代入公式进行计算效率将会比较低。
 
-可以证明，当$p-1\nmid k$时，$\sum_{i=1}^p i^k \equiv 0(\mod p).$
+可以证明，当$p-1\nmid k$时，$\sum_{i=1}^p i^k \equiv 0\pmod p.$
 
 原因：令$g$为乘法群$\mathbb{Z}_p^{\star}$上的原根，那么原式就可以写成：
 
-$$\sum_{i=1}^p (g^{i})^k \equiv \sum_{i=1}^p (g^k)^i\equiv g^k\cdot\dfrac{(g^k)^{p-1}-1}{g^k-1}\equiv 0(\mod p)$$
+$$\sum_{i=1}^p (g^{i})^k \equiv \sum_{i=1}^p (g^k)^i\equiv g^k\cdot\dfrac{(g^k)^{p-1}-1}{g^k-1}\equiv 0\pmod p$$
 
 由于$p-1\nmid k$，因此$g^k\neq 1$。后面的式子通过费马小定理即可知道其值为$0$。
 
 因此，有
 
-$$f_k(n)\equiv f_k(n\%p)\equiv \sum_{i=1}^{p-1-n\%p} (-i)^k\equiv (-1)^k\cdot f_k(p-1-n\%p)(\mod p)$$
+$$f_k(n)\equiv f_k(n\%p)\equiv \sum_{i=1}^{p-1-n\%p} (-i)^k\equiv (-1)^k\cdot f_k(p-1-n\%p)\pmod p$$
 
-在这道题中，$p-1-n\%p$是一个很小的数。当$p$接近$ 2\cdot 10^9+2000$时，$p-1-n\%p$也不到$10^7$。因此可以通过暴力计算$f_k(p-1-n\%p)(\mod p)$的值。
+在这道题中，$p-1-n\%p$是一个很小的数。当$p$接近$ 2\cdot 10^9+2000$时，$p-1-n\%p$也不到$10^7$。因此可以通过暴力计算$f_k(p-1-n\%p)\pmod p$的值。
 
 ## 代码
 

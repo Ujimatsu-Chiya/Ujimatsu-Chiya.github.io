@@ -37,7 +37,7 @@ In the first one-thousand expansions, how many fractions contain a numerator wit
 $$a_n=\frac{1}{1+a_{n-1}}+1$$
 因此，直接通过此式子进行$1000$次迭代求出每个序列的值。
 
-本代码使用的是fractions库中的Fraction类，它用于维护一个分数的类型。
+本代码使用的是`fractions`库中的`Fraction`类，它用于维护一个分数的类型。
 
 ## 代码
 

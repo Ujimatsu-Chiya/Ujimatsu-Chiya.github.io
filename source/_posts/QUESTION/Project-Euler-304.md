@@ -24,7 +24,7 @@ The fibonacci sequence $f(n)$ is defined by: $f(0)=0, f(1)=1$ and $f(n)=f(n-1)+f
 
 The sequence $b(n)$ is defined as $f(a(n))$.
 
-Find $\sum b(n)$ for $1\le n\le100 000$. Give your answer $\mod 1234567891011$.
+Find $\sum b(n)$ for $1\le n\le100 000$. Give your answer $\bmod\ 1234567891011$.
 
 ## 解决方案
 
@@ -49,7 +49,7 @@ $$
 令$B=\begin{bmatrix}
 0 & 1\\
 1 & 1
-\end{bmatrix}$，那么通过矩阵快速幂，可以$O\log(n)$的时间复杂度内求解出第$n$项的值。
+\end{bmatrix}$，那么通过矩阵快速幂，可以$O(\log n)$的时间复杂度内求解出第$n$项的值。
 
 另外，上面的等式可以写成
 
@@ -68,7 +68,7 @@ $$
 
 这$10^5$次的询问是独立的，并且之间的间隔$d$也比较小。我们可以基于上式来减少矩阵乘法的运算次数，用上一次的结果继续转移，计算出当前结果。
 
-求一个数的下一个质数，使用sympy的nextprime函数，效率可以接受。
+求一个数的下一个质数，使用`sympy`的`nextprime`方法。
 
 ## 代码
 

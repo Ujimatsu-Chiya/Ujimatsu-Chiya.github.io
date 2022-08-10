@@ -17,10 +17,12 @@ date: 2022-05-02 16:36:56
 
 The smallest number expressible as the sum of a prime square, prime cube, and prime fourth power is $28$. In fact, there are exactly four numbers below fifty that can be expressed in such a way:
 
-$28 = 2^2 + 2^3 + 2^4$
-$33 = 3^2 + 2^3 + 2^4$
-$49 = 5^2 + 2^3 + 2^4$
-$47 = 2^2 + 3^3 + 2^4$
+$\begin{aligned}
+28 = 2^2 + 2^3 + 2^4\\
+33 = 3^2 + 2^3 + 2^4\\
+49 = 5^2 + 2^3 + 2^4\\
+47 = 2^2 + 3^3 + 2^4
+\end{aligned}$
 
 How many numbers below fifty million can be expressed as the sum of a prime square, prime cube, and prime fourth power?
 
@@ -28,7 +30,7 @@ How many numbers below fifty million can be expressed as the sum of a prime squa
 
 令$N=5\times10^7$。
 
-观察到，这里的和都是质数的$2$次方及以上。因此，可以先预处理所有$\sqrt N$以内的质数，再将这些质数的$2,3,4$次方按序存放在数组a2, a3, a4中。
+观察到，这里的和都是质数的$2$次方及以上。因此，可以先预处理所有$\sqrt N$以内的质数，再将这些质数的$2,3,4$次方按序存放在数组$a_2, a_3, a_4$中。
 
 直接枚举$3$个列表中每个组合，再将$3$个数的和存放进集合即可。
 

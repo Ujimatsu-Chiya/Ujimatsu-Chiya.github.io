@@ -26,22 +26,21 @@ Find $f(1,000,000,000,000)$
 
 ## 解决方案
 
-令函数$c(n)=\sum_{r\ge 1,5^r\le n} \lfloor\dfrac{n}{5^r}\rfloor$，即$n!$的后置$0$个数。容易知道，$c(n)$能够以$O(\log n)$的时间复杂度被计算出来。
+令函数$c(n)=\sum_{r\ge 1,5^r\le n} \left\lfloor\dfrac{n}{5^r}\right\rfloor$，即$n!$的后置$0$个数。容易知道，$c(n)$能够以$O(\log n)$的时间复杂度被计算出来。
 
-令函数$g(n)=\prod_{i=1,5\nmid i}^ni$，那么可得$f(n)=g(n)f(\lfloor\dfrac{n}{5}\rfloor)\%10^5$
+令函数$g(n)=\prod_{i=1,5\nmid i}^ni$，那么可得$f(n)=g(n)f(\left\lfloor\dfrac{n}{5}\right\rfloor)\%10^5$
 
-令函数$f_5(n)=f(n)\%5^5$，那么$f_5(n)=g(5^5)^{n/5^5}g(n\%5^5)f_5(\lfloor\dfrac{n}{5}\rfloor)\%5^5$
-。
+令函数$f_5(n)=f(n)\%5^5$，那么$f_5(n)=g(5^5)^{\lfloor n/5^5\rfloor}g(n\%5^5)f_5(\left\lfloor\dfrac{n}{5}\right\rfloor)\%5^5$。
 
-容易计算得$g(5^5)\%5^5=-1$，那么上式变成$f_5(n)=(-1)^{n/5^5}g(n\%5^5)f_5(\lfloor\dfrac{n}{5}\rfloor)\%5^5$
+容易计算得$g(5^5)\%5^5=-1$，那么上式变成$f_5(n)=(-1)^{\lfloor n/5^5\rfloor}g(n\%5^5)f_5(\left\lfloor\dfrac{n}{5}\right\rfloor)\%5^5$
 
-$f_5(n)$的值将能够迅速计算出。容易知道，只要$n$足够大，$\dfrac{n!}{10^{c(n)}}$的$2$的质因数个数将会很多。因此，可以直接假设$\dfrac{n!}{10^{c(n)}}\equiv 0(\mod 2^5)$。
+$f_5(n)$的值将能够迅速计算出。容易知道，只要$n$足够大，$\dfrac{n!}{10^{c(n)}}$的$2$的质因数个数将会很多。因此，可以直接假设$\dfrac{n!}{10^{c(n)}}\equiv 0 \pmod {2^5}$。
 
 根据中国剩余定理，直接解以下方程即可得到答案：
 
 $\left\{\begin{aligned}
-  & x \equiv 0 (\mod 2^5) \\
-  & x \equiv f_5(n)(\mod 5^5)
+  & x \equiv 0 \pmod {2^5} \\
+  & x \equiv f_5(n) \pmod {5^5}
 \end{aligned}\right.$
 
 但是，在$n$比较小时，需要通过暴力来规避默认$2^5$。

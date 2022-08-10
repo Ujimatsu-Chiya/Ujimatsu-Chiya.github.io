@@ -32,15 +32,15 @@ Give your answer with nine digits after the decimal point (a.bcdefghij).
 
 $$e=E[\sum_{i=1}^gX_i]=\sum_{i=1}^gE[X_i]$$
 
-不失一般性，对于第$1$种颜色的球，它被抽出来的概率为$1-\dfrac{C_{m(g-1)}^p}{C_{mg}^p}$。
+不失一般性，对于第$1$种颜色的球，它被抽出来的概率为$1-\dfrac{\binom{m(g-1)}{p}}{\binom{mg}{p}}$。
 
-因此，$E[X_1]=1-\dfrac{C_{m(g-1)}^p}{C_{mg}^p}$
+因此，$E[X_1]=1-\dfrac{\binom{m(g-1)}{p}}{\binom{mg}{p}}$
 
 由于所有颜色的球的数量都是一样的，因此$E[X_1]=E[X_2]=\dots=E[X_g]$。
 
 因此最终答案为
 
-$$e=\sum_{i=1}^gE[X_i]=gE[X_1]=g(1-\dfrac{C_{m(g-1)}^p}{C_{mg}^p})$$
+$$e=\sum_{i=1}^gE[X_i]=gE[X_1]=g\left(1-\dfrac{\binom{m(g-1)}{p}}{\binom{mg}{p}}\right)$$
 
 ## 代码
 

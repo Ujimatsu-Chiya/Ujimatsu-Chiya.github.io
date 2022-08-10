@@ -15,7 +15,7 @@ date: 2022-04-30 10:32:24
 
 ### Magic 5-gon ring
 
-Consider the following “magic” 3-gon ring, filled with the numbers 1 to 6, and each line adding to nine.
+Consider the following “magic” $3$-gon ring, filled with the numbers $1$ to $6$, and each line adding to nine.
 
 ![](../images/p068_1.png)
 
@@ -43,7 +43,9 @@ Using the numbers $1$ to $10$, and depending on arrangements, it is possible to 
 ## 解决方案
 
 为每个圈进行编号：
+
 ![](../images/p068_3.png)
+
 其中，外圈用$0\sim 4$标记，内圈用$5\sim9$来标记。
 
 由于输出的是$16$位数，因此枚举过程中需要排除$10$在内圈的情况。

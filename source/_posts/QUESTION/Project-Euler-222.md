@@ -16,7 +16,7 @@ date: 2022-06-05 09:29:23
 
 ### Sphere Packing
 
-What is the length of the shortest pipe, of internal radius $50\mathrm{mm}$, that can fully contain $21$ balls of radii $30\mathrm{mm}, 31\mathrm{mm}, \dots, 50\mathrm{mm}$?
+What is the length of the shortest pipe, of internal radius $50\text{mm}$, that can fully contain $21$ balls of radii $30\text{mm}, 31\text{mm}, \dots, 50\text{mm}$?
 
 Give your answer in micrometres ($10^{-6} \text{ m}$) rounded to the nearest integer.
 
@@ -37,8 +37,8 @@ $$g(r_1,r_2)=\sqrt{(r_1+r_2)^2-(r_1+r_2-d)^2}$$
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &r_j  & & \mathrm{if\quad} i=2^j \\
-  &\min_{0\le k<n,(i\oplus 2^j)_{k}=1} f(i\oplus 2^k,k)+g(r_k,r_j) & & \mathrm{else}
+  &r_j  & & \text{if\quad} i=2^j \\
+  &\min_{0\le k<n,(i\oplus 2^j)_{k}=1} f(i\oplus 2^k,k)+g(r_k,r_j) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -46,7 +46,7 @@ $$
 
 $$\min_{i=0}^n f(2^n-1,i)+r_i$$
 
-顺带一提的是，最终答案的方法打印出来是这个样子：
+顺带一提的是，最终答案的堆砌方法打印出来是这个样子：
 
 $$[49, 47, 45, 43, 41, 39, 37, 35, 33, 31, 30, 32, 34, 36, 38, 40, 42, 44, 46, 48, 50]$$
 

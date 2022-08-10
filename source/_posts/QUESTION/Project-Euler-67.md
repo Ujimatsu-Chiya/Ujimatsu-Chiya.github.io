@@ -48,6 +48,7 @@ int main(){
         scanf("%d",&t);
         f[i][j]=max(f[i-1][j-1],f[i-1][j])+t;
     }
-    printf("%d\n",*max_element(f[N]+1,f[N]+N+1));
+    int ans=*max_element(f[N]+1,f[N]+N+1);
+    printf("%d\n",ans);
 }
 ```

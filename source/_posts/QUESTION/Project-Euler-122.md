@@ -51,7 +51,7 @@ For $1 \le k \le 200$, find $\sum m(k)$.
 
 为了尽快使结果收敛，可以为每个数的答案先拟定一个上限，而这个上限就是但使用题目所提供的“二进制”的算法（也就是快速幂）。
 
-求出前几项后，在OEIS找到了该数列[A003313](https://oeis.org/A003313)。在FORMULA一栏中，找到了以下信息:
+求出前几项后，在OEIS找到了该数列[A003313](https://oeis.org/A003313)。在`FORMULA`一栏中，找到了以下信息:
 
 ```
 For all n >= 2, a(n) <= (4/3)*floor(log_2 n) + 2. - Jonathan Vos Post, Oct 08 2008

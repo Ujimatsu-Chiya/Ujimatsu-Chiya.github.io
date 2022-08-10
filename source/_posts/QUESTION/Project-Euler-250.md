@@ -37,9 +37,9 @@ Find the number of non-empty subsets of $\{1^1, 2^2, 3^3,\dots, 250250^{250250}\
 $$
 f(i,j)= 
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\&j=0 \\
-  &0 & & \mathrm{else if\quad} i=0 \\
-  &f(i-1,j) + f(i-1,(j-i^i) \% m) & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &0 & & \text{else if\quad} i=0 \\
+  &f(i-1,j) + f(i-1,(j-i^i) \% m) & & \text{else}
 \end{aligned}\right.
 $$
 

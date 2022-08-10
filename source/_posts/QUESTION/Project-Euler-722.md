@@ -29,9 +29,9 @@ It can be shown that, for every $k$, the series $E_k(q)$ converges for any $0 < 
 For example,
 
 $\begin{aligned}
-&E_1(1 - \frac{1}{2^4}) = \mathrm{3.872155809243e2}\\
-&E_3(1 - \frac{1}{2^8}) = \mathrm{2.767385314772e10}\\
-&E_7(1 - \frac{1}{2^{15}}) = \mathrm{6.725803486744e39}
+&E_1(1 - \frac{1}{2^4}) = \text{3.872155809243e2}\\
+&E_3(1 - \frac{1}{2^8}) = \text{2.767385314772e10}\\
+&E_7(1 - \frac{1}{2^{15}}) = \text{6.725803486744e39}
 \end{aligned}$
 
 All the above values are given in scientific notation rounded to twelve digits after the decimal point.
@@ -48,7 +48,7 @@ Give the answer in scientific notation rounded to twelve digits after the decima
 
 $$S(n)=\sum_{n=1}^\infty a_n\cdot\dfrac{q^n}{1-q^n}=\sum_{m=1}^\infty b_m\cdot q^m$$
 
-其中，$b$是$a$和常函数$\mathbf{1}$的[狄利克雷卷积](https://en.wikipedia.org/wiki/Dirichlet_convolution)，即$b=a*\mathbf{1}$，有$b_m=\sum_{d|m} a_m$.
+其中，$b$是$a$和常函数$\mathbf{1}$的[狄利克雷卷积](https://en.wikipedia.org/wiki/Dirichlet_convolution)，即$b=a*\mathbf{1}$，有$b_m=\sum_{d\mid m} a_m$.
 
 根据[莫比乌斯反演](https://en.wikipedia.org/wiki/M%C3%B6bius_inversion_formula)，有$a=b*\mu.$代入$b_n=\sigma_k(n)$，那么得到$a_n=n^k$。
 
@@ -66,7 +66,7 @@ $$E_k(q)=\mathscr{L}_q(k,1)$$
 
 $$\begin{aligned}
 E_k(q)&=\sum_{n=1}^\infty n^k\cdot\dfrac{ q^n}{1-q^n}=\mathscr{L}_q(k,1)\\
-&=\dfrac{\Gamma(1+k)\zeta(1+k)}{(\log\dfrac{1}{q})^{1+k}}-\sum_{i=0}^{\infty} \dfrac{\zeta(1-k-i)}{i!} B_i(1)(\log q)^{i-1}
+&=\dfrac{\Gamma(1+k)\zeta(1+k)}{\left(\log\dfrac{1}{q}\right)^{1+k}}-\sum_{i=0}^{\infty} \dfrac{\zeta(1-k-i)}{i!} B_i(1)(\log q)^{i-1}
 \end{aligned}$$
 
 其中，
@@ -77,7 +77,7 @@ E_k(q)&=\sum_{n=1}^\infty n^k\cdot\dfrac{ q^n}{1-q^n}=\mathscr{L}_q(k,1)\\
 
 这两个项中后面一项的数量级远比前一项小，因此只计算前一项的值：
 
-$$E_k(q)\approx\dfrac{k!\cdot \zeta(k+1)}{(\log \dfrac{1}{q})^{1+k}}$$
+$$E_k(q)\approx\dfrac{k!\cdot \zeta(1+k)}{\left(\log \dfrac{1}{q}\right)^{1+k}}$$
 
 ## 代码
 

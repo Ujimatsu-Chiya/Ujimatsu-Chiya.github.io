@@ -3,7 +3,6 @@ title: Project Euler 237
 category:
   - Project Euler
 tags:
-  - 动态规划
   - 矩阵快速幂
 mathjax: true
 date: 2022-06-02 21:03:53
@@ -36,7 +35,7 @@ $T(10)$ is $2329$. What is $T(10^{12}) \text{ modulo } 10^8$?
 
 第一个问题：求出关于$4\times n$格子上以$(1,1)$为起点，以$(4,1)$为终点的路径数$T(n)$的关系式。（参考了Thread中的信息。）
 
-使用暴力程序找出前几项后，查找OEIS，发现结果为[A181688](https://oeis.org/A181688)。在FORMULA一栏中，发现如下信息：
+使用暴力程序找出前几项后，查找OEIS，发现结果为[A181688](https://oeis.org/A181688)。在`FORMULA`一栏中，发现如下信息：
 
 ```
 a(n) = 2*a(n-1) + 2*a(n-2) - 2*a(n-3) + a(n-4), n > 4.
@@ -47,10 +46,10 @@ a(n) = 2*a(n-1) + 2*a(n-2) - 2*a(n-3) + a(n-4), n > 4.
 $$
 T(n)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i\le 2\\
-  &4 & & \mathrm{else if\quad} i=3 \\
-  &8 & & \mathrm{else if\quad} i=4 \\
-  &2T(n-1)+2T(n-2)-2T(n-3)+T(n-4) & & \mathrm{else}
+  &1  & & \text{if\quad} i\le 2\\
+  &4 & & \text{else if\quad} i=3 \\
+  &8 & & \text{else if\quad} i=4 \\
+  &2T(n-1)+2T(n-2)-2T(n-3)+T(n-4) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -109,6 +108,4 @@ while N:
     N >>= 1
 ans = a[0][0]
 print(ans)
-# A181688
-
 ```

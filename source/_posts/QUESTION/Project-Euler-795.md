@@ -29,21 +29,21 @@ Find $G(12345678)$.
 ## 解决方案
 
 $$\begin{aligned}
-G(N)&=\sum_{n=1}^N\sum_{i=1}^n(-1)^i\gcd(n,i^2)=\sum_{i=1}^N(-1)^i(\sum_{n=i}^N\gcd(n,i^2))
+G(N)&=\sum_{n=1}^N\sum_{i=1}^n(-1)^i\gcd(n,i^2)=\sum_{i=1}^N(-1)^i\left(\sum_{n=i}^N\gcd(n,i^2)\right)
 \end{aligned}$$
 
 其中对于右边那一块，有：
 
-$$\sum_{n=1}^N\gcd(n,i^2)=\sum_{d|i^2}\lfloor\dfrac{N}{d}\rfloor\cdot (\sum_{e|d}\mu(\dfrac{d}{e})\cdot e)=\sum_{d|i^2}\lfloor\dfrac{N}{d}\rfloor\cdot\varphi(d) $$
+$$\sum_{n=1}^N\gcd(n,i^2)=\sum_{d\mid i^2}\left\lfloor\dfrac{N}{d}\right\rfloor\cdot \left(\sum_{e\mid d}\mu\left(\dfrac{d}{e}\right)\cdot e\right)=\sum_{d\mid i^2}\left\lfloor\dfrac{N}{d}\right\rfloor\cdot\varphi(d) $$
 
 那么将$G(n)$可以继续重新改写，有：
 
 $$\begin{aligned}
-G(N)&=\sum_{i=1}^N(-1)^i(\sum_{d|i^2}\varphi(d)\cdot (\lfloor\dfrac{N}{d}\rfloor-\lfloor\dfrac{i-1}{d}\rfloor)\\
-&=\sum_{d=1}^N\varphi(d)(\sum_{d|i^2}(-1)^i\cdot (\lfloor\dfrac{N}{d}\rfloor-\lfloor\dfrac{i-1}{d}\rfloor))
+G(N)&=\sum_{i=1}^N(-1)^i\left(\sum_{d\mid i^2}\varphi(d)\cdot \left(\left\lfloor\dfrac{N}{d}\right\rfloor-\left\lfloor\dfrac{i-1}{d}\right\rfloor\right)\right)\\
+&=\sum_{d=1}^N\varphi(d)\left(\sum_{d\mid i^2}(-1)^i\cdot \left(\left\lfloor\dfrac{N}{d}\right\rfloor-\left\lfloor\dfrac{i-1}{d}\right\rfloor\right)\right)
 \end{aligned}$$
 
-那么通过筛法实现计算$G$即可。令$n$的分解为$n=\prod_{k=1}^mp_i^{e_i}$，那么如果一个数$m$满足$n|m^2$，那么就满足$n'|m$，其中$n'=\prod_{k=1}^mp_i^{\lceil\frac{e_i}{2}\rceil}$。
+那么通过筛法实现计算$G$即可。令$n$的分解为$n=\prod_{k=1}^mp_i^{e_i}$，那么如果一个数$m$满足$n\mid m^2$，那么就满足$n'\mid m$，其中$n'=\prod_{k=1}^mp_i^{\left\lceil\frac{e_i}{2}\right\rceil}$。
 
 最终时间复杂度为$O(N\log N)$，略慢。
 

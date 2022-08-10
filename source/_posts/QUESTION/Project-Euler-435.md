@@ -28,9 +28,9 @@ Let $n = 10^{15}$. Find the sum $\displaystyle{\sum_{x=0}^{100} F_n(x)}$ and giv
 $$
 F_n(x)=
 \left \{\begin{aligned}
-  &x  & & \mathrm{if\quad} n=1 \\
-  &x^2+x & & \mathrm{else if\quad} n=2 \\
-  &x^2F_{n-2}(x)+xF_{n-1}(x)+x & & \mathrm{else}
+  &x  & & \text{if\quad} n=1 \\
+  &x^2+x & & \text{else if\quad} n=2 \\
+  &x^2F_{n-2}(x)+xF_{n-1}(x)+x & & \text{else}
 \end{aligned}\right.
 $$
 

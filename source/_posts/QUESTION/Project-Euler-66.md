@@ -52,7 +52,7 @@ d_0 &= 1 \\
 a_0&=\lfloor\sqrt {S}\rfloor \\
 m_{n+1}&=d_na_n-m_n \\
 d_{n+1}&=\dfrac{S-m_{n+1}^2}{d_n}\\
-a_{n+1}&=\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\rfloor
+a_{n+1}&=\left\lfloor\dfrac{a_0+m_{n+1}}{d_{n+1}}\right\rfloor
 \end{aligned}$
 
 网站上提到，为计算$x^2-Dy^2=1$，假设$\sqrt{N}$产生的第$m$个连分数$[a_0,a_1,\dots,a_m]$的分数形式为$\dfrac{p_m}{q_m}$。

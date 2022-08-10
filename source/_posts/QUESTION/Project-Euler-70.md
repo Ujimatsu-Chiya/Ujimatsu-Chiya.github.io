@@ -27,7 +27,7 @@ Find the value of $n, 1 < n < 10^7$, for which $\varphi(n)$ is a permutation of 
 
 需要注意，本题是求得满足排列要求的，并且使$\dfrac{n}{\varphi(n)}$最小的，在范围$n<N$内的一个$n$。
 
-根据欧拉函数的公式$\varphi(n)=n\prod(1-\dfrac{1}{p_i})$，可以知道，这个比值就等于$\prod \dfrac{p_i}{p_i-1}$.
+根据欧拉函数的公式$\displaystyle{\varphi(n)=n\prod_{i=1}^k\left(1-\dfrac{1}{p_i}\right)}$，可以知道，这个比值就等于$\displaystyle{\prod_{i=1}^k \dfrac{p_i}{p_i-1}}$.
 
 根据这个式子可以发现，只需要考虑质因数质数不大于$1$的情况即可，因为这个式子的大小和$e_i$没有任何关系。
 

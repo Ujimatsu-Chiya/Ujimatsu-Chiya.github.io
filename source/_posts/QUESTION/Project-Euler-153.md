@@ -75,11 +75,11 @@ What is $\sum \limits_{n = 1}^{10^8} {s(n)}$?
 2. $a'>0,b'\ge 0$
 3. $m=a'^2+b'^2$
 
-从小到大遍历$m$时，它里面是所有不同的$a'-b'i$的和的实数部分。那么再枚举此时的$g$，那么$s[m]g$就是所有因子$g(a'+b'i)=a+bi$的实部之和，它们都是$g(a'^2+b'^2)=mg$的因子，而在$1\sim N$中，有$\lfloor\dfrac{N}{mg}\rfloor$个数是$mg$的倍数，这些因子都会出现$\lfloor\dfrac{N}{mg}\rfloor$次。
+从小到大遍历$m$时，它里面是所有不同的$a'-b'i$的和的实数部分。那么再枚举此时的$g$，那么$s[m]\cdot g$就是所有因子$g(a'+b'i)=a+bi$的实部之和，它们都是$g(a'^2+b'^2)=mg$的因子，而在$1\sim N$中，有$\left\lfloor\dfrac{N}{mg}\right\rfloor$个数是$mg$的倍数，这些因子都会出现$\left\lfloor\dfrac{N}{mg}\right\rfloor$次。
 
 因此，最终答案为
 
-$$\sum_{m=1}^N\sum_{g=1}^{\frac{N}{m}}s[m]\cdot g\cdot \dfrac{N}{mg}$$
+$$\sum_{m=1}^N\sum_{g=1}^{\left\lfloor\frac{N}{m}\right\rfloor}s[m]\cdot g\cdot \dfrac{N}{mg}$$
 
 为了能够尽快计算出$s$数组，需要做以下事情：
 

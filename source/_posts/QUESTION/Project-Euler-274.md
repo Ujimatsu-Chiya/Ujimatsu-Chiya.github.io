@@ -16,7 +16,7 @@ mathjax: true
 
 For each integer $p > 1$ coprime to $10$ there is a *positive divisibility multiplier* $m < p$ which preserves divisibility by $p$ for the following function on any positive integer, $n$:
 
-$f(n) = (\mathrm {all\ but\ the\ last\ digit\ of\ }n) + (\mathrm{the\ last\ digit\ of\ }n) * m$
+$f(n) = (\text {all\ but\ the\ last\ digit\ of\ }n) + (\text{the\ last\ digit\ of\ }n) * m$
 
 That is, if $m$ is the divisibility multiplier for $p$, then $f(n)$ is divisible by $p$ if and only if $n$ is divisible by $p$.
 
@@ -37,19 +37,19 @@ What is the sum of the divisibility multipliers for the primes that are coprime 
 原题等价为：
 对于$\forall a \in \mathbb{Z},b\in [0,9] \cap \mathbb{Z}$，有
 
-$$10a+b \equiv 0 (\mod p) \Leftrightarrow a+mb\equiv 0(\mod p)$$
+$$10a+b \equiv 0 \pmod p \Leftrightarrow a+mb\equiv 0\pmod p$$
 
-即为$10a+10mb\equiv 0 (\mod p)$
+即为$10a+10mb\equiv 0 \pmod p$
 
 当上述条件满足时，有：
 
-$10a\equiv -b \equiv -10 mb(\mod p)$
+$10a\equiv -b \equiv -10 mb\pmod p$
 
-由此得$10mb-b\equiv 0(\mod p)$。
+由此得$10mb-b\equiv 0\pmod p$。
 
-即为$(10m-1)b\equiv 0(\mod p)$，对于所有$b$成立。
+即为$(10m-1)b\equiv 0\pmod p$，对于所有$b$成立。
 
-令$b=1$，那么$m$满足$10m\equiv 1 (\mod p)$。直接计算$10$对质数$p$的逆元即可。
+令$b=1$，那么$m$满足$10m\equiv 1 \pmod p$。直接计算$10$对质数$p$的逆元即可。
 
 ## 代码
 

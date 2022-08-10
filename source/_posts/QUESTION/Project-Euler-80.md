@@ -27,14 +27,13 @@ For the first one hundred natural numbers, find the total of the digital sums of
 
 容易发现这么一个规律：$10\sqrt n=\sqrt{100n}$。这说明，只要我们需要求前$n$位小数时，我们只需要将这个整数乘$10^{2n}$，再计算整数下的平方根后，原本的$n$位小数就转移到了整数部分的最后$n$位，并且能精确表示。
 
-以下面一个为例：
-为$\sqrt{2}$求小数点后面$2$位，发现：
-$\sqrt{2}=1.41421356237309504880\ldots$
-$\lfloor\sqrt{2}\rfloor=1$
-$\sqrt{20000}=141.421356237309504880\ldots$
-$\lfloor\sqrt{20000}\rfloor=\lfloor100\sqrt{2}\rfloor=141$
+以下面一个为例：为$\sqrt{2}$求小数点后面$2$位，发现：
 
-本题使用了gmpy2库中的is_square函数，用于判断当前的数是否为平方数。这个函数将封装在自定义的tools工具包中。
+$\sqrt{2}=1.41421356237309504880\ldots,\lfloor\sqrt{2}\rfloor=1$
+
+$\sqrt{20000}=141.421356237309504880\ldots,\lfloor\sqrt{20000}\rfloor=\lfloor100\sqrt{2}\rfloor=141$
+
+本题使用了`gmpy2`库中的`is_square`函数，用于判断当前的数是否为平方数。这个函数将封装在自定义的`tools`工具包中。
 
 另一种方法则是使用牛顿迭代法，此处不再赘述。
 

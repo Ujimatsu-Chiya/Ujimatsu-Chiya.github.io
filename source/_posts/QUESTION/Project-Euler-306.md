@@ -64,8 +64,8 @@ $$sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots \oplus sg(n_k)$$
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \mathrm{if\quad} n\le 1 \\
-  &\text{mex}(\{sg(i)\oplus sg(n-2-i)|0\le i\le n-2-i\}) & & \mathrm{else}
+  &0 & & \text{if\quad} n\le 1 \\
+  &\text{mex}(\{sg(i)\oplus sg(n-2-i)|0\le i\le n-2-i\}) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -93,7 +93,7 @@ int main(){
 
 ```
 
-在FORMULA一栏中查找到这个信息：
+在`FORMULA`一栏中查找到这个信息：
 
 ``` 
 Has period 34 with the only exceptions at n=0, 14, 16, 17, 31, 34 and 51.

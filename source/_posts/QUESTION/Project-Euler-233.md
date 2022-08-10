@@ -41,18 +41,18 @@ $$a^2+b^2=2N^2$$
 
 $$x^2+y^2=2N^2$$
 
-[页面1](https://en.wikipedia.org/wiki/Sum_of_squares_function#Formulae#)，[页面2](https://mathworld.wolfram.com/SumofSquaresFunction.html)给出了一个信息：如果$n$可以将其分解成$n=2^g\prod_i p_i^{e_i}\prod_j q_j^{f_j}$，其中$p_i$是模$4$余$1$的质数，$q_j$是模$4$余$3$的质数。那么方程$x^2+y^2=n$的解的个数由$r_2(n)$决定：
+[页面1](https://en.wikipedia.org/wiki/Sum_of_squares_function#Formulae#)，[页面2](https://mathworld.wolfram.com/SumofSquaresFunction.html)给出了一个信息：如果$n$可以将其分解成$n=2^g\prod_{i=1}^k p_i^{e_i}\prod_{j=1}^l q_j^{f_j}$，其中$p_i$是模$4$余$1$的质数，$q_j$是模$4$余$3$的质数。那么方程$x^2+y^2=n$的解的个数由$r_2(n)$决定：
 
 $$r_2(n)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} ∃j,f_j\equiv 1(\mod 2) \\
-  &4\prod_i(e_i+1) & & \mathrm{else}
+  &0  & & \text{if\quad} \exists j,f_j\equiv 1 \pmod 2 \\
+  &4\prod_i(e_i+1) & & \text{else}
 \end{aligned}\right.
 $$
 
 回到题目中，那么$f(n)$可以如下计算：
 
-$$f(n)=r_2(2n^2)=4\prod_i(2e_i+1)$$
+$$f(n)=r_2(2n^2)=4\prod_{i=1}^k(2e_i+1)$$
 
 由于$420=4\cdot3\cdot 5\cdot 7$，因此，题目所求的$n$有如下$5$种形式：
 
@@ -68,7 +68,7 @@ $$\begin{aligned}
 
 令$M=10^{11}$，那么$Q\le \dfrac{M}{5^3\cdot13^2\cdot 17},P_i\le \dfrac{M}{5^2\cdot13^2}$（均由第一种形式推出。）
 
-因此，先枚举$Q$的部分，再枚举$P=\prod_iP_j^{E_J}$的部分，最终所有$PQ\le M$的值就是答案。
+因此，先枚举$Q$的部分，再枚举$P=\prod_JP_j^{E_J}$的部分，最终所有$PQ\le M$的值就是答案。
 
 ## 代码
 

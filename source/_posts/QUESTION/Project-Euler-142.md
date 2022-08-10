@@ -76,7 +76,8 @@ int solve(){
     return -1;
 }
 int main(){
-    printf("%d\n",solve());
+    int ans=solve();
+    printf("%d\n",ans);
 }
 
 ```

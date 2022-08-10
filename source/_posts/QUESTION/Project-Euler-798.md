@@ -151,13 +151,13 @@ Find $C(10^7, 10^7)$. Give your answer modulo $1\,000\,000\,007$.
 ...
 ```
 
-总之，$2^N$个子集中，$sg$函数值为$k$的子集个数为$f(N-k-1,\lceil\dfrac{k}{2}\rceil)$，其中$f(x,y)$表示三角形数组(A)一开始在第$x$列的第一个元素，然后再往下走$y$步后的元素。（注意当$k=0$时，需要将值添加回$1$。）
+总之，$2^N$个子集中，$sg$函数值为$k$的子集个数为$f\left(N-k-1,\left\lceil\dfrac{k}{2}\right\rceil\right)$，其中$f(x,y)$表示三角形数组(A)一开始在第$x$列的第一个元素，然后再往下走$y$步后的元素。（注意当$k=0$时，需要将值添加回$1$。）
 
 那么根据刚刚的思想，有
 
-$$f(x,y)=C_{x+y-1}^y+\sum_{i=0}^x C_{x+y-1}^i$$
+$$f(x,y)=\dbinom{x+y-1}{y}+\sum_{i=0}^x \dbinom{x+y-1}{i}$$
 
-最终，使用等式$C_i^j=C_{i-1}^{j-1}+C_i^j$这个等式，在求$f(N-k-1,\lceil\dfrac{k}{2}\rceil)$时，将求和项的相邻两项合并。并且由于运算$\lceil\rceil$运算的存在，合并之后的结果也是连续的，通过这个现象可以$O(N)$维护出$f(N-k-1,\lceil\dfrac{k}{2}\rceil)$的所有值。最终使用快速沃尔什变换计算出最终答案。
+最终，使用等式$C_i^j=C_{i-1}^{j-1}+C_i^j$这个等式，在求$f\left(N-k-1,\left\lceil\dfrac{k}{2}\right\rceil\right)$时，将求和项的相邻两项合并。并且由于运算$\lceil\rceil$运算的存在，合并之后的结果也是连续的，通过这个现象可以$O(N)$维护出$f\left(N-k-1,\left\lceil\dfrac{k}{2}\right\rceil\right)$的所有值。最终使用快速沃尔什变换计算出最终答案。
 
 ## 代码
 

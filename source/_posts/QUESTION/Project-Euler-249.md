@@ -33,15 +33,15 @@ Enter the rightmost $16$ digits as your answer.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=0\&j=0 \\
-  &f(i-1,j) & & \mathrm{else if\quad} j<pr[i] \\
-  &f(i-1,j)+f(i-1,j-pr[i]) & & \mathrm{else}
+  &1  & & \text{if\quad} i=0\land j=0 \\
+  &f(i-1,j) & & \text{else if\quad} j<pr[i] \\
+  &f(i-1,j)+f(i-1,j-pr[i]) & & \text{else}
 \end{aligned}\right.
 $$
 
 这是一个较为典型的01背包问题，对于方程最后一行，$pr[i]$要么被使用了，将所有$f(i-1,j-pr[i])$的所有方案都添加一个$pr[i]$；要么没被使用，直接从上一次的状态$f(i-1,j)$直接记录。
 
-最终答案只需要计算$\sum_{j}f(M,j)$，其中$j$是质数。
+最终答案为$\sum_{j\in pr}f(M,j)$。
 
 ## 代码
 

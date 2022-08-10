@@ -29,9 +29,9 @@ Now, let us repeat the search, but on a much larger scale:
 
 First, generate four million pseudo-random numbers using a specific form of what is known as a “Lagged Fibonacci Generator”:
 
-For $1 \leq k \leq 55, s_k = [100003 - 200003k + 300007k^3] (\mathrm{modulo\ } 1000000) - 500000$
+For $1 \leq k \leq 55, s_k = [100003 - 200003k + 300007k^3] (\text{modulo\ } 1000000) - 500000$
 
-For $56 \leq k \leq 4000000$, $s_k = [s_{k-24} + s_{k-55} + 1000000] (\mathrm{modulo\ } 1000000) - 500000$.
+For $56 \leq k \leq 4000000$, $s_k = [s_{k-24} + s_{k-55} + 1000000] (\text{modulo\ } 1000000) - 500000$.
 
 Thus, $s_{10} = -393027$ and $s_{100} = 86613$.
 
@@ -50,14 +50,14 @@ Finally, find the greatest sum of (any number of) adjacent entries in any direct
 $$
 f(i)=
 \left \{\begin{aligned}
-  &a[i]  & & \mathrm{if\quad} i=1 \\
-  &\max(a[i],f(i-1)+a[i]) & & \mathrm{else}
+  &a[i]  & & \text{if\quad} i=1 \\
+  &\max(a[i],f(i-1)+a[i]) & & \text{else}
 \end{aligned}\right.
 $$
 
 其中，最后一行两种决策分别是：要么将这个元素拼接到前面$f(i-1)$的子段末尾，要么独立自乘一个子段。
 
-答案为$\max_{i=1}^m f(i)$。
+答案为$\max_{i=1}^m \{f(i)\}$。
 
 所有子问题的答案的最大值即为问题答案。
 

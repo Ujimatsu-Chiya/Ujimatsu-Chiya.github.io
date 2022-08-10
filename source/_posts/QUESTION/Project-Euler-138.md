@@ -30,7 +30,7 @@ Find $\sum L$ for the twelve smallest isosceles triangles for which $h = b \pm 1
 
 根据勾股定理，可以列出以下式子：
 
-$$(\dfrac{b}{2})^2+h^2=L^2$$
+$$\left(\dfrac{b}{2}\right)^2+h^2=L^2$$
 
 代入$h=b\pm 1$，有$b^2+4(b\pm 1)^2=4L^2$
 
@@ -40,7 +40,7 @@ $$(\dfrac{b}{2})^2+h^2=L^2$$
 
 移项，得$(5b\pm 4)^2-20L^2=-4$
 
-两边同除$4$，有$(\dfrac{5b\pm4}{2})^2\pm5L^2=-1$。
+两边同除$4$，有$\left(\dfrac{5b\pm4}{2}\right)^2\pm5L^2=-1$。
 
 令$x=\dfrac{5b\pm4}{2},y=L^2$，得到$x^2-5y^2=-1$，该类方程为负佩尔方程$x^2-Dy^2=-1$。
 

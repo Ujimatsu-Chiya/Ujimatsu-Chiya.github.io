@@ -21,12 +21,15 @@ What is the largest prime factor of the number $600851475143$ ?
 
 ## 解决方案
 
-直接使用sympy中的分解质因数方法即可，以后将封装到自定义的tools工具包中。
+直接使用`sympy`中的分解质因数方法即可，以后将封装到自定义的`tools`工具包中，方法名为`factorization`。
 
 ## 代码
 
 ```Python
 from sympy import factorint
+
 N = 600851475143
-print(max(factorint(N).keys()))
+ans = max(factorint(N).keys())
+print(ans)
+
 ```

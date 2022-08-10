@@ -26,7 +26,7 @@ How many elements would be contained in the set of reduced proper fractions for 
 
 ## 解决方案
 
-根据题意，第$m$个[Farey 序列](https://en.wikipedia.org/wiki/Farey_sequence)$F_m$的所有元素可以由该集合定义：$\{\dfrac{n}{d} | \gcd(n,d)=1,1\le n<d \le m\}$.
+根据题意，第$m$个[Farey 序列](https://en.wikipedia.org/wiki/Farey_sequence)$F_m$的所有元素可以由该集合定义：$\left\{\dfrac{n}{d} | \gcd(n,d)=1,1\le n<d \le m\right\}$.
 
 通过分子分母互质的性质，联系到欧拉函数$\varphi$的定义，可以得出本题答案：
 
@@ -42,6 +42,7 @@ for i in range(2, N + 1):
         for j in range(i, N + 1, i):
             phi[j] //= i
             phi[j] *= i - 1
-print(sum(phi) - 1)
+ans = sum(phi) - 1
+print(ans)
 
 ```

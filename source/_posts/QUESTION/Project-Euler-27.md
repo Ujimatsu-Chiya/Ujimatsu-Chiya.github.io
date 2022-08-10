@@ -29,7 +29,7 @@ Find the product of the coefficients, $a$ and $b$, for the quadratic expression 
 
 设$p(n)=n^2+an+b$
 
-先用筛法将所有素数筛选出来（这里筛选的是范围$1000*1000+40$以内的素数）。
+先用筛法将所有素数筛选出来（这里筛选的是范围$1000\times1000+40$以内的素数）。
 
 然后通过枚举$a,b$的值，再用变量$n$判断长度。
 

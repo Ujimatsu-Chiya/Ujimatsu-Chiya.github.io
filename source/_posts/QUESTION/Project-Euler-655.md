@@ -27,14 +27,14 @@ How many palindromes less than $10^{32}$ are divisible by $10\,000\,019\,$ ?
 
 我们考虑将回文数的对应两个数位“捆绑”在一起，然后将它们的系数放入数组$c$中。也就是说，$c=[10^0+10^{N-1},10^1+10^{N-2},\dots,10^i+10^{N-i-1}]$。如果$N$还是一个奇数，那么还需要再将$10^{\frac{N-1}{2}}$放入$c$中。那么，对于一个数位$d_1,d_2,\dots,d_{m}\in[0,9]$，$\sum_{i=1}^{m} c[i]\cdot d_i$将会组合出一个个$N$位**有前导**$0$回文数。
 
-令数组$c$的长度为$M$，也就是有$M=\lfloor\dfrac{N+1}{2}\rfloor$。令状态$f(i,j)(0\le i\le M,0 \le j< P)$表示当前使用了$c$数组中前$i$个系数，组合出了模$P$为$j$的数的个数。不难写出$f$的状态转移方程为：
+令数组$c$的长度为$M$，也就是有$M=\left\lfloor\dfrac{N+1}{2}\right\rfloor$。令状态$f(i,j)(0\le i\le M,0 \le j< P)$表示当前使用了$c$数组中前$i$个系数，组合出了模$P$为$j$的数的个数。不难写出$f$的状态转移方程为：
 
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1 & & \mathrm{if\quad} i=1\wedge j=0 \\
-  &0 & & \mathrm{else if\quad} i=1 \\
-  &\sum_{d=0}^9\sum_{(k+c[i]\cdot d)\%p=j} f(i-1,k) & & \mathrm{else}
+  &1 & & \text{if\quad} i=1\land j=0 \\
+  &0 & & \text{else if\quad} i=1 \\
+  &\sum_{d=0}^9\sum_{(k+c[i]\cdot d)\%p=j} f(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$
 

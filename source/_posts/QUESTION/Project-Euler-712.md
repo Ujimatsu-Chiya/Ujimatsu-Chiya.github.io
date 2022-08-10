@@ -27,20 +27,20 @@ Find $S(10^{12})$. Give your answer modulo $1\,000\,000\,007$.
 
 [Lehmer公式](https://mathworld.wolfram.com/LehmersFormula.html)给出了质数计数函数$\pi$的一个计算方式：
 
-$$\pi(x)=\varphi(x,a)+\dfrac{(b+a-2)(b-a+1)}{2}-\sum_{i=a+1}^b\pi(\dfrac{x}{p_i})-\sum_{i=a+1}^c\sum_{j=i}^{b_i}(\pi(\dfrac{x}{p_ip_j})-(j-1))$$
+$$\pi(x)=\varphi(x,a)+\dfrac{(b+a-2)(b-a+1)}{2}-\sum_{i=a+1}^b\pi\left(\dfrac{x}{p_i}\right)-\sum_{i=a+1}^c\sum_{j=i}^{b_i}\left(\pi\left(\dfrac{x}{p_ip_j}\right)-(j-1)\right)$$
 
-其中，$p_i$表示第$i$个质数，$a=\pi(\sqrt[4]{x}),b=\pi(\sqrt{x}),c=\pi(\sqrt[3]{x}),b_i=\pi(\sqrt{\dfrac{x}{p_i}})$
+其中，$p_i$表示第$i$个质数，$a=\pi(\sqrt[4]{x}),b=\pi(\sqrt{x}),c=\pi(\sqrt[3]{x}),b_i=\pi\left(\sqrt{\dfrac{x}{p_i}}\right)$
 其中$\varphi(x,a)$是$n$以内的数中，质因数只由第$a+1$个及以后的质数的个数，用容斥原理可以写成：
 
-$$\varphi(x,a)=x-\sum_{i=1}^a\lfloor\dfrac{x}{p_i}\rfloor+\sum_{1\le i\le j\le a}\lfloor\dfrac{x}{p_ip_j}\rfloor-\dots$$
+$$\varphi(x,a)=x-\sum_{i=1}^a\left\lfloor\dfrac{x}{p_i}\right\rfloor+\sum_{1\le i\le j\le a}\left\lfloor\dfrac{x}{p_ip_j}\right\rfloor-\dots$$
 
 为了方便计算，[页面](https://en.wikipedia.org/wiki/Meissel%E2%80%93Lehmer_algorithm#Expanding_%F0%9D%9C%91(x,_a))说明$\varphi(x,a)$还可以写成以下递推式形式：
 
 $$
 \varphi(x,a)=
 \left \{\begin{aligned}
-  &\lceil\dfrac{x}{2}\rceil  & & \mathrm{if\quad}x=0\vee a=1 \\
-  &\varphi(x,a-1)-\varphi(\lfloor\dfrac{x}{p_a}\rfloor,a-1) & & \mathrm{else}
+  &\left\lceil\dfrac{x}{2}\right\rceil  & & \text{if\quad}x=0\lor a=1 \\
+  &\varphi(x,a-1)-\varphi\left(\left\lfloor\dfrac{x}{p_a}\right\rfloor,a-1\right) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -56,31 +56,31 @@ $$
 
 小于等于$\lfloor\sqrt{N}\rfloor$的质数$p$这一部分贡献为：
 
-$$\sum_{p\in P,p\le \lfloor\sqrt{N}\rfloor}\sum_{i=0}^{+\infty}\sum_{j=i+1}^{+\infty}2(\lfloor\dfrac{N}{p^i}\rfloor-\lfloor\dfrac{N}{p^{i+1}}\rfloor)(\lfloor\dfrac{N}{p^j}\rfloor-\lfloor\dfrac{N}{p^{j+1}}\rfloor)(j-i)$$
+$$\sum_{p\in P,p\le \lfloor\sqrt{N}\rfloor}\sum_{i=0}^{+\infty}\sum_{j=i+1}^{+\infty}2\left(\left\lfloor\dfrac{N}{p^i}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+1}}\right\rfloor\right)\left(\left\lfloor\dfrac{N}{p^j}\right\rfloor-\left\lfloor\dfrac{N}{p^{j+1}}\right\rfloor\right)(j-i)$$
 
 其中，上面的式子可以化简：
 
 $$\begin{aligned}
-&\sum_{i=0}^{+\infty}\sum_{j=i+1}^{+\infty}(\lfloor\dfrac{N}{p^i}\rfloor-\lfloor\dfrac{N}{p^{i+1}}\rfloor)(\lfloor\dfrac{N}{p^j}\rfloor-\lfloor\dfrac{N}{p^{j+1}}\rfloor)(j-i)\\
-=&\sum_{i=0}^{+\infty}(\lfloor\dfrac{N}{p^i}\rfloor-\lfloor\dfrac{N}{p^{i+1}}\rfloor)\sum_{j=i+1}^{+\infty}(\lfloor\dfrac{N}{p^j}\rfloor-\lfloor\dfrac{N}{p^{j+1}}\rfloor)(j-i)\\
-=&\sum_{i=0}^{+\infty}(\lfloor\dfrac{N}{p^i}\rfloor-\lfloor\dfrac{N}{p^{i+1}}\rfloor)\sum_{j=1}^{+\infty}(\lfloor\dfrac{N}{p^{i+j}}\rfloor-\lfloor\dfrac{N}{p^{i+j+1}}\rfloor)\cdot j\\
-=&\sum_{i=0}^{+\infty}(\lfloor\dfrac{N}{p^i}\rfloor-\lfloor\dfrac{N}{p^{i+1}}\rfloor)\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^{i+j}}\rfloor\\
-=&(\sum_{i=0}^{+\infty}\lfloor\dfrac{N}{p^i}\rfloor\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^{i+j}}\rfloor)-(\sum_{i=0}^{+\infty}\lfloor\dfrac{N}{p^{i+1}}\rfloor\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^{i+j}}\rfloor)\\
-=&N\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^j}\rfloor+ (\sum_{i=1}^{+\infty}\lfloor\dfrac{N}{p^i}\rfloor\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^{i+j}}\rfloor)-(\sum_{i=1}^{+\infty}\lfloor\dfrac{N}{p^{i}}\rfloor\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^{i+j-1}}\rfloor)\\
-=&N\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^j}\rfloor+ (\sum_{i=1}^{+\infty}\lfloor\dfrac{N}{p^i}\rfloor\cdot\sum_{j=1}^{+\infty}(\lfloor\dfrac{N}{p^{i+j}}\rfloor-\lfloor\dfrac{N}{p^{i+j-1}}\rfloor))\\
-=&N\cdot\sum_{j=1}^{+\infty}\lfloor\dfrac{N}{p^j}\rfloor- (\sum_{i=1}^{+\infty}\lfloor\dfrac{N}{p^i}\rfloor\cdot\lfloor\dfrac{N}{p^i}\rfloor)\\
-=&\sum_{i=1}^{+\infty}(N-\lfloor\dfrac{N}{p^i}\rfloor)\cdot\lfloor\dfrac{N}{p^i}\rfloor\\
+&\sum_{i=0}^{+\infty}\sum_{j=i+1}^{+\infty}\left(\left\lfloor\dfrac{N}{p^i}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+1}}\right\rfloor\right)\left(\left\lfloor\dfrac{N}{p^j}\right\rfloor-\left\lfloor\dfrac{N}{p^{j+1}}\right\rfloor\right)\left(j-i\right)\\
+=&\sum_{i=0}^{+\infty}\left(\left\lfloor\dfrac{N}{p^i}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+1}}\right\rfloor\right)\sum_{j=i+1}^{+\infty}\left(\left\lfloor\dfrac{N}{p^j}\right\rfloor-\left\lfloor\dfrac{N}{p^{j+1}}\right\rfloor\right)\left(j-i\right)\\
+=&\sum_{i=0}^{+\infty}\left(\left\lfloor\dfrac{N}{p^i}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+1}}\right\rfloor\right)\sum_{j=1}^{+\infty}\left(\left\lfloor\dfrac{N}{p^{i+j}}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+j+1}}\right\rfloor\right)\cdot j\\
+=&\sum_{i=0}^{+\infty}\left(\left\lfloor\dfrac{N}{p^i}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+1}}\right\rfloor\right)\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^{i+j}}\right\rfloor\\
+=&\left(\sum_{i=0}^{+\infty}\left\lfloor\dfrac{N}{p^i}\right\rfloor\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^{i+j}}\right\rfloor\right)-\left(\sum_{i=0}^{+\infty}\left\lfloor\dfrac{N}{p^{i+1}}\right\rfloor\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^{i+j}}\right\rfloor\right)\\
+=&N\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^j}\right\rfloor+ \left(\sum_{i=1}^{+\infty}\left\lfloor\dfrac{N}{p^i}\right\rfloor\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^{i+j}}\right\rfloor\right)-\left(\sum_{i=1}^{+\infty}\left\lfloor\dfrac{N}{p^{i}}\right\rfloor\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^{i+j-1}}\right\rfloor\right)\\
+=&N\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^j}\right\rfloor+ \left(\sum_{i=1}^{+\infty}\left\lfloor\dfrac{N}{p^i}\right\rfloor\cdot\sum_{j=1}^{+\infty}\left(\left\lfloor\dfrac{N}{p^{i+j}}\right\rfloor-\left\lfloor\dfrac{N}{p^{i+j-1}}\right\rfloor\right)\right)\\
+=&N\cdot\sum_{j=1}^{+\infty}\left\lfloor\dfrac{N}{p^j}\right\rfloor- \left(\sum_{i=1}^{+\infty}\left\lfloor\dfrac{N}{p^i}\right\rfloor\cdot\left\lfloor\dfrac{N}{p^i}\right\rfloor\right)\\
+=&\sum_{i=1}^{+\infty}\left(N-\left\lfloor\dfrac{N}{p^i}\right\rfloor\right)\cdot\left\lfloor\dfrac{N}{p^i}\right\rfloor\\
 \end{aligned}$$
 
 那么计算以下式子只需要计算$O(\sqrt{N}\cdot \log N)$的时间复杂度：
 
-$$\sum_{p\in P,p\le \lfloor\sqrt{N}\rfloor}\sum_{i=1}^{+\infty}(N-\lfloor\dfrac{N}{p^i}\rfloor)\cdot\lfloor\dfrac{N}{p^i}\rfloor\\$$
+$$\sum_{p\in P,p\le \lfloor\sqrt{N}\rfloor}\sum_{i=1}^{+\infty}\left(N-\left\lfloor\dfrac{N}{p^i}\right\rfloor\right)\cdot\left\lfloor\dfrac{N}{p^i}\right\rfloor\\$$
 
 大于$\lfloor\sqrt{N}\rfloor$的质数$p$这一部分贡献如下。注意到，$1\sim N$中，$p$的指数最多为$1$：
 
-$$\sum_{i=2}^{\lfloor\sqrt{N}\rfloor}(\pi(\dfrac{N}{i-1})-\pi(\dfrac{N}{i}))\cdot(i-1)(N-i+1)$$
+$$\sum_{i=2}^{\lfloor\sqrt{N}\rfloor}\left(\pi\left(\dfrac{N}{i-1}\right)-\pi\left(\dfrac{N}{i}\right)\right)\cdot(i-1)(N-i+1)$$
 
-这条式子说明，有$\pi(\dfrac{N}{i-1})-\pi(\dfrac{N}{i})$个质数$p$，满足$1\sim N$中有$i-1$个数是$p$的倍数，它们的贡献为$(i-1)(N-i+1)$。
+这条式子说明，有$\pi\left(\dfrac{N}{i-1}\right)-\pi\left(\dfrac{N}{i}\right)$个质数$p$，满足$1\sim N$中有$i-1$个数是$p$的倍数，它们的贡献为$(i-1)(N-i+1)$。
 
 计算函数$\pi$考虑使用Lehmer公式帮助计算。
 

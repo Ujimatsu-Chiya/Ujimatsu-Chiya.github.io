@@ -21,7 +21,7 @@ Considering natural numbers of the form, $a^b$, where $a, b < 100$, what is the 
 
 ## 解决方案
 
-使用Python直接计算$a^b$的值，并计算出数位的和。
+使用`Python`直接计算$a^b$的值，并计算出数位的和。
 
 ## 代码
 

@@ -48,15 +48,15 @@ Find the minimal path sum from the left column to the right column in [matrix.tx
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &a[i][j]  & & \mathrm{if\quad} j=1 \\
-  &\min_{k=1}^n (f(k,j-1)+\sum_{p=\min(i,k)}^{\max(i,k)} a[p][j]) & & \mathrm{else}
+  &a[i][j]  & & \text{if\quad} j=1 \\
+  &\min_{k=1}^n \left\{f(k,j-1)+\sum_{p=\min(i,k)}^{\max(i,k)} a[p][j]\right\} & & \text{else}
 \end{aligned}\right.
 $$
 在该状态转移方程中，$k$是指当前左边那一列的“终点”，也就是本列的起点。
 
 为求列的子数组和，可以用一个前缀和预处理。
 
-最终答案为$min_{i=1}^n(f(i,n))$。
+最终答案为$\min_{i=1}^n\{f(i,n)\}$。
 
 ## 代码
 

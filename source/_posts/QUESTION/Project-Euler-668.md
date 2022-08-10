@@ -23,21 +23,21 @@ How many square root smooth numbers are there not exceeding $10\,000\,000\,000$?
 
 ## 解决方案
 
-令$N=10^{10}$。我们考虑这个问题的对立：$N$以内有多少个数$n$，满足其最大的质因数$p$大于等于$n$的平方根？也就是说，$p\ge\lfloor\dfrac{n}{p}\rfloor$。
+令$N=10^{10}$。我们考虑这个问题的对立：$N$以内有多少个数$n$，满足其最大的质因数$p$大于等于$n$的平方根？也就是说，$p\ge\left\lfloor\dfrac{n}{p}\right\rfloor$。
 
 假设质数集合为$P$。那么，考虑以每个质数$p$作为这个最大质因数，分开计算。那么，数$p,2p,3p,\dots,(p-1)p,p^2$都是满足要求的数。
 
 因此，题目的答案为
 
-$$N-\sum_{p\in P} \min(p,\lfloor\dfrac{N}{p}\rfloor)=N-\sum_{p\in P,p\le \sqrt{N}}p-\sum_{p\in P,p> \sqrt{N}} \lfloor\dfrac{N}{p}\rfloor$$
+$$N-\sum_{p\in P} \min\left(p,\left\lfloor\dfrac{N}{p}\right\rfloor\right)=N-\sum_{p\in P,p\le \sqrt{N}}p-\sum_{p\in P,p> \sqrt{N}} \left\lfloor\dfrac{N}{p}\right\rfloor$$
 
 对于式子的第二块，直接枚举$\sqrt{N}$以内的质数并相加即可。
 
 对于式子的第三块，可以写成：
 
-$$\sum_{p\in P,p> \sqrt{N}} \lfloor\dfrac{N}{p}\rfloor=\sum_{i=2}^{\lfloor\sqrt{N}\rfloor}(\pi(\dfrac{N}{i-1})-\pi(\dfrac{N}{i}))\cdot(i-1)$$
+$$\sum_{p\in P,p> \sqrt{N}} \left\lfloor\dfrac{N}{p}\right\rfloor=\sum_{i=2}^{\lfloor\sqrt{N}\rfloor}\left(\pi\left(\dfrac{N}{i-1}\right)-\pi\left(\dfrac{N}{i}\right)\right)\cdot(i-1)$$
 
-其中，$\pi(n)$是质数计数函数，即$n$以内的质数个数。这条式子说明，有$\pi(\dfrac{N}{i-1})-\pi(\dfrac{N}{i})$个质数$p$，满足$1\sim N$中有$i-1$个数是$p$的倍数，它们的贡献为$(i-1)$。
+其中，$\pi(n)$是质数计数函数，即$n$以内的质数个数。这条式子说明，有$\pi\left(\dfrac{N}{i-1}\right)-\pi\left(\dfrac{N}{i}\right)$个质数$p$，满足$1\sim N$中有$i-1$个数是$p$的倍数，它们的贡献为$(i-1)$。
 
 计算函数$\pi$考虑使用[Lehmer公式](https://mathworld.wolfram.com/LehmersFormula.html)帮助计算。
 

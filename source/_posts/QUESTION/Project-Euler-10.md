@@ -21,9 +21,9 @@ Find the sum of all the primes below two million.
 
 ## 解决方案
 
-解法与第7题相同。不过此处使用的是sympy中sieve对象的方法primerange(l,r=None)，只有一个参数$l$时，用于生成小于$l$的所有素数；有两个参数$l,r$时，生成的是$[l,r)$内的素数。
+解法与第7题相同。不过此处使用的是`sympy`中`sieve`对象的方法`primerange(l,r=None)`，只有一个参数$l$时，用于生成小于$l$的所有素数；有两个参数$l,r$时，生成的是$[l,r)$内的素数。
 
-该方法将会被封装在自定义的tools工具类中。
+该方法将会被封装在自定义的`tools`工具类中，方法名为`get_prime`。
 
 ## 代码
 
@@ -47,5 +47,6 @@ for i in range(2, N):
         pr.append(i)
         for j in range(i * i, N, i):
             f[j] = 1
-print(sum(pr))
+ans = sum(pr)
+print(ans)
 ```

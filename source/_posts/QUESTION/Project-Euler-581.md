@@ -31,7 +31,7 @@ Find the sum of all indices $n$ such that $T(n)$ is $47$-smooth.
 
 $$x^2-2qy^2=1$$
 
-那么，对这个佩尔方程的前$\max(3,\dfrac{r+1}{2})$个解$(x_i,y_i)$一一进行测试。如果$\dfrac{x_i+1}{2},\dfrac{x_i-1}{2}$都是$P$-smooth的，那么就找到了一个$P$-smooth对。
+那么，对这个佩尔方程的前$\max\left(3,\dfrac{r+1}{2}\right)$个解$(x_i,y_i)$一一进行测试。如果$\dfrac{x_i+1}{2},\dfrac{x_i-1}{2}$都是$P$-smooth的，那么就找到了一个$P$-smooth对。
 
 注意当$q=2$时，佩尔方程无解，因此需要规避这种情况。
 
@@ -45,7 +45,7 @@ $$x^2-2qy^2=1$$
 
 不过，让我比较惊讶的是，Størmer定理的实现效率会比直接搜索更低。
 
-OEIS上的数列[A002072](https://oeis.org/A002072)则给出了最大答案的上限。在FORMULA一栏中，找到
+OEIS上的数列[A002072](https://oeis.org/A002072)则给出了最大答案的上限。在`FORMULA`一栏中，找到
 
 ```
 a(n) < 10^n/n except for n=4. (Conjectured, from experimental data.) - M. F. Hasler, Jan 16 2015

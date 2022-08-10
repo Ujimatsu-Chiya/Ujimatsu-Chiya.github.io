@@ -35,7 +35,7 @@ Find the sum of all distinct pseudo-Fortunate numbers for admissible numbers $N$
 
 那么这些数其实数量很少，并且最大质因子其实也很小，因此考虑直接枚举$N$。
 
-每枚举一个$N$，那么求对应的$M$，相当于求大于$N+1$的下一个质数。一个数的下一个质数通过素性测试算法直接枚举就不难找到。本代码直接使用sympy库的nextprime方法。
+每枚举一个$N$，那么求对应的$M$，相当于求大于$N+1$的下一个质数。一个数的下一个质数通过素性测试算法直接枚举就不难找到。本代码直接使用`sympy`库的`nextprime`方法求下一个质数。
 
 ## 代码
 

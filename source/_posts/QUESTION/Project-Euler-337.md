@@ -26,9 +26,9 @@ Let $S(N)$ be the number of such sequences with $a_n \le N$.
 
 For example, $S(10) = 4: \{6\}, \{6, 8\}, \{6, 8, 9\}$ and $\{6, 10\}$.
 
-We can verify that $S(100) = 482073668$ and $S(10 000) \mod 10^8 = 73808307$.
+We can verify that $S(100) = 482073668$ and $S(10 000) \bmod 10^8 = 73808307$.
 
-Find $S(20 000 000) \mod 10^8$.
+Find $S(20 000 000) \bmod 10^8$.
 
 $^1 \quad \varphi$ denotes **Euler’s totient function**.
 
@@ -36,13 +36,13 @@ $^1 \quad \varphi$ denotes **Euler’s totient function**.
 
 在一个序列中，只有相邻的两个数才会有特定的放置关系，因此很容易想到动态规划的做法。
 
-和往常一样，假设$f(i)(i\ge 6)$为以数$i$为结尾的序列的数量，那么我们可以得到以下状态转移方程：
+和往常一样，假设$f(i)(i\ge 6)$为以数$i$为**结尾**的序列的数量，那么我们可以得到以下状态转移方程：
 
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=6 \\
-  &\sum_{j,\varphi(j)<\varphi(i)<j<i} f(j) & & \mathrm{else}
+  &1  & & \text{if\quad} i=6 \\
+  &\sum_{j,\varphi(j)<\varphi(i)<j<i} f(j) & & \text{else}
 \end{aligned}\right.
 $$
 
@@ -53,8 +53,8 @@ $$
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \mathrm{if\quad} i=N \\
-  &1+\sum_{j,\varphi(i)<\phi(j)<i<j} f(j) & & \mathrm{else}
+  &1  & & \text{if\quad} i=N \\
+  &1+\sum_{j,\varphi(i)<\phi(j)<i<j} f(j) & & \text{else}
 \end{aligned}\right.
 $$
 

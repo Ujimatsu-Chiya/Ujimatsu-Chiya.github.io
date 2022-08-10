@@ -22,7 +22,7 @@ The first five squbes are $72, 108, 200, 392$, and $500$.
 
 Interestingly, $200$ is also the first number for which you cannot change any single digit to make a prime; we shall call such numbers, prime-proof. The next prime-proof sqube which contains the contiguous sub-string "$200$" is $1992008$.
 
-Find the $200\mathrm{th}$ prime-proof sqube containing the contiguous sub-string "$200$".
+Find the $200\text{th}$ prime-proof sqube containing the contiguous sub-string "$200$".
 
 ## 解决方案
 

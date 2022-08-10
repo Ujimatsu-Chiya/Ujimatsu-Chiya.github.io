@@ -3,7 +3,6 @@ title: Project Euler 289
 category:
   - Project Euler
 mathjax: true
-notshow: true
 ---
 <escape><!-- more --></escape>
     

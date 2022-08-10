@@ -29,17 +29,17 @@ Find $S(10^8)$.
 
 令$N=10^8.$
 
-设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\lfloor\dfrac{n}{p}\rfloor+\lfloor\dfrac{n}{p^2}\rfloor+\lfloor\dfrac{n}{p^3}\rfloor+\dots$
+设$f(n, p)$是质因子$p$在$n!$中的次数，那么$f(n,p)=\left\lfloor\dfrac{n}{p}\right\rfloor+\left\lfloor\dfrac{n}{p^2}\right\rfloor+\left\lfloor\dfrac{n}{p^3}\right\rfloor+\dots$
 
 令$n$的分解为$n=\prod_{i=1}^kp_i^{e_i}$，那么不难看出$s(n)$本质上是取决于$n$的分解中，每个$p_i^{e_i}$的分量的$s$函数值。也就是说，
 
-$$s(n)=\max_{i=1}^ks(p_i^{e_i})$$
+$$s(n)=\max_{i=1}^k\{s(p_i^{e_i})\}$$
 
 当求解$s(p_i^{e_i})$时，可以发现$e_i$其实很小，因此可以考虑从小到大枚举$p_i$的倍数$mp_i$，当$f(mp_i,p_i)\ge e_i$时，终止枚举，并且$s(p_i^{e_i})=mp_i.$
 
 最终，通过筛法可以求出$N$以内的所有$s(n)$函数值。
 
-本题似乎可以使用min_25筛法进行优化到亚线性级别的时间复杂度，待补。
+本题似乎可以使用`min_25`筛法进行优化到亚线性级别的时间复杂度，待补。
 
 ## 代码
 

@@ -16,16 +16,16 @@ date: 2022-05-10 13:47:37
 # Project Euler 145
 ## 题目
 ### How many reversible numbers are there below one-billion?
-Some positive integers n have the property that the sum $[ n + \mathrm{reverse}(n) ]$ consists entirely of odd (decimal) digits. For instance, $36 + 63 = 99$ and $409 + 904 = 1313$. We will call such numbers *reversible*; so $36, 63, 409$, and $904$ are reversible. Leading zeroes are not allowed in either n or reverse(n).
+Some positive integers n have the property that the sum $[ n + \text{reverse}(n) ]$ consists entirely of odd (decimal) digits. For instance, $36 + 63 = 99$ and $409 + 904 = 1313$. We will call such numbers *reversible*; so $36, 63, 409$, and $904$ are reversible. Leading zeroes are not allowed in either n or reverse(n).
 
 There are $120$ reversible numbers below one-thousand.
 
-How many reversible numbers are there below one-billion ($10^9$)?
+How many reversible numbers are there below one-billion $(10^9)$?
 
 
 ## 解决方案
 
-首先假设$g(n)=[n+\mathrm{reverse}(n) ]$
+首先假设$g(n)=[n+\text{reverse}(n) ]$
 
 假设$f_1(i)(i>0)$满足以下条件的$i$位数$n$的个数：**无**前导$0$；$g(n)$是一个$i$位数；$g(n)$每一个数位都是奇数。
 
@@ -48,32 +48,32 @@ $f_4(i)(i>0)$：**可能有**前导0；$g(n)$是一个$i$位数；$g(n)$中高$i
 $$
 f_1(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=1 \\
-  &20  & & \mathrm{else if\quad} i=2 \\
-  &20f_2(i-2) & & \mathrm{else}
+  &0  & & \text{if\quad} i=1 \\
+  &20  & & \text{else if\quad} i=2 \\
+  &20f_2(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 $$
 f_2(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=1 \\
-  &30  & & \mathrm{else if\quad} i=2 \\
-  &30f_2(i-2) & & \mathrm{else}
+  &0  & & \text{if\quad} i=1 \\
+  &30  & & \text{else if\quad} i=2 \\
+  &30f_2(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 $$
 f_3(i)=
 \left \{\begin{aligned}
-  &0  & & \mathrm{if\quad} i=1,2 \\
-  &20f_4(i-2) & & \mathrm{else}
+  &0  & & \text{if\quad} i=1,2 \\
+  &20f_4(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 $$
 f_4(i)=
 \left \{\begin{aligned}
-  &5  & & \mathrm{if\quad} i=1 \\
-  &0  & & \mathrm{else if\quad} i=2 \\
-  &25f_3(i-2) & & \mathrm{else}
+  &5  & & \text{if\quad} i=1 \\
+  &0  & & \text{else if\quad} i=2 \\
+  &25f_3(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 这里的每一个初值都是直接暴力计算出来。

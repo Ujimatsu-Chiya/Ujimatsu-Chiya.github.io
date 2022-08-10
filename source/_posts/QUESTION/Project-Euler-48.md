@@ -21,9 +21,9 @@ Find the last ten digits of the series, $1^1 + 2^2 + 3^3 + \dots + 1000^{1000}$.
 
 ## 解决方案
 
-快速幂算法，可以在$O(\log m)$的时间复杂度内计算$a^m \mod p$的值。
+快速幂算法，可以在$O(\log m)$的时间复杂度内计算$a^m \% p$的值。
 
-Python代码如下：
+`Python`代码如下：
 
 ```py
 def quick_power(a: int, m: int, p: int):
@@ -42,11 +42,9 @@ def quick_power(a: int, m: int, p: int):
 
 因此，将幂指数$m$看作是二进制数，如果第$i$位上是$1$，那么就将结果乘上$a^{2^i}$。将所有值累乘起来就得到答案。
 
-由于Python自带pow(a,m,p)，因此直接调用即可。
+由于`Python`自带`pow(a,m,p)`，因此直接调用即可。
 
 ## 代码
-
-## Q48
 
 ```Python
 N = 1000

@@ -25,8 +25,8 @@ Consider points $(T_{2k−1}, T_{2k})$, for integer $k \ge 1$, generated in 
 
 $\begin{aligned}
 S_0  &=   290797\\
-S_{n+1}  &=   {S_n}^2 \mod 50515093\\
-T_n  &=   ( S_n \mod 2000 ) − 1000
+S_{n+1}  &=   {S_n}^2 \bmod 50515093\\
+T_n  &=   ( S_n \bmod 2000 ) − 1000
 \end{aligned}$
 
 For example, the first three points are: $(527, 144), (−488, 732), (−454, −947)$.  Given the first $n$ points generated in this manner, let $L_n$ be the set of **unique** lines that can be formed by joining each point with every other point, the lines being extended indefinitely in both directions.  We can then define $M(L_n)$ and $S(L_n)$ as described above.
