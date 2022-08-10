@@ -48,7 +48,7 @@ Find the sum of digits in the numerator of the $100 ^{\text{th}}$ convergent of 
 
 $$b_{n,i}=
 \left \{\begin{aligned}
-  &a_n  & & \text{if\quad} i=n \\
+  &a_n  & & \text{if}\quad i=n \\
   &a_i+\dfrac{1}{b_{n,i+1}} & & \text{else}
 \end{aligned}\right.
 $$

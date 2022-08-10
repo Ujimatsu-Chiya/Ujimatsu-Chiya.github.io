@@ -49,7 +49,7 @@ $$f(i)=\sum_{j=0}^i\left(\dfrac{\binom{i}{j}}{2^n}\cdot f(j)\right)+1$$
 $$
 f(i)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=0 \\
+  &0  & & \text{if}\quad i=0 \\
   &\dfrac{\sum_{j=0}^{i-1}\binom{i}{j}\cdot f(j)+2^i}{2^i-1} & & \text{else}
 \end{aligned}\right.
 $$

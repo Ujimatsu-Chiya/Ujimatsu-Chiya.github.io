@@ -53,7 +53,7 @@ $$r_3(9^\lambda n) =
 
 $$r_2(n)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} \exists j,f_j\equiv 1\pmod 2 \\
+  &0  & & \text{if}\quad  \exists j,f_j\equiv 1\pmod 2 \\
   &4\prod_i(e_i+1) & & \text{else}
 \end{aligned}\right.
 $$

@@ -56,8 +56,8 @@ T(0, k) = (k+1)*(k+2)/2 for k>=0, T(n, 0) = floor((n+1)^2/2) for n>0, T(n, k+1) 
 $$
 p(f,r)=
 \left \{\begin{aligned}
-  &\dfrac{r(r+1)}{2}  & & \text{if\quad} f=1 \\
-  &\left\lfloor\dfrac{f^2}{2}\right\rfloor & & \text{else if\quad} f>1\land r=1 \\
+  &\dfrac{r(r+1)}{2}  & & \text{if}\quad f=1 \\
+  &\left\lfloor\dfrac{f^2}{2}\right\rfloor & & \text{else if}\quad f>1\land r=1 \\
   &\left(2\cdot\left\lfloor\dfrac{f}{2}\right\rfloor+r-1\right)^2-p(f,r-1) & & \text{else}
 \end{aligned}\right.
 $$
@@ -75,7 +75,7 @@ RSolve[{p[r] + p[r - 1] == (2*Floor[f/2] + r - 1)^2, p[1] == Floor[f^2/2]}, p[r]
 $$
 p(f,r)=
 \left \{\begin{aligned}
-  &\dfrac{r(r+1)}{2} & & \text{if\quad} f=1 \\
+  &\dfrac{r(r+1)}{2} & & \text{if}\quad f=1 \\
   &\dfrac{r(r-1)}{2} +\left\lfloor\dfrac{f}{2}\right\rfloor\cdot\left(\left\lfloor\dfrac{f}{2}\right\rfloor+r-(r+f)\%2\right)& & \text{else}
 \end{aligned}\right.
 $$

@@ -33,8 +33,8 @@ Enter the rightmost $16$ digits as your answer.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land j=0 \\
-  &f(i-1,j) & & \text{else if\quad} j<pr[i] \\
+  &1  & & \text{if}\quad i=0\land j=0 \\
+  &f(i-1,j) & & \text{else if}\quad j<pr[i] \\
   &f(i-1,j)+f(i-1,j-pr[i]) & & \text{else}
 \end{aligned}\right.
 $$

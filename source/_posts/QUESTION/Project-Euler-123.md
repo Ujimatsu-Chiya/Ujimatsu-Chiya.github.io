@@ -32,7 +32,7 @@ Find the least value of $n$ for which the remainder first exceeds $10^{10}$.
 $$
 r(n)=
 \left \{\begin{aligned}
-  &2  & & \text{if\quad} n \equiv 0\pmod 2 \\
+  &2  & & \text{if}\quad n \equiv 0\pmod 2 \\
   &2np_n \%p_n^2 & & \text{else}
 \end{aligned}\right.
 $$

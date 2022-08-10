@@ -51,7 +51,7 @@ a(n) - a(n-1) - a(n-2) + a(n-5) + a(n-7) - a(n-12) - a(n-15) + ... = 0, where th
 $$
 p(n)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} n=0  \\
+  &1  & & \text{if}\quad n=0  \\
   &\sum_{|m|\ge1,\frac{m(3m-1)}{2}\leq n}(-1)^{m+1}p\left(n-\frac{m(3m-1)}{2}\right) & & \text{else}
 \end{aligned}\right.
 $$

@@ -34,8 +34,8 @@ How many double pandigital numbers are divisible by $11$?
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} \sum_{k=0}^9i_k=1\land i=3^j \\
-  &0 & & \text{else if\quad} \sum_{k=0}^9i_k=1 \\
+  &1  & & \text{if}\quad \sum_{k=0}^9i_k=1\land i=3^j \\
+  &0 & & \text{else if}\quad \sum_{k=0}^9i_k=1 \\
   &\sum_{\substack{0<k<10,\\i_k>0,\\(10x+k)\%M=j}} f(i-3^k,x) & & \text{else}
 \end{aligned}\right.
 $$

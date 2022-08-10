@@ -33,9 +33,9 @@ NOTE: This is related to <a href="/Problem101-125/#Problem_116">Problem 116</a>.
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0, 1 \\
-  &2  & & \text{else if\quad} i=2\\
-  &4  & & \text{else if\quad} i=3 \\
+  &1  & & \text{if}\quad i=0, 1 \\
+  &2  & & \text{else if}\quad i=2\\
+  &4  & & \text{else if}\quad i=3 \\
   &f(i-1)+f(i-2)+f(i-3)+f(1-4) & & \text{else}
 \end{aligned}\right.
 $$

@@ -73,8 +73,8 @@ $$s(d)=\sum_{i=0}^{k-1}d_i\equiv \sum_{i=0}^{k-1}d_i10^i \pmod {10}$$
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1 \\
-  &\max(r(i),\max_{d\in D_i}\{f(d)+f(\dfrac{i}{d})\})  & & \text{else}
+  &1  & & \text{if}\quad i=1 \\
+  &\max\left(r(i),\max_{d\in D_i}\left\{f(d)+f\left(\dfrac{i}{d}\right)\right\}\right)  & & \text{else}
 \end{aligned}\right.
 $$
 

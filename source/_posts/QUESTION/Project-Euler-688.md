@@ -33,7 +33,7 @@ Find $S(10^{16})$ giving your answer modulo $1\,000\,000\,007$.
 $$
 f(n,k)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} n<\dfrac{k(k+1)}{2} \\
+  &0  & & \text{if}\quad  n<\dfrac{k(k+1)}{2} \\
   &1+\left\lfloor\dfrac{n}{k}-\dfrac{k+1}{2}\right\rfloor & & \text{else}
 \end{aligned}\right.
 $$

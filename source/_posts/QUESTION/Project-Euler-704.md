@@ -47,9 +47,9 @@ Find $S(10^{16})$.
 $$
 S(n)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} n=1 \\
-  &(i-3)\cdot 2^i+i+3 & & \text{else if\quad} \exists i,2^i-1=n \\
-  &S(f(n))+S\left(n-\dfrac{f(n)+1}{2}\right)-S\left(\dfrac{f(n)-1}{2}\right)+n-f(n) & & \text{else if\quad} n\le \dfrac{3f(n)+1}{2} \\
+  &0 & & \text{if}\quad  n=1 \\
+  &(i-3)\cdot 2^i+i+3 & & \text{else if}\quad  \exists i,2^i-1=n \\
+  &S(f(n))+S\left(n-\dfrac{f(n)+1}{2}\right)-S\left(\dfrac{f(n)-1}{2}\right)+n-f(n) & & \text{else if}\quad  n\le \dfrac{3f(n)+1}{2} \\
   &2S(f(n))-2S\left(\dfrac{f(n)-1}{2}\right)+S(n-f(n)-1)+n-f(n)& & \text{else}
 \end{aligned}\right.
 $$

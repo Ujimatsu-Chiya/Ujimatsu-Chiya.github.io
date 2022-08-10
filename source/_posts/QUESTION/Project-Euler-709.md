@@ -38,7 +38,7 @@ Find $f(24\,680)$ giving your answer modulo $1\,020\,202\,009$.
 $$
 f(n)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} n=0\lor n=1 \\
+  &1  & & \text{if}\quad  n=0\lor n=1 \\
   &f(n)=\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\dbinom{n-1}{2k}\cdot f(2k)\cdot f(n-1-2k) & & \text{else}
 \end{aligned}\right.
 $$

@@ -35,7 +35,7 @@ Give your answer rounded to $12$ places behind the decimal point in the form $0.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &i!  & & \text{if\quad} j=0 \\
+  &i!  & & \text{if}\quad j=0 \\
   &f(i,j-1)-f(i-1,j-1)& & \text{else}
 \end{aligned}\right.
 $$

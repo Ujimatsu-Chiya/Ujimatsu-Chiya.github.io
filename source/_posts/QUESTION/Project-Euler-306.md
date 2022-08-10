@@ -64,7 +64,7 @@ $$sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots \oplus sg(n_k)$$
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} n\le 1 \\
+  &0 & & \text{if}\quad n\le 1 \\
   &\text{mex}(\{sg(i)\oplus sg(n-2-i)|0\le i\le n-2-i\}) & & \text{else}
 \end{aligned}\right.
 $$

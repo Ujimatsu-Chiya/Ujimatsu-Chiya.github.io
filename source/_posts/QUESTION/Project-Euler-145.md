@@ -48,31 +48,31 @@ $f_4(i)(i>0)$：**可能有**前导0；$g(n)$是一个$i$位数；$g(n)$中高$i
 $$
 f_1(i)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=1 \\
-  &20  & & \text{else if\quad} i=2 \\
+  &0  & & \text{if}\quad i=1 \\
+  &20  & & \text{else if}\quad i=2 \\
   &20f_2(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 $$
 f_2(i)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=1 \\
-  &30  & & \text{else if\quad} i=2 \\
+  &0  & & \text{if}\quad i=1 \\
+  &30  & & \text{else if}\quad i=2 \\
   &30f_2(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 $$
 f_3(i)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=1,2 \\
+  &0  & & \text{if}\quad i=1,2 \\
   &20f_4(i-2) & & \text{else}
 \end{aligned}\right.
 $$
 $$
 f_4(i)=
 \left \{\begin{aligned}
-  &5  & & \text{if\quad} i=1 \\
-  &0  & & \text{else if\quad} i=2 \\
+  &5  & & \text{if}\quad i=1 \\
+  &0  & & \text{else if}\quad i=2 \\
   &25f_3(i-2) & & \text{else}
 \end{aligned}\right.
 $$

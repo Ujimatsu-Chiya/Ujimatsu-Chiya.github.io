@@ -69,8 +69,8 @@ for n in range(2, N):
 $$
 s(m,n)=
 \left \{\begin{aligned}
-  &6m+2n-13  & & \text{if\quad} m>n \\
-  &8m-11 & & \text{else if\quad} m=n \\
+  &6m+2n-13  & & \text{if}\quad m>n \\
+  &8m-11 & & \text{else if}\quad m=n \\
   &s(n,m) & & \text{else}
 \end{aligned}\right.
 $$

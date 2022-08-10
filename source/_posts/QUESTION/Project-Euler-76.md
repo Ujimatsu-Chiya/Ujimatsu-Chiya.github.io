@@ -38,8 +38,8 @@ How many different ways can one hundred be written as a sum of at least two posi
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} j=0 \lor i=1 \\
-  &f(i-1,j)  & & \text{else if\quad} j<i \\
+  &1  & & \text{if}\quad j=0 \lor i=1 \\
+  &f(i-1,j)  & & \text{else if}\quad j<i \\
   &f(i-1,j)+f(i,j-i) & & \text{else}
 \end{aligned}\right.
 $$

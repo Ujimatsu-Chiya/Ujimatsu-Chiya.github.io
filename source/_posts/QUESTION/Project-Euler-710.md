@@ -45,7 +45,7 @@ However, your challenge to the "ultimatest" question of life, the universe, and 
 $$
 f_0(i)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} i\le1 \\
+  &1 & & \text{if}\quad  i\le1 \\
   &\sum_{j=1}^{i} f_0(i-j)-f_0(i-2)& & \text{else}
 \end{aligned}\right.
 $$
@@ -57,7 +57,7 @@ $$
 $$
 f_1(i)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} i\le1 \\
+  &0 & & \text{if}\quad  i\le1 \\
   &\sum_{j=1}^{i} f_1(i-j)+f_0(i-2)& & \text{else}
 \end{aligned}\right.
 $$

@@ -32,8 +32,8 @@ How many palindromes less than $10^{32}$ are divisible by $10\,000\,019\,$ ?
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} i=1\land j=0 \\
-  &0 & & \text{else if\quad} i=1 \\
+  &1 & & \text{if}\quad  i=1\land j=0 \\
+  &0 & & \text{else if}\quad  i=1 \\
   &\sum_{d=0}^9\sum_{(k+c[i]\cdot d)\%p=j} f(i-1,k) & & \text{else}
 \end{aligned}\right.
 $$

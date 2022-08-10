@@ -60,7 +60,7 @@ Find the Matrix Sum of:
 $$
 f(st)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} st=0 \\
+  &0  & & \text{if}\quad st=0 \\
   &\max_{i=0,st\&2^i>0}^{N-1} \{f(st\oplus2^i)+a[c(st)-1][i]\}& & \text{else}
 \end{aligned}\right.
 $$

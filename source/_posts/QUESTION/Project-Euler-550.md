@@ -40,7 +40,7 @@ Find $f(10^7,10^{12})$.Give your answer modulo $987654321$.
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} n=1 \\
+  &0 & & \text{if}\quad  n=1 \\
   &\text{mex}(\{sg(d_1)\oplus sg(d_2)|1<d_1\le d_2<n,d_1\mid n,d_2\mid n\}) & & \text{else}
 \end{aligned}\right.
 $$
@@ -60,8 +60,8 @@ $$
 $$
 g(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land j=0 \\
-  &0 & & \text{else if\quad} i=0 \\
+  &1  & & \text{if}\quad  i=0\land j=0 \\
+  &0 & & \text{else if}\quad  i=0 \\
   &\sum_{k=0}^{2^6-1} g(i-1,j\oplus k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$

@@ -42,8 +42,8 @@ What is $f(10^{25})$?
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1 \\
-  &f\left(\dfrac{i-1}{2}\right) & & \text{else if\quad} i \equiv 1 \pmod 2 \\
+  &1  & & \text{if}\quad i=1 \\
+  &f\left(\dfrac{i-1}{2}\right) & & \text{else if}\quad i \equiv 1 \pmod 2 \\
   &f\left(\dfrac{i}{2}\right)+f\left(\dfrac{i-2}{2}\right)  & & \text{else}
 \end{aligned}\right.
 $$

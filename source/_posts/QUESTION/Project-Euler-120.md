@@ -42,7 +42,7 @@ $r(a,n) \equiv \dbinom{n}{1}a\cdot(-1)^{n-1}+\dbinom{n}{0}(-1)^n+\dbinom{n}{1}a\
 $$
 r(a,n)=
 \left \{\begin{aligned}
-  &2  & & \text{if\quad} n \equiv 0 \pmod 2 \\
+  &2  & & \text{if}\quad n \equiv 0 \pmod 2 \\
   &2an \%a^2 & & \text{else}
 \end{aligned}\right.
 $$
@@ -56,7 +56,7 @@ $$
 $$
 r_{\max}(a)=
 \left \{\begin{aligned}
-  &a(a-2)  & & \text{if\quad} a \equiv 0 \pmod 2 \\
+  &a(a-2)  & & \text{if}\quad a \equiv 0 \pmod 2 \\
   &a(a-1) & & \text{else}
 \end{aligned}\right.
 $$

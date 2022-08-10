@@ -37,10 +37,10 @@ How many pandigital step numbers less than $10^{40}$ are there?
 $$
 f(i,l,r,d)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1\land l=r\land r=d \\
-  &0 & & \text{else if\quad} i=1\lor l=r\\
-  &f(i-1,l,r,d+1)+f(i-1,l+1,r,d+1) & & \text{else if\quad} l=d \\
-  &f(i-1,l,r,d-1)+f(i-1,l,r-1,d-1) & & \text{else if\quad} r=d \\
+  &1  & & \text{if}\quad i=1\land l=r\land r=d \\
+  &0 & & \text{else if}\quad i=1\lor l=r\\
+  &f(i-1,l,r,d+1)+f(i-1,l+1,r,d+1) & & \text{else if}\quad l=d \\
+  &f(i-1,l,r,d-1)+f(i-1,l,r-1,d-1) & & \text{else if}\quad r=d \\
   &f(i-1,l,r,d+1)+f(i-1,l,r,d-1) & & \text{else}
 \end{aligned}\right.
 $$

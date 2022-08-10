@@ -37,7 +37,7 @@ $$g(r_1,r_2)=\sqrt{(r_1+r_2)^2-(r_1+r_2-d)^2}$$
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &r_j  & & \text{if\quad} i=2^j \\
+  &r_j  & & \text{if}\quad i=2^j \\
   &\min_{0\le k<n,(i\oplus 2^j)_{k}=1} f(i\oplus 2^k,k)+g(r_k,r_j) & & \text{else}
 \end{aligned}\right.
 $$

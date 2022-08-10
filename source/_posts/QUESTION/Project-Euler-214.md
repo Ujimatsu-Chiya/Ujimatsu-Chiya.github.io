@@ -47,7 +47,7 @@ What is the sum of all primes less than $40000000$ which generate a chain of len
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1 \\
+  &1  & & \text{if}\quad i=1 \\
   &f(\varphi(i))+1 & & \text{else}
 \end{aligned}\right.
 $$

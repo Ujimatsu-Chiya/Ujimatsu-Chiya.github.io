@@ -80,9 +80,9 @@ Find the maximum total from top to bottom of the triangle below:
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &a[i][j]  & & \text{if\quad} i=j=1 \\
-  &f(i-1,j-1)+a[i][j] & & \text{else if\quad} j=i \\
-  &f(i-1,j)+a[i][j] & & \text{else if\quad} j=1 \\
+  &a[i][j]  & & \text{if}\quad i=j=1 \\
+  &f(i-1,j-1)+a[i][j] & & \text{else if}\quad j=i \\
+  &f(i-1,j)+a[i][j] & & \text{else if}\quad j=1 \\
   &\max(f(i-1,j-1),f(i-1,j)) + a[i][j] & & \text{else}
 \end{aligned}\right.
 $$

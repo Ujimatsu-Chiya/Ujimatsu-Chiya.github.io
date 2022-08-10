@@ -34,7 +34,7 @@ Find $T(47) \bmod 3^{15}$.
 $$
 c(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1 \\
+  &1  & & \text{if}\quad i=1 \\
   &\sum_{k=0}^{\min(j,10)} c(i-1,j-k) & & \text{else}
 \end{aligned}\right.
 $$
@@ -46,7 +46,7 @@ $$
 $$
 s(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1 \\
+  &1  & & \text{if}\quad i=1 \\
   &\sum_{k=0}^{\min(j,10)} 10 s(i-1,j-k)+k\cdot c(i-1)(j-k) & & \text{else}
 \end{aligned}\right.
 $$

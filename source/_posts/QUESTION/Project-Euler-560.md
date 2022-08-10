@@ -50,7 +50,7 @@ $$c_k=\sum_{i \circ j=k} a_i\cdot b_j$$
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} n=0 \\
+  &0 & & \text{if}\quad  n=0 \\
   &\text{mex}(\{sg(n-d)|\gcd(i,d)=1\}) & & \text{else}
 \end{aligned}\right.
 $$
@@ -94,8 +94,8 @@ int main(){
 $$
 g(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land j=0 \\
-  &0 & & \text{else if\quad} i=0 \\
+  &1  & & \text{if}\quad  i=0\land j=0 \\
+  &0 & & \text{else if}\quad  i=0 \\
   &\sum_{k} g(i-1,j\oplus k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$

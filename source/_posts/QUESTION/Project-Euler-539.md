@@ -49,7 +49,7 @@ a(n) = 2 * (floor(n/2) + 1 - a(floor(n/2))) for n > 1. See Zhang's solution. - Z
 $$
 P(n)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} n=1 \\
+  &1  & & \text{if}\quad  n=1 \\
   &2\left(\left\lfloor\dfrac{n}{2}\right\rfloor+1-P\left(\left\lfloor\dfrac{n}{2}\right\rfloor\right)\right) & & \text{else}
 \end{aligned}\right.
 $$

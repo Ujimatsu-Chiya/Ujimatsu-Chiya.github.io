@@ -59,8 +59,8 @@ Give your answer rounded to six decimal places.
 $$
 f(i,j,k)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} i=1\land j=1 \\
-  &0 & & \text{else if\quad} i=1\lor j\le 0\lor j> k \\
+  &1 & & \text{if}\quad i=1\land j=1 \\
+  &0 & & \text{else if}\quad i=1\lor j\le 0\lor j> k \\
   &j\cdot f(i-1,j-1,k)+j\cdot f(i-1,j+1,k)+2j\cdot f(i-1,j,k)& & \text{else}
 \end{aligned}\right.
 $$

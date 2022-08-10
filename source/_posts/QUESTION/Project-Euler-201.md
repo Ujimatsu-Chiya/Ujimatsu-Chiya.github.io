@@ -70,9 +70,9 @@ Determine the sum of all integers which are the sum of exactly one of the $50$-e
 $$
 f(i,j,k)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land j=0\land k=0 \\
-  &0  & & \text{else if\quad} i=0 \\
-  &f(i-1,j,k) & & \text{else if\quad} j<i^2 \\
+  &1  & & \text{if}\quad i=0\land j=0\land k=0 \\
+  &0  & & \text{else if}\quad i=0 \\
+  &f(i-1,j,k) & & \text{else if}\quad j<i^2 \\
   &f(i-1,j,k)+f(i-1,j-1,k-i^2) & & \text{else}
 \end{aligned}\right.
 $$

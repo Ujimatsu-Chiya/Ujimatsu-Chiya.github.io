@@ -33,9 +33,9 @@ Give your answer rounded to eight decimal places in the form $0.abcdefgh$
 
 $$I(x)=\int_{0}^x f(x)dx=
 \left \{\begin{aligned}
-  &\dfrac{I(2x)}{4}+\dfrac{x^2}{2}  & & \text{if\quad} 0\le x\le \dfrac{1}{2} \\
-  &\dfrac{1}{2}-I(1-x)  & & \text{if\quad} \dfrac{1}{2}\le x\le 1 \\
-  &\dfrac{n}{2}+I(x-n)  & & \text{if\quad} n\le x\le(n+1) \\
+  &\dfrac{I(2x)}{4}+\dfrac{x^2}{2}  & & \text{if}\quad 0\le x\le \dfrac{1}{2} \\
+  &\dfrac{1}{2}-I(1-x)  & & \text{if}\quad \dfrac{1}{2}\le x\le 1 \\
+  &\dfrac{n}{2}+I(x-n)  & & \text{if}\quad n\le x\le(n+1) \\
 \end{aligned}\right.
 $$
 

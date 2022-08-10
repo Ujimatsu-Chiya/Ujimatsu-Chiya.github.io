@@ -36,9 +36,9 @@ Find the maximum prize fund that should be allocated to a single game in which f
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land j=0 \\
-  &f(i-1,j) \cdot \dfrac{i}{i+1}  & & \text{if\quad} j=0\\
-  &f(i-1,j-1) \cdot \dfrac{1}{i+1}  & & \text{if\quad} j=i\\
+  &1  & & \text{if}\quad i=0\land j=0 \\
+  &f(i-1,j) \cdot \dfrac{i}{i+1}  & & \text{else if}\quad j=0\\
+  &f(i-1,j-1) \cdot \dfrac{1}{i+1}  & & \text{else if}\quad j=i\\
   &f(i-1,j) \cdot \dfrac{i}{i+1} + f(i-1,j-1) \cdot \dfrac{1}{i+1} & & \text{else}
 \end{aligned}\right.
 $$

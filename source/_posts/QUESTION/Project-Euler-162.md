@@ -40,9 +40,9 @@ Give your answer as a hexadecimal number.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &2  & & \text{if\quad} i=1\land j=1 \\
-  &13 & & \text{else if\quad} i=1\land j=0\\
-  &13f(i-1,j) & & \text{else if\quad} j=0\\
+  &2  & & \text{if}\quad i=1\land j=1 \\
+  &13 & & \text{else if}\quad i=1\land j=0\\
+  &13f(i-1,j) & & \text{else if}\quad j=0\\
   &(13+j)f(i-1,j)+(4-j)f(i-1,j-1) & & \text{else}
 \end{aligned}\right.
 $$

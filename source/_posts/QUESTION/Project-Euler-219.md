@@ -45,7 +45,7 @@ What is $\text{Cost}(10^9)$?
 $$
 c(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i\le 3  \\
+  &1  & & \text{if}\quad i\le 3  \\
   &c(i-1)+c(i-4) & & \text{else}
 \end{aligned}\right.
 $$
@@ -57,7 +57,7 @@ $$
 $$
 s(i)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i\le 3  \\
+  &0  & & \text{if}\quad i\le 3  \\
   &s(i-1)+s(i-4)+c(i-1)+4c(i-4) & & \text{else}
 \end{aligned}\right.
 $$

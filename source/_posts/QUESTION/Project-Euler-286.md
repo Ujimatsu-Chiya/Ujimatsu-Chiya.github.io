@@ -33,9 +33,9 @@ Find $q$ and give your answer rounded to $10$ decimal places.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=0 \\
-  &f(i-1,j)\cdot\dfrac{i}{q} & & \text{else if\quad} j=0 \\
-  &f(i-1,j-1)\cdot\left(1-\dfrac{i}{q}\right) & & \text{else if\quad} j=i \\
+  &0  & & \text{if}\quad i=0 \\
+  &f(i-1,j)\cdot\dfrac{i}{q} & & \text{else if}\quad j=0 \\
+  &f(i-1,j-1)\cdot\left(1-\dfrac{i}{q}\right) & & \text{else if}\quad j=i \\
   &f(i-1,j)\cdot\dfrac{i}{q} + f(i-1,j-1)\cdot\left(1-\dfrac{i}{q}\right)& & \text{else}
 \end{aligned}\right.
 $$

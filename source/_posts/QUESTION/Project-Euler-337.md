@@ -41,7 +41,7 @@ $^1 \quad \varphi$ denotes **Euler’s totient function**.
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=6 \\
+  &1  & & \text{if}\quad i=6 \\
   &\sum_{j,\varphi(j)<\varphi(i)<j<i} f(j) & & \text{else}
 \end{aligned}\right.
 $$
@@ -53,7 +53,7 @@ $$
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=N \\
+  &1  & & \text{if}\quad i=N \\
   &1+\sum_{j,\varphi(i)<\phi(j)<i<j} f(j) & & \text{else}
 \end{aligned}\right.
 $$

@@ -52,8 +52,8 @@ Find $f(10)$.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land j=0 \\
-  &0 & & \text{else if\quad} i=0 \\
+  &1  & & \text{if}\quad i=0\land j=0 \\
+  &0 & & \text{else if}\quad i=0 \\
   &\sum_{st\in pre[j]} f(i-1,st) & & \text{else}
 \end{aligned}\right.
 $$

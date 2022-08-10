@@ -53,8 +53,8 @@ f(i,j)=&w_1\cdot w_2(T)\cdot f(i-1,g(j,T))+l_1\cdot w_2(T)\cdot f(i,g(j,T))+\\
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} j=0 \\
-  &0 & & \text{else if\quad} i=0 \\
+  &1 & & \text{if}\quad j=0 \\
+  &0 & & \text{else if}\quad i=0 \\
   &\max_{2^{T-2}\le j}\{\dfrac{w_1\cdot w_2(T)\cdot f(i-1,g(j,T))+l_1\cdot w_2(T)\cdot f(i,g(j,T))+w_1\cdot l_2(T)\cdot f(i-1,j)}{1-l_1\cdot l_2(T)}\} & & \text{else}
 \end{aligned}\right.
 $$

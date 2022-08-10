@@ -42,7 +42,7 @@ $$f_k(n)=\sum_{i=1}^n i^k=\dfrac{n^{k+1}}{k+1}+\dfrac{1}{2}n^k+\sum_{i=2}^{k} \d
 
 $$B_n^{+}=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} n=0 \\
+  &1 & & \text{if}\quad n=0 \\
   &1-\sum_{k=0}^{n-1} B_k^{+}\cdot \dfrac{n!}{k!(n-k+1)!}& & \text{else}
 \end{aligned}\right.
 $$

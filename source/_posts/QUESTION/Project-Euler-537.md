@@ -49,8 +49,8 @@ Find $T(20 000, 20 000) \bmod 1 004 535 809$.
 $$
 T(i,j)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} i=0\land j=0 \\
-  &0 & & \text{else if\quad} i=0 \\
+  &1 & & \text{if}\quad  i=0\land j=0 \\
+  &0 & & \text{else if}\quad  i=0 \\
   &\sum_{k=0}^j T(i-1,j-k) \cdot c[k] & & \text{else}
 \end{aligned}\right.
 $$

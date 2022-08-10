@@ -50,7 +50,7 @@ Finally, find the greatest sum of (any number of) adjacent entries in any direct
 $$
 f(i)=
 \left \{\begin{aligned}
-  &a[i]  & & \text{if\quad} i=1 \\
+  &a[i]  & & \text{if}\quad i=1 \\
   &\max(a[i],f(i-1)+a[i]) & & \text{else}
 \end{aligned}\right.
 $$

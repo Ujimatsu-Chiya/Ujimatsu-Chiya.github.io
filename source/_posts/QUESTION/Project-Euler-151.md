@@ -51,7 +51,7 @@ Give your answer rounded to six decimal places using the format x.xxxxxx.
 $$
 f(i_1,i_2,i_3,i_4,i_5)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} \sum_{k=1}^5 i_k=0 \\
+  &0  & & \text{if}\quad \sum_{k=1}^5 i_k=0 \\
   &\sum_{1\le j\le 5,i_j>0}f(\dots,i_{j-1},i_{j}-1,i_{j+1}+1,\dots)\dfrac{i_k}{\sum_{k=1}^5i_k}+\left[\sum_{k=1}^5i_k=1\right] & & \text{else}
 \end{aligned}\right.
 $$

@@ -48,7 +48,7 @@ Find the minimal path sum from the left column to the right column in [matrix.tx
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &a[i][j]  & & \text{if\quad} j=1 \\
+  &a[i][j]  & & \text{if}\quad j=1 \\
   &\min_{k=1}^n \left\{f(k,j-1)+\sum_{p=\min(i,k)}^{\max(i,k)} a[p][j]\right\} & & \text{else}
 \end{aligned}\right.
 $$

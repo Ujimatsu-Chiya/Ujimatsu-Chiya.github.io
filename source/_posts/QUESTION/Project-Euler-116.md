@@ -47,7 +47,7 @@ NOTE: This is related to <a href="/Problem101-125/#Problem_117">Problem 117</a>.
 $$
 f_m(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i<m \\
+  &1  & & \text{if}\quad i<m \\
   &f_m(i-m)+f_m(i-1) & & \text{else}
 \end{aligned}\right.
 $$

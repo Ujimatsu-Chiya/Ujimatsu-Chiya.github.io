@@ -42,9 +42,9 @@ Give your answer as a fraction $p/q$ in reduced form.
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &\dfrac{1}{M}  & & \text{if\quad} i=0 \\
-  &f(i-1,j+1)\cdot q_M(j+1)\cdot p(j+1,s[i-1]) & & \text{else if\quad} j=1 \\
-  &f(i-1,j-1)\cdot q_M(j-1)\cdot p(j-1,s[i-1]) & & \text{else if\quad} j=M \\
+  &\dfrac{1}{M}  & & \text{if}\quad i=0 \\
+  &f(i-1,j+1)\cdot q_M(j+1)\cdot p(j+1,s[i-1]) & & \text{else if}\quad j=1 \\
+  &f(i-1,j-1)\cdot q_M(j-1)\cdot p(j-1,s[i-1]) & & \text{else if}\quad j=M \\
   &f(i-1,j+1)\cdot q_M(j+1)\cdot p(j+1,s[i-1])+f(i-1,j-1)\cdot q_M(j-1)\cdot p(j-1,s[i-1])& & \text{else}
 \end{aligned}\right.
 $$

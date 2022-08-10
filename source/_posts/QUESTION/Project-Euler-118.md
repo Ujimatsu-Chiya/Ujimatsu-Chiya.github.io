@@ -41,9 +41,9 @@ How many distinct sets containing each of the digits one through nine exactly on
 $$
 f(i,st)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0\land st=0 \\
-  &0  & & \text{else if\quad} i=0 \\
-  &f(i-1,st)  & & \text{else if\quad} st\land i\neq i \\
+  &1  & & \text{if}\quad i=0\land st=0 \\
+  &0  & & \text{else if}\quad i=0 \\
+  &f(i-1,st)  & & \text{else if}\quad st\land i\neq i \\
   &f(i-1,st)+f(i-1,st \oplus i) \times cnt[i] & & \text{else}
 \end{aligned}\right.
 $$

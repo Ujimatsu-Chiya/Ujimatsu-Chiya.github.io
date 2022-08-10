@@ -37,8 +37,8 @@ How many numbers below a googol ($10^{100}$) are not bouncy?
 $$
 f(i,d)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=1\land d=0 \\
-  &1  & & \text{else if\quad} i=1 \\
+  &0  & & \text{if}\quad i=1\land d=0 \\
+  &1  & & \text{else if}\quad i=1 \\
   &\sum_{j=0}^d f(i-1,j) & & \text{else}
 \end{aligned}\right.
 $$
@@ -48,8 +48,8 @@ $$
 $$
 g(i,d)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i=1\land d=0 \\
-  &1  & & \text{else if\quad} i=1 \\
+  &0  & & \text{if}\quad i=1\land d=0 \\
+  &1  & & \text{else if}\quad i=1 \\
   &\sum_{j=d}^9 g(i-1,j) & & \text{else}
 \end{aligned}\right.
 $$

@@ -35,7 +35,7 @@ Let n = (2^a0)*(p1^a1)*...*(pk^ak). Then a(n) = [(2*a0 - 1)*(2*a1 + 1)*(2*a2 + 1
 $$
 f(n)=
 \left \{\begin{aligned}
-  &\dfrac{(2e_0-1) \prod_{i=1}^k(2e_i+1)-1}{2}  & & \text{if\quad} e_0>0 \\
+  &\dfrac{(2e_0-1) \prod_{i=1}^k(2e_i+1)-1}{2}  & & \text{if}\quad e_0>0 \\
   &\dfrac{\prod_{i=1}^k(2e_i+1)-1}{2} & & \text{else}
 \end{aligned}\right.
 $$

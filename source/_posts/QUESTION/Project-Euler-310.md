@@ -52,7 +52,7 @@ $$sg(n)=sg(n_1)\oplus sg(n_2)\oplus \dots \oplus sg(n_k)$$
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} n=0 \\
+  &0 & & \text{if}\quad n=0 \\
   &\text{mex}(\{sg(n-i^2)|1\le i^2\le n\}) & & \text{else}
 \end{aligned}\right.
 $$

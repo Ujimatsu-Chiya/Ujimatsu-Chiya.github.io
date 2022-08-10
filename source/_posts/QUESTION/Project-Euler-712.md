@@ -39,7 +39,7 @@ $$\varphi(x,a)=x-\sum_{i=1}^a\left\lfloor\dfrac{x}{p_i}\right\rfloor+\sum_{1\le 
 $$
 \varphi(x,a)=
 \left \{\begin{aligned}
-  &\left\lceil\dfrac{x}{2}\right\rceil  & & \text{if\quad}x=0\lor a=1 \\
+  &\left\lceil\dfrac{x}{2}\right\rceil  & & \text{if}\quad x=0\lor a=1 \\
   &\varphi(x,a-1)-\varphi\left(\left\lfloor\dfrac{x}{p_a}\right\rfloor,a-1\right) & & \text{else}
 \end{aligned}\right.
 $$

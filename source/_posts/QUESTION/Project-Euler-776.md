@@ -49,8 +49,8 @@ $$F(N)=\sum_{n=1}^{N}\dfrac{n}{d(n)}=\sum_{k=1}^{+\infty}\dfrac{1}{k}\cdot\left(
 $$
 c_0(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1\land j<d_1 \\
-  &0 & & \text{else if\quad} i=1 \\
+  &1  & & \text{if}\quad  i=1\land j<d_1 \\
+  &0 & & \text{else if}\quad  i=1 \\
   &\sum_{k=0}^{\min(9,n)} c_0(i-1,j-k)+\sum_{k=0}^{\min(9,n,d_i-1)} c_1(i-1,j-k) & & \text{else}
 \end{aligned}\right.
 $$
@@ -62,8 +62,8 @@ $$
 $$
 s_0(i,j)=
 \left \{\begin{aligned}
-  &j  & & \text{if\quad} i=1\land j<d_1 \\
-  &0 & & \text{else if\quad} i=1 \\
+  &j  & & \text{if}\quad  i=1\land j<d_1 \\
+  &0 & & \text{else if}\quad  i=1 \\
   &\sum_{k=0}^{\min(9,n)} (10\cdot s_0(i-1,j-k)+ k\cdot c_0(i-1,j-k))+\\
   &\sum_{k=0}^{\min(9,n,d_i-1)} (10\cdot s_1(i-1,j-k)+ k\cdot c_1(i-1,j-k)) & & \text{else}
 \end{aligned}\right.

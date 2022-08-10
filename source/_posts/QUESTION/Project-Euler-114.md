@@ -33,7 +33,7 @@ NOTE: Although the example above does not lend itself to the possibility, in gen
 $$
 f(i)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0 \\
+  &1  & & \text{if}\quad i=0 \\
   &f(i-1)+g(i-1) & & \text{else}
 \end{aligned}\right.
 $$
@@ -41,7 +41,7 @@ $$
 $$
 g(i)=
 \left \{\begin{aligned}
-  &0  & & \text{if\quad} i<m \\
+  &0  & & \text{if}\quad i<m \\
   &\sum_{i=0}^{i-m}f(i) & & \text{else}
 \end{aligned}\right.
 $$

@@ -29,8 +29,8 @@ How many squarefree numbers are there below $2^{50}$?
 $$
 \mu(n)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} n=1 \\
-  &0 & & \text{else if\quad} \exists m\in[1,k],e_m>1 \\
+  &1 & & \text{if}\quad n=1 \\
+  &0 & & \text{else if}\quad \exists m\in[1,k],e_m>1 \\
   &(-1)^k & & \text{else}
 \end{aligned}\right.
 $$

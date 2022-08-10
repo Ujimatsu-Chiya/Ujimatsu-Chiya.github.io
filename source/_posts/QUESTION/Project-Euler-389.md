@@ -38,7 +38,7 @@ Find the variance of $I$, and give your answer rounded to $4$ decimal places.
 $$
 g_m(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0 \\
+  &1  & & \text{if}\quad i=0 \\
   &\sum_{k=\max(j-m,0)}^{j-1}\dfrac{g_m(i-1,k)}{m} & & \text{else}
 \end{aligned}\right.
 $$
@@ -50,7 +50,7 @@ $$
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=0 \\
+  &1  & & \text{if}\quad i=0 \\
   &\sum_{k=1}^jf(i-1,k)\cdot g_{d[i]}(k,j) & & \text{else}
 \end{aligned}\right.
 $$

@@ -40,9 +40,9 @@ What is the first value which can be written as the sum of primes in over five t
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} j=0 \lor(i=1 \land j\%p[1]=0)  \\
-  &0  & & \text{else if\quad} i=1 \\
-  &f(i-1,j)  & & \text{else if\quad} j<p[i] \\
+  &1  & & \text{if}\quad j=0 \lor(i=1 \land j\%p[1]=0)  \\
+  &0  & & \text{else if}\quad i=1 \\
+  &f(i-1,j)  & & \text{else if}\quad j<p[i] \\
   &f(i-1,j)+f(i,j-p[i]) & & \text{else}
 \end{aligned}\right.
 $$

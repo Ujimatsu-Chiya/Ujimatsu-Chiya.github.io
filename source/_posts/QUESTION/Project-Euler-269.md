@@ -51,8 +51,8 @@ What is $Z(10^{16})$?
 $$
 f_3(n,b_1,b_2,b_3)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} n=N-1\land 0\le b_1\le 9\land b_1=b_2=b_2 \\
-  &0 & & \text{else if\quad} n=0 \\
+  &1 & & \text{if}\quad n=N-1\land 0\le b_1\le 9\land b_1=b_2=b_2 \\
+  &0 & & \text{else if}\quad n=0 \\
   &\sum_{\substack{[n=0]\le d\le 9,\\a_k\mid(b_k-d),k=1,2,3}} f(n+1,\dfrac{b_1-d}{a_1},\dfrac{b_2-d}{a_2},\dfrac{b_3-d}{a_3}) & & \text{else}
 \end{aligned}\right.
 $$

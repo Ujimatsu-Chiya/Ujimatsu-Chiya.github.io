@@ -39,10 +39,10 @@ How many different ways can $£2$ be made using any number of coins?
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} j=0 \\
-  &0 & & \text{else if\quad} i=1 \land j<a[i] \\
-  &f(i,j-a[i]) & & \text{else if\quad} i=1& \\
-  &f(i-1,j) & & \text{else if\quad} j < a[i] \\
+  &1  & & \text{if}\quad j=0 \\
+  &0 & & \text{else if}\quad i=1 \land j<a[i] \\
+  &f(i,j-a[i]) & & \text{else if}\quad i=1& \\
+  &f(i-1,j) & & \text{else if}\quad j < a[i] \\
   &f(i-1,j) + f(i,j-a[i]) & & \text{else}
 \end{aligned}\right.
 $$

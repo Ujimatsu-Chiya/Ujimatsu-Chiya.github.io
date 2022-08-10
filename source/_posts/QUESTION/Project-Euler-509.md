@@ -46,7 +46,7 @@ Find $S(123456787654321)\text{ modulo }1234567890$.
 $$
 sg(n)=
 \left \{\begin{aligned}
-  &0 & & \text{if\quad} n=1 \\
+  &0 & & \text{if}\quad  n=1 \\
   &\text{mex}(\{sg(n-d)|(d \mid n)\land d\neq n \}) & & \text{else}
 \end{aligned}\right.
 $$

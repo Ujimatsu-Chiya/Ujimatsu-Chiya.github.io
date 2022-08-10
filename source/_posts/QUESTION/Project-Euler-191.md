@@ -42,9 +42,9 @@ How many “prize” strings exist over a $30$-day period?
 $$
 f(i,j)=
 \left \{\begin{aligned}
-  &1 & & \text{if\quad} i=0\land j=0 \\
-  &0 & & \text{else if\quad} i=0 \\
-  &\sum_{k=0}^2f(i-1,k) & & \text{else if\quad} j=0 \\
+  &1 & & \text{if}\quad i=0\land j=0 \\
+  &0 & & \text{else if}\quad i=0 \\
+  &\sum_{k=0}^2f(i-1,k) & & \text{else if}\quad j=0 \\
   &f(i-1,j-1) & & \text{else}
 \end{aligned}\right.
 $$

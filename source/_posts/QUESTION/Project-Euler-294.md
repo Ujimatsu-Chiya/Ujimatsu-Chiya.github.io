@@ -37,8 +37,8 @@ Find $S(11^{12})$ and give your answer mod $10^9$.
 $$
 f(i,j,k)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i=1,0\le i=j\le \min(9,O) \\
-  &0 & & \text{else if\quad} i=1 \\
+  &1  & & \text{if}\quad i=1,0\le i=j\le \min(9,O) \\
+  &0 & & \text{else if}\quad i=1 \\
   &\sum_{d=0}^{\min(9,k)}\sum_{0\le x<M,(10x+d)\%M=j} f(i-1,x,k-d) & & \text{else}
 \end{aligned}\right.
 $$

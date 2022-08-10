@@ -46,9 +46,9 @@ a(n) = 2*a(n-1) + 2*a(n-2) - 2*a(n-3) + a(n-4), n > 4.
 $$
 T(n)=
 \left \{\begin{aligned}
-  &1  & & \text{if\quad} i\le 2\\
-  &4 & & \text{else if\quad} i=3 \\
-  &8 & & \text{else if\quad} i=4 \\
+  &1  & & \text{if}\quad i\le 2\\
+  &4 & & \text{else if}\quad i=3 \\
+  &8 & & \text{else if}\quad i=4 \\
   &2T(n-1)+2T(n-2)-2T(n-3)+T(n-4) & & \text{else}
 \end{aligned}\right.
 $$
