@@ -13,7 +13,7 @@ date: 2022-06-13 21:21:14
 
 ## 题目
 
-### π sequences
+### $\pi$ sequences
 
 For every $n \ge 1$ the **prime-counting** function $\pi(n)$ is equal to the number of primes not exceeding $n$.
 

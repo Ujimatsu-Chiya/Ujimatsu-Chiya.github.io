@@ -15,7 +15,7 @@ date: 2022-07-06 13:08:10
 
 ## 题目
 
-### Sum of digits - experience #23
+### Sum of digits - experience $\#23$
 
 For a positive integer $k$, define $d(k)$ as the sum of the digits of $k$ in its usual decimal representation. Thus $d(42) = 4+2 = 6$.
 

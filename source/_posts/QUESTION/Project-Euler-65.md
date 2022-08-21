@@ -13,7 +13,7 @@ date: 2022-04-30 10:32:16
 
 ## 题目
 
-### Convergents of e
+### Convergents of $e$
 
 The square root of $2$ can be written as an infinite continued fraction.
 

@@ -14,7 +14,7 @@ date: 2022-06-02 21:03:53
 
 ## 题目
 
-### Tours on a 4 x n playing board
+### Tours on a $4 \times n$ playing board
 
 Let $T(n)$ be the number of tours over a $4 \times n$ playing board such that:
 

@@ -14,7 +14,7 @@ date: 2022-07-17 23:11:41
 
 ## 题目
 
-### 3-Like Numbers
+### $3$-Like Numbers
 
 For a positive integer $n$, define $f(n)$ to be the number of non-empty substrings of $n$ that are divisible by $3$. For example, the string "$2573$" has $10$ non-empty substrings, three of which represent numbers that are divisible by $3$, namely $57, 573$ and $3$. So $f(2573) = 3$.
 

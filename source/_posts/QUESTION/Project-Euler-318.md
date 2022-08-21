@@ -13,7 +13,7 @@ date: 2022-07-27 23:50:18
 
 ## 题目
 
-### 2011 nines
+### $2011$ nines
 
 Consider the real number $\sqrt 2 + \sqrt 3$.
 When we calculate the even powers of $\sqrt 2 + \sqrt 3$

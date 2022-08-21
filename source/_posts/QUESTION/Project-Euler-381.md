@@ -14,7 +14,7 @@ date: 2022-06-13 21:21:54
 
 ## 题目
 
-### (prime-k) factorial
+### (prime-$k$) factorial
 
 For a prime $p$ let $S(p) = (\sum(p-k)!) \bmod(p)$ for $1 \le k \le 5$.
 

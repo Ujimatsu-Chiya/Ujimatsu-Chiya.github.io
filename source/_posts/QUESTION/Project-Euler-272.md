@@ -14,7 +14,7 @@ date: 2022-07-27 23:49:36
 
 ## 题目
 
-### Modular Cubes, part 2
+### Modular Cubes, part $2$
 
 For a positive number $n$, define $C(n)$ as the number of the integers $x$, for which $1<x<n$ and $x^3\equiv 1 \bmod n$.
 

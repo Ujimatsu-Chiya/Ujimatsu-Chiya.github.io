@@ -13,7 +13,7 @@ date: 2022-06-08 22:37:41
 
 ## 题目
 
-### Problem 500
+### Problem $500$!!!
 
 The number of divisors of $120$ is $16$.
 

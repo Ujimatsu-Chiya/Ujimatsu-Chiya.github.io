@@ -25,6 +25,40 @@ Find $H(10^9)$.
 
 ## 解决方案
 
+通过以下程序打表：
+
+```C++
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int N=50;
+bool ok[N+4][N+4];
+int main(){
+    int ans=0;
+    for(int a=1;a<=N;a++)
+        for(int b=a;b<=N;b++){
+            if(__gcd(a,b)!=1) continue;
+            if(a>b) ok[a][b]=ok[b][a];
+            else{
+                for(int c=0;c<=a&&!ok[a][b];c++){
+                    if((b*c+1)%a==0){
+                        int d=(b*c+1)/a;
+                        if(d<=b&&!ok[a-c][b-d]) ok[a][b]=1;
+                    }
+                    if((b*c-1)%a==0){
+                        int d=(b*c-1)/a;
+                        if(d<=b&&!ok[a-c][b-d]) ok[a][b]=1;
+                    }
+                }
+            }
+            if(ok[a][b]) ++ans,printf("%d %d\n",a,b);
+        }
+    printf("%d\n",ans);
+}
+
+```
+
+发现如果当前局面是必胜态，当且仅当$\min(a,b)$是奇数。
 
 ## 代码
 

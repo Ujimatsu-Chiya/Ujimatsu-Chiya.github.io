@@ -14,7 +14,7 @@ date: 2022-05-11 19:27:44
 
 ## 题目
 
-### Writing 1/2 as a sum of inverse squares
+### Writing $\dfrac{1}{2}$ as a sum of inverse squares
 
 There are several ways to write the number $\dfrac{1}{2}$ as a sum of inverse squares using *distinct* integers.
 

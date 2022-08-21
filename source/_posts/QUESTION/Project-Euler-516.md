@@ -13,7 +13,7 @@ date: 2022-06-13 21:21:23
 
 ## 题目
 
-### 5-smooth totients
+### $5$-smooth totients
 
 $5$-smooth numbers are numbers whose largest prime factor doesn’t exceed $5$.
 

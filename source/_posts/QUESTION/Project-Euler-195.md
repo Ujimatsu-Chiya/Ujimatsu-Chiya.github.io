@@ -13,7 +13,7 @@ date: 2022-05-19 21:56:42
 
 ## 题目
 
-### Inscribed circles of triangles with one angle of 60 degrees
+### Inscribed circles of triangles with one angle of $60$ degrees
 
 Let’s call an integer sided triangle with exactly one angle of $60$ degrees a 60-degree triangle.
 

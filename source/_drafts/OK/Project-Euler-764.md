@@ -37,3 +37,6 @@ Find $S(10^{16})$. Give your answer modulo $10^9$.
 ## 代码
 
 
+```C++
+
+```

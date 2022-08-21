@@ -15,7 +15,7 @@ date: 2022-05-11 19:27:32
 
 ## 题目
 
-### Exploring the number of different ways a number can be expressed as a sum of powers of 2
+### Exploring the number of different ways a number can be expressed as a sum of powers of $2$
 
 Define $f(0)=1$ and $f(n)$ to be the number of different ways n can be expressed as a sum of integer powers of $2$ using each power no more than twice.
 

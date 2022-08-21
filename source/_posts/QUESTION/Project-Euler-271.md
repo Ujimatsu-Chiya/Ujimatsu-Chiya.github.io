@@ -14,7 +14,7 @@ date: 2022-07-06 13:08:28
 
 ## 题目
 
-### Modular Cubes, part 1
+### Modular Cubes, part $1$
 
 For a positive number $n$, define $S(n)$ as the sum of the integers $x$, for which $1<x<n$ and $x^3\equiv 1 \bmod n$.
 

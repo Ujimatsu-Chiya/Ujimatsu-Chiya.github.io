@@ -13,7 +13,7 @@ date: 2022-04-30 10:32:24
 
 ## 题目
 
-### Magic 5-gon ring
+### Magic $5$-gon ring
 
 Consider the following “magic” $3$-gon ring, filled with the numbers $1$ to $6$, and each line adding to nine.
 

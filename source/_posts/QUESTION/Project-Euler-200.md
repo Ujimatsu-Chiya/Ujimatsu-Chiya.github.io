@@ -13,7 +13,7 @@ date: 2022-05-15 10:15:52
 
 ## 题目
 
-### Find the 200th prime-proof sqube containing the contiguous sub-string “200”
+### Find the $200\text{th}$ prime-proof sqube containing the contiguous sub-string “$200$”
 
 We shall define a sqube to be a number of the form, $p^2q^3$, where $p$ and $q$ are distinct primes.
 

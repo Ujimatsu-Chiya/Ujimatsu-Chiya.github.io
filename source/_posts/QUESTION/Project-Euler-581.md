@@ -13,7 +13,7 @@ date: 2022-07-13 22:57:14
 
 ## 题目
 
-### 47-smooth triangular numbers
+### $47$-smooth triangular numbers
 
 A number is $p$-smooth if it has no prime factors larger than $p$.
 

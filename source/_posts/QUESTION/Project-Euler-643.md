@@ -14,7 +14,7 @@ date: 2022-06-08 22:37:21
 
 ## 题目
 
-### 2-Friendly
+### $2$-Friendly
 
 Two positive integers $a$ and $b$ are *$2$-friendly* when $\gcd(a,b) = 2^t, t>0$. For example, $24$ and $40$ are $2$-friendly because $\gcd(24,40) = 8 = 2^3$ while $24$ and $36$ are not because $\gcd(24,36) = 12 = 2^2\cdot 3$ not a power of $2$.
 
