@@ -1,18 +1,20 @@
 ---
 title: Project Euler 366
-category:
-  - Project Euler
 tags:
   - 博弈
+category:
+  - Project Euler
 mathjax: true
+date: 2022-08-21 23:50:57
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 366
+
 ## 题目
+
 ### Stone Game III
-
-
 
 Two players, Anton and Bernhard, are playing the following game.
 
@@ -38,21 +40,13 @@ For some winning positions there is more than one possible move for the first pl
 
 E.g. when $n=17$ the first player can remove one or four stones.
 
-
 Let $M(n)$ be the maximum number of stones the first player can take from a winning position *at his first turn* and $M(n)=0$ for any other position.
-
 
 $\sum M(n)$ for $n\le100$ is $728$.
 
-
 Find $\sum M(n)$ for $n\le10^{18}$. Give your answer modulo $10^8$.
 
-
-
-
-
 ## 解决方案
-
 
 通过以下程序，直接打印出$M$的前$1000$项的值：
 
@@ -93,7 +87,6 @@ int main(){
 暴力分块计算即可，另外使用记忆化搜索进行加速。
 
 ## 代码
-
 
 ```py
 N = 10 ** 18

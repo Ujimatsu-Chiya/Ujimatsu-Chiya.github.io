@@ -2,16 +2,18 @@
 title: Project Euler 721
 category:
   - Project Euler
-tags:
 mathjax: true
+date: 2022-08-21 23:51:14
+tags:
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 721
+
 ## 题目
+
 ### High powers of irrational numbers
-
-
 
 Given is the function $f(a,n)=\lfloor{(\lceil{\sqrt{a}\:\rceil}+\sqrt{a}\:)^n}\rfloor$.
 
@@ -24,9 +26,6 @@ $G(n) = \displaystyle \sum_{a=1}^n f(a, a^2).$
 $G(1000) \text{ mod  } 999\,999\,937=163861845. $
 
 Find $G(5\,000\,000).$ Give your answer modulo $999\,999\,937$.
-
-
-
 
 ## 解决方案
 
@@ -66,16 +65,14 @@ g(a,n)
 0 & 1\\
 a-\lceil{\sqrt{a}\:\rceil}^2 & 2\cdot\lceil{\sqrt{a}\:\rceil}
 \end{bmatrix}
-\cdot 
+\cdot
 \begin{bmatrix}
 g(a,n-2)\\
 g(a,n-1)
 \end{bmatrix}
 $$
 
-
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

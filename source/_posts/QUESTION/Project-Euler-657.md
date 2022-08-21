@@ -1,17 +1,20 @@
 ---
 title: Project Euler 657
-category:
-  - Project Euler
 tags:
   - 容斥原理
+category:
+  - Project Euler
 mathjax: true
+date: 2022-08-21 23:51:08
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 657
-## 题目
-### Incomplete words
 
+<escape><!-- more --></escape>
+
+# Project Euler 657
+
+## 题目
+
+### Incomplete words
 
 In the context of **formal languages**, any finite sequence of letters of a given **alphabet** $\Sigma$ is called a **word** over $\Sigma$. We call a word *incomplete* if it does not contain every letter of $\Sigma$.
 
@@ -22,9 +25,6 @@ Given an alphabet $\Sigma$ of $\alpha$ letters, we define $I(\alpha,n)$ to be th
 For example, $I(3,0)=1$, $I(3,2)=13$ and $I(3,4)=79$.
 
 Find $I(10^7,10^{12})$. Give your answer modulo $1\,000\,000\,007$.
-
-
-
 
 ## 解决方案
 
@@ -43,7 +43,6 @@ $$f_{N,M}(i)\dbinom{N}{i}\sum_{j=0}^{M} i^j$$
 $$I(N,M)=\sum_{i=0}^{N-1}(-1)^{N-1-i}\cdot f_{N,M}(i)$$
 
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

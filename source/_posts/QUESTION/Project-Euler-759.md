@@ -2,17 +2,20 @@
 title: Project Euler 759
 category:
   - Project Euler
+mathjax: true
+date: 2022-08-21 23:51:23
+tags:
   - OEIS
   - 动态规划
-tags:
-mathjax: true
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 759
-## 题目
-### A squared recurrence relation
 
+<escape><!-- more --></escape>
+
+# Project Euler 759
+
+## 题目
+
+### A squared recurrence relation
 
 The function $f$ is defined for all positive integers as follows:
 
@@ -30,8 +33,6 @@ For example, $S(10)=1530$ and $S(10^2)=4798445$.
 
 Find $S(10^{16})$. Give your answer modulo $1\,000\,000\,007$.
 
-
-
 ## 解决方案
 
 暴力枚举出$f$的前几项，在OEIS中查询得到结果为[A245788](https://oeis.org/A245788)。
@@ -45,7 +46,6 @@ $$S(n)=\sum_{i=1}^{\lfloor\log_2 (n+1)\rfloor} \left(i^2\cdot \sum_{\substack{m\
 也就是说，问题转化成枚举$i$，求$n$以内的所有数中，满足$b(m)=i$的所有$m^2$之和。
 
 将$n$写成一个长度为$l$的二进制数字符串$d_1d_2\dots d_l$，也就是有$l=\lfloor\log_2 (n+1)\rfloor$。
-
 
 令**中间**状态$c_1(i,j)(1\le i\le l,0\le j\le 9i)$分别表示如下含义：有多少个$i$位**有前导0**的数，其二进制有$j$个$1$，并**等于**由字符串$d_1d_2\dots d_i$表示的数。令状态$s_1(i,j)$表示$c_1(i,j)$中的所有数之和。令状态$t_1(i,j)$表示$c_1(i,j)$中的所有数的**平方和**。
 
@@ -93,6 +93,7 @@ $$
 计算完成后，得到最终答案为：
 
 $$S(n)=\sum_{i=1}^{l} i^2\cdot (t_0(l,i)+t_1(l,i))$$
+
 ## 代码
 
 ```py

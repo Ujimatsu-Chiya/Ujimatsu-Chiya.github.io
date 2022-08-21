@@ -1,17 +1,20 @@
 ---
 title: Project Euler 772
-category:
-  - Project Euler
 tags:
   - OEIS
+category:
+  - Project Euler
 mathjax: true
+date: 2022-08-21 23:50:35
 ---
-<escape><!-- more --></escape>
-    
-# Project Euler 772
-## 题目
-### Balanceable $k$-bounded partitions
 
+<escape><!-- more --></escape>
+
+# Project Euler 772
+
+## 题目
+
+### Balanceable $k$-bounded partitions
 
 A $k$-bounded partition of a positive integer $N$ is a way of writing $N$ as a sum of positive integers not exceeding $k$.
 
@@ -23,7 +26,6 @@ Let $f(k)$ be the smallest positive integer $N$ all of whose $k$-bounded partiti
 
 Find $f(10^8)$. Give your answer modulo $1\,000\,000\,007$.
 
-
 ## 解决方案
 
 暴力枚举出$f$的前几项，在OEIS中查询得到结果为[A051426](https://oeis.org/A051426)。
@@ -32,9 +34,7 @@ Find $f(10^8)$. Give your answer modulo $1\,000\,000\,007$.
 
 那么为了计算$\text{lcm}(1,2,3,\dots,n)$，直接枚举出$n$以内的所有质数$p_i$，找到对应最大的$e_i$使得$p_i^{e_i}\le n$，直接相乘即可。
 
-
 ## 代码
-
 
 ```C++
 #include <bits/stdc++.h>

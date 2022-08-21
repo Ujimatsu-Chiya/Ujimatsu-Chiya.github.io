@@ -1,18 +1,20 @@
 ---
 title: Project Euler 463
-category:
-  - Project Euler
 tags:
   - OEIS
+category:
+  - Project Euler
 mathjax: true
+date: 2022-08-21 23:51:02
 ---
+
 <escape><!-- more --></escape>
-    
+
 # Project Euler 463
+
 ## 题目
+
 ### A weird recurrence relation
-
-
 
 The function $f$ is defined for all positive integers as follows:
 
@@ -27,9 +29,6 @@ The function $S(n)$ is defined as $\sum_{i=1}^{n}f(i)$.
 $S(8)=22$ and $S(100)=3604$.
 
 Find $S(3^{37})$. Give the last $9$ digits of your answer.
-
-
-
 
 ## 解决方案
 
@@ -61,7 +60,6 @@ $$\dfrac{2^{k-i-1}\cdot (2^{k-i-1}-1)}{2} \cdot 2^{i+1} + g_n(i)\cdot 2^{k-i-1}$
 按照上面的计算方法，枚举求和即可。注意需要跳过最高位，也就是$i=0$的情况。
 
 ## 代码
-
 
 ```py
 N = 3 ** 37
