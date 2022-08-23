@@ -1,7 +1,7 @@
 ---
 title: Project Euler 366
 tags:
-  - 博弈
+  - 博弈论
 category:
   - Project Euler
 mathjax: true
