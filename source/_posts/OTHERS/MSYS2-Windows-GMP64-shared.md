@@ -12,18 +12,18 @@ tags:
 
 如果官网太慢，可以在清华源下载[msys2-x86_64-20220603.exe](https://mirrors.tuna.tsinghua.edu.cn/msys2/distrib/x86_64/msys2-x86_64-20220603.exe)。
 
-我将它安装在了D:&#92;msys64下。
+我将它安装在了`D:\msys64`下。
 
 安装完成后会自动打开一个窗口，不用管它。
 
-接下来需要将D:&#92;msys64&#92;mingw64&#92;bin这个目录添加到**系统变量**Path中，如图：
+接下来需要将`D:\msys64\mingw64\bin`这个目录添加到**系统变量**`Path`中，如图：
 
 ![](p1.png)
 
 
 # 下载GMP库
 
-在[GMP官网](https://gmplib.org/)下载[gmp-6.2.1.tar.xz](https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz)，文件解压后存放在D:&#92;msys64&#92;home&#92;Administrator&#92;gmp-6.2.1中，其中Administrator是用户名。
+在[GMP官网](https://gmplib.org/)下载[gmp-6.2.1.tar.xz](https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz)，文件解压后存放在`D:\msys64\home\admin\gmp-6.2.1`中，其中`admin`是用户名。
 
 # 正式安装
 
@@ -93,17 +93,17 @@ g++ main.cpp -lgmp
 
 ![](p6.png)
 
-如果发现这个红色警告Not Found，那么将&#92;msys64&#92;mingw64下的include
-文件夹整个复制到&#92;msys64&#92;mingw64&#92;x86_64-w64-mingw32下。
+如果发现这个红色警告Not Found，那么将`\msys64\mingw64`下的`include`
+文件夹整个复制到`\msys64\mingw64\x86_64-w64-mingw32`下。
 
 
-创建一个新的项目后，需要在CMakeLists.txt中添加如下代码。
+创建一个新的项目后，需要在`CMakeLists.txt`中添加如下代码。
 
 ```
 target_link_libraries([Project-Name] D:\\\\msys64\\\\mingw64\\\\bin\\\\libgmp-10.dll)
 ```
 
-其中[Project-Name]是项目的名称。
+其中`[Project-Name]`是项目的名称。
 
 # 示例代码执行
 

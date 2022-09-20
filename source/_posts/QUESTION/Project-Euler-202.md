@@ -72,13 +72,13 @@ $$F(n)=\sum_{d\mid n}f(d)$$
 根据莫比乌斯反演，$f$可以写成如下形式：
 
 $$\begin{aligned}
-f(n)&=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot F(n)\\
+f(n)&=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot F(d)\\
 &=\dfrac{1}{3}\left(\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot d-\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(d)\right)\\
 \end{aligned}$$
 
-在狄利克雷卷积的页面中，发现$\varphi=\mu*\text{Id}$，其中$\text{Id}(n)=n$，$\varphi$为欧拉函数。
+对于式子的第一项，在狄利克雷卷积的页面中，发现$\varphi=\mu*\text{Id}$，其中$\text{Id}(n)=n$，$\varphi$为欧拉函数。
 
-令$g(n)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(d)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(n)\cdot G\left(\dfrac{n}{d}\right)=G(n)\sum_{d\mid n}\mu(d)\cdot G(d)$.
+令式子的第二项$g(n)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(d)=\sum_{d\mid n}\mu\left(\dfrac{n}{d}\right)\cdot G(n)\cdot G\left(\dfrac{n}{d}\right)=G(n)\sum_{d\mid n}\mu(d)\cdot G(d)$.
 
 考虑上面求和式$g(n)$的值，但是这里只考虑因数$d$满足$\mu(d)\neq 0$的情况，注意此时$d$是一个无平方因子数。
 

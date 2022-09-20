@@ -3,7 +3,7 @@ title: GMW协议
 date: 2022-03-28 14:26:05
 tags: 
   - MPC
-katex: true
+mathjax: true
 ---
 <escape><!-- more --></escape>
 
