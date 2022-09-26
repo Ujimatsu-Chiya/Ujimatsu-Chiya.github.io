@@ -25,7 +25,7 @@ You are given (rounded to 10 decimal places) that
 
 $f(6,\dfrac{1}{2})=0.2851562500,f(10,\dfrac{3}{7})=0.2330040743,f(10^4,0.3)=0.2857499982$.
 
-Find $f(10^{11},0.4999)$. Give your answer rounded to 10 places behind the decimal point.
+Find $f(10^{11},0.4999)$. Give your answer rounded to $10$ places behind the decimal point.
 
 
 

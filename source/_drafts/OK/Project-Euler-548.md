@@ -14,7 +14,7 @@ mathjax: true
 ## 题目
 ### Gozinta Chains
 
-A **gozinta chain** for n is a sequence $\{1,a,b,\dots,n\}$ where each element properly divides the next.
+A **gozinta chain** for $n$ is a sequence $\{1,a,b,\dots,n\}$ where each element properly divides the next.
 
 There are eight gozinta chains for $12:$ 
 
