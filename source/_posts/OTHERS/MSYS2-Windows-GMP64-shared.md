@@ -20,7 +20,6 @@ tags:
 
 ![](p1.png)
 
-
 # 下载GMP库
 
 在[GMP官网](https://gmplib.org/)下载[gmp-6.2.1.tar.xz](https://gmplib.org/download/gmp/gmp-6.2.1.tar.xz)，文件解压后存放在`D:\msys64\home\admin\gmp-6.2.1`中，其中`admin`是用户名。
@@ -56,7 +55,8 @@ pacman -S make
 3. 跳转到解压后的GMP库的根目录，并进行动态库编译。
 
 这一部分的命令需要执行相当长的时间，电脑约运行了约$6$个小时。
-```
+
+```bash
  cd gmp-6.2.1/
  ./configure --disable-static --enable-shared
 make
@@ -72,7 +72,7 @@ make install
 
 如果直接使用命令行进行编译，那么编译命令需要添加多一个参数，如下：
 
-```
+```bash
 g++ main.cpp -lgmp
 ```
 
@@ -82,20 +82,18 @@ g++ main.cpp -lgmp
 
 ![](p4.png)
 
-然后再在连接器设置这里添加一个参数-lgmp即可。
+然后再在连接器设置这里添加一个参数`-lgmp`即可。
 
 ![](p5.png)
 
-
 ## Clion使用
 
-同样也需要先在Clion切换成msys2中的MinGW，如图
+同样也需要先在`Clion`切换成`MSYS2`中的`MinGW`，如图
 
 ![](p6.png)
 
 如果发现这个红色警告Not Found，那么将`\msys64\mingw64`下的`include`
 文件夹整个复制到`\msys64\mingw64\x86_64-w64-mingw32`下。
-
 
 创建一个新的项目后，需要在`CMakeLists.txt`中添加如下代码。
 
@@ -104,6 +102,22 @@ target_link_libraries([Project-Name] D:\\\\msys64\\\\mingw64\\\\bin\\\\libgmp-10
 ```
 
 其中`[Project-Name]`是项目的名称。
+
+## Vscode使用
+
+新建一个文件夹，并且写好示例代码`A.cpp`。
+
+使用快捷键`Ctrl+F5`，显示该窗口后点击`C++ (GDB/LLDB)`，并点击安装好的`MSYS2`的`g++.exe`。
+
+![](pA.png)
+
+![](pB.png)
+
+运行后发现报错。打开`/.vscode/task.json`，在这个地方添加编译参数`-lgmp`。
+
+![](pC.png)
+
+再一次使用`Ctrl+F5`运行即可。
 
 # 示例代码执行
 
@@ -138,7 +152,9 @@ int main(){
 
 ![](p8.png)
 
+3. Vscode运行结果
 
+![](pD.png)
 另附：GMP库的[文档](https://gmplib.org/gmp-man-6.2.1.pdf)。
 
 相关参考：[[1]](http://www.javashuo.com/article/p-yhoxagck-ns.html)
