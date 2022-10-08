@@ -29,6 +29,18 @@ Find the sum of the numbers $n$ not exceeding $10^{16}$ for which $g(n)=n$.
 
 [A163272](https://oeis.org/A163272)
 
+考虑以动态规划的思想求出$g(n)$。由于序列中每一项都是前一项的倍数。因此对于$g(d)$中的所有序列，假设$d$是$n$的因子，那么将$g(d)$所有序列的最后一项都乘上$\dfrac{n}{d}$，就可以得到$n$。因此不难写出$n$的状态转移方程：
+
+$$
+g(n)=
+\left \{\begin{aligned}
+  &1  & & \text{if}\quad n = 1 \lor n \in \Omega \\
+  &\sum_{d\mid n,d<n} g(d) & & \text{else}
+\end{aligned}\right.
+$$
+
+
+
 ## 代码
 
 
