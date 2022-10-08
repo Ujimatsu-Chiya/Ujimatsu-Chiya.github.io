@@ -43,11 +43,12 @@ hexo.extend.helper.register('post_nav', function(post) {
     <a href="${this.url_for(next.path)}" rel="next" title="${next.title}">
       ${next.title} <i class="fa fa-chevron-right"></i>
     </a>` : '';
-  return `
+  /*return `
     <div class="post-nav">
       <div class="post-nav-item">${left}</div>
       <div class="post-nav-item">${right}</div>
-    </div>`;
+    </div>`;*/
+  return ``;
 });
 
 hexo.extend.helper.register('gitalk_md5', function(path) {
