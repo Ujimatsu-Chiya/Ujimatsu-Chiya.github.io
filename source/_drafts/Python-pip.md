@@ -10,3 +10,4 @@ pip freeze > piplist.txt
 在新的环境中安装导出的包
 
 pip install -r piplist.txt
+
