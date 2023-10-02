@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/pace/1.2.4/themes/green/pace-theme-flash.css">
+  <script src="https://cdnjs.cat.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="美团 秋招 2023.08.19 机试题目与题解">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/EXAM/Meituan-20230819/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-19T14:00:09.000Z">
+<meta property="article:modified_time" content="2023-08-19T14:01:59.846Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/EXAM/Meituan-20230819/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/EXAM/Meituan-20230819/","path":"EXAM/Meituan-20230819/","title":"美团 秋招 2023.08.19 机试题目与题解"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>美团 秋招 2023.08.19 机试题目与题解 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Ujimatsu Chiya" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/Project-Euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/Introduction-To-Algorithms-4th-Edition/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li><li class="menu-item menu-item-笔试题解"><a href="/categories/%E7%AC%94%E8%AF%95/" rel="section"><i class="fa-solid fa-pen fa-fw"></i>笔试题解</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BE%8E%E7%9A%84%E5%A4%96%E5%8D%96%E8%AE%A2%E5%8D%95%E7%BC%96%E5%8F%B7"><span class="nav-number">1.</span> <span class="nav-text">1、小美的外卖订单编号</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">1.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94"><span class="nav-number">1.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BE%8E%E7%9A%84%E5%8A%A0%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">2、小美的加法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-1"><span class="nav-number">2.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-1"><span class="nav-number">2.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">2.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-1"><span class="nav-number">2.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">2.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BE%8E%E7%9A%8401%E4%B8%B2%E7%BF%BB%E8%BD%AC"><span class="nav-number">3.</span> <span class="nav-text">3、小美的01串翻转</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-2"><span class="nav-number">3.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-2"><span class="nav-number">3.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">3.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-2"><span class="nav-number">3.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">3.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BE%8E%E7%9A%84%E6%95%B0%E7%BB%84%E6%9E%84%E9%80%A0"><span class="nav-number">4.</span> <span class="nav-text">4、小美的数组构造</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-3"><span class="nav-number">4.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-3"><span class="nav-number">4.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-3"><span class="nav-number">4.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-3"><span class="nav-number">4.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-number">4.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BE%8E%E7%9A%84%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">5、小美的数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-4"><span class="nav-number">5.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-4"><span class="nav-number">5.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-4"><span class="nav-number">5.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-4"><span class="nav-number">5.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="nav-number">5.5.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">725</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cat.net/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+
+      
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Ujimatsu-Chiya" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/EXAM/Meituan-20230819/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="美团 秋招 2023.08.19 机试题目与题解 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          美团 秋招 2023.08.19 机试题目与题解
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2023-08-19 22:00:09 / 修改时间：22:01:59" itemprop="dateCreated datePublished" datetime="2023-08-19T22:00:09+08:00">2023-08-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">笔试</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="小美的外卖订单编号">1、小美的外卖订单编号</h1>
+<p>美团商家的订单发起时，订单编号最开始从<span class="math inline">\(1\)</span>开始，后续每发起一个订单，订单编号便在上一订单编号的基础上<span class="math inline">\(+1\)</span>。为了防止订单号过大，商家还可以设置一个编号上限<span class="math inline">\(m\)</span>，当订单编号超过<span class="math inline">\(m\)</span>时，将又从<span class="math inline">\(1\)</span>开始编号。</p>
+<p>小美想知道，当订单编号上限为<span class="math inline">\(m\)</span>时，第<span class="math inline">\(x\)</span>个订单编号是多少？将有<span class="math inline">\(q\)</span>次询问。</p>
+<h2 id="输入">输入</h2>
+<p>第一行输入一个整数<span class="math inline">\(q(1 \leq q \leq
+50000)\)</span>。</p>
+<p>接下来<span class="math inline">\(q\)</span>行，每行两个整数<span class="math inline">\(m,x(1 \leq m,x \leq 10^9)\)</span>。</p>
+<h2 id="输出">输出</h2>
+<p><span class="math inline">\(q\)</span>行，每行一个整数表示答案。</p>
+<h2 id="样例">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">4</span><br><span class="line">2 3</span><br><span class="line">5 17</span><br><span class="line">8 2</span><br><span class="line">4 4</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">4</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="解答">解答</h2>
+<p>可见，订单号都是按照<span class="math inline">\(1,2,3,\dots,m,1,2,3,\dots,m,1,\dots\)</span>的循环往复，只需要使用模运算即可。对于第<span class="math inline">\(x\)</span>个订单，它的编号将是<span class="math inline">\((x-1)\% m+1\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> T,m,x;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;m,&amp;x);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,(x<span class="number">-1</span>)%m+<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="小美的加法">2、小美的加法</h1>
+<p>小美有一个长度为<span class="math inline">\(n\)</span>的数组，她想将这个数组进行求和，即<span class="math inline">\(sum = a_1+a_2+...+a_n\)</span>。</p>
+<p>小美可以使用一次魔法（也可以不使用），将其中一个加号变成乘号，使得<span class="math inline">\(sum\)</span>最大。</p>
+<p>求出最大的<span class="math inline">\(sum\)</span>。</p>
+<h2 id="输入-1">输入</h2>
+<p>第一行输入一个整数 <span class="math inline">\(n\)</span> 。
+第二行输入 <span class="math inline">\(n\)</span> 个整数表示数组 <span class="math inline">\(a\)</span> 。</p>
+<ul>
+<li><span class="math inline">\(1 \leq n \leq 10^5\)</span></li>
+<li><span class="math inline">\(1 \leq a_i \leq 10^9\)</span></li>
+</ul>
+<h2 id="输出-1">输出</h2>
+<p>输出一个整数表示答案。</p>
+<h2 id="样例-1">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">6</span><br><span class="line">1 1 4 5 1 4</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">27</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">小美可以将 4 和 5 之间的加号改成乘号。</span><br><span class="line">1 + 1 + 4 * 5 + 1 + 4 = 27</span><br></pre></td></tr></table></figure>
+<h2 id="解答-1">解答</h2>
+<p>假设现在将<span class="math inline">\(a[i]\)</span>和<span class="math inline">\(a[i+1]\)</span>中间的加号替换成乘号，式子中的其它符号不变，那么考虑如下变化：</p>
+<ol type="1">
+<li><span class="math inline">\(a[i]\)</span>和<span class="math inline">\(a[i+1]\)</span>这两个项从这个加法式子中剔除。</li>
+<li><span class="math inline">\(a[i]\times
+a[i+1]\)</span>作为新的项被添加进来。</li>
+</ol>
+<p>因此，这个式子的新值就变成了<span class="math inline">\(sum-a[i]-a[i+1]+a[i]\times
+a[i+1]\)</span>。最终答案为</p>
+<p><span class="math display">\[\max\left\{sum,\max_{i=1}^{n-1}\{sum-a[i]-a[i+1]+a[i]\times
+a[i+1]\}\right\}\]</span></p>
+<h2 id="代码-1">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100004</span>;</span><br><span class="line">ll a[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    ll s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;a[i]);</span><br><span class="line">        s+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=s;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        ans=<span class="built_in">max</span>(ans,s-a[i]-a[i+<span class="number">1</span>]+a[i]*a[i+<span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="小美的01串翻转">3、小美的01串翻转</h1>
+<p>小美定义一个 01
+串的权值为：每次操作选择一位取反，使得相邻字符都不相等的最小操作次数。</p>
+<p>例如，"10001"的权值是 1，因为只需要修改一次：对第三个字符取反即可。
+现在小美拿到了一个 01
+串，她希望你求出所有非空连续子串的权值之和，你能帮帮她吗？</p>
+<h2 id="输入-2">输入</h2>
+<p>一个仅包含'0'和'1'的字符串，长度不超过<span class="math inline">\(2000\)</span>。</p>
+<h2 id="输出-2">输出</h2>
+<p>所有非空子串的权值和。</p>
+<h2 id="样例-2">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">10001</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">8</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">长度为 2 的子串中，有 2 个&quot;00&quot;的权值是 1。</span><br><span class="line">长度为 3 的 3 个子串权值都是 1。</span><br><span class="line">长度为 4 的 2 个子串权值都是 1。</span><br><span class="line">长度为 5 的 1 个子串权值是 1。</span><br><span class="line">总权值之和为 2+3+2+1=8</span><br></pre></td></tr></table></figure>
+<h2 id="解答-2">解答</h2>
+<p>一个01字符串，且相邻两位都不相同的无非就以下两种情况：</p>
+<ul>
+<li><code>10101010...</code></li>
+<li><code>01010101...</code></li>
+</ul>
+<p>因此，对于一个长度为<span class="math inline">\(n\)</span>的01字符串<span class="math inline">\(s\)</span>，它的权值就是转换成这两个字符串中较少的次数。</p>
+<p>这意味着字符串的下标奇偶性都和字符的奇偶性要么<strong>都相同</strong>，要么<strong>都不相同</strong>。假设字符串<span class="math inline">\(s\)</span>有<span class="math inline">\(c\)</span>个下标的奇偶性都和字符的奇偶性相同，那么<span class="math inline">\(s\)</span>的权值为<span class="math inline">\(\min\{c,n-c\}\)</span>。直接枚举每个起点，并维护<span class="math inline">\(c\)</span>值即可。</p>
+<h2 id="代码-2">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100004</span>;</span><br><span class="line"><span class="type">char</span> s[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,s+<span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> n=<span class="built_in">strlen</span>(s+<span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="type">int</span> cnt=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i;j&lt;=n;j++)&#123;</span><br><span class="line">            cnt+=((s[j]&amp;<span class="number">1</span>)==((j-i)&amp;<span class="number">1</span>));</span><br><span class="line">            ans+=<span class="built_in">min</span>(cnt,j-i+<span class="number">1</span>-cnt);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="小美的数组构造">4、小美的数组构造</h1>
+<p>小美拿到了一个数组<span class="math inline">\(a\)</span>，她准备构造一个数组<span class="math inline">\(b\)</span>满足：</p>
+<ol type="1">
+<li><span class="math inline">\(b\)</span>的每一位都和<span class="math inline">\(a\)</span>对应位置不同，即<span class="math inline">\(b_i \neq a_i\)</span></li>
+<li><span class="math inline">\(b\)</span>的所有元素之和都和<span class="math inline">\(a\)</span>相同。</li>
+<li><span class="math inline">\(b\)</span>的数组均为正整数。</li>
+</ol>
+<p>请你告诉小美有多少种构造方式。由于答案过大，请对<span class="math inline">\(10^9+7\)</span>取模。</p>
+<h2 id="输入-3">输入</h2>
+<p>第一行输入一个正整数<span class="math inline">\(n\)</span>，代表数组的大小。</p>
+<p>第二行输入<span class="math inline">\(n\)</span>个正整数<span class="math inline">\(a_i\)</span>，代表小美拿到的数组。</p>
+<ul>
+<li><span class="math inline">\(1\leq n \leq 100\)</span></li>
+<li><span class="math inline">\(1\leq a_i \leq 300\)</span></li>
+<li><span class="math inline">\(1\leq \sum a_i \leq 500\)</span></li>
+</ul>
+<h2 id="输出-3">输出</h2>
+<p>一个整数，代表构造方式对<span class="math inline">\(10^9+7\)</span>取模的值。</p>
+<h2 id="样例-3">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">1 1 3</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">只有[2,2,1]这一种数组合法。</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">1 1 1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<h2 id="解答-3">解答</h2>
+<p>这是一道特别特别裸的动态规划的题目，状态设计非常明显：令状态<span class="math inline">\(f(i,j)\)</span>表示有多少个数组<span class="math inline">\(b\)</span>满足如下条件：</p>
+<ol type="1">
+<li>其长度为<span class="math inline">\(i\)</span>，和为<span class="math inline">\(j\)</span>。</li>
+<li><span class="math inline">\(\forall
+p\in\{1,2,\dots,i\}\)</span>，都有<span class="math inline">\(b_i\neq
+a_i\)</span>。</li>
+</ol>
+<p>那么可以写出如下状态转移方程：</p>
+<p><span class="math inline">\(f(i,j)= \left \{\begin{aligned}  &amp;1
+&amp; &amp; \text{if}\quad i=0\land j=0 \\  &amp;0 &amp; &amp;
+\text{if}\quad i=0\land j\neq 0 \\  &amp;\sum_{1\le k\le j,k\neq a_i}
+f(i-1,j-k) &amp; &amp; \text{if}\quad i&gt;0\\
+\end{aligned}\right.\)</span></p>
+<p>这个方程的前两行说明如果一个数组是空数组，那么其和为<span class="math inline">\(0\)</span>。第三行假定了<span class="math inline">\(b_i\)</span>可以填上任意不超过<span class="math inline">\(j\)</span>的整数<span class="math inline">\(k\)</span>，并且不能填上<span class="math inline">\(a_i\)</span>，填上这个数<span class="math inline">\(k\)</span>后，状态从<span class="math inline">\(f(i-1,j-k)\)</span>转移到<span class="math inline">\(f(i,j)\)</span>。</p>
+<p>因此，最终答案为<span class="math inline">\(f(n,s)\)</span>，其中<span class="math inline">\(\displaystyle{s=\sum_{i=1}^n a_i}\)</span>。</p>
+<h2 id="代码-3">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">504</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> mod=<span class="number">1e9</span>+<span class="number">7</span>;</span><br><span class="line"><span class="type">int</span> f[N][N];</span><br><span class="line"><span class="type">int</span> a[N],n,s=<span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        s+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    f[<span class="number">0</span>][<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=s;j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> k=<span class="number">1</span>;k&lt;=j;k++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(a[i]!=k)&#123;</span><br><span class="line">                    f[i][j]=(f[i][j]+f[i<span class="number">-1</span>][j-k])%mod;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,f[n][s]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="小美的数组操作">5、小美的数组操作</h1>
+<p>小美拿到了一个数组，她每次可以进行如下操作：</p>
+<p>选择两个元素，一个加 <span class="math inline">\(1\)</span>，另一个减
+<span class="math inline">\(1\)</span>。</p>
+<p>小美希望若干次操作后，众数的出现次数尽可能多。你能帮她求出最小的操作次数吗？</p>
+<p>众数定义：在一组数据中，出现次数最多的数据，是一组数据中的原数据，而不是相应的次数。
+一组数据中的众数不止一个，如数据2、3、-1、2、1、3中，2、3都出现了两次，它们都是这组数据中的众数。</p>
+<h2 id="输入-4">输入</h2>
+<p>第一行为一个正整数<span class="math inline">\(n\)</span>，代表数组的大小。 第二行输入<span class="math inline">\(n\)</span>个正整数<span class="math inline">\(a_i\)</span>，代表小美拿到的数组。</p>
+<ul>
+<li><span class="math inline">\(1\leq n \leq 10^5\)</span></li>
+<li><span class="math inline">\(1\leq a_i \leq 10^9\)</span></li>
+</ul>
+<h2 id="输出-4">输出</h2>
+<p>一个整数，代表最小的操作次数。</p>
+<h2 id="样例-4">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">1 4 4</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">第一次操作：第一个数加 1，第二个数减 1。</span><br><span class="line">第二次操作：第一个数加 1，第三个数减 1。</span><br><span class="line">数组变成[3,3,3]，众数出现了 3 次。</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">1 5 5</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">众数出现了 2 次，由于无法再用操作使得众数出现的次数变得更多，所以无需操作。</span><br></pre></td></tr></table></figure>
+<h2 id="解答-4">解答</h2>
+<p>令数组和<span class="math inline">\(\displaystyle{s=\sum_{i=1}^n
+a_i}\)</span>。如果<span class="math inline">\(s\)</span>是<span class="math inline">\(n\)</span>的倍数，那么说明存在一种操作，可以使得众数的出现次数为<span class="math inline">\(n\)</span>，这时得到的是<span class="math inline">\(a\)</span>的平均数，只需要将所有值平均化即可。因此，令平均数<span class="math inline">\(\overline{a}=s/n\)</span>，那么最终答案是<span class="math inline">\(\displaystyle{s=\sum_{1\le i\le
+n,a_i&gt;\overline{a}} (a_i-\overline{a})}\)</span>。</p>
+<p>如果<span class="math inline">\(s\)</span>不是<span class="math inline">\(n\)</span>的倍数，那么必定存在一种方法可以使得众数的出现次数为<span class="math inline">\(n-1\)</span>。具体操作是假设众数值是<span class="math inline">\(x\)</span>，选定<span class="math inline">\(n-1\)</span>个数，尝试将它们全部变成<span class="math inline">\(x\)</span>，并且将多余的加<span class="math inline">\(1\)</span>或者是减<span class="math inline">\(1\)</span>操作未被选上的那<span class="math inline">\(1\)</span>个元素。</p>
+<p>因此，令这<span class="math inline">\(n-1\)</span>个元素所构成的数组为<span class="math inline">\(b\)</span>，如果现在要将<span class="math inline">\(b\)</span>中的数都变成<span class="math inline">\(x\)</span>，那么令<span class="math inline">\(\displaystyle{s_1(x)=\sum_{1\le i&lt; n,b_i&gt;x}
+(b_i-x),s_2(x)=\sum_{1\le i&lt; n,b_i&lt;x}
+(x-b_i)}\)</span>。那么所需要的操作个数为<span class="math inline">\(f_(x)=\max\{s_1(x),s_2(x)\}\)</span>，因为有些加<span class="math inline">\(1\)</span>操作可以和减<span class="math inline">\(1\)</span>操作共同处在同一个操作中，只花费一个次数。</p>
+<p>假设<span class="math inline">\(m,M\)</span>分别表示<span class="math inline">\(b\)</span>中的最小值和最大值，那么可见<span class="math inline">\(s_1(x)\)</span>在区间<span class="math inline">\([m,M]\)</span>是一个递减函数，<span class="math inline">\(s_2(x)\)</span>在区间<span class="math inline">\([m,M]\)</span>是一个递增函数。因此<span class="math inline">\(f(x)\)</span>是一个向下凹陷的函数，我们只需要找到函数<span class="math inline">\(f(x)\)</span>的最低点即可。</p>
+<p>在这里我使用的是二分法进行这个最低点，具体是找到最小的<span class="math inline">\(x\)</span>使得<span class="math inline">\(f(x)&lt;f(x+1)\)</span>，那么<span class="math inline">\(x\)</span>就是最低点。当然使用三分法也可以，具体不在这里讲述三分法。</p>
+<p>最后一个问题：最终如何选择<span class="math inline">\(a\)</span>中的<span class="math inline">\(n-1\)</span>个数成为<span class="math inline">\(b\)</span>？在这里我是直接用最小的<span class="math inline">\(n-1\)</span>个数或者是最大的<span class="math inline">\(n-1\)</span>个数，因为它们彼此更加接近，最优解必定在它们之间产生。</p>
+<h2 id="代码-4">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100004</span>;</span><br><span class="line">ll a[N];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="function">ll <span class="title">cal</span><span class="params">(ll *a,<span class="type">int</span> n, ll x)</span></span>&#123;</span><br><span class="line">    ll s1=<span class="number">0</span>,s2=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&lt;x) s1+=x-a[i];</span><br><span class="line">        <span class="keyword">else</span> s2+=a[i]-x;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">max</span>(s1,s2);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll *a,<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    ll l=<span class="number">0</span>,r=<span class="number">1e9</span>;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;r)&#123;</span><br><span class="line">        ll mid=(l+r)&gt;&gt;<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">cal</span>(a,n,mid)&lt;<span class="built_in">cal</span>(a,n,mid+<span class="number">1</span>)) r=mid;</span><br><span class="line">        <span class="keyword">else</span> l=mid+<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">cal</span>(a,n,l);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    ll s=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>,&amp;a[i]);</span><br><span class="line">        s+=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span>(s%n==<span class="number">0</span>)&#123;</span><br><span class="line">        ll avg=s/n;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(a[i]&gt;avg) &#123;</span><br><span class="line">                ans+=a[i]-avg;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>);</span><br><span class="line">        ans=<span class="built_in">min</span>(<span class="built_in">solve</span>(a+<span class="number">1</span>,n<span class="number">-1</span>),<span class="built_in">solve</span>(a,n<span class="number">-1</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/EXAM/Meituan-20230819/" title="美团 秋招 2023.08.19 机试题目与题解">https://ujimatsu-chiya.github.io/EXAM/Meituan-20230819/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    
+    <span title="站点总字数">1, 425, 463</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">21:36</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        本站访问数：<span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站总访问量：<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+  
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+    <i class="fa-solid fa-clock"></i>
+    */
+    var awesome = "<i class=\"fa-solid fa-clock\"></i> "
+    var t1 = Date.UTC(2022,
+                      3,
+                      25,
+                      13,
+                      14,
+                      23);
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML="自 2022 年 3 月 25 日建立以来，本网站已运行：" + awesome + " "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 时 "+diffMinutes+" 分 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cat.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cat.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cat.net/ajax/libs/mermaid/9.1.7/mermaid.min.js","integrity":"sha256-G58AID1YoX5YaEtWfXSI0VLrZ6N4kvNvwg0BI8zUFxE="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</div>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cat.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"https://fastly.jsdelivr.net/npm/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":"true#是否在手机端显示"},"log":false});</script></body>
+</html>

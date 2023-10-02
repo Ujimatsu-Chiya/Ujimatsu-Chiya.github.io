@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha256-AbA177XfpSnFEvgpYu1jMygiLabzPCJCRIBtR5jGc0k=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cat.net/ajax/libs/pace/1.2.4/themes/green/pace-theme-flash.css">
+  <script src="https://cdnjs.cat.net/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.13.2","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"default"},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="腾讯 秋招 2023.09.10 编程题目与题解（研发岗）">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/EXAM/Tengxun-20230910A/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-09-11T10:52:59.000Z">
+<meta property="article:modified_time" content="2023-09-12T05:26:28.891Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/EXAM/Tengxun-20230910A/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/EXAM/Tengxun-20230910A/","path":"EXAM/Tengxun-20230910A/","title":"腾讯 秋招 2023.09.10 编程题目与题解（研发岗）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>腾讯 秋招 2023.09.10 编程题目与题解（研发岗） | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js"></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Ujimatsu Chiya" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/Project-Euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/Introduction-To-Algorithms-4th-Edition/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li><li class="menu-item menu-item-笔试题解"><a href="/categories/%E7%AC%94%E8%AF%95/" rel="section"><i class="fa-solid fa-pen fa-fw"></i>笔试题解</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%AF%E5%BE%84%E5%81%8F%E5%B7%AE%E6%95%B0%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">1、路径偏差数量</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B"><span class="nav-number">1.1.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94"><span class="nav-number">1.2.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%A0%E9%99%A4%E4%B8%AD%E4%BD%8D%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">2、删除中位数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5"><span class="nav-number">2.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA"><span class="nav-number">2.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">2.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-1"><span class="nav-number">2.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">2.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8B%87%E6%95%A2%E7%89%9B%E7%89%9B%E4%B8%8D%E6%80%95%E5%9B%B0%E9%9A%BE"><span class="nav-number">3.</span> <span class="nav-text">3、勇敢牛牛不怕困难</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-1"><span class="nav-number">3.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-1"><span class="nav-number">3.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-2"><span class="nav-number">3.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-2"><span class="nav-number">3.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">3.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C%E5%92%8C"><span class="nav-number">4.</span> <span class="nav-text">4、校验和</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-2"><span class="nav-number">4.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-2"><span class="nav-number">4.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-3"><span class="nav-number">4.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-3"><span class="nav-number">4.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-number">4.5.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%89%9B%E5%A6%B9%E7%9A%84k%E6%AC%A1%E5%A5%87%E6%80%AA%E6%93%8D%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">5、牛妹的\(k\)次奇怪操作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5-3"><span class="nav-number">5.1.</span> <span class="nav-text">输入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA-3"><span class="nav-number">5.2.</span> <span class="nav-text">输出</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-4"><span class="nav-number">5.3.</span> <span class="nav-text">样例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E7%AD%94-4"><span class="nav-number">5.4.</span> <span class="nav-text">解答</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="nav-number">5.5.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">725</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cat.net/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+        </div>
+      </div>
+
+      
+
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/Ujimatsu-Chiya" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/EXAM/Tengxun-20230910A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="腾讯 秋招 2023.09.10 编程题目与题解（研发岗） | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          腾讯 秋招 2023.09.10 编程题目与题解（研发岗）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-09-11 18:52:59" itemprop="dateCreated datePublished" datetime="2023-09-11T18:52:59+08:00">2023-09-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-09-12 13:26:28" itemprop="dateModified" datetime="2023-09-12T13:26:28+08:00">2023-09-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AC%94%E8%AF%95/" itemprop="url" rel="index"><span itemprop="name">笔试</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p><escape><span id="more"></span></escape></p>
+<h1 id="路径偏差数量">1、路径偏差数量</h1>
+<p>牛牛有一棵二叉树，该二叉树节点的权值为<span class="math inline">\(0/1\)</span>。</p>
+<p>牛牛给你这棵二叉树，想让你告诉他该二叉树从根节点到叶子节点的所有路径中，节点"权值<span class="math inline">\(1\)</span>的个数"比"权值<span class="math inline">\(0\)</span>的个数"多<span class="math inline">\(1\)</span>的路径有多少条呢。</p>
+<p>返回路径数目。</p>
+<h2 id="样例">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">&#123;1,0,0,1,0,#,1&#125;</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">树的结构如下，根节点到叶子节点的路径中，1的个数比0的个数多一的路径有两条。</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">&#123;0,1,1,0,1,1,0&#125;</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<p>第一个样例如下图所示：</p>
+<pre class="mermaid">graph TD
+    A((1));B((0));C((0));D((1));
+    E((0));F((1));X(( ));
+    A---B;A---C;B---D;B---E;
+    C---X;C---F;
+    style X fill:#f100,stroke-width:0px
+    linkStyle 4 stroke:#0ff,stroke-width:0px</pre>
+<h2 id="解答">解答</h2>
+<p>直接通过深度优先搜索遍历每个叶子节点，然后判断当前路径下权值<span class="math inline">\(1\)</span>的节点个数是否恰好比节点<span class="math inline">\(0\)</span>的个数多<span class="math inline">\(1\)</span>即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span>&#123;</span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">dfs</span><span class="params">(TreeNode*r,<span class="type">int</span> c0,<span class="type">int</span> c1)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(r==<span class="literal">nullptr</span>) <span class="keyword">return</span>;</span><br><span class="line">        r-&gt;val==<span class="number">0</span>?++c0:++c1;</span><br><span class="line">        <span class="keyword">if</span>(r-&gt;left==<span class="literal">nullptr</span>&amp;&amp;r-&gt;right==<span class="literal">nullptr</span>&amp;&amp;c1==c0+<span class="number">1</span>) ++ans;</span><br><span class="line">        <span class="built_in">dfs</span>(r-&gt;left,c0,c1);</span><br><span class="line">        <span class="built_in">dfs</span>(r-&gt;right,c0,c1);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">solve</span><span class="params">(TreeNode* root)</span></span>&#123;</span><br><span class="line">        <span class="built_in">dfs</span>(root,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="删除中位数">2、删除中位数</h1>
+<p>牛牛有一个长度为<span class="math inline">\(n\)</span>的序列<span class="math inline">\(a\)</span>，以及一个长度为<span class="math inline">\(n-1\)</span>的序列<span class="math inline">\(b\)</span>，序列<span class="math inline">\(b\)</span>中的元素不重复。</p>
+<p>对于这个序列<span class="math inline">\(a\)</span>牛牛会先求出他的中位数，然后再根据序列<span class="math inline">\(b\)</span>的顺序依次删除原序列<span class="math inline">\(a\)</span>中对应下标的元素，即删除<span class="math inline">\(a[b[i]],0\le i&lt;n-1\)</span>。</p>
+<p>每次删除完一个数后，牛牛会统计序列<span class="math inline">\(a\)</span>中剩下的数的中位数是什么，若剩下的数为奇数牛牛会取中间数（排序后），若为偶数牛牛会取中间两个数的平均值（排序后）。</p>
+<p>牛牛把每次的结果都记录下来了，但是他怕出错，给你初始的序列<span class="math inline">\(a\)</span>和<span class="math inline">\(b\)</span>，希望你能帮他验证一下。</p>
+<h2 id="输入">输入</h2>
+<p>第一行为一个<span class="math inline">\(t\)</span>，表示有<span class="math inline">\(t\)</span>组数据。</p>
+<p>接下来有<span class="math inline">\(3 \times
+t\)</span>行，每组数据的第一行为<span class="math inline">\(n\)</span>表示序列长度。</p>
+<p>第二行为<span class="math inline">\(n\)</span>个整数，表示序列<span class="math inline">\(a\)</span>的元素。</p>
+<p>第三行为<span class="math inline">\(n-1\)</span>个整数，表示序列<span class="math inline">\(b\)</span>的元素。</p>
+<h2 id="输出">输出</h2>
+<p>输出为<span class="math inline">\(t\)</span>行，每行有<span class="math inline">\(n\)</span>个整数，表示每组数据的答案，其中输出若是浮点数保留小数点后一位，否则按整数输出。</p>
+<h2 id="样例-1">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">2</span><br><span class="line">5</span><br><span class="line">2 2 1 3 5</span><br><span class="line">3 1 2 5</span><br><span class="line">4</span><br><span class="line">1 1 1 1</span><br><span class="line">1 2 3</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2 2.5 3 4 3</span><br><span class="line">1 1 1 1</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">第一组数据中，初始序列a的中位数为2，输出2。</span><br><span class="line">第一次要删掉a[b[0]]=a[3]=1后，中位数变为2.5，输出2.5，序列变为[2, 2, 3, 5]。</span><br><span class="line">第二次删掉a[b[1]]=2后，中位数变为3，输出3，序列变为[2,3,5]。</span><br><span class="line">第三次删掉a[b[2]]=2后，中位数变为4，输出4，序列变为[3,5]。</span><br><span class="line">第四次删掉a[b[3]]=5后，中位数变为3，输出3，序列变为[3]。</span><br></pre></td></tr></table></figure>
+<h2 id="解答-1">解答</h2>
+<p>我们可以考虑使用对顶堆来完成这个过程的求解。它的具体过程是：用一个最大堆维护目前拥有的较小数，用一个最小堆维护目前拥有的较大数。并且这两个堆的大小相差不超过<span class="math inline">\(1\)</span>。此时，如果两个堆如果元素总和是奇数，那么取较多元素的那个堆的堆顶即为中位数，否则取两个堆的元素作为平均值。</p>
+<p>但是呢，这题是将数组中的元素逐个删去，用对顶堆似乎不行。解决方法是：对整个操作逆向，从而整个过程都是在添加数，这时使用对顶堆可以完成。</p>
+<h2 id="代码-1">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000004</span>;</span><br><span class="line"><span class="type">int</span> a[N],b[N],vis[N],n;</span><br><span class="line"><span class="type">int</span> ans[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">        vis[i]=<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;b[i]);</span><br><span class="line">        vis[b[i]]=<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    b[n]=<span class="built_in">min_element</span>(vis+<span class="number">1</span>,vis+n+<span class="number">1</span>)-vis;</span><br><span class="line">    priority_queue&lt;<span class="type">int</span>&gt;ql;</span><br><span class="line">    priority_queue&lt;<span class="type">int</span>,vector&lt;<span class="type">int</span>&gt;,greater&lt;<span class="type">int</span>&gt;&gt;qr;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=n;i&gt;=<span class="number">1</span>;i--)&#123;</span><br><span class="line">        <span class="type">int</span> x=a[b[i]];</span><br><span class="line">        <span class="keyword">if</span>(qr.<span class="built_in">empty</span>()||x&gt;=qr.<span class="built_in">top</span>()) qr.<span class="built_in">push</span>(x);</span><br><span class="line">        <span class="keyword">else</span> ql.<span class="built_in">push</span>(x);</span><br><span class="line">        <span class="keyword">while</span>(ql.<span class="built_in">size</span>()+<span class="number">1</span>&lt;qr.<span class="built_in">size</span>())&#123;</span><br><span class="line">            ql.<span class="built_in">push</span>(qr.<span class="built_in">top</span>());qr.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(ql.<span class="built_in">size</span>()&gt;qr.<span class="built_in">size</span>())&#123;</span><br><span class="line">            qr.<span class="built_in">push</span>(ql.<span class="built_in">top</span>());ql.<span class="built_in">pop</span>();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(qr.<span class="built_in">size</span>()&gt;ql.<span class="built_in">size</span>()) ans[i]=qr.<span class="built_in">top</span>()*<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">else</span> ans[i]=ql.<span class="built_in">top</span>()+qr.<span class="built_in">top</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">printf</span>((ans[i]&amp;<span class="number">1</span>?<span class="string">&quot;%d.5%c&quot;</span>:<span class="string">&quot;%d%c&quot;</span>),ans[i]&gt;&gt;<span class="number">1</span>, <span class="string">&quot; \n&quot;</span>[i==n]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span>(T--)&#123;</span><br><span class="line">        <span class="built_in">solve</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="勇敢牛牛不怕困难">3、勇敢牛牛不怕困难</h1>
+<p>有<span class="math inline">\(n\)</span>个怪物，第<span class="math inline">\(i\)</span>个怪物的战斗力为<span class="math inline">\(a_i\)</span>，初始时，牛牛的战斗力为<span class="math inline">\(0\)</span>。</p>
+<p>牛牛要与这<span class="math inline">\(n\)</span>个怪物战斗，设牛牛与第<span class="math inline">\(i\)</span>个怪物战斗时牛牛的战斗力为<span class="math inline">\(x\)</span>，则：</p>
+<ol type="1">
+<li><p>若<span class="math inline">\(x&lt;a_i\)</span>，则牛牛触发被动技能"<strong>勇敢牛牛不怕困难</strong>"使得自己的战斗力提升至<span class="math inline">\(a_i\)</span>并战胜这个怪物，这会让牛牛的勇气值提升<span class="math inline">\(a_i-x\)</span> 。</p></li>
+<li><p>若<span class="math inline">\(x\ge
+a_i\)</span>，则牛牛会直接战胜这个怪物，并且本次战斗结束后，牛牛的战斗力会降低至<span class="math inline">\(a_i\)</span>。</p></li>
+</ol>
+<p>牛牛可以任意决定与怪物战斗的顺序，牛牛想知道打败完所有的<span class="math inline">\(n\)</span>只怪物之后，牛牛累计提升的<strong>勇气值</strong>最大可能是多少。</p>
+<h2 id="输入-1">输入</h2>
+<p>第一行一个整数<span class="math inline">\(n(1\le n\le
+200000)\)</span>。</p>
+<p>第二行<span class="math inline">\(n\)</span>个整数<span class="math inline">\(a_1,a_2,\dots, a_n(1 \le a_i\le
+10^9)\)</span>。</p>
+<h2 id="输出-1">输出</h2>
+<p>输出一个整数表示牛牛可以得到的最大勇气值。</p>
+<h2 id="样例-2">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">2</span><br><span class="line">1 2</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">2</span><br><span class="line">1 2 2</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">牛牛先和编号为2的怪物战斗，此时牛牛的战斗力为0，牛牛获得a2-0=2-0=2的勇气值，之后牛牛的战斗力变为2。</span><br><span class="line">牛牛再和编号为1的怪物战斗，此时牛牛的战斗力为2，牛牛获得0的勇气值，之后牛牛的战斗力变为1。</span><br><span class="line">牛牛最后和编号为3的怪物战斗，此时牛牛的战斗力为1，牛牛获得a3-1=2-1=1的勇气值，之后牛牛的战斗力变为2。牛牛总共获得2+1=3的勇气值。</span><br></pre></td></tr></table></figure>
+<h2 id="解答-2">解答</h2>
+<p>为了获得更多的勇气值，我们最佳的做法是：</p>
+<p>在自身战斗力最低的时候去击败战斗力最高的怪物，这样能够使自身的勇气值上升最快。在自身攻击力最高的时候击败攻击力最低的怪物，这样能够使自身的战斗力下降的最快。</p>
+<p>因此最优的做法是先打最高战斗力的怪物，再打对低战斗力的怪物，反复如此即可达到最大勇气值。</p>
+<h2 id="代码-2">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">100004</span>;</span><br><span class="line"><span class="type">int</span> a[N],n,b[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">    <span class="built_in">sort</span>(a+<span class="number">1</span>,a+n+<span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> l=<span class="number">1</span>,r=n,m=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(l&lt;=r)&#123;</span><br><span class="line">        b[++m]=a[r];</span><br><span class="line">        --r;</span><br><span class="line">        <span class="keyword">if</span>(l&gt;r) <span class="keyword">break</span>;</span><br><span class="line">        b[++m]=a[l];</span><br><span class="line">        ++l;</span><br><span class="line">    &#125;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> x=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x&lt;b[i]) ans+=b[i]-x,x=b[i];</span><br><span class="line">        <span class="keyword">else</span> x=b[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,ans);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="校验和">4、校验和</h1>
+<p>差错控制是计算机网络数字传输中重要的一环。</p>
+<p>假设传输的数据以一个长度为<span class="math inline">\(n\)</span>的二进制位串<span class="math inline">\(S\)</span>表示，牛牛定义了一种新的校验和，他将<span class="math inline">\(S\)</span>中所有长度为的子串进行异或，得到的新串就是他定义的校验和。</p>
+<p>例如，对于位串<span class="math inline">\(000111\)</span>来说，当<span class="math inline">\(k\)</span>为<span class="math inline">\(2\)</span>时，所有的长度为<span class="math inline">\(2\)</span>的子串为<span class="math inline">\(00,00,01,11,11\)</span>，将他们对应的位异或，得到的校验和为<span class="math inline">\(01\)</span>。</p>
+<p>然而他定义的校验和实际上难以进行好的差错控制，为了验证，牛牛决定计算在上述定义的方式下，有多少个不同的"长度为<span class="math inline">\(n\)</span>"且"与<span class="math inline">\(S\)</span>不同的二进制位串"可以产生"与<span class="math inline">\(S\)</span>相同"的校验和。</p>
+<p>子串的定义：一个串中任意个连续的字符组成的子序列。显然最终的结果与<span class="math inline">\(S\)</span>无关，由于答案可能过大，请输出结果对<span class="math inline">\(10^9+7\)</span>取模后的结果。</p>
+<h2 id="输入-2">输入</h2>
+<p>第一行一个正整数<span class="math inline">\(T\)</span>，代表测试组数。</p>
+<p>接下来<span class="math inline">\(T\)</span>行每行以空格分隔的两个正整数<span class="math inline">\(n,k\)</span>。</p>
+<ul>
+<li><span class="math inline">\(1\le T\le 10^5\)</span></li>
+<li><span class="math inline">\(1\le k\le n\le 10^6\)</span></li>
+</ul>
+<h2 id="输出-2">输出</h2>
+<p>输出<span class="math inline">\(T\)</span>行，每行一个整数代表答案。</p>
+<h2 id="样例-3">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">1 1</span><br><span class="line">2 1</span><br><span class="line">2 2</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line"></span><br><span class="line">长度为1的S可能为0或者1，可以计算得到: 不存在长度为1的且和S校验和的相同的串；</span><br><span class="line">长度为2的S可能为00,11,01,10，对他们长度为1的子串进行异或，比如S为00的时候，校验和为0，11的校验与它相同。比如S为01的时候，校验和为1，10的校验与它相同；</span><br><span class="line">长度为2的S可能为00,11,01,10，对他们长度为2的子串进行异或，比如S为00的时候，校验和为00，不存在长度为2的且和S校验和的相同的串。</span><br></pre></td></tr></table></figure>
+<h2 id="解答-3">解答</h2>
+<p>由于题目已经讲明了结果和字符串<span class="math inline">\(S\)</span>本身是无关的，因此每个检验结果都有相同的串对应它。由于检验结果只有<span class="math inline">\(2^k\)</span>种，因此有<span class="math inline">\(2^{n-k}\)</span>个不同的字符串对应着当前结果，也就是说对于字符串<span class="math inline">\(S\)</span>而言，有<span class="math inline">\(2^{n-k}-1\)</span>个不同字符串和它有着相同的检验结果。</p>
+<h2 id="代码-3">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">T = <span class="built_in">int</span>(<span class="built_in">input</span>())</span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">9</span> + <span class="number">7</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(T):</span><br><span class="line">    n, k = <span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">input</span>().split())</span><br><span class="line">    <span class="built_in">print</span>((<span class="built_in">pow</span>(<span class="number">2</span>, n - k, mod) - <span class="number">1</span>) % mod)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="牛妹的k次奇怪操作">5、牛妹的<span class="math inline">\(k\)</span>次奇怪操作</h1>
+<p>牛妹有一个序列<span class="math inline">\(a_1,a_2,\dots,a_n\)</span>，牛妹可以执行次操作。每次操作步骤如下：</p>
+<ol type="1">
+<li>牛妹选择一个<span class="math inline">\(pos(1\le pos\le
+n)\)</span></li>
+<li>将<span class="math inline">\(a_{pos}\)</span>在二进制下最低位的<span class="math inline">\(1\)</span>变成<span class="math inline">\(0\)</span></li>
+</ol>
+<p>牛妹想知道<span class="math inline">\(k\)</span>次操作后序列之和的最小值为多少？</p>
+<h2 id="输入-3">输入</h2>
+<p>第一行输入两个整整数<span class="math inline">\(n,k\)</span></p>
+<p>接下来输入<span class="math inline">\(n\)</span>个正整数，表示牛妹的序列</p>
+<ul>
+<li><span class="math inline">\(1\le n \le 10^5,1\le k\le 100,1 \le a_i
+\le 10^9\)</span></li>
+</ul>
+<h2 id="输出-3">输出</h2>
+<p>输出一个数，代表答案。</p>
+<h2 id="样例-4">样例</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">2 1</span><br><span class="line">8 7</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">7</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">8的二进制为1000</span><br><span class="line">7的二进制为111</span><br><span class="line">牛妹若对8执行操作，则序列变成[0,7]，和为7</span><br><span class="line">牛妹若对7执行操作，则序列变成[8,6]，和为14</span><br><span class="line">所以最小值为7</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">2 2</span><br><span class="line">9 6</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">6</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">将9的2个1变成0，只剩下6</span><br></pre></td></tr></table></figure>
+<h2 id="解答-4">解答</h2>
+<p>这题是一道动态规划题目，过程非常明显：令状态<span class="math inline">\(f(i,j)\)</span>表示对前<span class="math inline">\(i\)</span>个数执行了至多<span class="math inline">\(j\)</span>次操作后，这前<span class="math inline">\(i\)</span>个元素的最小和值。</p>
+<p>我们假设<span class="math inline">\(b_{i,j}\)</span>表示对数组元素<span class="math inline">\(a_i\)</span>执行了<span class="math inline">\(j\)</span>次操作后的值。不难发现：</p>
+<p><span class="math inline">\(b_{i,0}=a_i\)</span>，如果<span class="math inline">\(b_{i,j-1}=0\)</span>，那么<span class="math inline">\(b_{i,j}=0\)</span>。此外，由于<span class="math inline">\(a_i\le 10^9\)</span>，因此<span class="math inline">\(j\)</span>必定存在一个上限<span class="math inline">\(m\)</span>，我们设其为<span class="math inline">\(m=30\)</span>。</p>
+<p>因此，我们不难写出<span class="math inline">\(f(i,j)\)</span>的状态转移方程为：</p>
+<p><span class="math inline">\(f(i,j)= \left \{\begin{aligned}  &amp;0
+&amp; &amp; \text{if}\quad i=0 \\  &amp;\min_{0\le l\le j,0\le l\le
+m}\{f(i-1,j-l)+b_{i,l}\} &amp; &amp; \text{if}\quad i &gt; 0
+\end{aligned}\right.\)</span></p>
+<p>其中方程第二行表示对数<span class="math inline">\(a_i\)</span>执行了<span class="math inline">\(k\)</span>次操作后，从<span class="math inline">\(f(i-1,j-l)\)</span>转移而来，并得到了<span class="math inline">\(b_{i,l}\)</span>的和。</p>
+<p>因此本题的最终答案为<span class="math inline">\(f(n,k)\)</span>。</p>
+<h2 id="代码-4">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> lb(x) ((x) &amp; -(x))</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M=<span class="number">104</span>;</span><br><span class="line">ll f[<span class="number">2</span>][M];</span><br><span class="line"><span class="type">int</span> a[M],n,k,x;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d %d&quot;</span>,&amp;n,&amp;k);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>,p=<span class="number">1</span>;i&lt;=n;i++,p^=<span class="number">1</span>)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(f[p],<span class="number">0x3f</span>,<span class="built_in">sizeof</span>(f[p]));</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;x);</span><br><span class="line">        <span class="type">int</span> m=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(;x;x-=<span class="built_in">lb</span>(x))</span><br><span class="line">            a[m++]=x;</span><br><span class="line">        a[m++]=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=k;j++)&#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> r=<span class="number">0</span>;r&lt;=j&amp;&amp;r&lt;m;r++)&#123;</span><br><span class="line">                f[p][j]=<span class="built_in">min</span>(f[p][j],f[p^<span class="number">1</span>][j-r]+a[r]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,f[n&amp;<span class="number">1</span>][k]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>如果觉得我的文章对您有用，请随意打赏。您的支持将鼓励我继续创作！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/EXAM/Tengxun-20230910A/" title="腾讯 秋招 2023.09.10 编程题目与题解（研发岗）">https://ujimatsu-chiya.github.io/EXAM/Tengxun-20230910A/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2022 – 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    
+    <span title="站点总字数">1, 425, 463</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">21:36</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        本站访问数：<span id="busuanzi_value_site_uv"></span>人
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        本站总访问量：<span id="busuanzi_value_site_pv"></span>次
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+
+<span id="sitetime"></span>
+<script language=javascript>
+  
+	function siteTime(){
+		window.setTimeout("siteTime()", 1000);
+		var seconds = 1000;
+		var minutes = seconds * 60;
+		var hours = minutes * 60;
+		var days = hours * 24;
+		var years = days * 365;
+		var today = new Date();
+		var todayYear = today.getFullYear();
+		var todayMonth = today.getMonth()+1;
+		var todayDate = today.getDate();
+		var todayHour = today.getHours();
+		var todayMinute = today.getMinutes();
+		var todaySecond = today.getSeconds();
+		/* 
+		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+		year - 作为date对象的年份，为4位年份值
+		month - 0-11之间的整数，做为date对象的月份
+		day - 1-31之间的整数，做为date对象的天数
+		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+		minutes - 0-59之间的整数，做为date对象的分钟数
+		seconds - 0-59之间的整数，做为date对象的秒数
+		microseconds - 0-999之间的整数，做为date对象的毫秒数
+    <i class="fa-solid fa-clock"></i>
+    */
+    var awesome = "<i class=\"fa-solid fa-clock\"></i> "
+    var t1 = Date.UTC(2022,
+                      3,
+                      25,
+                      13,
+                      14,
+                      23);
+		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+		var diff = t2-t1;
+		var diffYears = Math.floor(diff/years);
+		var diffDays = Math.floor((diff/days)-diffYears*365);
+		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+		document.getElementById("sitetime").innerHTML="自 2022 年 3 月 25 日建立以来，本网站已运行：" + awesome + " "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 时 "+diffMinutes+" 分 "+diffSeconds+" 秒";
+	}
+	siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdnjs.cat.net/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/next-theme-pjax/0.5.0/pjax.min.js" integrity="sha256-3NkoLDrmHLTYj7csHIZSr0MHAFTXth7Ua/DDt4MRUAg=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cat.net/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+<script src="https://cdnjs.cat.net/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"default","dark":"dark"},"js":{"url":"https://cdnjs.cat.net/ajax/libs/mermaid/9.1.7/mermaid.min.js","integrity":"sha256-G58AID1YoX5YaEtWfXSI0VLrZ6N4kvNvwg0BI8zUFxE="}}</script>
+  <script src="/js/third-party/tags/mermaid.js"></script>
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+<div class="busuanzi-count">
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+</div>
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cat.net/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"https://fastly.jsdelivr.net/npm/live2d-widget-model-hijiki@1.0.5/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":"true#是否在手机端显示"},"log":false});</script></body>
+</html>
