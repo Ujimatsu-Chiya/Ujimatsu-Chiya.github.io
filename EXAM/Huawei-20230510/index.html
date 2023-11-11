@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Ujimatsu Chiya">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-06-02T12:11:10.000Z">
-<meta property="article:modified_time" content="2023-07-03T14:48:52.726Z">
+<meta property="article:modified_time" content="2023-11-11T07:04:13.317Z">
 <meta property="article:author" content="Ujimatsu Chiya">
 <meta name="twitter:card" content="summary">
 
@@ -267,7 +267,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-07-03 22:48:52" itemprop="dateModified" datetime="2023-07-03T22:48:52+08:00">2023-07-03</time>
+      <time title="修改时间：2023-11-11 15:04:13" itemprop="dateModified" datetime="2023-11-11T15:04:13+08:00">2023-11-11</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -331,7 +331,7 @@
 <p>最终栈中存留的元素值，元素值使用单个空格隔开，如"8 7 6
 5"，从左至右依次为栈顶至栈底的数字。</p>
 <h2 id="样例">样例</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">10 20 50 80 1 1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2 160</span><br><span class="line"></span><br><span class="line">解释：向栈压入80时，10+20+50=80，数据合并后入栈160，压入两个1时，合并为2，最终栈顶至栈底的数字为2和160。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">10 20 50 80 1 1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">2 160</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">向栈压入80时，10+20+50=80，数据合并后入栈160，压入两个1时，合并为2，最终栈顶至栈底的数字为2和160。</span><br></pre></td></tr></table></figure>
 <h2 id="解答">解答</h2>
 <p>直接使用数组模拟这个栈的行为。在每次添加前，先判断是否存在一个后缀和（假设下标为<span class="math inline">\(j\)</span>）恰好为下一个输入值<span class="math inline">\(x\)</span>，如果存在<span class="math inline">\(j\)</span>，那么将<span class="math inline">\(j\)</span>之后的元素全部弹出即可，并将<span class="math inline">\(2x\)</span>入栈（这里使用的是数组模拟，直接改动最后一个元素的下标即可），否则将<span class="math inline">\(x\)</span>直接入栈。</p>
 <h2 id="代码">代码</h2>
@@ -352,7 +352,7 @@ N），如果结果是一个所有位数相同的数，则这段数字有可能�
 例如:上述例子截取44321，和123相加，则为44321+123=44444，结果所有位的数字字符相同，包括个位数、十位数、百位数、千位数和万位数都是同一个数字字符4，且其值最大。
 (目标字符串)44321</p>
 <h2 id="样例-1">样例</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">6833023887793076998810418710</span><br><span class="line">2211</span><br><span class="line">-</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">9988</span><br><span class="line"></span><br><span class="line">解释：通过计算，8877-2211=6666，而9988-2211=7777，因为7777&gt;6666，则目标密码串为9988。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">68846787793076946788418710</span><br><span class="line">4210</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">884678</span><br><span class="line"></span><br><span class="line">解释：通过计算，符合条件有两个，884678+4210=888888，4678+4210=8888。则目标密码串为884678。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">139804444677899222</span><br><span class="line">2</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">4444</span><br><span class="line"></span><br><span class="line">解释：作为乘法场景，乘数最大值为3位数，本用例乘数为2。按要求，44442=8888，2222=444，均符合基本条件，从中选择结果最大值，则目标密码串是4444。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">6833023887793076998810418710</span><br><span class="line">2211</span><br><span class="line">-</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">9988</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">通过计算，8877-2211=6666，而9988-2211=7777，因为7777&gt;6666，则目标密码串为9988。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">68846787793076946788418710</span><br><span class="line">4210</span><br><span class="line">+</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">884678</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">通过计算，符合条件有两个，884678+4210=888888，4678+4210=8888。则目标密码串为884678。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">139804444677899222</span><br><span class="line">2</span><br><span class="line">*</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">4444</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">作为乘法场景，乘数最大值为3位数，本用例乘数为2。按要求，44442=8888，2222=444，均符合基本条件，从中选择结果最大值，则目标密码串是4444。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="解答-1">解答</h2>
 <p>枚举<span class="math inline">\(M\)</span>中所有长度在<span class="math inline">\(3\)</span>到<span class="math inline">\(12\)</span>之间的所有子串得到<span class="math inline">\(x\)</span>，并且使用<code>eval</code>函数方便地计算得到计算结果<span class="math inline">\(w\)</span>，再将其转换成字符串并判断是否结果为同一个数位即可。</p>
 <h2 id="代码-1">代码</h2>
@@ -374,10 +374,14 @@ rsTmes[i]，每个数字间用空格隔开，比如10 20
 <h2 id="输出-2">输出</h2>
 <p>输出分为两行，第一行输出最终可实现染色的微服务个数，第二行输出这些服务全部完成染色的最短时间。</p>
 <h2 id="样例-2">样例</h2>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">5</span><br><span class="line">9</span><br><span class="line">1 1 3</span><br><span class="line">1 2 6</span><br><span class="line">1 3 10</span><br><span class="line">3 3 8</span><br><span class="line">2 2 7</span><br><span class="line">2 4 12</span><br><span class="line">2 5 20</span><br><span class="line">5 5 5</span><br><span class="line">4 4 9</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">5</span><br><span class="line">38</span><br><span class="line"></span><br><span class="line">解释：</span><br><span class="line">以服务1为起点计算最长耗时链路，分析可能会存在三条最大耗时链路，分别为1-&gt;3以及1-&gt;2-&gt;5以及1-2-4</span><br><span class="line">第一条路径1-&gt;3路径下，总耗时为10(1-&gt;3耗时)+8(3自身耗时)=18秒</span><br><span class="line">第二条路径1-&gt;2-&gt;5路径下，总耗时为6(1-&gt;2耗时)+7(2自身耗时)+20(2-&gt;5耗时)+5(5自身耗时)=38秒</span><br><span class="line">第三条路径1-&gt;2-&gt;4路径下，总耗时为6(1-&gt;2耗时)+7(2自身耗时)+12(2-&gt;4耗时)+9(4自身耗时)=34秒</span><br><span class="line">所以在此场景下，服务5完成染色的最短时间为38秒，为可以染色的所有服务节点的最长时间</span><br><span class="line">最终输出结果分两行输出，最终1 2 3 4 5四个服务节点都可以实现染色，所以最终输出结果如下</span><br><span class="line">5</span><br><span class="line">38</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">1 2 5</span><br><span class="line">2 3 10</span><br><span class="line">1 3 3</span><br><span class="line">3 1 2</span><br><span class="line">3 2 9</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">3</span><br><span class="line">7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">输入：</span><br><span class="line">5</span><br><span class="line">9</span><br><span class="line">1 1 3</span><br><span class="line">1 2 6</span><br><span class="line">1 3 10</span><br><span class="line">3 3 8</span><br><span class="line">2 2 7</span><br><span class="line">2 4 12</span><br><span class="line">2 5 20</span><br><span class="line">5 5 5</span><br><span class="line">4 4 9</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">5</span><br><span class="line">38</span><br><span class="line"></span><br><span class="line">提示：</span><br><span class="line">以服务1为起点计算最长耗时链路，分析可能会存在三条最大耗时链路，分别为1-&gt;3以及1-&gt;2-&gt;5以及1-2-4</span><br><span class="line">第一条路径1-&gt;3路径下，总耗时为10(1-&gt;3耗时)+8(3自身耗时)=18秒</span><br><span class="line">第二条路径1-&gt;2-&gt;5路径下，总耗时为6(1-&gt;2耗时)+7(2自身耗时)+20(2-&gt;5耗时)+5(5自身耗时)=38秒</span><br><span class="line">第三条路径1-&gt;2-&gt;4路径下，总耗时为6(1-&gt;2耗时)+7(2自身耗时)+12(2-&gt;4耗时)+9(4自身耗时)=34秒</span><br><span class="line">所以在此场景下，服务5完成染色的最短时间为38秒，为可以染色的所有服务节点的最长时间</span><br><span class="line">最终输出结果分两行输出，最终1 2 3 4 5四个服务节点都可以实现染色，所以最终输出结果如下</span><br><span class="line">5</span><br><span class="line">38</span><br><span class="line"></span><br><span class="line">输入：</span><br><span class="line">3</span><br><span class="line">5</span><br><span class="line">1 2 5</span><br><span class="line">2 3 10</span><br><span class="line">1 3 3</span><br><span class="line">3 1 2</span><br><span class="line">3 2 9</span><br><span class="line">3</span><br><span class="line"></span><br><span class="line">输出：</span><br><span class="line">3</span><br><span class="line">7</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h2 id="提示">提示</h2>
-<p>1&lt;=rsTimes.length&lt;=5000 1&lt;=srcSerivce&lt;=100
-1&lt;=dstService&lt;=100 1&lt;=rsTime&lt;=100</p>
+<ul>
+<li><code>1&lt;=rsTimes.length&lt;=5000</code></li>
+<li><code>1&lt;=srcSerivce&lt;=100</code></li>
+<li><code>1&lt;=dstService&lt;=100</code></li>
+<li><code>1&lt;=rsTime&lt;=100</code></li>
+</ul>
 <h2 id="解答-2">解答</h2>
 <p>由于点的数量比较少，可以考虑使用不带堆优化的Dijkstra算法来求解最短路来求解最短路问题。需要注意的地方只有一个：</p>
 <ul>
@@ -501,49 +505,27 @@ rsTmes[i]，每个数字间用空格隔开，比如10 20
 
 <span id="sitetime"></span>
 <script language=javascript>
-  
-	function siteTime(){
-		window.setTimeout("siteTime()", 1000);
-		var seconds = 1000;
-		var minutes = seconds * 60;
-		var hours = minutes * 60;
-		var days = hours * 24;
-		var years = days * 365;
-		var today = new Date();
-		var todayYear = today.getFullYear();
-		var todayMonth = today.getMonth()+1;
-		var todayDate = today.getDate();
-		var todayHour = today.getHours();
-		var todayMinute = today.getMinutes();
-		var todaySecond = today.getSeconds();
-		/* 
-		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
-		year - 作为date对象的年份，为4位年份值
-		month - 0-11之间的整数，做为date对象的月份
-		day - 1-31之间的整数，做为date对象的天数
-		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
-		minutes - 0-59之间的整数，做为date对象的分钟数
-		seconds - 0-59之间的整数，做为date对象的秒数
-		microseconds - 0-999之间的整数，做为date对象的毫秒数
-    <i class="fa-solid fa-clock"></i>
-    */
-    var awesome = "<i class=\"fa-solid fa-clock\"></i> "
-    var t1 = Date.UTC(2022,
-                      3,
-                      25,
-                      13,
-                      14,
-                      23);
-		var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
-		var diff = t2-t1;
-		var diffYears = Math.floor(diff/years);
-		var diffDays = Math.floor((diff/days)-diffYears*365);
-		var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
-		var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
-		var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
-		document.getElementById("sitetime").innerHTML="自 2022 年 3 月 25 日建立以来，本网站已运行：" + awesome + " "+diffYears+" 年 "+diffDays+" 天 "+diffHours+" 时 "+diffMinutes+" 分 "+diffSeconds+" 秒";
-	}
-	siteTime();
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
 </script>
 
     </div>
