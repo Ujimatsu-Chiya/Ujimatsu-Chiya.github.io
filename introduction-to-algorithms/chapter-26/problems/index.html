@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论26 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-01T11:28:03.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.173Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/problems/","path":"introduction-to-algorithms/chapter-26/problems/","title":"算法导论26 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论26 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">26-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">26-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">26-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">26-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">4.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">4.6.</span> <span class="nav-text">f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#star-g"><span class="nav-number">4.7.</span> <span class="nav-text">\(\star\) g</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h"><span class="nav-number">4.8.</span> <span class="nav-text">h</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">26-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-4"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">26-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-5"><span class="nav-number">6.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-5"><span class="nav-number">6.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-5"><span class="nav-number">6.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-3"><span class="nav-number">6.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-1"><span class="nav-number">6.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-1"><span class="nav-number">6.6.</span> <span class="nav-text">f</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论26 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论26 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-01 19:28:03" itemprop="dateCreated datePublished" datetime="2023-10-01T19:28:03+08:00">2023-10-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">26-1</h1>
+<h2 id="a">a</h2>
+<p>使用得到<code>P-MAT-VEC-RECURSIVE</code>类似的方法对<code>SUM-ARRAYS</code>进行修改，同样可以得到其基于递归的并行版本<code>SUM-ARRAYS-RECURSIVE</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SUM-ARRAYS-RECURSIVE(A, B, C, i, i&#x27;)</span><br><span class="line">  if i == i&#x27;</span><br><span class="line">    C[i] = A[i] + B[i]</span><br><span class="line">  else</span><br><span class="line">    mid = ⌊(i + i&#x27;) / 2⌋</span><br><span class="line">    spawn SUM-ARRAYS-RECURSIVE(A, B, C, i, mid)</span><br><span class="line">    spawn SUM-ARRAYS-RECURSIVE(A, B, C, mid + 1, i&#x27;)</span><br><span class="line">    sync</span><br></pre></td></tr></table></figure>
+<p>可见这个算法的工作量为<span
+class="math inline">\(T_1(n)=\Theta(n)\)</span>。由于其递归深度达到<span
+class="math inline">\(\Theta(\lg n)\)</span>，并且只需要花费<span
+class="math inline">\(\Theta(1)\)</span>的时间即可完成，因此其持续时间为<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg
+n)\cdot\Theta(1)=\Theta(\lg n)\)</span>。因此的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n/\lg
+n)\)</span>。</p>
+<h2 id="b">b</h2>
+<p>如果<span
+class="math inline">\(grain\text{-}size=1\)</span>，那么<span
+class="math inline">\(r=n\)</span>，<code>SUM-ARRAYS'</code>中的<code>for</code>循环将会串行地执行<span
+class="math inline">\(n\)</span>次，每次调用<code>ADD-SUBARRAY</code>都只花费<span
+class="math inline">\(\Theta(1)\)</span>的时间。因此持续时间<span
+class="math inline">\(T_{\infty}(n)=n\cdot
+\Theta(1)=\Theta(n)\)</span>。可以知道其工作量为<span
+class="math inline">\(T_1(n)=\Theta(n)\)</span>，因此其并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(1)\)</span>。</p>
+<h2 id="c">c</h2>
+<p>令<span
+class="math inline">\(g=grain\text{-}size\)</span>。执行单次<code>ADD-SUBARRAY</code>所需要的时间为<span
+class="math inline">\(O(g)\)</span>。在<code>SUM-ARRAYS'</code>中，一共需要执行<span
+class="math inline">\(n/g\)</span>次<code>ADD-SUBARRAY</code>，但是<code>for</code>循环并没有带有<code>parrllel</code>关键字，也就是说，这些调用<code>ADD-SUBARRAY</code>的线程是按顺序启动的，它们并非同时启动的，因此这里仍然需要花费<span
+class="math inline">\(O(n/g)\)</span>的时间完成这个<code>for</code>循环。</p>
+<p>因此，<code>SUM-ARRAYS'</code>需要花费<span
+class="math inline">\(O(g+n/g)\)</span>的时间完成。令<span
+class="math inline">\(f(g)=g+n/g\)</span>，那么有<span
+class="math inline">\(f&#39;(g)=1-n/g^2\)</span>。令<span
+class="math inline">\(f&#39;(g)=00\)</span>，即<span
+class="math inline">\(g=\sqrt{n}\)</span>时，<code>SUM-ARRAYS'</code>只需要花费<span
+class="math inline">\(O(\sqrt{n})\)</span>的时间就可以完成。</p>
+<h1 id="section-1">26-2</h1>
+<h2 id="a-1">a</h2>
+<p>修改后的代码由<code>P-MATRIX-MULTIPLY-RECURSIVE'</code>所示，它消去了临时矩阵<span
+class="math inline">\(D\)</span>的存在。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A, B, C, n)</span><br><span class="line">  if n == 1</span><br><span class="line">    c11 = c11 + a11 · b11</span><br><span class="line">    return</span><br><span class="line">  partition A, B, C, and D into n/2 × n/2 submatrices A11, A12, A21, A22; B11, B12, B21, B22; and C11, C12, C21, C22; respectively</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A11, B11, C11, n / 2)</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A11, B12, C12, n / 2)</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A21, B11, C21, n / 2)</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A21, B12, C22, n / 2)</span><br><span class="line">  sync</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A12, B21, C11, n / 2)</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A12, B22, C12, n / 2)</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A22, B21, C21, n / 2)</span><br><span class="line">  spawn P-MATRIX-MULTIPLY-RECURSIVE&#x27;(A22, B22, C22, n / 2)</span><br><span class="line">  sync</span><br></pre></td></tr></table></figure>
+<p>可见，它的串行投影是<code>MATRIX-MULTIPLY-RECURSIVE</code>，因此其工作量为<span
+class="math inline">\(\Theta(n^3)\)</span>。</p>
+<h2 id="b-1">b</h2>
+<p>对于其工作量<span
+class="math inline">\(T_1(n)\)</span>，可以给出其递推式<span
+class="math inline">\(T_1(n)=8T_1(n/2)+\Theta(n^2)\)</span>，因此得到<span
+class="math inline">\(T_1(n)=\Theta(n^3)\)</span>。</p>
+<p>对于其持续时间，除了递归调用，<code>P-MATRIX-MULTIPLY-RECURSIVE'</code>没有再做其它工作。因此可以给出其递推式<span
+class="math inline">\(T_{\infty}(n)=2T_{\infty}(n/2)+\Theta(1)\)</span>，最终通过主定理可以得知<span
+class="math inline">\(T_{\infty}(n)=\Theta(n)\)</span>。</p>
+<p>也就是说，算法<code>P-MATRIX-MULTIPLY-RECURSIVE'</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^2)\)</span>。</p>
+<h2 id="c-1">c</h2>
+<p>忽略掉<span class="math inline">\(\Theta\)</span>符号后，对于<span
+class="math inline">\(1000\times1000\)</span>的矩阵而言，调用<code>P-MATRIX-MULTIPLY-RECURSIVE'</code>的并行度为<span
+class="math inline">\(10^6\)</span>。相比于调用<code>P-MATRIX-MULTIPLY-RECURSIVE</code>得到<span
+class="math inline">\(10^7\)</span>的并行度，计算机依旧不会有这么多的处理器，但是在算法的运行时间的常数却明显减少了，因此这种权衡是值得的。</p>
+<h1 id="section-2">26-3</h1>
+<h2 id="a-2">a</h2>
+<p>对<code>LU-DECOMPOSITION</code>修改后得到的并行化版本为<code>P-LU-DECOMPOSITION</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">P-LU-DECOMPOSITION(A, n)</span><br><span class="line">  let L and U be new n × n matrices </span><br><span class="line">  initialize U with 0s below the diagonal</span><br><span class="line">  initialize L with 1s on the diagonal and 0s above the diagonal</span><br><span class="line">  for k = 1 to n</span><br><span class="line">    u_&#123;kk&#125; = a_&#123;kk&#125;</span><br><span class="line">    parallel for i = k + 1 to n</span><br><span class="line">      l_&#123;ik&#125; = a_&#123;ik&#125; / a_&#123;kk&#125;</span><br><span class="line">      u_&#123;ki&#125; = a_&#123;ki&#125;</span><br><span class="line">    parallel for i = k + 1 to n</span><br><span class="line">      parallel for j = k + 1 to n</span><br><span class="line">        a_&#123;ij&#125; = a_&#123;ij&#125; − l_&#123;ik&#125; * u_&#123;kj&#125;</span><br><span class="line">  return L and U</span><br></pre></td></tr></table></figure>
+<p>也就是说，所有内循环都可以进行并行，但是最外层的那一层循环不允许并行。第一个内循环能够并行的原因是：它只读取<span
+class="math inline">\(a\)</span>矩阵的元素，并修改<span
+class="math inline">\(L,U\)</span>对应行和对应列的元素，并不会进行多次存取。第二个双重内循环能够并行的原因是第<span
+class="math inline">\(i\)</span>轮二层循环，第<span
+class="math inline">\(j\)</span>轮三次循环中，他只会读取<span
+class="math inline">\(L,U\)</span>矩阵的值并且修改<span
+class="math inline">\(a_{ij}\)</span>的值，不会造成冲突。外层循环不能是并行的原因是按照LU分解的定义，后一次的运行依赖于前一次的结果。</p>
+<p><code>P-LU-DECOMPOSITION</code>的串行投影是<code>LU-DECOMPOSITION</code>，因此其工作量为<span
+class="math inline">\(T_1(n)=\Theta(n^3)\)</span>。</p>
+<p>对于<code>P-LU-DECOMPOSITION</code>的持续时间，第一层的第一次内循环花费的时间是<span
+class="math inline">\(\Theta(\lg(n-k))=\Theta(\lg
+n)\)</span>，因为转化成<code>spawn ... sync</code>结构后就变成了分支法，然后进行递归。第二次的两个双重嵌套寻呼按的原因相同，其花费的时间为<span
+class="math inline">\(\Theta(\lg(n-k))+\Theta(\lg(n-k))=\Theta(\lg
+n)\)</span>。因此，外层<code>for</code>循环需要<span
+class="math inline">\(\Theta(\lg
+n)\)</span>的时间完成一次。最终，<code>P-LU-DECOMPOSITION</code>的持续时间为<span
+class="math inline">\(T_{\infty}(n)=n\cdot \Theta(\lg n)=\Theta(n\lg
+n)\)</span>。</p>
+<p>最终我们可以计算出<code>P-LU-DECOMPOSITION</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^2/\lg
+n)\)</span>。</p>
+<h2 id="b-2">b</h2>
+<p>对<code>LUP-DECOMPOSITION</code>修改后得到的并行化版本为<code>P-LUP-DECOMPOSITION</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">P-LUP-DECOMPOSITION(A, n)</span><br><span class="line">  let π[1 : n] be a new array</span><br><span class="line">  parallel for i = 1 to n</span><br><span class="line">    π[i] = i</span><br><span class="line">  for k = 1 to n</span><br><span class="line">    p = 0</span><br><span class="line">    parallel for i = k to n</span><br><span class="line">      if |a_&#123;ik&#125;| &gt; p</span><br><span class="line">        p = |a_&#123;ik&#125;|</span><br><span class="line">        k&#x27; = i</span><br><span class="line">    if p == 0</span><br><span class="line">      error &quot;singular matrix&quot;</span><br><span class="line">    exchange π[k] with π[k&#x27;]</span><br><span class="line">    parallel for i = 1 to n</span><br><span class="line">      exchange a_&#123;ki&#125; with a_&#123;k&#x27;i&#125; </span><br><span class="line">    parallel for i = k + 1 to n</span><br><span class="line">      a_&#123;ik&#125; = a_&#123;ik&#125; / a_&#123;kk&#125;</span><br><span class="line">      parallel for j = k + 1 to n</span><br><span class="line">        a_&#123;ij&#125; = a_&#123;ij&#125; − a_&#123;ik&#125; * a_&#123;kj&#125;</span><br></pre></td></tr></table></figure>
+<p>第2行的<code>for</code>循环可以并行，这是显而易见的。第6-9行的<code>for</code>循环是可以并行的，因为这是寻找一个最大值，在这个过程中，<span
+class="math inline">\(n\)</span>个元素构成一棵<span
+class="math inline">\(n\)</span>个叶节点的二叉树，对于内部节点，它是两个子节点中的最大值，由于这棵树的深度为<span
+class="math inline">\(\Theta(\lg
+n)\)</span>，因此这段循环的持续时间为<span
+class="math inline">\(\Theta(\lg
+n)\)</span>。第13行的<code>for</code>循环用于交换两行元素，显而易见是可以并行的。对于第15行和17行的<code>for</code>循环，第16行仅仅是对<span
+class="math inline">\(a_{ik}\)</span>进行更新，此后都是对<span
+class="math inline">\(a_{ij}(j&gt;k)\)</span>中的所有元素进行更新。至于先对哪一行操作都是没有关系的，因此第15行和17行的<code>for</code>循环它们都可以并行。外面针对<span
+class="math inline">\(k\)</span>的<code>for</code>循环不能并行，因为会导致数据读取冲突。</p>
+<p><code>P-LUP-DECOMPOSITION</code>的串行投影是<code>LUP-DECOMPOSITION</code>，因此其工作量为<span
+class="math inline">\(T_1(n)=\Theta(n^3)\)</span>。</p>
+<p>对于<code>P-LUP-DECOMPOSITION</code>的持续时间，分析和<code>P-LU-DECOMPOSITION</code>非常相似。第6，13，15，17行的<code>for</code>循环都可以进行，因此这部分只使用<span
+class="math inline">\(\Theta(\lg
+n)\)</span>的时间即可完成。最终，<code>P-LUP-DECOMPOSITION</code>的持续时间为<span
+class="math inline">\(T_{\infty}(n)=n\cdot \Theta(\lg n)=\Theta(n\lg
+n)\)</span>。</p>
+<p>最终我们可以计算出<code>P-LUP-DECOMPOSITION</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^2/\lg
+n)\)</span>。</p>
+<h2 id="c-2">c</h2>
+<p>对<code>LUP-SOLVE</code>修改后得到的并行化版本为<code>P-LUP-SOLVE</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">P-LUP-SOLVE(L, U, π, b, n)</span><br><span class="line">  let x and y be new vectors of length n</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    val = 0</span><br><span class="line">    parallel for j = 1 to i - 1</span><br><span class="line">      val = val + l_&#123;ij&#125; * y_j</span><br><span class="line">    y_i = b_&#123;π[i]&#125; - val</span><br><span class="line">  for i = n downto 1</span><br><span class="line">    val = 0</span><br><span class="line">    parallel for j = i + 1 to n</span><br><span class="line">      val = val + u_&#123;ij&#125; * x_j</span><br><span class="line">    x_i = (y_u - val) / u_&#123;ii&#125;</span><br><span class="line">  return x</span><br></pre></td></tr></table></figure>
+<p>第4和9行的<code>for</code>循环可以并行，只需要将长度为<span
+class="math inline">\(n\)</span>的序列构造出一棵<span
+class="math inline">\(n\)</span>个叶子节点的完全二叉树即可，对于内部节点，它是两个子节点中的值之和。因此，这两个内部<code>for</code>循环都能够在<span
+class="math inline">\(\Theta(\lg
+n)\)</span>的时间内完成。对于第2和7行的<code>for</code>循环，因为后面计算<span
+class="math inline">\(x,y\)</span>值需要依赖前面已经计算出的<span
+class="math inline">\(x,y\)</span>值。</p>
+<p>最终，<code>P-LUP-SOLVE</code>的串行投影即为<code>LUP-SOLVE</code>，因此其工作量为<span
+class="math inline">\(T_1(n)=\Theta(n^2)\)</span>。按照上面的结论，可以得到持续时间<span
+class="math inline">\(T_{\infty}(n)=n\cdot \Theta(\lg n)=\Theta(n\lg
+n)\)</span>。最终我们可以计算出<code>P-LUP-SOLVE</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n/\lg
+n)\)</span>。</p>
+<h2 id="d">d</h2>
+<p>一个对正定矩阵求逆的并行算法由<code>P-MATRIX-INVERSION-POSITIVE-DEFINITE</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">P-MATRIX-INVERSION-POSITIVE-DEFINITE(A, n)</span><br><span class="line">  partition A into n/2 × n/2 submatrices B, CT, C, D; respectively</span><br><span class="line">  let W[1 : n, 1 : n], X[1 : n, 1 : n], Y[1 : n, 1 : n], Z[1 : n, 1 : n], S[1 : n, 1 : n] be new matrices</span><br><span class="line">  B&#x27; = P-MATRIX-INVERSION-POSITIVE-DEFINITE(B, n / 2)</span><br><span class="line">  W = P-MATRIX-MULTIPLY(C, B&#x27;, W, n / 2)</span><br><span class="line">  WT = W</span><br><span class="line">  P-TRANSPOSE(WT, n / 2)</span><br><span class="line">  P-MATRIX-MULTIPLY(W, CT, X, n / 2)</span><br><span class="line">  S = D - X</span><br><span class="line">  S&#x27; = P-MATRIX-INVERSION-POSITIVE-DEFINITE(S, n / 2)</span><br><span class="line">  P-MATRIX-MULTIPLY(S&#x27;, W, Y, n / 2)</span><br><span class="line">  YT = Y</span><br><span class="line">  P-TRANSPOSE(YT, n / 2)</span><br><span class="line">  P-MATRIX-MULTIPLY(WT, y, Z)</span><br><span class="line">  R = B&#x27; + Z</span><br><span class="line">  A&#x27; = [[R, -YT], [-Y, S&#x27;]]</span><br><span class="line">  return A&#x27;</span><br></pre></td></tr></table></figure>
+<p>按照第28.2章的结论以及不等式28.15，可以知道其工作量<span
+class="math inline">\(I_1(n)\le
+2I_1(n/2)+4M_1(n/2)+O(n^2)\)</span>，最终得到<span
+class="math inline">\(I_1(n)=O(M(n))\)</span>。</p>
+<p>在并行版本中，由题目26.1-8，26.2-3和题26-1-a可知，矩阵的转置、加法和乘法都可以在<span
+class="math inline">\(\Theta(\lg
+n)\)</span>时间内完成。在<code>P-MATRIX-INVERSION-POSITIVE-DEFINITE</code>中，一共进行了<span
+class="math inline">\(2\)</span>次矩阵转置，<span
+class="math inline">\(4\)</span>次矩阵加减法，<span
+class="math inline">\(4\)</span>次矩阵乘法。同样的，它们还进行了<span
+class="math inline">\(2\)</span>次大小为<span
+class="math inline">\(n/2\times
+n/2\)</span>矩阵的求逆。可见，这些步骤都是依赖于前一步的结果，因此步骤之间不能直接并行。我们可以写出它的持续时间<span
+class="math inline">\(I_{\infty}(n)\)</span>满足<span
+class="math inline">\(I_{\infty}(n)=2I_{\infty}(n/2)+10\cdot\Theta(\lg
+n)\)</span>，因此最终得到<span
+class="math inline">\(I_{\infty}(n)=\Theta(n)\)</span>。</p>
+<p>最终我们可以得到它的并行度为<span
+class="math inline">\(I_1(n)/I_{\infty}(n)=O(M(n)/n)\)</span>。</p>
+<h1 id="section-3">26-4</h1>
+<h2 id="a-3">a</h2>
+<p>设计的<code>P-REDUCE</code>如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">P-REDUCE(x, i, j)</span><br><span class="line">  if i == j</span><br><span class="line">    return x[i]</span><br><span class="line">  else</span><br><span class="line">    mid = ⌊(i + j) / 2⌋</span><br><span class="line">    l = spawn P-REDUCE(x, i, mid)</span><br><span class="line">    r = spawn P-REDUCE(x, mid + 1, j)</span><br><span class="line">    sync</span><br><span class="line">    return l ⊗ r</span><br></pre></td></tr></table></figure>
+<p>不难发现它的串行投影即为<code>REDUCE</code>，因此它的工作量为<span
+class="math inline">\(T_1(n)=\Theta(n)\)</span>。由于这棵进行搜索的二叉树的深度为<span
+class="math inline">\(\Theta(\lg
+n)\)</span>，因此这个算法的持续时间为<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg n)\)</span>。</p>
+<h2 id="b-3">b</h2>
+<p>这个算法相当于是以<span
+class="math inline">\(k=1,2,\dots,n\)</span>对<code>P-REDUCE</code>都进行了一次调用。因此<code>P-SCAN-1</code>的工作量为<span
+class="math inline">\(\displaystyle{T_1(n)=\sum_{k=1}^n\Theta(k)=\Theta(n^2)}\)</span>。</p>
+<p>接下来求解<code>P-SCAN-1</code>的持续时间。由于对<code>P-SCAN-1</code>对<code>P-REDUCE</code>的间接调用呈树形，假设伪代码中，第<span
+class="math inline">\(i\)</span>次对<code>P-REDUCE</code>的调用的持续时间为<span
+class="math inline">\(iter(i)\)</span>，那么有<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg n)+\max\{iter(i):1\le
+i\le n\}\)</span>，按照题目26-4-a的结论，有<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg n)\)</span>。</p>
+<p>因此<code>P-SCAN-1</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^2/\lg
+n)\)</span>。</p>
+<h2 id="c-3">c</h2>
+<p>我们可以使用归纳法进行证明其正确性。即证明，调用<code>P-SCAN-2-AUX(i, j)</code>，对于<span
+class="math inline">\(\forall k\in[i,j]\)</span>，它都正确计算出了<span
+class="math inline">\(y[k]=x[i]\otimes x[i+1]\otimes\dots\otimes
+x[k]\)</span>。</p>
+<p>对于基本情况：<span
+class="math inline">\(i=j\)</span>，<code>P-SCAN-2-AUX</code>都正确计算出了<span
+class="math inline">\(y\)</span>数组，这由<code>P-SCAN-2-AUX</code>的前两行明显可知。</p>
+<p>当<span class="math inline">\(i&lt;j\)</span>时，假设对于区间<span
+class="math inline">\([i,j]\)</span>内的所有真子区间<span
+class="math inline">\([i&#39;,j&#39;]\)</span>，即<span
+class="math inline">\(i\le i&#39;\le j&#39;\le j\)</span>，且<span
+class="math inline">\(i=i&#39;,j=j&#39;\)</span>不同时成立，<code>P-SCAN-2-AUX</code>都计算出了正确的结果。那么第三行得到了一个<span
+class="math inline">\(k=\lfloor(i+j)/2\rfloor\)</span>。对于第4和5行的代码，它们分别对<span
+class="math inline">\(y\)</span>数组的区间<span
+class="math inline">\([i,k]\)</span>和<span
+class="math inline">\([k+1,j]\)</span>进行写入，并且读取的内容也不相交，因此这两行代码不会构成竞争。在第6行结束后，<span
+class="math inline">\(y\)</span>数组满足：如果<span
+class="math inline">\(p\le k\)</span>，那么<span
+class="math inline">\(y[p]=x[i]\otimes x[i+1]\otimes\dots\otimes
+x[p]\)</span>，否则<span class="math inline">\(y[p]=x[k+1]\otimes
+x[k+2]\otimes\dots\otimes x[k]\)</span>。对于<span
+class="math inline">\(p&gt;k\)</span>的情况，第8行将<span
+class="math inline">\(y[p]\)</span>重新赋值成<span
+class="math inline">\(y[k]\otimes y[p]\)</span>。这个步骤完成后，<span
+class="math inline">\(\forall p\in[i,j]\)</span>，都有<span
+class="math inline">\(y[p]=x[i]\otimes x[i+1]\otimes\dots\otimes
+x[p]\)</span>。因此<code>P-SCAN-2-AUX</code>是正确的。</p>
+<p>接下来考虑<code>P-SCAN-2-AUX</code>的工作量<span
+class="math inline">\(T_1(n)\)</span>，消去最后的<code>for</code>循环中的<code>parallel</code>关键字后，那么除去递归部分，它的运行时间是<span
+class="math inline">\(\Theta(n)\)</span>。因此可以写出<span
+class="math inline">\(T_1(n)=2T_1(n/2)+\Theta(n)\)</span>，从而得到<span
+class="math inline">\(T_1(n)=\Theta(n\lg n)\)</span>。</p>
+<p>接下来考虑其持续时间<span
+class="math inline">\(T_{\infty}(n)\)</span>。可见出了递归部分，其余部分仍然需要<span
+class="math inline">\(\Theta(\lg n)\)</span>进行。因此有<span
+class="math inline">\(T_{\infty}(n)=T_{\infty}(n/2)+\Theta(\lg
+n)\)</span>，最终得到<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg^2n)\)</span>。</p>
+<p>因此<code>P-SCAN-2</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n/\lg
+n)\)</span>。</p>
+<h2 id="d-1">d</h2>
+<p><code>P-SCAN-UP</code>第8行填入的是$<code>right ⊗ t[k]</code>；<code>P-SCAN-DOWN</code>的第5行填入<code>v</code>，第6行填入<code>v ⊗ t[k]</code>。</p>
+<p>需要注意的是，<span
+class="math inline">\(t[k]\)</span>存储的是当一个区间<span
+class="math inline">\([i,j]\)</span>被尽量均匀地划分成两个区间<span
+class="math inline">\([i,k],[k+1,j]\)</span>后，<span
+class="math inline">\(t[k]\)</span>就是记录区间<span
+class="math inline">\([i,j]\)</span>前面一半元素（即<span
+class="math inline">\([i,k]\)</span>）的元素之和<span
+class="math inline">\(t[k]=x[i]\otimes x[i+1]\otimes\dots\otimes
+x[k]\)</span>。</p>
+<p>首先证明，调用时每个<span
+class="math inline">\(t[k]\)</span>最多只会被赋值一次（因此，在执行<code>P-SCAN-DOWN</code>时不会造成任何冲突）。只有调用<code>P-SCAN-UP</code>，当<span
+class="math inline">\(i&lt;j\)</span>时，才会对<span
+class="math inline">\(t[k]\)</span>进行赋值，在此之后更深的递归讲不会再对<span
+class="math inline">\(t[k]\)</span>进行赋值，原因如下。如果递归的区间是左半子区间<span
+class="math inline">\([i,k]\)</span>，那么对于所有<span
+class="math inline">\([i,k]\)</span>的长度大于等于<span
+class="math inline">\(2\)</span>的（等于<span
+class="math inline">\(1\)</span>则不会进入到这个分支）真子区间<span
+class="math inline">\([i&#39;,k&#39;]\)</span>，都有<span
+class="math inline">\(\lfloor(i&#39;+k&#39;)/2\rfloor&lt;k\)</span>，因此<span
+class="math inline">\(t[k]\)</span>不会被重复赋值；如果递归的是右子区间<span
+class="math inline">\([k+1,j]\)</span>，那么它的访问和读写只会在这个区间内进行，更不会对<span
+class="math inline">\(t[k]\)</span>进行访问。因此，<span
+class="math inline">\(t[k]\)</span>确实能够正确记录区间<span
+class="math inline">\([i,j]\)</span>的信息。根据<code>P-SCAN-DOWB</code>的第5行代码，就可以知道<span
+class="math inline">\(t[k]\)</span>记录的是区间i,j的左半区间的元素之和。并且，<code>P-SCAN-UP</code>的返回值是<span
+class="math inline">\([i,j]\)</span>这个区间的所有元素之和，因此结论成立。</p>
+<p>接下来证明每次调用<code>P-SCAN-DOWN(v, x, t, y, i, j)</code>时，总满足<span
+class="math inline">\(v=x[1]\otimes x[2]\otimes\dots\otimes
+x[i-1]\)</span>。同样使用归纳法来证明。在<code>P-SCAN-3</code>调用<code>P-SCAN-DOWN</code>时，有<span
+class="math inline">\(v=x[1],i=2\)</span>，因此基本情况下是成立的。<code>P-SCAN-DOWN</code>首先调用<code>P-SCAN-DOWN(v, x, t, y, i, k)</code>，由于参数<span
+class="math inline">\(i\)</span>没有变化，因此<span
+class="math inline">\(v\)</span>仍然使用原来的<span
+class="math inline">\(v\)</span>，原结论成立；然后调用<code>P-SCAN-DOWN(v ⊗ t[k], x, t, y, k + 1, j)</code>，由于此时<span
+class="math inline">\(t[k]=x[i]\otimes x[i+1]\otimes\dots\otimes
+x[k]\)</span>，因此有<span class="math inline">\(v\otimes
+t[k]=x[1]\otimes x[2]\otimes\dots\otimes
+x[k]\)</span>。因此第二次调用时同样满足题目的条件。因此当<code>P-SCAN-DOWN</code>进入第2行后，<code>y[i] = v ⊗ x[i]</code>则是<span
+class="math inline">\(y[i]=x[1]\otimes x[2]\otimes\dots\otimes
+x[i]\)</span>，<span
+class="math inline">\(y[i]\)</span>被正确地计算出来。</p>
+<p>因此，算法<code>P-SCAN-3</code>是正确的。</p>
+<h2 id="e">e</h2>
+<p>可以发现，这棵树的节点数仍然是<span
+class="math inline">\(\Theta(n)\)</span>，因此<code>P-SCAN-3</code>的工作量<span
+class="math inline">\(T_1(n)=\Theta(n)\)</span>。</p>
+<p>接下来首先考虑<code>P-SCAN-UP</code>。由于其每次划分出了两个长度尽量均等的区间，并且其余处理部分都只要<span
+class="math inline">\(\Theta(1)\)</span>的时间，因此<code>P-SCAN-UP</code>这段代码的持续时间满足<span
+class="math inline">\(T_{\infty}(n)=T_{\infty}(n/2)+\Theta(1)\)</span>，从而得到<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg
+n)\)</span>。<code>P-SCAN-DOWN</code>和<code>P-SCAN-UP</code>的结构基本相同，因此对其分析也一样。</p>
+<p>最终，<code>P-SCAN-3</code>的持续时间为<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg n)\)</span>。</p>
+<p>因此，<code>P-SCAN-3</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n/\lg
+n)\)</span>。</p>
+<h2 id="f">f</h2>
+<p>修改后的<code>P-SCAN-3</code>由<code>P-SCAN-3'</code>给出。代价是并发度将会降低。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">P-SCAN-3&#x27;(x, n)</span><br><span class="line">  let y[1 : n] be a new array</span><br><span class="line">  y[1] = x[1]</span><br><span class="line">  if n &gt; 1</span><br><span class="line">    P-SCAN-3-AUX(x[1], x, y, 2, n)</span><br><span class="line">  return y</span><br><span class="line"></span><br><span class="line">P-SCAN-SUM-ARRAYS(x, i, j)</span><br><span class="line">  if i == j</span><br><span class="line">    return x[i]</span><br><span class="line">  else</span><br><span class="line">    k = ⌊(i + j) / 2⌋</span><br><span class="line">    l = spawn P-SCAN-SUM-ARRAYS(x, t, i, k)</span><br><span class="line">    r = P-SCAN-SUM-ARRAYS(x, t, k + 1, j)</span><br><span class="line">    return l ⊗ r</span><br><span class="line"></span><br><span class="line">P-SCAN-3-AUX(v, x, y, i, j)</span><br><span class="line">  if i == j</span><br><span class="line">    y[i] = v ⊗ x[i]</span><br><span class="line">  else</span><br><span class="line">    k = ⌊(i + j) / 2⌋</span><br><span class="line">    spawn P-SCAN-3-AUX(v, x, y, i, k)</span><br><span class="line">    t = P-SCAN-SUM-ARRAYS(x, i, k)</span><br><span class="line">    P-SCAN-3-AUX(v ⊗ t, x, y, k + 1, j)</span><br><span class="line">    sync</span><br></pre></td></tr></table></figure>
+<h2 id="star-g"><span class="math inline">\(\star\)</span> g</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">P-SCAN-4(x, n)</span><br><span class="line">  l = 1</span><br><span class="line">  while l &lt;= n</span><br><span class="line">    parallel for i = 1 to n by l * 2</span><br><span class="line">      parallel j = 0 to l - 1</span><br><span class="line">        if i + l + j &lt;= n</span><br><span class="line">          x[i + l + j] = x[i + l + j] + x[i + l - 1]</span><br><span class="line">    l = l * 2</span><br></pre></td></tr></table></figure>
+<p>这个算法的基本思想是，将<span
+class="math inline">\(x\)</span>分成<span class="math inline">\(\lceil
+n/(2l)\rceil\)</span>块，每一块的长度为<span
+class="math inline">\(2l\)</span>（最后一块不足<span
+class="math inline">\(2l\)</span>也以一块记），并且<span
+class="math inline">\(l\)</span>是<span
+class="math inline">\(2\)</span>的幂。一开始<span
+class="math inline">\(l=1\)</span>，将前半块的最后一个元素<span
+class="math inline">\(x[i+l-1]\)</span>添加到后半块<span
+class="math inline">\(x[i+l+j](0\le
+j&lt;l)\)</span>中的每一个元素。从而最终完成后，每一块内部都是对应值的前缀和。可见两个<code>parallel for</code>循环不会导致冲突，因此这个算法的持续时间为<span
+class="math inline">\(T_{\infty}(n)=\Theta(\lg^2n)\)</span>。</p>
+<h2 id="h">h</h2>
+<p>将字符串中的<code>(</code>视为<span
+class="math inline">\(+1\)</span>，<code>')'</code>视为<span
+class="math inline">\(-1\)</span>，得到一个数组<span
+class="math inline">\(x\)</span>，求出其前缀和<span
+class="math inline">\(y\)</span>。那么一个括号字符串是合法的，当且仅当<span
+class="math inline">\(\forall i\in[1,n],y_i\ge 0\)</span>，并且有<span
+class="math inline">\(y_n=0\)</span>。通过对<code>P-SCAN-3</code>进行改造，我们可以得到一个在<span
+class="math inline">\(\Theta(\lg
+n)\)</span>时间内判断一个括号字符串是否合法的程序<code>PARENTHESES-IS-WELL-FORMED</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">PARENTHESES-IS-WELL-FORMED(s, n)</span><br><span class="line">  let y[0 : n] and t[1 : n] be new arrays</span><br><span class="line">  y[0] = 0</span><br><span class="line">  P-SCAN-UP&#x27;(s, t, 1, n)</span><br><span class="line">  mn = P-SCAN-DOWN&#x27;(0, s, t, y, 1, n)</span><br><span class="line">  return mn &gt;= 0 and y[n] == 0</span><br><span class="line"></span><br><span class="line">P-SCAN-UP&#x27;(s, t, i, j)</span><br><span class="line">  if i == j</span><br><span class="line">    if s[i] == &#x27;(&#x27;</span><br><span class="line">      return 1</span><br><span class="line">    else</span><br><span class="line">      return -1</span><br><span class="line">  else</span><br><span class="line">    k = ⌊(i + j) / 2⌋</span><br><span class="line">    t[k] = spawn P-SCAN-UP&#x27;(s, t, i, k)</span><br><span class="line">    right = P-SCAN-UP&#x27;(s, t, k + 1, j)</span><br><span class="line">    sync</span><br><span class="line">    return t[k] + right</span><br><span class="line"></span><br><span class="line">P-SCAN-DOWN&#x27;(v, s, t, y, i, j)</span><br><span class="line">  if i == j</span><br><span class="line">    y[i] = v + x[i]</span><br><span class="line">    return y[i]</span><br><span class="line">  else</span><br><span class="line">    k = ⌊(i + j) / 2⌋</span><br><span class="line">    l = spawn P-SCAN-DOWN (v, x, t, y, i, k)</span><br><span class="line">    r = P-SCAN-DOWN(v + t[k], x, t, y, k + 1, j)</span><br><span class="line">    sync</span><br><span class="line">    return min&#123;l, r&#125;</span><br></pre></td></tr></table></figure>
+<p>改造后的程序还返回了前缀和数组中的最小值。</p>
+<h1 id="section-4">26-5</h1>
+<h2 id="a-4">a</h2>
+<p>不失一般性，这里假设矩阵<span
+class="math inline">\(A\)</span>的大小<span
+class="math inline">\(n\)</span>是<span
+class="math inline">\(2\)</span>的幂次。基于等式26.9，那么对矩阵<span
+class="math inline">\(A\)</span>的填充并行分治算法由<code>SIMPLE-STENCIL</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">SIMPLE-STENCIL(A, n)</span><br><span class="line">  if n == 1</span><br><span class="line">    generate the value of a11</span><br><span class="line">    return</span><br><span class="line">  partition A into n/2 × n/2 submatrices A11, A12, A21, A22; respectively</span><br><span class="line">  SIMPLE-STENCIL(A11, n / 2)</span><br><span class="line">  spawn SIMPLE-STENCIL(A12, n / 2)</span><br><span class="line">  spawn SIMPLE-STENCIL(A21, n / 2)</span><br><span class="line">  sync</span><br><span class="line">  SIMPLE-STENCIL(A22, n / 2)</span><br></pre></td></tr></table></figure>
+<p>可见这个算法只是为了填充原来矩阵的所有元素，由其串行投影可以知道其工作量满足<span
+class="math inline">\(T_1(n)=4T_1(n/2)+\Theta(1)\)</span>，可以得到<span
+class="math inline">\(T_1(n)=\Theta(n^2)\)</span>。</p>
+<p>这个算法的持续时间满足<span
+class="math inline">\(T_{\infty}(n)=3T_\infty(n/2)+\Theta(1)\)</span>，可以得到<span
+class="math inline">\(T_{\infty}(n)=\Theta(n^{\lg 3})\)</span>。</p>
+<p>最终可以得到并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^{2-\lg
+3})\)</span>。</p>
+<h2 id="b-4">b</h2>
+<p>不失一般性，这里假设矩阵<span
+class="math inline">\(A\)</span>的大小<span
+class="math inline">\(n\)</span>是<span
+class="math inline">\(3\)</span>的幂次，那么按照题目26-5-a的结果，我们可以对<code>SIMPLE-STENCIL</code>修改成<code>SIMPLE-STENCIL3</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SIMPLE-STENCIL3(A, n)</span><br><span class="line">  if n == 1</span><br><span class="line">    generate the value of a11</span><br><span class="line">    return</span><br><span class="line">  partition A into n/3 × n/3 submatrices A11, A12, A13, A21, A22, A23, A31, A32, A33; respectively</span><br><span class="line">  SIMPLE-STENCIL3(A11, n / 3)</span><br><span class="line">  spawn SIMPLE-STENCIL3(A12, n / 3)</span><br><span class="line">  spawn SIMPLE-STENCIL3(A21, n / 3)</span><br><span class="line">  sync</span><br><span class="line">  spawn SIMPLE-STENCIL3(A13, n / 3)</span><br><span class="line">  spawn SIMPLE-STENCIL3(A22, n / 3)</span><br><span class="line">  spawn SIMPLE-STENCIL3(A31, n / 3)</span><br><span class="line">  sync</span><br><span class="line">  spawn SIMPLE-STENCIL3(A23, n / 3)</span><br><span class="line">  spawn SIMPLE-STENCIL3(A32, n / 3)</span><br><span class="line">  sync</span><br><span class="line">  SIMPLE-STENCIL3(A33, n / 3)</span><br></pre></td></tr></table></figure>
+<p>和题目26-3-a分析的过程类似，可以知道其工作量满足<span
+class="math inline">\(T_1(n)=9T_1(n/3)+\Theta(1)\)</span>，可以得到<span
+class="math inline">\(T_1(n)=\Theta(n^2)\)</span>。</p>
+<p>这个算法的持续时间满足<span
+class="math inline">\(T_{\infty}(n)=5T_\infty(n/3)+\Theta(1)\)</span>，可以得到<span
+class="math inline">\(T_{\infty}(n)=\Theta(n^{\log_3 5})\)</span>。</p>
+<p>最终可以得到并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^{2-\log_3
+5})\)</span>。</p>
+<h2 id="c-4">c</h2>
+<p>利用类似的方式修改题目26-5-a和26-5-b的代码，可以给出<code>SIMPLE-STENCIL-B</code>代码为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SIMPLE-STENCIL-B(A, n)</span><br><span class="line">  if n == 1</span><br><span class="line">    generate the value of a11</span><br><span class="line">    return</span><br><span class="line">  partition A into n/b × n/b submatrices A11, A12, ..., A1b, A21, A22, ..., A2b, ...,  Ab1, Ab2, ..., Abb; respectively</span><br><span class="line">  for k = 2 to b * b</span><br><span class="line">    //注意这里的parallel for 循环将是以硬编码的形式构造出来，因此后面的分析不会对Θ(lg n)这个因子进行考虑。</span><br><span class="line">    parallel for i = 1 to b</span><br><span class="line">      j = k - i</span><br><span class="line">      if 1 &lt;= j and j &lt;= b</span><br><span class="line">      SIMPLE-STENCIL3(Aij, n / b)</span><br></pre></td></tr></table></figure>
+<p>和题目26-3-a和26-3-b分析的过程类似，可以知道其工作量满足<span
+class="math inline">\(T_1(n)=b^2T_1(n/b)+\Theta(1)\)</span>，可以得到<span
+class="math inline">\(T_1(n)=\Theta(n^2)\)</span>。</p>
+<p>这个算法的持续时间满足<span
+class="math inline">\(T_{\infty}(n)=(2b-1)T_\infty(n/b)+\Theta(1)\)</span>，可以得到<span
+class="math inline">\(T_{\infty}(n)=\Theta(n^{\log_b
+(2b-1)})\)</span>。</p>
+<p>最终可以得到并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^{2-\log_b
+(2b-1)})\)</span>。</p>
+<p>为了证明<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^{2-\log_b
+(2b-1)})=o(n)\)</span>，那么需要证明<span class="math inline">\(f\forall
+b\ge 2\)</span>，都有<span
+class="math inline">\(2-\log_b(2b-1)&lt;1\)</span>，即证明<span
+class="math inline">\(\log_b(2b-1)&gt;1\)</span>。由于<span
+class="math inline">\(\forall b\ge 2\)</span>，都有<span
+class="math inline">\(2b-1&gt;b\)</span>，因此<span
+class="math inline">\(\log_b(2b-1)&gt;1\)</span>成立是很显然的。因此有<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=o(n)\)</span>。</p>
+<h2 id="d-2">d</h2>
+<p>这个算法由<code>STENCIL</code>给出，并且它还能对更一般形式的矩阵进行填充。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">STENCIL(A, n)</span><br><span class="line">  for k = 2 to n + n - 1</span><br><span class="line">    up = max&#123;1, k - n&#125;</span><br><span class="line">    down = min&#123;n, k - 1&#125;</span><br><span class="line">    parallel for i = up to down</span><br><span class="line">      j = k - i</span><br><span class="line">      generate the value of aij</span><br></pre></td></tr></table></figure>
+<p>可以知道<code>STENCIL</code>的工作量是<span
+class="math inline">\(T_1(n)=\Theta(n^2)\)</span>，因为它仅仅是从小到大枚举矩阵的每条副对角线，并按顺序填入一个个元素。</p>
+<p>可以知道<code>STENCIL</code>的持续时间满足<span
+class="math inline">\(T_\infty(n)=n\cdot\Theta(\lg n)=\Theta(n\lg
+n)\)</span>。因为第<span
+class="math inline">\(k\)</span>轮迭代最多也只会进行<span
+class="math inline">\(n\)</span>次操作。如果去掉关键字<code>parallel</code>关键字并转化为<code>spawn ... sync</code>结构，那么这一部分需要花费<span
+class="math inline">\(\Theta(\lg n)\)</span>的时间。</p>
+<p>因此，<code>STENCIL</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n/\lg
+n)\)</span>。</p>
+<p>如果需要达到<span
+class="math inline">\(\Theta(n)\)</span>的并行度，那么可以将<code>parallel for</code>循环转化成硬编码形式，
+从而去掉这个<code>parallel for</code>循环，并且一次性在<span
+class="math inline">\(\Theta(1)\)</span>的时间内生产<span
+class="math inline">\(\Theta(n)\)</span>个元素，从而使并行度提升到<span
+class="math inline">\(\Theta(n)\)</span>。但是这里使用了<code>parallel for</code>循环，它是基于分治法实现的，因此达不到这个最大并行度。</p>
+<h1 id="section-5">26-6</h1>
+<h2 id="a-5">a</h2>
+<p>工作量定律将改写成<span class="math inline">\(E[T_P]\ge
+E[T_1]/P\)</span>；持续时间定律将改写成<span
+class="math inline">\(E[T_P]\ge
+E[T_{\infty}]\)</span>；贪心调度界限改写成<span
+class="math inline">\(E[T_P]\le E[T_1]/P+E[T_{\infty}]\)</span>。</p>
+<h2 id="b-5">b</h2>
+<p>按照题目给出的数据，令<span
+class="math inline">\(P=10000\)</span>，那么可以写出以下三条式子：</p>
+<p><span class="math inline">\(\begin{aligned}
+E[T_1]&amp;=10^4\cdot 0.01+10^9\cdot 0.99\\
+E[T_P]&amp;=1\cdot 0.01+10^9\cdot0.99\\
+E[T_1/T_P]&amp;=\dfrac{10^4}{1}\cdot0.01+\dfrac{10^9}{10^9}\cdot0.99\\
+\end{aligned}\)</span></p>
+<p>从而得到<span
+class="math inline">\(E[T_1/T_P]\approx100,\dfrac{E[T_1]}{E[T_P]}\approx
+1\)</span>。</p>
+<p>选用<span
+class="math inline">\(\dfrac{E[T_1]}{E[T_P]}\)</span>的原因有如下两个：</p>
+<ol type="1">
+<li><p>由于在绝大多数时间中，无论是<span
+class="math inline">\(P=1\)</span>还是<span
+class="math inline">\(P=10000\)</span>，其运行时间大多数都在<span
+class="math inline">\(10^9\)</span>，因此说明这个添加到<span
+class="math inline">\(P=10000\)</span>的操作应该对加速作用不大，因此选用<span
+class="math inline">\(\dfrac{E[T_1]}{E[T_P]}\)</span>是一个比较恰当的值。</p></li>
+<li><p><span
+class="math inline">\(T_1/T_P\)</span>这个随机变量并不成立。题目中没有提到<span
+class="math inline">\(T_1=10^4\)</span>和<span
+class="math inline">\(T_1=10^9\)</span>的时机是否和<span
+class="math inline">\(T_P=1\)</span>和<span
+class="math inline">\(T_P=10^9\)</span>的时机相同。也就是说，它们不一定是相关的。因此采用独立计算更加合适，即选用<span
+class="math inline">\(\dfrac{E[T_1]}{E[T_P]}\)</span>。</p></li>
+</ol>
+<h2 id="c-5">c</h2>
+<p>当<span
+class="math inline">\(P\)</span>趋于无穷时，期望的加速比应该和并行度相等。这和题目26-6-b使用的定义是一致的。</p>
+<h2 id="d-3">d</h2>
+<p>我们可以对第7.3章提到的<code>RANDOMIZED-QUICKSORT</code>算法提出其并行化版本<code>P-RANDOMIZED-QUICKSORT</code>（按照题目要求，不对<code>RANDOMIZED-PARTITION</code>并行化）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">P-RANDOMIZED-QUICKSORT(A, p, r)</span><br><span class="line">  if p &lt; r:</span><br><span class="line">    q = RANDOMIZED-PARTITION(A, p, r)</span><br><span class="line">    spawn P-RANDOMIZED-QUICKSORT(A, p, q - 1)</span><br><span class="line">    spawn P-RANDOMIZED-QUICKSORT(A, q + 1, r)</span><br><span class="line">    sync</span><br></pre></td></tr></table></figure>
+<h2 id="e-1">e</h2>
+<p>可见，<code>P-RANDOMIZED-QUICKSORT</code>的串行投影为<code>RANDOMIZED-QUICKSORT</code>，因此其期望工作量<span
+class="math inline">\(E[T_1(n)]=O(n\lg n)\)</span>。</p>
+<p>对于<code>P-RANDOMIZED-QUICKSORT</code>持续时间，考虑将<code>P-RANDOMIZED-QUICKSORT</code>和<code>RANDOMIZED-SELECT</code>的行为进行对比。<code>P-RANDOMIZED-QUICKSORT</code>的<code>RANDOMIZED-PARTITION</code>和<code>RANDOMIZED-SELECT</code>中的一样，这部分都是占据了主导的时间<span
+class="math inline">\(\Theta(n)\)</span>。因此，对其划分的推导也和第9.2章给的完全一样。接下来考虑其递归部分。可以发现，<code>P-RANDOMIZED-QUICKSORT</code>的阶段划分和<code>RANDOMIZED-SELECT</code>也相同，并且证明过程同样也考虑了那个执行时间比较长的执行分支。因此对<code>P-RANDOMIZED-QUICKSORT</code>持续时间<span
+class="math inline">\(T_{\infty}(n)\)</span>的分析过程和<code>RANDOMIZED-SELECT</code>的分析过程完全一致。按照定理9.2的结论，我们得到<span
+class="math inline">\(T_{\infty}(n)=\Theta(n)\)</span>。</p>
+<p>因此，<code>P-RANDOMIZED-QUICKSORT</code>的并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=O(\lg n)\)</span>。</p>
+<h2 id="f-1">f</h2>
+<p><code>RANDOMIZED-SELECT</code>的并行化版本由<code>P-RANDOMIZED-SELECT</code>给出。其中，给定的<code>P-RANDOMIZED-PARTITION</code>由题目26.3-3的<code>P-PARTITION</code>实现而来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">P-RANDOMIZED-PARTITION(A, p, r)</span><br><span class="line">  i = RANDOM(p, r)</span><br><span class="line">  exchange A[r] with A[i]</span><br><span class="line">  return P-PARTITION(A, p, r)</span><br><span class="line"></span><br><span class="line">P-RANDOMIZED-SELECT(A, p, r, i)</span><br><span class="line">  if p == r</span><br><span class="line">    return A[p]</span><br><span class="line">  q = P-RANDOMIZED-PARTITION(A, p, r)</span><br><span class="line">  k = q – p + 1</span><br><span class="line">  if i == k</span><br><span class="line">    return A[q]</span><br><span class="line">  else if i &lt; k</span><br><span class="line">    return P-RANDOMIZED-SELECT(A, p, q – 1, i)</span><br><span class="line">  else </span><br><span class="line">    return P-RANDOMIZED-SELECT(A, q + 1, r, i – k)</span><br></pre></td></tr></table></figure>
+<p>可见这个算法的串行投影为<code>RANDOMIZED-SELECT</code>，因此它的工作量为<span
+class="math inline">\(T_1(n)=\Theta(n)\)</span>。</p>
+<p>令示性遍历<span
+class="math inline">\(X_k\)</span>表示<code>P-RANDOMIZED-PARTITION</code>划分出来后的元素在于位置<span
+class="math inline">\(k\)</span>。那么由于程序的其余部分都需要<span
+class="math inline">\(\Theta(\lg
+n)\)</span>完成（根据题目26.3-3的结论，这里的主要开销就在于<code>P-RANDOMIZED-PARTITION</code>需要花费<span
+class="math inline">\(\Theta(\lg
+n)\)</span>的时间），因此可以对随机变量<span
+class="math inline">\(T_{\infty}(n)\)</span>可以写出如下递推式：</p>
+<p><span class="math display">\[T_{\infty}(n)=\sum_{i=1}^n X_k\cdot
+T_{\infty}(\max\{k-1,n-k\})+\Theta(\lg n)\]</span></p>
+<p>可见<span
+class="math inline">\(E[X_k]=\dfrac{1}{n}\)</span>，因为每个位置都有可能被选到。那么对式子左右两侧取期望值，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+E[T_{\infty}(n)]&amp;=\sum_{k=1}^n E[X_k]\cdot
+E[T_{\infty}(\max\{k-1,n-k\})]+\Theta(\lg n)\\
+&amp;\le\dfrac{2}{n}\sum_{k=\lfloor n/2\rfloor}^{n-1}
+E[T_{\infty}(k)]+\Theta(\lg n)\\
+\end{aligned}\)</span></p>
+<p>接下来使用代入法证明<span
+class="math inline">\(E[T_{\infty}(n)]=O(n^d)\)</span>，即<span
+class="math inline">\(\exists c,n_0&gt;0,d\in(0,1)\)</span>，使得<span
+class="math inline">\(\forall n\ge n_0\)</span>，都有<span
+class="math inline">\(E[T_{\infty}(n)]\le c\cdot
+n^{d}\)</span>。那么就可以得到</p>
+<p><span class="math inline">\(\begin{aligned}
+E[T_{\infty}(n)]&amp;\le\dfrac{2}{n}\sum_{k=\lfloor n/2\rfloor}^{n-1}
+E[T_{\infty}(k)]+\Theta(\lg n)\\
+&amp;\le\dfrac{2}{n}\sum_{k=\lfloor n/2\rfloor}^{n-1} c\cdot
+k^d+\Theta(\lg n)\\
+&amp;=\dfrac{2c}{n}\sum_{k=\lfloor n/2\rfloor}^{n-1} k^d+\Theta(\lg n)\\
+&amp;\le \dfrac{2c}{n}\int_{\lfloor n/2\rfloor}^n x^d dx+\Theta(\lg n)\\
+&amp;=\dfrac{2c}{n}\cdot\left.\dfrac{x^{d+1}}{d+1}\right|_{x=\lfloor
+n/2\rfloor}^n+\Theta(\lg n)\\
+&amp;=c\cdot\dfrac{2-2^{-d}}{d+1}\cdot n^d + \Theta(\lg n)
+\end{aligned}\)</span></p>
+<p>考虑关于<span class="math inline">\(d\)</span>的一元一次不等式<span
+class="math inline">\(\dfrac{2-2^{-d}}{d+1}&lt;1\)</span>，可以得到<span
+class="math inline">\(d&gt;0\)</span>。</p>
+<p>也就是说，无论<span class="math inline">\(d\)</span>取<span
+class="math inline">\((0,1)\)</span>中的什么值，只要第一个项中的<span
+class="math inline">\(c\)</span>足够大，它就可以覆盖到<span
+class="math inline">\(\Theta(\lg n)\)</span>中的常数，从而最终得到<span
+class="math inline">\(T_{\infty}(n)\)</span></p>
+<p>因此，<span
+class="math inline">\(T_{\infty}(n)=o(n^d)\)</span>，其中<span
+class="math inline">\(d\)</span>是任意正数。</p>
+<p>最终可以得到并行度为<span
+class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^{1-d})\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/problems/" title="算法导论26 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

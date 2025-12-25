@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论21 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/21-1-a.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/21-3-b.png">
+<meta property="article:published_time" content="2023-05-01T15:43:00.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.150Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/21-1-a.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/","path":"introduction-to-algorithms/chapter-21/problems/","title":"算法导论21 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论21 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">21-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">21-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">2.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">2.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">2.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">21-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">A</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">B</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">3.3.</span> <span class="nav-text">C</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">21-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论21 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论21 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-01 23:43:00" itemprop="dateCreated datePublished" datetime="2023-05-01T23:43:00+08:00">2023-05-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">21-1</h1>
+<h2 id="a">a</h2>
+<p>题目21.1-8给出，对于图<span
+class="math inline">\(G\)</span>中的每棵最小生成树<span
+class="math inline">\(T\)</span>，其边权有序列表总是唯一的。由于本题中已经认定原图<span
+class="math inline">\(G\)</span>的边权互不相同，因此求出一个最小生成树<span
+class="math inline">\(T\)</span>后，对应构造出的列表<span
+class="math inline">\(L\)</span>是唯一的，因此最小生成树是唯一的。</p>
+<p>令图<span class="math inline">\(G\)</span>的权值邻接矩阵如下：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|l|l|}\hline
+&amp;a&amp;b&amp;c&amp;d\\\hline
+a&amp;-&amp;1&amp;3&amp;5\\\hline
+b&amp;1&amp;-&amp;2&amp;4\\\hline
+c&amp;3&amp;2&amp;-&amp;-\\\hline
+d&amp;5&amp;4&amp;-&amp;-\\\hline
+\end{array}\)</span></p>
+<p>可以发现，边集<span
+class="math inline">\(\{(a,b),(b,c),(b,d)\}\)</span>是最小生成树的边集，边权总和为<span
+class="math inline">\(7\)</span>，而<span
+class="math inline">\(\{(a,b),(b,c),(a,d)\}\)</span>和<span
+class="math inline">\(\{(a,b),(a,c),(b,d)\}\)</span>是两棵不同的次小生成树，边权总和为<span
+class="math inline">\(8\)</span>。如下图所示：</p>
+<p><img data-src="21-1-a.png" /></p>
+<h2 id="b">b</h2>
+<p>对于<span class="math inline">\((u,v)\in E_T\)</span>，令从<span
+class="math inline">\(T=(V,E_T)\)</span>删除后连通的两部分边集<span
+class="math inline">\(V_1,V_2\)</span>。对于切割<span
+class="math inline">\((V_1,V_2)\)</span>，由于<span
+class="math inline">\((u,v)\)</span>是轻边，那么说明将横跨这个切割的边<span
+class="math inline">\((u,v)\)</span>添加到<span
+class="math inline">\(E_T-\{(u,v)\}\)</span>是安全的。对于其它边都是不安全的，选择一条不安全的边添加到<span
+class="math inline">\(E_{T}-\{(u,v)\}\)</span>中也构成了一个树结构。假设在这些边中，边权最小的是<span
+class="math inline">\((a,b)\)</span>，那么<span
+class="math inline">\((E_T-\{(a,b)\})\cup\{(a,b)\}\)</span>就是一颗备选的最小生成树（其它边构成的新树都不可能是次小生成树，因为它们比<span
+class="math inline">\((a,b)\)</span>边权更大，更不安全）。</p>
+<h2 id="c">c</h2>
+<p>我们可以使用动态规划的过程以<span
+class="math inline">\(O(V)\)</span>的时间复杂度计算<span
+class="math inline">\(\max[u,\cdot]\)</span>的所有值。由于树中没有环，并不会产生循环依赖，因此我们可以写出计算<span
+class="math inline">\(\max[u,v]\)</span>的状态转移方程：</p>
+<p><span class="math inline">\(\max[u,v]=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad  u=v \\
+  &amp;\max\{\max[u,x],w(x,v)\} &amp; &amp; \text{if}\quad  u\neq v \\
+\end{aligned}\right.\)</span></p>
+<p>其中节点<span class="math inline">\(x\)</span>是<span
+class="math inline">\(T\)</span>上从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>这条路径上的倒数第二个节点。也就是说，<span
+class="math inline">\(\max[u,v]\)</span>要么是从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(x\)</span>这条路径上的边权最大值，要么是<span
+class="math inline">\((x,v)\)</span>的边权。因此，通过对这棵树进行BFS，最终能够以<span
+class="math inline">\(O(V)\)</span>的算法计算出所有<span
+class="math inline">\(\max[u,\cdot]\)</span>的值，这个算法由程序<code>BFS-DIS</code>给出。</p>
+<p>最终，枚举所有起点<span
+class="math inline">\(s\)</span>，我们可以以<span
+class="math inline">\(O(V^2)\)</span>的时间计算出所有<span
+class="math inline">\(\max[\cdot,\cdot]\)</span>的值，其通过程序<code>CAL-DIS</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">BFS-DIS(T, s, w)</span><br><span class="line">  for each vertex u ∈ T.V - &#123;s&#125;</span><br><span class="line">    u.d = ∞</span><br><span class="line">    u.π = NIL</span><br><span class="line">  s.d = 0</span><br><span class="line">  s.π = NIL</span><br><span class="line">  Q = ∅</span><br><span class="line">  ENQUEUE(Q, s)</span><br><span class="line">  while Q != ∅ </span><br><span class="line">    u = DEQUEUE(Q)</span><br><span class="line">    for each vertex v in T.Adj[u]     // search the neighbors of u</span><br><span class="line">      if v.d == ∞                     // is v being discovered now?</span><br><span class="line">        v.d = u.d + w(u, v)</span><br><span class="line">        v.π = u</span><br><span class="line">        ENQUEUE(Q, v)                  // v is now on the frontier</span><br><span class="line"></span><br><span class="line">CAL-DIS(T, w)</span><br><span class="line">  let max be new 2-dimension array</span><br><span class="line">  for each vertex u ∈ T.V</span><br><span class="line">    BFS-DIS(T, u, w)</span><br><span class="line">    for each vertex v ∈ T.V</span><br><span class="line">      max[u, v] = v.d</span><br><span class="line">  return max</span><br></pre></td></tr></table></figure>
+<h2 id="d">d</h2>
+<p>通过题目21-1-c给出的<code>CAL-DIS</code>算法，我们可以给出求次小生成树的算法。其思想是，枚举所有不属于最小生成树<span
+class="math inline">\(T=(C,E_T)\)</span>的边<span
+class="math inline">\((u,v)\)</span>，并尝试将其添加到<span
+class="math inline">\(T\)</span>中，那么树<span
+class="math inline">\(T\)</span>和边<span
+class="math inline">\((u,v)\)</span>就形成了一个环<span
+class="math inline">\(C\)</span>，因此需要在<span
+class="math inline">\(C\)</span>中删除一条除<span
+class="math inline">\((u,v)\)</span>以外的边权最大的边，以使得增加的边权值最小（虽然是严格增加了）。整个算法由程序<code>2ND-MST</code>给出，其关键瓶颈在于计算<span
+class="math inline">\(\max[\cdot,\cdot]\)</span>，整个算法的时间复杂度为<span
+class="math inline">\(O(V^2)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">2ND-MST(G, w)</span><br><span class="line">  // 首先求出一棵最小生成树</span><br><span class="line">  T.V, T.E = G.V, MST-KRUSKAL(G)</span><br><span class="line">  max = CAL-DIS(T, w)</span><br><span class="line">  // 次小生成树比最小生成树多出的边权总和值。</span><br><span class="line">  new-dif = ∞</span><br><span class="line">  create a single list of the edges in G.E</span><br><span class="line">  for each edge (u, v) taken from the list</span><br><span class="line">    if (u, v) not in T.E</span><br><span class="line">      dif = w(u, v) - max[u, v]</span><br><span class="line">      if dif &lt; new-dif</span><br><span class="line">        (mu, mv) = (u, v)</span><br><span class="line">        new-dif = dif</span><br><span class="line">  remove the edge e from T.E s.t. e is in path(mu, mv) and w(e) is maximum</span><br><span class="line">  INSERT(T.E, (mu, mv))</span><br><span class="line">  return T</span><br></pre></td></tr></table></figure>
+<p>接下来给出一种基于LCA（最近公共祖先）倍增的做法。首先需要以<span
+class="math inline">\(O(V\lg V)\)</span>的时间对<span
+class="math inline">\(T\)</span>预处理出两个表（这里需要对<span
+class="math inline">\(T\)</span>指定一个根）：<span
+class="math inline">\(fa[u,i]\)</span>表示<span
+class="math inline">\(u\)</span>的第<span
+class="math inline">\(2^i\)</span>个祖先，<span
+class="math inline">\(m[u,i]\)</span>表示<span
+class="math inline">\(\max[u,fa[u,2^i]]\)</span>的值。</p>
+<p>那么接下来对于所有边<span class="math inline">\((u,v)\in
+E-E_T\)</span>，以<span class="math inline">\(O(\log
+V)\)</span>的时间在表<span
+class="math inline">\(fa\)</span>上计算它们的LCA：<span
+class="math inline">\(l\)</span>，并且计算出<span
+class="math inline">\(\max[u,l]\)</span>和<span
+class="math inline">\(\max[v,l]\)</span>的值，最终以<span
+class="math inline">\(O(\lg V)\)</span>的时间计算出<span
+class="math inline">\(\max[u,v]\)</span>的值。因此这个算法可以以<span
+class="math inline">\(O(E\lg V)\)</span>的时间复杂度求出次小生成树。</p>
+<h1 id="section-1">21-2</h1>
+<h2 id="a-1">a</h2>
+<p>也就是说，证明由算法<code>MST-REDUCE</code>和<code>MST-PRIM</code>联合所生成的边集是最小生成树的边。</p>
+<p>对于算法<code>MST-REDUCE</code>生成的边集<span
+class="math inline">\(T\)</span>，假设当前第4行代码正在访问的节点是<span
+class="math inline">\(u\)</span>，那么考虑切割<span
+class="math inline">\((\{u\},V-\{u\})\)</span>，第6行所选定的边是横跨切割<span
+class="math inline">\((\{u\},V-\{u\})\)</span>并且是一条轻量级边，因此是安全的。此外将这两个节点通过这条边收缩起来，以后它们统一视为一个节点。</p>
+<p>算法<code>MST-PRIM</code>接受输入的是来自<code>MST-REDUCE</code>的输出图<span
+class="math inline">\(G&#39;\)</span>。由于所有树边已经被收缩成一个节点，因此仍未收缩的边将会连通任意一个不同代表节点。对这些剩余边进行最小生成树算法将会得到剩下的安全边。因此$
+T {(x, y).orig′ : (x, y) ∈ A}<span
+class="math inline">\(是\)</span>G$的一棵最小生成树。</p>
+<h2 id="b-1">b</h2>
+<p>首先可以发现<span
+class="math inline">\(|G&#39;.V|+|T|=|V|\)</span>。因为<span
+class="math inline">\(T\)</span>中每产生一条边，<span
+class="math inline">\(G\)</span>中就会有<span
+class="math inline">\(2\)</span>个节点被合并成一个，也就是说，节点数降低了<span
+class="math inline">\(1\)</span>。</p>
+<p>当第5行代码<code>if</code>条件成功进入时，第10行代码<strong>有可能</strong>会另一个端点<span
+class="math inline">\(v\)</span>从未标记变成已标记，这意味着以后并不能再产生一条边加入<span
+class="math inline">\(T\)</span>中。因此有<span
+class="math inline">\(|T|\ge |V|-|T|\)</span>，也就是说，有<span
+class="math inline">\(|T|\ge |V|/2\)</span>。因此得到<span
+class="math inline">\(|G&#39;.V|\le |V|/2\)</span>。</p>
+<h2 id="c-1">c</h2>
+<p>使用一个长度为<span class="math inline">\(|V|\)</span>的数组<span
+class="math inline">\(A\)</span>可以代替并查集操作。花费时间<span
+class="math inline">\(O(V)\)</span>对数组<span
+class="math inline">\(A\)</span>初始化成<code>A[u] = u</code>，对于所有<span
+class="math inline">\(V\)</span>中的节点<span
+class="math inline">\(u\)</span>。<code>FIND-SET(u)</code>可以使用<code>A[u]</code>替代，<code>UNION(u, v)</code>可以用<code>A[v] = A[u]</code>替代（注意不可以反过来）。这种做法成立的原因是，可以直接访问当前连通块中的代表元素。最终，算法<code>MST-REDUCE</code>可以<span
+class="math inline">\(O(E)\)</span>的时间完成。</p>
+<h2 id="d-1">d</h2>
+<p>每一次调用则意味着对这个图进行一次<span
+class="math inline">\(O(E)\)</span>的操作，虽然节点数至少减少了一半，但是边数减少的数量也仅仅至少是节点数的减少量。因此<span
+class="math inline">\(k\)</span>次调用意味着<span
+class="math inline">\(O(kE)\)</span>的时间复杂度。</p>
+<h2 id="e">e</h2>
+<p>进行<span
+class="math inline">\(k\)</span>次调用后，那么整个图的节点数最多为<span
+class="math inline">\(\dfrac{|V|}{2^k}\)</span>。因此我们需要选择<span
+class="math inline">\(k\)</span>来使得<span
+class="math inline">\(|E|+\dfrac{|V|}{2^k}\lg\dfrac{|V|}{2^k}+kE=O(|E|
+\lg\lg |V|)\)</span>。题目给定的因子<span class="math inline">\(\lg\lg
+B\)</span>提示我们考虑验证取值<span class="math inline">\(k=\lg\lg
+|V|\)</span>是成立的。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+|E|+\dfrac{|V|}{2^k}\lg\dfrac{|V|}{2^k}+kE&amp;=|E|+\dfrac{|V|}{\lg
+|V|}\lg\dfrac{|V|}{\lg |V|}+|E|\lg\lg |V|\\
+&amp;=\dfrac{|V|}{\lg |V|}\lg\dfrac{|V|}{\lg |V|}+O(|E|\lg\lg |V|)\\
+&amp;=\dfrac{|V|}{\lg |V|}(\lg |V|-\lg\lg |V|)+O(|E|\lg\lg |V|)\\
+&amp;=|V|-\dfrac{|V|\lg\lg |V|}{\lg |V|}+O(|E|\lg\lg |V|)\\
+&amp;=|V|+O(|E|\lg\lg |V|)\\
+&amp;=O(|E|\lg\lg |V|)
+\end{aligned}\)</span></p>
+<h2 id="f">f</h2>
+<p>如果这种带预处理的操作优于没有带预处理的操作，那么有<span
+class="math inline">\(|E|\lg\lg |V|&lt;|E|+|V|\lg
+|V|\)</span>，也就是得到<span class="math inline">\(|E|&lt;\dfrac{|V|\lg
+|V|}{\lg\lg |V|-1}\)</span>。因此最终有<span
+class="math inline">\(|E|=O\left(\dfrac{|V|\lg |V|}{\lg\lg
+|V|}\right)\)</span>。</p>
+<h1 id="section-2">21-3</h1>
+<h2 id="a-2">A</h2>
+<p>算法<code>MAYBE-MST-A</code>返回的是一个最小生成树。当我们按边权从大到小访问这些边<span
+class="math inline">\((u,v)\)</span>时，考虑两种情况：</p>
+<ol type="1">
+<li><span
+class="math inline">\((u,v)\)</span>没有被删去。这说明如果<span
+class="math inline">\((u,v)\)</span>被删去了，这个图就不连通了，为保证<span
+class="math inline">\(T\)</span>中的边连通，<span
+class="math inline">\((u,v)\)</span>必须留下。</li>
+<li><span class="math inline">\((u,v)\)</span>成功被删去了。令<span
+class="math inline">\((V_1,V_2)\)</span>是被边<span
+class="math inline">\((u,v)\)</span>横跨的一个切割。由于删去<span
+class="math inline">\((u,v)\)</span>后，<span
+class="math inline">\(T\)</span>仍然连通，因此在这个时候，仍然有从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>的一条路径，也就是说存在其它边<span
+class="math inline">\((a,b)\)</span>仍然横跨<span
+class="math inline">\((V_1,V_2)\)</span>。这条边仍然是未被迭代的，因此<span
+class="math inline">\((a,b)\)</span>在切割<span
+class="math inline">\((V_1,V_2)\)</span>中至少比<span
+class="math inline">\((u,v)\)</span>安全。因此可以删去这条边。</li>
+</ol>
+<p>算法<code>MAYBE-MST-A</code>的实现依赖于判断图<span
+class="math inline">\(T\)</span>的连通性，第4行的伪代码直接进行判断。逆序遍历每一条边然后删除边后判断<span
+class="math inline">\(T\)</span>的连通性，这一次判断过程需要<span
+class="math inline">\(O(V+E)\)</span>的运行时间。因此整个算法需要<span
+class="math inline">\(O(E^2)\)</span>的运行时间。</p>
+<h2 id="b-2">B</h2>
+<p>算法<code>MAYBE-MST-B</code>返回的不是一个最小生成树。令<span
+class="math inline">\(G=(V,E),V=\{a,b,c\},E=\{(a,b),(b,c),(a,c)\},w(a,b)=1,w(a,c)=2,w(b,c)=3\)</span>。如下图所示：</p>
+<p><img data-src="21-3-b.png" /></p>
+<p>如果边<span
+class="math inline">\((b,c)\)</span>先被访问，那么它们就被添加到了树边集合<span
+class="math inline">\(T\)</span>中，构成的<span
+class="math inline">\(T\)</span>永远不会是最小生成树。因此算法<code>MAYBE-MST-B</code>是错误的。</p>
+<p>算法<code>MAYBE-MST-B</code>的实现依赖于并查集，只需要和Kruskal算法一样，边判断两个端点是否属于同一集合边合并即可。程序<code>MAYBE-MST-B</code>的具体实现由程序<code>MAYBE-MST-B'</code>给出，其时间复杂度为<span
+class="math inline">\(O(E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">MAYBE-MST-B&#x27;(G, w)</span><br><span class="line">  A = Ø</span><br><span class="line">  for each vertex v ∈ G.V</span><br><span class="line">    MAKE-SET(v)</span><br><span class="line">  create a single list of the edges in G.E</span><br><span class="line">  for each edge (u, v) taken from the list</span><br><span class="line">    if FIND-SET(u) ≠ FIND-SET(v)</span><br><span class="line">      A = A ∪ &#123;(u, v)&#125;</span><br><span class="line">      UNION(u, v)</span><br><span class="line">  return A</span><br></pre></td></tr></table></figure>
+<h2 id="c-2">C</h2>
+<p>算法<code>MAYBE-MST-C</code>返回的是一个最小生成树。当我们按任意顺序访问并添加这些边<span
+class="math inline">\((u,v)\)</span>到<span
+class="math inline">\(T\)</span>后，考虑两种情况：</p>
+<ol type="1">
+<li><span class="math inline">\(T\)</span>中没有环，这说明<span
+class="math inline">\((u,v)\)</span>是所必须要的边。</li>
+<li><span class="math inline">\(T\)</span>中产生了环<span
+class="math inline">\(C\)</span>，令<span
+class="math inline">\((a,b)\)</span>是<span
+class="math inline">\(c\)</span>中最大边权的那条边。令<span
+class="math inline">\((V_1,V_2)\)</span>是被边<span
+class="math inline">\((a,b)\)</span>横跨的一个切割，那么可以知道，环<span
+class="math inline">\(C\)</span>上有另外一条边<span
+class="math inline">\((x,y)\)</span>横跨切割<span
+class="math inline">\((V_1,V_2)\)</span>。由于<span
+class="math inline">\((a,b)\)</span>的边权是最大的，因此有<span
+class="math inline">\(w(x,y)\le w(a,b)\)</span>。也就是说，<span
+class="math inline">\((x,y)\)</span>在这个切割中肯定比<span
+class="math inline">\((a,b)\)</span>安全，因此可以删去<span
+class="math inline">\((a,b)\)</span>这条边。</li>
+</ol>
+<p>算法<code>MAYBE-MST-C</code>的实现依赖于求出<span
+class="math inline">\(C\)</span>中从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>的这条路径。程序<code>MAYBE-MST-C</code>的具体实现由程序<code>MAYBE-MST-C'</code>给出，每次进行求解路径的时间复杂度为<span
+class="math inline">\(O(V)\)</span>。因此整个算法需要<span
+class="math inline">\(O(VE)\)</span>的运行时间。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MAYBE-MST-C&#x27;(G, w)</span><br><span class="line">  A = Ø</span><br><span class="line">  for each vertex v ∈ G.V</span><br><span class="line">    MAKE-SET(v)</span><br><span class="line">  create a single list of the edges in G.E</span><br><span class="line">  for each edge (u, v) taken from the list</span><br><span class="line">    A = A ∪ &#123;(u, v)&#125;</span><br><span class="line">    if FIND-SET(u) ≠ FIND-SET(v)  </span><br><span class="line">      UNION(u, v)</span><br><span class="line">    else:</span><br><span class="line">      get the cycle C where edge (u, v) in</span><br><span class="line">      select the edge e from C s.t. w(e) is maximum</span><br><span class="line">      A = A - &#123;e&#125;</span><br><span class="line">  return A</span><br></pre></td></tr></table></figure>
+<h1 id="section-3">21-4</h1>
+<h2 id="a-3">a</h2>
+<p>令<span class="math inline">\(T\)</span>是<span
+class="math inline">\(G\)</span>中的最小生成树，<span
+class="math inline">\(T&#39;\)</span>是<span
+class="math inline">\(G\)</span>中的一棵瓶颈生成树。假设<span
+class="math inline">\(T\)</span>不是瓶颈生成树，也就是<span
+class="math inline">\(T\)</span>中存在一条边<span
+class="math inline">\((u,v)\)</span>，使得<span
+class="math inline">\(w(u,v)&gt;m\)</span>，其中<span
+class="math inline">\(m\)</span>是瓶颈生成树的最大边权值。那么令<span
+class="math inline">\(T_1,T_2\)</span>是从<span
+class="math inline">\(T\)</span>删去<span
+class="math inline">\((u,v)\)</span>后形成的两棵树，<span
+class="math inline">\(V_1,V_2\)</span>分别表示这两棵树的节点集合。考虑切割<span
+class="math inline">\((V_1,V_2)\)</span>，由于<span
+class="math inline">\(T&#39;\)</span>是连通的，因此必定存在一条边<span
+class="math inline">\((a,b)\)</span>横跨<span
+class="math inline">\((V_1,V_2)\)</span>。由于<span
+class="math inline">\(w(a,b)\le m&lt;w(u,v)\)</span>，因此边<span
+class="math inline">\((a,b)\)</span>比边<span
+class="math inline">\((u,v)\)</span>更安全，也就是说，从<span
+class="math inline">\(T\)</span>删去<span
+class="math inline">\((u,v)\)</span>并加上<span
+class="math inline">\((a,b)\)</span>后，将会得到一棵更优的最小生成树，这是矛盾的。因此最小生成树是瓶颈生成树。</p>
+<h2 id="b-3">b</h2>
+<p>只要一个图<span
+class="math inline">\(G\)</span>是连通的，那么我们总能找到一棵生成树。因此该问题的本质上是判断图<span
+class="math inline">\(G\)</span>中小于等于<span
+class="math inline">\(b\)</span>的所有边是否构成<span
+class="math inline">\(G\)</span>中的一个连通图。我们通过改造<code>BFS</code>算法即可以以<span
+class="math inline">\(O(V+E)\)</span>的时间复杂度判断<span
+class="math inline">\(b\)</span>值是否可行。这个算法由程序<code>CHECK-NECKBOTTLE-BOUND</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CHECK-NECKBOTTLE-BOUND(G, w, b)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.d = ∞</span><br><span class="line">    u.π = NIL</span><br><span class="line">  select s ∈ G.V randomly</span><br><span class="line">  s.d = 0</span><br><span class="line">  s.π = NIL</span><br><span class="line">  Q = ∅</span><br><span class="line">  ENQUEUE(Q, s)</span><br><span class="line">  while Q != ∅ </span><br><span class="line">    u = DEQUEUE(Q)</span><br><span class="line">    for each vertex v in G.Adj[u]</span><br><span class="line">      if v.d == ∞ and w(u, v) &lt;= b                 </span><br><span class="line">        v.d = u.d + 1</span><br><span class="line">        v.π = u</span><br><span class="line">        ENQUEUE(Q, v)</span><br></pre></td></tr></table></figure>
+<h2 id="c-3">c</h2>
+<p>我们将使用子程序<code>BST-REDUCE</code>对所有满足<span
+class="math inline">\(w(u,v)\le
+b\)</span>的边进行收缩，整个过程的时间复杂度为<span
+class="math inline">\(O(E)\)</span>，因为它遍历了两次所有边，第一次遍历是将所有满足<span
+class="math inline">\(w(u,v)\le
+b\)</span>中的边收缩成点，第二次遍历则是将满足<span
+class="math inline">\(w(u,v)&gt; b\)</span>映射到新图中的点。</p>
+<p>主程序由<code>GEN-NECKBOTTLE-TREE</code>给出，它使用了第9章的算法来求中位数，并划分所有边。可以发现，第6行的<code>while</code>循环迭代一轮后，图<span
+class="math inline">\(G\)</span>中的边数至少减少一半。而<code>while</code>循环后面的补边操作全过程也是<span
+class="math inline">\(O(E)\)</span>，因此这个算法的时间复杂度为<span
+class="math inline">\(O(E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">BST-REDUCE(G, T, b)</span><br><span class="line">  for each vertex v ∈ G.V</span><br><span class="line">    MAKE-SET(v)</span><br><span class="line">  for each (u, v) in G.E</span><br><span class="line">    // 对小于等于门限b的边进行收缩。</span><br><span class="line">    if (u, v).c &lt;= b and FIND-SET(u) != FIND-SET(v)</span><br><span class="line">      UNION(u, v)</span><br><span class="line">      T = T ∪ &#123;(u, v).orig&#125;</span><br><span class="line">  G&#x27;.V = &#123;FIND-SET(v) : v ∈ G.V&#125;</span><br><span class="line">  G&#x27;.E = Ø</span><br><span class="line">  for each (x, y) in G.E</span><br><span class="line">    u = FIND-SET(x)</span><br><span class="line">    v = FIND-SET(y)</span><br><span class="line">    // 对大于门限b的边两侧的节点进行置换。</span><br><span class="line">    if (x, y).c &gt; b and u != v:</span><br><span class="line">      if (u, v) ∉ G&#x27;.E</span><br><span class="line">        G&#x27;.E = G&#x27;.E ∪ &#123;(u, v)&#125;</span><br><span class="line">        (u, v).orig&#x27; = (x, y).orig</span><br><span class="line">        (u, v).c&#x27; = (x, y).c</span><br><span class="line">      else if (x, y).c &lt; (u, v).c&#x27;</span><br><span class="line">        (u, v).orig&#x27; = (x, y).orig</span><br><span class="line">        (u, v).c&#x27; = (x, y).c</span><br><span class="line">  for each (u, v) in G&#x27;.E</span><br><span class="line">    (u, v).orig = (x, y).orig&#x27;</span><br><span class="line">    (u, v).c = (x, y).c&#x27;</span><br><span class="line">  return (G&#x27;, T)</span><br><span class="line"></span><br><span class="line">GEN-NECKBOTTLE-TREE(G&#x27;, w)</span><br><span class="line">  T = Ø</span><br><span class="line">  let G be a copy of G&#x27;</span><br><span class="line">  for each (u, v) in G.E</span><br><span class="line">    (u, v).orig = (u, v)</span><br><span class="line">    (u, v).c = w(u, v)</span><br><span class="line">  while G.E != Ø</span><br><span class="line">    find the median of w(e) for e in G.E and get the median b</span><br><span class="line">    if not CHECK-NECKBOTTLE-BOUND(G, w, b)</span><br><span class="line">      G, T = BST-REDUCE(G, T, b)</span><br><span class="line">    else</span><br><span class="line">      remove the edges e from G.E s.t. w(e) &gt;= b</span><br><span class="line">  // 需要注意的是，这里的T还不是瓶颈生成树，因为它去掉的边包含了临界值m，现在需要对T再补上权值恰好为b的边。</span><br><span class="line">  let m be the median we last determined</span><br><span class="line">  for each vertex v ∈ G.V</span><br><span class="line">    MAKE-SET(v)</span><br><span class="line">  for each (u, v) in T</span><br><span class="line">    UNION(u, v)</span><br><span class="line">  for each (u, v) in G.E</span><br><span class="line">    if w(u, v) == m and FIND-SET(u) ≠ FIND-SET(v)</span><br><span class="line">      T = T ∪ &#123;(u, v)&#125;</span><br><span class="line">      UNION(u, v)</span><br><span class="line">  return T</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/" title="算法导论21 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-21/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

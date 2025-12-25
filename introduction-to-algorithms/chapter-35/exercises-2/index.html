@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论35.2 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/35.2-5.png">
+<meta property="article:published_time" content="2023-07-30T08:57:19.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.186Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/35.2-5.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/","path":"introduction-to-algorithms/chapter-35/exercises-2/","title":"算法导论35.2 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论35.2 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">35.2-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">35.2-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">35.2-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">35.2-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">35.2-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">35.2-6</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论35.2 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论35.2 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-30 16:57:19" itemprop="dateCreated datePublished" datetime="2023-07-30T16:57:19+08:00">2023-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">35.2-1</h1>
+<p>使用反证法证明。假设存在边<span
+class="math inline">\((u,v)\)</span>，其代价为负数，并且存在节点<span
+class="math inline">\(w\)</span>，满足<span
+class="math inline">\(c(u,v)+c(v,w)\ge c(u,w)\)</span>。</p>
+<p>那么两边减去<span
+class="math inline">\(c(u,v)\)</span>，得到不等式<span
+class="math inline">\(c(v,w)\ge c(u,w)-c(u,v)\)</span>。</p>
+<p>由于<span class="math inline">\(c(u,v)\)</span>是负数，因此<span
+class="math inline">\(-c(u,v)&gt;c(u,v)\)</span>，那么得到<span
+class="math inline">\(c(v,w)\ge
+c(u,w)-c(u,v)&gt;c(u,w)+c(u,v)\)</span>，即<span
+class="math inline">\(c(u,v)+c(u,w)&lt;c(v,w)\)</span>。这和固有的三角不等式<span
+class="math inline">\(c(u,v)+c(u,w)\ge c(v,w)\)</span>矛盾。</p>
+<p>因此<span class="math inline">\(\forall u,v\in V,c(u,v)\ge
+0\)</span>均成立。</p>
+<h1 id="section-1">35.2-2</h1>
+<p>接下来考虑将任意一个旅行商问题实例在多项式时间内转化成另一个代价函数满足三角不等式的旅行商问题实例。</p>
+<p>对于图<span class="math inline">\(G=(V,E)\)</span>和代价函数<span
+class="math inline">\(c\)</span>，定义<span
+class="math inline">\(\displaystyle{M=\max_{(u,v)\in
+E}\{c(u,v)\}}\)</span>。对于同样的图，定义代价函数<span
+class="math inline">\(c&#39;(u,v)=c(u,v)+M\)</span>。</p>
+<p>可以知道问题实例<span class="math inline">\(\langle
+G,c\rangle\)</span>中所有哈密顿回路<span
+class="math inline">\(C\)</span>都和<span class="math inline">\(\langle
+G,c&#39;\rangle\)</span>的哈密顿回路一一对应。由于哈密顿回路仅包含<span
+class="math inline">\(|V|\)</span>条边，因此<span
+class="math inline">\(c&#39;(C)-c(C)=|V|\cdot
+M\)</span>。也就是说，如果<span
+class="math inline">\(C\)</span>是问题实例<span
+class="math inline">\(\langle
+G,c\rangle\)</span>中的最优旅行路线，那么也是<span
+class="math inline">\(\langle
+G,c&#39;\rangle\)</span>的最优旅行路线。</p>
+<p>接下来证明<span
+class="math inline">\(c&#39;\)</span>是满足三角不等式的。对应任意<span
+class="math inline">\(3\)</span>个节点<span
+class="math inline">\(u,v,w\)</span>，考虑<span
+class="math inline">\(c&#39;(u,v)+c&#39;(v,w)-c&#39;(u,w)\)</span>的正负，有</p>
+<p><span class="math inline">\(\begin{aligned}
+c&#39;(u,v)+c&#39;(v,w)-c&#39;(u,w)&amp;=
+(c(u,v)+M)+(c(v,w)+M)-(c(u,w)+M)\\
+&amp;=c(u,v)+c(v,w)-c(u,w)+M\\
+&amp;\ge c(u,v)+c(v,w)\\
+&amp;\ge 0
+\end{aligned}\)</span></p>
+<p>因此必定有<span class="math inline">\(c&#39;(u,v)+c&#39;(v,w)\ge
+c&#39;(u,w)\)</span>。</p>
+<p>可见代价函数<span
+class="math inline">\(c&#39;\)</span>可以在多项式时间内构造出来。</p>
+<p>接下来说明这和定理35.3的证明不冲突。假设<span
+class="math inline">\(C\)</span>是问题实例<span
+class="math inline">\(\langle G,c&#39;\rangle\)</span>一条从某个<span
+class="math inline">\(\rho\)</span>近似算法获得的旅行路线，而<span
+class="math inline">\(C^{\ast}\)</span>是最优旅行路线。那么有<span
+class="math inline">\(c&#39;(C)\le \rho\cdot
+c&#39;(C^{\ast})\)</span>。现在将问题<span class="math inline">\(\langle
+G,c&#39;\rangle\)</span>转换成<span class="math inline">\(\langle
+G,c\rangle\)</span>。那么有<span class="math inline">\(c(C)+|V|\cdot
+M\le \rho\cdot (c(C^{\ast})+|V|\cdot M)\)</span>，化简后得<span
+class="math inline">\(c(C)\le \rho\cdot
+c(C^{\ast})+(\rho-1)\cdot|V|\cdot M\)</span>。由于<span
+class="math inline">\(\rho&gt;1\)</span>，因此并不存在一个常数近似比的近似算法，原结论成立。</p>
+<h1 id="section-2">35.2-3</h1>
+<p>回顾第21.2章所介绍的Prim算法。Prim算法是维护一个最佳的连通块<span
+class="math inline">\(B\)</span>（代表一棵树），然后每次添加一棵节点到这棵树中，从而逐渐让它成为一棵最小生成树。</p>
+<p>题目中所给出的最近点启发式算法和Prim算法的思想相同，只是维护的最佳连通块<span
+class="math inline">\(B\)</span>代表的是一个环。如果在打破平等策略也相同，那么可以知道，这两个算法中，每个点进入<span
+class="math inline">\(B\)</span>的顺序都是相同的（因为每次迭代都是找到一个节点<span
+class="math inline">\(u\)</span>，不在<span
+class="math inline">\(B\)</span>中，并且距离<span
+class="math inline">\(B\)</span>中的所有节点距离最短）。</p>
+<p>接下来同时模拟这两个算法的过程，维护<span
+class="math inline">\(B\)</span>中的树<span
+class="math inline">\(T\)</span>，还有<span
+class="math inline">\(T\)</span>的一个完全遍历<span
+class="math inline">\(W\)</span>，以及将<span
+class="math inline">\(W\)</span>去重后的一个旅行线路<span
+class="math inline">\(C\)</span>，并假设当前块<span
+class="math inline">\(B\)</span>中的最优旅行线路为<span
+class="math inline">\(C^{\ast}\)</span>。可见，旅行<span
+class="math inline">\(C\)</span>就是最近点启发式算法的运行过程。考虑使用循环不变量来说明<span
+class="math inline">\(c(C)\le 2c(C^{\ast})\)</span>均成立：</p>
+<p>初始化：<span
+class="math inline">\(T,W,C\)</span>中只包含一个初始节点<span
+class="math inline">\(u\)</span>，<span
+class="math inline">\(c(C)=c(C^{\ast})=0\)</span>。</p>
+<p>保持：假设现在距离<span
+class="math inline">\(B\)</span>中最近的节点<span
+class="math inline">\(v\)</span>，在<span
+class="math inline">\(B\)</span>中距离最近<span
+class="math inline">\(v\)</span>最近的节点为<span
+class="math inline">\(w\)</span>。那么接下来进行如下操作：节点<span
+class="math inline">\(v\)</span>添加到<span
+class="math inline">\(B\)</span>中；边<span
+class="math inline">\((v,w)\)</span>添加到树<span
+class="math inline">\(T\)</span>中；在<span
+class="math inline">\(W\)</span>中找到节点<span
+class="math inline">\(w\)</span>第一次出现的位置，并在这个位置前面插入序列<span
+class="math inline">\([w,v]\)</span>；然后重新产生旅行<span
+class="math inline">\(C\)</span>，可以发现和原来的区别在于<span
+class="math inline">\(w\)</span>后面添加了一个<span
+class="math inline">\(v\)</span>节点。可见，对于连通块<span
+class="math inline">\(B\)</span>中对应的树<span
+class="math inline">\(T\)</span>，完全遍历<span
+class="math inline">\(W\)</span>，旅行线路<span
+class="math inline">\(C\)</span>，都是和定理35.2证明过程中一一对应的。因此对于块<span
+class="math inline">\(B\)</span>的最优旅行线路<span
+class="math inline">\(C^{\ast}\)</span>，都有<span
+class="math inline">\(c(C)\le 2c(C^{\ast})\)</span>。</p>
+<p>终止：最终构造出了<span
+class="math inline">\(G\)</span>的一棵最小生成树<span
+class="math inline">\(T\)</span>，还有其对应的完全遍历<span
+class="math inline">\(W\)</span>，以及将<span
+class="math inline">\(W\)</span>去重后的一个旅行线路<span
+class="math inline">\(C\)</span>，因此仍然保持<span
+class="math inline">\(c(C)\le 2c(C^{\ast})\)</span>。</p>
+<p>也就是说，这个算法构造的旅行路线也是<span
+class="math inline">\(2\)</span>近似的，原结论成立。</p>
+<h1 id="section-3">35.2-4</h1>
+<p>令<span class="math inline">\(c(H)\)</span>表示路径<span
+class="math inline">\(H\)</span>中最长一条边的权值。根据题目21-4，通过完全图<span
+class="math inline">\(G\)</span>，我们可以在线性时间内求出一个瓶颈生成树<span
+class="math inline">\(T\)</span>。对于一条最优的瓶颈旅行商问题中的线路<span
+class="math inline">\(C^{\ast}\)</span>，去掉<span
+class="math inline">\(C^{\ast}\)</span>的其中一条边后，得到的一条链是也是一棵树，但不一定是一棵瓶颈生成树，因此有<span
+class="math inline">\(c(C^{\ast})\ge c(T)\)</span>。通过树<span
+class="math inline">\(T\)</span>，使用题目34.2-11的算法，我们可以构造<span
+class="math inline">\(G\)</span>上的一条哈密顿回路<span
+class="math inline">\(C\)</span>，那么这条哈密顿回路为所求。可见这个算法是多项式时间内可运行完成的。</p>
+<p>接下来证明这个多项式算法是具有3近似比的。题目34.2-11说明了，构造的哈密顿回路<span
+class="math inline">\(C\)</span>，任意相邻两点在<span
+class="math inline">\(T\)</span>上都不超过<span
+class="math inline">\(3\)</span>条边，因此有<span
+class="math inline">\(c(C)\le 3c(T)\)</span>。</p>
+<p>最终得到<span class="math inline">\(c(C)\le
+3c(C^{\ast})\)</span>。因此如上构造的一个算法为一个近似比为<span
+class="math inline">\(3\)</span>的多项式时间近似算法，结论成立。</p>
+<h1 id="section-4">35.2-5</h1>
+<p><img data-src="35.2-5.png" /></p>
+<p>如图所示，不失一般性，假设一段旅行<span
+class="math inline">\(C\)</span>中，边<span
+class="math inline">\((w,z)\)</span>和边<span
+class="math inline">\((x,y)\)</span>相交在平面上相交，假设交点为<span
+class="math inline">\(o\)</span>。那么可以知道，对于三角形<span
+class="math inline">\(wxo,xzo,zyo,ywo\)</span>，可以写出下列<span
+class="math inline">\(4\)</span>个不等式：</p>
+<p><span class="math inline">\(\begin{aligned}
+c(w,o)+c(x,o)&amp;&gt; c(w,x)\\
+c(x,o)+c(z,o)&amp;&gt; c(x,z)\\
+c(z,o)+c(y,o)&amp;&gt; c(z,y)\\
+c(y,o)+c(w,o)&amp;&gt; c(y,w)\\
+\end{aligned}\)</span></p>
+<p>因此可以得到</p>
+<p><span class="math inline">\(\begin{aligned}
+c(w,z)+c(x,y)&amp;&gt; c(w,x)+c(y,z)\qquad(1)\\
+c(w,z)+c(x,y)&amp;&gt; c(x,z)+c(y,w)\qquad(2)\\
+\end{aligned}\)</span></p>
+<p>并且，边<span class="math inline">\((w,x)\)</span>和边<span
+class="math inline">\((y,z)\)</span>不相交；边<span
+class="math inline">\((x,z)\)</span>和边<span
+class="math inline">\((y,w)\)</span>也不相交。</p>
+<p>接下来将<span class="math inline">\(C\)</span>删去边<span
+class="math inline">\((w,z),(x,y)\)</span>，<span
+class="math inline">\(C\)</span>中将会有两个连通块。考虑如下两种情况：</p>
+<ol type="1">
+<li><span class="math inline">\(w\)</span>和<span
+class="math inline">\(x\)</span>连通，<span
+class="math inline">\(y\)</span>和<span
+class="math inline">\(z\)</span>连通，那么构造<span
+class="math inline">\(C&#39;=(C-\{(w,z),(x,y)\})\cup\{(x,z),(y,w)\}\)</span>。可见<span
+class="math inline">\(C&#39;\)</span>仍然是一个环。根据不等式<span
+class="math inline">\((2)\)</span>，可以得到<span
+class="math inline">\(c(C&#39;)&lt;c(C)\)</span>，原结论成立。</li>
+<li><span class="math inline">\(x\)</span>和<span
+class="math inline">\(z\)</span>连通，<span
+class="math inline">\(y\)</span>和<span
+class="math inline">\(w\)</span>连通，那么构造<span
+class="math inline">\(C&#39;=(C-\{(w,z),(x,y)\})\cup\{(w,x),(y,z)\}\)</span>。可见<span
+class="math inline">\(C&#39;\)</span>仍然是一个环。根据不等式<span
+class="math inline">\((1)\)</span>，可以得到<span
+class="math inline">\(c(C&#39;)&lt;c(C)\)</span>，原结论成立。</li>
+</ol>
+<p>因此，一个最优的旅行线路不会自我相交，否则将会找到一条更优的旅行线路。</p>
+<h1 id="section-5">35.2-6</h1>
+<p>假设该非负整数<span
+class="math inline">\(c\)</span>存在，在证明定理35.3的时候，只需要代入<span
+class="math inline">\(\rho=|V|^c\)</span>即可，即证明不存在关于多项式时间内有近似比例<span
+class="math inline">\(|V|^c\)</span>的算法来求解一般旅行商问题。接下来是修改后的简要证明。</p>
+<p>如果存在多项式时间内有近似比例<span
+class="math inline">\(|V|^c\)</span>的算法来求解一般旅行商问题。那么我们可以使用这个算法求解任意图<span
+class="math inline">\(G=(V,E)\)</span>的哈密顿回路。考虑将图<span
+class="math inline">\(G=(V,E)\)</span>转化成一个旅行商问题的实例<span
+class="math inline">\(G&#39;=(V,E&#39;)\)</span>，其中<span
+class="math inline">\(E&#39;=\{(u,v):u,v\in V\land u\neq
+v\}\)</span>。并且对<span
+class="math inline">\(E&#39;\)</span>中的每条边赋予一个整数代价<span
+class="math inline">\(c\)</span>：</p>
+<p><span class="math inline">\(c(u,v)=
+\left \{\begin{aligned}
+  &amp;1 &amp; &amp; \text{if}\quad  (u,v)\in E \\
+  &amp;|V|^{c+1}+1 &amp; &amp; \text{if}\quad  (u,v)\in E \\
+\end{aligned}\right.\)</span></p>
+<p>如果<span
+class="math inline">\(G\)</span>中存在一条哈密顿回路，那么使用该多项式算法求解<span
+class="math inline">\(G&#39;\)</span>的旅行商问题，能够求解出来一条权值为<span
+class="math inline">\(|V|\)</span>的旅行路线。否则，在图<span
+class="math inline">\(G&#39;\)</span>中的一条旅行路线就至少用到一条不属于<span
+class="math inline">\(E\)</span>的边，那么这条旅行路线的权值至少为：</p>
+<p><span
+class="math display">\[|V|^{c+1}+1+(|V|-1)=|V|^{c+1}+|V|&gt;|V|^c\cdot
+|V|\]</span></p>
+<p>也就是说，如果<span
+class="math inline">\(G\)</span>不存在一条哈密顿回路，那么任何一条旅行线路的边权都将超过<span
+class="math inline">\(|V|^c\cdot |V|\)</span>。因此，可以使用这个<span
+class="math inline">\(|V|^c\)</span>近似比的多项式近似算法来寻找<span
+class="math inline">\(G\)</span>中的一条哈密顿回路，然而这是不可能的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/" title="算法导论35.2 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/exercises-2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

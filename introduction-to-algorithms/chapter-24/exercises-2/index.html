@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论24.2 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/24.2-3-0.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/24.2-3-1.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/24.2-3-2.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/24.2-3-3.png">
+<meta property="article:published_time" content="2023-06-23T09:13:38.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.156Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/24.2-3-0.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/","path":"introduction-to-algorithms/chapter-24/exercises-2/","title":"算法导论24.2 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论24.2 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">24.2-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">24.2-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">24.2-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">24.2-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">24.2-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">24.2-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">24.2-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">24.2-8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">9.</span> <span class="nav-text">24.2-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-9"><span class="nav-number">10.</span> <span class="nav-text">24.2-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-10"><span class="nav-number">11.</span> <span class="nav-text">24.2-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-11"><span class="nav-number">12.</span> <span class="nav-text">24.2-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-12"><span class="nav-number">13.</span> <span class="nav-text">24.2-13</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论24.2 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论24.2 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-23 17:13:38" itemprop="dateCreated datePublished" datetime="2023-06-23T17:13:38+08:00">2023-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">24.2-1</h1>
+<p>对于<span
+class="math inline">\(u\)</span>的所有非出边，根据定义，都有<span
+class="math inline">\(c(u,v)=0\)</span>，因此<span
+class="math inline">\(f(u,v)=c(u,v)=0\)</span>，也就是有<span
+class="math inline">\(\displaystyle{\sum_{v\in V_l(u)}f(u,v)=\sum_{v\in
+V}f(u,v)}\)</span>。</p>
+<p>对于<span
+class="math inline">\(u\)</span>的所有非入边，根据定义，都有<span
+class="math inline">\(c(v,u)=0\)</span>，因此<span
+class="math inline">\(f(v,u)=c(v,u)=0\)</span>，也就是有<span
+class="math inline">\(\displaystyle{\sum_{v\in V_e(u)}f(v,u)=\sum_{v\in
+V}f(v,u)}\)</span>。</p>
+<p>对于<span
+class="math inline">\(u\)</span>的所有非关联边，无论之后的流变化如何，根据定义，都有<span
+class="math inline">\(c&#39;(v,u)=c&#39;(u,v)=0\)</span>，因此<span
+class="math inline">\(f&#39;(v,u)=f&#39;(v,u)=0\)</span>，也就是有<span
+class="math inline">\(\displaystyle{\sum_{v\in V_l(u)\cup
+V_e(u)}f(v,u)=\sum_{v\in V}f(v,u),\sum_{v\in V_l(u)\cup
+V_e(u)}f(u,v)=\sum_{v\in V}f(u,v)}\)</span>。</p>
+<p>因此，最终有</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;\sum_{v\in V_l(u)}f(u,v)-\sum_{v\in V_e(u)}f(v,u)+\sum_{v\in
+V_l(u)\cup V_e(u)}f&#39;(u,v)-\sum_{v\in V_l(u)\cup V_e(u)}f&#39;(v,u)\\
+=&amp;\sum_{v\in V}f(u,v)-\sum_{v\in V}f(v,u)+\sum_{v\in
+V}f&#39;(u,v)-\sum_{v\in V}f&#39;(v,u)\\
+=&amp;\left(\sum_{v\in V}f(u,v)-\sum_{v\in
+V}f(v,u)\right)+\left(\sum_{v\in V}f&#39;(u,v)-\sum_{v\in
+V}f&#39;(v,u)\right)\\
+=&amp;0
+\end{aligned}\)</span></p>
+<h1 id="section-1">24.2-2</h1>
+<p>从<span class="math inline">\(S\)</span>中的节点到<span
+class="math inline">\(T\)</span>中的节点的所有边如下：</p>
+<p><span class="math inline">\(\begin{array}{|c|c|c|}\hline
+e&amp;f&amp;c\\\hline
+(s,v_1)&amp;11&amp;16\\\hline
+(v_2,v_1)&amp;1&amp;4\\\hline
+(v_4,v_3)&amp;7&amp;7\\\hline
+(v_4,t)&amp;4&amp;4\\\hline
+\end{array}\)</span></p>
+<p>从<span class="math inline">\(T\)</span>中的节点到<span
+class="math inline">\(S\)</span>中的节点的所有边如下：</p>
+<p><span class="math inline">\(\begin{array}{|c|c|c|}\hline
+e&amp;f&amp;c\\\hline
+(v_3,v_2)&amp;4&amp;9\\\hline
+\end{array}\)</span></p>
+<p>因此，切割<span class="math inline">\((S,T)的流大小\)</span>为<span
+class="math inline">\(11+1+7+4-4=19\)</span>，容量为<span
+class="math inline">\(16+4+7+5=31\)</span>。</p>
+<h1 id="section-2">24.2-3</h1>
+<p>接下里将使用残余网络来表示这个流网络。一开始残余网络如下：</p>
+<p><img data-src="24.2-3-0.png" /></p>
+<p>随后运行BFS，找到了一条增广路径<span
+class="math inline">\((s,v_1,v_3,t)\)</span>，其流量值为<span
+class="math inline">\(12\)</span>。由此可以对残余网络进行更新：</p>
+<p><img data-src="24.2-3-1.png" /></p>
+<p>随后找到了一条增广路径<span
+class="math inline">\((s,v_2,v_4,t)\)</span>，其流量值为<span
+class="math inline">\(4\)</span>。由此可以对残余网络进行更新：</p>
+<p><img data-src="24.2-3-2.png" /></p>
+<p>最后找到了一条增广路径<span
+class="math inline">\((s,v_2,v_4,v_3,t)\)</span>，其流量值为<span
+class="math inline">\(7\)</span>。由此可以对残余网络进行更新：</p>
+<p><img data-src="24.2-3-3.png" /></p>
+<p>此后，再也不存在增广路径，因此最大流<span
+class="math inline">\(|f|=23\)</span>。</p>
+<h1 id="section-3">24.2-4</h1>
+<p>令<span
+class="math inline">\(S=\{s,v_1,v_2,v_4\},T=\{v_3,t\}\)</span>为所求。图24.6(c)中路径上的边<span
+class="math inline">\((v_1,v_2)\)</span>抵消了图24.6(b)所传输的流；图24.6(c)中路径上的边<span
+class="math inline">\((v_2,v_3)\)</span>抵消了图24.6(a)所传输的流。</p>
+<h1 id="section-4">24.2-5</h1>
+<p>令<span
+class="math inline">\(G=(V,E)\)</span>是一个具有多源点多汇点的流网络，并令<span
+class="math inline">\(S&#39;=\{s_1,s_2,\dots,s_m\},T&#39;=\{t_1,t_2,\dots,t_n\}\)</span>，即<span
+class="math inline">\(S&#39;\)</span>是<span
+class="math inline">\(G\)</span>中的所有源点，<span
+class="math inline">\(T&#39;\)</span>是<span
+class="math inline">\(G\)</span>中的所有原点。由于<span
+class="math inline">\(S&#39;\cap T&#39;=\varnothing,(S&#39;\cup
+T&#39;)\subseteq V\)</span>，因此可以构造出一个在图<span
+class="math inline">\(G\)</span>上的切割<span
+class="math inline">\((S,T)\)</span>，使得<span
+class="math inline">\(S&#39;\subseteq S,T&#39;\subseteq
+T\)</span>。由于<span
+class="math inline">\(G&#39;\)</span>的网络容量是有限的，即<span
+class="math inline">\(\forall (u,v)\in
+E,c(u,v)&lt;\infty\)</span>，因此横跨切割<span
+class="math inline">\((S,T)\)</span>中的所有边的容量都是有限的，那么切割<span
+class="math inline">\((S,T)\)</span>的容量<span
+class="math inline">\(c(S,T)\)</span>是有限的。</p>
+<p>这个流网络转换后，那么令新流网络为<span
+class="math inline">\(G_1=(V_1,E_1)\)</span>，其中<span
+class="math inline">\(V_1=V\cup\{s,t\}\)</span>，并且<span
+class="math inline">\(s\)</span>是超级源点，<span
+class="math inline">\(t\)</span>是超级汇点。那么对流网络构造切割<span
+class="math inline">\((S_1,T_1)\)</span>满足<span
+class="math inline">\(S_1=S\cup\{s\},T_1=T\cup\{t\}\)</span>，那么可见，图<span
+class="math inline">\(G_1\)</span>上切割<span
+class="math inline">\((S_1,T_1)\)</span>的容量<span
+class="math inline">\(c(S_1,T_1)\)</span>和<span
+class="math inline">\(c(S,T)\)</span>是相等的的（因为横跨这两个切割的都是相同的边），因此按照推论26.5，<span
+class="math inline">\(G_1\)</span>中的所有流都受限于<span
+class="math inline">\(c(S_1,T_1)\)</span>，即任何一个流的值都是有限的。</p>
+<h1 id="section-5">24.2-6</h1>
+<p>思路和第24.1节时构造超级源点和超级汇点相似。令<span
+class="math inline">\(G=(V,E)\)</span>是题目所提供的流网络，并令<span
+class="math inline">\(S=\{s_1,s_2,\dots,s_m\},T=\{t_1,t_2,\dots,t_n\}\)</span>，即<span
+class="math inline">\(S\)</span>是<span
+class="math inline">\(G\)</span>中的所有源点，<span
+class="math inline">\(T&#39;\)</span>是<span
+class="math inline">\(G\)</span>中的所有原点。</p>
+<p>那么令新转化后的流网络为<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>，其中<span
+class="math inline">\(V&#39;=V\cup\{s,t\}\)</span>，并且<span
+class="math inline">\(s\)</span>是超级源点，<span
+class="math inline">\(t\)</span>是超级汇点。并且<span
+class="math inline">\(\forall (u,v)\in E,(u,v)\in
+E&#39;\)</span>均成立，<span
+class="math inline">\(c&#39;(u,v)=c(u,v)\)</span>。对于<span
+class="math inline">\(\forall s_i\in S,(s,s_i)\in
+E&#39;\)</span>，并且有<span
+class="math inline">\(c&#39;(s,s_i)=p_i\)</span>；对于<span
+class="math inline">\(\forall t_i\in T,(t_i,t)\in
+E&#39;\)</span>，并且有<span
+class="math inline">\(c&#39;(t_1,t)=q_i\)</span>。</p>
+<p>最终所给定的流网络<span
+class="math inline">\(G&#39;\)</span>和容量函数<span
+class="math inline">\(c&#39;\)</span>为所求。</p>
+<h1 id="section-6">24.2-7</h1>
+<p>令这条简单路径<span class="math inline">\(p\)</span>表示为<span
+class="math inline">\(v_1,v_2,\dots,v_m\)</span>，其中<span
+class="math inline">\(v_1=s,v_m=t\)</span>。</p>
+<p>首先证明容量限制。按照<span
+class="math inline">\(c_f(p)\)</span>的定义，可以得出<span
+class="math inline">\(\forall (u,v)
+\in p,c_f(p)\le c_f(u,v)\)</span>。因此，对于<span
+class="math inline">\(\forall (u,v)\in p,f_p(u,v)=c_f(p)\le
+c_f(u,v)\)</span>。由于边的容量是正数，因此可以得出<span
+class="math inline">\(c_f(p)&gt;0\)</span>。也就是说，<span
+class="math inline">\(f_p(u,v)\ge 0\)</span>。对于<span
+class="math inline">\(\forall (u,v)\not\in p\)</span>，都有<span
+class="math inline">\(f_p(u,v)=0\)</span>。因此容量限制得证。</p>
+<p>接下来证明流量守恒。<span class="math inline">\(\forall v\not\in
+p\)</span>，由于增广路径<span
+class="math inline">\(p\)</span>不经过<span
+class="math inline">\(v\)</span>，因此流入<span
+class="math inline">\(v\)</span>的流量和与流出<span
+class="math inline">\(v\)</span>的流量和均为<span
+class="math inline">\(0\)</span>，因此<span
+class="math inline">\(v\)</span>处满足流量守恒。<span
+class="math inline">\(\forall v\in
+p-\{s,t\}\)</span>，仅有一条边流入<span
+class="math inline">\(v\)</span>和一条边流出<span
+class="math inline">\(v\)</span>，并且它们的流量值均为<span
+class="math inline">\(c_f(p)\)</span>，因此<span
+class="math inline">\(v\)</span>处满足流量守恒。</p>
+<p>故<span class="math inline">\(f_p\)</span>是<span
+class="math inline">\(G_f\)</span>中的一个流。对于<span
+class="math inline">\(s\)</span>，仅有一条边从它流出，其大小为<span
+class="math inline">\(c_f(p)\)</span>，因此<span
+class="math inline">\(|f_p|=c_f(p)&gt;0\)</span>。</p>
+<h1 id="section-7">24.2-8</h1>
+<p>可见，算法<code>FORD-FULKERSON</code>的第3行是求解了一条增广路径，即从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(t\)</span>的简单路径。由于这是一条以<span
+class="math inline">\(s\)</span>为起点的简单路径，因此这条路径不可能从某处重新到达<span
+class="math inline">\(s\)</span>，因此残余网络中，指向<span
+class="math inline">\(s\)</span>的反向边是不必要的，它不会影响第3行的求解增广路径求取算法。因此原结论成立。</p>
+<h1 id="section-8">24.2-9</h1>
+<p>如此增广后的<span class="math inline">\(f\uparrow
+f&#39;\)</span>将不是<span
+class="math inline">\(G\)</span>中的一个流。不过，<span
+class="math inline">\(f\uparrow
+f&#39;\)</span>仍然满足流量守恒，因为方程24.6的推导仅仅依赖于<span
+class="math inline">\(f&#39;\)</span>本身的定义，根据题目24.2-1的进一步形式化证明可知，<span
+class="math inline">\(f\uparrow f&#39;\)</span>仍然满足流量守恒。</p>
+<p>接下来说明<span class="math inline">\(f\uparrow
+f&#39;\)</span>不满足容量限制。令<span
+class="math inline">\(G=(V,E),V=\{s,t\},E=\{(s,t)\},c(s,t)=1\)</span>。如图所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line">  s((s));t((t));</span><br><span class="line">  s--1--&gt;t</span><br></pre></td></tr></table></figure>
+<p>那么，令<span
+class="math inline">\(f,f&#39;\)</span>是两个流，其中<span
+class="math inline">\(f(s,t)=f&#39;(s,t)=1\)</span>，那么可以计算出<span
+class="math inline">\((f\uparrow
+f&#39;)(s,t)=f(s,t)+f&#39;(s,t)-f&#39;(t,s)=1+1-0=2&gt;c(s,t)\)</span>，从而违反了容量限制。</p>
+<h1 id="section-9">24.2-10</h1>
+<p>首先求出流网络<span
+class="math inline">\(G=(V,E)\)</span>的其中一个最大流<span
+class="math inline">\(f\)</span>。那么令<span
+class="math inline">\(c&#39;(u,v)=f(u,v)\)</span>。并且，如果<span
+class="math inline">\(c&#39;(u,v)&gt;0\)</span>，那么<span
+class="math inline">\((u,v)\in E&#39;\)</span>。由此可知，<span
+class="math inline">\(E&#39;\subseteq E\)</span>。</p>
+<p>这个算法将进行多次迭代，每次迭代的过程中，找到<span
+class="math inline">\(E&#39;\)</span>中<span
+class="math inline">\(c&#39;\)</span>值最小的边<span
+class="math inline">\((u,v)\)</span>，并且通过在<span
+class="math inline">\(G&#39;=(V,E&#39;)\)</span>上对<span
+class="math inline">\(u\)</span>进行反向BFS，对<span
+class="math inline">\(v\)</span>进行正向BFS，找到一条路径<span
+class="math inline">\(p:s\rightsquigarrow u\rightarrow v\rightsquigarrow
+t\)</span>。可见，<span
+class="math inline">\(p\)</span>是一条增广路径，并存入数组中，接下来令<span
+class="math inline">\(c&#39;_f(p)=c&#39;(u,v)\)</span>。那么对<span
+class="math inline">\(p\)</span>中的所有边，都减去值<span
+class="math inline">\(c&#39;_f(p)\)</span>。这轮迭代结束后，边<span
+class="math inline">\((u,v)\)</span>必定从<span
+class="math inline">\(E&#39;\)</span>中删除。因此，这个算法最多迭代<span
+class="math inline">\(|E&#39;|\le
+|E|\)</span>次，也就是说，最多只有<span
+class="math inline">\(|E|\)</span>条增广路径。</p>
+<p>大致过程由<code>AUGMENTING-PATHS-BOUNDS</code>给出，其迭代轮数至多为<span
+class="math inline">\(|E|\)</span>轮。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">AUGMENTING-PATHS-BOUNDS(G, s, t)</span><br><span class="line">  Let P be a new array</span><br><span class="line">  Let E&#x27; be a new set</span><br><span class="line">  FORD-FULKERSON(G, s, t)</span><br><span class="line">  for each edge (u, v) ∈ G.E</span><br><span class="line">    if (u, v).f &gt; 0</span><br><span class="line">      (u, v).c&#x27; = (u, v).f</span><br><span class="line">      INSERT(E&#x27;, (u, v))</span><br><span class="line">  while E&#x27; != ∅</span><br><span class="line">    let (u, v) be the edge s.t. (u, v).c&#x27; is minimum in E&#x27;.</span><br><span class="line">    run BFS twice (forward and back) to get the path p from s to t through (u,v)</span><br><span class="line">    INSERT(P, p)</span><br><span class="line">    c&#x27; = (u, v).c&#x27;</span><br><span class="line">    for each edge (u, v) ∈ E&#x27;</span><br><span class="line">      (u, v).c&#x27; = (u, v).c&#x27; - c&#x27;</span><br><span class="line">      if (u, v).c&#x27; == 0</span><br><span class="line">        DELETE(E&#x27;, (u, v))</span><br><span class="line">  return E</span><br></pre></td></tr></table></figure>
+<h1 id="section-10">24.2-11</h1>
+<p>首先，一个无向图<span
+class="math inline">\(G=(V,E)\)</span>不连通意味着：<span
+class="math inline">\(\forall u\in V,\exists v\in
+V\)</span>，使得从<span
+class="math inline">\(u\)</span>节点不可到达<span
+class="math inline">\(v\)</span>节点。因此，我们可以随机选定<span
+class="math inline">\(V\)</span>中的一个节点作为源点<span
+class="math inline">\(s\)</span>，枚举所有<span
+class="math inline">\(t\in V-\{s\}\)</span>作为汇点，并且将<span
+class="math inline">\(G\)</span>中的每一条无向边都替换成一对容量均为<span
+class="math inline">\(1\)</span>的反平行边。接下来只需要对这个构造出来的流网络求解最大流（也就是这个流网络的最小割），那么求出来的值中，最小的一个恰好为答案。具体过程由<code>EDGE-CONNECTIVITY</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">EDGE-CONNECTIVITY(G)</span><br><span class="line">  Let V, E be new sets</span><br><span class="line">  V = G.V</span><br><span class="line">  select vertex s ∈ G.V randomly</span><br><span class="line">  for each edge (u, v) ∈ G.E</span><br><span class="line">    Let x be a new vertex</span><br><span class="line">    INSERT(V, x)</span><br><span class="line">    INSERT(E, (u, v))</span><br><span class="line">    (u, v).c_f = 1</span><br><span class="line">    INSERT(E, (v, x))</span><br><span class="line">    (v, x).c_f = 1</span><br><span class="line">    INSERT(E, (x, u))</span><br><span class="line">    (x, u).c_f = 1</span><br><span class="line">  edge-connectivity = |G.V| - 1</span><br><span class="line">  for each vertex t ∈ G.V - &#123;s&#125;</span><br><span class="line">    Let G&#x27; = (V, E) be a new flow net work</span><br><span class="line">    FORD-FULKERSON(G&#x27;, s, t)</span><br><span class="line">    edge-connectivity = min&#123;edge-connectivity, |f|&#125;</span><br><span class="line">  return edge-connectivity</span><br></pre></td></tr></table></figure>
+<p>我们构造了<span
+class="math inline">\(|V|-1\)</span>个流网络，每个流网络一共有<span
+class="math inline">\(|V|+|E|=O(V+E)\)</span>个节点，一共有<span
+class="math inline">\(3|E|=O(E)\)</span>条边。因此如上算法为所求。</p>
+<h1 id="section-11">24.2-12</h1>
+<p>由于所有增广路径都是从<span
+class="math inline">\(s\)</span>开始的，因此如果存在一条边<span
+class="math inline">\((v,s)\)</span>，使得<span
+class="math inline">\(f(v,s)=1\)</span>，那么这意味着节点<span
+class="math inline">\(s\)</span>在某个环上（也就是说，边<span
+class="math inline">\((v,s)\)</span>也在环上）。我们可以考虑对流<span
+class="math inline">\(f\)</span>进行DFS，处理出这个环，并且将这个环上的所有边的流大小减去<span
+class="math inline">\(1\)</span>，得到的新流<span
+class="math inline">\(f&#39;\)</span>则是所求流。</p>
+<p>不难证明所求流<span
+class="math inline">\(f&#39;\)</span>满足容量限制，因为环上的所有边的流大小都超过<span
+class="math inline">\(1\)</span>，将它们都减去<span
+class="math inline">\(1\)</span>不会使得流大小变成负数。流量守恒也不难证明，因为这个环上的所有节点，减去的流入流量和流出流量都为<span
+class="math inline">\(1\)</span>，因此由于原来的流<span
+class="math inline">\(f\)</span>满足流量守恒，<span
+class="math inline">\(f&#39;\)</span>也满足流量守恒；对于<span
+class="math inline">\(s\)</span>也如此，因此有<span
+class="math inline">\(|f&#39;|=|f|\)</span>。</p>
+<p>整个具体过程由<code>SIMPLIFY-FLOAT-1</code>给出，由于是对一次DFS进行修改，因此其时间复杂度为<span
+class="math inline">\(O(E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">SIMPLIFY-FLOAT-DFS(G, s, u)</span><br><span class="line">  u.color = GRAY</span><br><span class="line">  for each vertex v in G.Adj[u]</span><br><span class="line">    if (u, v).f &gt; 0</span><br><span class="line">      if v.color == WHITE</span><br><span class="line">        v.π = u</span><br><span class="line">        SIMPLIFY-FLOAT-DFS(G, s, v)</span><br><span class="line">      else if v.color == GRAY and v == s and (u, s).f == 1</span><br><span class="line">        (u, s).f = (u, s).f - 1</span><br><span class="line">        z = u</span><br><span class="line">        while z != NIL</span><br><span class="line">          (z.p, z).f = (z.p, z).f - 1</span><br><span class="line">          z = z.p</span><br><span class="line">        exit                      // 算法结束，从此退出。</span><br><span class="line">  u.color = BLACK</span><br><span class="line"></span><br><span class="line">SIMPLIFY-FLOAT-1(G, s, t)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.π = NIL</span><br><span class="line">  SIMPLIFY-FLOAT-DFS(G, s, s)</span><br></pre></td></tr></table></figure>
+<h1 id="section-12">24.2-13</h1>
+<p>假设对流网络<span
+class="math inline">\(G=(V,E)\)</span>所有边的容量<span
+class="math inline">\(c\)</span>都加上一个足够小的常数<span
+class="math inline">\(\epsilon\)</span>得到<span
+class="math inline">\(c&#39;\)</span>，那么对于<span
+class="math inline">\(G\)</span>中的以容量函数<span
+class="math inline">\(c\)</span>得到的每一个最小割<span
+class="math inline">\((S,T)\)</span>，如果其容量值为<span
+class="math inline">\(C\)</span>，那么以容量函数<span
+class="math inline">\(c&#39;\)</span>为计算的切割<span
+class="math inline">\((S,T)\)</span>的容量为<span
+class="math inline">\(C+\epsilon \cdot M_{S,T}\)</span>，其中<span
+class="math inline">\(M_{S,T}\)</span>是从<span
+class="math inline">\(S\)</span>中的节点指向<span
+class="math inline">\(T\)</span>中的节点的边数。那么，以容量函数<span
+class="math inline">\(c&#39;\)</span>运行最大流算法后，在残余网络<span
+class="math inline">\(G_{f&#39;}\)</span>中，从<span
+class="math inline">\(s\)</span>可达的节点集合为<span
+class="math inline">\(S\)</span>，其余节点在<span
+class="math inline">\(T\)</span>中，那么切割<span
+class="math inline">\((S,T)\)</span>为以容量函数<span
+class="math inline">\(c\)</span>所求的最小割，并且切割的边数最小。</p>
+<p>这个常数<span
+class="math inline">\(\epsilon\)</span>必须足够小，以至于对最大流的值产生的影响是微不足道的（产生的影响小于<span
+class="math inline">\(1\)</span>个单位的流）。因此，<span
+class="math inline">\(\epsilon=\dfrac{1}{|E|+1}\)</span>是一个合适的取值，哪怕所有边都做出了贡献，对最大流的贡献总共也只有<span
+class="math inline">\(\dfrac{|E|}{|E|+1}\)</span>，不超过<span
+class="math inline">\(1\)</span>。</p>
+<p>当然，为了确保流的容量仍然是整数，我们可以考虑对容量函数<span
+class="math inline">\(c\)</span>进行放缩。将<span
+class="math inline">\(c\)</span>所有的容量全部都扩大到原来的<span
+class="math inline">\(|E|+1\)</span>倍，那么求出来的最大流也是原来的<span
+class="math inline">\(|E|+1\)</span>倍。接下来再对所有边容量都加上<span
+class="math inline">\(1\)</span>，运行最大流算法后，从<span
+class="math inline">\(s\)</span>可达的节点集合为<span
+class="math inline">\(S\)</span>，其余节点在<span
+class="math inline">\(T\)</span>中，切割<span
+class="math inline">\((S,T)\)</span>为所求。更正式的定义，则是<span
+class="math inline">\(\forall (u,v)\in E\)</span>，取<span
+class="math inline">\(c&#39;(u,v)=c(u,v)\cdot (|E|+1)+1\)</span>。</p>
+<p>这个算法的过程由<code>MINIMIN-CUT-MINIMUM-EDGES</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MINIMIN-CUT-MINIMUM-EDGES(G, s, t)</span><br><span class="line">  for each edge (u, v) ∈ G.E</span><br><span class="line">    (u, v).&#123;c&#x27;_f&#125; = (u, v) * (|G.E| + 1) + 1</span><br><span class="line">    run FORD-FULKERSON(G, s, t) using c_&#x27;f as capacity.</span><br><span class="line">  let E, S, T be a new set</span><br><span class="line">  for each edge (u, v) ∈ G.E</span><br><span class="line">    if (u, v).f &gt; -</span><br><span class="line">      INSERT(E, (u, v))</span><br><span class="line">  let G&#x27; = (G.V, E) be a new graph</span><br><span class="line">  BFS(G&#x27;, s)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    if u.color == BLACK</span><br><span class="line">      INSERT(S, u)</span><br><span class="line">    else</span><br><span class="line">      INSERT(T, u)</span><br><span class="line">  return (S, T)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/" title="算法导论24.2 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

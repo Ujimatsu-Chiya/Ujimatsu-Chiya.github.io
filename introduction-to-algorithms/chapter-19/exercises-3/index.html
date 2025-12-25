@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论19.3 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/exercises-3/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-14T02:21:13.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.138Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/exercises-3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/exercises-3/","path":"introduction-to-algorithms/chapter-19/exercises-3/","title":"算法导论19.3 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论19.3 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">19.3-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">19.3-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">19.3-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">19.3-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-19.3-5"><span class="nav-number">5.</span> <span class="nav-text">\(\star\)
+19.3-5</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/exercises-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论19.3 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论19.3 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-14 10:21:13" itemprop="dateCreated datePublished" datetime="2023-06-14T10:21:13+08:00">2023-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">19.3-1</h1>
+<p>为了方便，此处作图忽略了箭头和自环。</p>
+<p>一开始，所有树的<span class="math inline">\(rank\)</span>都为<span
+class="math inline">\(0\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br></pre></td></tr></table></figure>
+<p>在第3-4行的循环完成后，所有的树的<span
+class="math inline">\(rank\)</span>变成了<span
+class="math inline">\(1\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));E((5));F((6));G((7));H((8));I((9));J((10));K((11));L((12));M((13));N((14));O((15));P((16));A---B;C---D;E---F;G---H;I---J;K---L;M---N;O---P;</span><br></pre></td></tr></table></figure>
+<p>在第5-6行的循环完成后，所有的树的<span
+class="math inline">\(rank\)</span>变成了<span
+class="math inline">\(2\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br><span class="line">D---B;D---C;B---A;H---F;</span><br><span class="line">H---G;F---E;L---J;L---K;</span><br><span class="line">J---I;P---N;P---O;N---M;</span><br></pre></td></tr></table></figure>
+<p>第7行完成后如下，其中第一棵树的<span
+class="math inline">\(rank\)</span>为<span
+class="math inline">\(3\)</span>，其余的<span
+class="math inline">\(rank\)</span>为<span
+class="math inline">\(2\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br><span class="line">H---D;H---E;H---F;H---G;</span><br><span class="line">D---A;D---B;D---C;L---J;</span><br><span class="line">L---K;J---I;P---N;P---O;</span><br><span class="line">N---M;</span><br></pre></td></tr></table></figure>
+<p>第8行完成后如下，两棵树的<span
+class="math inline">\(rank\)</span>都是<span
+class="math inline">\(3\)</span>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br><span class="line">H---D;H---E;H---F;H---G;</span><br><span class="line">D---A;D---B;D---C;P---L;</span><br><span class="line">P---M;P---N;P---O;L---J;</span><br><span class="line">L---K;J---I</span><br></pre></td></tr></table></figure>
+<p>第9行完成后如下，这棵树的<span
+class="math inline">\(rank\)</span>为<span
+class="math inline">\(4\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br><span class="line">H---D;H---E;H---F;H---G;</span><br><span class="line">H---A;D---B;D---C;P---H;P---L;</span><br><span class="line">P---M;P---N;P---O;P---J;</span><br><span class="line">L---K;J---I</span><br></pre></td></tr></table></figure>
+<p>第10行完成后如下，这棵树的<span
+class="math inline">\(rank\)</span>为<span
+class="math inline">\(4\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br><span class="line">P---B;P---D;H---A;H---E;</span><br><span class="line">H---F;H---G;D---C;P---H;</span><br><span class="line">P---J;P---L;P---M;P---N;</span><br><span class="line">P---O;L---K;J---I</span><br></pre></td></tr></table></figure>
+<p>第11行完成后如下，这棵树的<span
+class="math inline">\(rank\)</span>为<span
+class="math inline">\(4\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line">A((1));B((2));C((3));D((4));</span><br><span class="line">E((5));F((6));G((7));H((8));</span><br><span class="line">I((9));J((10));K((11));L((12));</span><br><span class="line">M((13));N((14));O((15));P((16));</span><br><span class="line">P---B;P---D;H---A;H---E;</span><br><span class="line">H---F;H---G;D---C;P---H;</span><br><span class="line">P---I;P---J;P---L;P---M;P---N;</span><br><span class="line">P---O;L---K;</span><br></pre></td></tr></table></figure>
+<h1 id="section-1">19.3-2</h1>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FIND-SET-ITERATIVE(x)</span><br><span class="line">  let A be new array</span><br><span class="line">  while x != x.p</span><br><span class="line">    INSERT(A, x)</span><br><span class="line">    x = x.p</span><br><span class="line">  for each y in A</span><br><span class="line">    y.p = x</span><br><span class="line">  return x</span><br></pre></td></tr></table></figure>
+<h1 id="section-2">19.3-3</h1>
+<p>当<span class="math inline">\(m\)</span>足够大时（也就是有<span
+class="math inline">\(m\ge 2n-1\)</span>），我们只需要构造一个<span
+class="math inline">\(m\)</span>个操作序列，从而证明其总共所需要的操作时间为<span
+class="math inline">\(\Omega(n\lg
+m)\)</span>即可。这个操作序列如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">UNION-SEQUENCE(n, m)</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    MAKE-SET(x_&#123;i&#125;)</span><br><span class="line">  k = 2</span><br><span class="line">  while k &lt;= n</span><br><span class="line">    for i = k / 2 to n by k</span><br><span class="line">      UNION(x_&#123;i - k / 2&#125;, x_&#123;i&#125;)</span><br><span class="line">  for i = 1 to m - (2 * n - 1)</span><br><span class="line">    FIND-SET(x_&#123;1&#125;)</span><br></pre></td></tr></table></figure>
+<p>在这个序列中，可以知道<code>while</code>循环最多可以迭代<span
+class="math inline">\(\lceil\lg (n+1)\rceil\)</span>轮，其中当<span
+class="math inline">\(k\)</span>为某个<span
+class="math inline">\(2\)</span>的幂时，内部的<code>for</code>循环恰好会执行<span
+class="math inline">\(\lfloor n/k\rfloor\)</span>次。可以发现，<span
+class="math inline">\(\displaystyle{\sum_{i=1}^{\infty}\left\lfloor\dfrac{n}{2^i}\right\rfloor=n-1}\)</span>，也就是说，这<span
+class="math inline">\(n-1\)</span>个操作将所有集合合并在了一起。考虑第<span
+class="math inline">\(i(i\ge 1)\)</span>轮操作，其中<span
+class="math inline">\(k=2^i\)</span>。那么在第<span
+class="math inline">\(i\)</span>轮合并开始前，每<span
+class="math inline">\(2^{i-1}\)</span>个元素都会合并在一起，它们所在树的秩都是一样的（除了最后一棵可能不足）；合并后，每<span
+class="math inline">\(2^i\)</span>个元素都会合并在一起，它们所在树的秩仍然都是一样的（除了最后一棵可能不足），相比之前，这些树的秩都增加了<span
+class="math inline">\(1\)</span>。因此，最终经过这<span
+class="math inline">\(n-1\)</span>次操作后，这棵树的高度为<span
+class="math inline">\(\Omega(\lg n)\)</span>。</p>
+<p>在这<span class="math inline">\(m\)</span>次操作中，有<span
+class="math inline">\(n\)</span>次<code>MAKE-SET</code>操作，<span
+class="math inline">\(n-1\)</span>次<code>UNION</code>操作，其余<span
+class="math inline">\(m-(2n-1)\)</span>次都是<code>FIND</code>操作。由于每次<code>UNION</code>操作都会调用<span
+class="math inline">\(2\)</span>次<code>FIND-SET</code>操作，因此这个操作序列中总共进行了<span
+class="math inline">\(m-1\)</span>次<code>FIND-SET</code>操作。如果每次<code>FIND-SET</code>操作都是取秩大的那棵树下最深的点，那么一次<code>FIND-SET</code>操作需要花费的时间为<span
+class="math inline">\(\Omega(\lg
+n)\)</span>，最终全部操作所需要花费的时间为<span
+class="math inline">\(\Omega(m\lg n)\)</span>。</p>
+<h1 id="section-3">19.3-4</h1>
+<p>添加一个参数<span
+class="math inline">\(next\)</span>即可。将这些节点使用一个循环链表组织起来，在进行一次合并操作时，就将这两个循环链表断开并合并即可。打印时，只需要遍历这一整个循环链表即可。</p>
+<p>只需要修改<code>MAKE-SET</code>和<code>UNION</code>操作，不需要修改<code>FIND-SET</code>操作。此后将连通<code>PRINT-SET</code>操作一同给出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">MAKE-SET2(x)</span><br><span class="line">  x.p = x</span><br><span class="line">  x.rank = 0</span><br><span class="line">  x.next = x</span><br><span class="line"></span><br><span class="line">UNION2(x, y)</span><br><span class="line">  LINK(FIND-SET(x), FIND-SET(y))</span><br><span class="line">  p = x.next</span><br><span class="line">  x.next = y.next</span><br><span class="line">  y.next = p</span><br><span class="line"></span><br><span class="line">PRINT-SET(x)</span><br><span class="line">  print x</span><br><span class="line">  p = x.next</span><br><span class="line">  while p != x</span><br><span class="line">    print p</span><br></pre></td></tr></table></figure>
+<h1 id="star-19.3-5"><span class="math inline">\(\star\)</span>
+19.3-5</h1>
+<p>注意到每次<code>LINK</code>操作只需要花费<span
+class="math inline">\(O(1)\)</span>的时间，并且它的<code>LINK</code>操作所输入的参数都是每棵树的根节点。</p>
+<p>由于所有<code>LINK</code>操作都在<code>FIND-SET</code>操作的前面，因此在第一个<code>FIND-SET</code>操作执行前，整个森林的结构已经确定好了。</p>
+<p>考虑使用核算法证明这个长度为<span
+class="math inline">\(m\)</span>的操作序列的时间复杂度为<span
+class="math inline">\(O(m)\)</span>：</p>
+<ul>
+<li><p>每个<code>MAKE-SET</code>操作均摊<span
+class="math inline">\(2\)</span>美元，其中<span
+class="math inline">\(1\)</span>美元用于自身节点的创建，另<span
+class="math inline">\(1\)</span>美元用于信用预支，在<code>FIND-SET</code>操作中使用。</p></li>
+<li><p>每个<code>LINK</code>操作均摊<span
+class="math inline">\(1\)</span>美元，这类操作仅仅用于将一棵树的根指向另外一棵树的根。</p></li>
+<li><p>每个<code>FIND-SET</code>操作均摊<span
+class="math inline">\(1\)</span>美元。分别考虑两种情况：如果节点<span
+class="math inline">\(x\)</span>曾经被<code>FIND-SET</code>调用过，那么直接返回<span
+class="math inline">\(x.p\)</span>即可，<span
+class="math inline">\(1\)</span>美元支撑此开销；否则，预支的<span
+class="math inline">\(1\)</span>美元用于寻找<span
+class="math inline">\(x.p\)</span>的祖先。考虑从<span
+class="math inline">\(x\)</span>到它的根<span
+class="math inline">\(r\)</span>这一条路径<span
+class="math inline">\(v_1,v_2,\dots,v_k\)</span>，其中<span
+class="math inline">\(v_1=x,v_{k}=r\)</span>。那么对于<span
+class="math inline">\(i=1,2,\dots,k-2\)</span>，节点<span
+class="math inline">\(v_i\)</span>必定未被调用过<code>FIND-SET</code>（否则，<span
+class="math inline">\(v_i\)</span>的下一个节点必定是<span
+class="math inline">\(r\)</span>）。因此，这些节点的预支的<span
+class="math inline">\(1\)</span>美元仍未被使用，这总共<span
+class="math inline">\(k-2\)</span>美元的预支都将帮助到<span
+class="math inline">\(v_1,v_2v\dots,v_{k-2}\)</span>指向根节点。接下来，只需要花费<span
+class="math inline">\(1\)</span>美元将<span
+class="math inline">\(x.p\)</span>返回即可。</p></li>
+</ul>
+<p>由于所有操作中，单个操作需要不超过<span
+class="math inline">\(2\)</span>美元即可。因此，这<span
+class="math inline">\(m\)</span>个操作总共需要花费的时间为<span
+class="math inline">\(O(m)\)</span>。</p>
+<p>如果再添加上按秩合并，并不影响它仍然只需要<span
+class="math inline">\(O(m)\)</span>的时间，因为<code>LINK</code>操作的花费仍然是常数。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/exercises-3/" title="算法导论19.3 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/exercises-3/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

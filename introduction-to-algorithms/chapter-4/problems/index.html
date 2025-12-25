@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论4 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/4-3-d.png">
+<meta property="article:published_time" content="2022-11-25T08:19:26.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.190Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/4-3-d.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/","path":"introduction-to-algorithms/chapter-4/problems/","title":"算法导论4 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论4 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">4-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">1.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">1.6.</span> <span class="nav-text">f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g"><span class="nav-number">1.7.</span> <span class="nav-text">g</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h"><span class="nav-number">1.8.</span> <span class="nav-text">h</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">4-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">4-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-1"><span class="nav-number">3.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-1"><span class="nav-number">3.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">4-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-2"><span class="nav-number">4.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-2"><span class="nav-number">4.6.</span> <span class="nav-text">f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g-1"><span class="nav-number">4.7.</span> <span class="nav-text">g</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#h-1"><span class="nav-number">4.8.</span> <span class="nav-text">h</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#i"><span class="nav-number">4.9.</span> <span class="nav-text">i</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#j"><span class="nav-number">4.10.</span> <span class="nav-text">j</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">4-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-3"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-3"><span class="nav-number">5.5.</span> <span class="nav-text">e</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">4-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">6.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">6.2.</span> <span class="nav-text">b</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#section-6"><span class="nav-number">6.2.1.</span> <span class="nav-text">1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#section-7"><span class="nav-number">6.2.2.</span> <span class="nav-text">2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-4"><span class="nav-number">6.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-4"><span class="nav-number">6.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">7.</span> <span class="nav-text">4-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-5"><span class="nav-number">7.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-5"><span class="nav-number">7.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-5"><span class="nav-number">7.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-5"><span class="nav-number">7.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-4"><span class="nav-number">7.5.</span> <span class="nav-text">e</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论4 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论4 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-11-25 16:19:26" itemprop="dateCreated datePublished" datetime="2022-11-25T16:19:26+08:00">2022-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">4-1</h1>
+<h2 id="a">a</h2>
+<p><span class="math inline">\(a=2,b=2,f(n)=n^3,\log _b a=1\)</span></p>
+<p>因此根据第三个条件，可以构造出<span
+class="math inline">\(c=\dfrac{1}{8}\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(n^3)\)</span></p>
+<h2 id="b">b</h2>
+<p><span class="math inline">\(a=1,b=\dfrac{11}{8},f(n)=n,\log _b
+a=0\)</span></p>
+<p>因此根据第三个条件，可以构造出<span
+class="math inline">\(c=\dfrac{8}{11}\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(n)\)</span></p>
+<h2 id="c">c</h2>
+<p><span class="math inline">\(a=16,b=4,f(n)=n^2,\log _b
+a=2\)</span></p>
+<p>因此根据第二个条件，得到<span
+class="math inline">\(k=0\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(n^2\cdot \lg n)\)</span></p>
+<h2 id="d">d</h2>
+<p><span class="math inline">\(a=4,b=2,f(n)=n^2\lg n,\log _b
+a=2\)</span></p>
+<p>因此根据第二个条件，得到<span
+class="math inline">\(k=1\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(n^2\cdot \lg^2 n)\)</span></p>
+<h2 id="e">e</h2>
+<p><span class="math inline">\(a=8,b=3,f(n)=n^2,\log _b a=\log_3
+8&lt;2\)</span></p>
+<p>因此根据第三个条件，可以构造出<span
+class="math inline">\(c=\dfrac{8}{9}\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(n^2)\)</span></p>
+<h2 id="f">f</h2>
+<p><span class="math inline">\(a=7,b=2,f(n)=n^2\lg n,\log _b a=\log_2
+7&gt;2\)</span></p>
+<p>因此根据第一个条件，<span class="math inline">\(T(n)=\Theta(n^{\lg
+7})\)</span></p>
+<h2 id="g">g</h2>
+<p><span class="math inline">\(a=2,b=4,f(n)=\sqrt{n},\log _b a=\log_4
+2=\dfrac{1}{2}\)</span></p>
+<p>因此根据第二个条件，得到<span
+class="math inline">\(k=0\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(\sqrt{n}\cdot \lg n)\)</span></p>
+<h2 id="h">h</h2>
+<p>令 <span class="math inline">\(m=n\bmod 2\)</span>，可以知道，<span
+class="math inline">\(m\in\{0,1\}\)</span>。</p>
+<p>那么有：</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;=\sum_{k=0}^{n/2} (2k+m)^2\\
+&amp;=\sum_{k=0}^{n/2} (4k^2+4km+m^2)\\
+&amp;=\dfrac{m^2n}{2}+\sum_{k=0}^{n/2} (4k^2+4km)\\
+&amp;=\dfrac{m^2n}{2}+4\sum_{k=0}^{n/2} k^2+4m\sum_{k=0}^{n/2} k\\
+&amp;=\dfrac{m^2n}{2}+4\cdot\dfrac{n/2\cdot(n/2+1)(n+1)}{6} +
+4m\cdot\dfrac{n/2\cdot(n/2+1)}{2}\\
+&amp;=\Theta(n^3)
+\end{aligned}\)</span></p>
+<h1 id="section-1">4-2</h1>
+<p><span class="math inline">\(\begin{aligned}
+&amp;T_{a1}(N,n)=T_{a1}(N,n/2)+\Theta(1)\\
+&amp;T_{a2}(N,n)=T_{a2}(N,n/2)+\Theta(N)\\
+&amp;T_{a3}(N,n)=T_{a3}(N,n/2)+\Theta(n)\\
+&amp;T_{b1}(N,n)=2T_{b1}(N,n/2)+\Theta(1)+\Theta(n)\\
+&amp;T_{b2}(N,n)=2T_{b2}(N,n/2)+\Theta(N)\\
+&amp;T_{b3}(N,n)=2T_{b3}(N,n/2)+\Theta(n)\\
+&amp;T_{c1}(N,n)=8T_{c1}(N,n/2)+\Theta(1)\\
+&amp;T_{c2}(N,n)=8T_{c2}(N,n/2)+\Theta(N^2)\\
+&amp;T_{c3}(N,n)=8T_{c3}(N,n/2)+\Theta(n^2)\\
+\end{aligned}\)</span></p>
+<p><span
+class="math inline">\(T_{a1}:a=1,b=2,f(n)=\Theta(1),\log_ba=0\)</span>。因此根据第二个条件，得到<span
+class="math inline">\(k=0\)</span>，最终<span
+class="math inline">\(T_{a1}(N,n)=\Theta(\lg n)\)</span>。</p>
+<p><span class="math inline">\(\begin{aligned}
+T_{a2}(N,n)&amp;=T_{a2}(N,n/2)+\Theta(N)\\
+&amp;=T_{a2}(N,n/4)+\Theta(N)+\Theta(N)\\
+&amp;=T_{a2}(N,n/8)+\Theta(N)+\Theta(N)+\Theta(N)\\
+&amp;\dots\\
+&amp;=\sum_{i=0}^{\lfloor\lg n\rfloor-1} \Theta(N)\\
+&amp;=\Theta(N\cdot \lg n)
+\end{aligned}\)</span></p>
+<p><span
+class="math inline">\(T_{a3}:a=1,b=2,f(n)=\Theta(n),\log_ba=0\)</span>。因此根据第三个条件，可以构造出<span
+class="math inline">\(c=\dfrac{1}{2}\)</span>，最终<span
+class="math inline">\(T_{a3}(N,n)=\Theta(n)\)</span>。</p>
+<p><span
+class="math inline">\(T_{b1}:a=2,b=2,f(n)=\Theta(n),\log_ba=1\)</span>。因此根据第二个条件，得到<span
+class="math inline">\(k=0\)</span>，最终<span
+class="math inline">\(T_{b1}(N,n)=\Theta(n\lg n)\)</span>。</p>
+<p><span class="math inline">\(\begin{aligned}
+T_{b2}(N,n)&amp;=2T_{b2}(N,n/2)+\Theta(N)\\
+&amp;=4T_{a2}(N,n/4)+2\Theta(N)+\Theta(N)\\
+&amp;=8T_{a2}(N,n/8)+4\Theta(N)+2\Theta(N)+\Theta(N)\\
+&amp;\dots\\
+&amp;=\sum_{i=0}^{\lfloor\lg n\rfloor-1} 2^i\cdot\Theta(N)\\
+&amp;=\Theta(Nn)
+\end{aligned}\)</span></p>
+<p><span
+class="math inline">\(T_{b3}:T_{b3}(N,n)=T_{b1}(N,n)=\Theta(n\lg
+n)\)</span>。</p>
+<p><span
+class="math inline">\(T_{c1}:a=8,b=2,f(n)=\Theta(1),\log_ba=3\)</span>。因此根据第一个条件，<span
+class="math inline">\(T_{c1}(N,n)=\Theta(n^3)\)</span>。</p>
+<p><span class="math inline">\(\begin{aligned}
+T_{c2}(N,n)&amp;=8T_{c2}(N,n/2)+\Theta(N^2)\\
+&amp;=64T_{a2}(N,n/4)+8\Theta(N)+\Theta(N)\\
+&amp;=512T_{a2}(N,n/8)+64\Theta(N)+8\Theta(N)+\Theta(N)\\
+&amp;\dots\\
+&amp;=\sum_{i=0}^{\lfloor\lg n\rfloor-1} 8^i\cdot\Theta(N)\\
+&amp;=\Theta(Nn^3)
+\end{aligned}\)</span></p>
+<p><span
+class="math inline">\(T_{c3}:a=8,b=2,f(n)=\Theta(n^2),\log_ba=3\)</span>。因此根据第一个条件，<span
+class="math inline">\(T_{c1}(N,n)=\Theta(n^3)\)</span>。</p>
+<h1 id="section-2">4-3</h1>
+<h2 id="a-1">a</h2>
+<p>代入<span class="math inline">\(n=2^m\)</span>。那么可以写成<span
+class="math inline">\(T(2^m)=2T(2^{m/2})+\Theta(m)\)</span>。</p>
+<p>再代入<span class="math inline">\(S(m)=T(2^m)\)</span>，那么有<span
+class="math inline">\(S(m)=2S(m/2)+\Theta(m)\)</span>。</p>
+<h2 id="b-1">b</h2>
+<p><span
+class="math inline">\(a=2,b=2,f(n)=\Theta(n),\log_ba=1\)</span>。因此根据第二个条件，得到<span
+class="math inline">\(k=0\)</span>，最终<span
+class="math inline">\(S(m)=\Theta(m\lg m)\)</span>。</p>
+<h2 id="c-1">c</h2>
+<p>由于<span class="math inline">\(S(2^m)=\Theta(m\lg
+m)\)</span>，回代<span class="math inline">\(n=2^m\)</span>，即<span
+class="math inline">\(m=\lg n\)</span>，得到<span
+class="math inline">\(T(n)=\Theta(\lg n\cdot \lg \lg n)\)</span>。</p>
+<h2 id="d-1">d</h2>
+<p>可以发现，整个递归树一共只有<span class="math inline">\(\Theta(\lg
+\lg n)\)</span>层。</p>
+<p><img data-src="4-3-d.png" /></p>
+<p>如图所示，最终有<span class="math inline">\(T(n)=\lg\lg n\cdot
+\Theta(\lg n)=\Theta(\lg n\cdot\lg \lg n)\)</span>。</p>
+<h2 id="e-1">e</h2>
+<p>代入<span class="math inline">\(n=2^m\)</span>。那么可以写成<span
+class="math inline">\(T(2^m)=2T(2^{m/2})+\Theta(1)\)</span>。</p>
+<p>再代入<span class="math inline">\(S(m)=T(2^m)\)</span>，那么有<span
+class="math inline">\(S(m)=2S(m/2)+\Theta(1)\)</span>。</p>
+<p><span
+class="math inline">\(a=2,b=2,f(m)=\Theta(1),\log_ba=1\)</span>。因此根据第一个条件，<span
+class="math inline">\(S(m)=\Theta(m)\)</span>。</p>
+<p>回代<span class="math inline">\(n=2^m\)</span>，即<span
+class="math inline">\(m=\lg n\)</span>，得到<span
+class="math inline">\(T(n)=\Theta(\lg n)\)</span>。</p>
+<h2 id="f-1">f</h2>
+<p>代入<span class="math inline">\(n=3^m\)</span>。那么可以写成<span
+class="math inline">\(T(3^m)=3T(3^{m/3})+\Theta(3^m)\)</span>。</p>
+<p>再代入<span class="math inline">\(S(m)=T(3^m)\)</span>，那么有<span
+class="math inline">\(S(m)=3S(m/3)+\Theta(3^m)\)</span>。</p>
+<p><span class="math inline">\(\begin{aligned}
+S(m)&amp;=3S(m/3)+\Theta(3^m)\\
+&amp;=9S(m/9)+3\cdot \Theta(3^{m-1})+\Theta(3^m)\\
+&amp;=27S(m/27)+9\cdot \Theta(3^{m-2})+3\cdot
+\Theta(3^{m-1})+\Theta(3^m)\\
+&amp;\dots\\
+&amp;=\sum_{i=0}^{\lfloor\log_3 m\rfloor-1} \Theta(3^m)\\
+&amp;=\Theta(\lg m\cdot3^m)
+\end{aligned}\)</span></p>
+<p>回代<span class="math inline">\(n=3^m\)</span>，即<span
+class="math inline">\(m=\log_3 n\)</span>，得到<span
+class="math inline">\(T(n)=\Theta(n\cdot \lg \lg n)\)</span>。</p>
+<h1 id="section-3">4-4</h1>
+<h2 id="a-2">a</h2>
+<p>考虑使用主定理，那么有<span class="math inline">\(a=5,b=3,f(n)=n\lg
+n,\log _b a=\log_3 5&gt;1\)</span></p>
+<p>因此根据第一个条件，<span class="math inline">\(T(n)=\Theta(n^{\log_3
+5})\)</span></p>
+<h2 id="b-2">b</h2>
+<p>由于<span class="math inline">\(a=3,b=3,f(n)=n/\lg n=\Theta(n^{\log_b
+a}/\lg n)\)</span>。</p>
+<p>那么使用题目4.6-3的结论，得到<span class="math inline">\(T(n)=n\lg\lg
+n\)</span>。</p>
+<h2 id="c-2">c</h2>
+<p>考虑使用主定理，那么有<span
+class="math inline">\(a=8,b=2,f(n)=n^{7/2},\log _b a=3\)</span></p>
+<p>因此根据第三个条件，可以构造出<span
+class="math inline">\(c=\dfrac{\sqrt{2}}{2}\)</span>，最终<span
+class="math inline">\(T(n)=\Theta(n^{7/2})\)</span>。</p>
+<h2 id="d-2">d</h2>
+<p>根据4-3节的结论，常数附加项不会对递推式的渐进结果产生影响。</p>
+<p>因此令<span
+class="math inline">\(T&#39;(n)=2T&#39;(n/2)+n/2\)</span>，那么<span
+class="math inline">\(T(n)=\Theta(T&#39;(n))\)</span>。</p>
+<p>考虑使用主定理求解<span
+class="math inline">\(T&#39;(n)\)</span>，那么有<span
+class="math inline">\(a=2,b=2,f(n)=n/2,\log _b a=\log_2 2=1\)</span></p>
+<p>因此根据第二个条件，得到<span
+class="math inline">\(k=0\)</span>，最终<span
+class="math inline">\(T&#39;(n)=\Theta(n\lg n)\)</span>。</p>
+<p>也就是说，<span class="math inline">\(T(n)=\Theta(n\lg
+n)\)</span>。</p>
+<h2 id="e-2">e</h2>
+<p>由于<span class="math inline">\(a=2,b=2,f(n)=n/\lg n=\Theta(n^{\log_b
+a}/\lg n)\)</span>。</p>
+<p>那么使用题目4.6-3的结论，得到<span class="math inline">\(T(n)=n\lg\lg
+n\)</span>。</p>
+<h2 id="f-2">f</h2>
+<p>考虑使用Akra-Bazzi方法。</p>
+<p>由于<span class="math inline">\(\displaystyle{\sum_{i=1}^k
+\dfrac{a_i}{b_i}=\dfrac{7}{8}}\)</span>，因此<span
+class="math inline">\(p&lt;1\)</span>。如果精确解方程<span
+class="math inline">\(\displaystyle{\sum_{i=1}^k
+\dfrac{a_i}{b_i^p}=1}\)</span>，那么可以得到<span
+class="math inline">\(p\approx 0.879146\)</span>。并且由于<span
+class="math inline">\(f(n)=n\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;=\Theta\left(n^p\left(1+\int_{1}^n
+\dfrac{f(x)}{x^{p+1}}dx\right)\right) \\
+&amp;=\Theta\left(n^p\left(1+\int_{1}^n x^{-p}dx\right)\right)\\
+&amp;=\Theta\left(n^p\left(1+\left(\left.\dfrac{x^{1-p}}{1-p}\right|_{1}^n\right)\right)\right)\\
+&amp;=\Theta\left(n^p\left(1+\left(\dfrac{n^{1-p}-1}{1-p}\right)\right)\right)\\
+&amp;=\Theta\left(n^p+\dfrac{n-n^p}{1-p}\right)\\
+&amp;=\Theta(n)
+\end{aligned}\)</span></p>
+<h2 id="g-1">g</h2>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;=T(n-1)+\dfrac{1}{n}\\
+&amp;=T(n-2)+\dfrac{1}{n-1}+\dfrac{1}{n}\\
+&amp;=\sum_{i=1}^n\dfrac{1}{i}\\
+&amp;=\ln n+O(1)\\
+&amp;=\Theta(\lg n)
+\end{aligned}\)</span></p>
+<h2 id="h-1">h</h2>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;=T(n-1)+\lg n\\
+&amp;=T(n-2)+\lg (n-1)+\lg n\\
+&amp;=\sum_{i=1}^n\lg i\\
+&amp;=\lg n!\\
+&amp;=\Theta(n\lg n)
+\end{aligned}\)</span></p>
+<h2 id="i">i</h2>
+<p>本题目答案参考了此<a
+target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/167418/time-complexity-of-tn-tn-2-frac1-logn">页面</a>的内容，并且更加严谨了一些。</p>
+<p>可以发现，<span
+class="math inline">\(T(n)\)</span>可以写成如下分段等式：</p>
+<p><span class="math display">\[
+T(n)=
+\left \{\begin{aligned}
+&amp;T(0)+\sum_{k=1}^{n/2}\dfrac{1}{\lg(2k)} &amp; &amp;\text{if }n
+\equiv 0 \pmod 2\\
+&amp;T(1)+\sum_{k=1}^{(n-1)/2}\dfrac{1}{\lg(2k+1)}&amp; &amp;\text{if }n
+\equiv 1 \pmod 2
+\end{aligned}\right.
+\]</span></p>
+<p>接下来证明<span class="math inline">\(T(n)=\Omega\left(\dfrac{n}{\lg
+n}\right).\)</span></p>
+<p>当<span class="math inline">\(n\)</span>为偶数时，有<span
+class="math inline">\(\displaystyle{T(n)=T(0)+\sum_{k=1}^{n/2}\dfrac{1}{\lg(2k)}\ge
+T(0)+\sum_{k=1}^{n/2}\dfrac{1}{\lg n}=T(0)+\dfrac{n}{2\lg n}\ge
+\dfrac{n}{2\lg n}}.\)</span>不难发现在这种情况下有<span
+class="math inline">\(T(n)=\Omega\left(\dfrac{n}{\lg
+n}\right).\)</span></p>
+<p>当<span class="math inline">\(n\)</span>为奇数时，有<span
+class="math inline">\(\displaystyle{T(n)=T(1)+\sum_{k=1}^{(n-1)/2}\dfrac{1}{\lg(2k+1)}\ge
+T(1)+\sum_{k=1}^{(n-1)/2}\dfrac{1}{\lg n}=T(1)+\dfrac{n-1}{2\lg n}\ge
+\dfrac{n}{2\lg n}}.\)</span>不难发现在这种情况下有<span
+class="math inline">\(T(n)=\Omega\left(\dfrac{n}{\lg
+n}\right).\)</span></p>
+<p>因此综上所述，<span
+class="math inline">\(T(n)=\Omega\left(\dfrac{n}{\lg
+n}\right).\)</span></p>
+<p>接下来证明<span class="math inline">\(T(n)=O\left(\dfrac{n}{\lg
+n}\right).\)</span>以下变换基于<span class="math inline">\(n\ge
+e^2\)</span>的假设进行。</p>
+<p>当<span class="math inline">\(n\)</span>为偶数时，有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;=\sum_{k=1}^{n/2}\dfrac{1}{\lg(2k)}\\
+&amp;=\dfrac{1}{\lg 2}+\sum_{k=2}^{n/2}\dfrac{1}{\lg(2k)}\\
+&amp;\le 1+\int_1^{n/2}\dfrac{dx}{\lg(2x)}\\
+&amp;= 1+\dfrac{1}{2}\int_2^{n}\dfrac{dx}{\lg x}\\
+&amp;={\color{red}1+\dfrac{1}{2}\int_2^{e^2}\dfrac{dx}{\lg
+x}}+\dfrac{1}{2}\int_{e^2}^n\dfrac{dx}{\lg x}
+\end{aligned}\)</span></p>
+<p>当<span class="math inline">\(n\)</span>为奇数时，有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;=\sum_{k=1}^{(n-1)/2}\dfrac{1}{\lg(2k+1)}\\
+&amp;=\dfrac{1}{\lg 3}+\sum_{k=2}^{(n-1)/2}\dfrac{1}{\lg(2k+1)}\\
+&amp;\le \dfrac{1}{\lg 3}+\int_1^{(n-1)/2}\dfrac{dx}{\lg(2x+1)}\\
+&amp;= \dfrac{1}{\lg 3}+\dfrac{1}{2}\int_3^{n}\dfrac{dx}{\lg x}\\
+&amp;={\color{red}\dfrac{1}{\lg
+3}+\dfrac{1}{2}\int_3^{e^2}\dfrac{dx}{\lg
+x}}+\dfrac{1}{2}\int_{e^2}^n\dfrac{dx}{\lg x}
+\end{aligned}\)</span></p>
+<p>因此，令<span
+class="math inline">\(\displaystyle{c_0=\max\left\{1+\dfrac{1}{2}\int_2^{e^2}\dfrac{dx}{\lg
+x},\dfrac{1}{\lg 3}+\dfrac{1}{2}\int_3^{e^2}\dfrac{dx}{\lg
+x}\right\}}\)</span>。那么可以写成</p>
+<p><span class="math display">\[T(n)\le
+c+\dfrac{1}{2}\int_{e^2}^n\dfrac{dx}{\lg x}=c+\dfrac{\ln
+2}{2}\int_{e^2}^n\dfrac{dx}{\ln x}\]</span></p>
+<p>当<span class="math inline">\(n\ge
+e^2\)</span>时，不难得到不等式<span class="math inline">\(\ln n\le 2(\ln
+n -1)\)</span>。故此有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;\le c+\dfrac{\ln 2}{2}\int_{e^2}^n\dfrac{dx}{\ln x}\\
+&amp;\le c+\ln 2\cdot\int_{e^2}^n\dfrac{(\ln x-1)dx}{\ln^2 x}\\
+&amp;= c+\ln 2\cdot\left(\left.\dfrac{x}{\ln x}\right|_{e^2}^n\right)\\
+&amp;= c+\dfrac{n\cdot\ln 2}{\ln n}-\dfrac{e^2\cdot \ln 2 }{2}
+\end{aligned}\)</span></p>
+<p>因此综上所述，<span class="math inline">\(T(n)=O\left(\dfrac{n}{\lg
+n}\right).\)</span></p>
+<p>最终有<span class="math inline">\(T(n)=\Theta\left(\dfrac{n}{\lg
+n}\right).\)</span></p>
+<h2 id="j">j</h2>
+<p>令<span class="math inline">\(U(n)=\dfrac{T(n)}{n}\)</span>。将<span
+class="math inline">\(U(n)\)</span>代入到原式，那么得到</p>
+<p><span class="math display">\[U(n)=U(\sqrt{n})+1\]</span></p>
+<p>令<span class="math inline">\(V(m)=U(2^m)\)</span>。将<span
+class="math inline">\(V(m)\)</span>带入到上式，那么得到</p>
+<p><span class="math display">\[V(m)=V(m/2)+1\]</span></p>
+<p>根据主定理的第二个条件，可以得到<span
+class="math inline">\(V(m)=\Theta(\lg m)\)</span>。</p>
+<p>回代到<span class="math inline">\(U\)</span>中，得到<span
+class="math inline">\(U(n)=\Theta(\lg \lg n)\)</span>。</p>
+<p>因此有<span class="math inline">\(T(n)=\Theta(n\lg \lg
+n)\)</span>。</p>
+<h1 id="section-4">4-5</h1>
+<h2 id="a-3">a</h2>
+<p>将一次项和常数项目全部分离出来，那么等式右边三项可以写成：</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;z=z\\
+&amp;z\mathcal{F}(z)=\sum_{i=0}^{\infty} F_iz^{i+1}=\sum_{i=1}^{\infty}
+F_{i-1} z^i=F_0 z+\sum_{i=2}^{\infty} F_{i-1}z^i\\
+&amp;z^2\mathcal{F}(z)=\sum_{i=0}^{\infty}
+F_iz^{i+2}=\sum_{i=2}^{\infty} F_{i-2} z^i\\
+\end{aligned}\)</span></p>
+<p>三项相加，得到<span
+class="math inline">\(\displaystyle{z+\sum_{i=2}^{\infty}
+(F_{i-1}+F_{i-2})z^i=z+\sum_{i=2}^{\infty}F_iz^i}\)</span>。</p>
+<p>代入<span
+class="math inline">\(F_0=0,F_1=1\)</span>，最终这个式子可以写成<span
+class="math inline">\(\displaystyle{\sum_{i=0}^{\infty}F_iz^i}\)</span>，也就是<span
+class="math inline">\(\mathcal{F}(z)\)</span>。</p>
+<h2 id="b-3">b</h2>
+<p>将a的结论整理得到<span
+class="math inline">\(\mathcal{F}(z)-z\mathcal{F}(z)-z^2\mathcal{F}(z)=z\)</span>，提取<span
+class="math inline">\(\mathcal{F}(z)\)</span>公因式，得到<span
+class="math inline">\(\mathcal{F}(z)(1-z-z^2)=z\)</span>，最终得到：</p>
+<p><span
+class="math inline">\(\mathcal{F}(z)=\dfrac{z}{1-z-z^2}\)</span></p>
+<p>由于<span
+class="math inline">\(\phi=\dfrac{1+\sqrt{5}}{2},\hat{\phi}=\dfrac{1-\sqrt{5}}{2}\)</span>，那么得到<span
+class="math inline">\(\phi\cdot
+\hat{\phi}=-1,\phi+\hat{\phi}=1,\phi-\hat{\phi}=\sqrt{5}\)</span>。</p>
+<p>由于<span class="math inline">\((1-\phi z)(1-\hat{\phi z})=\phi\cdot
+\hat{\phi} \cdot z^2-(\phi + \hat{\phi}) z+1=1-z-z^2\)</span>，因此<span
+class="math inline">\(\mathcal{F}(z)\)</span>还可以写成：<span
+class="math inline">\(\mathcal{F}(z)=\dfrac{z}{(1-\phi
+z)(1-\hat{\phi}z)}\)</span></p>
+<p>由于有如下变换：</p>
+<p><span class="math inline">\(\begin{aligned}
+\dfrac{1}{\sqrt{5}}\left(\dfrac{1}{1-\phi
+z}-\dfrac{1}{1-\hat{\phi}z}\right)&amp;=\dfrac{1}{\sqrt{5}}\left(\dfrac{(1-\hat{\phi}
+z)-(1-\phi z)}{(1-\phi z)(1-\hat{\phi}z)}\right)\\
+&amp;=\dfrac{1}{\sqrt{5}}\left(\dfrac{\phi-\hat{\phi}}{(1-\phi
+z)(1-\hat{\phi}z)}\right)\\
+&amp;=\dfrac{1}{(1-\phi z)(1-\hat{\phi}z)}
+\end{aligned}\)</span></p>
+<p>因此<span
+class="math inline">\(\mathcal{F}(z)\)</span>还可以写成：<span
+class="math inline">\(\mathcal{F}(z)=\dfrac{1}{\sqrt{5}}\left(\dfrac{1}{1-\phi
+z}-\dfrac{1}{1-\hat{\phi}z}\right)\)</span>.</p>
+<h2 id="c-3">c</h2>
+<p><span class="math inline">\(\begin{aligned}
+\mathcal{F}(z)&amp;=\dfrac{1}{\sqrt{5}}\left(\dfrac{1}{1-\phi
+z}-\dfrac{1}{1-\hat{\phi}z}\right)\\
+&amp;=\dfrac{1}{\sqrt{5}}\left(\sum_{i=0}^{\infty}
+\phi^iz^i-\sum_{i=0}^{\infty} \hat{\phi}^iz^i\right)\\
+&amp;=\dfrac{1}{\sqrt{5}}\sum_{i=0}^{\infty} (\phi^i- \hat{\phi}^i)z^i\\
+\end{aligned}\)</span></p>
+<h2 id="d-3">d</h2>
+<p>由题目c得到的等式，代入题目求和项中的<span
+class="math inline">\(F_i\)</span>，有<span
+class="math inline">\(F_i=\dfrac{\phi^i-
+\hat{\phi}^i}{\sqrt{5}}=\dfrac{\phi^i}{\sqrt{5}}-\dfrac{\hat{\phi}^i}{\sqrt{5}}\)</span>。</p>
+<p>可以发现，对于<span class="math inline">\(\forall i\ge
+0,\left|\dfrac{\hat{\phi}^i}{\sqrt{5}}\right|&lt;0.5\)</span>均成立。因此，<span
+class="math inline">\(F_i&#39;=\dfrac{\hat{\phi}^i}{\sqrt{5}}\)</span>最接近的整数即为<span
+class="math inline">\(F_i\)</span>。</p>
+<h2 id="e-3">e</h2>
+<p>考虑式子<span
+class="math inline">\(F_{i+2}-\phi^i\)</span>的值。那么有</p>
+<p><span class="math inline">\(F_{i+2}-\phi
+^i=\dfrac{1}{\sqrt{5}}\left(\phi^{i+2}-\hat{\phi}^{i+2}\right)-\phi^i=\dfrac{3\sqrt{5}-5}{10}
+\phi^i-\dfrac{3\sqrt{5}-5}{10}\hat{\phi}^{i}=\dfrac{3\sqrt{5}-5}{10}(\phi^i-\hat{\phi}^i)\)</span></p>
+<p>由于<span
+class="math inline">\(\phi&gt;\hat{\phi}\)</span>，因此<span
+class="math inline">\(F_{i+2}-\phi^i\ge 0\)</span>，即有<span
+class="math inline">\(F_{i+2}\ge \phi^i\)</span>。</p>
+<h1 id="section-5">4-6</h1>
+<h2 id="a-4">a</h2>
+<p>假设好的芯片一共有<span
+class="math inline">\(k\)</span>个，其中满足<span
+class="math inline">\(k\le n-k\)</span>。</p>
+<p>那么从这<span class="math inline">\(n-k\)</span>个坏芯片中选择出<span
+class="math inline">\(k\)</span>个坏芯片。这<span
+class="math inline">\(k\)</span>个坏芯片的策略是：如果另一个芯片是好芯片，那么显示为坏结果如果另一个芯片是坏芯片，那么显示为好结果。</p>
+<p>按照这种策略，只要从这<span
+class="math inline">\(2k\)</span>个芯片中取出任意<span
+class="math inline">\(2\)</span>个芯片检测，那么教授旧无法区分哪<span
+class="math inline">\(k\)</span>个芯片是好的，哪<span
+class="math inline">\(k\)</span>个芯片是坏的，因为两个芯片互相检测结果总是一致的，</p>
+<h2 id="b-4">b</h2>
+<p>现在题目的假设是：好芯片<strong>严格</strong>多于坏芯片。</p>
+<p>整个策略如下：首先，如果当前芯片个数<span
+class="math inline">\(n\)</span>是奇数，那么均匀随机选择一个芯片留下，对剩下的<span
+class="math inline">\(n-1\)</span>个芯片进行递归操作，等操作完成再回头考虑这个被留下的芯片；否则什么都不用做。在一轮中，每次随机取出<span
+class="math inline">\(2\)</span>个芯片进行测试。如果<span
+class="math inline">\(2\)</span>个芯片的测试结果是“<span
+class="math inline">\(2\)</span>个都是好芯片”，那么丢弃其中<span
+class="math inline">\(1\)</span>个芯片，另<span
+class="math inline">\(1\)</span>个芯片留到下一轮测试；否则<span
+class="math inline">\(2\)</span>个芯片都丢弃。这个过程由算法<code>GET-GOOD</code>描述。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 子程序`TEST(c1, c2)`表示对芯片c1, c2进行测试的结果。用True表示全好的报告，用False表示存在1个芯片是坏的报告。</span><br><span class="line">GET-GOOD(chips)</span><br><span class="line">  if chips.size == 0</span><br><span class="line">    return NIL</span><br><span class="line">  else if chips.size == 1</span><br><span class="line">    return chip[0]</span><br><span class="line">  else if chips.size % 2 == 0</span><br><span class="line">    let C be new array</span><br><span class="line">    for i = 0 to chips.size - 1 by 2</span><br><span class="line">      if TEST(chips[i], chips[i + 1]) == True</span><br><span class="line">        INSERT(C, chips[i])</span><br><span class="line">    return GET-GOOD(C)</span><br><span class="line">  else</span><br><span class="line">    // chips[0]是保留的那个芯片。</span><br><span class="line">    let C be new array</span><br><span class="line">    for i = 1 to chips.size - 1 by 2</span><br><span class="line">      if TEST(chips[i], chips[i + 1]) == True</span><br><span class="line">        INSERT(C, chips[i])</span><br><span class="line">    now = GET-GOOD(C)</span><br><span class="line">    if now == NIL</span><br><span class="line">      return chips[0]</span><br><span class="line">    else</span><br><span class="line">      return now</span><br></pre></td></tr></table></figure>
+<p>因此在一轮测试中，需要进行<span
+class="math inline">\(\left\lfloor\dfrac{n}{2}\right\rfloor\)</span>次测试。在一轮测试完成后，最多剩下<span
+class="math inline">\(\left\lceil\dfrac{n}{2}\right\rceil\)</span>个芯片。</p>
+<p>接下来说明：经过一轮的测试后，剩下的芯片仍然满足：好芯片仍然<strong>严格</strong>多于坏芯片。</p>
+<p>可以知道，如果算法<code>GET-GOOD</code>传入的芯片中，好坏的个数相同，那么最终这个算法的递归终点将是第2行的<code>NIL</code>。因为在第7行的<code>for</code>循环完成后，得到的<code>C</code>数组中，好芯片和坏芯片的个数仍然相同。最终随着递归的进行，每一对好坏芯片都将被抵消，最终找不到任何一个好芯片。</p>
+<p>如果算法<code>GET-GOOD</code>传入的芯片中，好芯片要比坏芯片多，那么在这一轮测试中，假设芯片的个数为<span
+class="math inline">\(n\)</span>，那么考虑如下<span
+class="math inline">\(2\)</span>个情况：</p>
+<p>如果<span class="math inline">\(n\)</span>是偶数，在这<span
+class="math inline">\(\dfrac{n}{2}\)</span>次测试中，有<span
+class="math inline">\(a\)</span>次是拿出了<span
+class="math inline">\(2\)</span>个好芯片进行测试，有<span
+class="math inline">\(b\)</span>次是拿出了<span
+class="math inline">\(1\)</span>个好芯片，<span
+class="math inline">\(1\)</span>个坏芯片进行测试，有<span
+class="math inline">\(c\)</span>次是拿出了<span
+class="math inline">\(2\)</span>个坏芯片进行测试，需要注意的是，在测试的过程中，<span
+class="math inline">\(a,b,c\)</span>的值是无法被统计。那么可以知道好芯片的个数为<span
+class="math inline">\(2a+b\)</span>，坏芯片的个数为<span
+class="math inline">\(2c+b\)</span>。按照假设，有<span
+class="math inline">\(2a+b&gt;2c+b\)</span>，即得出<span
+class="math inline">\(a&gt;c\)</span>。在<span
+class="math inline">\(b\)</span>次不同好坏芯片的测试中，所有芯片都丢弃；<span
+class="math inline">\(a\)</span>次全好芯片测试中，将会<strong>恰好</strong>保留<span
+class="math inline">\(a\)</span>个好芯片；在<span
+class="math inline">\(c\)</span>次全坏芯片测试中，将会<strong>至多</strong>保留<span
+class="math inline">\(c\)</span>个坏芯片（因为两个坏芯片同样会有可能报告对方是坏的）。由于<span
+class="math inline">\(a&gt;c\)</span>，因此这一轮测试完成后，保留的好芯片必然<strong>严格</strong>多于坏芯片。最终递归终止时，所有坏芯片将会被丢弃，通过第4行的代码找到一个好芯片。</p>
+<p>如果<span class="math inline">\(n\)</span>是奇数，那么有如下<span
+class="math inline">\(2\)</span>种情况进行讨论，注意需要随机留出一个芯片，假设为<code>chips[0]</code>。</p>
+<h3 id="section-6">1</h3>
+<p>如果算法<code>GET-GOOD</code>传入的芯片中，好芯片要比坏芯片多出<span
+class="math inline">\(3\)</span>个或以上，那么无论留下来的是好芯片还是坏芯片，按照偶数时的情况，第16行代码中，变量<code>now</code>必定是一个好芯片，直接返回。</p>
+<h3 id="section-7">2</h3>
+<p>如果算法<code>GET-GOOD</code>传入的芯片中，好芯片要比坏芯片多出恰好<span
+class="math inline">\(1\)</span>个，那么有如下<span
+class="math inline">\(2\)</span>情况讨论。</p>
+<p>如果留下来的是好芯片，那么剩下的<span
+class="math inline">\(n-1\)</span>个芯片中，好坏的个数相同。上面13行的<code>for</code>循环完成后，数组<code>C</code>的好坏芯片个数相同。按照上面的结论，第16行代码对数组<code>C</code>进行递归调用后，得到的必定是<code>NIL</code>。那么返回留下的好芯片<code>chips[0]</code>即可。</p>
+<p>如果留下来的是坏芯片，那么剩下的<span
+class="math inline">\(n-1\)</span>个芯片中，好芯片多于坏芯片。按照偶数时的结论，第16行代码中，变量<code>now</code>必定是一个好芯片，直接返回。</p>
+<p>故在好芯片<strong>严格</strong>多于坏芯片的情况下，算法<code>GET-GOOD</code>总能找到一个好芯片。</p>
+<h2 id="c-4">c</h2>
+<p>根据题目4-6-b的结论，假设<span
+class="math inline">\(n\)</span>个芯片的比较次数为<span
+class="math inline">\(T(n)\)</span>，那么可以给出下列不等式：</p>
+<p><span class="math inline">\(T(n)\le
+T\left(\left\lfloor\dfrac{n}{2}\right\rfloor\right)+\left\lfloor\dfrac{n}{2}\right\rfloor\)</span></p>
+<p>根据主定理的第二个条件，不难得到<span
+class="math inline">\(T(n)=O(n)\)</span>。</p>
+<h2 id="d-4">d</h2>
+<p>由于找出一个好的芯片需要<span
+class="math inline">\(O(n)\)</span>次比较，那么使用这个好的芯片对其它芯片进行测试就能够找到所有好芯片，总共需要<span
+class="math inline">\(n-1\)</span>次比较。</p>
+<p>因此，最终找到所有好芯片的次数为<span
+class="math inline">\(O(n)+n-1=\Theta(n)\)</span>次。</p>
+<h1 id="section-8">4-7</h1>
+<h2 id="a-5">a</h2>
+<p>充分性：</p>
+<p>令<span class="math inline">\(k=i+1,k=j+1\)</span>，那么得到等式<span
+class="math inline">\(A[i,j]+A[i+1,j+1]\le
+A[i,j+1]+A[i+1,j]\)</span>。充分性成立。</p>
+<p>必要性：</p>
+<p>由<span class="math inline">\(A[i,j]+A[i+1,j+1]\le
+A[i,j+1]+A[i+1,j]\)</span>通过移项，得到：</p>
+<p><span class="math inline">\(A[i,j]-A[i,j+1]\le
+A[i+1,j]-A[i+1,j+1]\)</span>。</p>
+<p>令函数<span
+class="math inline">\(f_j(x)=A[x,j]-A[x,j+1]\)</span>，那么对于<span
+class="math inline">\(1\le x&lt;m\)</span>，由上面的等式，发现<span
+class="math inline">\(f_j(i)\)</span>是一个递增函数。因此，<span
+class="math inline">\(\forall 1\le i&lt; k\le m\)</span>，都有<span
+class="math inline">\(f_j(i)\le f_j(k)\)</span>成立。即有<span
+class="math inline">\(A[i,j]+A[k,j+1]\le
+A[i,j+1]+A[k,j]\)</span>都成立。</p>
+<p>同理，可以得出<span class="math inline">\(\forall 1\le j&lt; l\le
+n\)</span>，都有<span class="math inline">\(A[i,j]+A[i+1,l]\le
+A[i,l]+A[i+1,j]\)</span>。</p>
+<p>最终根据传递性，总有<span class="math inline">\(A[i,j]+A[k,l]\le
+A[i,l]+A[l,j]\)</span>成立，因此必要性成立。</p>
+<h2 id="b-5">b</h2>
+<p><span class="math inline">\(\begin{aligned}
+&amp;&amp;37 &amp;&amp;23 &amp;&amp;\mathbf{29} &amp;&amp;32 \\
+&amp;&amp;21 &amp;&amp;6 &amp;&amp;7 &amp;&amp;10 \\
+&amp;&amp;53 &amp;&amp;34 &amp;&amp;30 &amp;&amp;31 \\
+&amp;&amp;32 &amp;&amp;13 &amp;&amp;9 &amp;&amp;6 \\
+&amp;&amp;43 &amp;&amp;21 &amp;&amp;15 &amp;&amp;6 \\
+\end{aligned}\)</span></p>
+<h2 id="c-5">c</h2>
+<p>本题使用反正法进行证明。</p>
+<p>假设存在<span class="math inline">\(a,b\)</span>满足<span
+class="math inline">\(1\le a&lt; b\le m\)</span>，有<span
+class="math inline">\(f(a)&gt;f(b)\)</span>。</p>
+<p>根据<span class="math inline">\(f\)</span>函数的定义：<span
+class="math inline">\(f(i)\)</span>是第<span
+class="math inline">\(i\)</span>行中<strong>最左</strong>的最小元素的列下标，可以得到：<span
+class="math inline">\(A[a,f(b)]&gt;A[a,f(a)]\)</span>，注意此式子不能取等号；还可以得到<span
+class="math inline">\(A[b,f(b)]\le A[b,f(a)]\)</span>.</p>
+<p>根据这两条不等式可以得到<span
+class="math inline">\(A[b,f(a)]+A[a,f(b)]&gt;A[a,f(a)]+A[b,f(b)]\)</span>，与Monge矩阵的定义矛盾。</p>
+<p>因此<span class="math inline">\(\forall 1\le a&lt; b\le
+m\)</span>，都有<span class="math inline">\(f(a)\le f(b)\)</span>。</p>
+<h2 id="d-5">d</h2>
+<p>由于目前已经知道<span
+class="math inline">\(f(2),f(4),f(6),\dots,f(2k)\)</span>的值，并且由于已知<span
+class="math inline">\(f(0)\le f(1)\le f(2)\le f(3)\le \dots \le
+f(m)\)</span>。为了计算<span
+class="math inline">\(f(1),f(3),f(5),\dots,f(2k+1)\)</span>的值，假设<span
+class="math inline">\(f(0)=1\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+S(n,m)&amp;=\sum_{i=1}^{m/2} (f(2i)-f(2i-2)+1)\\
+&amp;=f(m)-f(0)+m/2\\
+&amp;=O(n+m)
+\end{aligned}\)</span></p>
+<h2 id="e-4">e</h2>
+<p>为了解决整个求解问题，可以写出<span
+class="math inline">\(S(m)=S(m/2)+T(n,m)\)</span>。</p>
+<p>由于<span
+class="math inline">\(T(n,m)=O(n+m)\)</span>，那么可以假设<span
+class="math inline">\(T(n,m)\le an+bm\)</span></p>
+<p><span class="math inline">\(\begin{aligned}
+S(m)&amp;\le S(m/2)+an+bm\\
+&amp;\le S(m/4)+an+bm+an+bm/2\\
+&amp;\le S(m/8)+an+bm+an+bm/2+an+bm/4\\
+&amp;\le \dots\\
+&amp;=\sum_{i=0}^{\lfloor\lg m\rfloor} an+\dfrac{bm}{2^i}\\
+&amp;= bm+an\lg m
+\end{aligned}\)</span></p>
+<p>因此<span class="math inline">\(S(m)=O(m+n\lg m)\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/" title="算法导论4 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-4/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

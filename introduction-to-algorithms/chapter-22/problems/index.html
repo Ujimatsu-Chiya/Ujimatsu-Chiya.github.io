@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论22 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-06T07:05:15.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.154Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/problems/","path":"introduction-to-algorithms/chapter-22/problems/","title":"算法导论22 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论22 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">22-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">22-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">22-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">22-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">4.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">4.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">22-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-1"><span class="nav-number">5.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-1"><span class="nav-number">5.6.</span> <span class="nav-text">f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g"><span class="nav-number">5.7.</span> <span class="nav-text">g</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">22-6</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论22 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论22 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-06 15:05:15" itemprop="dateCreated datePublished" datetime="2023-05-06T15:05:15+08:00">2023-05-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">22-1</h1>
+<h2 id="a">a</h2>
+<p>在<span
+class="math inline">\(E_f\)</span>中，所有的边都是从标号小的边指向标号大的边，因此构造出无法一个序列<span
+class="math inline">\(a_1,a_2,\dots a_k\)</span>，使得<span
+class="math inline">\(a_1&lt;a_2,a_2&lt;a_3,\dots,a_{k-1}&lt;a_k,a_k&lt;a_1\)</span>成立，从而使得<span
+class="math inline">\(\forall i&lt;k (v_{a_i},v_{a_{i+1}})\in E_f\land
+(v_{a_k},v_{a_1})\in E_f\)</span>。因此<span
+class="math inline">\(E_f\)</span>是无环的。由于<span
+class="math inline">\(\forall (v_i,v_j)\in
+E_f,i&lt;j\)</span>均成立，因此<span class="math inline">\(\langle
+v_1,v_2,\dots,v_{|V|}\rangle\)</span>是<span
+class="math inline">\(G_f\)</span>的一个拓扑序列。</p>
+<p>类似的，<span
+class="math inline">\(E_b\)</span>中的所有边都是从标号大的指向标号小的，因此<span
+class="math inline">\(E_b\)</span>是无环的。由于<span
+class="math inline">\(\forall (v_i,v_j)\in
+E_b,i&gt;j\)</span>均成立，因此<span class="math inline">\(\langle
+v_{|V|},v_{|V|-1},\dots,v_{1}\rangle\)</span>是<span
+class="math inline">\(G_f\)</span>的一个拓扑序列。</p>
+<h2 id="b">b</h2>
+<p>不失一般性，目前需要计算从<span
+class="math inline">\(v_s\)</span>到<span
+class="math inline">\(v_t\)</span>的最短路，假设这条最短路为<span
+class="math inline">\(v_{b_1},v_{b_2},v_{b_3}\dots,v_{b_k},b_1=s,b_k=t\)</span>。按照路径松弛性质，只有将边穿插着按照顺序<span
+class="math inline">\((v_{b_1},v_{b_2}),(v_{b_2},v_{b_3}),\dots,(v_{b_{k-1}},v_{b_k})\)</span>进行松弛，才能得到<span
+class="math inline">\(v_t.d=\delta(v_s,v_t)\)</span>。</p>
+<p>考虑序列<span
+class="math inline">\(b_1,b_2,b_3,\dots,b_k\)</span>的<strong>起伏顺序</strong>。可以知道序列<span
+class="math inline">\(b\)</span>的元素两两不同（因为最短路径是一条最短路径）。对于某个<span
+class="math inline">\(b_j\)</span>，如果<span
+class="math inline">\(b_{j}&lt;b_{j+1}&lt;\dots&lt;b_{j+k}\)</span>，那么中间这<span
+class="math inline">\(k\)</span>条边可以在这一半轮迭代中完成松弛。接下来，如果<span
+class="math inline">\(b_{j+k}&gt;b_{j+k+1}&gt;\dots&gt;b_{j+k+m}\)</span>，那么这<span
+class="math inline">\(m\)</span>条边在另一半轮中可以完成松弛。</p>
+<p>也就是说，在一轮迭代中，至少可以对<span
+class="math inline">\(2\)</span>条边进行松弛（如果<span
+class="math inline">\(b_1&gt;b_2&lt;
+b_3\)</span>，那么第一轮迭代只能松弛<span
+class="math inline">\((v_{b_1},v_{b_2})\)</span>这条边）。因此，至少需要<span
+class="math inline">\(\lceil|V|/2\rceil\)</span>轮迭代才能保证边<span
+class="math inline">\((v_{b_1},v_{b_2}),(v_{b_2},v_{b_3}),\dots,(v_{b_{k-1}},v_{b_k})\)</span>按顺序被松弛完（为达到恰好<span
+class="math inline">\(\lceil
+N/2\rceil\)</span>轮按顺序完成路径所有边的松弛，假设<span
+class="math inline">\(|V|\)</span>是奇数，<span
+class="math inline">\(b_1&gt;b_2&lt;b_3,k=|V|\)</span>）。</p>
+<h2 id="c">c</h2>
+<p>上述算法只需要进行<span
+class="math inline">\(\lceil|V|/2\rceil\)</span>遍的松弛操作，每一遍都需要遍历<span
+class="math inline">\(G\)</span>中的所有边<span
+class="math inline">\(E\)</span>，整个算法的渐进时间复杂度仍然为<span
+class="math inline">\(O(V^2+VE)\)</span>，因此它没有对Bellman-Ford算法的渐进运行时间改善，只是将常数减少到了原来的<span
+class="math inline">\(\dfrac{1}{2}\)</span>。</p>
+<h1 id="section-1">22-2</h1>
+<h2 id="a-1">a</h2>
+<p>令<span class="math inline">\(x,y,z\)</span>是<span
+class="math inline">\(3\)</span>个不同的盒子。</p>
+<p>根据定义，如果<span class="math inline">\(x\)</span>能够放在<span
+class="math inline">\(y\)</span>中，并且<span
+class="math inline">\(y\)</span>能够放在<span
+class="math inline">\(z\)</span>中，那么存在置换<span
+class="math inline">\(\pi,\tau\)</span>使得<span
+class="math inline">\(x_{\pi(1)}&lt; y_1,x_{\pi(2)}&lt;
+y_2,\dots,x_{\pi(d)}&lt; y_d\)</span>和<span
+class="math inline">\(y_{\tau(1)}&lt; z_1,y_{\tau(2)}&lt;
+z_2,\dots,y_{\tau(d)}&lt; z_d\)</span>。那么可以知道<span
+class="math inline">\(x_{\pi(\tau(1))}&lt; z_1,x_{\pi(\tau(2))}&lt;
+z_2,\dots,x_{\pi(\tau(d))}&lt; z_d\)</span>。排列<span
+class="math inline">\(\pi(\tau(\cdot))\)</span>说明<span
+class="math inline">\(x\)</span>能够放在<span
+class="math inline">\(z\)</span>中，因此传递关系成立。</p>
+<h2 id="b-1">b</h2>
+<p>只需要将数组<span class="math inline">\(x\)</span>和<span
+class="math inline">\(y\)</span>进行排序，然后对应下标直接进行比较即可。这种比较方式是正确的，对于<span
+class="math inline">\(y\)</span>中最小的元素，应该将<span
+class="math inline">\(x\)</span>中最小的元素分配给它进行比较，否则不是最优。程序由<code>IS-INSIDE</code>给出，其时间复杂度为<span
+class="math inline">\(O(d\lg d)\)</span>、</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">IS-INSIDE(x, y, d)</span><br><span class="line">  RANDOMIZED-QUICKSORT(x, 1, d)</span><br><span class="line">  RANDOMIZED-QUICKSORT(y, 1, d)</span><br><span class="line">  for i = 1 to d</span><br><span class="line">    if x[i] &gt;= y[i]</span><br><span class="line">      return False</span><br><span class="line">  return True</span><br></pre></td></tr></table></figure>
+<h2 id="c-1">c</h2>
+<p>令<span
+class="math inline">\(G=(V,E),V=\{B_1,B_2,\dots,B_n\},(B_i,B_j)\in
+E\)</span>当且仅当<span class="math inline">\(B_i\)</span>能装在<span
+class="math inline">\(B_j\)</span>中。</p>
+<p>那么这个问题就成为了找一条<span
+class="math inline">\(G\)</span>中的最长路径。首先花费<span
+class="math inline">\(O(nd\lg d)\)</span>的时间对<span
+class="math inline">\(B\)</span>中的每个盒子的每个维度进行排序；接下来花费<span
+class="math inline">\(O(n^2d)\)</span>的时间判断每一对盒子之间的嵌套关系，从而构建出图<span
+class="math inline">\(G\)</span>；接下来使用题目22.2-3的内容，把一个盒子视为一个节点上的任务，并且花费为<span
+class="math inline">\(1\)</span>，那么花费<span
+class="math inline">\(O(E)=O(n^2)\)</span>的时间调用子程序<code>DAG-LONGEST-PATHS'</code>求出一条最长路径。因此整个算法的时间复杂度为<span
+class="math inline">\(O(nd(n+\lg d))\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">LONGEST-SEQUENCE(B, n, d)</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    RANDOMIZED-QUICKSORT(B[i], 1, d)</span><br><span class="line">  V = &#123;B1, B2, ..., Bn&#125;</span><br><span class="line">  E = ∅</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      if IS-INSIDE(B[i], B[j])</span><br><span class="line">        E = E ∪ &#123;(Bi, Bj)&#125;</span><br><span class="line">  G = (V, E)</span><br><span class="line">  let T, path be new arrays</span><br><span class="line">  for each u in V</span><br><span class="line">    T[u] = 1</span><br><span class="line">  DAG-LONGEST-PATHS&#x27;(G, T)</span><br><span class="line">  let Bj be the vertex s.t. Bj.d is maximum</span><br><span class="line">  p = Bj</span><br><span class="line">  while p.d != 0</span><br><span class="line">    INSERT(path, p)</span><br><span class="line">    p = p.π</span><br><span class="line">  // 进行逆序后才能得到这条路径。</span><br><span class="line">  REVERSE(path)</span><br><span class="line">  return path</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="section-2">22-3</h1>
+<h2 id="a-2">a</h2>
+<p>对不等式两侧取对数<span
+class="math inline">\(\lg\)</span>，得到：</p>
+<p><span class="math inline">\(\lg R[i_1,i_2]+\lg R[i_2,i_3]+\dots +\lg
+R[i_{k-1},i_k]+\lg R[i_k,i_1]&gt;0\)</span></p>
+<p>那么再对两端取符号，得到：</p>
+<p><span class="math inline">\((-\lg R[i_1,i_2])+(-\lg R[i_2,i_3])+\dots
++(-\lg R[i_{k-1},i_k])+(-\lg R[i_k,i_1])&lt;0\)</span></p>
+<p>我们构造图<span
+class="math inline">\(G=(V,E),V=\{c_1,c_2,\dots,c_n\},\forall u,v \in
+V,(c_i,c_j)\in E,w(c_i,c_j)=-\lg
+R[i,j]\)</span>.我们通过将Bellman-Ford算法作为子程序即可完成判断这个子序列的存在，整个过程由<code>CURRENCY-CYCLE-PROFIT</code>给出，其时间复杂度依赖于Bellman-Ford算法的实现，为<span
+class="math inline">\(O(V^2+VE)=O(V^3)\)</span>。</p>
+<p>注意到<span
+class="math inline">\(G\)</span>是一个完全图，因此随机选择一个起点<span
+class="math inline">\(s\)</span>即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CURRENCY-CYCLE-PROFIT(R, n)</span><br><span class="line">  let vertex set V = &#123;1, 2, ..., n&#125;</span><br><span class="line">  let edge set E = &#123;(1, 2), (1, 3), ..., (n, n - 2), (n, n - 1)&#125;</span><br><span class="line">  let weight function w(⋅, ⋅) = -lg R[⋅, ⋅]</span><br><span class="line">  select s ∈ V randomly</span><br><span class="line">  return not BELLMAN-FORD((V, E), w, s)</span><br></pre></td></tr></table></figure>
+<h2 id="b-2">b</h2>
+<p>这道题和题目22.1-8基本相同，依旧其构造出的<code>GET-NEG-CYCLE</code>作为子程序即可。其时间复杂度为<span
+class="math inline">\(O(V^2+VE)=O(V^3)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">CURRENCY-NEG-CYCLE(R, n)</span><br><span class="line">  let vertex set V = &#123;1, 2, ..., n&#125;</span><br><span class="line">  let edge set E = &#123;(1, 2), (1, 3), ..., (n, n - 2), (n, n - 1)&#125;</span><br><span class="line">  let weight function w(⋅, ⋅) = -lg R[⋅, ⋅]</span><br><span class="line">  select s ∈ V randomly</span><br><span class="line">  return GET-NEG-CYCLE(G, w, s)</span><br></pre></td></tr></table></figure>
+<h1 id="section-3">22-4</h1>
+<h2 id="a-3">a</h2>
+<p>本题思路和题目22.3-9完全一致。由于路径最大长度为<span
+class="math inline">\(|E|\)</span>，因此我们可以考虑建立<span
+class="math inline">\(|E|+2\)</span>个槽，其中第<span
+class="math inline">\(i\)</span>个槽防止满足<span
+class="math inline">\(v.d=i\)</span>的节点<span
+class="math inline">\(v\)</span>，最后一个槽用于放置满足<span
+class="math inline">\(u.d=\infty\)</span>的节点。假设从一个槽插入和删除节点的时间复杂度均为<span
+class="math inline">\(O(1)\)</span>，它们通过一个双向链表维护。</p>
+<p>随着松弛过程的进行，所有节点只会从后往前进行移动。此外，由于优先队列的出队顺序<span
+class="math inline">\(u\)</span>满足<span
+class="math inline">\(u.d\)</span>是单调不下降的，因此只需要从小到大遍历每个槽即可。这个算法由程序<code>DIJKSTRA''''</code>给出，其时间复杂度为<span
+class="math inline">\(O(E+E)=O(E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DIJKSTRA-E(G, w, s)</span><br><span class="line">  INF = |G.E| + 1</span><br><span class="line">  let A[0 : INF] be new array by list</span><br><span class="line">  for each vertex u ∈ G.V - &#123;s&#125;</span><br><span class="line">    u.d = INF</span><br><span class="line">    u.π = NIL</span><br><span class="line">    LIST-INSERT&#x27;(A[INF], u)</span><br><span class="line">  s.d = 0</span><br><span class="line">  s.π = NIL</span><br><span class="line">  LIST-INSERT&#x27;(A[0], s)</span><br><span class="line">  S = Ø</span><br><span class="line">  k = 0</span><br><span class="line">  for n = 1 to |V|</span><br><span class="line">    while A[k] == NIL</span><br><span class="line">      k = k + 1</span><br><span class="line">    u = A[k].head</span><br><span class="line">    LIST-DELETE&#x27;(A[k], u)</span><br><span class="line">    S = S ∪ &#123;u&#125;</span><br><span class="line">    for each vertex v in G.Adj[u]</span><br><span class="line">      if v.d &gt; u.d + w(u, v)</span><br><span class="line">        LIST-DELETE&#x27;(A[v.d], v)</span><br><span class="line">        v.π = u</span><br><span class="line">        v.d = u.d + w(u, v)</span><br><span class="line">        LIST-INSERT&#x27;(A[v.d], v)</span><br></pre></td></tr></table></figure>
+<h2 id="b-3">b</h2>
+<p>本题可以直接使用题目22.3-9的代码作为子程序，令<span
+class="math inline">\(W=1\)</span>后，直接调用<code>DIJKSTRA''(G, 1, w, s)</code>即可。那么在这题中由于<span
+class="math inline">\(|E|\ge
+|V|-1\)</span>，且题目22.3-9给出该算法的时间复杂度为<span
+class="math inline">\((WV+E)\)</span>，因此时间复杂度为<span
+class="math inline">\(O(E)\)</span>。</p>
+<h2 id="c-2">c</h2>
+<p>可以知道，<span class="math inline">\(w_i(u,v)\)</span>表示的是<span
+class="math inline">\(k\)</span>比特数<span
+class="math inline">\(w(u,v)\)</span>的高<span
+class="math inline">\(i\)</span>位。如果<span
+class="math inline">\(w(u,v)\)</span>从高到低的第<span
+class="math inline">\(i\)</span>位是<span
+class="math inline">\(0\)</span>，那么有<span
+class="math inline">\(w_i(u,v)=2w_{i-1}(u,v)\)</span>；如果是<span
+class="math inline">\(1\)</span>，那么有<span
+class="math inline">\(w_i(u,v)=2w_{i-1}(u,v)+1\)</span>。</p>
+<p>在以<span
+class="math inline">\(w_i(\cdot,\cdot)\)</span>作为边权时，假设从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(u\)</span>的最短路径为<span
+class="math inline">\(v_1,v_2,\dots,v_k,v_1=s,v_k=v\)</span>，那么考虑<span
+class="math inline">\(\delta_i(s,v)\)</span>的值，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\delta_i(s,v)&amp;=\sum_{j=2}^k w_i(v_{j-1},v_j)\\
+&amp;\ge \sum_{j=2}^k 2w_{i-1}(v_{j-1},v_j)\\
+&amp;\ge 2\delta_{i-1}(s,v)\\
+\end{aligned}\)</span></p>
+<p>在以<span
+class="math inline">\(w_{i-1}(\cdot,\cdot)\)</span>作为边权时，假设从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(u\)</span>的最短路径为<span
+class="math inline">\(v_1&#39;,v_2&#39;,\dots,v_k&#39;,v_1&#39;=s,v_k&#39;=v\)</span>，那么考虑<span
+class="math inline">\(\delta_{i-1}(s,v)\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+2\delta_{i-1}(s,v)+|V|-1&amp;\ge2\delta_{i-1}(s,v)+k-1\\
+&amp;=\sum_{j=2}^k (2w_{i-1}(v_{j-1}&#39;,v_j&#39;)+1)\\
+&amp;\ge\sum_{j=2}^k w_{i}(v_{j-1}&#39;,v_j&#39;)&amp;\qquad(A)\\
+&amp;\ge\delta_{i}(s,v)
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>是应用了<span
+class="math inline">\(w_i(u,v)\le2w_{i-1}(u,v)+1\)</span>。</p>
+<p>因此，最终有</p>
+<p><span class="math display">\[2\delta_{i-1}(s,v)\le \delta_i(s,v)\le
+2\delta_{i-1}(s,v)+|V|-1\]</span></p>
+<p>【网上一些论证使用了假设：计算<span
+class="math inline">\(w_i\)</span>所得到的最短路径也是<span
+class="math inline">\(w_{i-1}\)</span>的最短路径。然而这是错误的，可以构造出反例：<span
+class="math inline">\(G=(V,E),V=\{a,b,c,d,e,f\},E=\{(a,b,1),(b,c,3),(c,d,3),(a,e,2),(e,f,2),(f,d,2)\}\)</span>，计算<span
+class="math inline">\(\delta_1(a,d)\)</span>和<span
+class="math inline">\(\delta_2(a,d)\)</span>的最短路不是一样的】。</p>
+<h2 id="d">d</h2>
+<p><span class="math inline">\(\begin{aligned}
+2\delta_{i-1}(s,v)-2\delta_{i-1}(s,u)&amp;\le 2w_{i-1}(u,v)\\
+&amp;\le w_i(u,v)&amp;\qquad(B)
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((B)\)</span>是应用了<span
+class="math inline">\(w_i(u,v)\ge2w_{i-1}(u,v)\)</span>。</p>
+<p>因此有<span
+class="math inline">\(\hat{w}_i(u,v)=w_i(u,v)+2\delta_{i-1}(s,u)-2\delta_{i-1}(s,v)\ge
+0\)</span>成立。</p>
+<h2 id="e">e</h2>
+<p>在以<span
+class="math inline">\(\hat{w}_i(\cdot,\cdot)\)</span>作为边权时，考虑<span
+class="math inline">\(\hat{\delta}_i(s,v)\)</span>的值，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\hat{\delta}_i(s,v)&amp;=\min_{e\in \text{Path}(s,v)} \hat{w}_i(e)\\
+&amp;=\min_{\substack{p:v_1,v_2,\dots,v_k;\\v_1=s,v_k=v}}\left\{\sum_{j=2}^k
+(w_i(v_{j-1},w_{j})+2\delta_{i-1}(s,v_{j-1})-2\delta_{i-1}(s,v_j))\right\}\\
+&amp;=\min_{\substack{p:v_1,v_2,\dots,v_k;\\v_1=s,v_k=v}}\left\{\sum_{j=2}^k
+w_i(v_{j-1},w_{j})-2\delta_{i-1}(s,v)+2\delta_{i-1}(s,s)\right\}\\
+&amp;=\min_{\substack{p:v_1,v_2,\dots,v_k;\\v_1=s,v_k=v}}\left\{\sum_{j=2}^k
+w_i(v_{j-1},w_{j})\right\}-2\delta_{i-1}(s,v)\\
+&amp;=\delta_i(s,v)-2\delta_{i-1}(s,v)
+\end{aligned}\)</span></p>
+<p>从而得到<span
+class="math inline">\(\delta_i(s,v)=\hat{\delta}_i(s,v)+2\delta_{i-1}(s,v)\)</span>。</p>
+<p>根据题目22-4-c的结论，可以得到<span
+class="math inline">\(0\le\hat{\delta}_i(s,v)\le |V|-1\le
+|E|\)</span>。</p>
+<h2 id="f">f</h2>
+<p>假设已经计算了<span
+class="math inline">\(\delta_{i-1}(s,v)\)</span>，那么我们可以以<span
+class="math inline">\(O(E)\)</span>的时间构造出所有边的<span
+class="math inline">\(\hat{w_i}\)</span>值。由于<span
+class="math inline">\(\hat{\delta}_i(s,v)\le
+|E|\)</span>，因此我们可以使用题目22-4-a所提出的算法以<span
+class="math inline">\(O(E)\)</span>的时间计算出<span
+class="math inline">\(\hat{\delta}_i(s,v)\)</span>的值。最终通过题目22-4-f的结论以<span
+class="math inline">\(O(V)\)</span>的时间计算<span
+class="math inline">\(\delta_i(s,v)=\hat{\delta}_i(s,v)+2\delta_{i-1}(s,v)\)</span>的值。</p>
+<p>因此迭代<span class="math inline">\(\lg
+W\)</span>轮后，可以计算出所有节点的<span
+class="math inline">\(\delta(s,v)\)</span>，本题整个过程由程序<code>DIJKSTRA-W</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">// 这里假设所有的函数被新构造出来后，那么所有值都已经记录好，不会随着时间推移而改变。</span><br><span class="line">DIJKSTRA-W(G, s, w)</span><br><span class="line">  W = max&#123;w(u, v) | (u, v) ∈ G.E&#125;</span><br><span class="line">  k = ⌈lg (W + 1)⌉</span><br><span class="line">  let new function w[i](⋅, ⋅⋅) = ⌈w(⋅, ⋅⋅) / 2^i⌉ for i = 1, 2, 3, ..., k</span><br><span class="line">  DIJKSTRA&#x27;&#x27;(G, 1, w[1], s)</span><br><span class="line">  let new function δ[1](s, ⋅) = ⋅.d</span><br><span class="line">  for i = 2 to k</span><br><span class="line">    let new function w&#x27;[i](⋅, ⋅⋅) = w[i](⋅, ⋅⋅) + 2 * δ[i - 1](s, ⋅) - 2 * δ[i - 1](s, ⋅⋅)</span><br><span class="line">    DIJKSTRA-E(G, 1, w&#x27;[i], s)</span><br><span class="line">    let new function δ[i](s, ⋅) = ⋅.d + 2 * δ[i - 1](s, ⋅)</span><br><span class="line">  for each u ∈ G.V</span><br><span class="line">    u.d = δ[k](s, v)</span><br></pre></td></tr></table></figure>
+<h1 id="section-4">22-5</h1>
+<h2 id="a-4">a</h2>
+<p>如果<span
+class="math inline">\(\mu^{\ast}=0\)</span>，也就是说存在一个长度为<span
+class="math inline">\(k\)</span>的环<span class="math inline">\(\langle
+e_1,e_2,\dots,e_k\rangle\)</span>，满足<span
+class="math inline">\(\displaystyle{\dfrac{1}{k}\sum_{i=1}^k}
+w(e_i)=0\)</span>。也就是说，这个环的权值和<span
+class="math inline">\(\displaystyle{\sum_{i=1}^k}w(e_i)\)</span>是<span
+class="math inline">\(G\)</span>中所有环的权值和最低的，且为<span
+class="math inline">\(0\)</span>，因此图<span
+class="math inline">\(G\)</span>没有负环。</p>
+<p>这意味着，<span class="math inline">\(G\)</span>中来自<span
+class="math inline">\(s\)</span>的最短路，其边数是来自不超过<span
+class="math inline">\(n-1\)</span>的一条简单路径。对于边数超过<span
+class="math inline">\(n-1\)</span>的最短路径，必定存在一些边权和为<span
+class="math inline">\(0\)</span>的环，去掉这些环，直到成为一条简单路径，并不会影响它仍然是最短路径。</p>
+<p>因此从<span class="math inline">\(0\)</span>到<span
+class="math inline">\(n-1\)</span>枚举所有恰好包含<span
+class="math inline">\(k\)</span>条边最短路径中的最短的一条，就可以得到从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(v\)</span>的最短路径：</p>
+<p><span
+class="math display">\[\delta(s,v)=\min_{k=0}^{n-1}\{\delta_k(s,v)\}\]</span></p>
+<h2 id="b-4">b</h2>
+<p>为证明</p>
+<p><span
+class="math display">\[\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}\right\}\ge
+0\]</span></p>
+<p>只需要证明</p>
+<p><span
+class="math display">\[\max_{k=0}^{n-1}\{\delta_n(s,v)-\delta_k(s,v)\}\ge
+0\]</span></p>
+<p>即可，因为<span class="math inline">\(n-k&gt;0\)</span>恒成立。</p>
+<p>由于<span
+class="math inline">\(\mu^{\ast}=0\)</span>，因此这个图虽然没有负环，但是存在非负环。</p>
+<p>如果<span
+class="math inline">\(\delta_n(s,v)=\infty\)</span>，那么原结论显然成立。如果<span
+class="math inline">\(\delta_n(s,v)&lt;\infty\)</span>，那么这条路径必定存在一个边权和为<span
+class="math inline">\(0\)</span>的环，去掉之后那么就成为了一条边数小于<span
+class="math inline">\(n\)</span>的最短路径。此外，由于<span
+class="math inline">\(\delta_n(s,v)\)</span>是个和<span
+class="math inline">\(k\)</span>无关的值，因此有</p>
+<p><span class="math inline">\(\begin{aligned}
+\max_{k=0}^{n-1}\{\delta_n(s,v)-\delta_k(s,v)\}&amp;=\delta_n(s,v)-\min_{k=0}^{n-1}\{\delta_k(s,v)\}\\&amp;=\delta_n(s,v)-\delta(s,v)\\
+&amp;\ge 0
+\end{aligned}\)</span></p>
+<p>因此原结论成立。</p>
+<h2 id="c-3">c</h2>
+<p>由于<span
+class="math inline">\(\mu^{\ast}=0\)</span>，因此这个图虽然没有负环，也就是说<span
+class="math inline">\(\delta(s,v)\neq-\infty,\delta(s,v)\neq-\infty\)</span>。</p>
+<p>由于从节点<span class="math inline">\(u\)</span>到节点<span
+class="math inline">\(v\)</span>上的简单路径权重为<span
+class="math inline">\(x\)</span>，因此有<span
+class="math inline">\(\delta(s,v)\le\delta(s,u)+x\)</span>（否则，按顺序松弛这条路径上的边将会产生矛盾）。类似的原因，由于从节点<span
+class="math inline">\(v\)</span>到节点<span
+class="math inline">\(u\)</span>上的简单路径权重为<span
+class="math inline">\(-x\)</span>，因此有<span
+class="math inline">\(\delta(s,u)\le\delta(s,v)-x\)</span>。结合这两条式子，最终得到<span
+class="math inline">\(\delta(s,v)=\delta(s,u)+x\)</span>。</p>
+<h2 id="d-1">d</h2>
+<p>与题目22-5-b类似，只需要证明<span
+class="math inline">\(\displaystyle{\max_{k=0}^{n-1}\{\delta_n(s,v)-\delta_k(s,v)\}}=0\)</span>即可。</p>
+<p>也就是有<span
+class="math inline">\(\displaystyle{\delta_n(s,v)-\min_{k=0}^{n-1}\{\delta_k(s,v)\}}=0\)</span>，即证明<span
+class="math inline">\(\delta_n(s,v)=\delta(s,v)\)</span>。</p>
+<p>令<span class="math inline">\(c\)</span>是<span
+class="math inline">\(G\)</span>上的某一个最小平均环，那么存在一条从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(c\)</span>上某一个节点<span
+class="math inline">\(u\)</span>的一条<strong>最短</strong>路径<span
+class="math inline">\(p\)</span>，假设其长度为<span
+class="math inline">\(m\)</span>。接下来从<span
+class="math inline">\(u\)</span>沿着这个环走<span
+class="math inline">\(n-m\)</span>步，到达另一个节点<span
+class="math inline">\(v\)</span>。那么由于从<span
+class="math inline">\(s\)</span>走<span
+class="math inline">\(n\)</span>步可以到达节点<span
+class="math inline">\(v\)</span>，因此<span
+class="math inline">\(\delta_n(s,v)\neq
+\infty\)</span>。也就是说，存在一条从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(v\)</span>，且步数为<span
+class="math inline">\(n\)</span>的最短路径<span
+class="math inline">\(p&#39;\)</span>，根据题目22-5-c的结论，<span
+class="math inline">\(p&#39;\)</span>是从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(v\)</span>的<strong>全局</strong>最短路径。由于<span
+class="math inline">\(p&#39;\)</span>的长度大于<span
+class="math inline">\(n-1\)</span>，因此<span
+class="math inline">\(p&#39;\)</span>必定经过一些环。又因为<span
+class="math inline">\(\mu^{\ast}=0\)</span>，因此<span
+class="math inline">\(p&#39;\)</span>经过的只能是一部分权值和为<span
+class="math inline">\(0\)</span>的环。去掉这些权值和为<span
+class="math inline">\(0\)</span>的所有环后，那么得到一条长度小于等于<span
+class="math inline">\(n-1\)</span>的最短路径<span
+class="math inline">\(p&#39;&#39;\)</span>，令<span
+class="math inline">\(k\)</span>为<span
+class="math inline">\(p&#39;&#39;\)</span>的长度，由此得到<span
+class="math inline">\(\delta_n(s,v)=\delta_k(s,v)=\delta(s,v)\)</span>。从而证明原结论成立。</p>
+<h2 id="e-1">e</h2>
+<p>本题的前提是：<span
+class="math inline">\(\mu^{\ast}=0\)</span>，和题目22-5-b以及22-5-e一样。</p>
+<p>根据题目22-5-b的结论：<span class="math inline">\(\forall v\in
+V,\displaystyle{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}\right\}\ge
+0}\)</span>；</p>
+<p>以及题目22-5-e的结论：对于<span
+class="math inline">\(V\)</span>中在最小平均环上的某个节点<span
+class="math inline">\(v\)</span>，有<span
+class="math inline">\(\displaystyle{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}\right\}=
+0}\)</span>，</p>
+<p>可以得到<span class="math inline">\(\displaystyle{\min_{u\in
+V}\left\{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}\right\}\right\}}=0\)</span>。</p>
+<h2 id="f-1">f</h2>
+<p>将<span class="math inline">\(E\)</span>中所有边<span
+class="math inline">\(e\)</span>都增加一个常数<span
+class="math inline">\(c\)</span>后，得到新的权重函数<span
+class="math inline">\(w&#39;(e)=w(e)+t\)</span>。令新图中的平均回路权重<span
+class="math inline">\(\mu&#39;\)</span>。对于图中任意一个环<span
+class="math inline">\(c\)</span>，考虑<span
+class="math inline">\(\displaystyle{\mu&#39;^{\ast}=\min_{c}\{\mu&#39;(c)\}}\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\mu&#39;^{\ast}&amp;=\min_{c} \mu&#39;(c)\\
+&amp;=\min_{c:\langle e_1,e_2,\dots,e_k\rangle} \left\{\dfrac{1}{k}
+\sum_{i=1}^k w&#39;(e_i)\right\}\\
+&amp;=\min_{c:\langle e_1,e_2,\dots,e_k\rangle}  \left\{\dfrac{1}{k}
+\sum_{i=1}^k (w(e_i)+t)\right\}\\
+&amp;=\min_{c:\langle e_1,e_2,\dots,e_k\rangle}  \left\{t+\dfrac{1}{k}
+\sum_{i=1}^k w(e_i)\right\}\\
+&amp;=t+\min_{c:\langle e_1,e_2,\dots,e_k\rangle}  \left\{\dfrac{1}{k}
+\sum_{i=1}^k w(e_i)\right\}\\
+&amp;=t+\mu^{\ast}
+\end{aligned}\)</span></p>
+<p>也就是说，对于旧图中的所有环<span
+class="math inline">\(c\)</span>，如果将它们的所有边权都加上<span
+class="math inline">\(t\)</span>，那么新的平均权重也会增加<span
+class="math inline">\(t\)</span>，从而得证。</p>
+<p>如果使用题目所求事实，同样可得：</p>
+<p><span class="math inline">\(\begin{aligned}
+\mu&#39;^{\ast}&amp;=\min_{u\in
+V}\left\{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n&#39;(s,v)-\delta_k&#39;(s,v)}{n-k}\right\}\right\}\\
+&amp;=\min_{u\in
+V}\left\{\max_{k=0}^{n-1}\left\{\dfrac{(\delta_n(s,v)+nt)-(\delta_k(s,v)-kt)}{n-k}\right\}\right\}\\
+&amp;=\min_{u\in
+V}\left\{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}+t\right\}\right\}\\
+&amp;=\min_{u\in
+V}\left\{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}\right\}\right\}+t\\
+&amp;=\mu^{\ast}+t
+\end{aligned}\)</span></p>
+<h2 id="g">g</h2>
+<p>考虑使用动态规划计算出<span class="math inline">\(\delta_k(s,v)(0\le
+k\le n,v\in V)\)</span>的所有值。那么可以将<span
+class="math inline">\(\delta_k(s,v)\)</span>写成如下状态转移方程：</p>
+<p><span class="math inline">\(\delta_k(s,v)=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad  k=0\land v=s \\
+  &amp;\infty &amp; &amp; \text{if}\quad  k=0\land v\neq s \\
+  &amp;\min_{u\in V:(u,v)\in E}\{\delta_{k-1}(s,u)+w(u,v)\} &amp; &amp;
+\text{if}\quad  k&gt;0 \\
+\end{aligned}\right.\)</span></p>
+<p>然而，对于<span
+class="math inline">\(\delta_{k-1}(s,\cdot)\)</span>中的所有值，可以以<span
+class="math inline">\(O(V+E)=O(E)\)</span>的时间复杂度求出<span
+class="math inline">\(\delta_{k}(s,\cdot)\)</span>中的所有值。迭代<span
+class="math inline">\(|V|\)</span>轮后，那么求出<span
+class="math inline">\(\delta_{k}(s,v)\)</span>这个表的时间复杂度为<span
+class="math inline">\(O(VE)\)</span>。</p>
+<p>得到关于<span
+class="math inline">\(\delta_k(s,v)\)</span>的表后，我们只需要暴力枚举表<span
+class="math inline">\(\delta_k(s,\cdot)\)</span>上的值，即可得到<span
+class="math inline">\(\displaystyle{\mu^{\ast}=\min_{u\in
+V}\left\{\max_{k=0}^{n-1}\left\{\dfrac{\delta_n(s,v)-\delta_k(s,v)}{n-k}\right\}\right\}}\)</span>的值。这个过程需要<span
+class="math inline">\(O(V^2)\)</span>的时间复杂度。</p>
+<p>整个算法由过程<code>MINIMUM-MEAN-WEIGHT-CYCLE</code>给出，整个过程的时间复杂度为<span
+class="math inline">\(O(VE)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">MINIMUM-MEAN-WEIGHT-CYCLE(G, s, w)</span><br><span class="line">  let δ[0 : |G.V|, 1 : |G.V|] be new table by ∞</span><br><span class="line">  n = |G.V|</span><br><span class="line">  δ[0, s] = 0</span><br><span class="line">  for i = 0 to n - 1</span><br><span class="line">    for each u ∈ G.V</span><br><span class="line">      for each v in G.Adj[u]</span><br><span class="line">        if δ[i + 1, v] &gt; δ[i, u] + w(u, v)</span><br><span class="line">          δ[i + 1, v] = δ[i, u] + w(u, v)</span><br><span class="line">  μ∗ = ∞</span><br><span class="line">  for each v ∈ G.V</span><br><span class="line">    if δ[n, v] != ∞</span><br><span class="line">      t = ∞</span><br><span class="line">      for k = 0 to |G.V| - 1</span><br><span class="line">        if δ[k, v] != ∞</span><br><span class="line">          t = max&#123;t, (δ[n, v] - δ[k, v]) / (n - k)&#125;</span><br><span class="line">      μ∗ = min&#123;μ∗, t&#125;</span><br><span class="line">  return μ∗</span><br></pre></td></tr></table></figure>
+<h1 id="section-5">22-6</h1>
+<p>本题使用将使用类似Bellman-Ford算法的操作完成。首先需要对所有边按边权从大到小进行排序，这将花费<span
+class="math inline">\(O(E\lg E)\)</span>的时间。</p>
+<p>接下来先考虑两种情况：路径中权值先单调上升，再单调下降；或者是先单调下降，再单调上升；对于前者，将对每条边从小到大先进行松弛操作，再从大到小进行松弛；对于后者，情况类似。那么这两种情况所需要的时间开销为<span
+class="math inline">\(O(E)\)</span>。</p>
+<p>接下来考虑这种情况：先单调上升，后单调下降，再单调上升（只是此时上升的值不能超过一开始的第一条边的边权，以维持双调序列的性质）。首先枚举<span
+class="math inline">\(s\)</span>的每条出边<span
+class="math inline">\((s,v)\)</span>。那么在这一轮中，先对整张图进行初始化，然后使用边<span
+class="math inline">\((s,v)\)</span>进行松弛。接下来进行三轮的松弛：第一轮，从小到大枚举所有<strong>大于</strong><span
+class="math inline">\(w(u,v)\)</span>的边；第二轮，从大到小枚举所有<span
+class="math inline">\(E\)</span>中的边；第三轮，从小到大枚举所有<strong>小于</strong><span
+class="math inline">\(w(u,v)\)</span>的边。由于<span
+class="math inline">\(s\)</span>最多有<span
+class="math inline">\(|V|-1\)</span>条出边，每轮枚举<span
+class="math inline">\(E\)</span>条边，因此这种情况的时间复杂度为<span
+class="math inline">\(O(V^2+VE)\)</span>。另一种镜像情况和这种情况类似，此处不赘述。</p>
+<p>算法<code>BITONIC-SHORTEST-PATHS</code>给出了具体过程，按照上面的分析，其时间复杂度为<span
+class="math inline">\(O(V^2+VE)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">// 为了方便，假设G.E输入的是(出点，入点，边权)三元组，并且使用RELAX&#x27;子程序进行松弛操作，第三个参数接受的是边权值。</span><br><span class="line">RELAX-ORDER(E, s, e)</span><br><span class="line">  if s &lt;= e</span><br><span class="line">    for i = s to e</span><br><span class="line">      RELAX&#x27;(e[i].u, e[i].v, e[i].w)</span><br><span class="line">  else</span><br><span class="line">    for i = s downto e</span><br><span class="line">      RELAX&#x27;(e[i].u, e[i].v, e[i].w)</span><br><span class="line"></span><br><span class="line">BITONIC-SHORTEST-PATHS(G, s)</span><br><span class="line">  create a single list e of the edges in G.E</span><br><span class="line">  sort the list of edges into monotonically increasing order by weight e[i].w</span><br><span class="line">  // 情况1</span><br><span class="line">  INITIALIZE-SINGLE-SOURCE(G, s)</span><br><span class="line">  RELAX-ORDER(E, 1, |E|)</span><br><span class="line">  RELAX-ORDER(E, |E|, 1)</span><br><span class="line">  for each u ∈ G.V</span><br><span class="line">    u.d&#x27; = u.d</span><br><span class="line">  // 情况2</span><br><span class="line">  INITIALIZE-SINGLE-SOURCE(G, s)</span><br><span class="line">  RELAX-ORDER(E, |E|, 1)</span><br><span class="line">  RELAX-ORDER(E, 1, |E|)</span><br><span class="line">  for each u ∈ G.V</span><br><span class="line">    u.d&#x27; = min&#123;u.d&#x27;, u.d&#125;</span><br><span class="line">  for i = 1 to |E| </span><br><span class="line">    if e[i].u == s</span><br><span class="line">      // 情况3</span><br><span class="line">      INITIALIZE-SINGLE-SOURCE(G, s)</span><br><span class="line">      RELAX-ORDER(E, i, |E|)</span><br><span class="line">      RELAX-ORDER(E, |E|, 1)</span><br><span class="line">      RELAX-ORDER(E, 1, i)</span><br><span class="line">      for each u ∈ G.V</span><br><span class="line">        u.d&#x27; = min&#123;u.d&#x27;, u.d&#125;</span><br><span class="line">      // 情况4</span><br><span class="line">      INITIALIZE-SINGLE-SOURCE(G, s)</span><br><span class="line">      RELAX-ORDER(E, i, 1)</span><br><span class="line">      RELAX-ORDER(E, 1, |E|)</span><br><span class="line">      RELAX-ORDER(E, |E|, i)</span><br><span class="line">      for each u ∈ G.V</span><br><span class="line">        u.d&#x27; = min&#123;u.d&#x27;, u.d&#125;</span><br><span class="line">  // 最终，u.d&#x27;代表真正的答案。</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/problems/" title="算法导论22 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论14 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-14/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-17T05:14:02.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.132Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-14/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-14/problems/","path":"introduction-to-algorithms/chapter-14/problems/","title":"算法导论14 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论14 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">14-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">14-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">14-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">14-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">14-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">14-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">14-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">7.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">7.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">14-8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">8.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">8.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">9.</span> <span class="nav-text">14-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-9"><span class="nav-number">10.</span> <span class="nav-text">14-10</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">10.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">10.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">10.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">10.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-10"><span class="nav-number">11.</span> <span class="nav-text">14-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-11"><span class="nav-number">12.</span> <span class="nav-text">14-12</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-14/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论14 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论14 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-17 13:14:02" itemprop="dateCreated datePublished" datetime="2022-12-17T13:14:02+08:00">2022-12-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">14-1</h1>
+<p>如果从节点<span class="math inline">\(s\)</span>取<span
+class="math inline">\(t\)</span>的路径最长化，那么子问题就相当于从<span
+class="math inline">\(s\)</span>的后继节点<span
+class="math inline">\(u\)</span>去到<span
+class="math inline">\(t\)</span>的路径最长化，并且再添加上从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(v\)</span>的路径。</p>
+<p>子问题图就是<span class="math inline">\((V-\{s\},E-\{(s,v,w)\mid v
+\in V\})\)</span>.</p>
+<p>令<span class="math inline">\(d(G,s,t)\)</span>表示从图<span
+class="math inline">\(G=(V,E)\)</span>中的<span
+class="math inline">\(s\)</span>点到<span
+class="math inline">\(t\)</span>点的最长路径，那么可以写出状态转移方程：</p>
+<p><span class="math display">\[d(G,s,t)=\max_{(s,v,w) \in
+E}\{d((V-\{s\},E-\{(s,v,w)\mid v \in V\}),v,t)+w\}\]</span></p>
+<p>其中，<span
+class="math inline">\(d(G,t,t)=0\)</span>，因为不需要移动。</p>
+<p>由于删除的点的集合数量是幂指增长的，并且可能每个顶点都有出边，因此这个算法的时间复杂度为<span
+class="math inline">\(O(2^{|V|}\cdot |E|)\)</span>。</p>
+<p>可以使用拓扑排序，优化上述状态转移方程，将其降低至<span
+class="math inline">\(O(|V|+|E|)\)</span>的时间复杂度。此时不需要涉及对图的操作。</p>
+<h1 id="section-1">14-2</h1>
+<p>如果一个回文字符串两边拼上两个相同的字符，那么得到了一个新的回文字符串，其长度增加了<span
+class="math inline">\(2\)</span>；如果一个字符串两边的字符串不相同，那么它的最长回文子序列一定是来自内部的子字符串。因此，<span
+class="math inline">\(w[i,j]\)</span>的最优子结构是<span
+class="math inline">\(w[i+1,j-1],w[i+1,j],w[i,j-1]\)</span>。令<span
+class="math inline">\(w[i,j]\)</span>表示子字符串<span
+class="math inline">\(X[i:j]\)</span>的最长回文子序列。那么可以写出<span
+class="math inline">\(w\)</span>的状态转移方程：</p>
+<p><span class="math inline">\(w[i,j]=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad  i&gt;j \\
+  &amp;1 &amp; &amp; \text{if}\quad  i=j \\
+  &amp;w[i+1,j-1]+2 &amp; &amp; \text{if}\quad  i&lt;j\land  X[i]=X[j]\\
+  &amp;\max(w[i+1,j],w[i,j-1]) &amp; &amp;
+\text{if}\quad  i&lt;j\land  X[i]\neq X[j]\\
+\end{aligned}\right.\)</span></p>
+<p>计算出表<span class="math inline">\(w\)</span>的所有值即可。根据第4,
+5行的2个嵌套循环不难得知，这个算法的时间复杂度为<span
+class="math inline">\(\Theta(n^2)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">LPS-SOLUTION(X, m)</span><br><span class="line">  let w[1 : m, 1 : m] be new table</span><br><span class="line">  for l = 1 to m</span><br><span class="line">    w[i, i] = 1</span><br><span class="line">  for l = 2 to m</span><br><span class="line">    for i = 1 to m - l + 1</span><br><span class="line">      j = i + l - 1</span><br><span class="line">      if X[i] == X[j]</span><br><span class="line">        w[i, j] = w[i - 1, j + 1] + 2</span><br><span class="line">      else</span><br><span class="line">        w[i, j] = max&#123;w[i - 1, j], w[i + 1, j]&#125;</span><br><span class="line">  n = w[1, m]</span><br><span class="line">  let a[1 : n] be new array</span><br><span class="line">  lp = 1</span><br><span class="line">  rp = m</span><br><span class="line">  lq = 1</span><br><span class="line">  rq = n</span><br><span class="line">  while lp &lt;= rp</span><br><span class="line">    if X[lp] == X[rp]</span><br><span class="line">      a[lq] = a[rq] = X[lp]</span><br><span class="line">      lq = lq + 1</span><br><span class="line">      rq = rq - 1</span><br><span class="line">      lp = lp + 1</span><br><span class="line">      rp = rp - 1</span><br><span class="line">    else if w[lp, rp] == w[lp + 1, rp]</span><br><span class="line">      lp = lp + 1</span><br><span class="line">    else</span><br><span class="line">      rp = rp - 1</span><br><span class="line">  return n and a</span><br></pre></td></tr></table></figure>
+<h1 id="section-2">14-3</h1>
+<p>首先需要对这些点的<span
+class="math inline">\(x\)</span>坐标进行排序，那么我们可以考虑把这一些点拆分成两部分，组成<strong>两条不相交</strong>的有向路径，但是公用起点和终点。那么令<span
+class="math inline">\(d[i,
+j]\)</span>表示这两条不相交路径的终点分别为<span
+class="math inline">\(i\)</span>和<span
+class="math inline">\(j\)</span>时（假设<span
+class="math inline">\(i&gt; j\)</span>），从起点到点<span
+class="math inline">\(i\)</span>和从起点到点<span
+class="math inline">\(j\)</span>这两条路径的最短长度之和。</p>
+<p>那么对于状态<span
+class="math inline">\(d[i,j]\)</span>而言，考虑每次添加一个右边的点<span
+class="math inline">\(i+1\)</span>进来。添加时，这个点可以添加到<span
+class="math inline">\(i\)</span>后面，那么变成状态<span
+class="math inline">\(d[i+1,j]\)</span>，也可以添加到<span
+class="math inline">\(j\)</span>后面，变成状态<span
+class="math inline">\(d[i+1,i]\)</span>。</p>
+<p>那么，可以写出<span
+class="math inline">\(d\)</span>的状态转移方程：</p>
+<p><span class="math inline">\(d[i,j]=
+\left \{\begin{aligned}
+  &amp;\text{dis}(p_i,p_j) &amp; &amp; \text{if}\quad  i=2\land j=1 \\
+  &amp;d[i-1,j] + \text{dis}(p_i,p_j) &amp; &amp; \text{if}\quad  i &gt;
+2\land j &lt; i - 1 \\
+  &amp;\min_{k=1}^{i-2} \{d[i-1,k] + \text{dis}(p_k,p_j)\} &amp; &amp;
+\text{if}\quad  i &gt; 2\land j = i - 1 \\
+\end{aligned}\right.\)</span></p>
+<p>因此，最终还需要使两条路线指定相同的终点，那么最终答案为</p>
+<p><span
+class="math display">\[\min_{i=1}^{n-2}\{d[n-1,i]+\text{dis}(p_n,p_{n-1})+\text{dis}(p_n,p_i)\}\]</span></p>
+<p>子程序<code>POINT-DISTANCE(A, B)</code>用于计算两个点的欧几里得距离，此处忽略实现过程。</p>
+<p>假设计算两点间距离<code>POINT-DISTANCE(A, B)</code>的时间复杂度为<span
+class="math inline">\(O(1)\)</span>。观察程序<code>BITONIC-TSP</code>第6行的嵌套循环不难得知，这个程序的时间复杂度为<span
+class="math inline">\(\Theta(n^2)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BITONIC-TSP(p, n)</span><br><span class="line">  sort p by their x coordinate</span><br><span class="line">  let d[1 : n - 1, 1 : n - 1] be new table</span><br><span class="line">  d[2, 1] = POINT-DISTANCE(p[2], p[1])</span><br><span class="line">  if n == 2</span><br><span class="line">    return d[2, 1] * 2 </span><br><span class="line">  for i = 3 to n - 1</span><br><span class="line">    for j = 1 to i - 2</span><br><span class="line">      d[i, j] = d[i - 1, j] + POINT-DISTANCE(p[i - 1], p[i])</span><br><span class="line">    d[i, i - 1] = ∞</span><br><span class="line">    for j = 1 to i - 2</span><br><span class="line">      d[i, i - 1] = min&#123;d[i - 1, j] + POINT-DISTANCE(p[j], p[i])&#125;</span><br><span class="line">  min-dis = ∞</span><br><span class="line">  for i = 1 to n - 2</span><br><span class="line">    min-dis = min&#123;min-dis, d[n - 1][i] + POINT-DISTANCE(p[n - 1], p[n]) + POINT-DISTANCE(p[i], p[n])&#125;</span><br><span class="line">  return min-dis</span><br></pre></td></tr></table></figure>
+<h1 id="section-3">14-4</h1>
+<p>由于最后一行字符并不考虑后面的空格，因此我们考虑从后往前进行考虑。那么最优子问题就是将单词序列<span
+class="math inline">\(l_i,l_{i+1},\dots,l_n\)</span>打印出来需要的额外空格立方之和。</p>
+<p>如果后面这些单词只需要一行打印出来，那么就没有额外的空格（因为第一行就是最后一行）。否则，枚举<span
+class="math inline">\(j\ge i\)</span>，并且单词序列<span
+class="math inline">\(l_i,l_{i+1},\dots,l_j\)</span>都能在一行打印出来，余下的空格数立方和与打印<span
+class="math inline">\(l_{j+1},l_{j+2},\dots,l_n\)</span>时的最优决策时的值相加即可。</p>
+<p>令状态<span class="math inline">\(f[i]\)</span>表示将单词序列<span
+class="math inline">\(l_i,l_{i+1},\dots,l_n\)</span>打印出来需要的额外空格立方之和，其中<span
+class="math inline">\(\displaystyle{s[i,j]=j-i+\sum_{k=i}^j
+l_k}\)</span>表示如果打印单词序列<span
+class="math inline">\(l_i,l_{i+1},\dots,l_j\)</span>时所需要的字符数。那么可以写出状态转移方程<span
+class="math inline">\(f\)</span>：</p>
+<p><span class="math inline">\(f[i]=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad s[i,n]\le M  \\
+  &amp;\min_{i\le j\le n, s[i,j]\le m}\{ (M-s[i,j])^3+f[j+1]\} &amp;
+&amp; \text{if}\quad s[i,n]\le M  \\
+\end{aligned}\right.\)</span></p>
+<p>如果<span class="math inline">\(s[i,j]\)</span>的任意值可以以<span
+class="math inline">\(\Theta(1)\)</span>的时间计算出来，那么根据程序<code>PRINTING-NEATLY-SOLUTION</code>的第5行循环，可以观察出这个算法的时间复杂度为<span
+class="math inline">\(\Theta(n^2)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">CAL-CHARACTERS(l, r, S)</span><br><span class="line">  return S[r] - S[l - 1] + r - l</span><br><span class="line"></span><br><span class="line">PRINTING-NEATLY-SOLUTION(L, n, M)</span><br><span class="line">  let f[1 : n], s[0 : n], c[0 : n] be new arrays</span><br><span class="line">  s[0] = 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    s[i] = s[i - 1] + L[i]</span><br><span class="line">  for i = n downto 1</span><br><span class="line">    if CAL-CHARACTERS(i, n, S)</span><br><span class="line">      f[i] = 0</span><br><span class="line">      c[i] = ∞</span><br><span class="line">    else</span><br><span class="line">      f[i] = ∞</span><br><span class="line">      for j = i to n</span><br><span class="line">        w = CAL-CHARACTERS(i, j, S)</span><br><span class="line">        if w &lt;= M</span><br><span class="line">          if f[j + 1] + (M - w) ^ 3 &lt; f[i]</span><br><span class="line">            f[i] = f[j + 1] + (M - w) ^ 3</span><br><span class="line">            c[i] = j + 1</span><br><span class="line">  let p be new array</span><br><span class="line">  i = 1</span><br><span class="line">  while i &lt;= n</span><br><span class="line">    INSERT(p, i)</span><br><span class="line">    i = c[i]</span><br><span class="line">  return f[1] and c</span><br></pre></td></tr></table></figure>
+<h1 id="section-4">14-5</h1>
+<h2 id="a">a</h2>
+<p>这里的子问题设计成：已经处理完了字符串<span
+class="math inline">\(X[1:i],Y[1:j]\)</span>时所需要的最小花费。</p>
+<p>按照这6种操作的定义，直接从前往后转移即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">EDIT-DISTANCE(X, Y, m, n, QC, QR, QD, QI, QT, QK)</span><br><span class="line">  let d[0 : m, 0 : n] be new table with ∞</span><br><span class="line">  d[0, 0] = 0</span><br><span class="line">  for i = 0 to m</span><br><span class="line">    for j = 0 to n</span><br><span class="line">      c1 = c2 = c3 = c4 = c5 = ∞</span><br><span class="line">      if i &gt; 0 and j &gt; 0</span><br><span class="line">        // 复制</span><br><span class="line">        if X[i] == Y[j]</span><br><span class="line">          c1 = d[i - 1, j - 1] + QC</span><br><span class="line">        // 替换</span><br><span class="line">        c2 = d[i - 1, j - 1] + QR</span><br><span class="line">      // 删除</span><br><span class="line">      if i &gt; 0</span><br><span class="line">        c3 = d[i - 1, j] + QD</span><br><span class="line">      // 插入</span><br><span class="line">      if j &gt; 0</span><br><span class="line">        c4 = d[i, j - 1] + QI</span><br><span class="line">      // 旋转</span><br><span class="line">      if i &gt;= 2 and j &gt;= 2 and X[i] == Y[j - 1] and Y[j] == X[i - 1]</span><br><span class="line">        c5 = d[i - 2, j - 2] + QT</span><br><span class="line">      d[i, j] = min&#123;c1, c2, c3, c4, c5&#125;</span><br><span class="line">  // 终止</span><br><span class="line">  for i = 0 to m - 1</span><br><span class="line">    d[m, n] = min&#123;d[m, n], d[i, n] + QK&#125;</span><br><span class="line">  return d[m, n]</span><br></pre></td></tr></table></figure>
+<h2 id="b">b</h2>
+<p>禁用旋转和终止操作，也就是令<span
+class="math inline">\(Q_T=Q_K=+\infty\)</span>。</p>
+<p>仅仅使用剩下四个操作，有<span class="math inline">\(Q_C = -1,Q_I= Q_D
+= 2,Q_R = 1\)</span>。</p>
+<p>其中，插入和删除操作对应两个字符含有空格的规则；复制对应两个字符相同的规则；替换对应两个字符不相同的规则。</p>
+<p>最终，如下调用<code>- EDIT-DISTANCE(X, Y, m, n, -1, 1, 2, 2, QT, QK)</code>这个程序即可得到最大的分数，注意前面有一个负号。</p>
+<h1 id="section-5">14-6</h1>
+<p>对于每一个员工<span
+class="math inline">\(x\)</span>，他可以进行两种决策：要么出席，要么缺席。以<span
+class="math inline">\(x\)</span>为子树的所有员工决策满足最优子结构性质。以<span
+class="math inline">\(x\)</span>为子树的出席最优决策，取决于<span
+class="math inline">\(x\)</span>的所有孩子的子树的最优决策。</p>
+<p>如果<span class="math inline">\(x\)</span>出席，那么<span
+class="math inline">\(x\)</span>的下属都不出席；如果<span
+class="math inline">\(x\)</span>不出席，那么<span
+class="math inline">\(x\)</span>的下属出不出席并没有限制，那么选择其中最优的一个选择即可。</p>
+<p>因此，分别令<span
+class="math inline">\(f_{\text{attend}}(x),f_{\text{absent}}(x)\)</span>表示当<span
+class="math inline">\(x\)</span>出席/缺席时，以<span
+class="math inline">\(x\)</span>为子树能够获得的最大分数和。那么不难写出状态转移方程为：</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;f_{\text{attend}}(x)=\sum_{y \text{ is child of }x}
+f_{\text{absent}}(y)\\
+&amp;f_{\text{absent}}(x)=x.\texttt{rating}+\sum_{y \text{ is child of
+}x} \max\{f_{\text{absent}}(y),f_{\text{attend}}(y)\}\\
+\end{aligned}\)</span></p>
+<p>因此如果根节点为<span
+class="math inline">\(r\)</span>，最终结果为根节点<span
+class="math inline">\(\max\{f_{\text{absent}}(r),f_{\text{attend}}(r)\}\)</span>。</p>
+<p>由于每个节点恰好都被遍历了一次，并且其余操作都是常数操作，因此整个算法的时间复杂度为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">PLANNING-A-COMPANY-PARTY(x)</span><br><span class="line">  attend, absent = PLANNING-NOW(x)</span><br><span class="line">  m = max&#123;attend, absent&#125;</span><br><span class="line">  let A be new array</span><br><span class="line">  PLANNING-GET-SOLUTION(x, A, m == attend)</span><br><span class="line">  return m and A </span><br><span class="line"></span><br><span class="line">PLANNING-NOW(x)</span><br><span class="line">  if x == NIL</span><br><span class="line">    return 0 and 0</span><br><span class="line">  attend = x.rating</span><br><span class="line">  absent = 0</span><br><span class="line">  p = x.left-child</span><br><span class="line">  while p != NIL</span><br><span class="line">    x, y = PLANNING-NOW(p)</span><br><span class="line">    attend = attend + y</span><br><span class="line">    absent = absent + max&#123;x, y&#125;</span><br><span class="line">    p = p.right-sibling</span><br><span class="line">  x.attend = attend</span><br><span class="line">  x.absent = absent</span><br><span class="line">  return attend and absent</span><br><span class="line"></span><br><span class="line">PLANNING-GET-SOLUTION(x, A, isattend)</span><br><span class="line">  if x == NIL</span><br><span class="line">    return </span><br><span class="line">  if isattend</span><br><span class="line">    INSERT(A, x)</span><br><span class="line">  p = x.left-child</span><br><span class="line">  while p != NIL</span><br><span class="line">    if isattend == True</span><br><span class="line">      PLANNING-GET-SOLUTION(p, A, False)</span><br><span class="line">    else</span><br><span class="line">      PLANNING-GET-SOLUTION(p, A, p.attend &gt;= p.absent)</span><br></pre></td></tr></table></figure>
+<h1 id="section-6">14-7</h1>
+<h2 id="a-1">a</h2>
+<p>考虑状态<span
+class="math inline">\(d[i,j]\)</span>表示是否存在一条从<span
+class="math inline">\(v_0\)</span>开始，长度为<span
+class="math inline">\(i\)</span>，最终到达节点<span
+class="math inline">\(j\)</span>的路径。并且，这一条路径的权值和<code>sigma[1 : i]</code>完全匹配。如果长度为<span
+class="math inline">\(i-1\)</span>的路径是匹配的，并且<strong>符号相同</strong>，那么长度为<span
+class="math inline">\(i\)</span>的路径也必定是匹配的。</p>
+<p>那么不难写出关于<span
+class="math inline">\(d\)</span>的状态转移方程：</p>
+<p><span class="math inline">\(d[i,j]=
+\left \{\begin{aligned}
+  &amp;1 &amp; &amp; \text{if}\quad i=0 \land j=v_0\lor i&gt;0\land
+(\exists u\in V,(u,j)\in E\land\sigma(u,j)=\sigma_i\land d[i-1,u]=1) \\
+  &amp;0 &amp; &amp; \text{if}\quad i=0 \land j\neq v_0\lor
+i&gt;0\land\lnot (\exists u\in V,(u,j)\in
+E\land\sigma(u,j)=\sigma_i\land d[i-1,u]=1) \\
+\end{aligned}\right.\)</span></p>
+<p>最终，如果<span
+class="math inline">\(G\)</span>是采用邻接表实现的，那么为了方便转移，此时使用图<span
+class="math inline">\(G\)</span>的转置<span
+class="math inline">\(G^T\)</span>进行转移。那么根据程序<code>VITERBI-PATH</code>第5行的内循环可以得知，进行一次的时间为<span
+class="math inline">\(\Theta(|E|)\)</span>，外加外循环<span
+class="math inline">\(\Theta(k)\)</span>，最终整个算法的时间复杂度为<span
+class="math inline">\(\Theta(k\cdot |E|)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">VITERBI-PATH(G, v0, sigma, k)</span><br><span class="line">  let d[0 : k, 1 : |V|], prev[0 : k, 1 : |V|] be new tables with 0</span><br><span class="line">  let GT be transpose graph of G</span><br><span class="line">  d[0, v0] = 1</span><br><span class="line">  for i = 1 to k</span><br><span class="line">    for u = 1 to |V|</span><br><span class="line">      for each v in GT.Adj[u]</span><br><span class="line">        if d[i - 1, v] == 1 and GT.sigma(u, v) == sigma[i]</span><br><span class="line">          d[i, u] = 1</span><br><span class="line">          prev[i, u] = v</span><br><span class="line">  for q = 1 to |V|</span><br><span class="line">    if d[k, q] == 1</span><br><span class="line">      let sol[0, k] be new array</span><br><span class="line">      sol[0] = v0</span><br><span class="line">      for i = k downto 1</span><br><span class="line">        sol[i] = q</span><br><span class="line">        q = prev[i][q]</span><br><span class="line">      return sol</span><br><span class="line">  return NO-SUCH-PATH</span><br></pre></td></tr></table></figure>
+<h2 id="b-1">b</h2>
+<p>只需要多记录一个状态参数<code>prob[i, j]</code>，表示这条路径如果存在的最大概率，转移时只需要顺带维护状态值即可。</p>
+<p>由于只是多新建了一个表，单次转移的过程仍然是<span
+class="math inline">\(\Theta(1)\)</span>，因此整个算法的时间复杂度仍为<span
+class="math inline">\(\Theta(k\cdot |E|)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">VITERBI-PATH&#x27;(G, v0, sigma, k)</span><br><span class="line">  let d[0 : k, 1 : |V|], prev[0 : k, 1 : |V|], prob[0 : k, 1 : |V|] be new tables with 0</span><br><span class="line">  let GT be transpose graph of G</span><br><span class="line">  d[0, v0] = 1</span><br><span class="line">  prob[0, v0] = 1</span><br><span class="line">  for i = 1 to k</span><br><span class="line">    for u = 1 to |V|</span><br><span class="line">      for each v in GT.Adj[u]</span><br><span class="line">        if d[i - 1, v] == 1 and GT.sigma(u, v) == sigma[i]</span><br><span class="line">          d[i, u] = 1</span><br><span class="line">          if prob[i - 1, v] * GT.p(u, v) &gt; prob[i, u]   </span><br><span class="line">            prob[i, u] = prob[i - 1, v] * GT.p(u, v)</span><br><span class="line">            prev[i, u] = v</span><br><span class="line">  for q = 1 to |V|</span><br><span class="line">    if d[k, q] == 1</span><br><span class="line">      let sol[0, k] be new array</span><br><span class="line">      sol[0] = v0</span><br><span class="line">      for i = k downto 1</span><br><span class="line">        sol[i] = q</span><br><span class="line">        q = prev[i][q]</span><br><span class="line">      return sol</span><br><span class="line">  return NO-SUCH-PATH</span><br></pre></td></tr></table></figure>
+<h1 id="section-7">14-8</h1>
+<h2 id="a-2">a</h2>
+<p>由于<span class="math inline">\(n&gt;1\)</span>，因此如果在第<span
+class="math inline">\(1\)</span>列，有两个选项朝下方选择：正下方或者是右下方；如果是在第<span
+class="math inline">\(n\)</span>列，那么可以选择正下方或者是左下方；否则，左下方，正下方，右下方都可以选择。无论在哪一行哪一列，都至少有<span
+class="math inline">\(2\)</span>个选项选择，因此一个图像的接缝数的渐进增长满足<span
+class="math inline">\(\Omega(2^m)\)</span>，即指数级别。</p>
+<h2 id="b-2">b</h2>
+<p>令状态<span
+class="math inline">\(f[i,j]\)</span>表示已经删除了前<span
+class="math inline">\(i\)</span>行的一个像素，其中删除的第<span
+class="math inline">\(i\)</span>行的像素为<span
+class="math inline">\(j\)</span>时，已经累积的破坏度。</p>
+<p>那么按照题意，每一个状态仅能从<span
+class="math inline">\(f[i-1,j-1],f[i-1,j],f[i-1,j+1]\)</span>三个之一转移而来，不难写出状态转移方程：</p>
+<p><span class="math inline">\(f[i,j]=
+\left \{\begin{aligned}
+  &amp;d[i,j] &amp; &amp; \text{if}\quad i=1 \\
+  &amp;\min\{f[i-1,j],f[i-1,j+1]\}+d[i,j] &amp; &amp; \text{if}\quad
+i&gt;1 \land j = 1\\
+  &amp;\min\{f[i-1,j-1],f[i-1,j]\}+d[i,j] &amp; &amp; \text{if}\quad
+i&gt;1 \land j = m\\
+  &amp;\min\{f[i-1,j-1],f[i-1,j],f[i-1,j+1]\}+d[i,j] &amp; &amp;
+\text{if}\quad i&gt;1 \land 1 &lt; j &lt; m\\
+\end{aligned}\right.\)</span></p>
+<p>删完最后一行的像素后，得到最终结果：</p>
+<p><span class="math display">\[\min_{j=1}^n\{f[m,j]\}\]</span></p>
+<p>由于可以转移的状态最多为<span
+class="math inline">\(3\)</span>个，因此根据第5,
+6行的嵌套循环可知算法<code>IMAGE-COMPRESSION</code>的时间复杂度为<span
+class="math inline">\(\Theta(n,m)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">IMAGE-COMPRESSION(A, d, m, n)</span><br><span class="line">  let f[0 : k, 1 : |V|], prev[0 : k, 1 : |V|] be new tables</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    f[1, j] = d[1, j]</span><br><span class="line">    prev[1, j] = j</span><br><span class="line">  for i = 2 to m</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      c1 = c2 = c3 = ∞</span><br><span class="line">      if j &gt; 1</span><br><span class="line">        c1 = f[i - 1, j - 1] + d[i, j]</span><br><span class="line">      c2 = f[i - 1, j] + d[i, j]</span><br><span class="line">      if j &lt; m</span><br><span class="line">        c3 = f[i - 1, j + 1] + d[i, j]</span><br><span class="line">      c = min&#123;c1, c2, c3&#125;</span><br><span class="line">      f[i, j] = c</span><br><span class="line">      if c == c1</span><br><span class="line">        prev[i, j] = j - 1</span><br><span class="line">      else if c == c2</span><br><span class="line">        prev[i, j] = j</span><br><span class="line">      else</span><br><span class="line">        prev[i, j] = j + 1</span><br><span class="line">  q = 1</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    if f[m, j] &lt; f[m, q]</span><br><span class="line">      q = j</span><br><span class="line">  let sol[1 : m] be new array</span><br><span class="line">  for j = m downto 1</span><br><span class="line">    sol[j] = q</span><br><span class="line">    q = prev[m, q]</span><br><span class="line">  return f[m, q] and sol</span><br></pre></td></tr></table></figure>
+<h1 id="section-8">14-9</h1>
+<p>为了方便描述和编写这个算法，数组<span
+class="math inline">\(L\)</span>末端会添加一个新元素<span
+class="math inline">\(n\)</span>，也就是字符串<span
+class="math inline">\(s\)</span>的长度。</p>
+<p>这个问题的子问题是将字符串<span
+class="math inline">\(s[L[i-1]+1:L[j]]\)</span>按照<span
+class="math inline">\(L[i:j]\)</span>所展示的那样划分，如果这个划分是最优的，那么由最优子结构的问题组合成的原问题也是最优的。</p>
+<p>令<span class="math inline">\(f[i,j]\)</span>表示将<span
+class="math inline">\(s[L[i-1]+1:L[j]]\)</span>按照<span
+class="math inline">\(L[i:j]\)</span>划分时，所需要的最小代价。那么考虑从<span
+class="math inline">\([i,j)\)</span>中间某个点<span
+class="math inline">\(k\)</span>进行切分。可以写出关于<span
+class="math inline">\(f\)</span>状态转移方程：</p>
+<p><span class="math inline">\(f[i,j]=
+\left \{\begin{aligned}
+  &amp;d[i,j] &amp; &amp; \text{if}\quad i=j \\
+  &amp;\min_{k=i}^{j-1}\{f[i,k]+f[k+1,j]\}+L[j]-L[i-1] &amp; &amp;
+\text{if}\quad i&lt;j\\
+\end{aligned}\right.\)</span></p>
+<p>那么最终将整个字符串划分的最小代价为<span
+class="math inline">\(f[1,m]\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">BREAKING-STRING-GEN-SOL(sol, prev, i, j)</span><br><span class="line">  if i == j</span><br><span class="line">    return</span><br><span class="line">  INSERT(sol, prev[i, j])</span><br><span class="line">  BREAKING-STRING-GEN-SOL(sol, prev, i, prev[i, j])</span><br><span class="line">  BREAKING-STRING-GEN-SOL(sol, prev, prev[i, j] + 1, j)</span><br><span class="line"></span><br><span class="line">BREAKING-STRING(S, L, n, m)</span><br><span class="line">  //为了方便，在下标m+1处多添加一个元素n，虽然已经溢出了。 </span><br><span class="line">  L[m + 1] = n</span><br><span class="line">  let f[1 : k, 1 : m + 1] be new table with ∞</span><br><span class="line">  let prev[1 : k, 1 : m + 1] be new table</span><br><span class="line">  m += 1</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    f[i, i] = 0</span><br><span class="line">  for l = 2 to m</span><br><span class="line">    for i = 1 to m - l + 1</span><br><span class="line">      j = i + l - 1</span><br><span class="line">      tmp = ∞</span><br><span class="line">      q = i</span><br><span class="line">      for k = i to j - 1</span><br><span class="line">        if f[i, k] + f[k + 1, j] + L[j] - L[i - 1] &lt; tmp</span><br><span class="line">          tmp = f[i, k] + f[k + 1, j] + L[j] - L[i - 1]</span><br><span class="line">          q = k</span><br><span class="line">      f[i, j] = tmp</span><br><span class="line">      prev[i, j] = q</span><br><span class="line">  let sol be a new array</span><br><span class="line">  BREAKING-STRING-GEN-SOL(sol, prev, 1, m)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="section-9">14-10</h1>
+<p>这道题的题意似乎并不太清晰，需要多添加另外<span
+class="math inline">\(2\)</span>个假设：</p>
+<ol type="1">
+<li>每一年投资得到的利息，不能用于下一次投资。也就是说，每一年投资额恒为<span
+class="math inline">\(10000\)</span>美元。</li>
+<li>每年年末支付<span
+class="math inline">\(f_1,f_2\)</span>时，是额外支付的，并不从投资的本金中支付。</li>
+</ol>
+<h2 id="a-3">a</h2>
+<p>假设存在一个最优的投资计划，并且第<span
+class="math inline">\(y_1\)</span>到第<span
+class="math inline">\(y_2\)</span>年中，该投资计划保持不变。那么假设第<span
+class="math inline">\(y_1\)</span>年开始前，对第<span
+class="math inline">\(i\)</span>个投资投资了<span
+class="math inline">\(d_i\)</span>美元，那么到第<span
+class="math inline">\(y_2\)</span>年结束时，得到的钱为<span
+class="math inline">\(\displaystyle{\sum_{i=1}^n\sum_{j=y_1}^{y_2} d_i
+r_{ij}}\)</span>。</p>
+<p>可以知道<span class="math inline">\(\exists 1\le p\le n,\forall 1\le
+i\le n\)</span>，使得<span
+class="math inline">\(\displaystyle{\sum_{j=y_1}^{y_2}
+r_{pj}\ge\sum_{j=y_1}^{y_2} r_{ij}}\)</span>均成立。</p>
+<p>因此，将这个投资计划的投给第<span
+class="math inline">\(i\)</span>个投资产品的钱转移到投给第<span
+class="math inline">\(p\)</span>个投资产品，那么在第<span
+class="math inline">\(y_1\)</span>年到第<span
+class="math inline">\(y_2\)</span>年得到的钱将会更多。</p>
+<p>也就是有：</p>
+<p><span class="math display">\[\sum_{i=1}^n\sum_{j=y_1}^{y_2} d_i
+r_{ij}\le \sum_{i=1}^n\sum_{j=y_1}^{y_2} d_i
+r_{pj}=d\sum_{j=y_1}^{y_2}  r_{pj}\]</span></p>
+<p>最终，如果存在一种最优的方案是投资多个产品，那么通过上述剪切-粘贴技术可以将这个投资方案转化成一个更优的单一投资产品方案。</p>
+<h2 id="b-3">b</h2>
+<p>按照题目14-10-a的结论，如果今年的投资方案是最优的，要么就是从上一年同一个投资产品最优的方案转移而来，此时仅产生少量的费用<span
+class="math inline">\(f_1\)</span>，要么是从投资其它产品的最优方案直接迁移所有资金到当前产品，此时产生同样的资金转移费用。因此，单一状态<span
+class="math inline">\(f[i,j]\)</span>的最优解来自于这<span
+class="math inline">\(n\)</span>个子问题的最优解。</p>
+<h2 id="c">c</h2>
+<p>令<span class="math inline">\(f[i,j]\)</span>表示第<span
+class="math inline">\(i\)</span>年结束时（假设第<span
+class="math inline">\(i+1\)</span>年不继续，那么就不付手续费），最终得到的钱的总数（其中<span
+class="math inline">\(d=10000\)</span>）。</p>
+<p>那么不难写出状态转移方程：</p>
+<p><span class="math inline">\(f[i,j]=
+\left \{\begin{aligned}
+  &amp;d\cdot r_{j1}  &amp; &amp; \text{if}\quad i=1 \\
+  &amp;\max\{f[i-1,j]-f_1,\max_{k=1}^n\{f[i-1,k]\}-f_2\} +d\cdot
+r_{ji}&amp; &amp; \text{if} \quad i&gt;1\\
+\end{aligned}\right.\)</span></p>
+<p>由此可得到最终答案为</p>
+<p><span class="math display">\[\max_{j=1}^{n} \{f[10,j]\}\]</span></p>
+<p>那么可以写出如下算法<code>INVESTMENT-STRATEGY</code>，注意到第4行的嵌套循环是一个二重循环，因此可以知道整个算法的时间复杂度为<span
+class="math inline">\(\Theta(n\cdot y)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">INVESTMENT-STRATEGY(r, n, d = 10000, y = 10)</span><br><span class="line">  let f[1 : y, 1 : n], prev[1 : y][1 : n] be new table with 0</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    f[1, j] = d * r[j, 1]</span><br><span class="line">  for i = 2 to y</span><br><span class="line">    pt = 1</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      if f[i - 1, j] &gt; f[i - 1, pt]</span><br><span class="line">        pt = j</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      if f[i - 1, j] - f1 &gt; f[i - 1, pt] - f2</span><br><span class="line">        f[i, j] = f[i - 1, j] - f1 + d * r[j, i]</span><br><span class="line">        prev[i, j] = j</span><br><span class="line">      else</span><br><span class="line">        f[i, j] = f[i - 1, pt] - f2 + d * r[j, i]</span><br><span class="line">        prev[i, j] = pt</span><br><span class="line">  pt = 1</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    if f[y, j] &gt; f[y, pt]</span><br><span class="line">      pt = j</span><br><span class="line">  let sol[1, y] be new array</span><br><span class="line">  q = pt</span><br><span class="line">  for i = y downto 1</span><br><span class="line">    sol[i] = q</span><br><span class="line">    q = prev[i, q]</span><br><span class="line">  return f[y, pt] and sol</span><br></pre></td></tr></table></figure>
+<h2 id="d">d</h2>
+<p>如果添加了这个限制，那么对于当前状态<span
+class="math inline">\(f[i,j]\)</span>，如果一开始投资的金额超过了<span
+class="math inline">\(15000\)</span>的美元，那么需要涉及到资金分拆的问题，新生成的子问题将会涉及到多个使用分拆后的资金进行投资的问题，由此子问题数量将会急剧上升，原来我们所设计的最优子结构将不会再成立。</p>
+<h1 id="section-10">14-11</h1>
+<p>考虑将每一个月的月终视为动态规划的一个阶段，子问题则是上一个月剩下的机器数量。</p>
+<p>令<span class="math inline">\(f[i, j]\)</span>表示第<span
+class="math inline">\(i\)</span>个月结束后，在仓库内部剩下的机器数量为<span
+class="math inline">\(j\)</span>时，所需要交付出的最少成本。</p>
+<p>对于每个状态<span class="math inline">\(f[i,
+j]\)</span>，它可以从<span class="math inline">\(0 \sim j +
+d_i\)</span>这些状态转移而来，因为就算不生产，为达到当前数量，上限只能会是<span
+class="math inline">\(j+d_i\)</span>。</p>
+<p>那么不难写出状态转移方程：</p>
+<p><span class="math inline">\(f[i,j]=
+\left \{\begin{aligned}
+  &amp;\text{cost}(j+d_i,m,c) &amp; &amp; \text{if}\quad i=1 \\
+  &amp;\min_{k=0}^{\min\{j+d_i,D\}}
+\{f[i-1,k]+\text{cost}(j-k+d_i,m,c)\}&amp; &amp; \text{if} \quad
+i&gt;1\\
+\end{aligned}\right.\)</span></p>
+<p>其中，<span
+class="math inline">\(\text{cost}(n,m,c)=\max\{n-m,0\}\cdot
+c\)</span>表示这个月生产<span
+class="math inline">\(n\)</span>个机器时带来的额外成本。</p>
+<p>由此可得到最终答案为</p>
+<p><span class="math display">\[\min_{j=1}^{D} \{f[n,j]\}\]</span></p>
+<p>那么可以写出如下算法<code>INVENTORY-PLANNING</code>，注意到第5, 6,
+7行的嵌套循环，其中第<span
+class="math inline">\(6\)</span>个循环的循环上限最大为<span
+class="math inline">\(D\)</span>，因此可以知道整个算法的时间复杂度为<span
+class="math inline">\(O(nD^2)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">COST(n, m, c)</span><br><span class="line">  return max&#123;n - m, 0&#125; * c</span><br><span class="line"></span><br><span class="line">INVENTORY-PLANNING(d, n, m, c, h)</span><br><span class="line">  D = sum(d)</span><br><span class="line">  let f[1 : n, 0 : D] be new table with ∞</span><br><span class="line">  for j = 0 to D</span><br><span class="line">    f[1, j] = cal(j + d[1], m, c) + h[j]</span><br><span class="line">  for i = 2 to n</span><br><span class="line">    for j = 0 to D</span><br><span class="line">      for k = 0 to min&#123;j + d[i], D&#125;</span><br><span class="line">        f[i, j] = min&#123;f[i, j], f[i - 1, k] + COST(j - k + d[i], m, c) + h[j]&#125;</span><br><span class="line">  return min&#123;f[n, 0], f[n, 1], ..., f[n, D]&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="section-11">14-12</h1>
+<p>考虑将每一个位置视作是动态规划的一个阶段。</p>
+<p>令<span class="math inline">\(f[i,
+j]\)</span>表示已经考虑签约了前<span
+class="math inline">\(j\)</span>个位置的球员，已经花费了<span
+class="math inline">\(j\)</span>，得到的最大VORP之和。</p>
+<p>对于每个状态<span class="math inline">\(f[i, j]\)</span>，一共有<span
+class="math inline">\(P+1\)</span>个策略：分别从<span
+class="math inline">\(P\)</span>个球员中选择一个；或者是在这个位置上不招球员。</p>
+<p>那么可以写出状态转移方程：</p>
+<p><span class="math inline">\(f[i,j]=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad i=0\land j=0 \\
+  &amp;\max\{f[i-1,j],\max_{1\le k\le P,\text{cost}[i,k]\le j}
+\{f[i-1,j-\text{cost}[i,k]]+\text{vorp}[i,k]\}\} &amp; &amp;
+\text{if}\quad 1\le i\le n \\
+  &amp;-\infty &amp; &amp; \text{otherwise} \\
+\end{aligned}\right.\)</span></p>
+<p>可以得到最终答案为</p>
+<p><span class="math display">\[\max_{j=1}^{X} f[N,j]\]</span></p>
+<p>那么可以写出如下算法<code>SIGNING-FREE-AGENT-BASEBALL-PLAYERS</code>，注意到第4,
+5, 7行的嵌套循环，循环大小分别恒为<span
+class="math inline">\(N,X+1,P\)</span>，因此整个程序的时间复杂度为<span
+class="math inline">\(\Theta(NXP)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// 这里同样假设X是10万的整数，并且cost[i, j], vorp[i, j]表示第i个位置第j个人的信息。</span><br><span class="line">// 这两个表的下标范围为cost[1 : N, 1 : P], vorp[1 : N, 1 : P]。</span><br><span class="line">SIGNING-FREE-AGENT-BASEBALL-PLAYERS(cost, vorp, N, P, X)</span><br><span class="line">  let f[0 : N, 0 : X] be new table with -∞</span><br><span class="line">  let prev[0 : N][0 : X] be new table with 0</span><br><span class="line">  f[0, 0] = 0</span><br><span class="line">  for i = 1 to N</span><br><span class="line">    for j = 0 to X</span><br><span class="line">      f[i, j] = f[i - 1, j]</span><br><span class="line">      for k = 1 to P</span><br><span class="line">        if cost[i, k] &lt;= j and f[i - 1,j - cost[i, k]] + vorp[i, k] &gt; f[i, j]</span><br><span class="line">          f[i, j] = f[i - 1,j - cost[i, k]] + vorp[i, k]</span><br><span class="line">          prev[i, j] = k</span><br><span class="line">  max_vorp = -∞</span><br><span class="line">  now_cost = 0</span><br><span class="line">  for j = 0 to X</span><br><span class="line">    if f[N, j] &gt; max_vorp</span><br><span class="line">      max_vorp = f[N, j]</span><br><span class="line">      now_cost = j</span><br><span class="line">  let sol be new array</span><br><span class="line">  j = now_cost</span><br><span class="line">  for i = N downto 1</span><br><span class="line">    if prev[i, j] != 0</span><br><span class="line">      INSERT(sol, (i, k))</span><br><span class="line">      j = j - cost[i, k]</span><br><span class="line">  return max_vorp, now_cost and sol </span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-14/problems/" title="算法导论14 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-14/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

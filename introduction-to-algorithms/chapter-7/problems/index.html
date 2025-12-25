@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论7 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-7/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-27T13:31:11.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.196Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-7/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-7/problems/","path":"introduction-to-algorithms/chapter-7/problems/","title":"算法导论7 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论7 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">7-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">1.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">1.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">7-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">2.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">7-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-1"><span class="nav-number">3.5.</span> <span class="nav-text">e</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">7-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">7-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-4"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">7-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-5"><span class="nav-number">6.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-5"><span class="nav-number">6.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-5"><span class="nav-number">6.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-3"><span class="nav-number">6.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">7-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-6"><span class="nav-number">7.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-6"><span class="nav-number">7.2.</span> <span class="nav-text">b</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-7/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论7 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论7 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-27 21:31:11" itemprop="dateCreated datePublished" datetime="2022-12-27T21:31:11+08:00">2022-12-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">7-1</h1>
+<h2 id="a">a</h2>
+<p>可以知道，此时支点值<span class="math inline">\(x\)</span>为<span
+class="math inline">\(13\)</span>。</p>
+<p><span class="math inline">\(\begin{array}{|c|c|c|}
+\hline
+&amp;i&amp;j\\
+\hline
+\langle 13, 19, 9, 5, 12, 8, 7, 4, 11, 2, 6, 21\rangle \\
+\hline
+\langle \underline{6}, 19, 9, 5, 12, 8, 7, 4, 11, 2, \underline{13},
+21\rangle &amp;1&amp;13\\
+\hline
+\langle 6, \underline{2}, 9, 5, 12, 8, 7, 4, 11, \underline{19}, 13,
+21\rangle &amp; 2 &amp; 10\\
+\hline
+\langle 6, 2, 9, 5, 12, 8, 7, 4, \underline{11}, 19, 13, 21\rangle
+&amp;10&amp;9\\
+\hline
+\end{array}\)</span></p>
+<h2 id="b">b</h2>
+<p>当数组中所有元素都相等时，<code>HOARE-PARTITION</code>将会返回<span
+class="math inline">\(\left\lfloor\dfrac{p+r}{2}\right\rfloor\)</span>，也就是中间值。这个算法相比于普通的<code>PARTITION</code>，其将各个元素划分地更加均匀，使得快速排序算法的时间复杂度得以下降至最好。</p>
+<h2 id="c">c</h2>
+<p>一开始时，<span
+class="math inline">\(i=p-1,j=r+1\)</span>成立，恰好在数组的左侧和右侧。直到开始访问数组时，数组指针<span
+class="math inline">\(i,j\)</span>先向中间靠拢。当<span
+class="math inline">\(A[j]&gt;x\)</span>时，<span
+class="math inline">\(j\)</span>将一直左移；当<span
+class="math inline">\(A[i]&lt; x\)</span>时，<span
+class="math inline">\(i\)</span>将一直右移。由于一个数<span
+class="math inline">\(u\)</span>不可能同时大于一个数<span
+class="math inline">\(v\)</span>，并且小于<span
+class="math inline">\(v\)</span>，因此当<span
+class="math inline">\(i,j\)</span>相遇时，它们必定停下来。最终，<span
+class="math inline">\(i,j\)</span>永远不会越界。</p>
+<h2 id="d">d</h2>
+<p>根据题目7-1-c的结论，<span
+class="math inline">\(j\)</span>将会一直在区间<span
+class="math inline">\([p,r]\)</span>内，哪怕是已经达到<span
+class="math inline">\(i&gt;j\)</span>。由于<span
+class="math inline">\(|A|\ge 2\)</span>，那么将会有以下<span
+class="math inline">\(2\)</span>种情况说明<span
+class="math inline">\(j&lt; r\)</span>：</p>
+<ul>
+<li><span class="math inline">\(A[p]\ge
+A[r]\)</span>，此时第一轮<code>while</code>循环中，两个<code>repeat</code>循环各迭代一次后循环立刻停下。交换完成后，由于<span
+class="math inline">\(i&lt;
+j\)</span>仍然成立，因此外循环仍然不会结束。第二轮循环迭代将会使得<span
+class="math inline">\(j\)</span>再自减<span
+class="math inline">\(1\)</span>，由此<span
+class="math inline">\(j&lt;r\)</span>。</li>
+<li><span class="math inline">\(A[p]&lt;
+A[r]\)</span>，此时第一轮<code>while</code>循环中，第一个<code>repeat</code>循环将会迭代两次以上，那么就有<span
+class="math inline">\(j&lt; r\)</span>仍然成立。</li>
+</ul>
+<p>因此，返回的<span
+class="math inline">\(j\)</span>仍然保证了在区间<span
+class="math inline">\([p,r)\)</span>中。</p>
+<h2 id="e">e</h2>
+<p>在每一次迭代前，<span class="math inline">\(\forall k
+\in[j+1,r]\)</span>，都有<span class="math inline">\(A[k]\ge
+x\)</span>成立，<span class="math inline">\(\forall k
+\in[p,j]\)</span>，都有<span class="math inline">\(A[k]\le
+x\)</span>成立。当遇到不满足这个情况的数时，两个<code>repeat</code>循环都会停下，交换这两个分别不符合各自性质的数，从而维持着它们原本的性质。因此，最终循环终止后，<span
+class="math inline">\(\forall k \in[j+1,r]\)</span>，都有<span
+class="math inline">\(A[k]\ge x\)</span>仍然成立，<span
+class="math inline">\(\forall k \in[p,j]\)</span>，都有<span
+class="math inline">\(A[k]\le x\)</span>仍然成立。因此，<span
+class="math inline">\(A[i:j]\)</span>中的所有数都不超过<span
+class="math inline">\(A[j+1,r]\)</span>。</p>
+<h2 id="f">f</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">HOARE-QUICKSORT(A, p, r)</span><br><span class="line">  if p &lt; r</span><br><span class="line">    q = HOARE-PARTITION(A, p, r)</span><br><span class="line">    HOARE-QUICKSORT(A, p, q)</span><br><span class="line">    HOARE-QUICKSORT(A, q + 1, r)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="section-1">7-2</h1>
+<h2 id="a-1">a</h2>
+<p>由于数组中的所有数都一样，算法<code>RANDOMIZED-PARTITION</code>的前2行将会不会起到任何作用。算法<code>RANDOMIZED-PARTITION</code>调用算法<code>PARTITION</code>时，<code>PARTITION</code>将会把所有数都划分到左侧，并且总返回<span
+class="math inline">\(r\)</span>。因此其运行时间为<span
+class="math inline">\(T(n)=T(n-1)+\Theta(n)=\Theta(n^2)\)</span>。</p>
+<h2 id="b-1">b</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">// 返回的两个下标q, t代表着A[p : q - 1], A[q : t], A[t + 1 : r]这三段。</span><br><span class="line">PARTITION&#x27;(A, p, r)</span><br><span class="line">  x = A[p]</span><br><span class="line">  i = k = p</span><br><span class="line">  j = r</span><br><span class="line">  while i &lt;= j</span><br><span class="line">    if A[i] &lt; x</span><br><span class="line">      exchange A[i] and A[k]</span><br><span class="line">      i += 1</span><br><span class="line">      k += 1</span><br><span class="line">    else if A[i] == x</span><br><span class="line">      i += 1</span><br><span class="line">    else</span><br><span class="line">      exchange A[i] and A[j]</span><br><span class="line">      j -= 1</span><br><span class="line">  return k, i - 1</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>可以发现，在每一轮循环中，要么<span
+class="math inline">\(i\)</span>自增<span
+class="math inline">\(1\)</span>，要么<span
+class="math inline">\(j\)</span>自减<span
+class="math inline">\(1\)</span>，直到<span
+class="math inline">\(i,j\)</span>相遇。因此算法<code>PARTITION'</code>的时间复杂度为<span
+class="math inline">\(\Theta(r-p)\)</span>。</p>
+<h2 id="c-1">c</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">RANDOMIZED-PARTITION&#x27;(A, p, r)</span><br><span class="line">  i = RANDOM(p, r)</span><br><span class="line">  exchange A[r] with A[i]</span><br><span class="line">  return PARTITION&#x27;(A, p, r)</span><br><span class="line"></span><br><span class="line">QUICKSORT&#x27;(A, p, r)</span><br><span class="line">  if p &lt; r</span><br><span class="line">    (q, t) = RANDOMIZED-PARTITION&#x27;(A, p, r)</span><br><span class="line">    QUICKSORT&#x27;(A, p, q - 1)</span><br><span class="line">    QUICKSORT&#x27;(A, t + 1, r)</span><br></pre></td></tr></table></figure>
+<h2 id="d-1">d</h2>
+<p>为了方便分析，考虑将算法<code>PARTITION'</code>中将<span
+class="math inline">\(A[i]\)</span>和<span
+class="math inline">\(x\)</span>的两次比较统一称为一次比较，因为将<span
+class="math inline">\(A[i]\)</span>和<span
+class="math inline">\(x\)</span>仅需一次比较，就可以得出是小于，等于，还是大于，而为了方便编写伪代码，这里写成了两次比较（在第5,
+8行分别进行了一次小于和等于的比较。）</p>
+<p>假设<span class="math inline">\(m\)</span>是数组<span
+class="math inline">\(A\)</span>中不同的数的个数，那么算法<code>RANDOMIZED-PARTITION'</code>的调用次数至少为<span
+class="math inline">\(m\)</span>。</p>
+<p>假设数<span class="math inline">\(x\)</span>在<span
+class="math inline">\(A\)</span>中的出现次数为<span
+class="math inline">\(c(A,x)\)</span>。假设数组<span
+class="math inline">\(A\)</span>排序后的结果为<span
+class="math inline">\(\langle
+z_1,z_2,\dots,z_n\rangle\)</span>，满足<span
+class="math inline">\(z_1\le z_2\le \dots\le z_n\)</span>。</p>
+<p>对于<span class="math inline">\(A\)</span>中的两个数<span
+class="math inline">\(z_i,z_j(i&lt; j)\)</span>，如果<span
+class="math inline">\(z_i=z_j=x\)</span>，那么它们之间有可能发生比较，有可能没有发生比较（取决于支点<span
+class="math inline">\(x\)</span>是否选择自<span
+class="math inline">\(z_i\)</span>或者是<span
+class="math inline">\(z_j\)</span>，如果是，那么就发生了比较。）无论如何，为<span
+class="math inline">\(x\)</span>的这一些数将会发生<span
+class="math inline">\(c(A,x)-1\)</span>次比较。因此，相同的比较次数为<span
+class="math inline">\(O(n)\)</span>次。</p>
+<p>现在假设<span class="math inline">\(z_i&lt;
+z_j\)</span>，那么如果数<span class="math inline">\(x\)</span>满足<span
+class="math inline">\(z_i&lt; x&lt; z_j\)</span>先于<span
+class="math inline">\(z_i,z_j\)</span>被选择，那么<span
+class="math inline">\(z_i,z_j\)</span>将会无法被比较，否则可以被比较。这些<span
+class="math inline">\(x\)</span>的个数有上限<span
+class="math inline">\(j-i-1\)</span>个。</p>
+<p>和第7.4.2章类似，假设<span
+class="math inline">\(X\)</span>是比较次数，<span
+class="math inline">\(X_{ij}\)</span>是元素<span
+class="math inline">\(z_i,z_j\)</span>被比较的概率，那么有<span
+class="math inline">\(E[X_{i,j}]\ge
+\dfrac{2}{j-i+1}\)</span>，而不再是等于。</p>
+<p>因此，有</p>
+<p><span class="math inline">\(\begin{aligned}
+E[X]&amp;= \sum_{i=1}^{n-1}\sum_{j=i+1}^n \dfrac{2}{j-i+1}\\
+&amp;\ge \sum_{i=1}^{n-1}\sum_{k=1}^{n-i} \dfrac{2}{k+1}\\
+&amp;\ge \sum_{i=1}^{n-1}\sum_{k=1}^{n-i} \dfrac{2}{2k}&amp;\qquad(A)\\
+&amp;=\sum_{i=1}^{n-1} \Omega(\lg n)\\
+&amp;=\Omega(n\lg n)
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>是因为当<span
+class="math inline">\(k\ge 1\)</span>时，<span
+class="math inline">\(\dfrac{1}{k+1}\ge \dfrac{1}{2k}\)</span>成立。</p>
+<p>这说明算法<code>RANDOMIZED-PARTITION'</code>的时间复杂度为<span
+class="math inline">\(T(n)=\Omega(n\lg n)\)</span>。</p>
+<p>根据算法<code>QUICKSORT'</code>的第3, 4行递归的区间可知，其上限<span
+class="math inline">\(T(n)\)</span>必定不超过算法<code>RANDOMIZED-QUICKSORT</code>的上限。</p>
+<p>因此，最终有<span class="math inline">\(T(n)=\Theta(n\lg
+n)\)</span>。</p>
+<h1 id="section-2">7-3</h1>
+<h2 id="a-2">a</h2>
+<p>根据算法<code>RANDOMIZED-PARTITION</code>的第一行可以知道，每个元素被选作支点的概率为<span
+class="math inline">\(\dfrac{1}{n}\)</span>。那么可以得到<span
+class="math inline">\(E[X_i]=\dfrac{1}{n}\)</span>。</p>
+<h2 id="b-2">b</h2>
+<p>可以发现，在每次随机选择支点中，最多只有一个支点被选中，因此最多只有一个<span
+class="math inline">\(X_q=1\)</span>。假设此时选择的支点是第<span
+class="math inline">\(q\)</span>小的，那么就有<span
+class="math inline">\(q-1\)</span>个元素划分至左侧，有<span
+class="math inline">\(n-q\)</span>个元素划分至右侧，产生了大小分别为<span
+class="math inline">\(q-1,n-q\)</span>的子问题。对整个数组进行一次划分的时间复杂度为<span
+class="math inline">\(\Theta(n)\)</span>，因此有</p>
+<p><span class="math inline">\(\begin{aligned}
+E[T(n)]&amp;=E\left[\sum_{q=1}^n X_q\cdot (T(q-1)+T(n-q))\right] +
+\Theta(n)\\
+&amp;=E\left[\sum_{q=1}^n X_q\cdot (T(q-1)+T(n-q)+ \Theta(n))\right]
+\end{aligned}\)</span></p>
+<h2 id="c-2">c</h2>
+<p>假设<span
+class="math inline">\(E[T(0)]=0\)</span>，因为空数组并不会产生任何的开销。由于随机变量<span
+class="math inline">\(X_i\)</span>和划分后的子问题是独立的，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+E[T(n)]&amp;=E\left[\sum_{q=1}^n X_q\cdot (T(q-1)+T(n-q)+
+\Theta(n))\right]\\
+&amp;=E\left[\sum_{q=1}^n X_q\cdot (T(q-1)+T(n-q))\right]+ \Theta(n)\\
+&amp;=\sum_{q=1}^n (E[X_q]\cdot (E[T(q-1)+T(n-q)]))+ \Theta(n)\\
+&amp;=\sum_{q=1}^n \left(\dfrac{1}{n}\cdot (E[T(q-1)]+E[T(n-q)])\right)+
+\Theta(n)\\
+&amp;=\dfrac{2}{n}\sum_{q=1}^{n-1} E[T(q)]+ \Theta(n)\\
+\end{aligned}\)</span></p>
+<h2 id="d-2">d</h2>
+<p>可以发现，<span class="math inline">\(f(q)=q\lg
+q\)</span>是一个递增函数，因此有</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{q=1}^{n-1} q\lg q&amp;\le \int_{1}^{n} x\lg x dx \\
+&amp;=\left.\dfrac{1}{2} x^2\lg x-\dfrac{x^2}{4\ln 2}\right|_{1}^n\\
+&amp;=\dfrac{n^2}{2} \lg n-\dfrac{n^2}{4\ln 2}+\dfrac{1}{4\ln 2}\\
+&amp;\le \dfrac{n^2}{2} \lg n-\dfrac{n^2}{8}&amp;\qquad(n\ge 2)
+\end{aligned}\)</span></p>
+<p>当<span
+class="math inline">\(n=1\)</span>时，可以验证原式仍然成立。因此<span
+class="math inline">\(\forall n\ge 1\)</span>，都有<span
+class="math inline">\(\displaystyle{\sum_{q=1}^{n-1} q\lg
+q\le  \dfrac{n^2}{2} \lg n-\dfrac{n^2}{8}}\)</span>。</p>
+<h2 id="e-1">e</h2>
+<p>假设<span class="math inline">\(T(n)\le cn\lg
+n\)</span>，那么联立题目7-3-c, 7-3-d的结论，有</p>
+<p><span class="math inline">\(\begin{aligned}
+E[T(n)]&amp;=\dfrac{2}{n}\sum_{q=1}^{n-1} E[T(q)]+ \Theta(n)\\
+&amp;\le c\cdot \dfrac{2}{n}\left(\dfrac{n^2}{2}\lg
+n-\dfrac{n^2}{8}\right) + \Theta(n)\\
+&amp;=cn\lg n-\dfrac{cn}{4}+\Theta(n)\\
+&amp;=cn\lg n-\left(\dfrac{cn}{4}-\Theta(n)\right)\\
+&amp;\le cn\lg n &amp; \qquad(A)
+\end{aligned}\)</span></p>
+<p>其中，变换<span class="math inline">\((A)\)</span>表示假设<span
+class="math inline">\(\dfrac{cn}{4}\)</span>渐进增长上界比<span
+class="math inline">\(\Theta(n)\)</span>高。</p>
+<p>因此，只需要<span class="math inline">\(c\)</span>再取好<span
+class="math inline">\(c\ge
+\dfrac{T(2)}{2}\)</span>。那么由数学归纳法，<span
+class="math inline">\(T(n)=O(n\lg n)\)</span>成立。</p>
+<h1 id="section-3">7-4</h1>
+<h2 id="a-3">a</h2>
+<p>考虑使用归纳法的思想证明，将数组前<span
+class="math inline">\(\dfrac{n}{3}\)</span>，中间<span
+class="math inline">\(\dfrac{n}{3}\)</span>，后<span
+class="math inline">\(\dfrac{n}{3}\)</span>的区间分别称为数组的左侧，中间，右侧。</p>
+<p>当数组长度<span
+class="math inline">\(n=r-p+1\le2\)</span>时，可以发现这个算法能够正确排序。</p>
+<p>当<span class="math inline">\(r-p+1&gt;2\)</span>时，第1,
+2行的代码保证了头尾两个元素是有序的。第5行代码排序完成后，左侧在<span
+class="math inline">\(A\)</span>中最大的<span
+class="math inline">\(\dfrac{n}{3}\)</span>个元素将会转移到中间。第6行代码执行前，可以知道最大的<span
+class="math inline">\(\dfrac{n}{3}\)</span>元素要么在中间，要么在右侧。运行完成后，最大的<span
+class="math inline">\(\dfrac{n}{3}\)</span>个元素都在右侧且有序，此时最小的<span
+class="math inline">\(\dfrac{2n}{3}\)</span>个元素均在左侧或中间。执行完成第7行代码后，左侧和中间共同保持有序，它们和右侧元素同样保持有序。</p>
+<p>此时，算法<code>STOOGE-SORT</code>使得序列<span
+class="math inline">\(A[p:r]\)</span>有序。</p>
+<h2 id="b-3">b</h2>
+<p>假设算法<code>STOOGE-SORT</code>的运行时间为<span
+class="math inline">\(T(n)\)</span>，那么根据第5, 6,
+7行的递归，可以发现产生了<span
+class="math inline">\(3\)</span>个大小为<span
+class="math inline">\(\dfrac{2}{3}n\)</span>的子问题，并且每次调用所需要花费的其它操作时间为<span
+class="math inline">\(\Theta(1)\)</span>。因此可以写出递推式：<span
+class="math inline">\(T(n)=3T(2n/3)+\Theta(1)\)</span>。</p>
+<p>考虑使用主定理，代入得到<span
+class="math inline">\(a=3,b=\dfrac{3}{2},f(n)=\Theta(1),\log_b a\approx
+2.71\)</span>。</p>
+<p>那么使用第一个条件，可以得到<span
+class="math inline">\(T(n)=\Theta(n^{\log_{3/2} 3})\approx
+\Theta(n^{2.71})\)</span>。</p>
+<h2 id="c-3">c</h2>
+<p>不能，因为算法<code>STOOGE-SORT</code>的最坏时间复杂度比以上所述所有算法的最坏时间复杂度都要糟糕。</p>
+<h1 id="section-4">7-5</h1>
+<h2 id="a-4">a</h2>
+<p>考虑使用归纳法进行说明。</p>
+<p>可以发现，对于长度为<span
+class="math inline">\(2\)</span>及以下的数组，它们可以正确的被排序。</p>
+<p>当长度<span
+class="math inline">\(n=p-r+1&gt;2\)</span>时，考虑进行划分。每一次划分完成后，支点<span
+class="math inline">\(q\)</span>已经到达了正确的已排序位置。并且递归排序数组<span
+class="math inline">\(A[p:q]\)</span>中的部分。根据上面的假设，数组<span
+class="math inline">\(A[p:q]\)</span>最终已经正确排序，并且<span
+class="math inline">\(A[p:q]\)</span>是数组中最小的<span
+class="math inline">\(q-p+1\)</span>个数。在下一次迭代得到新的划分<span
+class="math inline">\(q&#39;\)</span>时，支点<span
+class="math inline">\(A[q&#39;]\)</span>已经到达了正确的位置，最终正确地递归排序<span
+class="math inline">\(A[q+1:q&#39;-1]\)</span>中的数……因此循环结束后，整个数组将被正确地排序。</p>
+<h2 id="b-4">b</h2>
+<p>当整个数组是已排序的时候，递归的深度可以达到<span
+class="math inline">\(\Theta(n)\)</span>。每次划分，数组右侧将会没有元素，而左侧却有<span
+class="math inline">\(n-1\)</span>个。</p>
+<h2 id="c-4">c</h2>
+<p>每一次递归调用，参数<span
+class="math inline">\(r,p\)</span>将会满足<span
+class="math inline">\(r-p+1\)</span>的值减少到原来至多一半，因此递归调用的最大深度为<span
+class="math inline">\(\Theta(\lg
+n)\)</span>。可以发现，这份代码总体结构并没有改变，仍然保持着<span
+class="math inline">\(O(n\lg n)\)</span>的运行时间。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">TRE-QUICKSORT(A, p, r)</span><br><span class="line">  while p &lt; r</span><br><span class="line">  // Partition and then sort the low side.</span><br><span class="line">    q = PARTITION(A, p, r)</span><br><span class="line">    if q &lt;= ⌊(p + r) / 2⌋</span><br><span class="line">      TRE-QUICKSORT(A, p, q – 1)</span><br><span class="line">      p = q + 1</span><br><span class="line">    else</span><br><span class="line">      TRE-QUICKSORT(A, q + 1, r)</span><br><span class="line">      r = q - 1</span><br></pre></td></tr></table></figure>
+<h1 id="section-5">7-6</h1>
+<h2 id="a-5">a</h2>
+<p>假设这个数组的<span
+class="math inline">\(n\)</span>个元素都不相同，随机选取<span
+class="math inline">\(3\)</span>个数，那么有<span
+class="math inline">\(\dbinom{n}{3}\)</span>种选法。其中，第<span
+class="math inline">\(i\)</span>小的数成为最终的支点的支点的选法有<span
+class="math inline">\((i-1)\cdot (n-i)\)</span>种，因为比<span
+class="math inline">\(i\)</span>小的数有<span
+class="math inline">\(i-1\)</span>种选法，比<span
+class="math inline">\(i\)</span>大的数有<span
+class="math inline">\(n-i\)</span>种选法。因此，有</p>
+<p><span
+class="math display">\[p_i=\dfrac{6(i-1)(n-i)}{n(n-1)(n-2)}\]</span></p>
+<h2 id="b-5">b</h2>
+<p>按照这个算法，序列<span
+class="math inline">\(A\)</span>的中位数被选上的概率增加了<span
+class="math inline">\(p_{\lfloor(n+1)/2\rfloor}-\dfrac{1}{n}\)</span>，也就是：</p>
+<p><span
+class="math display">\[\dfrac{6(\lfloor(n+1)/2\rfloor-1)(n-\lfloor(n+1)/2\rfloor)}{n(n-1)(n-2)}-\dfrac{1}{n}\]</span></p>
+<p>尝试计算极限<span
+class="math inline">\(\displaystyle{\lim_{n\rightarrow +\infty}
+\dfrac{p_{\lfloor(n+1)/2\rfloor}}{1/n}}\)</span>，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\lim_{n\rightarrow +\infty} \dfrac{p_{\lfloor(n+1)/2\rfloor}}{1/n}
+&amp;= \lim_{n\rightarrow +\infty}
+\dfrac{6(\lfloor(n+1)/2\rfloor-1)(n-\lfloor(n+1)/2\rfloor)}{(n-1)(n-2)}
+\\&amp;=\dfrac{6\cdot 1/2\cdot 1/2}{1\cdot 1}\\
+&amp;=\dfrac{3}{2}
+\end{aligned}\)</span></p>
+<h2 id="c-5">c</h2>
+<p>令<span class="math inline">\(\displaystyle{s_i=\sum_{j=1}^i
+p_j}\)</span>，那么可以得到<span
+class="math inline">\(s_i=\dfrac{i(i-1)(3n-2i-2)}{n(n-1)(n-2)}\)</span></p>
+<p>那么最终结果为<span
+class="math inline">\(s_{2n/3}-s_{n/3-1}=\dfrac{13n^2+9n-90}{27(n-1)(n-2)}\)</span>。</p>
+<p>可以得到<span class="math inline">\(\displaystyle{\lim_{n\rightarrow
++\infty} \sum_{i=n/3}^{2n/3} p_i=\lim_{n\rightarrow +\infty}
+s_{2n/3}-s_{n/3-1}=\dfrac{13}{27}}\)</span>。</p>
+<h2 id="d-3">d</h2>
+<p>由于最完美的快速排序算法仍然会有<span
+class="math inline">\(\Omega(n\lg
+n)\)</span>的下界。这里介绍的划分算法不如最完美的划分算法优秀，偶尔会引入比较坏的情况，因此仍然会有<span
+class="math inline">\(\Omega(n\lg n)\)</span>的下界。</p>
+<h1 id="section-6">7-7</h1>
+<p>本题的思想参考了题目7-2。假设区间<span
+class="math inline">\(I\)</span>是一部分区间的交集，那么将包含区间<span
+class="math inline">\(I\)</span>的所有区间放数组<span
+class="math inline">\(A\)</span>中间（因为这一些区间全部可以赋予<span
+class="math inline">\(I\)</span>中的同一个数），右端点在<span
+class="math inline">\(I\)</span>左边的区间放在数组<span
+class="math inline">\(A\)</span>左侧，左端点在<span
+class="math inline">\(I\)</span>右侧的区间放在数组<span
+class="math inline">\(A\)</span>右侧，由此递归地排序。</p>
+<h2 id="a-6">a</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">// 判断区间A和B是否相交。</span><br><span class="line">IS-INTERSECT(A, B)</span><br><span class="line">  return max&#123;A.l, B.l&#125; &lt;= min&#123;A.r, B.r&#125;</span><br><span class="line"></span><br><span class="line">// 区间A和B之交。</span><br><span class="line">INTERSECT(A, B)</span><br><span class="line">  return (max&#123;A.l, B.l&#125;, min&#123;A.r, B.r&#125;)</span><br><span class="line"></span><br><span class="line">// 这个划分方案将区间划分成三部分：A[p : q - 1], A[q : t], A[t + 1 : r]。其中$A[q : t]$中的所有数全都可以赋值同一个数。</span><br><span class="line">PARTION-INTERVAL(A, p, r)</span><br><span class="line">  i = RANDOM(p, r)</span><br><span class="line">  exchange A[i] with A[p]</span><br><span class="line">  I = A[p]</span><br><span class="line">  i = k = p</span><br><span class="line">  j = r</span><br><span class="line">  while i &lt;= j</span><br><span class="line">    if IS-INTERSECT(I, A[i])</span><br><span class="line">      I = INTERSECT(I, A[i])</span><br><span class="line">      i += 1</span><br><span class="line">    else if A[i].b &lt; I.a</span><br><span class="line">      exchange A[i] and A[k]</span><br><span class="line">      i += 1</span><br><span class="line">      k += 1</span><br><span class="line">    else</span><br><span class="line">      exchange A[i] and A[j]</span><br><span class="line">      j -= 1</span><br><span class="line">  return k, i - 1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">QUICKSORT-INTERVAL(A, p, r)</span><br><span class="line">  if p &lt; r</span><br><span class="line">    (q, t) = PARTION-INTERVAL(A, p, r)</span><br><span class="line">    QUICKSORT-INTERVAL(A, p, q - 1)</span><br><span class="line">    QUICKSORT-INTERVAL(A, t + 1, r)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="b-6">b</h2>
+<p>如果这些区间是尽可能的重叠，那么它们将会很容易被算法<code>PARTION-INTERVAL</code>求出它们的交集<span
+class="math inline">\(I\)</span>。最终这些区间都被放在了中间，达到了递归终点。算法<code>QUICKSORT-INTERVAL</code>将会忽略掉这些已经安排好的区间，如果足够重叠，忽略的区间数足够多，那么就有可能全部忽略完，达到<span
+class="math inline">\(\Theta(n)\)</span>的时间复杂度。</p>
+<p>算法<code>QUICKSORT-INTERVAL</code>最终递归求解的是自问<span
+class="math inline">\(A[p:q-1],A[t+1:r]\)</span>，这两个子问题并不重叠。在最坏情况下，这些区间互相不相交，此时这个算法相当于一般的<code>RANDOMIZED-QUICKSORT</code>算法，其时间复杂度为<span
+class="math inline">\(\Theta(n\lg
+n)\)</span>。在一般情况下，这个算法的行为和<code>RANDOMIZED-QUICKSORT</code>相同，其时间复杂度为<span
+class="math inline">\(\Theta(n\lg n)\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-7/problems/" title="算法导论7 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-7/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

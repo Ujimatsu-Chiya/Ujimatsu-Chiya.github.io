@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论23.2 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-23/exercises-2/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-13T15:14:20.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.154Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-23/exercises-2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-23/exercises-2/","path":"introduction-to-algorithms/chapter-23/exercises-2/","title":"算法导论23.2 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论23.2 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">23.2-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">23.2-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">23.2-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">23.2-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">23.2-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">23.2-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">23.2-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">23.2-8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">9.</span> <span class="nav-text">23.2-9</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-23/exercises-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论23.2 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论23.2 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-13 23:14:20" itemprop="dateCreated datePublished" datetime="2023-05-13T23:14:20+08:00">2023-05-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">23.2-1</h1>
+<p>每步的迭代结果如下：</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;\begin{pmatrix}
+0&amp;\infty&amp;\infty&amp;\infty&amp;-1&amp;\infty\\
+1&amp;0&amp;\infty&amp;2&amp;\infty&amp;\infty\\
+\infty&amp;2&amp;0&amp;\infty&amp;\infty&amp;-8\\
+-4&amp;\infty&amp;\infty&amp;0&amp;3&amp;\infty\\
+\infty&amp;7&amp;\infty&amp;\infty&amp;0&amp;\infty\\
+\infty&amp;5&amp;10&amp;\infty&amp;\infty&amp;0
+\end{pmatrix}
+\underrightarrow{k=1}
+\begin{pmatrix}
+0&amp;\infty&amp;\infty&amp;\infty&amp;-1&amp;\infty\\
+1&amp;0&amp;\infty&amp;2&amp;0&amp;\infty\\
+\infty&amp;2&amp;0&amp;\infty&amp;\infty&amp;-8\\
+-4&amp;\infty&amp;\infty&amp;0&amp;-5&amp;\infty\\
+\infty&amp;7&amp;\infty&amp;\infty&amp;0&amp;\infty\\
+\infty&amp;5&amp;10&amp;\infty&amp;\infty&amp;0
+\end{pmatrix}
+\underrightarrow{k=2}
+\begin{pmatrix}
+0&amp;\infty&amp;\infty&amp;\infty&amp;-1&amp;\infty\\
+1&amp;0&amp;\infty&amp;2&amp;0&amp;\infty\\
+3&amp;2&amp;0&amp;4&amp;2&amp;-8\\
+-4&amp;\infty&amp;\infty&amp;0&amp;-5&amp;\infty\\
+8&amp;7&amp;\infty&amp;9&amp;0&amp;\infty\\
+6&amp;5&amp;10&amp;7&amp;5&amp;0
+\end{pmatrix}\\
+\underrightarrow{k=3}
+&amp;\begin{pmatrix}
+0&amp;\infty&amp;\infty&amp;\infty&amp;-1&amp;\infty\\
+1&amp;0&amp;\infty&amp;2&amp;0&amp;\infty\\
+3&amp;2&amp;0&amp;4&amp;2&amp;-8\\
+-4&amp;\infty&amp;\infty&amp;0&amp;-5&amp;\infty\\
+8&amp;7&amp;\infty&amp;9&amp;0&amp;\infty\\
+6&amp;5&amp;10&amp;7&amp;5&amp;0
+\end{pmatrix}
+\underrightarrow{k=4}
+\begin{pmatrix}
+0&amp;\infty&amp;\infty&amp;\infty&amp;-1&amp;\infty\\
+-2&amp;0&amp;\infty&amp;2&amp;-3&amp;\infty\\
+0&amp;2&amp;0&amp;4&amp;-1&amp;-8\\
+-4&amp;\infty&amp;\infty&amp;0&amp;-5&amp;\infty\\
+5&amp;7&amp;\infty&amp;9&amp;0&amp;\infty\\
+3&amp;5&amp;10&amp;7&amp;2&amp;0
+\end{pmatrix}
+\underrightarrow{k=5}
+\begin{pmatrix}
+0&amp;6&amp;\infty&amp;8&amp;-1&amp;\infty\\
+-2&amp;0&amp;\infty&amp;2&amp;-3&amp;\infty\\
+0&amp;2&amp;0&amp;4&amp;-1&amp;-8\\
+-4&amp;2&amp;\infty&amp;0&amp;-5&amp;\infty\\
+5&amp;7&amp;\infty&amp;9&amp;0&amp;\infty\\
+3&amp;5&amp;10&amp;7&amp;2&amp;0
+\end{pmatrix}\\
+\underrightarrow{k=6}
+&amp;\begin{pmatrix}
+0&amp;6&amp;\infty&amp;8&amp;-1&amp;\infty\\
+-2&amp;0&amp;\infty&amp;2&amp;-3&amp;\infty\\
+-5&amp;-3&amp;0&amp;-1&amp;-6&amp;-8\\
+-4&amp;2&amp;\infty&amp;0&amp;-5&amp;\infty\\
+5&amp;7&amp;\infty&amp;9&amp;0&amp;\infty\\
+3&amp;5&amp;10&amp;7&amp;2&amp;0
+\end{pmatrix}\\
+\end{aligned}\)</span></p>
+<h1 id="section-1">23.2-2</h1>
+<p>对于图<span class="math inline">\(G=(V,E)\)</span>的邻接矩阵<span
+class="math inline">\(W\)</span>，我们设<span
+class="math inline">\(w_{ij}=1\)</span>当且仅当边<span
+class="math inline">\((i,j)\in E\)</span>，此外，<span
+class="math inline">\(\forall i\in
+V,w_{ii}=1\)</span>。接下来参照子程序<code>EXTEND-SHORTEST-PATHS</code>，构造出子程序<code>EXTEND-PATHS'</code>。那么剩下的是调用这个子程序即可求出传递闭包，整个过程和23.1节一致，由<code>TRANSITIVE-CLOSURE'</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">EXTEND-PATHS&#x27;(T(r-1), W, T(r), n)</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      for k = 1 to n</span><br><span class="line">        t_&#123;ij&#125;^(r) = t_&#123;ij&#125;^(r) ∨ (t_&#123;ik&#125;^(r-1) ∧ w_&#123;kj&#125;^(r-1))</span><br><span class="line"></span><br><span class="line">TRANSITIVE-CLOSURE&#x27;(W, n)</span><br><span class="line">  let T and M be new n × n matrices</span><br><span class="line">  T = W</span><br><span class="line">  r = 1</span><br><span class="line">  while r &lt; n - 1</span><br><span class="line">    M = 0</span><br><span class="line">    EXTEND-PATHS&#x27;&#x27;(T, T, M, n)</span><br><span class="line">    r = 2r</span><br><span class="line">    T = M</span><br><span class="line">  return T</span><br></pre></td></tr></table></figure>
+<h1 id="section-2">23.2-3</h1>
+<p>按照方程23.7和23.8，修改后的算法为<code>FLOYD-WARSHALL''</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">FLOYD-WARSHALL&#x27;&#x27;(W, n)</span><br><span class="line">  D^(0) = W</span><br><span class="line">  let Π^(0) be a new n × n matrix</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      if w_&#123;ij&#125; &lt; ∞ and i != j</span><br><span class="line">        π^(0)_&#123;ij&#125; = i</span><br><span class="line">      else</span><br><span class="line">        π^(0)_&#123;ij&#125; = NIL</span><br><span class="line">  for k = 1 to n</span><br><span class="line">    let D^(k) = (d^(k)_&#123;ij&#125;),Π^(k) = (π^(k)_&#123;ij&#125;) be new n × n matrices</span><br><span class="line">    for i = 1 to n</span><br><span class="line">      for j = 1 to n</span><br><span class="line">        if d^(k-1)_&#123;ij&#125; &gt; d^(k-1)_&#123;ik&#125; + d^(k-1)_&#123;kj&#125;</span><br><span class="line">          d^(k)_&#123;ij&#125; = d^(k-1)_&#123;ik&#125; + d^(k-1)_&#123;kj&#125;</span><br><span class="line">          π^(k)_&#123;ij&#125; = π^(k-1)_&#123;kj&#125;</span><br><span class="line">        else</span><br><span class="line">          d^(k)_&#123;ij&#125; = d^(k-1)_&#123;ij&#125;</span><br><span class="line">          π^(k)_&#123;ij&#125; = π^(k-1)_&#123;ij&#125;</span><br><span class="line">  return D^(n), Π^(n)</span><br></pre></td></tr></table></figure>
+<p>首先证明<span
+class="math inline">\(G_{\pi,i}\)</span>是一个有向无环图。当<span
+class="math inline">\(\pi_{ij}^{(k)}\)</span>被更新成一个值<span
+class="math inline">\(l\)</span>时，说明<span
+class="math inline">\(d_{ij}^{(k)}=d_{il}^{(k-1)}+w_{lj}\)</span>。由于<span
+class="math inline">\(d_{ij}^{(k-1)}\)</span>是<span
+class="math inline">\(d_{ij}^{(k)}\)</span>的一个子问题选项，因此有<span
+class="math inline">\(d_{ij}^{(k)}\le
+d_{ij}^{(k-1)}\)</span>，从而得到<span
+class="math inline">\(d_{ij}^{(k)}\ge
+d_{il}^{(k-1)}+w_{lj}\)</span>。接下来的证明和引理22.16的证明类似。假设<span
+class="math inline">\(G_{\pi,i}\)</span>构成了一个环<span
+class="math inline">\(v_0,v_1,\dots,v_m\)</span>，其中<span
+class="math inline">\(v_0=v_m,\forall
+j\in[1,m],\pi^{(k)}_{i,v_j}=v_{j-1}\)</span>都成立。那么在<span
+class="math inline">\(\pi_{i,v_m}\)</span>更新成<span
+class="math inline">\(v_{m-1}\)</span>前，都有：</p>
+<p><span class="math display">\[d_{i,v_j}^{(k)}\ge
+d_{i,v_{j-1}}^{(k)}+w_{v_{j-1},v_j},j=1,2,\dots,m-1\]</span></p>
+<p>由于<span
+class="math inline">\(\pi_{i,v_m}\)</span>被更新，所以在<span
+class="math inline">\(\pi_{i,v_m}\)</span>被更新成<span
+class="math inline">\(v_{m-1}\)</span>前，有</p>
+<p><span
+class="math display">\[d_{i,v_{m}}^{(k)}&gt;d_{i,v_{m-1}}^{(k)}+w_{v_{m-1},v_m}\]</span></p>
+<p>将这<span
+class="math inline">\(m\)</span>条不等式左右各自相加，最终得到<span
+class="math inline">\(\displaystyle{\sum_{j=1}^m
+w(v_{j-1},v_j)}&lt;0\)</span>。这和图<span
+class="math inline">\(G\)</span>没有负环是矛盾的。因此，<span
+class="math inline">\(G_{\pi,i}\)</span>是一个有向无环图。</p>
+<p>接下来和引理22.17的证明类似。<span
+class="math inline">\(G_{\pi,i}\)</span>从<span
+class="math inline">\(i\)</span>到每个节点<span
+class="math inline">\(u\)</span>之间只存在唯一一条路径。如果存在两条路径<span
+class="math inline">\(p_1:i\rightsquigarrow u\rightsquigarrow
+x\rightarrow z\rightsquigarrow u,p_2:i\rightsquigarrow u\rightsquigarrow
+y\rightarrow z\rightsquigarrow u\)</span>，并且<span
+class="math inline">\(x\neq y\)</span>，那么说明<span
+class="math inline">\(\pi_{iz}=x,\pi_{iz}=y\)</span>同时成立。这是不可能的，因此从<span
+class="math inline">\(i\)</span>到每个节点<span
+class="math inline">\(u\)</span>之间只存在唯一一条路径，<span
+class="math inline">\(G_{\pi,i}\)</span>是以<span
+class="math inline">\(i\)</span>为根形成的一棵树。</p>
+<p>最终，由于算法正确地求解出了<span
+class="math inline">\(d_{ij}^{(n)}=\delta(i,j)\)</span>，因此对于所有顶点<span
+class="math inline">\(i,G_i\)</span>都是以<span
+class="math inline">\(i\)</span>为根的最短路径树。</p>
+<h1 id="section-3">23.2-4</h1>
+<p>可以知道，这个对<span
+class="math inline">\(d_{ij}^{(k)}\)</span>的更新本质上是来自<span
+class="math inline">\(\{d_{ik}^{(k)}+d_{kj}^{(k)},d_{ik}^{(k-1)}+d_{kj}^{(k-1)},d_{ik}^{(k)}+d_{kj}^{(k-1)},d_{ik}^{(k-1)}+d_{kj}^{(k)}\}\)</span>这<span
+class="math inline">\(4\)</span>组值中的某一个，我们将通过证明<span
+class="math inline">\(d_{ik}^{(k-1)}=d_{ik}^{(k)},d_{kj}^{(k-1)}=d_{kj}^{(k)}\)</span>，从而说明这个更新是正确的。</p>
+<p>考虑先证明<span
+class="math inline">\(d_{ik}^{(k-1)}=d_{ik}^{(k)}\)</span>。根据<span
+class="math inline">\(d_{ij}^{(k)}\)</span>的定义：从<span
+class="math inline">\(i\)</span>到<span
+class="math inline">\(j\)</span>的路径中，中间节点只包含节点<span
+class="math inline">\(1,2,\dots,k\)</span>的最短路径。由于<span
+class="math inline">\(k\)</span>是这条最短路径中的一个<strong>端点</strong>。<span
+class="math inline">\(k\)</span>不在<span
+class="math inline">\(d_{ik}^{(k-1)}\)</span>中，如果再尝试多途经一个节点<span
+class="math inline">\(k\)</span>，那么来自路径<span
+class="math inline">\(d_{ik}^{(k)}\)</span>的最短路径必定不会劣于<span
+class="math inline">\(d_{ik}^{(k-1)}\)</span>（因为<span
+class="math inline">\(d_{ik}^{(k-1)}\)</span>是<span
+class="math inline">\(d_{ik}^{(k)}\)</span>的一个子问题）。因此有<span
+class="math inline">\(d_{ik}^{(k-1)}\ge d_{ik}^{(k)}\)</span>。如果<span
+class="math inline">\(k\)</span>是从<span
+class="math inline">\(i\)</span>到<span
+class="math inline">\(k\)</span>这条路径的一个中间节点，那么路径上就会形成环，因此有<span
+class="math inline">\(d_{ik}^{(k-1)}\le
+d_{ik}^{(k)}\)</span>。从而得出<span
+class="math inline">\(d_{ik}^{(k-1)}=d_{ik}^{(k)}\)</span>。</p>
+<p>可以用类似的证明方式，得到<span
+class="math inline">\(d_{kj}^{(k-1)}=d_{kj}^{(k)}\)</span>。最终可知，这种更新方式是正确的。</p>
+<h1 id="section-4">23.2-5</h1>
+<p>由这个方式构造出来的矩阵是正确的。</p>
+<p>此处仅讨论<span
+class="math inline">\(d_{ij}^{(k-1)}=d_{ik}^{(k-1)}+d_{kj}^{(k-1)}\)</span>时的这种情况，因为如果等号不成立，情况和方程23.8时的一致。当第<span
+class="math inline">\(k\)</span>轮循环结束时，保证有<span
+class="math inline">\(d_{ij}^{(k)}=d_{i,\pi_{ij}}^{(k-1)}+d_{\pi_{ij},j}^{(k-1)}\)</span>。</p>
+<p>本题对应的情况是<span
+class="math inline">\(\pi_{ij}^{(k)}=\pi_{kj}^{(k-1)}\)</span>。由于<span
+class="math inline">\(d_{ij}^{(k-1)}=d_{ij}^{(k)}=d_{ik}^{(k-1)}+d_{kj}^{(k-1)}\)</span>，因此<span
+class="math inline">\(k\)</span>也可以作为从<span
+class="math inline">\(i\)</span>到<span
+class="math inline">\(j\)</span>某条最短路径中的一个节点，由于<span
+class="math inline">\(d_{kj}^{(k-1)}\)</span>也是取自某条从<span
+class="math inline">\(k\)</span>到<span
+class="math inline">\(j\)</span>最短路径的长度，作为一条子路径，它的前驱<span
+class="math inline">\(\pi_{kj}^{(k-1)}\)</span>也适用于<span
+class="math inline">\(\pi_{ij}^{(k)}\)</span>。</p>
+<h1 id="section-5">23.2-6</h1>
+<p>如果其最终输出<span
+class="math inline">\(D^{(n)}\)</span>的主对角线上存在负数，那么说明<span
+class="math inline">\(G\)</span>中存在负环。因为某次<span
+class="math inline">\(d^{k-1}_{ik}+d^{k-1}_{ki}&lt;0\)</span>的更新导致了主对角线上<span
+class="math inline">\(d^{k}_{ii}\)</span>的值小于<span
+class="math inline">\(0\)</span>。</p>
+<h1 id="section-6">23.2-7</h1>
+<p>由于Floyd-Warshall算法是从小到大插入中间节点<span
+class="math inline">\(k\)</span>来求解最短路径的，因此如果节点<span
+class="math inline">\(k\)</span>确实对从<span
+class="math inline">\(i\)</span>到<span
+class="math inline">\(j\)</span>的路径有实在的贡献，那么<span
+class="math inline">\(\phi^{(k)}_{ij}=k\)</span>，否则有<span
+class="math inline">\(\phi^{(k)}_{ij}=\phi^{(k-1)}_{ij}\)</span>，也就是沿用上一次迭代的结果。更正式地可以将<span
+class="math inline">\(\Phi^{(k)}\)</span>写成：</p>
+<p><span class="math inline">\(\phi^{(k)}_{ij}=
+\left \{\begin{aligned}
+  &amp;k &amp; &amp; \text{if}\quad  d^{(k-1)}_{ij} &gt;
+d^{(k-1)}_{ik}+d^{(k-1)}_{kj} \\
+  &amp;\phi^{(k-1)}_{ij} &amp; &amp; \text{if}\quad d^{(k-1)}_{ij} \le
+d^{(k-1)}_{ik}+d^{(k-1)}_{kj} \\
+\end{aligned}\right.\)</span></p>
+<p>那么可以将Floyd-Warshall算法进行改写以求出<span
+class="math inline">\(\Phi\)</span>，由<code>FLOYD-WARSHALL'''</code>给出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FLOYD-WARSHALL&#x27;&#x27;&#x27;(W, n)</span><br><span class="line">  D^(0) = W</span><br><span class="line">  for k = 1 to n</span><br><span class="line">    let D^(k) = (d^(k)_&#123;ij&#125;),Φ^(k) = (ϕ^(k)_&#123;ij&#125;) be new n × n matrices</span><br><span class="line">    for i = 1 to n</span><br><span class="line">      for j = 1 to n</span><br><span class="line">        if d^(k-1)_&#123;ij&#125; &gt; d^(k-1)_&#123;ik&#125; + d^(k-1)_&#123;kj&#125;</span><br><span class="line">          d^(k)_&#123;ij&#125; = d^(k-1)_&#123;ik&#125; + d^(k-1)_&#123;kj&#125;</span><br><span class="line">          ϕ^(k)_&#123;ij&#125; = k</span><br><span class="line">        else</span><br><span class="line">          d^(k)_&#123;ij&#125; = d^(k-1)_&#123;ij&#125;</span><br><span class="line">          d^(k)_&#123;ij&#125; = ϕ^(k-1)_&#123;ij&#125;</span><br><span class="line">  return D^(n), Φ^(n)</span><br></pre></td></tr></table></figure>
+<p>修改后的<code>PRINT-ALL-PAIRS-SHORTEST-PATH</code>由程序<code>PRINT-ALL-PAIRS-SHORTEST-PATH'</code>给出，它需要调用一个子程序<code>AUX-PRINT-PATH</code>来保证路径能够被正确遍历。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// 这个函数用来打印除了起点s和终点t以外的所有点。</span><br><span class="line">AUX-PRINT-PATH(Φ, W, n, s, t)</span><br><span class="line">  if ϕ_&#123;st&#125; == NIL</span><br><span class="line">    return</span><br><span class="line">  x = ϕ_&#123;st&#125;</span><br><span class="line">  AUX-PRINT-PATH(Φ, W, n, s, x)</span><br><span class="line">  print x</span><br><span class="line">  AUX-PRINT-PATH(Φ, W, n, x, t)</span><br><span class="line"></span><br><span class="line">PRINT-ALL-PAIRS-SHORTEST-PATH(Φ, W, n, s, t)</span><br><span class="line">  if ϕ_&#123;st&#125; == NIL and w_&#123;st&#125; == ∞</span><br><span class="line">    print &quot;no path from&quot; i &quot;to&quot; j &quot;exists&quot;</span><br><span class="line">  else if s == t</span><br><span class="line">    print s</span><br><span class="line">  else</span><br><span class="line">    print s</span><br><span class="line">    AUX-PRINT-PATH(Φ, W, n, s, t)</span><br><span class="line">    print t</span><br></pre></td></tr></table></figure>
+<p>表<span class="math inline">\(Φ\)</span>和矩阵链乘所得到的表<span
+class="math inline">\(s\)</span>是一样的，它们表示的内容都是当前最优情况下，对对路径/乘法阶段的最优划分。然而，<span
+class="math inline">\(\Phi\)</span>表的路径追踪比<span
+class="math inline">\(s\)</span>表难，因为<span
+class="math inline">\(\Phi\)</span>表中的元素并不能直接获得特定的前驱或者是后继节点，只能向下一步步遍历。</p>
+<h1 id="section-7">23.2-8</h1>
+<p>枚举<span class="math inline">\(G=(V,E)\)</span>中的每一个节点<span
+class="math inline">\(s\)</span>进行BFS即可，被标记的节点都是能从<span
+class="math inline">\(s\)</span>到达的节点。枚举完<span
+class="math inline">\(V\)</span>中所有节点得到的结构恰好就是传递闭包。</p>
+<p>整个算法由程序<code>TRANSITIVE-CLOSURE''</code>给出。每进行一次BFS的时间复杂度为<span
+class="math inline">\(O(V+E)=O(E)\)</span>，因此进行<span
+class="math inline">\(|V|\)</span>次BFS的时间复杂度为<span
+class="math inline">\(O(VE)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">TRANSITIVE-CLOSURE&#x27;&#x27;(G)</span><br><span class="line">  E = ∅</span><br><span class="line">  for each s ∈ G.V</span><br><span class="line">    BFS(s)</span><br><span class="line">    for each v ∈ G.V</span><br><span class="line">      if v.color == BLACK:</span><br><span class="line">        E = E ∪ &#123;(s, v)&#125;</span><br><span class="line">  return (G.V, E)</span><br></pre></td></tr></table></figure>
+<h1 id="section-8">23.2-9</h1>
+<p>考虑以<span class="math inline">\(3\)</span>个步骤计算出有向图<span
+class="math inline">\(G=(V,E)\)</span>的传递闭包。</p>
+<ol type="1">
+<li><p>先花费<span class="math inline">\(O(V+E)\)</span>的时间求出<span
+class="math inline">\(G\)</span>的强连通分量，再以<span
+class="math inline">\(O(V+E)\)</span>的时间计算出这些强连通分量的分量图<span
+class="math inline">\(G^{SCC}=(V^{SCC},E^{SCC})\)</span>。注意到，<span
+class="math inline">\(|V^{SCC}|\le |V|,|E^{SCC}|\le
+|E|\)</span>，并且<span
+class="math inline">\(G^{SCC}\)</span>是一个有向无环图。</p></li>
+<li><p>使用题中算法所描述的算法求解<span
+class="math inline">\(G^{SCC}\)</span>的传递闭包<span
+class="math inline">\(G^{SCC\ast}=(V^{SCC},E^{SCC\ast})\)</span>，这将花费<span
+class="math inline">\(f(|V^{SCC}|,|E^{SCC}|)\)</span>的时间。由于<span
+class="math inline">\(f\)</span>是一个单调递增函数，因此说明只需要不超过<span
+class="math inline">\(f(|V|,|E|)\)</span>的时间即可构造出<span
+class="math inline">\(G^{SCC\ast}\)</span>。</p></li>
+<li><p>考虑通过<span
+class="math inline">\(G^{SCC\ast}\)</span>来构造<span
+class="math inline">\(G^{\ast}=(V,E^{\ast})\)</span>。假设求解分量图完成后，强连通分量<span
+class="math inline">\(C_i\)</span>表示图<span
+class="math inline">\(G\)</span>中属于这个分量的所有节点，<span
+class="math inline">\(v_i\)</span>是<span
+class="math inline">\(C_i\)</span>在<span
+class="math inline">\(G^{SCC}\)</span>上对应的节点。那么首先枚举<span
+class="math inline">\(C_i\)</span>中的所有节点，并将它们成对的边添加到<span
+class="math inline">\(E^{\ast}\)</span>中，每次枚举并添加一条边只需要<span
+class="math inline">\(O(1)\)</span>的时间。对于<span
+class="math inline">\(\forall (v_i,v_j)\in E^{SCC\ast}\)</span>，<span
+class="math inline">\(\forall u\in v_i,v\in v_j,(u,v)\in
+E^{\ast}\)</span>，同样的，每次枚举并添加一条边只需要<span
+class="math inline">\(O(1)\)</span>的时间。添加完所有边恰好需要<span
+class="math inline">\(O(V+E^{\ast})\)</span>的时间。</p></li>
+</ol>
+<p>因此，这<span
+class="math inline">\(3\)</span>部分所需要花费的时间为<span
+class="math inline">\(f(|V|,|E|)+O(V+E)+O(V+E^{\ast})\)</span>，即可得到<span
+class="math inline">\(f(|V|,|E|)+O(V+E^{\ast})\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-23/exercises-2/" title="算法导论23.2 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-23/exercises-2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

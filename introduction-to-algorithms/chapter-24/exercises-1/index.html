@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论24.1 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-1/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-23T09:13:36.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.156Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-1/","path":"introduction-to-algorithms/chapter-24/exercises-1/","title":"算法导论24.1 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论24.1 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">24.1-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">24.1-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">24.1-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">24.1-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">24.1-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">24.1-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">24.1-7</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论24.1 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论24.1 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-23 17:13:36" itemprop="dateCreated datePublished" datetime="2023-06-23T17:13:36+08:00">2023-06-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">24.1-1</h1>
+<p>令<span class="math inline">\(f&#39;\)</span>是<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>中的一个流，<span
+class="math inline">\(f\)</span>是<span
+class="math inline">\(G=(V,E)\)</span>中的一个流，容易知道，<span
+class="math inline">\(V\subseteq
+V&#39;\)</span>。我们将证明，对于所有在图<span
+class="math inline">\(G&#39;\)</span>中的流<span
+class="math inline">\(f&#39;\)</span>，都在<span
+class="math inline">\(G\)</span>中存在对应的流<span
+class="math inline">\(f\)</span>，使得<span
+class="math inline">\(|f&#39;|=|f|\)</span>；类似的，对于所有在图<span
+class="math inline">\(G\)</span>中的流<span
+class="math inline">\(f\)</span>，都在<span
+class="math inline">\(G&#39;\)</span>中存在对应的流<span
+class="math inline">\(f&#39;\)</span>，使得<span
+class="math inline">\(|f|=|f&#39;|\)</span>，从而证明两个图中的流具有对应关系，因此<span
+class="math inline">\(G&#39;\)</span>中的最大流就对应了<span
+class="math inline">\(G\)</span>中的最大流。不失一般性，假设<span
+class="math inline">\(G\)</span>中存在一对节点<span
+class="math inline">\((u,v)\)</span>，满足<span
+class="math inline">\(c(u,v)&gt;0,c(v,u)&gt;0\)</span>，并且在图<span
+class="math inline">\(G&#39;\)</span>中，边<span
+class="math inline">\((u,v)\)</span>被拆分成两条边<span
+class="math inline">\((u,x),(x,v)\)</span>，并且有<span
+class="math inline">\(c&#39;(u,x)=c&#39;(x,v)=c(u,v),c&#39;(v,u)=c(v,u)\)</span>。</p>
+<p>接下来先证明：对于所有在图<span
+class="math inline">\(G&#39;\)</span>中的流<span
+class="math inline">\(f&#39;\)</span>，都在<span
+class="math inline">\(G\)</span>中存在对应的流<span
+class="math inline">\(f\)</span>，使得<span
+class="math inline">\(|f&#39;|=|f|\)</span>。假设<span
+class="math inline">\(f&#39;\)</span>是图<span
+class="math inline">\(G&#39;\)</span>的某一个流，那么根据流量守恒可知<span
+class="math inline">\(f&#39;(u,x)=f&#39;(x,v)\)</span>，令<span
+class="math inline">\(f(u,v)=f&#39;(u,x),f(v,u)=f&#39;(v,u)\)</span>。那么这对反平行边在图<span
+class="math inline">\(G\)</span>中的<span
+class="math inline">\(u\)</span>节点看来，它们使其释放了<span
+class="math inline">\(f(u,v)-f(v,u)\)</span>的流量；在<span
+class="math inline">\(v\)</span>节点看来，它们使其接受了<span
+class="math inline">\(f(u,v)-f(v,u)\)</span>的流量，这个情况在图<span
+class="math inline">\(G&#39;\)</span>中的节点<span
+class="math inline">\(u\)</span>和<span
+class="math inline">\(v\)</span>看来是一样的，因此节点<span
+class="math inline">\(u,v\)</span>的流量守恒仍然保持成立。因此按照<span
+class="math inline">\(f,f&#39;\)</span>的定义式，可以计算出<span
+class="math inline">\(|f&#39;|-|f|\)</span>的值：</p>
+<p><span class="math inline">\(\begin{aligned}
+|f&#39;|-|f|&amp;=\left(\sum_{v\in V&#39;} f&#39;(s,v)-\sum_{v\in
+V&#39;} f&#39;(v,s)\right)-\left(\sum_{v\in V} f(s,v)-\sum_{v\in V}
+f(v,s)\right)\\
+&amp;=\left(\sum_{v\in V&#39;} f&#39;(s,v)-\sum_{v\in V}
+f(s,v)\right)-\left(\sum_{v\in V&#39;} f&#39;(v,s)-\sum_{v\in V}
+f(v,s)\right)\\
+&amp;=\left(\sum_{v\in V&#39;} f&#39;(s,v)-\sum_{v\in V}
+f(s,v)\right)-\left(\sum_{v\in V&#39;} f&#39;(v,s)-\sum_{v\in V}
+f(v,s)\right)\\
+&amp;=0-0&amp;\qquad(A)\\
+&amp;=0
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>的得出，是因为图<span
+class="math inline">\(G\)</span>中<span
+class="math inline">\(s\)</span>的出边/入边和<span
+class="math inline">\(G&#39;\)</span>中的出边/入边一一对应，因此构造出来的流<span
+class="math inline">\(f\)</span>满足<span
+class="math inline">\(|f&#39;|=|f|\)</span>。</p>
+<p>接下来证明：对于所有在图<span
+class="math inline">\(G\)</span>中的流<span
+class="math inline">\(f\)</span>，都在<span
+class="math inline">\(G&#39;\)</span>中存在对应的流<span
+class="math inline">\(f&#39;\)</span>，使得<span
+class="math inline">\(|f|=|f&#39;|\)</span>。假设<span
+class="math inline">\(f\)</span>是图<span
+class="math inline">\(G\)</span>的某一个流，那么令<span
+class="math inline">\(f&#39;(u,x)=f&#39;(x,v)=f(u,v),f&#39;(v,u)=f(v,u)\)</span>。由新构造出的<span
+class="math inline">\(x\)</span>节点可以知道，<span
+class="math inline">\(x\)</span>满足流量守恒，此外对于<span
+class="math inline">\(u\)</span>节点和<span
+class="math inline">\(v\)</span>节点，按照之前的论证，它们对节点<span
+class="math inline">\(u\)</span>和<span
+class="math inline">\(v\)</span>的流入流量和流出流量的贡献是相同的，因此按照类似的论证方式，可以得出<span
+class="math inline">\(|f&#39;|=|f|\)</span>。</p>
+<p>因此最终，从<span
+class="math inline">\(G&#39;\)</span>构造出来的最大流可以推导出图<span
+class="math inline">\(G\)</span>的最大流。原结论成立。</p>
+<h1 id="section-1">24.1-2</h1>
+<p>定义源点集合<span
+class="math inline">\(S=\{s_1,s_2,\dots,s_n\}\)</span>，汇点集合<span
+class="math inline">\(T=\{t_1,t_2,\dots,t_m\}\)</span>。那么容量限制的定义依旧不变，流量守恒的定义转变成，对于所有的节点<span
+class="math inline">\(u\in V-S-T\)</span>，有<span
+class="math inline">\(\displaystyle{\sum_{v\in V} f(u,v)=\sum_{v\in V}
+f(v,u)}\)</span>成立。</p>
+<p>那么最大流<span class="math inline">\(f\)</span>的值定义为：</p>
+<p><span class="math display">\[|f|=\sum_{s\in S}\left(\sum_{v\in V}
+f(s,v)-\sum_{v\in V}f(v,s)\right) \]</span></p>
+<p>令新增超级源点<span
+class="math inline">\(s&#39;\)</span>和超级汇点<span
+class="math inline">\(t&#39;\)</span>后所得到的图<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>，其中<span
+class="math inline">\(V=V\cup\{s,t\}\)</span>。那么<span
+class="math inline">\(\forall (u,v)\in
+E,f&#39;(u,v)=f(u,v)\)</span>，并且对于<span
+class="math inline">\(\displaystyle{\forall s\in
+S,f&#39;(s&#39;,s)=\sum_{v\in V}f(s,v)-\sum_{v\in V}
+f(v,s)}\)</span>，以及<span class="math inline">\(\displaystyle{\forall
+t\in T,f(t,t&#39;)=\sum_{v\in V}f(v,t)-\sum_{v\in
+V}f(t,v)}\)</span>，那么对于节点<span class="math inline">\(s\in S,t\in
+T\)</span>，在图<span
+class="math inline">\(G&#39;\)</span>中都满足了流量守恒。因此<span
+class="math inline">\(f\)</span>所对应的<span
+class="math inline">\(f&#39;\)</span>是在<span
+class="math inline">\(G&#39;\)</span>中的一个流。其流量值相等，均为<span
+class="math inline">\(|f|\)</span>。从<span
+class="math inline">\(f&#39;\)</span>中去除和<span
+class="math inline">\(s&#39;,t&#39;\)</span>关联的所有边后，就得到了<span
+class="math inline">\(G\)</span>中的一个流<span
+class="math inline">\(f\)</span>。</p>
+<h1 id="section-2">24.1-3</h1>
+<p>我们将证明比题目更强的一个结论：如果图<span
+class="math inline">\(G\)</span>中存在节点<span
+class="math inline">\(u\)</span>，使得路径<span
+class="math inline">\(s\rightsquigarrow u\rightsquigarrow
+t\)</span>不存在，那么对于<span
+class="math inline">\(G\)</span>中的所有流<span
+class="math inline">\(f\)</span>，都有<span
+class="math inline">\(\forall v\in
+V,f(u,v)=f(v,u)=0\)</span>。我们将使用反证法证明。</p>
+<p>我们首先证明从<span class="math inline">\(u\)</span>无法到达<span
+class="math inline">\(t\)</span>的情况。假设<span
+class="math inline">\(\exists v\in
+V,f(u,v)&gt;0\)</span>，那么根据流量守恒可以知道，从<span
+class="math inline">\(u\)</span>起必定有一条路径<span
+class="math inline">\(v_1,v_2,\dots,v_m\)</span>，对于<span
+class="math inline">\(i\in[1,m-1]\)</span>，都有<span
+class="math inline">\(f(v_{i},v_{i+1})&gt;0\)</span>成立，其中<span
+class="math inline">\(v_1=u,v_2=v\)</span>。按照流量守恒的定义，只有汇点<span
+class="math inline">\(t\)</span>允许流入量大于流出量，因此从<span
+class="math inline">\(u\)</span>开始的流量只能不停向下传递，直到到达<span
+class="math inline">\(t\)</span>，因此必定有<span
+class="math inline">\(v_m=t\)</span>，这和从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(t\)</span>中存在路径是矛盾的，因此只能有<span
+class="math inline">\(f(u,v)=0\)</span>，也就是说<span
+class="math inline">\(u\)</span>的所有出边的流量都为<span
+class="math inline">\(0\)</span>，根据流量守恒，<span
+class="math inline">\(u\)</span>的所有入边的流量都为<span
+class="math inline">\(0\)</span>，因此原结论成立。</p>
+<p>接下来证明从<span class="math inline">\(s\)</span>无法到达<span
+class="math inline">\(u\)</span>的情况。证明过程和上面的过程类似。假设<span
+class="math inline">\(\exists v\in
+V,f(v,u)&gt;0\)</span>，那么根据流量守恒可以知道，必定有以<span
+class="math inline">\(u\)</span>为终点的一条路径<span
+class="math inline">\(w_1,w_2,\dots,w_n\)</span>，对于<span
+class="math inline">\(\forall i\in[1,n-1]\)</span>，都有<span
+class="math inline">\(f(w_i,w_{i+1})&gt;0\)</span>，其中<span
+class="math inline">\(v_{n-1}=v,v_n=u\)</span>。按照流量守恒的定义，只有源点<span
+class="math inline">\(s\)</span>允许流入量小于流出量，因此只能从<span
+class="math inline">\(u\)</span>不停向上追溯，一直到达<span
+class="math inline">\(s\)</span>，因此必定有<span
+class="math inline">\(w_1=s\)</span>，这和从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(u\)</span>中存在路径是矛盾的，因此只能有<span
+class="math inline">\(f(v,u)=0\)</span>，也就是说<span
+class="math inline">\(u\)</span>的所有入边的流量都为<span
+class="math inline">\(0\)</span>，根据流量守恒，<span
+class="math inline">\(u\)</span>的所有出边的流量都为<span
+class="math inline">\(0\)</span>，因此原结论成立。</p>
+<h1 id="section-3">24.1-4</h1>
+<p>首先证明<span class="math inline">\(\alpha
+f_1+(1-\alpha)f_2\)</span>是满足容量限制。</p>
+<p>对于边<span class="math inline">\((u,v)\)</span>，由于<span
+class="math inline">\(f_1(u,v)\ge 0,f_2(u,v)\ge
+0,\alpha\in[0,1]\)</span>，因此<span class="math inline">\(\alpha
+f_1(u,v)+(1-\alpha)f_2(u,v)\ge 0\)</span>。此外，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\alpha f_1(u,v)+(1-\alpha)f_2(u,v)&amp;\le \alpha
+c(u,v)+(1-\alpha)c(u,v)\\
+&amp;=c(u,v)
+\end{aligned}\)</span></p>
+<p>因此容量限制得证。</p>
+<p>接下来证明<span class="math inline">\(\alpha
+f_1+(1-\alpha)f_2\)</span>是满足流量守恒。对于每个节点<span
+class="math inline">\(u\in V-\{s,t\}\)</span>，考虑证明<span
+class="math inline">\(\displaystyle{\sum_{v\in V}(\alpha
+f_1(u,v)+(1-\alpha)f_2(u,v))=\sum_{v\in V}(\alpha
+f_1(v,u)+(1-\alpha)f_2(v,u))}\)</span>，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;\sum_{v\in V}(\alpha f_1(u,v)+(1-\alpha)f_2(u,v))-\sum_{v\in
+V}(\alpha f_1(v,u)+(1-\alpha)f_2(v,u))\\=&amp;\alpha\left(\sum_{v\in V}
+f_1(u,v)-\sum_{v\in V} f_1(v,u)\right)-(1-\alpha)\left(\sum_{v\in V}
+f_2(u,v)-\sum_{v\in V} f_2(v,u)\right)\\
+=&amp;\alpha\cdot0+(1-\alpha)\cdot 0\\
+=&amp;0
+\end{aligned}\)</span></p>
+<p>因此流量守恒得证。</p>
+<p>因此，<span class="math inline">\(\alpha
+f_1+(1-\alpha)f_2\)</span>是一个流。</p>
+<h1 id="section-4">24.1-5</h1>
+<p>令<span class="math inline">\(G=(V,E)\)</span>，那么<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(t\)</span>的最大流问题表示成一个线性规划问题是：</p>
+<p><span class="math inline">\(\begin{aligned}
+\text{maximize}&amp;&amp; \sum_{(s,v)\in E} f(s,v)-\sum_{(v,s)\in E}
+f(v,s)\\
+\text{subject to}&amp; \\
+&amp;&amp;f(u,v)&amp;\ge 0 &amp;&amp;\forall (u,v)\in E \\
+&amp;&amp;f(u,v)&amp;\le c(u,v) &amp;&amp;\forall (u,v)\in E \\
+&amp;&amp;\sum_{(u,v)\in E} f(u,v)&amp;=\sum_{(v,u)\in E} f(v,u)
+&amp;&amp;\forall u\in V-\{s,t\}
+\end{aligned}\)</span></p>
+<p>后面的两条式子分别代表了容量限制和流量守恒条件。</p>
+<h1 id="section-5">24.1-6</h1>
+<p>令<span class="math inline">\(s\)</span>表示他们的家，令<span
+class="math inline">\(t\)</span>表示他们的学校，地图<span
+class="math inline">\(G\)</span>上的每条边的<strong>容量</strong>都设置为<span
+class="math inline">\(1\)</span>。在这个输入上运行最大流算法，并判断最大流的值是否超过<span
+class="math inline">\(2\)</span>，如果超过<span
+class="math inline">\(2\)</span>，那么存在上学方案，否则不存在。</p>
+<h1 id="section-6">24.1-7</h1>
+<p>将图<span class="math inline">\(G=(V,E)\)</span>中的每个节点<span
+class="math inline">\(v\)</span>拆分成两个节点<span
+class="math inline">\(v_{in},v_{out}\)</span>，并且从<span
+class="math inline">\(v_{in}\)</span>到<span
+class="math inline">\(v_{out}\)</span>只需要连一条容量为<span
+class="math inline">\(l(v)\)</span>的边即可。对图<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>更正式的描述如下：</p>
+<ul>
+<li><span class="math inline">\(\forall v\in V,v_{in},v_{out}\in
+V&#39;\)</span>均成立。</li>
+<li><span class="math inline">\(\forall v\in V,(v_{in},v_{out})\in
+E&#39;\)</span>均成立，其中<span
+class="math inline">\(c&#39;(v_{in},v_{out})=l(v)\)</span>。</li>
+<li><span class="math inline">\(\forall (u,v)\in E,(u_{out},v_{in})\in
+E&#39;\)</span>均成立，其中<span
+class="math inline">\(c&#39;(u_{out},v_{in})=c(u,v)\)</span>。</li>
+</ul>
+<p>那么假设图<span
+class="math inline">\(G\)</span>上对应的源点和汇点分别为<span
+class="math inline">\(s,t\)</span>，那么在图<span
+class="math inline">\(G&#39;\)</span>上的源点和汇点分别为<span
+class="math inline">\(s_{in},t_{out}\)</span>。</p>
+<p>因此，图<span class="math inline">\(G&#39;\)</span>上一共有<span
+class="math inline">\(2|V|\)</span>个节点，<span
+class="math inline">\(|V|+|E|\)</span>条边。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-1/" title="算法导论24.1 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-24/exercises-1/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

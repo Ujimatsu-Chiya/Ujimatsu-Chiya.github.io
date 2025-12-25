@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论34.4 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/34.4-1.png">
+<meta property="article:published_time" content="2023-07-25T15:36:27.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.185Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/34.4-1.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/","path":"introduction-to-algorithms/chapter-34/exercises-4/","title":"算法导论34.4 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论34.4 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">34.4-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">34.4-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">34.4-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">34.4-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">34.4-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">34.4-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">34.4-7</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论34.4 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论34.4 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-25 23:36:27" itemprop="dateCreated datePublished" datetime="2023-07-25T23:36:27+08:00">2023-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">34.4-1</h1>
+<p>可以构造的电路形式如下，如图是一个<span
+class="math inline">\(n=3\)</span>规模的电路：</p>
+<p><img data-src="34.4-1.png" /></p>
+<p>可见，第<span class="math inline">\(k(k\ge
+1)\)</span>层的电路的输出端所代表的表达式，就包含了<span
+class="math inline">\(2^k-1\)</span>个运算符，因此这个电路一共有<span
+class="math inline">\(n\)</span>层时，整个电路的输出端一共有<span
+class="math inline">\(2^{n+1}-1\)</span>个运算符，即这个表达式的长度是指数增长的。</p>
+<h1 id="section-1">34.4-2</h1>
+<p>对于<span
+class="math inline">\(\phi&#39;\)</span>中的所有子句，经过3个步骤后可以得到：</p>
+<p><span class="math inline">\(\begin{aligned}
+\phi_0&#39;&#39;&#39;&amp;=y&amp;&amp;=(y \lor p \lor q) \land (y \lor p
+\lor \neg q) \land (y \lor \neg p \lor q) \land (y \lor \neg p \lor \neg
+q)\\
+\phi_1&#39;&#39;&#39;&amp;=(y_1 \leftrightarrow (y_2 \land \neg x_2))
+&amp;&amp;= (\neg y_1 \lor \neg y_2 \lor \neg x_2) \land (\neg y_1 \lor
+y_2 \lor \neg x_2) \land (\neg y_1 \lor y_2 \lor x_2) \land (y_1 \lor
+\neg y_2 \lor x_2)\\
+\phi_2&#39;&#39;&#39;&amp;=(y_2 \leftrightarrow (y_3 \lor y_4))
+&amp;&amp;= (\neg y_2 \lor y_3 \lor y_4) \land (y_2 \lor \neg y_3 \lor
+\neg y_4) \land (y_2 \lor \neg y_3 \lor y_4) \land (y_2 \lor y_3 \lor
+\neg y_4)\\
+\phi_3&#39;&#39;&#39;&amp;=(y_3 \leftrightarrow (x_1 \rightarrow x_2))
+&amp;&amp;= (\neg y_3 \lor \neg x_2 \lor x_2) \land (y_3 \lor \neg x_1
+\lor \neg x_2) \land (y_1 \lor x_1 \lor \neg x_2) \land (y_3 \lor x_1
+\lor x_2)\\
+\phi_4&#39;&#39;&#39;&amp;=(y_4 \leftrightarrow \neg y_5) &amp;&amp;=
+(\neg x_4 \lor \neg y_5 \lor q) \land (\neg x_4 \lor \neg y_5 \lor \neg
+p) \land (x_4 \lor y_5 \lor p) \land (x_4 \lor y_5 \lor \neg p)\\
+\phi_5&#39;&#39;&#39;&amp;=(y_5 \leftrightarrow (y_6 \lor x_4))
+&amp;&amp;= (\neg y_5 \lor y_6 \lor x_4) \land (y_5 \lor \neg y_6 \lor
+\neg x_4) \land (y_5 \lor \neg y_6 \lor x_4) \land (y_5 \lor y_6 \lor
+\neg x_4)\\
+\phi_6&#39;&#39;&#39;&amp;=(y_6 \leftrightarrow (\neg x_1
+\leftrightarrow x_3)) &amp;&amp;= (\neg y_6 \lor \neg x_1 \lor \neg x_3)
+\land (\neg y_6 \lor x_1 \lor x_3) \land (y_6 \lor \neg x_1 \lor x_3)
+\land (y_6 \lor x_1 \lor \neg x_3)
+\end{aligned}\)</span></p>
+<p>因此最终<span class="math inline">\(\phi\)</span>转化后得到<span
+class="math inline">\(3\text{-CNF}\)</span>的表达式<span
+class="math inline">\(\phi&#39;&#39;&#39;\)</span>为：</p>
+<p><span class="math inline">\(\begin{aligned}
+\phi&#39;&#39;&#39;=&amp;(y \lor p \lor q) \land (y \lor p \lor \neg q)
+\land (y \lor \neg p \lor q) \land (y \lor \neg p \lor \neg q)\land\\
+&amp;(\neg y_1 \lor \neg y_2 \lor \neg x_2) \land (\neg y_1 \lor y_2
+\lor \neg x_2) \land (\neg y_1 \lor y_2 \lor x_2) \land (y_1 \lor \neg
+y_2 \lor x_2)\land\\
+&amp;(\neg y_2 \lor y_3 \lor y_4) \land (y_2 \lor \neg y_3 \lor \neg
+y_4) \land (y_2 \lor \neg y_3 \lor y_4) \land (y_2 \lor y_3 \lor \neg
+y_4)\land\\
+&amp;(\neg y_3 \lor \neg x_2 \lor x_2) \land (y_3 \lor \neg x_1 \lor
+\neg x_2) \land (y_1 \lor x_1 \lor \neg x_2) \land (y_3 \lor x_1 \lor
+x_2)\land\\
+&amp;(\neg x_4 \lor \neg y_5 \lor q) \land (\neg x_4 \lor \neg y_5 \lor
+\neg p) \land (x_4 \lor y_5 \lor p) \land (x_4 \lor y_5 \lor \neg
+p)\land\\
+&amp;(\neg y_5 \lor y_6 \lor x_4) \land (y_5 \lor \neg y_6 \lor \neg
+x_4) \land (y_5 \lor \neg y_6 \lor x_4) \land (y_5 \lor y_6 \lor \neg
+x_4)\land\\
+&amp;(\neg y_6 \lor \neg x_1 \lor \neg x_3) \land (\neg y_6 \lor x_1
+\lor x_3) \land (y_6 \lor \neg x_1 \lor x_3) \land (y_6 \lor x_1 \lor
+\neg x_3)
+\end{aligned}\)</span></p>
+<h1 id="section-2">34.4-3</h1>
+<p>这种策略是错误的。如果<span
+class="math inline">\(\phi\)</span>有<span
+class="math inline">\(n\)</span>个自由布尔变量，那么构造出的真值表一共有<span
+class="math inline">\(2^n\)</span>项，从这个真值表导出的表达式的长度至少是<span
+class="math inline">\(\Omega(2^n)\)</span>的，而不是多项式长度的。因此原结论错误。</p>
+<h1 id="section-3">34.4-4</h1>
+<p>根据题目34.3-7的结论，为了证明语言<span
+class="math inline">\(L=\text{TAUTOLOGY}\)</span>对<span
+class="math inline">\(\text{co-NP}\)</span>是完全的，只需要证明<span
+class="math inline">\(\overline{L}\)</span>是NP完全的即可，其中<span
+class="math inline">\(\overline{L}\)</span>是如下布尔表达式<span
+class="math inline">\(\phi\)</span>所表示的集合：存在一组输入变量，使得这个表达式的输出值为<span
+class="math inline">\(0\)</span>。</p>
+<p>首先证明<span class="math inline">\(\overline{L}\in
+\text{NP}\)</span>。证明过程非常简单：验证算法可以在多项式时间内对一个表达式<span
+class="math inline">\(\phi\)</span>和一组输入<span
+class="math inline">\(x\)</span>，判断出表达式的输出值是否为<span
+class="math inline">\(0\)</span>。这个步骤和定理34.9对应步骤的证明是一样的，因此<span
+class="math inline">\(\overline{L}\in\text{NP}\)</span>。（也可以从题目34.2-8直接得出此结论。）</p>
+<p>接下来证明<span
+class="math inline">\(\overline{L}\)</span>是NP困难的。根据定理34.9得知，问题<span
+class="math inline">\(\text{SAT}\)</span>是NP完全的。因此，通过证明<span
+class="math inline">\(\text{SAT}\le_P
+\overline{L}\)</span>，从而完成此证明。对于问题<span
+class="math inline">\(\text{SAT}\)</span>中的任意一个表达式<span
+class="math inline">\(\phi\)</span>，存在一组输入<span
+class="math inline">\(x\)</span>使得<span
+class="math inline">\(\phi\)</span>的输出为<span
+class="math inline">\(0\)</span>。规约函数<span
+class="math inline">\(f\)</span>则是将表达式<span
+class="math inline">\(\phi\)</span>进行取反，即<span
+class="math inline">\(f(\phi)=\neg\phi\)</span>，它可以在多项式时间内被计算出来。因此有<span
+class="math inline">\(\text{SAT}\le_P\overline{L}\)</span>，也就是说，<span
+class="math inline">\(\overline{L}\)</span>是NP困难的。</p>
+<p>因此，<span
+class="math inline">\(\overline{L}\)</span>是NP完全的，原来的结论成立。</p>
+<h1 id="section-4">34.4-5</h1>
+<p>对于一个析取范式<span
+class="math inline">\(\phi\)</span>，它是表示为所有子句的或，并且每个子句都是多个文字的与。因此每个子句<span
+class="math inline">\(\phi_i\)</span>和<span
+class="math inline">\(\phi\)</span>之间的关系可以写成</p>
+<p><span class="math display">\[\phi=\bigvee_{i=1}^k \phi_i\]</span></p>
+<p>因此，对于一个析取范式的可满足性问题，只要其中一个子句的值为<span
+class="math inline">\(1\)</span>，那么整个<span
+class="math inline">\(\phi\)</span>的输出值为<span
+class="math inline">\(1\)</span>。我们可以枚举每个子句<span
+class="math inline">\(\phi_i\)</span>。由于<span
+class="math inline">\(\phi\)</span>是一系列文字的与运算，只要<span
+class="math inline">\(\phi_i\)</span>有一个输入为<span
+class="math inline">\(1\)</span>即可满足要求。检查<span
+class="math inline">\(\phi_i\)</span>中的所有文字，如果不存布尔变量<span
+class="math inline">\(x_j\)</span>，使得<span
+class="math inline">\(x_j\)</span>和<span class="math inline">\(\neg
+x_j\)</span>都在这个子句中，子句<span
+class="math inline">\(\phi_i\)</span>的值就可以为<span
+class="math inline">\(1\)</span>。只要将在子句<span
+class="math inline">\(\phi_i\)</span>中，没有取反<span
+class="math inline">\(\neg\)</span>的变量赋予<span
+class="math inline">\(1\)</span>，带有取反符号的赋予<span
+class="math inline">\(0\)</span>即可，最终这是一个证明该析取范式是可满足的证据。如果<span
+class="math inline">\(\phi\)</span>每一个子句，都有某个布尔变量<span
+class="math inline">\(x_j\)</span>和<span class="math inline">\(\neg
+x_j\)</span>都在这个子句中，那么<span
+class="math inline">\(\phi\)</span>是不可满足的。每个子句只需要线性的时间即可完成判断。</p>
+<p>因此，判断析取范式的可行性问题<span
+class="math inline">\(\text{DNF-SAT}\in P\)</span>，原结论成立。</p>
+<h1 id="section-5">34.4-6</h1>
+<p>如果存在一个多项式算法<code>DECIDE-FORMULA-SATISFIABILITY</code>用于判断布尔表达式的可满足性。那么考虑如下程序<code>FIND-SATISFYING-ASSIGNMENT</code>用于为每个布尔变量赋值。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//A是某个布尔表达式，X是自由变量集合</span><br><span class="line">//DECIDE-FORMULA-SATISFIABILITY(P, X)用于检测布尔表达式P是否具有可行性，X是其布尔变量集合。</span><br><span class="line">FIND-SATISFYING-ASSIGNMENT(P, X)</span><br><span class="line">  X&#x27; = ∅</span><br><span class="line">  while X != ∅</span><br><span class="line">    select x from X randomly and remove it</span><br><span class="line">    X = X - &#123;x&#125;</span><br><span class="line">    X&#x27; = X&#x27; ∪ &#123;x&#125;</span><br><span class="line">    all x in P are assigned a value of 1</span><br><span class="line">    simplify P to get a new expression P&#x27;</span><br><span class="line">    if DECIDE-FORMULA-SATISFIABILITY(P&#x27;, X) == 1</span><br><span class="line">      x.value = 1</span><br><span class="line">      P = P&#x27;</span><br><span class="line">    else</span><br><span class="line">      x.value = 0</span><br><span class="line">      all x in P are assigned a value of 0</span><br><span class="line">      simplify P to get a new expression P&#x27;</span><br><span class="line">      P = P&#x27;</span><br><span class="line">  return X&#x27;</span><br></pre></td></tr></table></figure>
+<p><code>FIND-SATISFYING-ASSIGNMENT</code>的基本思想是，对每个变量尝试进行<span
+class="math inline">\(x_i\)</span>赋值，如果赋予其中一个值后（程序中是<span
+class="math inline">\(1\)</span>），对于剩下的变量来说，这个布尔表达式是可满足的，那么当前赋值是正确的，否则赋予另外一个值（程序中是<span
+class="math inline">\(0\)</span>）。</p>
+<p>所有化简过程都可以在多项式时间内完成。上面的算法中，如果布尔表达式包含了<span
+class="math inline">\(n\)</span>个自由变量，那么<code>FIND-SATISFYING-ASSIGNMENT</code>只会调用<span
+class="math inline">\(n\)</span>次<code>DECIDE-FORMULA-SATISFIABILITY</code>，并且每次调用的规模都不大于原来的布尔表达式的长度。由于<code>DECIDE-FORMULA-SATISFIABILITY</code>是多项式时间的算法，因此<code>FIND-SATISFYING-ASSIGNMENT</code>也是多项式时间的算法，原结论成立。</p>
+<h1 id="section-6">34.4-7</h1>
+<p>假设这个恰有两个文字的合取范式<span
+class="math inline">\(\phi\)</span>被表示成<span
+class="math inline">\(\displaystyle{\phi=\bigwedge_{i=1}^n y_i\lor
+z_i}\)</span>，其中<span class="math inline">\(y_i,z_i\)</span>是第<span
+class="math inline">\(i\)</span>个子句的文字<span
+class="math inline">\(\phi_i\)</span>，一共有<span
+class="math inline">\(k\)</span>个自由变量。考虑有向图<span
+class="math inline">\(G=(V,E)\)</span>，其中<span
+class="math inline">\(V=\{x_1,\neg x_1,x_2,\neg x_2,\dots,x_k,\neg
+x_k\}\)</span>，即表示这<span
+class="math inline">\(k\)</span>个自由变量可能的<span
+class="math inline">\(2k\)</span>个文字。</p>
+<p>对于每个子句<span class="math inline">\(\phi_i\)</span>，将边<span
+class="math inline">\((\neg y_i,z_i),(\neg y_i,z_i)\)</span>添加到<span
+class="math inline">\(E\)</span>中。原因是，如果<span
+class="math inline">\(y_i\)</span>和<span
+class="math inline">\(z_i\)</span>其中一个被赋予<span
+class="math inline">\(0\)</span>，那么另一个变量就必须赋予<span
+class="math inline">\(1\)</span>。</p>
+<p>接下来对图<span
+class="math inline">\(G\)</span>运行章节20.5所描述的求解强连通算法<code>STRONGLY-CONNECTED-COMPONENTS</code>。如果存在某个<span
+class="math inline">\(i\in[1,k]\)</span>，使得<span
+class="math inline">\(x_i,\neg
+x_i\)</span>都在一个强连通分量中，那么说明<span
+class="math inline">\(x_i\)</span>对其中一个变量赋值都会导致<span
+class="math inline">\(x_i\)</span>将会对另外一个变量进行赋值，这是不可能的，因此<span
+class="math inline">\(\phi\)</span>此时不可满足。否则<span
+class="math inline">\(\phi\)</span>是可满足的。</p>
+<p>由于建立整个图<span class="math inline">\(G\)</span>只需要花费<span
+class="math inline">\(O(n)\)</span>的时间，并且算法<code>STRONGLY-CONNECTED-COMPONENTS</code>的时间复杂度为<span
+class="math inline">\(O(E+V)\)</span>，因此恰好<span
+class="math inline">\(2\)</span>个子句的可满足行问题是多项式时间内可判定的，即<span
+class="math inline">\(\text{2-CNF-SAT}\in P\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/" title="算法导论34.4 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-4/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

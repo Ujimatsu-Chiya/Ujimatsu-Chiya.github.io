@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论C.1 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-c/exercises-1/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-07T08:27:07.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.208Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-c/exercises-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-c/exercises-1/","path":"introduction-to-algorithms/appendix-c/exercises-1/","title":"算法导论C.1 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论C.1 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-1"><span class="nav-number">1.</span> <span class="nav-text">C.1-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-2"><span class="nav-number">2.</span> <span class="nav-text">C.1-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-3"><span class="nav-number">3.</span> <span class="nav-text">C.1-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-4"><span class="nav-number">4.</span> <span class="nav-text">C.1-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-5"><span class="nav-number">5.</span> <span class="nav-text">C.1-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-6"><span class="nav-number">6.</span> <span class="nav-text">C.1-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-7"><span class="nav-number">7.</span> <span class="nav-text">C.1-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-8"><span class="nav-number">8.</span> <span class="nav-text">C.1-8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-9"><span class="nav-number">9.</span> <span class="nav-text">C.1-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-10"><span class="nav-number">10.</span> <span class="nav-text">C.1-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c.1-11"><span class="nav-number">11.</span> <span class="nav-text">C.1-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-c.1-12"><span class="nav-number">12.</span> <span class="nav-text">\(\star\)
+C.1-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-c.1-13"><span class="nav-number">13.</span> <span class="nav-text">\(\star\)
+C.1-13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-c.1-14"><span class="nav-number">14.</span> <span class="nav-text">\(\star\)
+C.1-14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-c.1-15"><span class="nav-number">15.</span> <span class="nav-text">\(\star\)
+C.1-15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-c.1-16"><span class="nav-number">16.</span> <span class="nav-text">\(\star\)
+C.1-16</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-c/exercises-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论C.1 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论C.1 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-12-07 16:27:07" itemprop="dateCreated datePublished" datetime="2022-12-07T16:27:07+08:00">2022-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="c.1-1">C.1-1</h1>
+<p><span class="math display">\[\begin{aligned}
+&amp;n-k+1;\\
+&amp;\sum_{k=1}^n(n-k+1)=\sum_{k=1}^n k=\dfrac{n(n+1)}{2}
+\end{aligned}\]</span></p>
+<h1 id="c.1-2">C.1-2</h1>
+<p>对于每一个输入，都有<span
+class="math inline">\(2\)</span>个输出。由于一共有<span
+class="math inline">\(2^n\)</span>个输入，这意味着有<span
+class="math inline">\(2^{2^n}\)</span>个不同的布尔函数。</p>
+<p>更一般的，对于每一个输入，都有<span
+class="math inline">\(2^m\)</span>个输出。由于一共有<span
+class="math inline">\(2^n\)</span>个输入，这意味着有<span
+class="math inline">\((2^m)^{2^n}=2^{m\cdot
+2^n}\)</span>个不同的布尔函数。</p>
+<h1 id="c.1-3">C.1-3</h1>
+<p>这是一个循环排列，因此对于第<span
+class="math inline">\(1\)</span>个被放置的物品而言，放在哪个位置都没有意义，此时仅有<span
+class="math inline">\(1\)</span>种方法放置。第<span
+class="math inline">\(1\)</span>个物品的位置确定后，放置第<span
+class="math inline">\(2\)</span>个物品时，那么就有<span
+class="math inline">\(n-1\)</span>种选择方式……放置第<span
+class="math inline">\(i\)</span>个物品时，有<span
+class="math inline">\(n-i+1\)</span>种方法。因此，最终的方法数量为<span
+class="math inline">\(1\times (n-1)\times (n-2)\times \dots \times
+1=(n-1)!\)</span>。</p>
+<h1 id="c.1-4">C.1-4</h1>
+<p>注意这里一共有<span class="math inline">\(49\)</span>个偶数，<span
+class="math inline">\(50\)</span>个奇数。为了使取出的<span
+class="math inline">\(3\)</span>个数之和为偶数，有以下两种情况：</p>
+<ul>
+<li><p>取出的<span class="math inline">\(3\)</span>个数都为偶数，有<span
+class="math inline">\(\dbinom{49}{3}\)</span>种取法。</p></li>
+<li><p>取出的<span class="math inline">\(3\)</span>个数中，<span
+class="math inline">\(1\)</span>个为偶数，<span
+class="math inline">\(2\)</span>个为奇数，有<span
+class="math inline">\(\dbinom{49}{1}\cdot
+\dbinom{50}{2}\)</span>种取法。</p></li>
+</ul>
+<p>因此最终有<span
+class="math inline">\(\dbinom{49}{3}+\dbinom{49}{1}\cdot
+\dbinom{50}{2}=78449\)</span>种取出方法。</p>
+<h1 id="c.1-5">C.1-5</h1>
+<p><span class="math inline">\(\begin{aligned}
+\dbinom{n}{k}&amp;=\dfrac{n!}{k!\cdot(n-k)!}\\
+&amp;=\dfrac{n}{k}\cdot \dfrac{(n-1)!}{(k-1)!\cdot(n-k)!}\\
+&amp;=\dfrac{n}{k}\cdot \dfrac{(n-1)!}{(k-1)!\cdot((n-1)-(k-1))!}\\
+&amp;=\dfrac{n}{k}\cdot \dbinom{n-1}{k-1}\\
+\end{aligned}\)</span></p>
+<h1 id="c.1-6">C.1-6</h1>
+<p><span class="math inline">\(\begin{aligned}
+\dbinom{n}{k}&amp;=\dfrac{n!}{k!\cdot(n-k)!}\\
+&amp;=\dfrac{n}{n-k}\cdot \dfrac{(n-1)!}{k!\cdot(n-k-1)!}\\
+&amp;=\dfrac{n}{n-k}\cdot \dfrac{(n-1)!}{k!\cdot((n-1)-k)!}\\
+&amp;=\dfrac{n}{n-k}\cdot \dbinom{n-1}{k}\\
+\end{aligned}\)</span></p>
+<h1 id="c.1-7">C.1-7</h1>
+<p>目前求解<span
+class="math inline">\(\dbinom{n}{k}\)</span>的递推式。考虑现在选择的是第<span
+class="math inline">\(n\)</span>个物品，并且已经选择了<span
+class="math inline">\(k\)</span>次。</p>
+<ul>
+<li><p>如果第<span
+class="math inline">\(n\)</span>个物品没有被选择，那么说明前面<span
+class="math inline">\(n-1\)</span>个物品中需要选择<span
+class="math inline">\(k\)</span>个，有<span
+class="math inline">\(\dbinom{n-1}{k}\)</span>种方法。</p></li>
+<li><p>如果第<span
+class="math inline">\(n\)</span>个物品被选择，那么说明前面<span
+class="math inline">\(n-1\)</span>个物品中需要选择<span
+class="math inline">\(k-1\)</span>个，有<span
+class="math inline">\(\dbinom{n-1}{k-1}\)</span>种方法。加上第<span
+class="math inline">\(n\)</span>个物品就变成了从<span
+class="math inline">\(n\)</span>个物品种选择<span
+class="math inline">\(k\)</span>个。</p></li>
+</ul>
+<p>因此有<span
+class="math inline">\(\dbinom{n}{k}=\dbinom{n-1}{k}+\dbinom{n-1}{k-1}\)</span>。</p>
+<h1 id="c.1-8">C.1-8</h1>
+<p>杨辉三角前<span class="math inline">\(7\)</span>行：</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;&amp;1 \\
+&amp;&amp;1 &amp;&amp;1 \\
+&amp;&amp;1 &amp;&amp;2 &amp;&amp;1 \\
+&amp;&amp;1 &amp;&amp;3 &amp;&amp;3 &amp;&amp;1 \\
+&amp;&amp;1 &amp;&amp;4 &amp;&amp;6 &amp;&amp;4 &amp;&amp;1 \\
+&amp;&amp;1 &amp;&amp;5 &amp;&amp;10 &amp;&amp;10 &amp;&amp;5
+&amp;&amp;1 \\
+&amp;&amp;1 &amp;&amp;6 &amp;&amp;15 &amp;&amp;20 &amp;&amp;15
+&amp;&amp;6 &amp;&amp;1 \\
+\end{aligned}\]</span></p>
+<h1 id="c.1-9">C.1-9</h1>
+<p>序列<span class="math inline">\(a_i=i\)</span>是首项为<span
+class="math inline">\(1\)</span>，公差为<span
+class="math inline">\(1\)</span>的等差数列。因此有</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{i=1}^n i&amp;=\dfrac{n(n+1)}{2}=\dfrac{(n+1)!}{2!\cdot
+(n-1)!}=\dfrac{(n+1)!}{2!\cdot ((n+1)-2)!}=\dbinom{n+1}{2}
+\end{aligned}\)</span></p>
+<h1 id="c.1-10">C.1-10</h1>
+<p>对于<span class="math inline">\(k\ge
+1\)</span>，对行内相邻的两个组合数做商，得到：</p>
+<p><span
+class="math inline">\(\dfrac{\dbinom{n}{k}}{\dbinom{n}{k-1}}=\dfrac{n!}{k!(n-k!)}\cdot\dfrac{(k-1)!(n-k+1)!}{n!}=\dfrac{n-k+1}{k}\)</span></p>
+<p>可以发现，随着<span class="math inline">\(k\)</span>值上升，<span
+class="math inline">\(f(k)=\dfrac{n-k+1}{k}\)</span>先递增，后递减。</p>
+<p>当<span class="math inline">\(f(k)\)</span>非严格递增时，满足<span
+class="math inline">\(f(k)\ge 1\)</span>，也就是<span
+class="math inline">\(2k\le n+1\)</span>时，满足递增。此时有<span
+class="math inline">\(k\le
+\dfrac{n+1}{2}=\left\lceil\dfrac{n}{2}\right\rceil\)</span>。</p>
+<p>当<span class="math inline">\(f(k)\)</span>非严格递减时，满足<span
+class="math inline">\(f(k)\le 1\)</span>，也就是<span
+class="math inline">\(2k\ge n+1\)</span>时，满足递增。此时有<span
+class="math inline">\(k\ge
+\dfrac{n+1}{2}=\left\lceil\dfrac{n}{2}\right\rceil\)</span>。</p>
+<p>因此当<span
+class="math inline">\(k=\left\lceil\dfrac{n}{2}\right\rceil\)</span>时，<span
+class="math inline">\(\dbinom{n}{k}\)</span>能取到最大值。</p>
+<p>另外由于对于所有正数<span class="math inline">\(n\)</span>，<span
+class="math inline">\(\left\lfloor\dfrac{n}{2}\right\rfloor+\left\lceil\dfrac{n}{2}\right\rceil\)</span>都成立。因此根据等式<span
+class="math inline">\(C.3\)</span>，当<span
+class="math inline">\(k=\left\lfloor\dfrac{n}{2}\right\rfloor\)</span>时，<span
+class="math inline">\(\dbinom{n}{k}\)</span>也能取到最大值。</p>
+<h1 id="c.1-11">C.1-11</h1>
+<p>代数证明：</p>
+<p><span class="math inline">\(\begin{aligned}
+\dbinom{n}{j}\cdot
+\dbinom{n-j}{k}&amp;=\dfrac{n!}{j!(n-j)!}\cdot\dfrac{(n-j)!}{k!(n-j-k)!}\\
+&amp;=\dfrac{n!}{j! k!(n-j-k)!}\\
+&amp;\ge\dfrac{n!}{(j+k)!(n-(j+k))!}&amp;\qquad(A)\\
+&amp;=\dbinom{n}{j+k}
+\end{aligned}\)</span></p>
+<p>其中，变换<span class="math inline">\((A)\)</span>使用了<span
+class="math inline">\(i!\cdot j!\le (i+j)!\)</span>。</p>
+<p>直观证明：</p>
+<p><span
+class="math inline">\(\dbinom{n}{j+k}\)</span>相当于直接在一个阶段下，取出了<span
+class="math inline">\(j+k\)</span>个物品。右边等式将取物品划分成了<span
+class="math inline">\(2\)</span>个<strong>独立</strong>的阶段，第<span
+class="math inline">\(1\)</span>个阶段是从<span
+class="math inline">\(n\)</span>个物品中取出<span
+class="math inline">\(j\)</span>个，有<span
+class="math inline">\(\dbinom{n}{j}\)</span>种取法；第<span
+class="math inline">\(2\)</span>个阶段是从剩下的<span
+class="math inline">\(n-j\)</span>个物品中取出<span
+class="math inline">\(k\)</span>个，有<span
+class="math inline">\(\dbinom{n-j}{k}\)</span>种取法。对于<span
+class="math inline">\(\dbinom{n}{j+k}\)</span>中的同一种取法，在<span
+class="math inline">\(\dbinom{n}{j}\cdot
+\dbinom{n-j}{k}\)</span>中，它们取出的<strong>阶段</strong>可能不同，被视为了不同的取法，因此有重复。故<span
+class="math inline">\(\dbinom{n}{j}\cdot \dbinom{n-j}{k}\ge
+\dbinom{n}{j+k}\)</span>成立。</p>
+<p>实例：<span class="math inline">\(n=2,j=k=1\)</span>。此时有：<span
+class="math inline">\(2=\dbinom{2}{1}\cdot \dbinom{1}{1}&gt;
+\dbinom{2}{1+1}=1\)</span></p>
+<h1 id="star-c.1-12"><span class="math inline">\(\star\)</span>
+C.1-12</h1>
+<p>当<span class="math inline">\(k=0\)</span>时，<span
+class="math inline">\(1=\dbinom{n}{0}\le \dfrac{n^n}{0^0\cdot
+n^n}=1\)</span>，结论成立。</p>
+<p>假设对于<span class="math inline">\(0,1,2,\dots,k-1\)</span>使得<span
+class="math inline">\(k\le n/2\)</span>，原结论都成立。考虑<span
+class="math inline">\(k+1\)</span>时的情况。那么有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\dbinom{n}{k}&amp;=\dfrac{n-k+1}{k}\cdot \dbinom{n}{k-1}\\
+&amp;\le \dfrac{n-k+1}{k} \dfrac{n^n}{(k-1)^{k-1}(n-(k-1))^{n-(k-1)}}\\
+&amp;=\dfrac{n^n}{k(k-1)^{k-1}(n-k+1)^{n-k}}\\
+&amp;\le\dfrac{n^n}{k^k(n-k)^{n-k}}&amp;\qquad(A)\\
+\end{aligned}\)</span></p>
+<p>那么此时只需要证明变换<span
+class="math inline">\((A)\)</span>满足<span
+class="math inline">\(k(k-1)^{k-1}(n-k+1)^{n-k}\ge
+k^k(n-k)^{n-k}\)</span>即可，即证明</p>
+<p><span
+class="math display">\[\left(\dfrac{k-1}{k}\right)^{k-1}\ge\left(\dfrac{n-k}{n-k+1}\right)^{n-k}\]</span></p>
+<p>考虑函数<span
+class="math inline">\(f(x)=\left(\dfrac{x}{x+1}\right)^x\)</span>，那么<span
+class="math inline">\(f&#39;(x)=\dfrac{x^x}{(x+1)^{x+1}}\cdot
+(1+(x+1)\cdot (\ln x-\ln (x+1)))\)</span>。可以发现，当<span
+class="math inline">\(x&gt;0\)</span>时，<span
+class="math inline">\(f&#39;(x)\le 0\)</span>。因此<span
+class="math inline">\(f(x)\)</span>在区间<span
+class="math inline">\([0,+\infty)\)</span>上单调递减。</p>
+<p>由于<span class="math inline">\(k\le n/2\)</span>，因此<span
+class="math inline">\(k-1\le n-k\)</span>成立。那么<span
+class="math inline">\(f(k-1)\ge
+f(n-k)\)</span>，上面的不等式成立，证明完成。</p>
+<p>由于<span
+class="math inline">\(\dfrac{n^n}{k^k(n-k)^{n-k}}=\dfrac{n^n}{(n-k)^{n-k}k^k}\)</span>，并且根据等式<span
+class="math inline">\(C.3\)</span>，因此对于<span
+class="math inline">\(0\le k\le n\)</span>，不等式均成立。</p>
+<h1 id="star-c.1-13"><span class="math inline">\(\star\)</span>
+C.1-13</h1>
+<p>直接代入斯特林公式，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\dbinom{2n}{n}&amp;=\dfrac{\sqrt{4\pi
+n}\cdot\left(\dfrac{2n}{e}\right)^{2n}\cdot\left(1+\Theta\left(\dfrac{1}{n}\right)\right)}{\left(\sqrt{2\pi
+n}\cdot\left(\dfrac{n}{e}\right)^{n}\cdot\left(1+\Theta\left(\dfrac{1}{n}\right)\right)\right)^2}\\
+&amp;=\dfrac{2\sqrt{\pi
+n}\cdot\left(2n\right)^{2n}\cdot\dfrac{1}{e^{2n}}}{2\pi n\cdot
+n^{2n}\cdot \dfrac{1}{e^{2n}}}
+\cdot\left(1+\Theta\left(\dfrac{1}{n}\right)\right)\\
+&amp;=\dfrac{2^{2n}}{\sqrt{\pi n}}\cdot
+\left(1+\Theta\left(\dfrac{1}{n}\right)\right)\\
+&amp;=\dfrac{2^{2n}}{\sqrt{\pi n}}\cdot
+\left(1+O\left(\dfrac{1}{n}\right)\right)
+\end{aligned}\)</span></p>
+<h1 id="star-c.1-14"><span class="math inline">\(\star\)</span>
+C.1-14</h1>
+<p><span
+class="math inline">\(H(\lambda)=-\lambda\lg\lambda-(1-\lambda)\lg(1-\lambda)\)</span></p>
+<p>那么可以求出<span class="math inline">\(H&#39;(\lambda)=\dfrac{\ln
+(1-\lambda)-\ln \lambda}{\ln
+2},H&#39;&#39;(\lambda)=\dfrac{1}{\lambda(\lambda-1)\cdot\ln
+2}\)</span>。</p>
+<p>由于<span
+class="math inline">\(H&#39;(1/2)=0,H&#39;&#39;(1/2)=-\dfrac{4}{\ln
+2}&lt;0\)</span>，因此<span
+class="math inline">\(H(\lambda)\)</span>在<span
+class="math inline">\(\lambda=1/2\)</span>处取到最大值.此时最大值为<span
+class="math inline">\(H(1/2)=1\)</span>.</p>
+<h1 id="star-c.1-15"><span class="math inline">\(\star\)</span>
+C.1-15</h1>
+<p>根据二项式定理，有</p>
+<p><span class="math display">\[(x+1)^n=\sum_{k=0} ^n \dbinom{n}{k}
+x^k\]</span></p>
+<p>对此式两边对<span
+class="math inline">\(x\)</span>进行求导（注意常数项），得到</p>
+<p><span class="math display">\[n(x+1)^{n-1}=\sum_{k=1} ^n \dbinom{n}{k}
+\cdot kx^{k-1}\]</span></p>
+<p>回代<span class="math inline">\(x=1\)</span>，得到</p>
+<p><span class="math display">\[n2^{n-1}=\sum_{k=1}^n\dbinom{n}{k} \cdot
+k \]</span></p>
+<p>当<span class="math inline">\(k=0\)</span>时，<span
+class="math inline">\(\dbinom{n}{0}\cdot 0=0\)</span>，因此有</p>
+<p><span class="math display">\[n2^{n-1}=\sum_{k=0}^n\dbinom{n}{k} \cdot
+k \]</span></p>
+<h1 id="star-c.1-16"><span class="math inline">\(\star\)</span>
+C.1-16</h1>
+<p>当<span
+class="math inline">\(k=0\)</span>时容易验证不等式成立。当<span
+class="math inline">\(n=1,2,3\)</span>时，通过枚举可以验证原不等式成立：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|l|}
+\hline
+n&amp;k&amp;\dbinom{n}{k}&amp;\dfrac{n^k}{4k!}\\
+\hline
+1&amp;1&amp;1&amp;1/4\\
+\hline
+2&amp;1&amp;2&amp;1/2\\
+\hline
+3&amp;1&amp;3&amp;3/4\\
+\hline
+\end{array}\)</span></p>
+<p>以下将证明<span class="math inline">\(n\ge 4\)</span>时的情况。</p>
+<p>为了证明<span class="math inline">\(\forall k\le
+\sqrt{n},\dbinom{n}{k} \ge\dfrac{n^k}{4k!}\)</span>成立，相当于证明<span
+class="math inline">\(\dfrac{\prod_{i=n-k+1}^n
+i}{k!}\ge\dfrac{n^k}{4k!}\)</span>。</p>
+<p>化简后，相当于证明<span
+class="math inline">\(\displaystyle{\prod_{i=n-k+1}^n \dfrac{i}{n}}\ge
+\dfrac{1}{4}\)</span>成立。</p>
+<p>转换下标后，相当于证明<span
+class="math inline">\(\displaystyle{\prod_{i=0}^{k-1}
+\left(1-\dfrac{i}{n}\right)}\ge\frac{1}{4}\)</span>成立。</p>
+<p>那么有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\prod_{i=0}^{k-1}
+\left(1-\dfrac{i}{n}\right)&amp;\ge\prod_{i=0}^{k-1}\left(1-\dfrac{\sqrt{n}}{n}\right)\\
+&amp;\ge\left(1-\dfrac{1}{\sqrt{n}}\right)^{\lfloor\sqrt{n}\rfloor}\\
+&amp;\ge\left(1-\dfrac{1}{\sqrt{n}}\right)^{\sqrt{n}}
+\end{aligned}\)</span></p>
+<p>考虑函数<span
+class="math inline">\(f(x)=\left(1-\dfrac{1}{x}\right)^x\)</span>，那么对<span
+class="math inline">\(f(x)\)</span>进行求导，得到<span
+class="math inline">\(f&#39;(x)=\left(1-\dfrac{1}{x}\right)^x\cdot\left(\dfrac{1}{x-1}+\ln\left(\dfrac{x-1}{x}\right)\right)\)</span>。</p>
+<p>可以发现，<span class="math inline">\(\forall
+x&gt;1,f&#39;(x)&gt;0\)</span>恒成立。因此，<span
+class="math inline">\(\forall x\ge
+2,f(x)\ge\dfrac{1}{4}\)</span>成立。</p>
+<p>由于<span class="math inline">\(n\ge 4,\sqrt{n}\ge
+2\)</span>，因此<span
+class="math inline">\(\displaystyle{\prod_{i=0}^{k-1}\left(1-\dfrac{i}{n}\right)\ge\dfrac{1}{4}}\)</span>成立。故原结论成立。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-c/exercises-1/" title="算法导论C.1 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-c/exercises-1/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

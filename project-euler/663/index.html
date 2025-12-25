@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 663">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/663/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-27T15:49:44.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.313Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta property="article:tag" content="线段树">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/663/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/663/","path":"project-euler/663/","title":"Project Euler 663"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 663 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-663"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 663</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sums-of-subarrays"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sums of subarrays</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="nav-number">1.2.</span> <span class="nav-text">线段树</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/663/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 663 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 663
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-27 23:49:44" itemprop="dateCreated datePublished" datetime="2022-07-27T23:49:44+08:00">2022-07-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-663">Project Euler 663</h1>
+<h2 id="题目">题目</h2>
+<h3 id="sums-of-subarrays">Sums of subarrays</h3>
+<p>Let <span class="math inline">\(t_k\)</span> be the
+<strong>tribonacci numbers</strong> defined as:</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;\quad t_0 = t_1 = 0;\\
+&amp;\quad t_2 = 1; \\
+&amp;\quad t_k = t_{k-1} + t_{k-2} + t_{k-3} \quad \text{   for   }  k
+\ge 3
+\end{aligned}\)</span></p>
+<p>For a given integer <span class="math inline">\(n\)</span>, let <span
+class="math inline">\(A_n\)</span> be an array of length <span
+class="math inline">\(n\)</span> (indexed from <span
+class="math inline">\(0\)</span> to <span
+class="math inline">\(n-1\)</span>), that is initially filled with
+zeros.</p>
+<p>The array is changed iteratively by replacing <span
+class="math inline">\(A_n[(t_{2 i-2} \text{ mod } n)]\)</span> with
+<span class="math inline">\(A_n[(t_{2 i-2} \text{ mod } n)]+2 (t_{2 i-1}
+\text{ mod } n)-n+1\)</span> in each step <span
+class="math inline">\(i\)</span>.</p>
+<p>After each step <span class="math inline">\(i\)</span>, define <span
+class="math inline">\(M_n(i)\)</span> to be <span
+class="math inline">\(\displaystyle \max\{\sum_{j=p}^q A_n[j]: 0\le p\le
+q&lt;n\}\)</span>, the maximal sum of any contiguous subarray of <span
+class="math inline">\(A_n\)</span>.</p>
+<p>The first 6 steps for <span class="math inline">\(n=5\)</span> are
+illustrated below:</p>
+<p>Initial state: <span class="math inline">\(\,
+A_5=\{0,0,0,0,0\}\)</span></p>
+<p>Step <span class="math inline">\(1:\quad \Rightarrow
+A_5=\{-4,0,0,0,0\}\)</span> , <span
+class="math inline">\(M_5(1)=0\)</span></p>
+<p>Step <span class="math inline">\(2:\quad \Rightarrow A_5=\{-4, -2, 0,
+0, 0\}\)</span> , <span class="math inline">\(M_5(2)=0\)</span></p>
+<p>Step <span class="math inline">\(3:\quad \Rightarrow A_5=\{-4, -2, 4,
+0, 0\}\)</span> , <span class="math inline">\(M_5(3)=4\)</span></p>
+<p>Step <span class="math inline">\(4:\quad \Rightarrow A_5=\{-4, -2, 6,
+0, 0\}\)</span> , <span class="math inline">\(M_5(4)=6\)</span></p>
+<p>Step <span class="math inline">\(5:\quad \Rightarrow A_5=\{-4, -2, 6,
+0, 4\}\)</span> , <span class="math inline">\(M_5(5)=10\)</span></p>
+<p>Step <span class="math inline">\(6:\quad \Rightarrow A_5=\{-4, 2, 6,
+0, 4\}\)</span> , <span class="math inline">\(M_5(6)=12\)</span></p>
+<p>Let <span class="math inline">\(\displaystyle S(n,l)=\sum_{i=1}^l
+M_n(i)\)</span>. Thus <span
+class="math inline">\(S(5,6)=32\)</span>.</p>
+<p>You are given <span class="math inline">\(S(5,100)=2416\)</span>,
+<span class="math inline">\(S(14,100)=3881\)</span> and <span
+class="math inline">\(S(107,1000)=1618572\)</span>.</p>
+<p>Find <span
+class="math inline">\(S(10\,000\,003,10\,200\,000)-S(10\,000\,003,10\,000\,000)\)</span>.</p>
+<h2 id="线段树">线段树</h2>
+<p><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Segment_tree">线段树</a>是一种用于维护区间内的数的一些计算结果，这些计算需要满足<strong>结合律</strong>（如加法，乘法，最小值，最大值）。假设这个序列为<span
+class="math inline">\(a\)</span>，长度为<span
+class="math inline">\(L\)</span>。它有以下特点：</p>
+<ul>
+<li>树的每个节点都代表一个区间的统计结果。</li>
+<li>根节点代表着整个区间<span
+class="math inline">\([1,L]\)</span>，每个叶节点代表着某一个长度为<span
+class="math inline">\(1\)</span>的区间<span
+class="math inline">\([i,i]\)</span>。</li>
+<li>如果当前节点代表的区间为<span
+class="math inline">\([L,R]\)</span>，那么左子节点代表的区间是<span
+class="math inline">\([L,M]\)</span>，右子节点是<span
+class="math inline">\([M+1,R]\)</span>，其中<span
+class="math inline">\(M=\left\lfloor\dfrac{L+R}{2}\right\rfloor\)</span>。</li>
+</ul>
+<p>线段树的三个操作：</p>
+<ol type="1">
+<li>建树（初始化）。给定一个序列，自底向上地建立出一颗线段树。当两个子节点的信息维护好时，当前节点的信息也能迅速维护好。单次操作仅需要<span
+class="math inline">\(O(L)\)</span>的时间复杂度。建树一旦完成，以后就不需要进行操作了。</li>
+<li>修改。从根节点往下搜索，递归找到需要修改的<strong>整个</strong>区间。修改完成后，再自底向上更新所有祖先节点的信息。单次操作仅需要<span
+class="math inline">\(O(\log L)\)</span>的时间复杂度。</li>
+<li>查询。从根节点往下搜索，如果查询的区间覆盖了当前整个区间，那么直接返回当前节点的信息；如果查询的区间和左/右子节点有交集，那么递归查询后，将结果合并。最终向上传递。单次操作也仅需要<span
+class="math inline">\(O(\log L)\)</span>的时间复杂度。</li>
+</ol>
+<p>因此，维护好各个节点，可以以高效的方式维护出需要结果的值。</p>
+<h2 id="解决方案">解决方案</h2>
+<p>考虑使用线段树解决本题。每个节点<span
+class="math inline">\(p\)</span>所代表的区间<span
+class="math inline">\([L,R]\)</span>需要维护四个信息：</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td><span class="math inline">\(\text{dat}\)</span></td>
+<td><span class="math inline">\(\max_{L\le l\le r\le R} \sum_{i=l}^r
+a[i]\)</span>，也就是题目中所需要求的值</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\text{lmax}\)</span></td>
+<td><span class="math inline">\(\max_{L\le k\le R} \sum_{i=L}^k
+a[i]\)</span>，也就是最大前缀和</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\text{rmax}\)</span></td>
+<td><span class="math inline">\(\max_{L\le k\le R} \sum_{i=k}^R
+a[i]\)</span>，也就是最大后缀和</td>
+</tr>
+<tr>
+<td><span class="math inline">\(\text{sum}\)</span></td>
+<td><span class="math inline">\(\sum_{i=L}^R
+a[i]\)</span>，也就是区间内的所有数之和</td>
+</tr>
+</tbody>
+</table>
+<p>那么，假设<span
+class="math inline">\(p\)</span>的左右子节点分别为<span
+class="math inline">\(ls,rs\)</span>，那么这四个属性的自低向上维护方式为：</p>
+<table>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr>
+<td><span
+class="math inline">\(p.\text{dat}=\max(ls.\text{dat},rs.\text{dat},ls.\text{rmax}+rs.\text{lmax})\)</span></td>
+<td>这说明当前区间的答案要么是取自左子节点，要么是取自右子节点；要么是左子节点的最大后缀进和与右子节点的最大前缀和合并形成一个新的答案。</td>
+</tr>
+<tr>
+<td><span
+class="math inline">\(p.\text{lmax}=\max(ls.\text{lmax},ls.\text{sum}+rs.\text{lmax})\)</span></td>
+<td>这说明当前区间的最大前缀和要么是来自左子节点的最大前缀和，要么是左子节点的整个区间和右子节点的最大前缀和合并形成当前区间的前缀。</td>
+</tr>
+<tr>
+<td><span
+class="math inline">\(p.\text{rmax}=\max(rs.\text{rmax},rs.\text{sum}+ls.\text{rmax})\)</span></td>
+<td>与最大前缀和类似。</td>
+</tr>
+<tr>
+<td><span
+class="math inline">\(p.\text{sum}=ls.\text{sum}+rs.\text{sum}\)</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>其它仅需要遵循线段树的模式即可。</p>
+<h2 id="代码">代码</h2>
+<p>第一份代码，严格在线段树上执行了计算<span
+class="math inline">\(S(n,l)\)</span>时的各种操作，包括一开始建树，并且每次更新后计算所需要的结果。时间复杂度为<span
+class="math inline">\(O(n\log
+l)\)</span>。并且执行了两次，效率非常低。</p>
+<p>第二份代码，则减少了一部分没有必要的工作。由于计算的<span
+class="math inline">\(n\)</span>相同，并且前<span
+class="math inline">\(10000000\)</span>次操作的结果都被减去了。那么我们一开始先不建树，等前<span
+class="math inline">\(10000000\)</span>次修改完成了，再建树。由于这个时候是直接对序列进行修改，时间复杂度为<span
+class="math inline">\(O(1)\)</span>，忽略不计。建树完成后，再进行<span
+class="math inline">\(200000\)</span>次的询问和记录答案操作。总体时间复杂度为<span
+class="math inline">\(O(l+(l-n)\log l)\)</span>。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> ls p&lt;&lt;1</span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> rs p&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10000003</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> L=<span class="number">10000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> R=<span class="number">10200000</span>;</span><br><span class="line">ll INF = <span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ST</span>&#123;</span><br><span class="line">    ll sum, lmax, rmax, dat;</span><br><span class="line">    <span class="type">int</span> l, r;</span><br><span class="line">&#125;t[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line">ll a[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(ST&amp;t, <span class="type">int</span> v)</span> </span>&#123; t.dat=t.lmax=t.rmax=t.sum=v; &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_up</span><span class="params">(ST &amp;p,ST &amp;l,ST &amp;r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    p.sum=l.sum+r.sum;</span><br><span class="line">    p.lmax=<span class="built_in">max</span>(l.lmax,l.sum+r.lmax);</span><br><span class="line">    p.rmax=<span class="built_in">max</span>(r.rmax,r.sum+l.rmax);</span><br><span class="line">    p.dat=<span class="built_in">max</span>(l.rmax+r.lmax,<span class="built_in">max</span>(l.dat,r.dat));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    t[p].l = l, t[p].r = r;</span><br><span class="line">    <span class="keyword">if</span> (l == r)&#123;</span><br><span class="line">        <span class="built_in">init</span>(t[p],a[l]);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">build</span>(ls, l, mid); <span class="built_in">build</span>(rs, mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="built_in">push_up</span>(t[p],t[ls],t[rs]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> x, <span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (t[p].l == t[p].r) &#123;</span><br><span class="line">        <span class="built_in">init</span>(t[p], t[p].dat+v);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= mid) <span class="built_in">update</span>(ls, x, v);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">update</span>(rs, x, v);</span><br><span class="line">    <span class="built_in">push_up</span>(t[p],t[ls],t[rs]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ST <span class="title">que</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= t[p].l &amp;&amp; r &gt;= t[p].r) <span class="keyword">return</span> t[p];</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(r&lt;=mid) <span class="keyword">return</span> <span class="built_in">que</span>(ls,l,r);</span><br><span class="line">    <span class="keyword">if</span>(l&gt;mid) <span class="keyword">return</span> <span class="built_in">que</span>(rs,l,r);</span><br><span class="line">    ST left=<span class="built_in">que</span>(ls,l,r),right=<span class="built_in">que</span>(rs,l,r),res;</span><br><span class="line">    <span class="built_in">push_up</span>(res,left,right);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> t0,t1,t2;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gen</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x=t0,k=(t0+t1+t2)%N;</span><br><span class="line">    t0=t1;t1=t2;t2=k;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">S</span><span class="params">(<span class="type">int</span> N,<span class="type">int</span> M)</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(t,<span class="number">0</span>,<span class="built_in">sizeof</span>(t));</span><br><span class="line">    t0=t1=<span class="number">0</span>;t2=<span class="number">1</span>;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="built_in">build</span>(<span class="number">1</span>,<span class="number">0</span>,N<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=M;i++)&#123;</span><br><span class="line">        <span class="type">int</span> p=<span class="built_in">gen</span>();</span><br><span class="line">        <span class="type">int</span> d=<span class="built_in">gen</span>()*<span class="number">2</span>-N<span class="number">+1</span>;</span><br><span class="line">        <span class="built_in">update</span>(<span class="number">1</span>,p,d);</span><br><span class="line">        ans+=<span class="built_in">que</span>(<span class="number">1</span>,<span class="number">0</span>,N<span class="number">-1</span>).dat;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">S</span>(N,R)-<span class="built_in">S</span>(N,L));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> ls p&lt;&lt;1</span></span><br><span class="line"><span class="meta"># <span class="keyword">define</span> rs p&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">10000003</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> L=<span class="number">10000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> R=<span class="number">10200000</span>;</span><br><span class="line">ll INF = <span class="number">0x3f3f3f3f3f3f3f3f</span>;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">ST</span>&#123;</span><br><span class="line">    ll sum, lmax, rmax, dat;</span><br><span class="line">    <span class="type">int</span> l, r;</span><br><span class="line">&#125;t[N &lt;&lt; <span class="number">2</span>];</span><br><span class="line">ll a[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(ST&amp;t, <span class="type">int</span> v)</span> </span>&#123; t.dat=t.lmax=t.rmax=t.sum=v; &#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">push_up</span><span class="params">(ST &amp;p,ST &amp;l,ST &amp;r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    p.sum=l.sum+r.sum;</span><br><span class="line">    p.lmax=<span class="built_in">max</span>(l.lmax,l.sum+r.lmax);</span><br><span class="line">    p.rmax=<span class="built_in">max</span>(r.rmax,r.sum+l.rmax);</span><br><span class="line">    p.dat=<span class="built_in">max</span>(l.rmax+r.lmax,<span class="built_in">max</span>(l.dat,r.dat));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">    t[p].l = l, t[p].r = r;</span><br><span class="line">    <span class="keyword">if</span> (l == r)&#123;</span><br><span class="line">        <span class="built_in">init</span>(t[p],a[l]);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">build</span>(ls, l, mid); <span class="built_in">build</span>(rs, mid + <span class="number">1</span>, r);</span><br><span class="line">    <span class="built_in">push_up</span>(t[p],t[ls],t[rs]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> x, <span class="type">int</span> v)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (t[p].l == t[p].r) &#123;</span><br><span class="line">        <span class="built_in">init</span>(t[p], t[p].dat+v);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= mid) <span class="built_in">update</span>(ls, x, v);</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">update</span>(rs, x, v);</span><br><span class="line">    <span class="built_in">push_up</span>(t[p],t[ls],t[rs]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ST <span class="title">que</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (l &lt;= t[p].l &amp;&amp; r &gt;= t[p].r) <span class="keyword">return</span> t[p];</span><br><span class="line">    <span class="type">int</span> mid = (t[p].l + t[p].r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(r&lt;=mid) <span class="keyword">return</span> <span class="built_in">que</span>(ls,l,r);</span><br><span class="line">    <span class="keyword">if</span>(l&gt;mid) <span class="keyword">return</span> <span class="built_in">que</span>(rs,l,r);</span><br><span class="line">    ST left=<span class="built_in">que</span>(ls,l,r),right=<span class="built_in">que</span>(rs,l,r),res;</span><br><span class="line">    <span class="built_in">push_up</span>(res,left,right);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> t0,t1,t2;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gen</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> x=t0,k=(t0+t1+t2)%N;</span><br><span class="line">    t0=t1;t1=t2;t2=k;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">T</span><span class="params">(<span class="type">int</span> N,<span class="type">int</span> L,<span class="type">int</span> R)</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(t,<span class="number">0</span>,<span class="built_in">sizeof</span>(t));</span><br><span class="line">    t0=t1=<span class="number">0</span>;t2=<span class="number">1</span>;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=L;i++)&#123;</span><br><span class="line">        <span class="type">int</span> p=<span class="built_in">gen</span>();</span><br><span class="line">        <span class="type">int</span> d=<span class="built_in">gen</span>()*<span class="number">2</span>-N<span class="number">+1</span>;</span><br><span class="line">        a[p]+=d;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">build</span>(<span class="number">1</span>,<span class="number">0</span>,N<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=L<span class="number">+1</span>;i&lt;=R;i++)&#123;</span><br><span class="line">        <span class="type">int</span> p=<span class="built_in">gen</span>();</span><br><span class="line">        <span class="type">int</span> d=<span class="built_in">gen</span>()*<span class="number">2</span>-N<span class="number">+1</span>;</span><br><span class="line">        <span class="built_in">update</span>(<span class="number">1</span>,p,d);</span><br><span class="line">        ans+=<span class="built_in">que</span>(<span class="number">1</span>,<span class="number">0</span>,N<span class="number">-1</span>).dat;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>,<span class="built_in">T</span>(N,L,R));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/663/" title="Project Euler 663">https://ujimatsu-chiya.github.io/project-euler/663/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="tag"><i class="fa fa-tag"></i> 线段树</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论30 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-08T06:05:17.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.179Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/problems/","path":"introduction-to-algorithms/chapter-30/problems/","title":"算法导论30 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论30 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">30-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">30-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">30-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">30-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">30-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-4"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论30 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论30 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-08 14:05:17" itemprop="dateCreated datePublished" datetime="2023-07-08T14:05:17+08:00">2023-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">30-1</h1>
+<h2 id="a">a</h2>
+<p>本题和题目4.2-5类似。</p>
+<p><span class="math inline">\(\begin{aligned}
+(ax+b)(cx+d)&amp;=acx^2+(bc+ad)x+bd\\
+&amp;=acx^2+((a+b)(c+d)-ac-bd)x+bd
+\end{aligned}\)</span></p>
+<p>计算三次乘法<span
+class="math inline">\(u=(a+b)(c+d),v=ac,w=bd\)</span>，那么可以计算出多项式的结果为<span
+class="math inline">\(vx^2+(u-v-w)x+w\)</span>。</p>
+<h2 id="b">b</h2>
+<p>此处假设<span
+class="math inline">\(n\)</span>是一个偶数。不失一般性，假设现在有两个多项式<span
+class="math inline">\(\displaystyle{A(x)=\sum_{i=0}^{n-1}
+a_ix^i,B(x)=\sum_{i=0}^{n-1} b_ix^i}\)</span>，现在计算多项式<span
+class="math inline">\(C(x)=A(x)\cdot
+B(x)\)</span>的系数。假设多项式<span
+class="math inline">\(A(x),B(x)\)</span>的次数<span
+class="math inline">\(n\)</span>都为偶数。</p>
+<p>首先考虑第一种分治策略，即分成高阶系数一半和低阶系数一半。</p>
+<p>令<span class="math inline">\(\displaystyle{A_1(x)=\sum_{i=0}^{n/2-1}
+a_ix^i,A_2=\sum_{i=0}^{n/2-1} a_{i+n/2}x^i}\)</span>。那么有<span
+class="math inline">\(A(x)=A_2(x)x^{n/2}+A_1(x)\)</span>。类似的，令<span
+class="math inline">\(\displaystyle{B_1(x)=\sum_{i=0}^{n/2-1}
+b_ix^i,B_2=\sum_{i=0}^{n/2-1} b_{i+n/2}x^i}\)</span>。那么有<span
+class="math inline">\(B(x)=B_2(x)x^{n/2}+B_1(x)\)</span>。那么考虑计算如下<span
+class="math inline">\(3\)</span>个多项式的乘积（均是<span
+class="math inline">\(n/2\)</span>次的多项式）：</p>
+<p><span class="math inline">\(\begin{aligned}
+u(x)&amp;=(A_1(x)+A_2(x))\cdot(B_1(x)+B_2(x))\\
+v(x)&amp;=A_2(x)\cdot B_2(x)\\
+w(x)&amp;=A_1(x)\cdot B_1(x)
+\end{aligned}\)</span></p>
+<p>那么最终可以得到<span class="math inline">\(C(x)=v(x)\cdot
+x^n+(u(x)-v(x)-w(x))\cdot x^{n/2}+w(x)\)</span>。可以验证：</p>
+<p><span class="math inline">\(\begin{aligned}
+C(x)&amp;=u(x)\cdot x^n+(u(x)-v(x)-w(x))\cdot x^{n/2}+w(x)\\
+&amp;=A_2(x)\cdot B_2(x)\cdot x^n+A_1(x)\cdot B_2(x)\cdot
+x^{n/2}+A_2(x)\cdot x^{n/2}\cdot B_1(x)+A_1(x)\cdot B_1(x)\\
+&amp;=(A_2(x)x^{n/2}+A_1(x))\cdot(B_2(x)x^{n/2}+B_1(x))\\
+&amp;=A(x)\cdot B(x)
+\end{aligned}\)</span></p>
+<p>令<span
+class="math inline">\(T(n)\)</span>表示这种分治策略的运行时间。首先花费<span
+class="math inline">\(3T(n/2)\)</span>的时间计算出多项式<span
+class="math inline">\(u(x),v(x),w(x)\)</span>，再花费<span
+class="math inline">\(\Theta(n)\)</span>的时间将这三个多项式合成计算结果<span
+class="math inline">\(C(x)=A(x)\cdot
+B(x)\)</span>，因此可以写出关于<span
+class="math inline">\(T(n)\)</span>的递推式：</p>
+<p><span class="math display">\[T(n)=3T(n/2)+\Theta(n)\]</span></p>
+<p>根据主定理的第1个条件，可以得到<span
+class="math inline">\(T(n)=\Theta(n^{\lg 3})\)</span>。</p>
+<p>接下来考虑第二种分治策略，即按照系数下标的奇偶性划分。</p>
+<p>令<span class="math inline">\(\displaystyle{A_1(x)=\sum_{i=0}^{n/2-1}
+a_{2i}x^i,A_2=\sum_{i=0}^{n/2-1} a_{2i+1}x^i}\)</span>。那么有<span
+class="math inline">\(A(x)=A_2(x^2)x+A_1(x^2)\)</span>。类似的，令<span
+class="math inline">\(\displaystyle{B_1(x)=\sum_{i=0}^{n/2-1}
+b_{2i}x^i,B_2=\sum_{i=0}^{n/2-1} b_{2i+1}x^i}\)</span>。那么有<span
+class="math inline">\(B(x)=B_2(x^2)x+B_1(x^2)\)</span>。那么考虑计算如下<span
+class="math inline">\(3\)</span>个多项式的乘积（均是<span
+class="math inline">\(n/2\)</span>次的多项式）：</p>
+<p><span class="math inline">\(\begin{aligned}
+u(x)&amp;=(A_1(x)+A_2(x))\cdot(B_1(x)+B_2(x))\\
+v(x)&amp;=A_2(x)\cdot B_2(x)\\
+w(x)&amp;=A_1(x)\cdot B_1(x)
+\end{aligned}\)</span></p>
+<p>那么最终可以得到<span class="math inline">\(C(x)=v(x^2)\cdot
+x^2+(u(x^2)-v(x^2)-w(x^2))\cdot x+w(x^2)\)</span>。可以验证：</p>
+<p><span class="math inline">\(\begin{aligned}
+C(x)&amp;=v(x^2)\cdot x^2+(u(x^2)-v(x^2)-w(x^2))\cdot x+w(x^2)\\
+&amp;=A_2(x^2)\cdot B_2(x^2)\cdot x^2+A_1(x^2)\cdot B_2(x^2)\cdot
+x+A_2(x^2)\cdot x\cdot B_1(x)+A_1(x^2)\cdot B_1(x^2)\\
+&amp;=(A_2(x^2)x+A_1(x^2))\cdot(B_2(x^2)x+B_1(x^2))\\
+&amp;=A(x)\cdot B(x)
+\end{aligned}\)</span></p>
+<p>可见，子问题的数量和规模和第一种分治策略一致，并且可以<span
+class="math inline">\(\Theta(n)\)</span>的时间根据分治结果合并出<span
+class="math inline">\(C(x)\)</span>，因此这种分治策略所需要的时间开销为<span
+class="math inline">\(\Theta(n^{\lg 3})\)</span>。</p>
+<h2 id="c">c</h2>
+<p>先将<span class="math inline">\(n\)</span>位二进制数<span
+class="math inline">\(a,b\)</span>在<span
+class="math inline">\(O(n)\)</span>的时间内转化成度数为<span
+class="math inline">\(n\)</span>的多项式<span
+class="math inline">\(\displaystyle{A(x)=\sum_{i=0}^{n-1}
+a_ix^i,B(x)=\sum_{i=0}^{n-1} b_ix^i}\)</span>。其中<span
+class="math inline">\(a_k\)</span>表示<span
+class="math inline">\(a\)</span>的第<span
+class="math inline">\(k\)</span>比特（<span
+class="math inline">\(b_k\)</span>同理）。</p>
+<p>使用上面的分治算法计算出多项式<span
+class="math inline">\(C(x)=A(x)\cdot B(x)\)</span>，需要花费<span
+class="math inline">\(O(n^{\lg 3})\)</span>，然后花费<span
+class="math inline">\(O(n)\)</span>的时间处理数组<span
+class="math inline">\(C\)</span>的进位，并转化成二进制数<span
+class="math inline">\(c\)</span>，最终只需要<span
+class="math inline">\(O(n^{\lg 3})\)</span>的时间就可以计算出<span
+class="math inline">\(c\)</span>。以下过程是计算出<span
+class="math inline">\(c\)</span>的过程<code>MULTIPLY-FFT</code>。<span
+class="math inline">\(O(n^{\lg
+3})\)</span>中的每个步骤均摊下来，只花费<span
+class="math inline">\(O(1)\)</span>（即常数）的比特操作。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">MULTIPLY-FFT(a, b, n)</span><br><span class="line">  convert binary numbers a, b into polynomials A, B of degree n</span><br><span class="line">  m = 2 ^ (⌈lg n⌉ + 1)</span><br><span class="line">  for i = 1 to m - n</span><br><span class="line">    INSERT(A, 0)</span><br><span class="line">    INSERT(B, 0)</span><br><span class="line">  C = FFT-INV(FFT(A, m) ⋅ FFT(B, m), m)</span><br><span class="line">  cap = 0</span><br><span class="line">  for i = 0 to m - 1</span><br><span class="line">    cap = cap + C[i]</span><br><span class="line">    C[i] = cap % 2</span><br><span class="line">    cap = ⌊cap / 2⌋</span><br><span class="line">  convert polynomial C to binary number c</span><br><span class="line">  return c</span><br></pre></td></tr></table></figure>
+<h1 id="section-1">30-2</h1>
+<h2 id="a-1">a</h2>
+<p>考虑将<span
+class="math inline">\(\omega_{n_2}^{j_2k_2},\omega_{n_3}^{j_3k_3},\dots,\omega_{n_d}^{j_dk_d}\)</span>都视为是常数。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+y_{k_1,k_2,\dots,k_d}&amp;=\sum_{j_1=0}^{n_1-1}\sum_{j_2=0}^{n_2-1}\dots\sum_{j_d=0}^{n_d-1}a_{k_1,k_2,\dots,k_d}\omega_{n_1}^{j_1k_1}\omega_{n_2}^{j_2k_2}\dots\omega_{n_d}^{j_dk_d}\\
+&amp;=\sum_{j_2=0}^{n_2-1}\sum_{j_3=0}^{n_3-1}\dots\sum_{j_d=0}^{n_d-1}\sum_{j_1=0}^{n_1-1}a_{k_1,k_2,\dots,k_d}\omega_{n_1}^{j_1k_1}\omega_{n_2}^{j_2k_2}\dots\omega_{n_d}^{j_dk_d}\\
+&amp;=\sum_{j_2=0}^{n_2-1}\sum_{j_3=0}^{n_3-1}\dots\sum_{j_d=0}^{n_d-1}\sum_{j_1=0}^{n_1-1}a_{k_1,k_2,\dots,k_d}\omega_{n_1}^{j_1k_1}\omega_{n_2}^{j_2k_2}\dots\omega_{n_d}^{j_dk_d}\\
+&amp;=\sum_{j_2=0}^{n_2-1}\sum_{j_3=0}^{n_3-1}\dots\sum_{j_d=0}^{n_d-1}\omega_{n_2}^{j_2k_2}\dots\omega_{n_d}^{j_dk_d}\left(\sum_{j_1=0}^{n_1-1}a_{k_1,k_2,\dots,k_d}\omega_{n_1}^{j_1k_1}\right)\\
+&amp;=\sum_{j_2=0}^{n_2-1}\sum_{j_3=0}^{n_3-1}\dots\sum_{j_d=0}^{n_d-1}\omega_{n_2}^{j_2k_2}\dots\omega_{n_d}^{j_dk_d}\cdot
+a&#39;_{k_1,k_2,k_3,\dots,k_d}\\
+&amp;=\sum_{j_2=0}^{n_2-1}\sum_{j_3=0}^{n_3-1}\dots\sum_{j_d=0}^{n_d-1}a&#39;_{k_1,k_2,k_3,\dots,k_d}\omega_{n_2}^{j_2k_2}\dots\omega_{n_d}^{j_dk_d}\\
+\end{aligned}\)</span></p>
+<p>对于独立的<span
+class="math inline">\(\dfrac{n}{n_1}\)</span>个一维DFT问题<span
+class="math inline">\((k_2,k_3,\dots,k_d)\)</span>，将<span
+class="math inline">\(k_1\)</span>视作指数，那么最后一行的计算结果<span
+class="math inline">\(a&#39;:a&#39;_{\cdot,k_2,k_3,\dots,k_d}=\text{DFT}_{n_1}(a&#39;_{\cdot,k_2,k_3,\dots,k_d})\)</span>，作为下一个问题的步骤的系数<span
+class="math inline">\(a\)</span>的输入，这个过程消去了一个求和符号。在下一次迭代中，仅有<span
+class="math inline">\(\dfrac{n}{n_1n_2}\)</span>个一维DFT问题（下一步是取原来第<span
+class="math inline">\(2\)</span>维），直到所有求和符号都被消去，最终得到的就是多维DFT的结果。</p>
+<h2 id="b-1">b</h2>
+<p>由于这<span
+class="math inline">\(d\)</span>个求和符号的上下限仅依赖于第<span
+class="math inline">\(d\)</span>维度<span
+class="math inline">\(n_d\)</span>，因此各个求和符号的位置可以随意改变次序；同样的，所有的<span
+class="math inline">\(\omega_{n}^{jk}\)</span>的次序都可以改变。因此，无论哪个维度的消去顺序都是一样的（可以把对应想消去的那一维放到第<span
+class="math inline">\(1\)</span>个位置，然后使用题目30-2-a的方法使用FFT）。因此，原结论成立。</p>
+<h2 id="c-1">c</h2>
+<p>假设目前正在消去第<span
+class="math inline">\(i\)</span>维的求和符号，那么一共有<span
+class="math inline">\(\displaystyle{n/\prod_{j=1}^{i}
+n_j}\)</span>个DFT问题，这些DFT问题的规模大小为<span
+class="math inline">\(n_i\)</span>，需要花费<span
+class="math inline">\(O(n_i\lg n_i)\)</span>的时间求解，因此消去第<span
+class="math inline">\(i\)</span>维的求和符号所需要花费的时间为<span
+class="math inline">\(\displaystyle{n/\prod_{j=1}^{i} n_j\cdot O(n_i\lg
+n_i)=O\left(\left(n/\prod_{j=1}^{i-1} n_j\right)\lg
+n_i\right)}\)</span>。因此完成这<span
+class="math inline">\(d\)</span>步循环后，所需要花费的时间为</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{i=1}^d \left(\left(n/\prod_{j=1}^{i-1} n_j\right)\lg
+n_i\right)&amp;\le n\lg n\cdot \sum_{i=1}^d1/\left(\prod_{j=1}^{i-1}
+n_i\right)\\
+&amp;\le n\lg n\cdot \sum_{i=1}^d1/\left(\prod_{j=1}^{i-1}
+2\right)\qquad(A)\\
+&amp;=n\lg n\cdot \sum_{i=1}^d 2^{1-i}\\
+&amp;\le 2n\lg n\\
+&amp;=O(n\lg n)
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>假定了<span
+class="math inline">\(n_i\ge 2\)</span>，因为如果<span
+class="math inline">\(n_i=1\)</span>，那么<span
+class="math inline">\(\lg n_i=0\)</span>，消去第<span
+class="math inline">\(i\)</span>个求和符号不需要花费任何时间。因此最终原结论成立。</p>
+<h1 id="section-2">30-3</h1>
+<h2 id="a-2">a</h2>
+<p>当<span class="math inline">\(t\le n-1\)</span>时，有</p>
+<p><span class="math inline">\(\begin{aligned}
+A^{(t)}(x)&amp;=\dfrac{d^t}{dx^t}A(x)\\
+&amp;=\dfrac{d^t}{dx^t}\sum_{j=0}^{n-1}b_j(x-x_0)^{j}\\
+&amp;=\sum_{j=0}^{n-1}\dfrac{d^t}{dx^t}b_j(x-x_0)^{j}\\
+&amp;=\sum_{j=t}^{n-1}\dfrac{d^t}{dx^t}b_j(x-x_0)^{j}&amp;\qquad(A)\\
+&amp;=\sum_{j=t}^{n-1}\dfrac{j!}{(j-t)!}b_j(x-x_0)^{j-t}\\
+&amp;=\sum_{j=0}^{n-1-t}\dfrac{(j+t)!}{j!}b_{j+t}(x-x_0)^{j}\\
+\end{aligned}\)</span></p>
+<p>步骤<span class="math inline">\((A)\)</span>所得是因为所有小于<span
+class="math inline">\(t\)</span>次的多项式进行<span
+class="math inline">\(t\)</span>次求导后的值为<span
+class="math inline">\(0\)</span>。因此最终有<span
+class="math inline">\(A^{(t)}(x_0)=b_t\cdot t!\)</span>。</p>
+<p>因此对于<span
+class="math inline">\(t=0,1,2,\dots,n-1\)</span>，维护好<span
+class="math inline">\(t!\)</span>的值，就可以以<span
+class="math inline">\(O(n)\)</span>的时间计算出<span
+class="math inline">\(A^{(t)}(x_0)\)</span>的所有值。大概过程由程序<code>COMPUTE-ATX0</code>给出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">COMPUTE-ATX0(B, n, x)</span><br><span class="line">  let D[0 : n - 1] be a new array</span><br><span class="line">  fac = 1</span><br><span class="line">  for t = 0 to n - 1</span><br><span class="line">    D[t] = B[t] * fac</span><br><span class="line">    fac = fac * (t + 1)</span><br><span class="line">  return D</span><br></pre></td></tr></table></figure>
+<h2 id="b-2">b</h2>
+<p>由于我们知道了值<span
+class="math inline">\(\displaystyle{A(x_0+\omega_n^k)=\sum_{j=0}^{n-1}
+b_j\omega_n^j}\)</span>，因此为了求出<span
+class="math inline">\(b_j\)</span>，只需要对<span
+class="math inline">\(A(x_0+\omega_n^k),k=0,1,\dots,n-1\)</span>这<span
+class="math inline">\(n\)</span>个数进行一次逆向FFT即可，所需要花费的时间为<span
+class="math inline">\(O(n\lg n)\)</span>。</p>
+<p>令示性函数<span class="math inline">\(i(x)=[x\ge0]\)</span>。</p>
+<h2 id="c-2">c</h2>
+<p><span class="math inline">\(\begin{aligned}
+A(x_0+\omega_n^k)&amp;=\sum_{j=0}^{n-1} a_j(x_0+\omega_n^k)^j\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\sum_{r=0}^j\dbinom{j}{r}\omega_n^{kr}x_0^{j-r}\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\sum_{r=0}^j\dfrac{j!}{r!\cdot(j-r)!}\omega_n^{kr}x_0^{j-r}\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\sum_{r=0}^j\dfrac{j!}{r!\cdot(j-r)!}\omega_n^{kr}x_0^{j-r}\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\sum_{r=0}^j\dfrac{j!}{r!}\omega_n^{kr}\dfrac{x_0^{j-r}}{(j-r)!}\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\left(\sum_{r=0}^j\dfrac{j!}{r!}\omega_n^{kr}\dfrac{x_0^{j-r}}{(j-r)!}+\sum_{r=j+1}^{n-1}\dfrac{j!}{r!}\omega_n^{kr}\cdot
+0\right)\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\left(\sum_{r=0}^j\dfrac{j!}{r!}\omega_n^{kr}g(r-j)+\sum_{r=j+1}^{n-1}\dfrac{j!}{r!}\omega_n^{kr}
+g(r-j)\right)\\
+&amp;=\sum_{j=0}^{n-1}
+a_j\left(\sum_{r=0}^{n-1}\dfrac{j!}{r!}\omega_n^{kr}g(r-j)\right)\\
+&amp;=\sum_{r=0}^{n-1}
+\sum_{j=0}^{n-1}a_j\cdot\dfrac{j!}{r!}\omega_n^{kr}g(r-j)\\
+&amp;=\sum_{r=0}^{n-1}
+\sum_{j=0}^{n-1}\dfrac{f(j)}{r!}\omega_n^{kr}g(r-j)\\
+&amp;=\sum_{r=0}^{n-1}\left[\dfrac{\omega_n^{kr}}{r!}\sum_{j=0}^{n-1}f(j)g(r-j)\right]\\
+\end{aligned}\)</span></p>
+<p>因此最终原结论成立。</p>
+<h2 id="d">d</h2>
+<p>令<span class="math inline">\(h(j)=g(j-(n-1))\)</span>，那么有<span
+class="math inline">\(\displaystyle{A(x_0+\omega_n^k)=\sum_{r=0}^{n-1}\left[\dfrac{\omega_n^{kr}}{r!}\sum_{j=0}^{n-1}f(j)h(n+r-1-j)\right]}\)</span>，然而对于<span
+class="math inline">\(j\ge n\)</span>，都有<span
+class="math inline">\(h(j)=0\)</span>。</p>
+<p>当<span class="math inline">\(j\ge n\)</span>时，假设<span
+class="math inline">\(f(j)=0\)</span>，令<span
+class="math inline">\(\displaystyle{y_r=\sum_{j=0}^{n-1}f(j)h(n+r-1-j)=}\sum_{j=0}^{n+r-1}f(j)h(n+r-1-j)\)</span>，那么可以在<span
+class="math inline">\(O(n\lg
+n)\)</span>的时间内通过多项式卷积计算出<span
+class="math inline">\(y_r\)</span>，其中<span
+class="math inline">\(r\in[0,n)\)</span>。</p>
+<p>令<span
+class="math inline">\(z_r=\dfrac{y_r}{r!}\)</span>，那么得到<span
+class="math inline">\(\displaystyle{A(x_0+\omega_n^k)=\sum_{r=0}^{n-1}z_r\omega_{n}^{kr}}\)</span>。接下来再使用一次FFT即可计算出<span
+class="math inline">\(A(x_0+\omega_n^k)\)</span>，其中<span
+class="math inline">\(k\in[0,n)\)</span>。</p>
+<p>然后，按照题目30-3-b的结论，使用一次逆向FFT，得到多项式<span
+class="math inline">\(A\)</span>的系数<span
+class="math inline">\(b_0,b_1,\dots,b_{n-1}\)</span>。</p>
+<p>最后使用题目30-3-a的结论，通过系数<span
+class="math inline">\(b\)</span>在<span
+class="math inline">\(O(n)\)</span>的时间内计算出<span
+class="math inline">\(A(x)\)</span>所有非平凡导数在<span
+class="math inline">\(x_0\)</span>的值。由于整个过程仅仅使用了<span
+class="math inline">\(5\)</span>次FFT，以及最后一步以<span
+class="math inline">\(O(n)\)</span>的时间计算出所有答案，因此整个过程的时间复杂度为<span
+class="math inline">\(O(n\lg n)\)</span>。</p>
+<p>整个大致过程由<code>COMPUTE-DERIVATIVE-BY-FFT</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">COMPUTE-DERIVATIVE-BY-FFT(A, n, x)</span><br><span class="line">  m = 2 ^ (⌈lg n⌉ + 1)</span><br><span class="line">  for i = 1 to m - n</span><br><span class="line">    INSERT(A, 0)</span><br><span class="line">  let F[0 : m - 1], H[0 : m - 1] ,fac[0, m - 1] be new arrays</span><br><span class="line">  fac[0] = 1</span><br><span class="line">  for i = 1 to n - 1</span><br><span class="line">    fac[i] = fac[i - 1] * i</span><br><span class="line">  for i = 0 to n - 1</span><br><span class="line">    F[i] = A[i] * fac[i]</span><br><span class="line">    l = i - (n - 1)</span><br><span class="line">    H[i] = exp(x, -l) / fac[-l]</span><br><span class="line">  Y = FFT-INV(FFT(F, m) ⋅ FFT(H, m), m)</span><br><span class="line">  let Z[0 : m - 1], D[0 : n - 1] be new arrays</span><br><span class="line">  for i = 0 to n - 1</span><br><span class="line">    Z[i] = Y[i + m / 2] / fac[i]</span><br><span class="line">  B = FFT-INV(Z, m)</span><br><span class="line">  for i = 0 to n - 1</span><br><span class="line">    D[i] = B[i] * fac[i]</span><br><span class="line">  return 0</span><br></pre></td></tr></table></figure>
+<h1 id="section-3">30-4</h1>
+<h2 id="a-3">a</h2>
+<p>这个问题等价于证明：<span class="math inline">\(x-z\mid
+A(x)-A(z)\)</span>。</p>
+<p>首先证明一个引理：<span class="math inline">\(\forall n\ge
+1\)</span>，其中<span
+class="math inline">\(n\)</span>是一个整数，都有<span
+class="math inline">\(a-b\mid
+a^n-b^n\)</span>。接下来使用归纳法进行证明。当<span
+class="math inline">\(n=1\)</span>时，明显成立。当<span
+class="math inline">\(n&gt;1\)</span>时，假设对于<span
+class="math inline">\(k=1,2,\dots,n-1\)</span>，都有<span
+class="math inline">\(a-b\mid a^k-b^k\)</span>。考虑<span
+class="math inline">\(a^n-b^n\)</span>，那么有<span
+class="math inline">\(a^n-b^n=(a-b)\cdot
+a^{n-1}+b(a^{n-1}-b^{n-1})\)</span>。由于前者包含一个因子<span
+class="math inline">\((a-b)\)</span>，因此<span
+class="math inline">\(a-b\)</span>整除<span
+class="math inline">\((a-b)\cdot a^{n-1}\)</span>；按照假设，可知<span
+class="math inline">\(a-b\mid b(a^{n-1}-b^{n-1})\)</span>，因此得出<span
+class="math inline">\(a-b\mid a^n-b^n\)</span>，该引理成立。</p>
+<p>接下来证明原结论。考虑<span
+class="math inline">\(A(x)-A(z)\)</span>，那么有<span
+class="math inline">\(\displaystyle{A(x)-A(z)=\sum_{i=0}^{n-1}
+a_i(x^i-z^i)}\)</span>。当<span
+class="math inline">\(i=0\)</span>时，这个项为<span
+class="math inline">\(0\)</span>；对于<span
+class="math inline">\(i&gt;0\)</span>，按照上面的引理，都有<span
+class="math inline">\(x-z\mid x^i-z^i\)</span>，因此最终有<span
+class="math inline">\(x-z\mid A(x)-A(z)\)</span>。即</p>
+<p><span class="math display">\[A(x)\bmod (x-z)=A(z)\]</span></p>
+<h2 id="b-3">b</h2>
+<p>可以得知<span class="math inline">\(Q_{kk}(x)=A(x)\bmod
+(x-x_k)\)</span>，因此按照题目30-4-a的结论，有<span
+class="math inline">\(Q_{kk}(x)=A(x_k)\)</span>。</p>
+<p>由于多项式<span
+class="math inline">\(P_{0,n-1}(x)\)</span>的次数为<span
+class="math inline">\(n\)</span>，但是<span
+class="math inline">\(A(x)\)</span>的次数为<span
+class="math inline">\(n-1\)</span>，因此<span
+class="math inline">\(A(x)\bmod P_{0,n-1}(x)=A(x)\)</span>，即<span
+class="math inline">\(Q_{0,n-1}(x)=A(x)\)</span>。</p>
+<h2 id="c-3">c</h2>
+<p>本题考虑证明一个更强的结论：对于任意非空集合<span
+class="math inline">\(S\subseteq\{0,1,\dots,n-1\}\)</span>的任意一个非空子集<span
+class="math inline">\(T\)</span>，都有<span
+class="math inline">\(\displaystyle{A(x)\bmod \prod_{i\in
+T}(x-x_i)=(A(x)\bmod \prod_{i\in S}(x-x_i))\bmod
+\prod_{i\in T}(x-x_i)}\)</span>。</p>
+<p>令<span class="math inline">\(\displaystyle{s(x)=\prod_{i\in
+S}(x-x_i),t(x)=\prod_{i\in T}(x-x_i)}\)</span>，可见<span
+class="math inline">\(t(x)\mid
+s(x)\)</span>。接下里是证明：构造两个多项式<span
+class="math inline">\(q_1(x),r_1(x_1)\)</span>满足<span
+class="math inline">\(\displaystyle{A(x)=q_1(x)\cdot
+s(x)+r_1(x)}\)</span>，其中<span
+class="math inline">\(\text{degree}(r_1)&lt;|S|\)</span>，那么有<span
+class="math inline">\(A(x)\bmod
+s(x)=r_1(x)\)</span>。同时构造两个多项式<span
+class="math inline">\(q_2(x),r_2(x)\)</span>满足<span
+class="math inline">\(r_1(x)=q_2(x)\cdot t(x)+r_2(x)\)</span>，其中<span
+class="math inline">\(\text{degree}(r_2)&lt;|T|\)</span>。由于<span
+class="math inline">\(t(x)\mid s(x)\)</span>，令多项式<span
+class="math inline">\(u(x)=s(x)/t(x)\)</span>，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+A(x)&amp;=q_1(x)\cdot s(x)+r_1(x)\\
+&amp;=q_1(x)\cdot u(x)\cdot t(x)+q_2(x)\cdot t(x)+r_2(x)\\
+&amp;=(q_1(x)\cdot u(x)+q_2(x))\cdot t(x)+r_2(x)
+\end{aligned}\)</span></p>
+<p>由于<span
+class="math inline">\(\text{degree}(r_2)&lt;|T|\)</span>，因此有<span
+class="math inline">\(A(x)\bmod
+t(x)=r_2(x)\)</span>，上面证明的结论成立。</p>
+<p>假设现在<span
+class="math inline">\(S=\{i,i+1,\dots,j\}\)</span>。当<span
+class="math inline">\(T=\{i,i+1,\dots,k\}\)</span>时，则相当于证明了<span
+class="math inline">\(A(x)\bmod P_{ik}(x)=(A(x)\bmod P_{ij}(x))\bmod
+P_{ik}(x)\)</span>，即<span
+class="math inline">\(Q_{ik}(x)=Q_{ij}(x)\bmod
+P_{ik}(x)\)</span>。当<span
+class="math inline">\(T=\{k,k+1,\dots,j\}\)</span>时，则相当于证明了<span
+class="math inline">\(A(x)\bmod P_{kj}(x)=(A(x)\bmod P_{ij}(x))\bmod
+P_{kj}(x)\)</span>，即<span
+class="math inline">\(Q_{kj}(x)=Q_{ij}(x)\bmod
+P_{kj}(x)\)</span>，因此原结论成立。</p>
+<h2 id="d-1">d</h2>
+<p>令<span class="math inline">\(m=2^{\lceil\lg
+n\rceil}\)</span>。整个过程分为两个阶段。按照题目30.2-7的思路，首先自底向上，使用FFT计算出所有的<span
+class="math inline">\(P_{lr}:\exists k:r-l+1=2^k,2^k\mid
+l\)</span>，这个阶段将花费<span class="math inline">\(O(m\lg^2
+m)\)</span>的时间。接下来则是自顶向下计算出所有的<span
+class="math inline">\(Q_{lr}:\exists k:r-l+1=2^k,2^k\mid
+l\)</span>，同样的，在第<span
+class="math inline">\(k\)</span>轮迭代中计算单次多项式的长度为<span
+class="math inline">\(\dfrac{m}{2^{k-1}}\)</span>，取模所需要花费的时间为<span
+class="math inline">\(O\left(\dfrac{m}{2^{k-1}}\lg
+\dfrac{m}{2^{k-1}}\right)\)</span>。一共需要进行<span
+class="math inline">\(2^{k-1}\cdot
+2\)</span>次，因此总共所需要花费的时间为<span
+class="math inline">\(O(m\lg m)\)</span>。因此第二个阶段也将花费<span
+class="math inline">\(O(m\lg^2m)\)</span>的时间。</p>
+<p>由于两个阶段都使用了<span class="math inline">\(O(m\lg^2
+m)\)</span>的运行时间，并且<span
+class="math inline">\(n=\Theta(m)\)</span>，因此这个算法的时间复杂度为<span
+class="math inline">\(O(n\lg^2n)\)</span>，具体过程由<code>EVALUATE-N-VALUES</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">// 假设函数PLOY-MULTIPLY和POLY-MODULO会将多项式的长度拓展成2的幂，并且用FFT和FFT-INV分别作为子程序运行，以O(n lg n)的时间进行，这里忽略了实现细节。</span><br><span class="line">EVALUATE-N-VALUES(A, X, n)</span><br><span class="line">  m = 2 ^ (⌈lg n⌉)</span><br><span class="line">  c = ⌈lg n⌉</span><br><span class="line">  for i = 0 to m</span><br><span class="line">    if i &lt; n</span><br><span class="line">      P_&#123;ii&#125; = [-X[i], 1]</span><br><span class="line">    else</span><br><span class="line">      P_&#123;ii&#125; = [1, 0]</span><br><span class="line">  for k = 1 to c</span><br><span class="line">    for l = 0 to m by 2^k</span><br><span class="line">      r = l + 2 ^ k - 1</span><br><span class="line">      P_&#123;l, r&#125; = PLOY-MULTIPLY(P_&#123;l, l + 2 ^ (k - 1) - 1&#125;, P_&#123;l + 2 ^ (k - 1), r&#125;)</span><br><span class="line">  Q_&#123;0, m - 1&#125; = A</span><br><span class="line">  for k = c to 1</span><br><span class="line">    for l = 0 to m by 2^k</span><br><span class="line">      r = l + 2 ^ k - 1</span><br><span class="line">      Q_&#123;l, l + 2 ^ (k - 1) - 1&#125; = PLOY-MODULO(Q_&#123;l, r&#125;, P_&#123;l + 2 ^ (k - 1), r&#125;)</span><br><span class="line">      Q_&#123;l + 2 ^ (k - 1), r&#125; = PLOY-MODULO(Q_&#123;l, r&#125;, P_&#123;l, l + 2 ^ (k - 1) - 1&#125;)</span><br><span class="line">  let Y[0 : n - 1] be a new array</span><br><span class="line">  for i = 0 to n - 1</span><br><span class="line">    Y[i] = Q_&#123;ii&#125;</span><br><span class="line">  return Y</span><br></pre></td></tr></table></figure>
+<h1 id="section-4">30-5</h1>
+<p>事实上，这种在<span
+class="math inline">\(\mathbb{Z}_p\)</span>上的傅里叶变换称为<a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Discrete_Fourier_transform_over_a_ring#Number-theoretic_transform">数论变换</a>。</p>
+<h2 id="a-4">a</h2>
+<p>按照素数定理，从<span class="math inline">\(1\)</span>到<span
+class="math inline">\(m\)</span>中素数的个数占比约为<span
+class="math inline">\(\dfrac{1}{\ln m}\)</span>。因此从<span
+class="math inline">\(1\)</span>到<span class="math inline">\(n\ln
+n\)</span>中选取到一个质数的概率约为<span
+class="math inline">\(\dfrac{1}{\ln n+\ln \ln n}\approx\dfrac{1}{\ln
+n}\)</span>。考虑从<span class="math inline">\(k=1,2,3,\dots,\ln
+n\)</span>，考察存在<span class="math inline">\(k\)</span>使得<span
+class="math inline">\(kn+1\)</span>是一个质数的概率<span
+class="math inline">\(p\)</span>。可以计算得到</p>
+<p><span class="math inline">\(\begin{aligned}
+p&amp;\approx 1-\left(1-\dfrac{1}{\ln n+\ln\ln n}\right)^{\ln n}\\
+&amp;\approx1-\left(1-\dfrac{1}{\ln n}\right)^{\ln n}\\
+&amp;&gt; 1-\dfrac{1}{e}\\
+&amp;\approx 0.632121
+\end{aligned}\)</span></p>
+<p>因此，有相当高的概率使得这<span class="math inline">\(\ln
+n\)</span>数中存在一个质数，因此需要检查的<span
+class="math inline">\(k\)</span>期望个数为<span
+class="math inline">\(O(\lg n)\)</span>。因此<span
+class="math inline">\(p\)</span>的期望值为<span
+class="math inline">\(O(n\lg n)\)</span>，并且<span
+class="math inline">\(p\)</span>的长度值的期望是<span
+class="math inline">\(O(\lg(n\lg n))=O(\lg n+\lg\lg n)=O(\lg
+n)\)</span>。</p>
+<h2 id="b-4">b</h2>
+<p>由于<span class="math inline">\(g\)</span>是<span
+class="math inline">\(\mathbb{Z}_p^{\ast}\)</span>生成元，因此<span
+class="math inline">\(g\)</span>在<span
+class="math inline">\(\mathbb{Z}_p^{\ast}\)</span>上的阶<span
+class="math inline">\(\lambda_p(g)=p-1=kn\)</span>。由于<span
+class="math inline">\(w=g^k\bmod p\)</span>，因此<span
+class="math inline">\(\lambda_p(w)=n\)</span>。也就是说，<span
+class="math inline">\(\mathbb{Z}_p^{\ast}\)</span>上的一个循环子群<span
+class="math inline">\(\langle w\rangle\)</span>的大小为<span
+class="math inline">\(n\)</span>。按照<span
+class="math inline">\(\omega_n\)</span>的定义，有<span
+class="math inline">\(\omega_n^n=1\)</span>，类似的，按照费马小定理，有<span
+class="math inline">\(w^{n}\equiv (g^{k})^n\equiv g^{p-1}\equiv 1\pmod
+p\)</span>。</p>
+<p>接下来证明引理/定理/推论30.3，30.4，30.5，30.6, 30.76在<span
+class="math inline">\(\langle w\rangle\)</span>中是成立的。</p>
+<p>引理30.3的证明：考虑<span
+class="math inline">\(n\)</span>的某个因子<span
+class="math inline">\(d\)</span>，令<span
+class="math inline">\(w&#39;=w^d\)</span>，那么有<span
+class="math inline">\(w&#39;^{k/d}\equiv (w^{d})^{k/d}\equiv w^k\pmod
+p\)</span>，因此原结论成立。</p>
+<p>推论30.4的证明：不难知道<span class="math inline">\(w^{n/2}\equiv
+g^{kn/2}\equiv -1\pmod {p}\)</span>，（由于<span
+class="math inline">\(g^{kn}\equiv 1\pmod p\)</span>，因此<span
+class="math inline">\(g^{kn/2} \bmod p\)</span>的值要么为<span
+class="math inline">\(-1\)</span>，要么为<span
+class="math inline">\(1\)</span>，但是它的值必定是<span
+class="math inline">\(-1\)</span>，因为<span
+class="math inline">\(g\)</span>是原根）。</p>
+<p>引理30.5的证明：<span class="math inline">\((w^{k+n/2})^2\equiv
+w^{2k+n}\equiv w^{2k}\cdot w^{n}\equiv (w^k)^2\pmod
+p\)</span>，因此结论得证。</p>
+<p>引理30.6的证明：当<span class="math inline">\(n\nmid
+k\)</span>时，有<span class="math inline">\(w^k\not\equiv 1\pmod
+p\)</span>成立。证明过程和原本的定理30.6的计算过程一致，原结论得证。</p>
+<p>定理30.7的证明：此时<span
+class="math inline">\(V_{n}^{-1}\)</span>的第<span
+class="math inline">\(j\)</span>行第<span
+class="math inline">\(k\)</span>列的项为<span
+class="math inline">\(w^{-jk}\cdot n^{-1}\bmod p\)</span>。由于<span
+class="math inline">\(p\)</span>是奇数，且<span
+class="math inline">\(n&lt;p\)</span>，因此<span
+class="math inline">\(\gcd(n,p)=1\)</span>，因此在<span
+class="math inline">\(\mathbb{Z}_p\)</span>中存在<span
+class="math inline">\(n\)</span>的逆元<span
+class="math inline">\(n^{-1}\)</span>，结论中的写法是成立的，考虑<span
+class="math inline">\([V_{n}^{-1}V_n]_{kk}\)</span>的值，有<span
+class="math inline">\([V_{n}^{-1}V_n]_{kk}\equiv\displaystyle{\sum_{j=0}^{n-1}}(w^{-jk}\cdot
+n^{-1})(w^{jk&#39;})\equiv n^{-1}\cdot
+\sum_{j=0}^{n-1}w^{j(k&#39;-k)}\pmod
+p\)</span>。其余证明过程类似，因此原结论成立。</p>
+<p>那么在<span
+class="math inline">\(\mathbb{Z}_{p}\)</span>上的DFT问题定义为：给定长度为<span
+class="math inline">\(n\)</span>的序列<span
+class="math inline">\((a_0,a_1,\dots,a_{n-1})\)</span>，计算<span
+class="math inline">\(\displaystyle{y_j=\sum_{i=0}^{n-1}} a_i(w^j)^i
+\bmod p\)</span>，其中<span
+class="math inline">\(w=g^k\)</span>。最终，计算结果<span
+class="math inline">\(y_j\in\mathbb{Z}_{p}\)</span>，可见计算结果是封闭的。正向DFT的过程成立。</p>
+<p>现在在<span
+class="math inline">\(\mathbb{Z}_{p}\)</span>上的逆向DFT问题定义为：给定长度为<span
+class="math inline">\(n\)</span>的序列<span
+class="math inline">\((y_0,y_1,\dots,y_{n-1})\)</span>，构造一组序列<span
+class="math inline">\((a_0,a_1,\dots,a_{n-1})\in\mathbb{Z}_p^n\)</span>，使得<span
+class="math inline">\(\displaystyle{\forall
+j\in[0,n),y_j=\sum_{i=0}^{n-1}} a_i(w^j)^i \bmod
+p\)</span>均成立，其中<span
+class="math inline">\(w=g^k\)</span>。那么按照类似的结论，由于<span
+class="math inline">\(\gcd(w,p)=1\)</span>，因此<span
+class="math inline">\(w\)</span>在<span
+class="math inline">\(\mathbb{Z}_p^{\ast}\)</span>中也存在逆元<span
+class="math inline">\(w^{-1}\)</span>。容易验证<span
+class="math inline">\(\langle w\rangle=\langle
+w^{-1}\rangle\)</span>，因此<span
+class="math inline">\(\displaystyle{a_k=n^{-1}\sum_{i=0}^{n-1}y_i(\omega^{-k})^i}\bmod
+p\)</span>的整个计算过程是封闭的，即DFT的逆过程是正确定义的。</p>
+<h2 id="c-4">c</h2>
+<p>对<code>FFT</code>和<code>FFT-INV</code>改造后，可以得到<code>FFT-OVER-RING</code>和<code>FFT-INV-OVER-RING</code>算法，程序如下给出。由于操作分别和<code>FFT</code>与<code>FFT-INV</code>一致，因此其时间复杂度均为<span
+class="math inline">\(O(n\lg n)\)</span>。需要注意的是，<span
+class="math inline">\(w^{-1}\)</span>和<span
+class="math inline">\(n^{-1}\)</span>可以提前计算好，避免以后的重复计算。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">FFT-OVER-RING(a, n, p, wn)</span><br><span class="line">  if n == 1</span><br><span class="line">    return a</span><br><span class="line">  w = 1</span><br><span class="line">  a-even = (a_0, a_2, ..., a_&#123;n - 2&#125;)</span><br><span class="line">  a-odd = (a_1, a_3, ..., a_&#123;n - 1&#125;)</span><br><span class="line">  y-even = FFT-INV(FFT-OVER-RING, n / 2, p, wn * wn % p)</span><br><span class="line">  y-odd = FFT-INV(FFT-OVER-RING, n / 2, wn * wn % p)</span><br><span class="line">  for k = 0 to n / 2 - 1</span><br><span class="line">    y_k = (a-even_&#123;k&#125; + w * a-odd_&#123;k&#125;) % p</span><br><span class="line">    y_&#123;k + n / 2&#125; = (a-even_&#123;k&#125; - w * a-odd_&#123;k&#125;) % p</span><br><span class="line">    w = w * wn % p</span><br><span class="line">  return y</span><br><span class="line"></span><br><span class="line">// wn^&#123;-1&#125;和n^&#123;-1&#125;需要提前使用扩展欧几里得算法计算好，避免重复计算，结果分别用wn-inv和n-inv表示。</span><br><span class="line">FFT-INV-OVER-RING(y, n, p, wn-inv)</span><br><span class="line">  if n == 1</span><br><span class="line">    return a</span><br><span class="line">  w = 1</span><br><span class="line">  y-even = (y_0, y_2, ..., y_&#123;n - 2&#125;)</span><br><span class="line">  y-odd = (y_1, y_3, ..., y_&#123;n - 1&#125;)</span><br><span class="line">  a-even = FFT-INV-OVER-RING(y-even, n / 2, p, wn-inv * wn-inv % p)</span><br><span class="line">  a-odd = FFT-INV-OVER-RING(y-odd, n / 2, p, wn-inv * wn-inv % p)</span><br><span class="line">  for k = 0 to n / 2 - 1</span><br><span class="line">    a_k = (a-even_&#123;k&#125; + w * a-odd_&#123;k&#125;) * n-inv % p</span><br><span class="line">    a_&#123;k + n / 2&#125; = (a-even_&#123;k&#125; - w * a-odd_&#123;k&#125;) * n-inv % p</span><br><span class="line">    w = w * wn-inv % p</span><br><span class="line">  return a</span><br></pre></td></tr></table></figure>
+<h2 id="d-2">d</h2>
+<p>由于<span class="math inline">\(n=8\)</span>，因此<span
+class="math inline">\(g_n=g^{\frac{p-1}{n}}=9\)</span>。</p>
+<p>那么<span class="math inline">\(\forall k\in
+[0,n)\)</span>，都有<span
+class="math inline">\(\displaystyle{y_k=\sum_{i=0}^{n-1} a_i\cdot
+(g_n^k)^i\bmod p}\)</span>。可以计算得到</p>
+<p><span class="math inline">\(\begin{aligned}
+y_0&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^0)^i\bmod p=14\\
+y_1&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^1)^i\bmod p=10\\
+y_2&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^2)^i\bmod p=10\\
+y_3&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^3)^i\bmod p=4\\
+y_4&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^4)^i\bmod p=8\\
+y_5&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^5)^i\bmod p=11\\
+y_6&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^6)^i\bmod p=13\\
+y_7&amp;=\sum_{i=0}^{n-1} a_i\cdot (g_n^7)^i\bmod p=15\\
+\end{aligned}\)</span></p>
+<p>因此DFT的结果为<span
+class="math inline">\((14,10,10,4,8,11,13,15)\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/problems/" title="算法导论30 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论22.3 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/22.3-2.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/22.3-6.png">
+<meta property="article:published_time" content="2023-05-04T06:19:07.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.151Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/22.3-2.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/","path":"introduction-to-algorithms/chapter-22/exercises-3/","title":"算法导论22.3 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论22.3 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">22.3-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">22.3-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">22.3-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">22.3-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">22.3-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">22.3-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">22.3-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">22.3-8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">9.</span> <span class="nav-text">22.3-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-9"><span class="nav-number">10.</span> <span class="nav-text">22.3-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-10"><span class="nav-number">11.</span> <span class="nav-text">22.3-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-11"><span class="nav-number">12.</span> <span class="nav-text">22.3-12</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论22.3 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论22.3 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-04 14:19:07" itemprop="dateCreated datePublished" datetime="2023-05-04T14:19:07+08:00">2023-05-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">22.3-1</h1>
+<p>以<span
+class="math inline">\(s\)</span>作为起点时的迭代过程如下：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;0&amp;\text{NIL}\\\hline
+t&amp;\infty&amp;\text{NIL}\\\hline
+x&amp;\infty&amp;\text{NIL}\\\hline
+y&amp;\infty&amp;\text{NIL}\\\hline
+z&amp;\infty&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;s\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;0&amp;\text{NIL}\\\hline
+t&amp;3&amp;s\\\hline
+x&amp;\infty&amp;\text{NIL}\\\hline
+y&amp;5&amp;s\\\hline
+z&amp;\infty&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;t\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;0&amp;\text{NIL}\\\hline
+t&amp;3&amp;s\\\hline
+x&amp;9&amp;t\\\hline
+y&amp;5&amp;s\\\hline
+z&amp;\infty&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;y\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;0&amp;\text{NIL}\\\hline
+t&amp;3&amp;s\\\hline
+x&amp;9&amp;t\\\hline
+y&amp;5&amp;s\\\hline
+z&amp;11&amp;y\\\hline
+\end{array}
+\underrightarrow{\;\;x\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;0&amp;\text{NIL}\\\hline
+t&amp;3&amp;s\\\hline
+x&amp;9&amp;t\\\hline
+y&amp;5&amp;s\\\hline
+z&amp;11&amp;y\\\hline
+\end{array}
+\underrightarrow{\;\;z\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;0&amp;\text{NIL}\\\hline
+t&amp;3&amp;s\\\hline
+x&amp;9&amp;t\\\hline
+y&amp;5&amp;s\\\hline
+z&amp;11&amp;y\\\hline
+\end{array}\)</span></p>
+<p>以<span
+class="math inline">\(z\)</span>作为起点时的迭代过程如下：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;\infty&amp;\text{NIL}\\\hline
+t&amp;\infty&amp;\text{NIL}\\\hline
+x&amp;\infty&amp;\text{NIL}\\\hline
+y&amp;\infty&amp;\text{NIL}\\\hline
+z&amp;0&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;z\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;3&amp;z\\\hline
+t&amp;\infty&amp;\text{NIL}\\\hline
+x&amp;7&amp;z\\\hline
+y&amp;\infty&amp;\text{NIL}\\\hline
+z&amp;0&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;s\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;3&amp;z\\\hline
+t&amp;6&amp;s\\\hline
+x&amp;7&amp;z\\\hline
+y&amp;8&amp;s\\\hline
+z&amp;0&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;t\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;3&amp;z\\\hline
+t&amp;6&amp;s\\\hline
+x&amp;7&amp;z\\\hline
+y&amp;8&amp;s\\\hline
+z&amp;0&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;x\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;3&amp;z\\\hline
+t&amp;6&amp;s\\\hline
+x&amp;7&amp;z\\\hline
+y&amp;8&amp;s\\\hline
+z&amp;0&amp;\text{NIL}\\\hline
+\end{array}
+\underrightarrow{\;\;y\;\;}
+\begin{array}{|l|l|l|}\hline
+v&amp;d&amp;\pi\\\hline
+s&amp;3&amp;z\\\hline
+t&amp;6&amp;s\\\hline
+x&amp;7&amp;z\\\hline
+y&amp;8&amp;s\\\hline
+z&amp;0&amp;\text{NIL}\\\hline
+\end{array}\)</span></p>
+<h1 id="section-1">22.3-2</h1>
+<p>令<span
+class="math inline">\(G=(V,E),V=\{a,b,c\},E=\{(a,b),(b,c),(a,c),(c,d)\},w(a,c)=1,w(a,b)=2,w(b,c)=-3,w(c,d)=3\)</span>，如下图所示：</p>
+<p><img data-src="22.3-2.png" /></p>
+<p>由图可以知道<span
+class="math inline">\(\delta(a,d)=2\)</span>，但是从起点<span
+class="math inline">\(a\)</span>运行Dijkstra算法后，得到的结果为<span
+class="math inline">\(d.d=4\)</span>。这是因为<span
+class="math inline">\(c\)</span>比<span
+class="math inline">\(b\)</span>先弹出优先队列，并且此时对<span
+class="math inline">\((c,d)\)</span>进行了松弛操作。当<span
+class="math inline">\(c\)</span>的距离被更新成正确的距离<span
+class="math inline">\(\delta(a,c)=-1\)</span>后，节点<span
+class="math inline">\(c\)</span>已经进入集合<span
+class="math inline">\(S\)</span>，无法再更新后继节点。</p>
+<p>定理22.6证明不成立的原因是因为采用了所有边权为非负的假设，从而保证<span
+class="math inline">\(\delta(s,y)\le \delta(s,u)\)</span>，其中<span
+class="math inline">\(s\rightarrow y\)</span>是<span
+class="math inline">\(s\rightarrow u\)</span>的一条子路径。</p>
+<h1 id="section-2">22.3-3</h1>
+<p>这个做法是正确的。</p>
+<p>假设队列最后一个节点是<span
+class="math inline">\(z\)</span>，那么在第<span
+class="math inline">\(|V|-1\)</span>轮循环结束后，<span
+class="math inline">\(\forall v\in V-\{z\}\)</span>，已经都有<span
+class="math inline">\(v.d=\delta(s,v)\)</span>，并且此时对于<span
+class="math inline">\(\forall (u,z)\in
+E\)</span>，这些边都已经进行过一次松弛，因此根据收敛性质，有<span
+class="math inline">\(z.d=\delta(s,z)\)</span>。因此这个改动的操作是正确的。</p>
+<h1 id="section-3">22.3-4</h1>
+<p>修改之后的过程如<code>DIJKSTRA'</code>所示。使用一个属性<code>mark</code>表示阶段<span
+class="math inline">\(u\)</span>是否曾经进入过优先队列。入队时机从初始化阶段改成了在松弛过程中通过<code>mark</code>标记进行入队。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">DIJKSTRA&#x27;(G, w, s)</span><br><span class="line">  INITIALIZE-SINGLE-SOURCE(G, s)</span><br><span class="line">  for each u ∈ G.V</span><br><span class="line">    u.mark = False</span><br><span class="line">  S = Ø</span><br><span class="line">  Q = Ø</span><br><span class="line">  s.mark = True</span><br><span class="line">  INSERT(Q, s)</span><br><span class="line">  while Q ≠ Ø</span><br><span class="line">    u = EXTRACT-MIN(Q)</span><br><span class="line">    S = S ∪ &#123;u&#125;</span><br><span class="line">    for each vertex v in G.Adj[u]</span><br><span class="line">      RELAX(u, v, w)</span><br><span class="line">      if u.mark == FALSE</span><br><span class="line">        u.mark = TRUE</span><br><span class="line">        INSERT(Q, s)</span><br><span class="line">      else if the call of RELAX decreased v.d</span><br><span class="line">        DECREASE-KEY(Q, v, v.d)</span><br></pre></td></tr></table></figure>
+<h1 id="section-4">22.3-5</h1>
+<p>整个算法分三个步骤：</p>
+<ol type="1">
+<li>判断<span class="math inline">\(v.\pi\)</span>是否构成了以<span
+class="math inline">\(s\)</span>为根节点的一棵有根树。具体方法是对<span
+class="math inline">\(v.\pi,v\)</span>反向进行BFS，观察是否能到达所有节点。这个过程需要<span
+class="math inline">\(O(V)\)</span>的时间。</li>
+<li>判断最短路径树中的所有树边是不是真实的树边，具体判断是对于所有非根节点<span
+class="math inline">\(v\)</span>，判断<span
+class="math inline">\(v.d=v.\pi.d+w(v.\pi,v)\)</span>是否成立。这个过程需要<span
+class="math inline">\(O(V+E)\)</span>的时间。</li>
+<li>判断图<span
+class="math inline">\(G\)</span>中是否还有边需要松弛。如果有，那么说明这棵树不是最短路径树。这个过程需要<span
+class="math inline">\(O(V+E)\)</span>的时间。</li>
+</ol>
+<p>算法<code>CHECK-DIJKSTRA-OUTPUT</code>给出了一棵判断给定的<span
+class="math inline">\(v.\pi,v.d\)</span>是否合法的过程，其时间复杂度为<span
+class="math inline">\(O(V+E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">CHECK-DIJKSTRA-OUTPUT(G, w, s)</span><br><span class="line">  if s.π != NIL</span><br><span class="line">    return FALSE</span><br><span class="line">  Eπ = &#123;(v.π, v) | v ∈ G.V - &#123;s&#125;, v.π != NIL&#125;</span><br><span class="line">  Tπ = (G.V, Eπ)</span><br><span class="line">  BFS(Tπ, s)</span><br><span class="line">  for each u in G.V</span><br><span class="line">    if u.color != BLACK</span><br><span class="line">      return FALSE</span><br><span class="line">  for each (u, v) ∈ Eπ</span><br><span class="line">    if u.d + w(u, v) != v.d</span><br><span class="line">      return FALSE</span><br><span class="line">  for each (u, v) ∈ E</span><br><span class="line">    if u.d + w(u, v) &lt; v.d</span><br><span class="line">      return FALSE</span><br><span class="line">  return TRUE</span><br></pre></td></tr></table></figure>
+<h1 id="section-5">22.3-6</h1>
+<p>令<span
+class="math inline">\(G=(V,E),V=\{a,b,c,d,e\},E=\{(a,b),(b,d),(a,c),(c,d),(d,e)\},w(a,b)=w(b,d)=w(a,c)=w(c,d)=w(d,e)=0\)</span>，如下图所示：</p>
+<p><img data-src="22.3-6.png" /></p>
+<p>考虑计算<span
+class="math inline">\(\delta(a,e)\)</span>的值。可以发现从<span
+class="math inline">\(a\)</span>到<span
+class="math inline">\(e\)</span>有一条<span
+class="math inline">\(a\rightarrow b\rightarrow d\rightarrow
+e\)</span>的路径。那么按照这个证明过程的假设，<span
+class="math inline">\((b,d)\)</span>一定先于<span
+class="math inline">\((d,e)\)</span>松弛。然而实际上，当<span
+class="math inline">\(c\)</span>比<span
+class="math inline">\(b\)</span>先从<span
+class="math inline">\(Q\)</span>出来，边<span
+class="math inline">\((c,d)\)</span>的进行了一次松弛，此时<span
+class="math inline">\(d.d=0\)</span>；如果<span
+class="math inline">\(d\)</span>仍然先比<span
+class="math inline">\(b\)</span>从优先队列出来，那么<span
+class="math inline">\((d,e)\)</span>完成松弛；接下来<span
+class="math inline">\(b\)</span>从<span
+class="math inline">\(Q\)</span>中出来，对<span
+class="math inline">\((b,d)\)</span>边进行松弛。在这个过程中，边<span
+class="math inline">\((d,e)\)</span>先于边<span
+class="math inline">\((b,d)\)</span>进行松弛，因此不能够用路径松弛性质证明Dijkstra算法的正确性。</p>
+<h1 id="section-6">22.3-7</h1>
+<p>如果一条通信路径<span
+class="math inline">\(v_1,v_2,v_3,\dots,v_k\)</span>是最可信的（其中<span
+class="math inline">\(v_1=u,v_k=v\)</span>），那么相当于最大化如下值：</p>
+<p><span
+class="math display">\[\prod_{i=1}^{k-1}r(v_i,v_{i+1})\]</span></p>
+<p>对其取对数后，也就是有最大化：</p>
+<p><span class="math display">\[\sum_{i=1}^{k-1}\lg
+r(v_i,v_{i+1})\]</span></p>
+<p>由于<span class="math inline">\(r(i,j)\in
+[0,1]\)</span>，因此我们需要去掉<span
+class="math inline">\(r(i,j)=0\)</span>的边，防止不适用对数函数。那么此时<span
+class="math inline">\(\lg r(v_i,v_{i+1})\)</span>
+是一个负数。进一步，我们相当于最小化：</p>
+<p><span class="math display">\[\sum_{i=1}^{k-1}-\lg
+r(v_i,v_{i+1})\]</span></p>
+<p>由此可知，<span class="math inline">\(-\lg r(v_i,v_{i+1})\ge
+0\)</span>恒成立。我们可以使用Dijkstra算法来求解这个问题。</p>
+<p>算法由程序<code>RELIABLE-PATH</code>给出。由于其主要过程为使用<code>DIJKSTRA</code>作为子程序，因此其时间复杂度为<span
+class="math inline">\(O(E\lg V)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RELIABLE-PATH(G, r, s, t)</span><br><span class="line">  remove all edges (u, v) from G.E s.t. r(u, v) = 0</span><br><span class="line">  let weight function w(⋅, ⋅) = -lg r(⋅, ⋅)</span><br><span class="line">  DIJKSTRA(G, w, s)</span><br><span class="line">  PRINT-PATH(G, s, t)</span><br></pre></td></tr></table></figure>
+<h1 id="section-7">22.3-8</h1>
+<p>图<span class="math inline">\(G\)</span>中的每一条边<span
+class="math inline">\(e\)</span>都被<span
+class="math inline">\(w(e)\)</span>条新边所取代，因此每条边贡献了<span
+class="math inline">\(w(e)-1\)</span>个节点。因此现在图<span
+class="math inline">\(G&#39;\)</span>具有<span
+class="math inline">\(\displaystyle{|V|+\sum_{e\in E}
+(w(e)-1)=|V|+\sum_{e\in E} w(e)-|E|}\)</span>个节点。</p>
+<p>为了证明<span class="math inline">\(V\)</span>在<span
+class="math inline">\(G\)</span>中的Dijkstra算法的出队顺序与在<span
+class="math inline">\(G&#39;\)</span>中BFS的出队相对顺序是一致的。我们考虑令<span
+class="math inline">\(u,v\in V\)</span>，并且在Dijkstra算法中，<span
+class="math inline">\(u\)</span>先比<span
+class="math inline">\(v\)</span>出队，因此有<span
+class="math inline">\(u.d&lt;v.d\)</span>。那么在图<span
+class="math inline">\(G&#39;\)</span>中，每一条在<span
+class="math inline">\(E\)</span>中的边替换成了<span
+class="math inline">\(w(u,v)\)</span>条连接中间对应节点的边。因此在图<span
+class="math inline">\(G&#39;\)</span>中，访问到<span
+class="math inline">\(u\)</span>需要<span
+class="math inline">\(u.d\)</span>步，访问到<span
+class="math inline">\(v\)</span>需要<span
+class="math inline">\(v.d\)</span>步，因此在<span
+class="math inline">\(G&#39;\)</span>中，<span
+class="math inline">\(v\)</span>后于<span
+class="math inline">\(u\)</span>被访问。</p>
+<h1 id="section-8">22.3-9</h1>
+<p>由于一条边的最大长度为<span
+class="math inline">\((|V|-1)W\)</span>，因此我们可以考虑建立<span
+class="math inline">\((|V|-1)W+2\)</span>个槽，其中第<span
+class="math inline">\(i\)</span>个槽防止满足<span
+class="math inline">\(v.d=i\)</span>的节点<span
+class="math inline">\(v\)</span>，最后一个槽用于放置满足<span
+class="math inline">\(u.d=\infty\)</span>的节点。假设从一个槽插入和删除节点的时间复杂度均为<span
+class="math inline">\(O(1)\)</span>，它们通过一个双向链表维护。</p>
+<p>随着松弛过程的进行，所有节点只会从后往前进行移动。此外，由于优先队列的出队顺序<span
+class="math inline">\(u\)</span>满足<span
+class="math inline">\(u.d\)</span>是单调不下降的，因此只需要从小到大遍历每个槽即可。这个算法由程序<code>DIJKSTRA'</code>给出，其时间复杂度为<span
+class="math inline">\(O((V-1)W+E)=O(VW+E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DIJKSTRA&#x27;&#x27;(G, W, w, s)</span><br><span class="line">  INF = (|G.V| - 1) * W + 1</span><br><span class="line">  let A[0 : INF] be new array by list</span><br><span class="line">  for each vertex u ∈ G.V - &#123;s&#125;</span><br><span class="line">    u.d = INF</span><br><span class="line">    u.π = NIL</span><br><span class="line">    LIST-INSERT&#x27;(A[INF], u)</span><br><span class="line">  s.d = 0</span><br><span class="line">  s.π = NIL</span><br><span class="line">  LIST-INSERT&#x27;(A[0], s)</span><br><span class="line">  S = Ø</span><br><span class="line">  k = 0</span><br><span class="line">  for n = 1 to |V|</span><br><span class="line">    while A[k] == NIL</span><br><span class="line">      k = k + 1</span><br><span class="line">    u = A[k].head</span><br><span class="line">    LIST-DELETE&#x27;(A[k], u)</span><br><span class="line">    S = S ∪ &#123;u&#125;</span><br><span class="line">    for each vertex v in G.Adj[u]</span><br><span class="line">      if v.d &gt; u.d + w(u, v)</span><br><span class="line">        LIST-DELETE&#x27;(A[v.d], v)</span><br><span class="line">        v.π = u</span><br><span class="line">        v.d = u.d + w(u, v)</span><br><span class="line">        LIST-INSERT&#x27;(A[v.d], v)</span><br></pre></td></tr></table></figure>
+<h1 id="section-9">22.3-10</h1>
+<p>可以知道，当<span class="math inline">\(u\)</span>从优先队列<span
+class="math inline">\(Q\)</span>弹出来后，并且插入集合<span
+class="math inline">\(S\)</span>中。因此，<span
+class="math inline">\(\forall x\in S,x.d\le
+u.d\)</span>均成立。对于<span class="math inline">\(v\in
+V-S\)</span>，如果<span class="math inline">\(v\)</span>被<span
+class="math inline">\(S\)</span>中的节点松驰过，那么有<span
+class="math inline">\(v.d\le x.d+w(x,v)\le
+u.d+W\)</span>；如果没有被松驰过，那么<span
+class="math inline">\(v.d=\infty\)</span>。因此，当<span
+class="math inline">\(u\)</span>出队时，优先队列中的不同<span
+class="math inline">\(d\)</span>值取值范围为<span
+class="math inline">\([u.d,u.d+W]\cup\{\infty\}\)</span>，一共有<span
+class="math inline">\(W+2\)</span>个不同取值。</p>
+<p>最终，从题目22.3-9而来，可以考虑使用一棵平衡二叉树来维护这些非空链表：如果槽<span
+class="math inline">\(d\)</span>中的链表是非空的，那么这棵二叉树应该含有键值为<span
+class="math inline">\(d\)</span>对应的链表；否则不包含，更新后若链表为空则删除节点。最终，无论是一次<code>LIST-INSERT'</code>操作还是一次<code>LIST-DELETE'</code>操作，都需要先花费<span
+class="math inline">\(O(\lg
+W)\)</span>的时间查找到其所在的链表，然后再对这个链表以<span
+class="math inline">\(O(1)\)</span>的时间进行处理。由于这些操作一共有<span
+class="math inline">\(|V|+2|E|\)</span>次，因此整个算法需要<span
+class="math inline">\(O((V+E)\lg W)\)</span>的时间复杂度。</p>
+<h1 id="section-10">22.3-11</h1>
+<p>原版的证明关键在于，由于<span
+class="math inline">\(E\)</span>中所有路径都是非负权，因此<span
+class="math inline">\(w(y,u)\ge 0\)</span>，从而得出<span
+class="math inline">\(\delta(s,y)\le
+\delta(s,u)\)</span>。由于已经假设了<span class="math inline">\(|S|\ge
+2,y\not\in S\)</span>，因此<span class="math inline">\(y\ne
+s\)</span>必定成立。也就是说，对于<span class="math inline">\(\forall
+(s,u)\in E\)</span>，这个证明没有对<span
+class="math inline">\((s,u)\)</span>的权值做出限制，因此定理22.6的证明也适用于这里的证明。</p>
+<h1 id="section-11">22.3-12</h1>
+<p>为了排除常数<span
+class="math inline">\(C\)</span>的影响，我们构造新的边权函数<span
+class="math inline">\(w&#39;(\cdot.\cdot)=\dfrac{w(\cdot,\cdot)}{C}\)</span>。根据题目可知，<span
+class="math inline">\(w&#39;(\cdot,\cdot)\in
+[1,2]\)</span>。那么在求出最短路之后，将全部路径值乘回<span
+class="math inline">\(C\)</span>即可。</p>
+<p>我们考虑开设<span
+class="math inline">\(2(|V|-1)+2\)</span>个桶，除了最后一个桶放置<span
+class="math inline">\(u.d=\infty\)</span>的节点，第<span
+class="math inline">\(i\)</span>个桶放置满足<span
+class="math inline">\(u.d\in[i,i+1)\)</span>的节点。在这种情况下，如果目前正在访问节点<span
+class="math inline">\(u\)</span>，边<span
+class="math inline">\((u,v)\)</span>进行了一次松弛，那么<span
+class="math inline">\(v\)</span>所在的桶必定不在<span
+class="math inline">\(u\)</span>所在的桶中（因为权值<span
+class="math inline">\(w&#39;(u,v)\ge 1\)</span>）；类似的，如果<span
+class="math inline">\(v\)</span>在<span
+class="math inline">\(u\)</span>的桶内，那么松弛操作必定不成功。因此，当桶内的节点<span
+class="math inline">\(u\)</span>被弹出时，它必定能保证<span
+class="math inline">\(u.d=\delta(s,u)\)</span>。</p>
+<p>由于最短路径长度最大能达到<span
+class="math inline">\(2(|V|-1)\)</span>，因此我们需要开设<span
+class="math inline">\(2|V|\)</span>个桶来存放这些节点。遍历每个桶的时间为<span
+class="math inline">\(O(V)\)</span>，遍历每条边的时间为<span
+class="math inline">\(O(V+E)\)</span>，因此整个算法的时间复杂度为<span
+class="math inline">\(O(V+E)\)</span>。具体过程由<code>DIJKSTRA-C</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">DIJKSTRA-C(G, w, C, s)</span><br><span class="line">  INF = (|G.V| - 1) * 2 + 1</span><br><span class="line">    let A[0 : INF] be new array by list</span><br><span class="line">  for each vertex u ∈ G.V – &#123;s&#125;</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.d = INF</span><br><span class="line">    u.π = NIL</span><br><span class="line">    LIST-INSERT&#x27;(A[INF], u)</span><br><span class="line">  // 由此，所有边的边权都在范围[1, 2]中，以方便接下来的处理。</span><br><span class="line">  let weight function w&#x27;(⋅, ⋅) = w(⋅, ⋅) / C</span><br><span class="line">  s.color = GRAY</span><br><span class="line">  s.d = 0</span><br><span class="line">  s.π = NIL</span><br><span class="line">  Q = Ø</span><br><span class="line">  ENQUEUE(Q, s)</span><br><span class="line">  LIST-INSERT&#x27;(A[0], s)</span><br><span class="line">  S = Ø</span><br><span class="line">  k = 0</span><br><span class="line">  for n = 1 to |V|</span><br><span class="line">    while A[k] == NIL</span><br><span class="line">      k = k + 1</span><br><span class="line">    u = A[k].head</span><br><span class="line">    LIST-DELETE&#x27;(A[k], u)</span><br><span class="line">    S = S ∪ &#123;u&#125;</span><br><span class="line">    for each vertex v in G.Adj[u]</span><br><span class="line">      if v.d &gt; u.d + w(u, v)</span><br><span class="line">        LIST-DELETE&#x27;(A[ ⌊v.d⌋ ], v)</span><br><span class="line">        v.π = u</span><br><span class="line">        v.d = u.d + w(u, v)</span><br><span class="line">        LIST-DELETE&#x27;(A[ ⌊v.d⌋ ], v)</span><br><span class="line">  for each vertex u ∈ G.V – &#123;s&#125;</span><br><span class="line">    u.d = u.d * C</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/" title="算法导论22.3 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-22/exercises-3/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

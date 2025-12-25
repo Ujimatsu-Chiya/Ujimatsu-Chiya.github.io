@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论19 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-14T02:21:17.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.138Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/problems/","path":"introduction-to-algorithms/chapter-19/problems/","title":"算法导论19 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论19 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">19-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">19-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">2.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">2.5.</span> <span class="nav-text">e</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">19-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论19 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论19 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-14 10:21:17" itemprop="dateCreated datePublished" datetime="2023-06-14T10:21:17+08:00">2023-06-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">19-1</h1>
+<h2 id="a">a</h2>
+<p>随着操作进行，集合<span class="math inline">\(T\)</span>和数组<span
+class="math inline">\(extracted\)</span>的变化如下：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|}\hline
+S&amp;T&amp;extracted\\\hline
+4&amp;4&amp;\\\hline
+8&amp;4,8&amp;\\\hline
+E&amp;8&amp;4\\\hline
+3&amp;3,8&amp;4\\\hline
+E&amp;8&amp;4,3\\\hline
+9&amp;8,9&amp;4,3\\\hline
+2&amp;2,8,9&amp;4,3\\\hline
+6&amp;2,6,8,9&amp;4,3\\\hline
+E&amp;6,8,9&amp;4,3,2\\\hline
+E&amp;8,9&amp;4,3,2,6\\\hline
+E&amp;9&amp;4,3,2,6,8\\\hline
+1&amp;1,9&amp;4,3,2,6,8\\\hline
+7&amp;1,7,9&amp;4,3,2,6,8\\\hline
+E&amp;7,9&amp;4,3,2,6,8,1\\\hline
+5&amp;5,7,9&amp;4,3,2,6,8,1\\\hline
+\end{array}\)</span></p>
+<h2 id="b">b</h2>
+<p>当某一个数<span
+class="math inline">\(i\)</span>在<code>OFFLINE-MINIMUM</code>的第2行被确认位置后，此后再也不需要再访问它，因此可以认为<span
+class="math inline">\(i\)</span>从这些集合<span
+class="math inline">\(\{K_j\}\)</span>中被删除了（符合<code>EXTRACTED-MIN</code>的定义）。我们从小到大枚举数<span
+class="math inline">\(i\)</span>，并且确认了<span
+class="math inline">\(i\)</span>的位置<span
+class="math inline">\(j\)</span>后，<span
+class="math inline">\(extract[j]\)</span>被填上了<span
+class="math inline">\(i\)</span>，此后集合<span
+class="math inline">\(K_j\)</span>中的所有元素被合并到了比<span
+class="math inline">\(j\)</span>大的仍然存在的一个集合<span
+class="math inline">\(K_l\)</span>中，并且集合<span
+class="math inline">\(j\)</span>被销毁。因此，随着每一步的进行，对于<span
+class="math inline">\(p\in[1,m]\)</span>，要么<span
+class="math inline">\(extract[p]\)</span>未被填充；要么<span
+class="math inline">\(K_p\)</span>被销毁，每次<span
+class="math inline">\(K_p\)</span>被销毁，它总是会将这些数转移到下一个潜在的最优集合中。因此整个算法的正确性是成立的。</p>
+<h2 id="c">c</h2>
+<p>直接使用并查集，并在其中维护一些信息即可。初始化一个长度为<span
+class="math inline">\(m\)</span>的链表<span
+class="math inline">\(L\)</span>，用于表示哪些集合被删除了。随着合并过程的进行，<span
+class="math inline">\(L\)</span>中的节点将被删除。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">OFFLINE-MINIMUM&#x27;(m, n, K)</span><br><span class="line">  let L be a new doublie link list</span><br><span class="line">  let P[1 : m + 1] be a new array</span><br><span class="line">  let extracted[1 : m] be a new array</span><br><span class="line">  for i = 1 to m + 1</span><br><span class="line">    Let p be a new list node</span><br><span class="line">    p.key = i</span><br><span class="line">    P[i] = p</span><br><span class="line">    LIST-INSERT&#x27;(L, p)</span><br><span class="line">    // 链表节点的q属性是指属于这个集合的某个元素。</span><br><span class="line">    if K[i].size &gt; 0</span><br><span class="line">      p.q = K[i][1]</span><br><span class="line">    else</span><br><span class="line">      p.q = NIL</span><br><span class="line">  // 每个节点（关键字）都会多一个属性g，表示在哪一个组里。</span><br><span class="line">  for i = 1 to m + 1</span><br><span class="line">    for each x in K[i]</span><br><span class="line">      MAKE-SET(x, i)</span><br><span class="line">      x.g = i</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    j = i.g</span><br><span class="line">    if j != m + 1</span><br><span class="line">      extracted[j] = i</span><br><span class="line">      z = P[i]</span><br><span class="line">      z = z.next</span><br><span class="line">      LIST-DELETE&#x27;(L, P[i])</span><br><span class="line">      if z.q != NIL</span><br><span class="line">        UNION(i, z.q)</span><br><span class="line">      x = FIND-SET(i)</span><br><span class="line">      x.g = z.key</span><br><span class="line">  return extracted</span><br></pre></td></tr></table></figure>
+<p>由于<code>OFFLINE-MINIMUM'</code>中的所有过程都只是调用了<span
+class="math inline">\(n\)</span>次<code>MAKE-SET</code>，至多<span
+class="math inline">\(m-1\)</span>次<code>UNION</code>操作和<code>FIND-SET</code>操作（<span
+class="math inline">\(m&lt;n\)</span>），其余操作都是常数开销的操作，因此整个<code>OFFLINE-MINIUM'</code>算法的时间复杂度为<span
+class="math inline">\(O(n\alpha(n))\)</span>。</p>
+<h1 id="section-1">19-2</h1>
+<h2 id="a-1">a</h2>
+<p>考虑如下<span class="math inline">\(m\)</span>个操作序列：前<span
+class="math inline">\(m/3\)</span>个操作为<code>MAKE-TREE</code>操作，它们创建了<span
+class="math inline">\(m/3\)</span>棵包含唯一节点的树，所需要花费的时间总共为<span
+class="math inline">\(O(m)\)</span>；之后的<span
+class="math inline">\(m/3-1\)</span>个为<code>GRAFT</code>操作，将前面的<span
+class="math inline">\(m/3\)</span>个节点首尾相接串联了起来，所需要花费的时间总共为<span
+class="math inline">\(O(m)\)</span>；剩下的<span
+class="math inline">\(m/3+1\)</span>个操作是<code>FIND-DEPTH</code>操作，每次调用的都是这棵树的叶子节点，每次所需要花费的时间为<span
+class="math inline">\(\Theta(m)\)</span>（因为需要上升到根），那么最终，这<span
+class="math inline">\(m/3+1\)</span>次操作花费了<span
+class="math inline">\(\Theta(m^2)\)</span>的时间来完成。</p>
+<p>因此，如上构造的操作序列需要花费<span
+class="math inline">\(\Theta(m^2)\)</span>的时间来完成，原结论成立。</p>
+<h2 id="b-1">b</h2>
+<p>这个实现仅仅是多添加了一个属性<span
+class="math inline">\(d\)</span>，并且将其初始化成<span
+class="math inline">\(0\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MAKE-TREE(x)</span><br><span class="line">  MAKE-SET(x)</span><br><span class="line">  // 一开始节点x并没有祖先</span><br><span class="line">  x.d = 0</span><br></pre></td></tr></table></figure>
+<h2 id="c-1">c</h2>
+<p>修正后给出的是<code>FIND-SET'</code>算法，先从当前节点到根节点求出一条路径，求出这条路径后，再自顶向下更新伪距离值，从而成为真实距离。当<span
+class="math inline">\(x.p\)</span>的真实距离被求出后，加上当前<span
+class="math inline">\(x\)</span>的伪距离<span
+class="math inline">\(x.d\)</span>就成为了<span
+class="math inline">\(x\)</span>的真实距离，在这个过程中，路径也被压缩。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">FIND-SET&#x27;(x)</span><br><span class="line">  if x != x.p</span><br><span class="line">    q = FIND-SET&#x27;(x.p)</span><br><span class="line">    x.d = x.p.d + x.d</span><br><span class="line">    x.p = q</span><br><span class="line">  return x.p</span><br><span class="line"></span><br><span class="line">FIND-DEPTH(x)</span><br><span class="line">  FIND-SET&#x27;(x)</span><br><span class="line">  // 此时确保了x直接连上了根，并且d属性已经被更新好</span><br><span class="line">  return x.d</span><br></pre></td></tr></table></figure>
+<h2 id="d">d</h2>
+<p>为了方便操作，我们将类似<code>LINK</code>操作合并到了<code>UNION</code>操作中。假设<span
+class="math inline">\(r\)</span>所在不相交集合<span
+class="math inline">\(S_i\)</span>的根为<span
+class="math inline">\(x\)</span>，<span
+class="math inline">\(v\)</span>所在不相交集合<span
+class="math inline">\(S_j\)</span>为的根为<span
+class="math inline">\(y\)</span>。需要注意的是，当<span
+class="math inline">\(S_j\)</span>被合并入<span
+class="math inline">\(S_i\)</span>时，如果直接合并，那么<span
+class="math inline">\(y\)</span>从没有父节点，到变成了多出一个父节点<span
+class="math inline">\(x\)</span>，其伪距离值为<span
+class="math inline">\(x.d\)</span>。但实际上，<span
+class="math inline">\(S_j\)</span>所在子树的深度并没有增加，因此需要对<span
+class="math inline">\(y.d\)</span>减去<span
+class="math inline">\(x.d\)</span>，以保证伪距离仍然正确。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">GRAFT(r, v)</span><br><span class="line">  x = FIND-SET&#x27;(r)</span><br><span class="line">  y = FIND-SET&#x27;(v)</span><br><span class="line">  if x.rank &gt; y.rank</span><br><span class="line">    y.p = x</span><br><span class="line">    // 也就是说，以x为根的所有子树的深度都增加了v.d + 1</span><br><span class="line">    x.d = x.d + v.d + 1</span><br><span class="line">    // 但是y.p = x意味着y多了一个父节点x，以y为子树的深度增加了x.p + 1。按照差分的思想，需要减回去。</span><br><span class="line">    y.d = y.d - x.d</span><br><span class="line">  else</span><br><span class="line">    // 此时y没有受到影响，故不需要改变。</span><br><span class="line">    x.p = y</span><br><span class="line">    x.d = x.d + v.d + 1</span><br><span class="line">    if x.rank == y.rank</span><br><span class="line">      y.rank = y.rank + 1</span><br></pre></td></tr></table></figure>
+<h2 id="e">e</h2>
+<p>由于<code>MAKE-TREE</code>操作和并查集的<code>MAKE-SET</code>类似，<code>FIND-DEPTH</code>操作以并查集的一次<code>FIND-SET</code>操作为子程序，<code>GRAFT</code>操作类似<code>UNION</code>，它们和并查集中对应的操作均摊时间都是紧逼的。因此长度为<span
+class="math inline">\(m\)</span>的序列的操作序列时间复杂度与并查集一致，为<span
+class="math inline">\(O(m\alpha(n))\)</span>。</p>
+<h1 id="section-2">19-3</h1>
+<h2 id="a-2">a</h2>
+<p>由于<span
+class="math inline">\(T\)</span>是一棵有根树，根据第3行对<span
+class="math inline">\(u\)</span>的孩子<span
+class="math inline">\(v\)</span>进行遍历，第4行对孩子节点<span
+class="math inline">\(v\)</span>进行递归调用，可见算法<code>LCA</code>是对整棵树进行DFS，每个节点<span
+class="math inline">\(u\)</span>都会被遍历一次。</p>
+<p>在第8行，遍历对象是将满足<span
+class="math inline">\((u,\cdot)\)</span>或者是<span
+class="math inline">\((\cdot,u)\)</span>的所有询问节点对都进行一次遍历。对于一个询问对<span
+class="math inline">\(p=\{u,v\}\)</span>，接下来证明要么是以<span
+class="math inline">\((u,v)\)</span>的形式进入到第10行，要么是以<span
+class="math inline">\((v,u)\)</span>的形式进入第10行。考虑两种情况：</p>
+<ol type="1">
+<li><p><span
+class="math inline">\(u,v\)</span>具有祖孙关系。不失一般性，假设<span
+class="math inline">\(u\)</span>是<span
+class="math inline">\(v\)</span>的祖先，那么处于调用<code>LCA(v)</code>时，<span
+class="math inline">\(v\)</span>在第7行已被染色，并在第9行访问到询问对<span
+class="math inline">\(p\)</span>时，<span
+class="math inline">\(u\)</span>仍然是白色，因此无法到达第10行。回溯到调用<code>LCA(u)</code>时，第3行的<code>for</code>循环已经结束，<span
+class="math inline">\(u\)</span>的所有子孙节点都被染成黑色，<span
+class="math inline">\(u\)</span>自己才被染成黑色，此时在第9行访问到询问对<span
+class="math inline">\(p\)</span>时，由于<span
+class="math inline">\(v\)</span>已经被染成黑色，因此进入第10行，询问对<span
+class="math inline">\(p\)</span>正式被访问，此后节点<span
+class="math inline">\(u,v\)</span>不再被访问，因此询问对<span
+class="math inline">\(p\)</span>只被访问了一次。</p></li>
+<li><p><span
+class="math inline">\(u,v\)</span>不具有子孙关系，那么令<span
+class="math inline">\(l\)</span>为<span
+class="math inline">\(u,v\)</span>的最近公共祖先。在访问<span
+class="math inline">\(l\)</span>的子树时，不失一般性，先访问<span
+class="math inline">\(u\)</span>所在的子树，再访问<span
+class="math inline">\(v\)</span>所在的子树。那么调用<code>LCA(u)</code>时，到了第9行，询问对<span
+class="math inline">\(p\)</span>的另一个节点<span
+class="math inline">\(v\)</span>仍然是白色，因此无法到达第10行，此时<span
+class="math inline">\(u\)</span>已经被染成黑色。之后调用<code>LCA(v)</code>时，询问对<span
+class="math inline">\(p\)</span>的另一个节点<span
+class="math inline">\(u\)</span>此前已经被染成黑色，因此可以进入第10行，询问对<span
+class="math inline">\(p\)</span>正式被访问，此后节点<span
+class="math inline">\(u,v\)</span>不再被访问，因此询问对<span
+class="math inline">\(p\)</span>只被访问了一次。</p></li>
+</ol>
+<p>最终，原结论成立。</p>
+<h2 id="b-2">b</h2>
+<p>我们考虑证明：只有在刚调用<code>LCA(u)</code>时，森林中集合的个数恰好等于<span
+class="math inline">\(u\)</span>的深度。</p>
+<p>当<code>LCA(T.root)</code>被调用时，<code>MAKE-SET</code>操作还没完成，因此森林中共有<span
+class="math inline">\(0\)</span>个不相交的集合，原结论成立。假设刚调用<span
+class="math inline">\(u\)</span>时，森林中恰好有<span
+class="math inline">\(u.d\)</span>（这里属性<span
+class="math inline">\(d\)</span>表示节点的深度），那么我们将证明对于<span
+class="math inline">\(u\)</span>的每一个孩子<span
+class="math inline">\(v\)</span>，使得刚调用<code>LCA(v)</code>时，都有不相交集合个数为<span
+class="math inline">\(v.d=u.d+1\)</span>。</p>
+<p>接下来首先使用归纳法证明：当<code>LCA(u)</code>的调用结束时，以<span
+class="math inline">\(u\)</span>为子树的所有节点都被合并成了一个不相交集合。当<span
+class="math inline">\(u\)</span>是一个叶子节点时，<code>LCA(u)</code>调用完成后恰好只有<span
+class="math inline">\(u\)</span>节点所在的一个集合。当<span
+class="math inline">\(u\)</span>不是一个叶子节点时，假设遍历完<span
+class="math inline">\(u\)</span>的某个子节点<span
+class="math inline">\(v\)</span>被调用了<code>LCA(v)</code>后，以<span
+class="math inline">\(v\)</span>中的所有节点都被合并成一个不相交集合，那么在第5行将节点<span
+class="math inline">\(u\)</span>所在的集合和节点<span
+class="math inline">\(v\)</span>所在的集合进行合并。最终，<code>for</code>循环结束后，以<span
+class="math inline">\(u\)</span>为子树的所有节点都处于同一个集合中。</p>
+<p>回到原来的证明，假设目前已经调用<code>LCA(u)</code>，那么执行第1行后，不相交集合个数<strong>增加</strong>了<span
+class="math inline">\(1\)</span>。那么在第3行枚举第<span
+class="math inline">\(1\)</span>个儿子<span
+class="math inline">\(v_1\)</span>时，此时不相交集合个数为<span
+class="math inline">\(u.d+1\)</span>，接下来调用<code>LCA(v_1)</code>，此时原结论成立。当<code>LCA(v_1)</code>调用完成后（注意遍历<code>LCA(v_1)</code>后，按照上面的结论，只多产生了一个不相交集合），第5行将节点<span
+class="math inline">\(u\)</span>和<span
+class="math inline">\(v_1\)</span>所在的集合进行合并，因此第5行结束后，不相交集合的个数仍然位产生变化，因此当遍历第<span
+class="math inline">\(2\)</span>个儿子<span
+class="math inline">\(v_2\)</span>时，结论仍然成立，此后进行<code>UNION</code>操作后仍然保持集合数不变……也就是说，这个结论适用于<span
+class="math inline">\(u\)</span>的所有子节点。</p>
+<p>因此逐层向下推理，可知原结论成立。</p>
+<h2 id="c-2">c</h2>
+<p>按照<span
+class="math inline">\(u,v\)</span>是否具有祖孙关系，考虑如下两种情况：</p>
+<ol type="1">
+<li><p><span
+class="math inline">\(u,v\)</span>具有祖孙关系。不失一般性，假设<span
+class="math inline">\(u\)</span>是<span
+class="math inline">\(v\)</span>的祖先，那么处于调用<code>LCA(v)</code>时，<span
+class="math inline">\(u\)</span>仍未被染色，因此第8行的<code>for</code>循环中，询问对<span
+class="math inline">\(\{u,v\}\)</span>不被处理。当回溯到<code>LCA(u)</code>时，<span
+class="math inline">\(v\)</span>已经被染成黑色，此时第3行<code>for</code>循环结束后，<span
+class="math inline">\(u\)</span>所在集合的所有祖先都是<span
+class="math inline">\(u\)</span>，此时在第8行的<code>for</code>循环中，询问对<span
+class="math inline">\(\{u,v\}\)</span>被处理，其结果为<span
+class="math inline">\(v\)</span>所在的树的根的祖先<span
+class="math inline">\(ancestor\)</span>，也就是<span
+class="math inline">\(u\)</span>，因此该算法正确。</p></li>
+<li><p><span class="math inline">\(u,v\)</span>不具有祖孙关系。令<span
+class="math inline">\(w\)</span>是它们的最近公共祖先，这意味着<span
+class="math inline">\(u,v\)</span>分别处在<span
+class="math inline">\(w\)</span>的不同子树中。因此不失一般性，假设<span
+class="math inline">\(u\)</span>所在的子树先被遍历。那么调用<code>LCA(u)</code>时，此时节点<span
+class="math inline">\(v\)</span>仍然是白色的，因此第8行的<code>for</code>循环中，询问对<span
+class="math inline">\(\{u,v\}\)</span>不被处理。当<span
+class="math inline">\(u\)</span>所在的子树被遍历完成后，回到了节点<span
+class="math inline">\(w\)</span>，那么到了第5行<span
+class="math inline">\(u\)</span>所在子树和<span
+class="math inline">\(w\)</span>所在的节点被合并了，在第6行，这些节点的祖先被设置成了<span
+class="math inline">\(w\)</span>，此后未被修改。当调用<code>LCA(v)</code>时，<span
+class="math inline">\(u\)</span>已经被染成黑色，那么此时在第8行的<code>for</code>循环中，询问对<span
+class="math inline">\(\{u,v\}\)</span>被处理，其结果为<span
+class="math inline">\(v\)</span>所在的树的根的祖先<span
+class="math inline">\(ancestor\)</span>，也就是<span
+class="math inline">\(w\)</span>，因此该算法正确。</p></li>
+</ol>
+<p>最终可以得知，算法<code>LCA</code>是正确的。</p>
+<h2 id="d-1">d</h2>
+<p>在每次<code>LCA(u)</code>的调用过程中，都调用了一次<code>MAKE-SET</code>操作。接下来枚举<span
+class="math inline">\(u\)</span>的每个子节点<span
+class="math inline">\(v\)</span>，都进行了一次<code>UNION</code>操作和一次<code>FIND-SET</code>操作。</p>
+<p>因此整个过程中，总共调用了<span
+class="math inline">\(|V|\)</span>次<code>MAKE-SET</code>操作，<span
+class="math inline">\(|V|-1\)</span>次<code>UNION</code>操作和<span
+class="math inline">\(|V|-1\)</span>次<code>FIND-SET</code>操作。因此整个过程总共有<span
+class="math inline">\(3|V|-1\)</span>次操作的时间复杂度为<span
+class="math inline">\(O(|V|\alpha(|V|))\)</span>。。由于每个询问对都被访问了两次，因此第8-10行的<code>for</code>循环在整个过程中运行了<span
+class="math inline">\(2\)</span>次，其花费的时间为<span
+class="math inline">\(O(|P|)\)</span>。</p>
+<p>故整个过程的运行时间为<span
+class="math inline">\(O(|V|\alpha(|V|)+|P|)\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/problems/" title="算法导论19 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-19/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

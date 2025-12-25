@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论30.2 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/exercises-2/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-08T06:05:10.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.178Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/exercises-2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/exercises-2/","path":"introduction-to-algorithms/chapter-30/exercises-2/","title":"算法导论30.2 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论30.2 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">30.2-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">30.2-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">30.2-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">30.2-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">30.2-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-30.2-6"><span class="nav-number">6.</span> <span class="nav-text">\(\star\)
+30.2-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">7.</span> <span class="nav-text">30.2-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-30.2-8"><span class="nav-number">8.</span> <span class="nav-text">\(\star\)
+30.2-8</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/exercises-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论30.2 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论30.2 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-08 14:05:10" itemprop="dateCreated datePublished" datetime="2023-07-08T14:05:10+08:00">2023-07-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">30.2-1</h1>
+<p><span class="math inline">\(\begin{aligned}
+\omega_{n}^{n/2} &amp;= (e^{2\pi i/n})^{n/2}\\
+&amp;=e^{\pi i}\\
+&amp;=e^{2\pi i/2}\\
+&amp;=\omega_2\\
+&amp;=\cos \pi+i\sin\pi\\
+&amp;=-1
+\end{aligned}\)</span></p>
+<h1 id="section-1">30.2-2</h1>
+<p>经过暴力计算，可得<span
+class="math inline">\(\text{DFT}_4(A)\)</span>的结果如下：</p>
+<p><span class="math inline">\(\begin{aligned}
+y_0&amp;=0\cdot (\omega_{4}^0)^0+1\cdot (\omega_{4}^0)^1+2\cdot
+(\omega_{4}^0)^2+3\cdot (\omega_{4}^0)^3\\
+&amp;=6\\
+y_1&amp;=0\cdot (\omega_{4}^1)^0+1\cdot (\omega_{4}^1)^1+2\cdot
+(\omega_{4}^1)^2+3\cdot (\omega_{4}^1)^3\\
+&amp;=0+i-2-3i\\
+&amp;=-2i\\
+y_2&amp;=0\cdot (\omega_{4}^2)^0+1\cdot (\omega_{4}^2)^1+2\cdot
+(\omega_{4}^2)^2+3\cdot (\omega_{4}^2)^3\\
+&amp;=0+1\cdot(-1)+2-3\cdot(-1)\\
+&amp;=-2\\
+y_3&amp;=0\cdot (\omega_{4}^3)^0+1\cdot (\omega_{4}^3)^1+2\cdot
+(\omega_{4}^3)^2+3\cdot (\omega_{4}^3)^3\\
+&amp;=0-1\cdot(-i)+2\cdot(-1)+3\cdot i\\
+&amp;=2i-2
+\end{aligned}\)</span></p>
+<p>即有<span
+class="math inline">\(\text{DFT}_4(A)=(6,-2i,-2,2i-2)\)</span>。</p>
+<h1 id="section-2">30.2-3</h1>
+<p>如下是递归计算<span
+class="math inline">\(\text{FFT}((-10,1,-1,7,0,0,0,0),8)\)</span>的结果：</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;\text{FFT}((-10,1,-1,7,0,0,0,0),8)\\
+&amp;\qquad \text{FFT}((−10,−1,0,0),4)\\
+&amp;\qquad\qquad \text{FFT}((-10,0),2)\\
+&amp;\qquad\qquad\qquad \text{FFT}((-10),1)\\
+&amp;\qquad\qquad\qquad\qquad y=(-10)\\
+&amp;\qquad\qquad\qquad \text{FFT}(0,1)\\
+&amp;\qquad\qquad\qquad\qquad y=(0)\\
+&amp;\qquad\qquad\qquad y=(-10,10)\\
+&amp;\qquad\qquad \text{FFT}((-1,0),2)\\
+&amp;\qquad\qquad\qquad \text{FFT}((-1),1)\\
+&amp;\qquad\qquad\qquad\qquad y=(-1)\\
+&amp;\qquad\qquad\qquad \text{FFT}((0),1)\\
+&amp;\qquad\qquad\qquad\qquad y=(0)\\
+&amp;\qquad\qquad\qquad y=(-1,1)\\
+&amp;\qquad\qquad y=(-11,-10-i,-9,-10+i)\\
+&amp;\qquad \text{FFT}((1,7,0,0),4)\\
+&amp;\qquad\qquad \text{FFT}((1,0),2)\\
+&amp;\qquad\qquad\qquad \text{FFT}((1),1)\\
+&amp;\qquad\qquad\qquad\qquad y=(1)\\
+&amp;\qquad\qquad\qquad \text{FFT}(0,1)\\
+&amp;\qquad\qquad\qquad\qquad y=(0)\\
+&amp;\qquad\qquad\qquad y=(1,11)\\
+&amp;\qquad\qquad \text{FFT}((7,0),2)\\
+&amp;\qquad\qquad\qquad \text{FFT}((7),1)\\
+&amp;\qquad\qquad\qquad\qquad y=(7)\\
+&amp;\qquad\qquad\qquad \text{FFT}((0),1)\\
+&amp;\qquad\qquad\qquad\qquad y=(0)\\
+&amp;\qquad\qquad\qquad y=(7,7)\\
+&amp;\qquad\qquad y=(8,1+7i,-6,1-7i)\\
+&amp;\qquad
+y=(-3,-(10+3\sqrt{2})+(4\sqrt{2}-1)i,-9-6i,(-10+3\sqrt{2})+(4\sqrt{2}+1)i,-19,(-10+3\sqrt{2})-(4\sqrt{2}+1)i,-9+6i,-(10+3\sqrt{2})+(1-4\sqrt{2})i)
+\end{aligned}\)</span></p>
+<p>类似的，可以计算出<span
+class="math inline">\(\text{FFT}((3,-6,0,8,0,0,0,0),8)\)</span>的结果为</p>
+<p><span
+class="math inline">\((5,(3-7\sqrt{2})+\sqrt{2}i,3-14i,(3+7\sqrt{2})+\sqrt{2}i,1,(3+7\sqrt{2})-\sqrt{2}i,3+14i,(3-7\sqrt{2})-\sqrt{2}i)\)</span></p>
+<p>通过点值表示法将各自的值直接相乘，可以得到乘积的点值表示为</p>
+<p><span
+class="math inline">\((-15,(4+62\sqrt{2})+(-65+9\sqrt{2})i,-111+108i,(4-62\sqrt{2})+(65+9\sqrt{2})i,-19,(4-62\sqrt{2})+(-65-9\sqrt{2})i,-111-108i,(4+62\sqrt{2})+(65-9\sqrt{2})i)\)</span></p>
+<p>最终通过逆快速傅里叶变换得到答案为<span
+class="math inline">\((-30,63,-9,-53,-34,-8,56,0)\)</span>。</p>
+<h1 id="section-3">30.2-4</h1>
+<p>给出的代码为<code>FFT-INV</code>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FFT-INV(y, n)</span><br><span class="line">  if n == 1</span><br><span class="line">    return y</span><br><span class="line">  ωn = exp(-2 * π * i / n)</span><br><span class="line">  ω = 1</span><br><span class="line">  y-even = (y_0, y_2, ..., y_&#123;n - 2&#125;)</span><br><span class="line">  y-odd = (y_1, y_3, ..., y_&#123;n - 1&#125;)</span><br><span class="line">  a-even = FFT-INV(y-even, n / 2)</span><br><span class="line">  a-odd = FFT-INV(y-odd, n / 2)</span><br><span class="line">  for k = 0 to n / 2 - 1</span><br><span class="line">    a_k = (a-even_&#123;k&#125; + ω * a-odd_&#123;k&#125;) / n</span><br><span class="line">    a_&#123;k + n / 2&#125; = (a-even_&#123;k&#125; - ω * a-odd_&#123;k&#125;) / n</span><br><span class="line">    ω = ω * ωn</span><br><span class="line">  return a</span><br></pre></td></tr></table></figure>
+<h1 id="section-4">30.2-5</h1>
+<p>参考引理30.5，首先证明三分引理：如果<span
+class="math inline">\(n\)</span>是一个<span
+class="math inline">\(3\)</span>的倍数，那么这<span
+class="math inline">\(n\)</span>个<span
+class="math inline">\(n\)</span>次单位复数根的立方的集合就是<span
+class="math inline">\(n/3\)</span>个<span
+class="math inline">\(n/3\)</span>次单位复数根的集合。</p>
+<p>接下来证明这个引理，考虑<span
+class="math inline">\((\omega_{n}^{k+n/3})^3,(\omega_{n}^{k+2n/3})^3,(\omega_{n}^{k})^3\)</span>之间的关系，有</p>
+<p><span class="math inline">\(\begin{aligned}
+(\omega_{n}^{k+n/3})^3&amp;=\omega_n^{3k}\omega_n^n\\
+&amp;=\omega_n^{3k}\\
+&amp;=(\omega_n^{k})^3\\
+(\omega_{n}^{k+2n/3})^3&amp;=\omega_n^{3k}\omega_n^{2n}\\
+&amp;=\omega_n^{3k}
+\end{aligned}\)</span></p>
+<p>根据引理30.3和上面的结论，可以得到<span
+class="math inline">\((\omega_{n}^{k+n/3})^3=(\omega_{n}^{k+2n/3})^3=(\omega_{n}^{k})^3=\omega_{n}^{3k}=\omega_{n/3}^{k}\)</span>，最终引理成立。</p>
+<p>那么接下来令<span
+class="math inline">\(\displaystyle{A(x)=\sum_{i=0}^{n-1}
+a_ix^{i}}\)</span>，并且定义<span
+class="math inline">\(\displaystyle{A^{(k)}(x)=\sum_{i=0}^{n/3-1}
+a_{3i+k}x^{i}}\)</span>，其中<span
+class="math inline">\(k\in\{0,1,2\}\)</span>。那么可以将<span
+class="math inline">\(A(x)\)</span>写成：</p>
+<p><span
+class="math display">\[A(x)=A^{(0)}(x^3)+xA^{(1)}(x^3)+x^2A^{(2)}(x^3)\]</span></p>
+<p>那么一个规模为<span
+class="math inline">\(n\)</span>的问题被分解成<span
+class="math inline">\(3\)</span>个规模为<span
+class="math inline">\(n/3\)</span>的问题。令<span
+class="math inline">\(T(n)\)</span>表示规模为<span
+class="math inline">\(n\)</span>的问题的运行时间，那么有</p>
+<p><span class="math display">\[T(n)=3T(n/3)+\Theta(n)\]</span></p>
+<p>按照主定理的第二个条件，可以得到<span
+class="math inline">\(T(n)=\Theta(n\lg n)\)</span>。</p>
+<p>如下是满足这个情况时的算法<code>FFT3</code>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">FFT3(y, n)</span><br><span class="line">  if n == 1</span><br><span class="line">    return y</span><br><span class="line">  ωn = exp(2 * π * i / n)</span><br><span class="line">  ω = 1</span><br><span class="line">  a0 = (a_0, a_3, ..., y_&#123;n - 3&#125;)</span><br><span class="line">  a1 = (a_1, a_4, ..., y_&#123;n - 2&#125;)</span><br><span class="line">  a2 = (a_2, a_5, ..., y_&#123;n - 1&#125;)</span><br><span class="line">  y0 = FFT3(a0, n / 3)</span><br><span class="line">  y1 = FFT3(a1, n / 3)</span><br><span class="line">  y2 = FFT3(a2, n / 3)</span><br><span class="line">  for k = 0 to n / 3 - 1</span><br><span class="line">    y_&#123;k&#125; = y0_&#123;k&#125; + ω * y1_&#123;k&#125; + ω^2 * y2_&#123;k&#125;</span><br><span class="line">    y_&#123;k + n / 3&#125; = y0_&#123;k&#125; + (ω * ω_&#123;3&#125;^&#123;1&#125;) * y1_&#123;k&#125; + (ω * ω_&#123;3&#125;^&#123;1&#125;)^2 * y2_&#123;k&#125;</span><br><span class="line">    y_&#123;k + 2 * n / 3&#125; = y0_&#123;k&#125; + (ω * ω_&#123;3&#125;^&#123;2&#125;) * y1_&#123;k&#125; + (ω * ω_&#123;3&#125;^&#123;2&#125;)^2 * y2_&#123;k&#125;</span><br><span class="line">    ω = ω * ωn</span><br><span class="line">  return a</span><br></pre></td></tr></table></figure>
+<h1 id="star-30.2-6"><span class="math inline">\(\star\)</span>
+30.2-6</h1>
+<p>不难发现<span
+class="math inline">\(\gcd(m,\omega)=1\)</span>，因为<span
+class="math inline">\(m\)</span>为奇数，且<span
+class="math inline">\(\omega\)</span>只包含因子<span
+class="math inline">\(2\)</span>。因此<span
+class="math inline">\(\omega\in
+\mathbb{Z}_m^{\ast}\)</span>。接下来考虑<span
+class="math inline">\(\omega\)</span>在<span
+class="math inline">\(\mathbb{Z}_m^\ast{}\)</span>中的阶<span
+class="math inline">\(k=\lambda_m(\omega)\)</span>，也就是最小的整数使得<span
+class="math inline">\(\omega^{k}\equiv 1\pmod m\)</span>成立。</p>
+<p>考虑<span
+class="math inline">\(\dfrac{2^{tk}-1}{2^{tn/2}+1}=\dfrac{2^{tk}+2^{tn/2}}{2^{tn/2}+1}-1=2^{tn/2}\cdot\dfrac{2^{tk-tn/2}+1}{2^{tn/2}+1}-1\)</span>，当<span
+class="math inline">\(k=n\)</span>时，<span
+class="math inline">\(\dfrac{2^{tk-tn/2}+1}{2^{tn/2}+1}=1\)</span>，即保持了整除，且分子是分母的最小倍数，因此有<span
+class="math inline">\(k=n\)</span>，即<span
+class="math inline">\(\lambda_m(\omega)=n\)</span>。</p>
+<p>由于<span
+class="math inline">\(\lambda_m(\omega)=n\)</span>的存在，因此由元素<span
+class="math inline">\(\omega\)</span>在<span
+class="math inline">\(\mathbb{Z}_m\)</span>所生成的群<span
+class="math inline">\(\langle\omega\rangle\)</span>是一个循环群。那么定义<span
+class="math inline">\(\omega^j=2^{tj}\bmod m\)</span>。</p>
+<p>接下来证明引理/定理/推论30.3，30.4，30.5，30.6, 30.7在<span
+class="math inline">\(\langle\omega\rangle\)</span>中是成立的。</p>
+<p>引理30.3的证明：考虑<span
+class="math inline">\(n\)</span>的某个因子<span
+class="math inline">\(d\)</span>，令<span
+class="math inline">\(\omega&#39;=2^{td}\)</span>，那么有<span
+class="math inline">\(\omega&#39;^{k/d}\equiv 2^{tk}\equiv
+\omega^{k}\pmod m\)</span>。因此原结论成立。</p>
+<p>推论30.4的证明：<span class="math inline">\(\omega^{n/2}\equiv
+2^{tn/2}\equiv -1\pmod {m}\)</span>，因此结论得证。</p>
+<p>引理30.5的证明：<span
+class="math inline">\((\omega^{k+n/2})^2\equiv\omega^{2k+n}\equiv\omega^{2k}\omega^n\equiv\omega^{2k}\equiv
+(\omega^k)^2\pmod m\)</span>，因此结论得证。</p>
+<p>引理30.6的证明：当<span class="math inline">\(n\nmid
+k\)</span>时，有<span class="math inline">\(\omega^k\not\equiv 1\pmod
+m\)</span>成立。证明过程和原本的定理30.6的计算过程一致，原结论得证。</p>
+<p>定理30.7的证明：此时<span
+class="math inline">\(V_{n}^{-1}\)</span>的第<span
+class="math inline">\(j\)</span>行第<span
+class="math inline">\(k\)</span>列的项为<span
+class="math inline">\(\omega^{-jk}\cdot n^{-1}\bmod
+m\)</span>。由于<span class="math inline">\(n\)</span>是<span
+class="math inline">\(2\)</span>的幂，但是<span
+class="math inline">\(m\)</span>是奇数，因此<span
+class="math inline">\(\gcd(n,m)=1\)</span>，因此在<span
+class="math inline">\(\mathbb{Z}_m\)</span>中存在<span
+class="math inline">\(n\)</span>的逆元<span
+class="math inline">\(n^{-1}\)</span>，结论中的写法是成立的，考虑<span
+class="math inline">\([V_{n}^{-1}V_n]_{kk}\)</span>的值，有<span
+class="math inline">\([V_{n}^{-1}V_n]_{kk}\equiv\displaystyle{\sum_{j=0}^{n-1}}(\omega^{-jk}\cdot
+n^{-1})(\omega^{jk&#39;})\equiv n^{-1}\cdot
+\sum_{j=0}^{n-1}\omega^{j(k&#39;-k)}\pmod
+p\)</span>。其余证明过程类似，因此原结论成立。</p>
+<p>在<span
+class="math inline">\(\langle\omega\rangle\)</span>中，首先计算好<span
+class="math inline">\(\omega\)</span>的幂<span
+class="math inline">\(\omega^i\)</span>。由于<span
+class="math inline">\(\langle\omega\rangle\subseteq
+\mathbb{Z}_m^{\ast}\subseteq \mathbb{Z}_m\)</span>，可见<span
+class="math inline">\(\omega^i\in \mathbb{Z}_m\)</span>。因此<span
+class="math inline">\(\displaystyle{y_k=\sum_{i=0}^{n-1}a_i(\omega^k)^i}\)</span>的整个计算过程是封闭的，DFT过程是正确定义的。</p>
+<p>对于DFT的逆过程，由于<span
+class="math inline">\(\gcd(\omega,m)=1\)</span>，因此<span
+class="math inline">\(\omega\)</span>在<span
+class="math inline">\(\mathbb{Z}_m\)</span>中也存在逆元<span
+class="math inline">\(\omega^{-1}\)</span>，容易验证<span
+class="math inline">\(\langle
+\omega\rangle=\langle\omega^{-1}\rangle\)</span>，因此<span
+class="math inline">\(\displaystyle{a_k=n^{-1}\sum_{i=0}^{n-1}y_i(\omega^{-k})^i}\bmod
+m\)</span>的整个计算过程是封闭的，即DFT的逆过程是正确定义的。</p>
+<p>最终原结论成立。</p>
+<h1 id="section-5">30.2-7</h1>
+<p>我们将考虑构造出多项式<span
+class="math inline">\(\displaystyle{P(x)=\prod_{i=0}^{n-1}(x-z_i)}\)</span>，并考虑计算它的系数。</p>
+<p>可见，<span class="math inline">\(P(x)\)</span>是由<span
+class="math inline">\(n\)</span>个<span
+class="math inline">\(1\)</span>次多项式同时相乘。令<span
+class="math inline">\(m\)</span>是大于等于<span
+class="math inline">\(n\)</span>的最小二次幂，那么<span
+class="math inline">\(P(x)\)</span>也可以看成是由<span
+class="math inline">\(m\)</span>个<span
+class="math inline">\(1\)</span>次项同时相乘。</p>
+<p>接下来考虑讲相邻的每<span class="math inline">\(2\)</span>个<span
+class="math inline">\(k\)</span>次多项式因子相乘，得到一个新的<span
+class="math inline">\(2k\)</span>次多项式进行存储，这个过程需要进行<span
+class="math inline">\(\dfrac{m}{2k}\)</span>次，得到<span
+class="math inline">\(\dfrac{m}{2k}\)</span>个<span
+class="math inline">\(2k\)</span>次多项式因子，接下来将<span
+class="math inline">\(k\)</span>扩增成<span
+class="math inline">\(2\)</span>倍继续操作即可。具体算法由<code>GEN-POLY-BY-ZERO-POINT</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">GEN-POLY-BY-ZERO-POINT(z, n)</span><br><span class="line">  let m be a power of 2 s.t. m &gt;= n and m is minium </span><br><span class="line">  let P[0 : m - 1] be a new array</span><br><span class="line">  for i = 0 to m</span><br><span class="line">    if i &lt; n</span><br><span class="line">      P[i] = [-z[i], 1]</span><br><span class="line">    else</span><br><span class="line">      P[i] = [1, 0]</span><br><span class="line">  b = m</span><br><span class="line">  while b &gt; 1</span><br><span class="line">    l = n / b * 2</span><br><span class="line">    let Q[0 : b / 2 - 1] be a new array</span><br><span class="line">    for i = 0 to b / 2 - 1</span><br><span class="line">      for k = 0 to l</span><br><span class="line">        INSERT(P[i * 2], 0)</span><br><span class="line">        INSERT(P[i * 2 + 1], 0)</span><br><span class="line">      Q[i] = IFFT-INV(FFT(P[i * 2], 2 * l) ⋅ FFT(P[i * 2 + 1], 2 * l), 2 * l)</span><br><span class="line">    b = b / 2</span><br><span class="line">    P = Q</span><br><span class="line">  return P[0, 0 : n]</span><br></pre></td></tr></table></figure>
+<p>在每次<code>while</code>循环中，需要进行<span
+class="math inline">\(\dfrac{m}{2k}\)</span>次规模大小为<span
+class="math inline">\(O(k\lg
+k)\)</span>的FFT，因此单次<code>while</code>循环的时间复杂度为<span
+class="math inline">\(\dfrac{m}{2k}\cdot O(k\lg k)=O(m\lg k)=O(m\lg
+m)\)</span>。由于需要进行<span class="math inline">\(\lg
+m\)</span>次<code>while</code>循环，并且<span
+class="math inline">\(m=\Theta(n)\)</span>因此<code>GEN-POLY-BY-ZERO-POINT</code>的时间复杂度为<span
+class="math inline">\(m\cdot O(m\lg
+m)=O(m\lg^2m)=O(n\lg^2n)\)</span>。</p>
+<h1 id="star-30.2-8"><span class="math inline">\(\star\)</span>
+30.2-8</h1>
+<p>构造如下两个多项式：<span
+class="math inline">\(\displaystyle{B(x)=\sum_{j=0}^{n-1}b_jx^j}\)</span>和
+<span
+class="math inline">\(\displaystyle{C(x)=\sum_{j=0}^{n-1}C_jx^j}\)</span>，其中<span
+class="math inline">\(b_j=a_jz^{j^2/2},c_j=z^{-j^2/2}\)</span>。使用FFT算法可以求出<span
+class="math inline">\(D(x)=B(x)\cdot C(x)\)</span>。令<span
+class="math inline">\(\displaystyle{D(x)=\sum_{j=0}^{n-1}d_jx^j}\)</span>。那么可以知道：</p>
+<p><span class="math inline">\(\begin{aligned}
+d_k&amp;=\sum_{j=0}^{k} b_jc_{k-j}\\
+&amp;=\sum_{j=0}^{k} (a_jz^{j^2/2})(z^{-(k-j)^2/2})
+\end{aligned}\)</span></p>
+<p>对于<span class="math inline">\(\forall k\in[0,n)\)</span>，在以<span
+class="math inline">\(O(n\lg n)\)</span>的时间计算好值<span
+class="math inline">\(d_k\)</span>的值之后，只需要令<span
+class="math inline">\(y_k=z^{k^2/2}\cdot
+d_k\)</span>即可。此外多项式<span
+class="math inline">\(B(x),C(x)\)</span>可以以<span
+class="math inline">\(O(n\lg
+n)\)</span>的时间构造出来，因此最终整个过程仅使用<span
+class="math inline">\(O(n\lg
+n)\)</span>的时间完成。大概过程由<code>CHIRP-TRANSFORM</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">CHIRP-TRANSFORM(A, n, z)</span><br><span class="line">  let m be a power of 2 s.t. m &gt;= n and m is minium </span><br><span class="line">  let B[0 : 2 * m - 1], C[0 : 2 * m - 1] be new arrays by 0</span><br><span class="line">  for j = 0 to n - 1</span><br><span class="line">    w = exp(z, j * j / 2)</span><br><span class="line">    B[j] = A[j] * w</span><br><span class="line">    C[j] = 1 / w</span><br><span class="line">  D = IFFT-INV(FFT(B, 2 * l) ⋅ FFT(C, 2 * l), 2 * l)</span><br><span class="line">  let Y[0 : n - 1] be a new array</span><br><span class="line">  for k = 0 to n - 1</span><br><span class="line">    Y[k] = exp(z, k * k / 2) * D[k]</span><br><span class="line">  return Y</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/exercises-2/" title="算法导论30.2 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-30/exercises-2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

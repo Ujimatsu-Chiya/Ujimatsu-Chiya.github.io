@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论27 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-27/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-25T15:36:41.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.174Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-27/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-27/problems/","path":"introduction-to-algorithms/chapter-27/problems/","title":"算法导论27 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论27 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">27-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">27-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">2.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">2.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">2.6.</span> <span class="nav-text">f</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#g"><span class="nav-number">2.7.</span> <span class="nav-text">g</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-27/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论27 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论27 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-25 23:36:41" itemprop="dateCreated datePublished" datetime="2023-07-25T23:36:41+08:00">2023-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">27-1</h1>
+<p>以下解答参考了这篇<a
+target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/bf02798690">论文</a>，它给出了一个竞争比例为<span
+class="math inline">\(9\)</span>的在线算法。这个<a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Linear_search_problem">页面</a>则描述了这个问题的原型。</p>
+<p>对于一个输入未知输入<span
+class="math inline">\(x\)</span>。接下来考虑这个在线算法<span
+class="math inline">\(F(x)\)</span>的行为。考虑一个无限访问序列<span
+class="math inline">\(x_i=-\delta(-2)^i\)</span>，可见<span
+class="math inline">\(\displaystyle{\lim_{i\rightarrow-\infty}}x_i=0\)</span>，因此起点是<span
+class="math inline">\(x_{-\infty}=0\)</span>，然后按这个顺序依次访问中间的所有节点。如果当前从<span
+class="math inline">\(x_{-\infty}=0\)</span>按顺序访问到了第<span
+class="math inline">\(k\)</span>个节点，那么访问的距离总共为<span
+class="math inline">\(\displaystyle{|x_k|+\sum_{i=-\infty}^{k-1}|x_i|}\)</span>。</p>
+<p>对于输入<span class="math inline">\(x\)</span>，假设算法<span
+class="math inline">\(F\)</span>所产生的步行距离为<span
+class="math inline">\(f(x)\)</span>。现在假设<span
+class="math inline">\(x&gt;0\)</span>，那么可以选择<span
+class="math inline">\(n\)</span>使得<span
+class="math inline">\(x_{2n-1}&lt;x\le x_{2n+1}\)</span>，即<span
+class="math inline">\(-\delta \cdot (-2)^{2n-1}&lt;x\le -\delta\cdot
+(-2)^{2n+1}\)</span>。算法<span
+class="math inline">\(F\)</span>将从<span
+class="math inline">\(x_{-\infty}\)</span>逐步访问节点到<span
+class="math inline">\(x_{2n}\)</span>，再从<span
+class="math inline">\(x_{2n}\)</span>访问到<span
+class="math inline">\(x\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+f(x)&amp;= x+2\cdot\sum_{i=-\infty}^{2n} |x_i|\\
+&amp;=x+\delta\cdot 2^{2n+2}\\
+&amp;&lt;x+8x &amp;\qquad(A)\\
+&amp;=9x
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>是从<span
+class="math inline">\(-\delta \cdot (-2)^{2n-1}&lt;x\)</span>得到<span
+class="math inline">\(\delta\cdot 2^{2n}&lt;2x\)</span>。</p>
+<p>现在假设<span
+class="math inline">\(x&lt;0\)</span>，那么可以选择<span
+class="math inline">\(n\)</span>使得<span
+class="math inline">\(x_{2n+2}\le x&lt; x_{2n}\)</span>，即<span
+class="math inline">\(-\delta \cdot (-2)^{2n+2}\le x&lt;-\delta\cdot
+(-2)^{2n}\)</span>。算法<span class="math inline">\(F\)</span>将从<span
+class="math inline">\(x_{-\infty}\)</span>逐步访问节点到<span
+class="math inline">\(x_{2n+1}\)</span>，再从<span
+class="math inline">\(x_{2n+1}\)</span>访问到<span
+class="math inline">\(x\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+f(x)&amp;= |x|+2\cdot\sum_{i=-\infty}^{2n+1} |x_i|\\
+&amp;=-x+\delta\cdot 2^{2n+3}\\
+&amp;&lt;-x-8x &amp;\qquad(B)\\
+&amp;=-9x
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((B)\)</span>是从<span
+class="math inline">\(x&lt;-\delta\cdot (-2)^{2n}\)</span>得到<span
+class="math inline">\(\delta\cdot 2^{2n}&lt;-x\)</span>。</p>
+<p>如果<span class="math inline">\(x=0\)</span>，那么算法<span
+class="math inline">\(F\)</span>不需要移动即可，即<span
+class="math inline">\(f(x)=0\)</span>。</p>
+<p>对于一个离线最优算法的花费<span
+class="math inline">\(g(x)\)</span>，它知道<span
+class="math inline">\(x\)</span>在哪个地方，因此只需要径直走过去即可，需要步行的距离为<span
+class="math inline">\(g(x)=|x|\)</span>。</p>
+<p>也就是说，<span class="math inline">\(\forall x\in
+(-\infty,\infty)\)</span>，都有<span class="math inline">\(f(x)\le
+9g(x)\)</span>，因此算法<span
+class="math inline">\(F\)</span>是线性查找问题中一个竞争比例为<span
+class="math inline">\(9\)</span>的算法。</p>
+<p>实际上，如果来回行走时到达了路径的终点，就可以立即返回。</p>
+<h1 id="section-1">27-2</h1>
+<p>这篇<a
+target="_blank" rel="noopener" href="https://link.springer.com/article/10.1007/BF01585872">论文</a>和本题目相关。</p>
+<h2 id="a">a</h2>
+<p>假设有如下<span class="math inline">\(n\)</span>个任务<span
+class="math inline">\(\{a_{1},a_2,\dots,a_n\}\)</span>，其中<span
+class="math inline">\(r_1=0,p_1=m(m&gt;n)\)</span>，并且<span
+class="math inline">\(\forall
+i\in[2,n],r_i=1,p_i=1\)</span>。考虑这个在线算法和最优离线算法的行为。</p>
+<p>首先考虑在线算法的行为。一开始<span
+class="math inline">\((t=0)\)</span>，在线算法检查到未运行的最短时间任务<span
+class="math inline">\(a_1\)</span>，那么它将会运行这个任务，并且最终在<span
+class="math inline">\(C_1=m\)</span>这个时刻完成了它。完成<span
+class="math inline">\(a_1\)</span>后，它检查到了任务<span
+class="math inline">\(a_2,a_3,\dots,a_n\)</span>。由于它们所需要花费的时间都相同，因此不失一般性，按照<span
+class="math inline">\(a_2,a_3,\dots,a_n\)</span>的时间运行。因此<span
+class="math inline">\(\forall i\in[2,n]\)</span>，都有<span
+class="math inline">\(C_i=m+i-1\)</span>。因此总共需要的时间为<span
+class="math inline">\(C=\dfrac{(m+m+n-1)n}{2}\)</span>。</p>
+<p>对于一个最优离线算法，它会先等待<span
+class="math inline">\(n-1\)</span>个短任务<span
+class="math inline">\(a_2,a_3,\dots,a_n\)</span>的到来，并执行完成。因此<span
+class="math inline">\(\forall i\in[2,n]\)</span>，都有<span
+class="math inline">\(C_i&#39;=i\)</span>。接下来执行任务<span
+class="math inline">\(a_1\)</span>，最终有<span
+class="math inline">\(C_1&#39;=n+m\)</span>。因此总共需要的时间为<span
+class="math inline">\(C&#39;=\dfrac{(2+n)(n-1)}{2}+m+n\)</span>。</p>
+<p>那么，可见这个在线算法的竞争比例<span
+class="math inline">\(r\)</span>至少为<span
+class="math inline">\(C/C&#39;=\Omega(mn/(n^2+m))\)</span>。如果<span
+class="math inline">\(m=\omega(n^2)\)</span>，那么有<span
+class="math inline">\(r=\Omega(m/n)\)</span>。也就是说，竞争比例取决于最长任务<span
+class="math inline">\(a_1\)</span>的运行时间<span
+class="math inline">\(m\)</span>。因此并不存在一个正常数<span
+class="math inline">\(d\)</span>，使得这个算法是<span
+class="math inline">\(d\)</span>竞争的。也就是说，这个算法的竞争比例是<strong>无界</strong>的。</p>
+<h2 id="b">b</h2>
+<p>对于任意一个时刻，如果当前处理机处于空闲状态，那么从任务队列<span
+class="math inline">\(Q\)</span>中取一个剩余时间最短的任务运行。在运行某一个任务<span
+class="math inline">\(a_i\)</span>中，如果在线算法发现一个新释放的任务<span
+class="math inline">\(a_j\)</span>所需要的运行时间比当前任务的剩余运行时间还要短，那么<span
+class="math inline">\(a_i\)</span>便会挂起，推入<span
+class="math inline">\(Q\)</span>，并开始运行<span
+class="math inline">\(a_j\)</span>；否则继续运行<span
+class="math inline">\(a_i\)</span>，且将<span
+class="math inline">\(a_j\)</span>推入<span
+class="math inline">\(Q\)</span>中。</p>
+<h2 id="c">c</h2>
+<p><code>SPRT</code>算法是题目15-2-b的所提供算法的最优解，同时它也是抢占式算法下平均完成时间的最优解，因此它是一个<span
+class="math inline">\(1\)</span>竞争的在线算法。也就是说，运行算法<code>SPRT</code>所得到的<span
+class="math inline">\(C_1^P,C_2^P,\dots,C_n^P\)</span>同样也是题目15-2-b的离线最优抢占式调度的一个最优解。由于非抢占式调度策略是抢占式调度策略的一个子集，因此<span
+class="math inline">\(C_1^{\ast},C_2^{\ast},\dots,C_{i}^{\ast}\)</span>并不会比<span
+class="math inline">\(C_1^P,C_2^P,\dots,C_n^P\)</span>更优。因此根据题目15-2-b的结论，有<span
+class="math inline">\(\displaystyle{\sum_{i=1}^nC_i^P\le \sum_{i=1}^n
+C_i^{\ast}}\)</span>。</p>
+<h2 id="d">d</h2>
+<p>按照<code>SPRT</code>算法下的任务完成时间对任务进行排序完成后，考虑任务<span
+class="math inline">\(i\)</span>完成的时刻，这时任务<span
+class="math inline">\(1,2,\dots,i-1\)</span>都已经完成。因此有<span
+class="math inline">\(\displaystyle{C_i^P\ge \sum_{j=1}^i
+p_i}\)</span>。</p>
+<p>由于<span class="math inline">\(r_j\)</span>是任务<span
+class="math inline">\(j\)</span>的释放时间，<span
+class="math inline">\(C_j^P\)</span>是任务<span
+class="math inline">\(j\)</span>的完整时间，因此有<span
+class="math inline">\(r_j&lt;C_j^P\)</span>。又因为<span
+class="math inline">\(C_1^P,C_2^P,\dots,C_n^P\)</span>是严格单调递增的，因此<span
+class="math inline">\(\forall j\in[1,i]\)</span>，都有<span
+class="math inline">\(C_i^P&gt;r_j\)</span>成立。</p>
+<p>因此有<span
+class="math inline">\(\displaystyle{C_i^P\ge\max\left\{\sum_{j=1}^i
+p_j,\max\{r_j:j\le i\}\right\}}\)</span>，原结论成立。</p>
+<h2 id="e">e</h2>
+<p>对于前<span
+class="math inline">\(i\)</span>个任务，最懒惰且最贪心的做法是先将这<span
+class="math inline">\(i\)</span>个任务全部释放后，再一次性全部完成。等待全部任务释放需要花费<span
+class="math inline">\(\max\{r_j:j\le
+i\}\)</span>的时间，一次性完成这些任务需要花费<span
+class="math inline">\(\displaystyle{\sum_{j=1}^i
+p_i}\)</span>的时间。由于这<span
+class="math inline">\(i\)</span>个任务是紧密完成的，因此必定有<span
+class="math inline">\(\displaystyle{C_i\le \max\{r_j:j\le
+i\}+\sum_{j=1}^i
+p_j}\)</span>，否则，必定存在某些时刻，处理机空闲且仍有任务未执行的情况，而这种情况必定不是最优的。</p>
+<h2 id="f">f</h2>
+<p>对算法<code>COMPLETION-TIME-SCHEDULE</code>可以改成如下离线版本<code>COMPLETION-TIME-SCHEDULE-ONLINE</code>：如果任务<span
+class="math inline">\(a_j\)</span>在抢占式算法下于时刻<span
+class="math inline">\(C_j^P\)</span>结束，那么在线非抢占式算法则只需要在<span
+class="math inline">\(C_j^P\)</span>时间开始运行。如果此时不是空闲，那么需要等待上一个任务完成后，任务<span
+class="math inline">\(a_j\)</span>需要开始执行。</p>
+<h2 id="g">g</h2>
+<p>结合题目27-2-d和题目27-2-e的结论，有</p>
+<p><span class="math inline">\(\begin{aligned}
+C_i&amp;\le \max\{r_j:j\le i\}+\sum_{j=1}^i p_j\\
+&amp;\le \max\left\{\sum_{j=1}^i p_j,\max\{r_j:j\le
+i\}\right\}+\max\left\{\sum_{j=1}^i p_j,\max\{r_j:j\le i\}\right\}\\
+&amp;\le 2C_i^P
+\end{aligned}\)</span></p>
+<p>针对题目27-2-f提出的算法<code>COMPLETION-TIME-SCHEDULE-ONLINE</code>的输出结果，以及题目27-2-c的结论，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{i=1}^nC_i &amp;\le \sum_{i=1}^n2C_i^P\\
+&amp;=2\sum_{i=1}^P C_i^P\\
+&amp;\le 2\sum_{i=1}^P C_i^{\ast}\\
+\end{aligned}\)</span></p>
+<p>由于<span
+class="math inline">\(C_1^{\ast},C_2^{\ast},\dots,C_{i}^{\ast}\)</span>是非抢占式最优离线算法输出的结果，因此<code>COMPLETION-TIME-SCHEDULE-ONLINE</code>是<span
+class="math inline">\(2\)</span>竞争的。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-27/problems/" title="算法导论27 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-27/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

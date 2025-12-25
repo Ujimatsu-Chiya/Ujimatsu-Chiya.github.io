@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论34.5 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-5/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-25T15:36:29.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.185Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-5/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-5/","path":"introduction-to-algorithms/chapter-34/exercises-5/","title":"算法导论34.5 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论34.5 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">34.5-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">34.5-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">34.5-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">34.5-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">34.5-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">34.5-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">34.5-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">34.5-8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">9.</span> <span class="nav-text">34.5-9</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论34.5 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论34.5 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-25 23:36:29" itemprop="dateCreated datePublished" datetime="2023-07-25T23:36:29+08:00">2023-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">34.5-1</h1>
+<p>先将子图同构问题定义成一种语言<code>SUBGRAPH-ISOMORPHISM</code>：</p>
+<p><span class="math display">\[\text{SUBGRAPH-ISOMORPHISM} = \{\langle
+G_1, G_2\rangle : G_1\text{ is isomorphic to a subgraph of
+}G_2\}\]</span></p>
+<p>首先证明<code>SUBGRAPH-ISOMORPHISM</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于<span
+class="math inline">\(G_1=(V_1,E_1),G_2=(V_2,E_2),G_1\)</span>同构于<span
+class="math inline">\(G_2\)</span>的一个子图意味着存在<span
+class="math inline">\(V\subseteq V_2,E\subseteq E_2\)</span>（其中<span
+class="math inline">\(E\)</span>是从<span
+class="math inline">\(V\)</span>中产生的：<span
+class="math inline">\(\forall u\in V,\in V,(u,v)\in
+E_2\)</span>，都有<span class="math inline">\((u,v)\in
+E\)</span>），以及一个双射函数<span
+class="math inline">\(f:V_1\rightarrow V,(u,v)\in
+E_1\)</span>当且仅当<span class="math inline">\((f(u),f(v))\in
+E\)</span>。对于某个证据<span
+class="math inline">\((V,f)\)</span>，检验程序需要先根据集合<span
+class="math inline">\(V\)</span>计算出集合<span
+class="math inline">\(|E|\)</span>，再判断是否满足<span
+class="math inline">\(|V_1|=|V|,|E_1|=|E|\)</span>，并且<span
+class="math inline">\(\forall (u,v)\in E_1\)</span>，都有<span
+class="math inline">\((f(u),f(v))\in
+E\)</span>即可。检验程序可以在多项式内完成检验，因此<code>SUBGRAPH-ISOMORPHISM</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>SUBGRAPH-ISOMORPHISM</code>是NP困难的，考虑使用团问题进行规约，即证明<span
+class="math inline">\(\text{CLIQUE}\le_P\text{SUBGRAPH-ISOMORPHISM}\)</span>。对于<code>CLIQUE</code>问题中的任意一个实例<span
+class="math inline">\(\langle G,k\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>SUBGRAPH-ISOMORPHISM</code>问题的实例<span
+class="math inline">\(\langle G_1,G_2\rangle\)</span>，使得<span
+class="math inline">\(G\)</span>包含一个大小为<span
+class="math inline">\(k\)</span>的团，当且仅当<span
+class="math inline">\(G_1\)</span>和<span
+class="math inline">\(G_2\)</span>的某个子图同构。</p>
+<p>规约过程是：<span class="math inline">\(G_1\)</span>是<span
+class="math inline">\(k\)</span>个节点的完全图，<span
+class="math inline">\(G_2\)</span>是<span
+class="math inline">\(G\)</span>本身。可见构造出这两个图所需要花费的时间都是多项式的。</p>
+<p>现在证明<span class="math inline">\(G\)</span>包含一个大小为<span
+class="math inline">\(k\)</span>的团，当且仅当<span
+class="math inline">\(G_1\)</span>和<span
+class="math inline">\(G_2\)</span>的某个子图同构。</p>
+<p>充分性：如果<span
+class="math inline">\(G(G_2)\)</span>包含一个大小为<span
+class="math inline">\(k\)</span>的团，那么取出这个团所代表的子图，它将是一个大小为<span
+class="math inline">\(k\)</span>的完全图，因此这个子图明显和<span
+class="math inline">\(G_1\)</span>同构。</p>
+<p>必要性：如果<span class="math inline">\(G_1\)</span>和<span
+class="math inline">\(G_2\)</span>中的某个子图同构，由于<span
+class="math inline">\(G_1\)</span>是一个具有<span
+class="math inline">\(k\)</span>个节点的完全图，那么<span
+class="math inline">\(G(G_2)\)</span>也将包含一个边和节点一一对应的子图。因此它必定是<span
+class="math inline">\(G\)</span>中一个大小为<span
+class="math inline">\(k\)</span>的团。</p>
+<p>因此<span
+class="math inline">\(\text{CLIQUE}\le_P\text{SUBGRAPH-ISOMORPHISM}\)</span>。由于<code>CLIQUE</code>是NP完全的，那么<code>SUBGRAPH-ISOMORPHISM</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-1">34.5-2</h1>
+<p>先将0-1整数规划问题定义成一种语言<code>0-1-INTEGER-PROGRAMMING</code>：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{0-1-INTEGER-PROGRAMMING}=\{\langle A,b\rangle:&amp;A\text{ is a
+}m\times n\text{ matrix},\\
+&amp;b\text{ is a }m\text{-vector},\text{ and}\\
+&amp;\text{there exists a }n\text{-0-1-vector }x\text{ such that }Ax\le
+b
+\}
+\end{aligned}\]</span></p>
+<p>首先证明0-1整数规划问题<code>0-1-INTEGER-PROGRAMMING</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于一组输入<span
+class="math inline">\(\langle A,b\rangle\)</span>和一个证书：<span
+class="math inline">\(n\)</span>维向量<span
+class="math inline">\(x\)</span>，检验算法只需要先判断<span
+class="math inline">\(x\)</span>是否为一个<span
+class="math inline">\(0\text{-}1\)</span>向量，然后再计算<span
+class="math inline">\(b&#39;=Ax\)</span>，并检验是否满足<span
+class="math inline">\(b&#39;\le
+b\)</span>即可。这个检验过程可以在多项式时间内完成，因此<code>0-1-INTEGER-PROGRAMMING</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>0-1-INTEGER-PROGRAMMING</code>是NP困难的，考虑使用3-CNF可满足行性问题进行规约，即证明<span
+class="math inline">\(\text{3-CNF-SAT}\le_P\text{0-1-INTEGER-PROGRAMMING}\)</span>。给定变量<span
+class="math inline">\(x_1,x_2,\dots,x_n\)</span>的一个3-CNF公式<span
+class="math inline">\(\phi\)</span>，它由子句<span
+class="math inline">\(\phi_1,\phi_2,\dots,\phi_k\)</span>构成。规约算法<span
+class="math inline">\(F\)</span>将构造<code>0-1-INTEGER-PROGRAMMING</code>问题的一个实例<span
+class="math inline">\(\langle A,b\rangle\)</span>使得<span
+class="math inline">\(\phi\)</span>是可满足的，当且仅当存在0-1向量<span
+class="math inline">\(x\)</span>，使得<span class="math inline">\(Ax\le
+b\)</span>。</p>
+<p>规约的过程如下：</p>
+<ul>
+<li><p>对于每一个变量<span
+class="math inline">\(x_i\)</span>，在0-1整数规划中都用<span
+class="math inline">\(2\)</span>个未知数<span
+class="math inline">\(y_i,\neg y_i\)</span>来表示，<span
+class="math inline">\(x_i\)</span>对应了<span
+class="math inline">\(y_i\)</span>；<span class="math inline">\(\neg
+x_i\)</span>对应着<span class="math inline">\(\neg
+y_i\)</span>。那么列出两条不等式：<span class="math inline">\(y_i+\neg
+y_i\le 1,y_i+\neg y_i\ge 1\)</span>，这是为了保证<span
+class="math inline">\(y_i+\neg y_i=1\)</span>成立。</p></li>
+<li><p>对于每一个子句<span class="math inline">\(\phi_i=z_{i,1}\lor
+z_{i,2}\lor z_{i,3}\)</span>，将每个文字转换成对应的未知数后（设为<span
+class="math inline">\(y_{i,1}, y_{i,2},
+y_{i,3}\)</span>），列出不等式<span
+class="math inline">\(y_{i,1}+y_{i,2}+y_{i,3}\ge
+1\)</span>。这意味着，每个公式中，至少有一个布尔变量的取值为<span
+class="math inline">\(1\)</span>。</p></li>
+</ul>
+<p>接下来只需要将带有大于等于号的公式两侧取负，那么就转换成了都是小于等于号的公式。</p>
+<p>可见，规约算法构造出了<span
+class="math inline">\(2n+k\)</span>条不等式，这些不等式的未知变量个数为<span
+class="math inline">\(2n\)</span>。因此，矩阵<span
+class="math inline">\(A\)</span>的大小为<span
+class="math inline">\((2n+k)\times 2n\)</span>。可见，规约算法<span
+class="math inline">\(F\)</span>能够将矩阵<span
+class="math inline">\(A\)</span>和向量<span
+class="math inline">\(b\)</span>在多项式时间内能构造出来。</p>
+<p>现在证明<span
+class="math inline">\(\phi\)</span>是可满足的，当且仅当存在0-1向量<span
+class="math inline">\(x\)</span>，使得<span class="math inline">\(Ax\le
+b\)</span>。</p>
+<p>充分性：首先假设<span
+class="math inline">\(\phi\)</span>存在着一组可满足性赋值<span
+class="math inline">\(x_1,x_2,\dots,x_n\)</span>，那么令<span
+class="math inline">\(y_i=x_i,\neg y_i=\neg
+x_i\)</span>。在这个赋值下，<span class="math inline">\(y_i+\neg
+y_{i}=1\)</span>必定成立。由于每个子句<span
+class="math inline">\(\phi_i\)</span>都是为<span
+class="math inline">\(1\)</span>，因此必定存在某个文字<span
+class="math inline">\(z_{i,j}\)</span>所对应的未知变量<span
+class="math inline">\(x_{i,j}\)</span>的赋值为<span
+class="math inline">\(1\)</span>，从而使得下面<span
+class="math inline">\(k\)</span>个不等式中大于等于<span
+class="math inline">\(1\)</span>成立。因此如果<span
+class="math inline">\(\phi\)</span>是可满足的，可以对对应的0-1整数规划问题<span
+class="math inline">\(\langle A,b\rangle\)</span>实例找到一组解。</p>
+<p>必要性：首先假设这组0-1整数规划问题实例<span
+class="math inline">\(\langle
+A,b\rangle\)</span>存在一组解。在这组解中，构造一组<span
+class="math inline">\(\phi\)</span>上变量的赋值<span
+class="math inline">\(x_i=y_i\)</span>。由于<span
+class="math inline">\(\forall i\in[1,k],y_{i,1}+y_{i,2}+y_{i,3}\ge
+1\)</span>均成立，这意味着所有子句<span
+class="math inline">\(\phi_i\)</span>中，都必有其中一个变量为<span
+class="math inline">\(1\)</span>。因此<span
+class="math inline">\(\phi\)</span>是可满足的。</p>
+<p>因此<span
+class="math inline">\(\text{3-CNF-SAT}\le_P\text{0-1-INTEGER-PROGRAMMING}\)</span>。由于<code>3-CNF-SAT</code>是NP完全的，那么<code>0-1-INTEGER-PROGRAMMING</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-2">34.5-3</h1>
+<p>先将整数规划问题定义成一种语言<code>INTEGER-LINEAR-PROGRAMMING</code>：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{INTEGER-LINEAR-PROGRAMMING}=\{\langle A,b\rangle:&amp;A\text{ is a
+}m\times n\text{ matrix},\\
+&amp;b\text{ is a }m\text{-vector},\text{ and}\\
+&amp;\text{there exists a }n\text{-vector }x\text{ such that }Ax\le b
+\}
+\end{aligned}\]</span></p>
+<p>首先证明整数规划问题<code>INTEGER-LINEAR-PROGRAMMING</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于一组输入<span
+class="math inline">\(\langle A,b\rangle\)</span>和一个证书：<span
+class="math inline">\(n\)</span>维向量<span
+class="math inline">\(x\)</span>，检验算法只需要先判断<span
+class="math inline">\(x\)</span>是否为一个整数向量，然后再计算<span
+class="math inline">\(b&#39;=Ax\)</span>，并检验是否满足<span
+class="math inline">\(b&#39;\le
+b\)</span>即可。这个检验过程可以在多项式时间内完成，因此<code>INTEGER-LINEAR-PROGRAMMING</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>不过，题目34.5-2所规约而来的实例<span class="math inline">\(\langle
+A,b\rangle\)</span>恰好也是一个整数规划问题。因此，按照和题目34.5-2完全一样的论证过程，可以证明<code>INTEGER-LINEAR-PROGRAMMING</code>也是NP困难的，从而得知它是NP安全的，原结论成立。</p>
+<h1 id="section-3">34.5-4</h1>
+<p>如果目标值<span
+class="math inline">\(t\)</span>可以表示成一元形式，那么可以构造出和0-1背包问题类似的动态规划算法进行解决（可以利用题目15.2-2所提到的算法）。将每一个数<span
+class="math inline">\(x_i\)</span>视为物品的种类，将目标<span
+class="math inline">\(t\)</span>视为背包的总重量，那么可以判断背包是否能否被恰好装满即可。</p>
+<p>算法<code>0-1-KNAPSACK-PROBLEM'</code>给出了整个过程，它是<code>0-1-KNAPSACK-PROBLEM</code>的改造，用于解决这个问题：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0-1-KNAPSACK-PROBLEM(x, n, t)</span><br><span class="line">  let f[0 : t] be a new array by 0</span><br><span class="line">  f[0] = 1</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    for j = t down to x[i]</span><br><span class="line">      if f[j - w] == 1</span><br><span class="line">        f[j] = 1</span><br><span class="line">  return f[t]</span><br></pre></td></tr></table></figure>
+<p>可见，这个过程的时间复杂度为<span
+class="math inline">\(O(nt)\)</span>。由于<span
+class="math inline">\(t\)</span>是一元编码的，因此其输入规模取决于<span
+class="math inline">\(t\)</span>值本身的大小。因此这个算法是一个多项式算法。</p>
+<h1 id="section-4">34.5-5</h1>
+<p>先将集合划分问题定义成一种语言<code>SET-PARTITION</code>：</p>
+<p><span class="math display">\[\text{SET-PARTITION} = \left\{\langle
+S\rangle : \text{there exists a set }A\subseteq S\text{ such that
+}\sum_{x\in A} x=\sum_{x\in\overline{A}}x\right\}\]</span></p>
+<p>首先证明<code>SET-PARTITION</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于<span
+class="math inline">\(S\)</span>和它的一个非空子集<span
+class="math inline">\(A\)</span>，检验程序只需要判断<span
+class="math inline">\(\displaystyle{2\sum_{x\in A}x=\sum_{x\in
+S}x}\)</span>是否满足即可，它可以在多项式时间内运行，因此<code>SET-PARTITION</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>SET-PARTITION</code>是NP困难的，考虑使用子集和问题进行规约，即证明<span
+class="math inline">\(\text{SUBSET-SUM}\le_P\text{SET-PARTITION}\)</span>。对于<code>SUBSET-SUM</code>问题中的任意一个实例<span
+class="math inline">\(\langle S,t\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>SET-PARTITION</code>问题的实例<span
+class="math inline">\(\langle S&#39;\rangle\)</span>，使得<span
+class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集，当且仅当<span
+class="math inline">\(S&#39;\)</span>能够划分成两个和值相等的子集。</p>
+<p>规约过程是：计算出<span
+class="math inline">\(\displaystyle{s=\sum_{x\in
+S}x}\)</span>后，令<span
+class="math inline">\(S&#39;=S\cup\{2s-t,s+t\}\)</span>，现在集合<span
+class="math inline">\(S&#39;\)</span>的所有数之和为<span
+class="math inline">\(4s\)</span>。</p>
+<p>现在证明<span class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集，当且仅当<span
+class="math inline">\(S&#39;\)</span>能够划分成两个和值相等的子集。</p>
+<p>充分性：如果<span class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集<span
+class="math inline">\(T\)</span>，那么令<span
+class="math inline">\(T&#39;=T\cup\{2s-t\}\)</span>，可见<span
+class="math inline">\(T&#39;\subseteq S&#39;\)</span>，并且<span
+class="math inline">\(T&#39;\)</span>的和恰好是<span
+class="math inline">\(S&#39;\)</span>的一半，故<span
+class="math inline">\(T&#39;\)</span>为<span
+class="math inline">\(\langle S&#39;\rangle\)</span>的一个证据。</p>
+<p>必要性：如果<span
+class="math inline">\(S&#39;\)</span>可以划分为两个相等的子集<span
+class="math inline">\(T&#39;\)</span>和<span
+class="math inline">\(S&#39;-T&#39;\)</span>。那么考虑<span
+class="math inline">\(2s-t,s+t\)</span>这两个数所属于的子集。由于<span
+class="math inline">\((2s-t)+(s+t)=3s&gt;\dfrac{1}{2}\cdot
+4s\)</span>，因此<span class="math inline">\(2s-t\)</span>和<span
+class="math inline">\(s+t\)</span>在这种情况下，必定会划分在两个不同的子集。不失一般性，假设<span
+class="math inline">\(2s-t\)</span>在<span
+class="math inline">\(T&#39;\)</span>所处的子集，那么令<span
+class="math inline">\(T=T&#39;-\{2s-t\}\)</span>，可以发现<span
+class="math inline">\(T\subseteq S\)</span>，并且<span
+class="math inline">\(T\)</span>的元素之和为<span
+class="math inline">\(t\)</span>，故<span
+class="math inline">\(T\)</span>为<span class="math inline">\(\langle
+S,t\rangle\)</span>的一个证据。</p>
+<p>因此<span
+class="math inline">\(\text{SUBSET-SUM}\le_P\text{SET-PARTITION}\)</span>。由于<code>SUBSET-SUM</code>是NP完全的，那么<code>SET-PARTITION</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-5">34.5-6</h1>
+<p>先将哈密顿路径问题定义成一种语言<code>HAM-PATH</code>:</p>
+<p><span class="math display">\[\text{HAM-PATH} = \{\langle G\rangle :
+\text{there exists a hamiltonian path in }G\}\]</span></p>
+<p>首先证明<code>HAM-PATH</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于图<span
+class="math inline">\(G=(V,E)\)</span>和它的一个顶点序列<span
+class="math inline">\(P\)</span>，检验程序只需要判断<span
+class="math inline">\(P\)</span>是否为一条简单路径，并且经过了<span
+class="math inline">\(V\)</span>中的所有顶点即可。它可以在多项式时间内运行，因此<code>HAM-PATH</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>HAM-PATH</code>是NP困难的，考虑使用哈密顿回路问题进行规约，即证明<span
+class="math inline">\(\text{HAM-CYCLE}\le_P\text{HAM-PATH}\)</span>。对于<code>HAM-PATH</code>问题中的任意一个实例<span
+class="math inline">\(\langle G\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>HAM-PATH</code>问题的实例<span
+class="math inline">\(\langle G&#39;\rangle\)</span>，使得<span
+class="math inline">\(G=(V,E)\)</span>包含一条哈密顿回路，当且仅当<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>包含一条哈密顿路径。</p>
+<p>规约过程是：选择<span
+class="math inline">\(V\)</span>中的一个顶点<span
+class="math inline">\(u\)</span>，那么构造<span
+class="math inline">\(V&#39;=V\cup
+\{s,t,u&#39;\},E=E\cup\{(s,u),(t,u&#39;)\}\cup\{(u&#39;,w):(u,w)\in
+E\}\)</span>。也就是说，<span
+class="math inline">\(u&#39;\)</span>是<span
+class="math inline">\(u\)</span>的一个复制点，其所有邻居都和<span
+class="math inline">\(u\)</span>相同。可见<span
+class="math inline">\(|E&#39;|\le 2|E|+2\)</span>，因此图<span
+class="math inline">\(G&#39;\)</span>可以在多项式时间内构造出来。</p>
+<p>现在证明<span
+class="math inline">\(G=(V,E)\)</span>包含一条哈密顿回路，当且仅当<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>包含一条哈密顿路径。</p>
+<p>充分性：如果<span
+class="math inline">\(G\)</span>包含了一条哈密顿回路<span
+class="math inline">\(C=(u,v_1,v_2,\dots,v_{n-1},u)\)</span>，那么考虑将<span
+class="math inline">\(C\)</span>删去边<span
+class="math inline">\((v_{n-1},u)\)</span>，并加上边<span
+class="math inline">\((v_{n-1},u&#39;),(u&#39;,t),(s,u)\)</span>，得到路径<span
+class="math inline">\(P\)</span>，那么路径<span
+class="math inline">\(P\)</span>将是一条经过<span
+class="math inline">\(G&#39;\)</span>中所有顶点的简单路径，因此<span
+class="math inline">\(P\)</span>是<span
+class="math inline">\(G&#39;\)</span>的一条哈密顿路径。</p>
+<p>必要性：假设<span
+class="math inline">\(G&#39;\)</span>包含了一条哈密顿路径<span
+class="math inline">\(P\)</span>。由于图<span
+class="math inline">\(G&#39;\)</span>有且仅有两个顶点<span
+class="math inline">\(s,t\)</span>的度数为<span
+class="math inline">\(1\)</span>，因此<span
+class="math inline">\(P\)</span>两端的节点必定是<span
+class="math inline">\(s,t\)</span>。由于<span
+class="math inline">\(s\)</span>和<span
+class="math inline">\(u\)</span>相连，<span
+class="math inline">\(t\)</span>和<span
+class="math inline">\(u&#39;\)</span>相连，因此<span
+class="math inline">\(P&#39;\)</span>为这个形式：<span
+class="math inline">\((s,u,v_1&#39;,v_2&#39;,\dots,v_{n-1}&#39;,u&#39;,t)\)</span>。对<span
+class="math inline">\(P&#39;\)</span>删去边<span
+class="math inline">\((s,u),(v_{n-1}&#39;,u&#39;),(u&#39;,t)\)</span>并加上边<span
+class="math inline">\((v_{n-1}&#39;,u)\)</span>，得到回路<span
+class="math inline">\(C\)</span>，那么回路<span
+class="math inline">\(C\)</span>将是一条经过<span
+class="math inline">\(G\)</span>中所有顶点的简单回路，因此<span
+class="math inline">\(C\)</span>是<span
+class="math inline">\(G\)</span>的一条哈密顿回路。</p>
+<p>因此<span
+class="math inline">\(\text{HAM-CYCLE}\le_P\text{HAM-PATH}\)</span>。由于<code>HAM-CYCLE</code>是NP完全的，那么<code>HAM-PATH</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-6">34.5-7</h1>
+<p>这个问题的判定性版本为：给定一个图<span
+class="math inline">\(G\)</span>和一个正整数<span
+class="math inline">\(k\)</span>，判断图<span
+class="math inline">\(G\)</span>是否存在一个长度至少为<span
+class="math inline">\(k\)</span>的简单回路？</p>
+<p>题目34.1-2将最长简单回路问题定义成一种语言<code>CYCLE</code>:</p>
+<p><span class="math display">\[\begin{aligned}
+\text{CYCLE}=\{\langle G, k\rangle:&amp;G = (V, E)\text{ is an
+undirected graph, }\\
+&amp;k \ge 0\text{ is an integer, and}\\
+&amp;G\text{ contains a cycle at least }k\text{ edges}\}
+\end{aligned}\]</span></p>
+<p>首先证明<code>CYCLE</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于问题的一个实例<span
+class="math inline">\(\langle
+G,k\rangle,G=(V,E)\)</span>和它的一个顶点序列<span
+class="math inline">\(P\)</span>，检验程序只需要判断<span
+class="math inline">\(P\)</span>是否为一条首尾相接的简单回路，并且长度至少为<span
+class="math inline">\(k\)</span>即可。它可以在多项式时间内运行，因此<code>CYCLE</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>CYCLE</code>是NP困难的，考虑使用哈密顿回路问题进行规约，即证明<span
+class="math inline">\(\text{HAM-CYCLE}\le_P\text{CYCLE}\)</span>。对于<code>HAM-CYCLE</code>问题中的任意一个实例<span
+class="math inline">\(\langle G\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>CYCLE</code>问题的实例<span
+class="math inline">\(\langle G,k\rangle\)</span>，使得<span
+class="math inline">\(G\)</span>包含一条哈密顿回路，当且仅当<span
+class="math inline">\(\langle G,k\rangle\)</span>包含一条长度至少为<span
+class="math inline">\(k\)</span>的简单回路。</p>
+<p>规约过程是：如果<code>HAM-CYCLE</code>问题中的图为<span
+class="math inline">\(G=(V,E)\)</span>，那么令<code>CYCLE</code>问题某个实例<span
+class="math inline">\(\langle G,k\rangle\)</span>中的<span
+class="math inline">\(k=|V|\)</span>即可。可见，只需要对<code>HAM-CYCLE</code>问题中的图再额外添加一个数<span
+class="math inline">\(|V|\)</span>，<span
+class="math inline">\(F\)</span>就完成工作，因此<span
+class="math inline">\(F\)</span>是多项式算法。</p>
+<p>现在证明<span
+class="math inline">\(G=(V,E)\)</span>包含一条哈密顿回路，当且仅当<span
+class="math inline">\(\langle
+G,|V|\rangle\)</span>包含一条长度至少为<span
+class="math inline">\(|V|\)</span>的简单回路。这是显而易见的，因为一条哈密顿回路，恰好正是一条长度为<span
+class="math inline">\(|V|\)</span>的简单回路，反之亦然。</p>
+<p>因此<span
+class="math inline">\(\text{HAM-CYCLE}\le_P\text{CYCLE}\)</span>。由于<code>HAM-CYCLE</code>是NP完全的，那么<code>CYCLE</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-7">34.5-8</h1>
+<p>先将半3-CNF可满足性问题定义成一种语言<code>HALF-3-CNF-SAT</code>：这门语言和<code>3-CNF-SAT</code>定义类似，只是恰有一半的子句的值为<span
+class="math inline">\(1\)</span>，一半的子句的值为<span
+class="math inline">\(0\)</span>。</p>
+<p>首先证明<code>HALF-3-CNF-SAT</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于一条输入公式<span
+class="math inline">\(\phi\)</span>和一组输入赋值<span
+class="math inline">\(x\)</span>，检验程序需要判断<span
+class="math inline">\(\phi\)</span>是否是<span
+class="math inline">\(3\)</span>合取范式，然后再为<span
+class="math inline">\(\phi\)</span>的每个子句赋值，并计算出每个子句<span
+class="math inline">\(\phi_i\)</span>的输出值。统计这些子句输出值为<span
+class="math inline">\(0\)</span>的个数<span
+class="math inline">\(c_0\)</span>和为<span
+class="math inline">\(1\)</span>的个数<span
+class="math inline">\(c_1\)</span>，并判断是否有<span
+class="math inline">\(c_0=c_1\)</span>。该检验程序多项式可以在多项式时间内完成，因此<code>HALF-3-CNF-SAT</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>HALF-3-CNF-SAT</code>是NP困难的，考虑使用3-CNF可满足行性问题进行规约，即证明<span
+class="math inline">\(\text{3-CNF-SAT}\le_P\text{HALF-3-CNF-SAT}\)</span>。对于<code>3-CNF-SAT</code>问题中的任意一个实例<span
+class="math inline">\(\langle \phi\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>HALF-3-CNF-SAT</code>问题的实例<span
+class="math inline">\(\langle \phi&#39;\rangle\)</span>，使得<span
+class="math inline">\(\phi\)</span>是可满足的，当且仅当<span
+class="math inline">\(\phi&#39;\)</span>是半可满足的。</p>
+<p>规约过程是：对于一个<span
+class="math inline">\(n\)</span>个变量，<span
+class="math inline">\(m\)</span>个子句公式<span
+class="math inline">\(\phi\)</span>添加<span
+class="math inline">\(m\)</span>个恒真子句<span
+class="math inline">\(x\lor x\lor\neg x\)</span>，以及<span
+class="math inline">\(2m\)</span>个取决于<span
+class="math inline">\(x\)</span>的<span
+class="math inline">\(x\)</span>子句<span class="math inline">\(x\lor
+x\lor x\)</span>，那么就构造出了一个具有<span
+class="math inline">\(4m\)</span>个子句的公式<span
+class="math inline">\(\phi&#39;\)</span>。由于<span
+class="math inline">\(\phi&#39;\)</span>的公式长度仅为<span
+class="math inline">\(\phi\)</span>的<span
+class="math inline">\(4\)</span>倍，因此<span
+class="math inline">\(F\)</span>是多项式算法。</p>
+<p>现在证明<span
+class="math inline">\(\phi\)</span>是可满足的，当且仅当<span
+class="math inline">\(\phi&#39;\)</span>是半可满足的。</p>
+<p>充分性：如果<span
+class="math inline">\(\phi\)</span>是可满足的，那么将同样对应的变量赋值到<span
+class="math inline">\(\phi&#39;\)</span>中，并且取<span
+class="math inline">\(x=0\)</span>，那么原来的<span
+class="math inline">\(m\)</span>个子句和<span
+class="math inline">\(m\)</span>个恒真子句均为<span
+class="math inline">\(1\)</span>，其余的<span
+class="math inline">\(2m\)</span>个<span
+class="math inline">\(x\)</span>子句的值为<span
+class="math inline">\(0\)</span>。因此这个赋值说明公式<span
+class="math inline">\(\phi&#39;\)</span>是半3-CNF可满足的。</p>
+<p>必要性：假设<span
+class="math inline">\(\phi&#39;\)</span>是半3-CNF可满足的，并存在一组解。由于<span
+class="math inline">\(\phi&#39;\)</span>中有<span
+class="math inline">\(m\)</span>个恒真子句，如果<span
+class="math inline">\(x=1\)</span>，那么<span
+class="math inline">\(\phi&#39;\)</span>中有至少<span
+class="math inline">\(3m\)</span>个子句的值为<span
+class="math inline">\(1\)</span>，这是不可能的，因此只能有<span
+class="math inline">\(x=0\)</span>。这说明属于<span
+class="math inline">\(\phi\)</span>的<span
+class="math inline">\(m\)</span>个子句的值必定为<span
+class="math inline">\(1\)</span>。取出这些变量的赋值赋给<span
+class="math inline">\(\phi\)</span>，那么<span
+class="math inline">\(\phi\)</span>的值必定为<span
+class="math inline">\(1\)</span>，这说明公式<span
+class="math inline">\(\phi\)</span>是3-CNF可满足的。</p>
+<p>因此<span
+class="math inline">\(\text{3-CNF-SAT}\le_P\text{HALF-3-CNF-SAT}\)</span>。由于<code>3-CNF-SAT</code>是NP完全的，那么<code>HALF-3-CNF-SAT</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-8">34.5-9</h1>
+<p>在对定理34.13证明的时候，有一个步骤是将以下边集添加到<span
+class="math inline">\(E&#39;\)</span>中：</p>
+<p><span class="math display">\[\{(s_j, [u, u^{(1)}, 1]) : u \in V
+\text{ and } 1 \le j \le k\}\cup \{(s_j, [u, u^{(\text{degree}(u))}, 6])
+: u \in V\text{ and }1 \le j \le k\}\]</span></p>
+<p>对于某个孤立节点<span
+class="math inline">\(w\)</span>，并没有边与它相关联，因此并不存在节点<span
+class="math inline">\([w,w^{(1)},1]\)</span>和<span
+class="math inline">\([w,w^{(0)},6]\)</span>，但是又有<span
+class="math inline">\(w\in
+V\)</span>，最终这种情况下证明会产生错误。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-5/" title="算法导论34.5 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/exercises-5/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

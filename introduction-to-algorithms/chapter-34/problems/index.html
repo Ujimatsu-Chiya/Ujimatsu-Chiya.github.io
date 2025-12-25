@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论34 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-25T15:36:32.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.186Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/problems/","path":"introduction-to-algorithms/chapter-34/problems/","title":"算法导论34 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论34 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">34-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">34-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">2.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">34-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">3.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">3.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">34-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-3"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论34 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论34 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-25 23:36:32" itemprop="dateCreated datePublished" datetime="2023-07-25T23:36:32+08:00">2023-07-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>13 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">34-1</h1>
+<h2 id="a">a</h2>
+<p>图<span class="math inline">\(G=(V,E)\)</span>的一个独立集<span
+class="math inline">\(V&#39;\)</span>意味着以节点集合<span
+class="math inline">\(V&#39;\)</span>的子图不包含任何一条边。</p>
+<p>这个判定性问题是：对于图<span
+class="math inline">\(G=(V,E)\)</span>，是否存在一个大小至少为<span
+class="math inline">\(k\)</span>的点集<span
+class="math inline">\(V&#39;\subseteq V\)</span>，使得<span
+class="math inline">\(\forall (u,v)\in E,\neg(u\in V&#39;\land v\in
+V&#39;)\)</span>均成立。</p>
+<p>将这个问题定义成一种语言<code>INDEPENDENT-SET</code>：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{INDEPENDENT-SET}=\{\langle G, k\rangle:&amp;G = (V, E)\text{ is an
+undirected graph, }\\
+&amp;k \ge 0\text{ is an integer, and}\\
+&amp;G\text{ contains a independent set at least }k\text{ vertex}\}
+\end{aligned}\]</span></p>
+<p>首先证明<code>INDEPENDENT-SET</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于一个集合<span
+class="math inline">\(V&#39;\)</span>，检验程序只需要对<span
+class="math inline">\(E\)</span>中的所有边<span
+class="math inline">\((u,v)\)</span>进行判断是否<span
+class="math inline">\(u,v\)</span>都在<span
+class="math inline">\(V&#39;\)</span>中，以及判断是否满足<span
+class="math inline">\(|V&#39;|\ge
+k\)</span>即可。检验程序可以在多项式时间内运行，因此<code>INDEPENDENT-SET</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>INDEPENDENT-SET</code>是NP困难的，考虑使用团问题进行规约，即证明<span
+class="math inline">\(\text{CLIQUE}\le_P\text{INDEPENDENT-SET}\)</span>。对于<code>CLIQUE</code>问题中的任意一个实例<span
+class="math inline">\(\langle G,k\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>INDEPENDENT-SET</code>问题的实例<span
+class="math inline">\(\langle G&#39;,k&#39;\rangle\)</span>，使得<span
+class="math inline">\(G=(V,E)\)</span>包含一个大小为<span
+class="math inline">\(k\)</span>的团，当且仅当<span
+class="math inline">\(G&#39;=(V&#39;,E)\)</span>包含一个大小为<span
+class="math inline">\(k&#39;\)</span>的独立集。</p>
+<p>规约过程是：令<span
+class="math inline">\(V&#39;=V,E&#39;=\overline{E}\)</span>，即<span
+class="math inline">\(G&#39;\)</span>是<span
+class="math inline">\(G\)</span>的补图，且<span
+class="math inline">\(k&#39;=k\)</span>。可见，<span
+class="math inline">\(G\)</span>的补图可以在多项式时间内被求出来，因此规约算法<span
+class="math inline">\(F\)</span>是多项式时间的。</p>
+<p>现在证明<span
+class="math inline">\(G=(V,E)\)</span>包含一个大小为<span
+class="math inline">\(k\)</span>的团，当且仅当<span
+class="math inline">\(G&#39;=(V,\overline{E})\)</span>包含一个大小为<span
+class="math inline">\(k\)</span>的独立集。</p>
+<p>充分性：如果<span
+class="math inline">\(G\)</span>中存在一个大小为<span
+class="math inline">\(k\)</span>的团<span
+class="math inline">\(V_1\)</span>，那么在<span
+class="math inline">\(G\)</span>的补图<span
+class="math inline">\(G&#39;\)</span>中，节点集合<span
+class="math inline">\(V_1\)</span>中的任意两点都没有<span
+class="math inline">\(\overline{E}\)</span>中的边，因此<span
+class="math inline">\(V_1\)</span>也是<span
+class="math inline">\(G&#39;\)</span>中的一个独立集。</p>
+<p>必要性：如果<span
+class="math inline">\(G&#39;\)</span>中存在一个大小为<span
+class="math inline">\(k\)</span>的独立集<span
+class="math inline">\(V_1\)</span>，那么在<span
+class="math inline">\(G&#39;\)</span>的补图<span
+class="math inline">\(G\)</span>中，节点集合<span
+class="math inline">\(V_1\)</span>中的任意两点都有<span
+class="math inline">\(E\)</span>中的边相连，因此<span
+class="math inline">\(V_1\)</span>也是<span
+class="math inline">\(G\)</span>中的一个团。</p>
+<p>因此<span
+class="math inline">\(\text{CLIQUE}\le_P\text{INDEPENDENT-SET}\)</span>。由于<code>CLIQUE</code>是NP完全的，那么<code>INDEPENDENT-SET</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h2 id="b">b</h2>
+<p>首先可以使用二分法，用于确定最大独立集的大小<span
+class="math inline">\(k\)</span>，这仅需要<span
+class="math inline">\(O(\lg
+V)\)</span>次使用<code>INDEPENDENT-SET</code>。接下来，由于移除一个顶点并不会以及其关联的所有边增大，因此考虑尝试移除每一个顶点，并使用<code>INDEPENDENT-SET</code>判断图中是否仍然有一个至少为<span
+class="math inline">\(k\)</span>的独立集，如果仍然有，说明这个顶点不是必要的，可以删除。否则必须保留下来。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">MAX-INDEPENDENT-SET(G)</span><br><span class="line">  l = 1</span><br><span class="line">  r = |G.V|</span><br><span class="line">  while l &lt; r</span><br><span class="line">    mid = ⌊(l + r + 1) / 2⌋</span><br><span class="line">    if INDEPENDENT-SET(G, mid) == 1</span><br><span class="line">      l = mid</span><br><span class="line">    else</span><br><span class="line">      r = mid - 1</span><br><span class="line">  k = l</span><br><span class="line">  VI = ∅</span><br><span class="line">  V = G.V</span><br><span class="line">  E = G.V</span><br><span class="line">  while V != ∅</span><br><span class="line">    select v from V randomly</span><br><span class="line">    V = V - &#123;v&#125;</span><br><span class="line">    E&#x27; = E - &#123;(w, v) : (w, v) ∈ E and w ∈ V&#125;</span><br><span class="line">    if INDEPENDENT-SET((V ∪ VI, E&#x27;), mid) == 1</span><br><span class="line">      E = E&#x27;</span><br><span class="line">    else</span><br><span class="line">      VI = VI ∪ &#123;v&#125;</span><br><span class="line">  return VI</span><br></pre></td></tr></table></figure>
+<h2 id="c">c</h2>
+<p>如果图<span
+class="math inline">\(G=(V,E)\)</span>的每个节点度数为<span
+class="math inline">\(2\)</span>，那么这意味着<span
+class="math inline">\(G\)</span>是由多个不相交的环<span
+class="math inline">\(C\)</span>构成。遍历每个环<span
+class="math inline">\(C\)</span>，那么这个环中不相邻的所有节点就是一个独立集（这保证了这些节点之间将不会有边进行连接，因此这是一个独立集，且是一个极大的独立集）。最终，所有环中的极大独立集拼起来，就是图<span
+class="math inline">\(G=(V,E)\)</span>的最大独立集。具体过程由<code>MAX-INDEPENDENT-SET-DEGREE-2</code>给出，其时间复杂度为<span
+class="math inline">\(O(V+E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">MAX-INDEPENDENT-SET-DEGREE-2(G)</span><br><span class="line">  let vis[1 : |G.V|] be a new array by False</span><br><span class="line">  S = ∅</span><br><span class="line">  for each vertex u in G.V</span><br><span class="line">    if vis[u] == false</span><br><span class="line">      T = ∅</span><br><span class="line">      cnt = 0</span><br><span class="line">      while True</span><br><span class="line">        if cnt % 2 == 1</span><br><span class="line">          T = T ∪ &#123;u&#125;</span><br><span class="line">        vis[u] = True</span><br><span class="line">        cnt = cnt + 1</span><br><span class="line">        // 表示u的两个相邻节点</span><br><span class="line">        v = G.Adj[u, 0]</span><br><span class="line">        w = G.Adj[u, 1]</span><br><span class="line">        if vis[v] == False</span><br><span class="line">          u = v</span><br><span class="line">        else if vis[w] == False</span><br><span class="line">          u = w</span><br><span class="line">        else</span><br><span class="line">          break</span><br><span class="line">      S = S ∪ T</span><br><span class="line">  return S</span><br></pre></td></tr></table></figure>
+<h2 id="d">d</h2>
+<p>首先考虑图<span
+class="math inline">\(G=(V,E)\)</span>最大独立集问题和最小点覆盖问题的可规约性：对于一个点覆盖<span
+class="math inline">\(V&#39;\)</span>，在图<span
+class="math inline">\(G=(V,E)\)</span>中，将<span
+class="math inline">\(V&#39;\)</span>和<span
+class="math inline">\(V&#39;\)</span>关联的所有边删去后，剩下的图不会含有任何一条边，因此<span
+class="math inline">\(V-V&#39;\)</span>是<span
+class="math inline">\(G\)</span>的一个独立集。因此对于<span
+class="math inline">\(G\)</span>的一个最小点覆盖<span
+class="math inline">\(V_0\)</span>，那么得知<span
+class="math inline">\(V-V_0\)</span>就是图<span
+class="math inline">\(G\)</span>的一个最大独立集。</p>
+<p>接下来考虑二分图<span
+class="math inline">\(G\)</span>下最小点覆盖问题和最大匹配的问题的等价性。</p>
+<p>首先说明图<span class="math inline">\(G=(V,E),V=L\cup
+R\)</span>的最小点覆盖中的点数不可能小于最大匹配的边数，因为最大匹配是由多条不相交的边构成的，这些边都至少需要一个顶点进行覆盖。接下里证明图<span
+class="math inline">\(G\)</span>最小点覆盖中的点数恰好为最大匹配的边数。</p>
+<p>考虑如下一个构造方法，最终通过二分图最大匹配算法得到二分图的最小点覆盖：</p>
+<ol type="1">
+<li>求出<span class="math inline">\(G\)</span>的最大匹配。</li>
+<li>再次从<span
+class="math inline">\(L\)</span>中所有节点非匹配节点出发，寻找一条增广路径（且一定寻找失败）。</li>
+<li>取<span class="math inline">\(L\)</span>中尚未被标记的节点<span
+class="math inline">\(L_0\)</span>，<span
+class="math inline">\(R\)</span>中被标记过的节点<span
+class="math inline">\(R_0\)</span>，这些顶点构成了<span
+class="math inline">\(G\)</span>的一个最小点覆盖<span
+class="math inline">\(V_0=L_0\cup R_0\)</span>。</li>
+</ol>
+<p>接下来证明这个方法构造出来的<span
+class="math inline">\(V_0\)</span>是一个最小点覆盖。运行完整个增广路径算法后，对于<span
+class="math inline">\(L\)</span>中的非匹配节点，它们一定都被标记，因为它们是出发点；而对于<span
+class="math inline">\(R\)</span>中非匹配节点，它们一定都没有被标记，否则就找到了一条增广路径。对于一条匹配边，两边的节点要么被标记，要么没有被标记，因为左部节点只能通过匹配边从右部节点进行访问。</p>
+<p>可以发现，<span class="math inline">\(L_0\)</span>和<span
+class="math inline">\(R_0\)</span>恰好是从最大匹配中，来自每条边的两个节点之一。<span
+class="math inline">\(L_0\)</span>中节点所对应的匹配边，是指增广路径算法中没有访问的边；<span
+class="math inline">\(R_0\)</span>中节点所对应的匹配边，是指增广路径算法中有访问的边。接下来验证这个点覆盖确实覆盖了所有边：</p>
+<ol type="1">
+<li>左部节点<span class="math inline">\(l\in
+L\)</span>是非匹配点，右部节点<span class="math inline">\(r\in
+R\)</span>也是非匹配点。这种边是不可能存在的，因为这是一条增广路径。</li>
+<li><span class="math inline">\(l\)</span>是匹配点，<span
+class="math inline">\(r\)</span>也是匹配点。这种边被覆盖了，因为每条匹配边的其中一个节点都在<span
+class="math inline">\(V_0\)</span>中。</li>
+<li><span class="math inline">\(l\)</span>是匹配点，<span
+class="math inline">\(r\)</span>是非匹配点。这说明<span
+class="math inline">\(l\)</span>没有被访问到，否则找到了通向<span
+class="math inline">\(r\)</span>的增广路径，因此这条边是被<span
+class="math inline">\(L_0\)</span>中的节点覆盖。</li>
+<li><span class="math inline">\(l\)</span>是非匹配点，<span
+class="math inline">\(r\)</span>是匹配点。因为起点是<span
+class="math inline">\(l\)</span>，所以<span
+class="math inline">\(r\)</span>一定被访问，因此这条边是被<span
+class="math inline">\(R_0\)</span>中的节点覆盖。</li>
+</ol>
+<p>自此证明了最大匹配问题和最小点覆盖问题的等价性。可以给出如下过程<code>MAX-INDEPENDENT-SET-BIPARTITE</code>，其时间复杂度取决于增广路径算法的时间复杂度，因此这个算法是多项式时间的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">MAX-INDEPENDENT-SET-BIPARTITE(G)</span><br><span class="line">  M = HOPCROFT-KARP(G)</span><br><span class="line">  // 记录被标记的节点</span><br><span class="line">  construct GM from M and G</span><br><span class="line">  Q = Ø</span><br><span class="line">  L0 = Ø</span><br><span class="line">  R0 = Ø</span><br><span class="line">  for each unmatched vertex l ∈ L</span><br><span class="line">    l.π = NIL</span><br><span class="line">    ENQUEUE(Q, l)</span><br><span class="line">    L0 = L0 ∪ &#123;l&#125;</span><br><span class="line">  while Q != Ø</span><br><span class="line">    u = DEQUEUE(Q)</span><br><span class="line">    for each v in GM.Adj[u]</span><br><span class="line">      if v in L and v not in L0</span><br><span class="line">        L0 = L0 ∪ &#123;v&#125;</span><br><span class="line">        ENQUEUE(Q, v)</span><br><span class="line">      else if v in R and v not in R0</span><br><span class="line">        R0 = R0 ∪ &#123;v&#125;</span><br><span class="line">        ENQUEUE(Q, v)</span><br><span class="line">  V0 = (L - L0) ∪ R0</span><br><span class="line">  return V - V0</span><br></pre></td></tr></table></figure>
+<h1 id="section-1">34-2</h1>
+<h2 id="a-1">a</h2>
+<p>这是一个多项式时间的算法即可完成。</p>
+<p>当钱的总数为奇数时，必定无法分成。</p>
+<p>假设有<span class="math inline">\(a\)</span>枚<span
+class="math inline">\(x\)</span>美元的硬币，<span
+class="math inline">\(n-a\)</span>枚<span
+class="math inline">\(y\)</span>美元的硬币，那么这些钱的总共的价值为<span
+class="math inline">\(ax+(n-a)y\)</span>，那么每一个人将分得<span
+class="math inline">\(s=\dfrac{ax+(n-a)y}{2}\)</span>块钱。</p>
+<p>接下来使用扩展欧几里得算法对关于<span
+class="math inline">\((u,v)\)</span>的方程<span
+class="math inline">\(xu+yu=s\)</span>进行求解，并尝试找到一个满足<span
+class="math inline">\(0\le u\le a,0\le v\le
+n-a\)</span>的整数解，这将在多项式的时间内完成。更具体的过程由<code>DIVIDING-MONEY-A</code>给出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">DIVIDING-MONEY-A(a, n, x, y)</span><br><span class="line">  b = n - a</span><br><span class="line">  s = (a * x + b * y)</span><br><span class="line">  if s % 2 != 0</span><br><span class="line">    return 0</span><br><span class="line">  s = s / 2</span><br><span class="line">  (d, u, v) = EXTENDED-EUCLID(x, y)</span><br><span class="line">  if s % d != 0</span><br><span class="line">    return 0</span><br><span class="line">  u0 = (u * (s / d)) % y</span><br><span class="line">  // 求取使u满足u&lt;=a的最大解。</span><br><span class="line">  u1 = u0 + ⌊(a - u0) / (y / d)⌋ * (y / d)</span><br><span class="line">  v1 = (s - u1 * x) / y</span><br><span class="line">  if 0 &lt;= u1 &lt;= a and 0 &lt;= v1 &lt;= b</span><br><span class="line">    return 1</span><br><span class="line">  v0 = (v * (s / d)) % x</span><br><span class="line">  // 求取使v满足v&lt;=b的最大解。</span><br><span class="line">  v2 = v0 + ⌊(b - v0) / (x / d)⌋ * (x / d)</span><br><span class="line">  u2 = (s - v2 * y) / x</span><br><span class="line">  if 0 &lt;= u2 &lt;= a and 0 &lt;= v2 &lt;= b</span><br><span class="line">    return 1</span><br><span class="line">  return 0</span><br></pre></td></tr></table></figure>
+<h2 id="b-1">b</h2>
+<p>这是一个多项式时间的算法即可完成。将所有币依照币值大小从大到小分配，每次分配给持有币值总数较小的那个人，更具体的过程由<code>DIVIDING-MONEY-B</code>给出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">DIVIDING-MONEY-B(X, n)</span><br><span class="line">  Bonnie-s = 0</span><br><span class="line">  Clyde-s = 0</span><br><span class="line">  RANDOMIZED-QUICKSORT(X, 1, n)</span><br><span class="line">  for i = n downto 1</span><br><span class="line">    if Bonnie-s &lt;= Clyde-s</span><br><span class="line">      Bonnie-s = Bonnie-s + X[i]</span><br><span class="line">      X[i] will be assigned to Bonnie</span><br><span class="line">    else</span><br><span class="line">      Clyde-s = Clyde-s + X[i]</span><br><span class="line">      X[i] will be assigned to Clyde</span><br><span class="line">  if Bonnie-s == Clyde-s</span><br><span class="line">    return 1</span><br><span class="line">  else</span><br><span class="line">    return 0</span><br></pre></td></tr></table></figure>
+<p>可见，这个算法是多项式的，接下来说明这个算法能够正确地运行。假设现在遍历到<span
+class="math inline">\(x_i\)</span>，Bonnie得到了<span
+class="math inline">\(s_B\)</span>美元，Clyde得到了<span
+class="math inline">\(s_C\)</span>美元。如果当前<span
+class="math inline">\(2\)</span>个人得到的钱相等，那么将<span
+class="math inline">\(x_i\)</span>可以随机分配给一个人，不失一般性，假设分配给了Bonnie，因此在整个过程中，总有<span
+class="math inline">\(s_B\ge s_C\)</span>。如果现在<span
+class="math inline">\(s_B&gt;s_C\)</span>，由于<span
+class="math inline">\(\forall j\le i,x_i\mid
+x_j\)</span>均成立，因此总有<span class="math inline">\(x_i\mid
+s_B-s_C\)</span>，并假设分配<span
+class="math inline">\(x_{i-1}\)</span>之前，有<span
+class="math inline">\(s_B=s_C\)</span>（这样的起点<span
+class="math inline">\(i\)</span>必定存在，例如<span
+class="math inline">\(i=2\)</span>，在分配<span
+class="math inline">\(x_1\)</span>给<span
+class="math inline">\(B\)</span>前有<span
+class="math inline">\(s_B=s_C\)</span>），那么接下来按顺序将所有钱都给Clyde，直到<span
+class="math inline">\(s_B=s_C\)</span>这个临界点，如果能够达到<span
+class="math inline">\(s_B=s_C\)</span>，那么以这个临界点为下一个起点。否则说明接下来剩下的钱都不足以弥补当前<span
+class="math inline">\(s_B-s_C\)</span>的差值。因此，<code>DIVIDING-MONEY-B</code>是多项式时间内可行的算法。</p>
+<h2 id="c-1">c</h2>
+<p>这恰好是题目34.5-5所提到的集合划分问题<code>SET-PARTITION</code>，它已经被证明是NP完全的。</p>
+<h2 id="d-1">d</h2>
+<p>这个问题是NP完全的，如下是证明。</p>
+<p>先将这个问题定义成一种语言<code>SET-PARTITION-100</code>：</p>
+<p><span class="math display">\[\text{SET-PARTITION-100} =
+\left\{\langle S\rangle : \text{there exists a set }A\subseteq S\text{
+such that }\left|\sum_{x\in A} x-\sum_{x\in\overline{A}}x\right|\le
+100\right\}\]</span></p>
+<p>首先证明<code>SET-PARTITION-100</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于<span
+class="math inline">\(S\)</span>和它的一个非空子集<span
+class="math inline">\(A\)</span>，检验程序只需要判断<span
+class="math inline">\(\displaystyle{\left|\sum_{x\in A}
+x-\sum_{x\in\overline{A}}x\right|\le
+100}\)</span>是否满足即可，它可以在多项式时间内运行，因此<code>SET-PARTITION-100</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>SET-PARTITION-100</code>是NP困难的，考虑使用集合划分问题进行规约，即证明<span
+class="math inline">\(\text{SET-PARTITION}\le_P\text{SET-PARTITION-100}\)</span>。对于<code>SET-PARTITION</code>问题中的任意一个实例<span
+class="math inline">\(\langle S\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>SET-PARTITION-100</code>问题的实例<span
+class="math inline">\(\langle S&#39;\rangle\)</span>，使得<span
+class="math inline">\(S\)</span>能够划分成两个和值相等的子集，当且仅当<span
+class="math inline">\(S&#39;\)</span>能够划分成两个和值相差不超过<span
+class="math inline">\(100\)</span>的子集。</p>
+<p>规约过程是：令<span class="math inline">\(S&#39;=\{101x\mid x\in
+S\}\)</span>。可见只是将集合<span
+class="math inline">\(S\)</span>中的每个数乘上<span
+class="math inline">\(101\)</span>，再将它插入集合<span
+class="math inline">\(S&#39;\)</span>。可见这个过程是多项式可以完成的。</p>
+<p>现在证明<span
+class="math inline">\(S\)</span>能够划分成两个和值相等的子集，当且仅当<span
+class="math inline">\(S&#39;\)</span>能够划分成两个和值相差不超过<span
+class="math inline">\(100\)</span>的子集。</p>
+<p>充分性：如果<span
+class="math inline">\(S\)</span>能够划分成两个和值相等的集合<span
+class="math inline">\(A,\overline{A}\)</span>，将<span
+class="math inline">\(A,\overline{A}\)</span>中的所有元素都乘上<span
+class="math inline">\(101\)</span>，得到<span
+class="math inline">\(A&#39;,\overline{A&#39;}\)</span>。可见<span
+class="math inline">\(A&#39;,\overline{A&#39;}\)</span>也是<span
+class="math inline">\(S&#39;\)</span>的一个划分，并且差值为<span
+class="math inline">\(0\cdot 101=0\)</span>，因此<span
+class="math inline">\(A&#39;,\overline{A&#39;}\)</span>为<span
+class="math inline">\(S&#39;\)</span>一个满足条件的划分。</p>
+<p>必要性：假设<span
+class="math inline">\(S&#39;\)</span>包含两个和值相差不超过<span
+class="math inline">\(100\)</span>的集合<span
+class="math inline">\(A&#39;,\overline{A&#39;}\)</span>。由于<span
+class="math inline">\(S&#39;\)</span>中所有数都是<span
+class="math inline">\(101\)</span>的倍数，因此<span
+class="math inline">\(A&#39;,\overline{A&#39;}\)</span>的元素和也都是<span
+class="math inline">\(101\)</span>的倍数，因此如果要满足假设，两个集合的元素和必须相等。因此，将<span
+class="math inline">\(A&#39;,\overline{A&#39;}\)</span>中的所有元素都除上<span
+class="math inline">\(101\)</span>，得到<span
+class="math inline">\(A,\overline{A}\)</span>。可见<span
+class="math inline">\(A,\overline{A}\)</span>是<span
+class="math inline">\(S\)</span>一个满足条件的划分。</p>
+<p>因此<span
+class="math inline">\(\text{SET-PARTITION}\le_P\text{SET-PARTITION-100}\)</span>。由于<code>SET-PARTITION</code>是NP完全的，那么<code>SET-PARTITION-100</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-2">34-3</h1>
+<h2 id="a-2">a</h2>
+<p>题目20.2-7所给出的判断二分图的算法即为所求，其时间复杂度为<span
+class="math inline">\(O(V+E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">DETERMINE-WRESTLERS(G)</span><br><span class="line">  for each vertex u in G.V</span><br><span class="line">    u.type = NIL</span><br><span class="line">  for each vertex s in G.V</span><br><span class="line">    if s.type == NIL</span><br><span class="line">      s.type = babyface</span><br><span class="line">      Q = ∅</span><br><span class="line">      ENQUEUE(Q, s)</span><br><span class="line">      while Q != ∅ </span><br><span class="line">        u = DEQUEUE(Q)  </span><br><span class="line">        for each vertex v in G.Adj[u] </span><br><span class="line">          if v.type == NIL</span><br><span class="line">            if u.type == babyface</span><br><span class="line">              v.type = heel</span><br><span class="line">            else</span><br><span class="line">              v.type = babyface</span><br><span class="line">            ENQUEUE(Q, s)</span><br><span class="line">          else if v.type == u.type</span><br><span class="line">            return NIL</span><br><span class="line">  return G.V      </span><br></pre></td></tr></table></figure>
+<h2 id="b-2">b</h2>
+<p>这个判定性问题是：对于图<span
+class="math inline">\(G=(V,E)\)</span>，是否至多可以用<span
+class="math inline">\(k\)</span>种颜色进行着色。假设判定性问题的语言定义为<code>K-COLOR</code>：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{K-COLOR}=\{\langle G, k\rangle:&amp;G = (V, E)\text{ is an
+undirected graph, }\\
+&amp;k \ge 1\text{ is an integer, and}\\
+&amp;\text{there exists a function }c:V\rightarrow\{1,2,\dots,k\}\text{
+such that } \forall (u,v)\in E,c(u)\neq c(v)\}
+\end{aligned}\]</span></p>
+<p>接下来证明<code>K-COLOR</code>能够在多项式时间内能够解决，当且仅当图着色问题可以在多项式时间内解决。</p>
+<p>必要性：显而易见，图着色问题如果能够在多项式算法内解决，那么<code>K-COLOR</code>只需要统计图着色问题求解中所使用的颜色个数<span
+class="math inline">\(k&#39;\)</span>，再判断是否不超过给定的<span
+class="math inline">\(k\)</span>值即可。因此<code>K-COLOR</code>也可以在多项式时间内解决。</p>
+<p>充分性：假设<code>K-COLOR</code>多项式时间内可解决。可见，只需要最多<span
+class="math inline">\(|V|\)</span>种颜色，就可以将图<span
+class="math inline">\(G\)</span>完成着色。因此图着色问题考虑使用<code>K-COLOR</code>作为子程序，依照二分法的思想，即可能够判断出对图<span
+class="math inline">\(G\)</span>的着色最少颜色数，那么图着色问题至多只需要询问<span
+class="math inline">\(O(\lg
+V)\)</span>次<code>K-COLOR</code>。由于<code>K-COLOR</code>是多项式时间内可解决的，因此图着色问题也是多项式时间内可解决的。</p>
+<p>因此原结论成立。</p>
+<h2 id="c-2">c</h2>
+<p>首先证明<code>K-COLOR</code>属于<span
+class="math inline">\(\text{NP}\)</span>。对于<span
+class="math inline">\(G\)</span>和它的一个着色函数<span
+class="math inline">\(c\)</span>，检验程序只需要判断是否<span
+class="math inline">\(\forall (u,v)\in E,c(u)\neq
+c(v)\)</span>均成立，并判断<span
+class="math inline">\(c(u)\)</span>的取值是否在<span
+class="math inline">\([1,k]\)</span>中即可。它可以在多项式时间内运行，因此<code>K-COLOR</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>K-COLOR</code>是NP困难的，考虑使用三着色问题进行规约，即证明<span
+class="math inline">\(\text{3-COLOR}\le_P\text{K-COLOR}\)</span>。对于<code>3-COLOR</code>问题中的任意一个实例<span
+class="math inline">\(\langle G\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>K-COLOR</code>问题的实例<span
+class="math inline">\(\langle G,k\rangle\)</span>，使得图<span
+class="math inline">\(G\)</span>是<span
+class="math inline">\(3\)</span>着色的，当且仅当图<span
+class="math inline">\(G\)</span>是<span
+class="math inline">\(k\)</span>着色的。</p>
+<p>规约过程是：只需要令<span
+class="math inline">\(k=3\)</span>即可。</p>
+<p>现在证明图<span class="math inline">\(G\)</span>是<span
+class="math inline">\(3\)</span>着色的，当且仅当图<span
+class="math inline">\(G\)</span>是<span
+class="math inline">\(k\)</span>着色的。当<span
+class="math inline">\(k=3\)</span>时，这两个问题是两个完全相同的问题，因此充分性和必要性均成立。</p>
+<p>因此<span
+class="math inline">\(\text{3-COLOR}\le_P\text{K-COLOR}\)</span>。由于题目已经假设了<code>3-COLOR</code>是NP完全的，因此<code>K-COLOR</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h2 id="d-2">d</h2>
+<p>在图<span class="math inline">\(G=(V,E)\)</span>中，<span
+class="math inline">\(3\)</span>个特殊节点<span
+class="math inline">\(\text{RED,TRUE,FALSE}\)</span>两两相连，因此<span
+class="math inline">\(G\)</span>中的<span
+class="math inline">\(3\)</span>中颜色只能用<span
+class="math inline">\(c(\text{RED}),c(\text{TRUE}),c(\text{FALSE})\)</span>分别表示。从图34.20中可以看出，<span
+class="math inline">\(\forall i\in[1,n]\)</span>，节点<span
+class="math inline">\(x_i,\neg x_i,\text{RED}\)</span>这<span
+class="math inline">\(3\)</span>个节点两两相连，因此<span
+class="math inline">\(x_i\)</span>和<span class="math inline">\(\neg
+x_i\)</span>这两个节点只能其中一个着色为<span
+class="math inline">\(c(\text{TRUE})\)</span>，另一个为<span
+class="math inline">\(c(\text{FALSE})\)</span>。</p>
+<p>对于每对节点<span class="math inline">\(x_i,\neg
+x_i\)</span>，如果公式在公式<span
+class="math inline">\(\phi\)</span>中，最终<span
+class="math inline">\(x_i\)</span>赋值为<span
+class="math inline">\(1\)</span>，那么节点<span
+class="math inline">\(x_i\)</span>着色为<span
+class="math inline">\(c(\text{TRUE}),\neg x_i\)</span>着色成<span
+class="math inline">\(c(\text{FALSE})\)</span>；如果<span
+class="math inline">\(x_i\)</span>赋值为<span
+class="math inline">\(0\)</span>，那么节点<span
+class="math inline">\(x_i\)</span>着色为<span
+class="math inline">\(c(\text{FALSE}),\neg x_i\)</span>着色成<span
+class="math inline">\(c(\text{TRUE})\)</span>即可。</p>
+<p>因此，对于<span
+class="math inline">\(\phi\)</span>中的任意一种赋值，都对应着只包含文字的图的其中一种<span
+class="math inline">\(3\)</span>着色。</p>
+<h2 id="e">e</h2>
+<p>假设将每个组件中，先从左到右，再从上到下的<span
+class="math inline">\(5\)</span>个节点分别命名为<span
+class="math inline">\(a,b,c,d,e\)</span>。</p>
+<p>那么考虑枚举节点<span
+class="math inline">\(x,y,z,a,b,c,d,e\)</span>的着色情况，一共有<span
+class="math inline">\(2^3\cdot3^5\)</span>种不同的情况。对每种情况进行判断，最终可以得到一个组件图中有如下<span
+class="math inline">\(3\)</span>着色的方式，一共有<span
+class="math inline">\(20\)</span>种：</p>
+<p><span class="math inline">\(\begin{array}{|c|c|c|c|c|c|c|c|}\hline
+x&amp;y&amp;z&amp;a&amp;b&amp;c&amp;d&amp;e\\\hline
+c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(FALSE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}\\\hline
+c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(RED)}&amp;c\text{(FALSE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}&amp;c\text{(TRUE)}&amp;c\text{(FALSE)}&amp;c\text{(RED)}\\\hline
+\end{array}\)</span></p>
+<p>按照上面的表可以发现，这个组件图如果是<span
+class="math inline">\(3\)</span>着色的，那么<span
+class="math inline">\(x,y,z\)</span>必定有一个着色成<span
+class="math inline">\(c\text{(TRUE)}\)</span>，原结论成立。</p>
+<p>需要注意的是，只要<span
+class="math inline">\(x,y,z\)</span>不同时被着色成<span
+class="math inline">\(c\text{(FALSE)}\)</span>，那么另外<span
+class="math inline">\(7\)</span>种组合着色情况都是有对应的<span
+class="math inline">\(3\)</span>着色方案对应着。</p>
+<h2 id="f">f</h2>
+<p>首先证明<code>3-COLOR</code>属于<span
+class="math inline">\(\text{NP}\)</span>。这个证明过程和题目34-3-c相同，只需要取<span
+class="math inline">\(k=3\)</span>即可。因此<code>3-COLOR</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>3-COLOR</code>是NP困难的，考虑使用3-CNF可满足性问题问题进行规约，即证明<span
+class="math inline">\(\text{3-CNF-SAT}\le_P\text{3-COLOR}\)</span>。对于<code>3-CNF-SAT</code>问题中的任意一个实例<span
+class="math inline">\(\langle \phi\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>3-COLOR</code>问题的实例<span
+class="math inline">\(\langle G\rangle\)</span>，使得3-CNF布尔公式<span
+class="math inline">\(\phi\)</span>是可满足的，当且仅当图<span
+class="math inline">\(G\)</span>是<span
+class="math inline">\(3\)</span>着色的。</p>
+<p>规约过程是：按照题目34-3-c和题目34-3-d之间的提示构造出了一个图<span
+class="math inline">\(G=(V,E)\)</span>。<span
+class="math inline">\(V\)</span>一共有<span
+class="math inline">\(2n+5m+3\)</span>个节点，其中包含了<span
+class="math inline">\(2n\)</span>个文字节点，<span
+class="math inline">\(m\)</span>个组件中，每个组件有<span
+class="math inline">\(5\)</span>个节点，以及<span
+class="math inline">\(3\)</span>个特殊节点；<span
+class="math inline">\(E\)</span>一共有<span
+class="math inline">\(3n+10m+3\)</span>条边，其中有<span
+class="math inline">\(3n+3\)</span>条文字边，<span
+class="math inline">\(10m\)</span>条子句边。因此<span
+class="math inline">\(G\)</span>可以在多项式时间内构造出来，故规约算法<span
+class="math inline">\(F\)</span>是多项式时间的。</p>
+<p>现在证明3-CNF布尔公式<span
+class="math inline">\(\phi\)</span>是可满足的，当且仅当图<span
+class="math inline">\(G\)</span>是<span
+class="math inline">\(3\)</span>着色的。</p>
+<p>充分性：由于<span
+class="math inline">\(\phi\)</span>是可满足的，因此考虑其中一组可满足行赋值，并将<span
+class="math inline">\(2n\)</span>个文字节点然上对应的颜色。这也意味着，对于所有子句<span
+class="math inline">\(\phi_i\)</span>，每个子句至少有一个文字的值为<span
+class="math inline">\(1\)</span>。可以在表中选择对应的表项，将图<span
+class="math inline">\(G\)</span>中对应的组件内部的<span
+class="math inline">\(5\)</span>个节点染上表项对应颜色。因此，每个文字节点和组件内部的节点颜色都不会和相邻节点颜色相同，所求着色方式说明图<span
+class="math inline">\(G\)</span>是<span
+class="math inline">\(3\)</span>着色的。</p>
+<p>必要性：由于图<span class="math inline">\(G\)</span>是<span
+class="math inline">\(3\)</span>着色的，因此存在一种<span
+class="math inline">\(3\)</span>着色方案。对于图<span
+class="math inline">\(G\)</span>的第<span
+class="math inline">\(i\)</span>个组件，它的着色方式必定是<span
+class="math inline">\(20\)</span>个表项之一，然而所有表项中，<span
+class="math inline">\(x,y,z\)</span>三个节点必定其中一个着色为<span
+class="math inline">\(c(\text{TRUE})\)</span>，因此<span
+class="math inline">\(\phi_i\)</span>对应文字也为<span
+class="math inline">\(1\)</span>，对于其它子句也是如此。此外，这个<span
+class="math inline">\(3\)</span>着色方案中，如果<span
+class="math inline">\(x_i\)</span>被染成<span
+class="math inline">\(c(\text{TRUE})\)</span>，那么<span
+class="math inline">\(x_i\)</span>赋值为<span
+class="math inline">\(1\)</span>，否则赋值为<span
+class="math inline">\(0\)</span>。最终这个着色方案意味着这个3-CNF公式<span
+class="math inline">\(\phi\)</span>是可满足的。</p>
+<p>因此<span
+class="math inline">\(\text{3-CNF-SAT}\le_P\text{3-COLOR}\)</span>。由于<code>3-CNF-SAT</code>是NP完全的，因此<code>3-COLOR</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h1 id="section-3">34-4</h1>
+<h2 id="a-3">a</h2>
+<p>这个判定性问题是：是否存在一个<span
+class="math inline">\(n\)</span>阶排列<span
+class="math inline">\(\sigma\)</span>，使得按照顺序<span
+class="math inline">\(a_{\sigma(1)},a_{\sigma(2)},\dots,a_{\sigma(n)}\)</span>执行任务，可以获得至少<span
+class="math inline">\(k\)</span>的利润。可以将这个判定问题定义成一种语言<code>K-PROFIT-DEADLINES</code>：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{K-PROFIT-DEADLINES}=\{\langle A,
+k\rangle:&amp;A=\{a_1,a_2,\dots,a_n\}\text{ is a tasks set, }\\
+&amp;k \ge 0\text{ is an integer, and}\\
+&amp;\text{there exists a sequence to finish thest task and get at least
+profit }k\}
+\end{aligned}\]</span></p>
+<h2 id="b-3">b</h2>
+<p>首先证明<code>K-PROFIT-DEADLINES</code>属于<span
+class="math inline">\(\text{NP}\)</span>。给定一个任务清单<span
+class="math inline">\(A\)</span>和整数<span
+class="math inline">\(k\)</span>，以及一个完成顺序<span
+class="math inline">\(\sigma\)</span>，检验程序需要模拟这些任务的完成时间，并且需要判断完成时间是否会超过截止时间，如果没有超过截止时间就算上利润<span
+class="math inline">\(p_i\)</span>，最终判断获得的总利润<span
+class="math inline">\(k&#39;\)</span>是否超过<span
+class="math inline">\(k\)</span>即可。因此检验程序可以在多项式时间内完成模拟，因此<code>K-PROFIT-DEADLINES</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>K-PROFIT-DEADLINES</code>是NP困难的，考虑使用子集和问题问题进行规约，即证明<span
+class="math inline">\(\text{SUBSET-SUM}\le_P\text{K-PROFIT-DEADLINES}\)</span>。对于<code>SUBSET-SUM</code>问题中的任意一个实例<span
+class="math inline">\(\langle S,t\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>K-PROFIT-DEADLINES</code>问题的实例<span
+class="math inline">\(\langle A,k\rangle\)</span>，使得<span
+class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集，当且仅当<span
+class="math inline">\(A\)</span>中的任务按照某个顺序执行，能够获得至少<span
+class="math inline">\(k\)</span>的利润。</p>
+<p>规约过程是：对于集合<span class="math inline">\(S\)</span>中的第<span
+class="math inline">\(i\)</span>个数<span
+class="math inline">\(x_i\)</span>，可以构造如下任务<span
+class="math inline">\(a_i:t_i=x_i,p_i=a_i,d_i=t\)</span>。此外，至少得到利润<span
+class="math inline">\(k=t\)</span>。可见这个规约过程仅仅是将<span
+class="math inline">\(S\)</span>中的每个数都建立了一个任务，并且添加了一个数<span
+class="math inline">\(t\)</span>作为利润上限。这些内容可以在多项式时间内构造出来，因此规约算法<span
+class="math inline">\(F\)</span>是多项式时间的。</p>
+<p>现在证明<span class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集，当且仅当<span
+class="math inline">\(A\)</span>中的任务按照某个顺序执行，能够获得至少<span
+class="math inline">\(t\)</span>的利润。</p>
+<p>充分性：如果<span class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集<span
+class="math inline">\(S&#39;\)</span>，那么只需要按任意顺序执行<span
+class="math inline">\(S&#39;\)</span>在中<span
+class="math inline">\(A&#39;\)</span>对应的任务（<span
+class="math inline">\(A-A&#39;\)</span>的任务按随意顺序执行，反正得不到利润），就可以得到恰好<span
+class="math inline">\(t\)</span>的利润，这个任务执行计划是满足要求的。</p>
+<p>必要性：假设<span
+class="math inline">\(A\)</span>中的任务按某种顺序执行可以得到至少<span
+class="math inline">\(t\)</span>利润。由于<span
+class="math inline">\(A\)</span>中所有任务的截止时间都相等（均为<span
+class="math inline">\(t\)</span>），因此在<span
+class="math inline">\(t\)</span>时间前执行的任务并不需要固定的顺序。此外，由于每个任务单位时间内所获得的利润都是<span
+class="math inline">\(1\)</span>，因此在时间<span
+class="math inline">\(t\)</span>内，恰好只能获得利润<span
+class="math inline">\(t\)</span>。也就是说，存在一个<span
+class="math inline">\(A\)</span>子集<span
+class="math inline">\(A&#39;\)</span>，其利润之和恰好为<span
+class="math inline">\(t\)</span>。将集合<span
+class="math inline">\(A&#39;\)</span>中的任务映射回<span
+class="math inline">\(S\)</span>中的数，那么就得到了一个子集和为<span
+class="math inline">\(t\)</span>的集合。</p>
+<p>因此<span
+class="math inline">\(\text{SUBSET-SUM}\le_P\text{K-PROFIT-DEADLINES}\)</span>。由于<code>SUBSET-SUM</code>是NP完全的，因此<code>K-PROFIT-DEADLINES</code>是NP困难的，也是NP完全的，原结论成立。</p>
+<h2 id="c-3">c</h2>
+<p>由于超过了任务期限后再完成任务，再也不能得到利润，因此我们可以先选择尽力完成一部分能够得到利润的任务，再完成剩下的另一部分任务。选定了一部分任务后，只有按照截止日期按顺序完成，才能够达到最大利润。因此需要对任务按照截止时间进行排序。</p>
+<p>令状态<span class="math inline">\(f[i,j](i,j\ge
+0)\)</span>表示时间<span class="math inline">\(j\)</span>内完成前<span
+class="math inline">\(i\)</span>个任务所能获得最大的利润。那么不难写出关于<span
+class="math inline">\(f[i,j]\)</span>的状态转移方程：</p>
+<p><span class="math inline">\(f[i,j]=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad  i=0 \\
+  &amp;f[i-1,j] &amp; &amp; \text{if}\quad  i&gt;0\land(j&lt;t_i\lor
+j&gt;d_i) \\
+  &amp;\max\{f[i-1,j-t_i]+p_i,f[i-1,j]\} &amp; &amp;
+\text{if}\quad  i&gt;0\land(t_i\le j\land j\le d_i) \\
+\end{aligned}\right.\)</span></p>
+<p>那么对于状态<span
+class="math inline">\(f[i,j]\)</span>，要么不完成（或者无法完成）第<span
+class="math inline">\(i\)</span>个任务，从<span
+class="math inline">\(f[i-1,j]\)</span>转移过来，要么尽力完成第<span
+class="math inline">\(i\)</span>个任务，并获得<span
+class="math inline">\(p_i\)</span>的利润，从<span
+class="math inline">\(f[i-1,j-t_i]\)</span>转移而来。</p>
+<p>至此，<span
+class="math inline">\(\displaystyle{f[n,T]}\)</span>则是可以获得的最大利润，其中<span
+class="math inline">\(\displaystyle{T=\sum_{i=1}^n t_i}\)</span>。</p>
+<p>由于此时仅要求给出的是一个判定性算法，因此只需要对至少获取的利润<span
+class="math inline">\(k\)</span>和<span
+class="math inline">\(f[n,T]\)</span>进行比较即可。具体过程由程序<code>K-PROFIT-DEADLINES'</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//A中每个任务都带有3个属性t, p, d，分别表示任务的运行时间，利润以及截止时间。</span><br><span class="line">K-PROFIT-DEADLINES&#x27;(A, n, k)</span><br><span class="line">  sort A[1 : n] by attribute d</span><br><span class="line">  T = 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    T = T + A[i].t</span><br><span class="line">  let f[0 : n, 0 : T] be a new table by 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    for j = 1 to T</span><br><span class="line">      f[i, j] = f[i - 1, j]</span><br><span class="line">    A[i].d = min&#123;A[i].d, T&#125;</span><br><span class="line">    for j = A[i].t to A[i].d</span><br><span class="line">      f[i, j] = min&#123;f[i, j], f[i - 1, j - A[i].t] + A[i].p&#125;</span><br><span class="line">  return f[i, T] &gt;= k</span><br></pre></td></tr></table></figure>
+<p>由于每个任务的运行时间不超过<span
+class="math inline">\(n\)</span>，因此<span class="math inline">\(T\le
+n^2\)</span>。因此算法<code>K-PROFIT-DEADLINES'</code>的时间复杂度为<span
+class="math inline">\(O(nT)=O(n^3)\)</span>，它是多项式的。</p>
+<h2 id="d-3">d</h2>
+<p>题目34-c的动态规划算法即可直接计算出最大利润值。修改后的程序为<code>PROFIT-DEADLINES</code>，它的时间复杂度同样为<span
+class="math inline">\(O(n^3)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">PROFIT-DEADLINES(A, n)</span><br><span class="line">  sort A[1 : n] by attribute d</span><br><span class="line">  T = 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    T = T + A[i].t</span><br><span class="line">  let f[0 : n, 0 : T] be a new table by 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    for j = 1 to T</span><br><span class="line">      f[i, j] = f[i - 1, j]</span><br><span class="line">    A[i].d = min&#123;A[i].d, T&#125;</span><br><span class="line">    for j = A[i].t to A[i].d</span><br><span class="line">      f[i, j] = min&#123;f[i, j], f[i - 1, j - A[i].t] + A[i].p&#125;</span><br><span class="line">  return f[i, T]</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/problems/" title="算法导论34 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-34/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

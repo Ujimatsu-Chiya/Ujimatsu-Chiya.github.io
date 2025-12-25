@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论35 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-30T08:57:29.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.188Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/problems/","path":"introduction-to-algorithms/chapter-35/problems/","title":"算法导论35 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论35 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">35-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">1.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f"><span class="nav-number">1.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">35-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">35-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">35-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-1"><span class="nav-number">4.5.</span> <span class="nav-text">e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#f-1"><span class="nav-number">4.6.</span> <span class="nav-text">f</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">35-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">35-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">6.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">6.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">6.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-3"><span class="nav-number">6.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-2"><span class="nav-number">6.5.</span> <span class="nav-text">e</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">35-7</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-5"><span class="nav-number">7.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-5"><span class="nav-number">7.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-4"><span class="nav-number">7.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-4"><span class="nav-number">7.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e-3"><span class="nav-number">7.5.</span> <span class="nav-text">e</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论35 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论35 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-07-30 16:57:29" itemprop="dateCreated datePublished" datetime="2023-07-30T16:57:29+08:00">2023-07-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">35-1</h1>
+<h2 id="a">a</h2>
+<p>首先先为这个问题构造出一个判定性问题：对于这组物体<span
+class="math inline">\(T=\{s_i\}\)</span>，是否至多可以用<span
+class="math inline">\(k\)</span>个大小为<span
+class="math inline">\(1\)</span>的箱子，可以将这些物品全部装入其中。假设判定性问题的语言定义为<code>BIN</code>：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{BIN}=\{\langle T, k\rangle:&amp;T\text{ is a set of values in
+}(0,1),\\
+&amp;k \ge 1\text{ is an integer, and}\\
+&amp;\text{all objects in $T$ can be place can be placed in $k$ or fewer
+bins.}
+\end{aligned}\]</span></p>
+<p>注意到<code>BIN</code>问题并没有限制每个箱子有多满。<code>BIN</code>问题的其中一个特殊问题<code>EX-BIN</code>，则要求了其中一个箱子恰好装满：</p>
+<p><span class="math display">\[\begin{aligned}
+\text{EX-BIN}=\{\langle T, k\rangle:&amp;T\text{ is a set of values in
+}(0,1),\\
+&amp;k \ge 1\text{ is an integer, and}\\
+&amp;\text{all objects in $T$ can be place can be placed in $k$ or fewer
+bins, at least one of them is exactly full.}
+\end{aligned}\]</span></p>
+<p>首先证明<code>EX-BIN</code>属于<span
+class="math inline">\(\text{NP}\)</span>。考虑某个问题实例<span
+class="math inline">\(\langle T,
+k\rangle\)</span>，以及其某个证据，即一个装箱方案<span
+class="math inline">\(P\)</span>，检验程序只需要检验<span
+class="math inline">\(P\)</span>是否大小至多为<span
+class="math inline">\(k\)</span>，并且对于<span
+class="math inline">\(P\)</span>中的每个箱子，是否所有物品大小之和都不超过<span
+class="math inline">\(1\)</span>即可。检验程序可以在多项式内完成检验，因此<code>EX-BIN</code>属于<span
+class="math inline">\(\text{NP}\)</span>。</p>
+<p>接下来证明<code>EX-BIN</code>是NP困难的，考虑使用子集和问题进行规约，即证明<span
+class="math inline">\(\text{SUBSET-SUM}\le_P\text{EX-BIN}\)</span>。对于<code>SUBSET-SUM</code>问题中的任意一个实例<span
+class="math inline">\(\langle S, t\rangle\)</span>，规约算法<span
+class="math inline">\(F\)</span>构造出如下一个<code>EX-BIN</code>问题的实例<span
+class="math inline">\(\langle T,k\rangle\)</span>，使得<span
+class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集，当且仅当物品<span
+class="math inline">\(T\)</span>可以装在<span
+class="math inline">\(k\)</span>个箱子中，并且其中一个箱子恰好装满。</p>
+<p>规约过程是：令<span class="math inline">\(T=\{x/t:x\in
+S\},k=|S|\)</span>。可见构造出集合<span
+class="math inline">\(S\)</span>所需要花费的时间是多项式的。</p>
+<p>现在证明<span class="math inline">\(S\)</span>包含一个和为<span
+class="math inline">\(t\)</span>的子集，当且仅当物品<span
+class="math inline">\(T\)</span>可以装在<span
+class="math inline">\(k\)</span>个箱子中，并且其中一个箱子恰好装满。</p>
+<p>充分性：如果<span
+class="math inline">\(S\)</span>包含一个子集和为<span
+class="math inline">\(t\)</span>的子集<span
+class="math inline">\(S&#39;\)</span>，那么在<span
+class="math inline">\(T\)</span>对应的子集<span
+class="math inline">\(T&#39;=\{x/t:s\in
+S&#39;\}\)</span>中，其和值为<span
+class="math inline">\(1\)</span>。由于<span
+class="math inline">\(k=|S|\)</span>，因此这意味着<span
+class="math inline">\(S\)</span>中所有物品必定能够被装得下，因此<span
+class="math inline">\(T&#39;\)</span>以及其它物品各自放在一个盒子中，是问题<code>EX-BIN</code>的一个解。</p>
+<p>必要性：可见这<span
+class="math inline">\(|S|\)</span>个盒子必定能够装满这<span
+class="math inline">\(|S|\)</span>个物品。如果存在一个子集<span
+class="math inline">\(T&#39;\subseteq
+T\)</span>，其中恰好能够装在一个盒子中，那么对<span
+class="math inline">\(T&#39;\)</span>构建对应在<span
+class="math inline">\(S\)</span>中的子集<span
+class="math inline">\(T&#39;=\{xt:x\in T&#39;\}\)</span>，那么<span
+class="math inline">\(S&#39;\)</span>是<span
+class="math inline">\(S\)</span>的一个和为<span
+class="math inline">\(t\)</span>的子集。</p>
+<p>因此<span
+class="math inline">\(\text{SUBSET-SUM}\le_P\text{EX-BIN}\)</span>。由于<code>SUBSET-SUM</code>是NP完全的，那么<code>EX-BIN</code>是NP困难的，也是NP完全的。从而得知它的一般化问题<code>BIN</code>也是NP完全的，因此原问题是NP困难的。</p>
+<h2 id="b">b</h2>
+<p>由于所有物品总共的大小为<span
+class="math inline">\(S\)</span>，然而每个箱子的大小为<span
+class="math inline">\(1\)</span>，因此哪怕是最优的解法，都需要保证箱子的总大小不低于物品的总大小。因此
+最优解法至少需要<span class="math inline">\(\lceil S\rceil
+S\)</span>个箱子。</p>
+<h2 id="c">c</h2>
+<p>将使用反证法来证明。不失一般性，假设某个时刻中存在两个箱子<span
+class="math inline">\(B_1,B_2\)</span>，它们都是不到半满的。并且不失一般性，在这个时刻之前，假设在<span
+class="math inline">\(B_1\)</span>放置最后一个物品时刻后，有一个新物品<span
+class="math inline">\(s_i\)</span>放置到了<span
+class="math inline">\(B_2\)</span>。由于放置<span
+class="math inline">\(s_i\)</span>到<span
+class="math inline">\(B_2\)</span>后，<span
+class="math inline">\(B_2\)</span>仍然不到半满的，因此<span
+class="math inline">\(s_i&lt; 0.5\)</span>。在放置<span
+class="math inline">\(s_i\)</span>到<span
+class="math inline">\(B_2\)</span>之前，由于<span
+class="math inline">\(B_1\)</span>也尚未达到半满，因此按照首先适合的策略，<span
+class="math inline">\(s_i\)</span>应该放在<span
+class="math inline">\(B_1\)</span>而不是<span
+class="math inline">\(B_2\)</span>。因此放置<span
+class="math inline">\(s_i\)</span>到<span
+class="math inline">\(B_2\)</span>违背了首先适合策略。因此原结论成立。</p>
+<h2 id="d">d</h2>
+<p>按照题目35-1-c的结论，由于至多一个箱子不是半满的，其余箱子都至少是半满的，因此哪怕除了最后一个箱子，其余箱子都至少需要装上大小之和为<span
+class="math inline">\(0.5\)</span>的物品。因此这种首先适合策略最多只需要<span
+class="math inline">\(\lceil S/0.5\rceil=\lceil
+2S\rceil\)</span>个箱子。</p>
+<h2 id="e">e</h2>
+<p>根据题目35-1-d可知首先适合算法所求出的解至多使用<span
+class="math inline">\(\lceil
+2S\rceil\)</span>个箱子；并且根据题目35-1-b可知最优解至少使用<span
+class="math inline">\(\lceil
+S\rceil\)</span>个箱子。因此首先适合算法的近似比至多为<span
+class="math inline">\(\lceil 2S\rceil/\lceil S\rceil\le2\lceil
+S\rceil/\lceil S\rceil=2\)</span>，即它是一个<span
+class="math inline">\(2\)</span>近似比的算法。</p>
+<h2 id="f">f</h2>
+<p>装箱问题的首先适应算法由<code>BIN-PACKING-FIRST-FIT</code>给出。由于这个算法每次都是按顺序寻找第一个能够放置它的算法，因此其时间复杂度为<span
+class="math inline">\(O(n^2)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">BIN-PACKING-FIRST-FIT(S, n)</span><br><span class="line">  let A be a new array by set</span><br><span class="line">  let sum be a new array by 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    index = -1</span><br><span class="line">    for j = 1 to A.size</span><br><span class="line">      if sum[j] + S[i] &lt;= 1</span><br><span class="line">      sum[j] = sum[j] + S[i]</span><br><span class="line">      index = j</span><br><span class="line">      break</span><br><span class="line">    if index == -1</span><br><span class="line">      // 需要另开箱子</span><br><span class="line">      INSERT(A, Ø)</span><br><span class="line">      INSERT(sum, S[i])</span><br><span class="line">      index = A.size</span><br><span class="line">    A[index] = A[index] ⋃ &#123;S[i]&#125;</span><br><span class="line">  return A</span><br></pre></td></tr></table></figure>
+<p>另外一种解法可以使用最小堆进行解决，每次选择现有的并且占用容量最小的箱子，装一个物品进去。如果装不下，那么再新开一个箱子。这个改编后的首先适应算法由<code>BIN-PACKING-FIRST-FIT'</code>给出，其时间复杂度为<span
+class="math inline">\(O(n\lg n)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">BIN-PACKING-FIRST-FIT&#x27;(S, n)</span><br><span class="line">  let A be a new array by set</span><br><span class="line">  let Q be a new array</span><br><span class="line">  // 堆中的每个节点包含两个属性key和id，其中key表示节点</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    if Q.qize == 0 or MIN-HEAP-MINIMUN(Q).key + S[i] &gt; 1</span><br><span class="line">      INSERT(A, Ø)</span><br><span class="line">      let z be a new node</span><br><span class="line">      z.id = A.size</span><br><span class="line">      z.key = S[i]</span><br><span class="line">      MIN-HEAP-INSERT(A, z, n)</span><br><span class="line">      index = z.id</span><br><span class="line">    else</span><br><span class="line">      z = MIN-HEAP-EXTRACT-MIN(Q)</span><br><span class="line">      z.key = z.key + S[i]</span><br><span class="line">      index = z.id</span><br><span class="line">      MIN-HEAP-INSERT(A, z, n)</span><br><span class="line">    A[index] = A[index] ⋃ &#123;S[i]&#125;</span><br><span class="line">  return A</span><br></pre></td></tr></table></figure>
+<h1 id="section-1">35-2</h1>
+<h2 id="a-1">a</h2>
+<p>假设<span class="math inline">\(G\)</span>中有一个大小为<span
+class="math inline">\(m\)</span>的最大团<span
+class="math inline">\(C\)</span>，令<span
+class="math inline">\(C^{(k)}\)</span>表示<span
+class="math inline">\(C\)</span>中顶点的所有有序<span
+class="math inline">\(k\)</span>元组的构成的集合，可以知道<span
+class="math inline">\(C^{(k)}\subseteq V^k\)</span>，并且<span
+class="math inline">\(C^{(k)}\)</span>是<span
+class="math inline">\(G^{(k)}\)</span>的一个最大团，其大小为<span
+class="math inline">\(m^k\)</span>。因为对于任意<span
+class="math inline">\(u^{(k)},v^\in C^{(k)},\forall
+i\in[1,k]\)</span>，都有<span
+class="math inline">\((u_i^{(k)},v_i^{(k)})\in E\)</span>，所以<span
+class="math inline">\((u^{(k)},v^)\in
+E^{(k)}\)</span>。故<span class="math inline">\(C^{(k)}\)</span>是<span
+class="math inline">\(G^{(k)}\)</span>中一个大小为<span
+class="math inline">\(m^k\)</span>的团。</p>
+<p>接下来证明<span
+class="math inline">\(G^{(k)}\)</span>中最大团的大小为<span
+class="math inline">\(m^k\)</span>，使用归纳法来证明。</p>
+<p>当<span class="math inline">\(k=1\)</span>时，<span
+class="math inline">\(V^{(1)}=V,E^{(1)}=E\)</span>，那么<span
+class="math inline">\(G^{(1)}=G\)</span>，因此<span
+class="math inline">\(G^{(1)}\)</span>的最大团大小为<span
+class="math inline">\(m\)</span>。</p>
+<p>当<span class="math inline">\(k&gt;1\)</span>时，假设图<span
+class="math inline">\(G^{(k-1)}\)</span>的最大团大小为<span
+class="math inline">\(m^{k-1}\)</span>。令<span
+class="math inline">\(u&#39;^{(k)}\in V^{(k-1)}\)</span>是节点<span
+class="math inline">\(u^{(k)}\)</span>的前<span
+class="math inline">\(k-1\)</span>个元素所构成的节点，如果<span
+class="math inline">\((u^{(k)},v^{(k)})\in E^{(k)}\)</span>，那么<span
+class="math inline">\((u&#39;^{(k)},v&#39;^{(k)})\in
+E^{(k-1)}\)</span>。假设<span
+class="math inline">\(G^{(k)}\)</span>存在一个团<span
+class="math inline">\(C^{(k)}\)</span>，其大小为<span
+class="math inline">\(c\)</span>，满足<span
+class="math inline">\(c&gt;m^k\)</span>，那么令<span
+class="math inline">\(C&#39;=\{u&#39;^{(k)}\mid u^{(k)}\in
+C^{(k)}\}\)</span>，可见<span
+class="math inline">\(C&#39;\)</span>是图<span
+class="math inline">\(G^{(k-1)}\)</span>中的一个团，按照假设，<span
+class="math inline">\(|C&#39;|\le m^{k-1}&lt;c/m\)</span>。由于<span
+class="math inline">\(C&#39;\)</span>中的任意一个节点都是由<span
+class="math inline">\(C\)</span>中的每个节点的前<span
+class="math inline">\(k-1\)</span>个元素得来，因此<span
+class="math inline">\(C\)</span>中的所有节点的第<span
+class="math inline">\(k\)</span>个元素必须有超过<span
+class="math inline">\(m\)</span>种不同的选择才能使<span
+class="math inline">\(C&#39;\)</span>的大小超过<span
+class="math inline">\(m^{k}\)</span>。如果是这样，那么按照<span
+class="math inline">\(G^{(k)}\)</span>的定义，意味着<span
+class="math inline">\(G\)</span>有一个大小超过<span
+class="math inline">\(m\)</span>的团，这和最大团大小为<span
+class="math inline">\(m\)</span>矛盾，因此原结论成立。</p>
+<h2 id="b-1">b</h2>
+<p>假设现在存在一个近似比为常数<span
+class="math inline">\(\rho\)</span>的算法<span
+class="math inline">\(A\)</span>用于找出一个图的团，令图<span
+class="math inline">\(G=(V,E)\)</span>，假设其最大团的大小为<span
+class="math inline">\(m\)</span>。按照整数<span
+class="math inline">\(k\)</span>构造出图<span
+class="math inline">\(G^{(k)}\)</span>后，通过对图<span
+class="math inline">\(G^{(k)}\)</span>使用算法<span
+class="math inline">\(A\)</span>，可以找到一个大小为<span
+class="math inline">\(n\)</span>的团，并满足<span
+class="math inline">\(m^k/n\le c\)</span>。那么这将在图<span
+class="math inline">\(G\)</span>中可以找到一个大小为<span
+class="math inline">\(n^{1/k}\)</span>的团，其中满足<span
+class="math inline">\(m/c^{1/k}\le
+n^{1/k}\)</span>。对于给定的一个近似参数<span
+class="math inline">\(\epsilon\)</span>，令<span
+class="math inline">\(k=1/\log_c (1+\epsilon)\)</span>，那么算法<span
+class="math inline">\(A\)</span>就能找到图<span
+class="math inline">\(G\)</span>一个接近<span
+class="math inline">\(\dfrac{m}{1+\epsilon}\)</span>的团，这也符合了近似参数<span
+class="math inline">\(\epsilon\)</span>越低，找到的团越大的直觉。</p>
+<p>接下来证明<span class="math inline">\(k\)</span>是<span
+class="math inline">\(1/\epsilon\)</span>的一个多项式。可以知道：</p>
+<p><span class="math inline">\(\begin{aligned}
+k&amp;=1/\log_c(1+\epsilon)\\
+&amp;=\dfrac{\ln c}{\ln 1+\epsilon}\\
+&amp;\ge \dfrac{\ln c}{\epsilon}
+\end{aligned}\)</span></p>
+<p>因此，对图<span class="math inline">\(G^{(k)}\)</span>，其中<span
+class="math inline">\(k=1/\log_c(1+\epsilon)\)</span>使用算法<span
+class="math inline">\(A\)</span>求取最大团，从而构建出图<span
+class="math inline">\(G\)</span>的一个团<span
+class="math inline">\(C\)</span>的算法<span
+class="math inline">\(A&#39;\)</span>是一个<span
+class="math inline">\(1+\epsilon\)</span>近似的算法。由于这个近似模式是输入规模的多项式，也是一个<span
+class="math inline">\(1/\epsilon\)</span>的多项式，因此这是一个完全多项式时间近似模式。</p>
+<h1 id="section-2">35-3</h1>
+<p>一个贪心的带权集合覆盖启发式算法是：每次选择<strong>单位费用下能够加入尽量多元素到<span
+class="math inline">\(U\)</span>中</strong>的集合。更具体的，这个算法的伪代码由<code>GREEDY-SET-COVER-WEIGHTED</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">GREEDY-SET-COVER-WEIGHTED(X, F, w)</span><br><span class="line">  U_0 = X</span><br><span class="line">  C = Ø</span><br><span class="line">  i = 0</span><br><span class="line">  while U_i != Ø</span><br><span class="line">    select select S ∈ F that maximizes |S ∩ U_i| / w(S)</span><br><span class="line">    U_&#123;i + 1&#125; = U_i - S</span><br><span class="line">    C = C ⋃ &#123;S&#125;</span><br><span class="line">    i = i + 1</span><br><span class="line">  return C</span><br></pre></td></tr></table></figure>
+<p>接下来证明这个算法具有近似比<span
+class="math inline">\(H(d)\)</span>，其中<span
+class="math inline">\(d=\max\{|S|:S\in
+\mathcal{F}\}\)</span>。证明过程参考了这篇<a
+target="_blank" rel="noopener" href="https://www.cs.ucr.edu/~neal/Young08SetCover.pdf">文章</a></p>
+<p>令<span class="math inline">\(c_x\)</span>表示分配给元素<span
+class="math inline">\(x\)</span>的代价。每一个元素<span
+class="math inline">\(x\)</span>在第一次被某个集合<span
+class="math inline">\(S_i\)</span>覆盖时，才会被分配代价，其分配的代价为</p>
+<p><span class="math display">\[c_x=\dfrac{w_i}{|S_i-(S_1\cup
+S_2\cup\dots \cup S_{i-1})|}\]</span></p>
+<p>直观上，这个代价比例就是为了使用集合<span
+class="math inline">\(S_i\)</span>覆盖<span
+class="math inline">\(S_i-(S_1\cup S_2\cup\dots \cup
+S_{i-1})\)</span>中的每个元素时所均摊的代价。</p>
+<p>令<span
+class="math inline">\(\mathscr{C}\)</span>是一个由<code>GREEDY-SET-COVER-WEIGHTED</code>产生的带权集合覆盖，<span
+class="math inline">\(\mathscr{C}^{\ast}\)</span>是一个带权最优集合覆盖。</p>
+<p>按照代价等价的定义，有</p>
+<p><span class="math display">\[\sum_{S_i\in \mathscr{C}}w_i=\sum_{x\in
+X}c_x\]</span></p>
+<p>考虑任意在<span
+class="math inline">\(\mathscr{C}^{\ast}\)</span>中选中的一个集合<span
+class="math inline">\(S_i=\{x_k,x_{k-1},\dots,x_1\}\)</span>。不失一般性，假设这个贪心算法按照<span
+class="math inline">\(x_k,x_{k-1},\dots,x_1\)</span>的顺序依次覆盖这些元素。在这个算法从<span
+class="math inline">\(x_j\)</span>开始覆盖<span
+class="math inline">\(S_i\)</span>的元素时，<span
+class="math inline">\(S_i\)</span>中至少仍然有<span
+class="math inline">\(j\)</span>个元素仍然未被覆盖。因此，如果贪心算法在某个迭代时刻选择了集合<span
+class="math inline">\(S_i\)</span>，那么对于<span
+class="math inline">\(\forall p\in[1,k],c_{x_p}\le
+w_i/j\)</span>，即贪心算法将会最多会为每个元素支付<span
+class="math inline">\(w_i/j\)</span>的代价用于覆盖<span
+class="math inline">\(S_i\)</span>中剩余的元素。这意味着元素<span
+class="math inline">\(x_j\)</span>被使用了<span
+class="math inline">\(w_i/j\)</span>代价进行覆盖。由于<span
+class="math inline">\(j\)</span>的取值从<span
+class="math inline">\(1\)</span>至多为<span
+class="math inline">\(d\)</span>，因此计算<span
+class="math inline">\(\displaystyle{H(d)=\sum_{i=1}^d\dfrac{1}{i}}\)</span>，以求覆盖到任何情况。</p>
+<p>因此一个贪心算法的权值之和最多为<span
+class="math inline">\(\displaystyle{\sum_{S_i\in
+\mathscr{C}^{\ast}}w_iH(d)=H(d)\cdot{\sum_{S_i\in
+\mathscr{C}^{\ast}}w_i}}\)</span>，因此它是一个<span
+class="math inline">\(H(d)\)</span>近似的算法。</p>
+<h1 id="section-3">35-4</h1>
+<h2 id="a-2">a</h2>
+<p>考虑图<span
+class="math inline">\(G=(V,E),V=\{a,b,c,d\},E=\{(a,b),(c,d),(b,c)\}\)</span>。那么其中一个极大匹配是<span
+class="math inline">\(\{(b,c)\}\)</span>，但它不是一个最大匹配（最大匹配是<span
+class="math inline">\(\{(a,b),(c,d)\}\)</span>）。</p>
+<h2 id="b-2">b</h2>
+<p>只需要将算法<code>APPROX-VERTEX-COVER</code>修改成以边返回即可。题目35.1-2证明了这个算法生成的边集是一个极大匹配。修改后的算法由程序<code>MAXIMAL-MATCHING</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">MAXIMAL-MATCHING(G)</span><br><span class="line">  M = Ø</span><br><span class="line">  E&#x27; = G.E</span><br><span class="line">  while E&#x27; ≠ Ø</span><br><span class="line">    let (u, v) be an arbitrary edge of E&#x27;</span><br><span class="line">    M = M ∪ &#123;(u, v)&#125;</span><br><span class="line">    remove from E&#x27; edge (u, v) and every edge incident on either u or</span><br><span class="line">  return M</span><br></pre></td></tr></table></figure>
+<h2 id="c-1">c</h2>
+<p>由于<span class="math inline">\(G\)</span>中的一组匹配<span
+class="math inline">\(|M|\)</span>，任意两条边都不和同一顶点关联。因此至少需要<span
+class="math inline">\(|M|\)</span>个节点才能覆盖这<span
+class="math inline">\(|M|\)</span>条边，故<span
+class="math inline">\(G\)</span>的一个最大匹配的规模是<span
+class="math inline">\(G\)</span>中任何顶点覆盖规模的下界。</p>
+<h2 id="d-1">d</h2>
+<p>这意味着这个图只有一些孤立节点，没有边。如果仍然存在一条边<span
+class="math inline">\((u,v)\)</span>，那么说明匹配<span
+class="math inline">\(M\)</span>不是一个极大匹配，可以把<span
+class="math inline">\((u,v)\)</span>加入到<span
+class="math inline">\(M\)</span>中。</p>
+<h2 id="e-1">e</h2>
+<p>根据题目35-4-d的结论，一组极大匹配中的所有节点<span
+class="math inline">\(T\)</span>，关联了<span
+class="math inline">\(G=(V,E)\)</span>中的所有边。因此<span
+class="math inline">\(T\)</span>是一个大小为<span
+class="math inline">\(|T|=2|M|\)</span>的点覆盖。</p>
+<h2 id="f-1">f</h2>
+<p>令<span
+class="math inline">\(|M^{\ast}|\)</span>是一组最大匹配，令<span
+class="math inline">\(|C^{\ast}|\)</span>是一组最小点覆盖。那么根据题目34-4-c的结论，有<span
+class="math inline">\(|C^{\ast}|\ge |M^{\ast}|\)</span>。</p>
+<p>根据题目35-4-e的结论，<span class="math inline">\(T\)</span>是<span
+class="math inline">\(G\)</span>中的一个点覆盖，因此<span
+class="math inline">\(|T|\ge |C^{\ast}|\)</span>。</p>
+<p>由于<span class="math inline">\(|T|=2|M|\)</span>，因此有<span
+class="math inline">\(2|M|\ge
+|M^{\ast}|\)</span>，因此算法<code>MAXIMAL-MATCHING</code>是一个近似比为<span
+class="math inline">\(2\)</span>的最大匹配算法。</p>
+<h1 id="section-4">35-5</h1>
+<h2 id="a-3">a</h2>
+<p>由于这些调度是非抢占式的，并且一台机器完整地运行任务<span
+class="math inline">\(J_i\)</span>需要花费<span
+class="math inline">\(p_i\)</span>的时间。因此一个任务<span
+class="math inline">\(J_i\)</span>的结束时间至少为<span
+class="math inline">\(p_i\)</span>，即<span class="math inline">\(C_i\ge
+p_i\)</span>。</p>
+<p>由于<span class="math inline">\(\displaystyle{C_{\max}=\max_{k=1}^m
+C_k}\)</span>，因此有<span
+class="math inline">\(\displaystyle{C_{\max}^{\ast}\ge \max_{k=1}^m
+p_k}\)</span>。</p>
+<h2 id="b-3">b</h2>
+<p>使用反证法证明。如果<span
+class="math inline">\(\displaystyle{C_{\max}&lt;\dfrac{1}{m}\sum_{k=1}^m
+p_k}\)</span>，那么意味着<span
+class="math inline">\(\displaystyle{m\cdot C_{\max}&lt;\sum_{k=1}^m
+p_k}\)</span>。也就是说，哪怕每台机器都使用<span
+class="math inline">\(C_{\max}\)</span>的时间进行处理，都无法完成处理所有任务（因为每个任务在每台机器上需要执行的单位时间为<span
+class="math inline">\(1\)</span>），因此这是不可能的，最终原结论成立。</p>
+<h2 id="c-2">c</h2>
+<p>考虑使用一个最小堆进行实现。堆中的每一个节点<span
+class="math inline">\(x\)</span>有两个属性<span
+class="math inline">\(id\)</span>和<span
+class="math inline">\(key\)</span>，分别表示机器编号和当前机器完成当前任务的最后时间。每次取出堆顶的机器<span
+class="math inline">\(m\)</span>（因为它是所有机器中，当前最早结束的），然后选择一个任务<span
+class="math inline">\(J_i\)</span>，并赋予给机器<span
+class="math inline">\(m\)</span>，那么将<span
+class="math inline">\(m\)</span>对应的节点的关键字加上<span
+class="math inline">\(p_i\)</span>后，重新加入最小堆中。</p>
+<p>具体过程由<code>PARALLEL-TASKS-ASSIGNED</code>给出。由于进行了<span
+class="math inline">\(O(n+m)\)</span>次堆操作，并且堆的大小至多为<span
+class="math inline">\(O(m)\)</span>，因此总时间复杂度为<span
+class="math inline">\(O((n+m)\log m)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">PARALLEL-TASKS-ASSIGNED(J, n, m)</span><br><span class="line">  let Q[1 : m] be a new array</span><br><span class="line">  let L[1 : m] be a new array by empty array</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    let Q[i] be a new node</span><br><span class="line">    Q[i].id = i</span><br><span class="line">    Q[i].key = 0</span><br><span class="line">  BUILD-MIN-HEAP(Q, m)</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    x = MIN-HEAP-EXTRACT-MIN(Q)</span><br><span class="line">    INSERT(L[x.id], J_i)</span><br><span class="line">    x = x.key + p_i</span><br><span class="line">    MIN-HEAP-INSERT(Q, x, m)</span><br><span class="line">  return L</span><br></pre></td></tr></table></figure>
+<h2 id="d-2">d</h2>
+<p>定理26.1证明了这个问题的更一般的结论（因为这里任务间是不构成依赖的，定理26.1任务间可能会构成依赖）。</p>
+<p>因此，根据题目35-5-a和35-5-b的结论，最终有</p>
+<p><span class="math inline">\(\begin{aligned}
+C_{\max}&amp;\le \dfrac{1}{m}\sum_{k=1}^n p_k+\max\{p_k:1\le k\le n\}\\
+&amp;\le\max\left\{\dfrac{1}{m}\sum_{k=1}^n p_k,\max\{p_k:1\le k\le
+n\}\right\}+\max\left\{\dfrac{1}{m}\sum_{k=1}^n p_k,\max\{p_k:1\le k\le
+n\}\right\}\\
+&amp;=2\cdot \max\left\{\dfrac{1}{m}\sum_{k=1}^n p_k,\max\{p_k:1\le k\le
+n\}\right\}\\
+&amp;=2\cdot C_{\max}^{\ast}
+\end{aligned}\)</span></p>
+<p>因此这个贪心调度算法是<span
+class="math inline">\(2\)</span>近似的。</p>
+<h1 id="section-5">35-6</h1>
+<h2 id="a-4">a</h2>
+<p>令图<span
+class="math inline">\(G=(V,E),V=\{a,b,c,d\},E=\{(a,b),(b,c),(c,d)\},w(a,b)=1,w(b,c)=2,w(c,d)=3\)</span>。那么对于这个边权，有<span
+class="math inline">\(S_G=E=T_G\)</span>。图<span
+class="math inline">\(G\)</span>和权值函数<span
+class="math inline">\(w\)</span>为题目所求。</p>
+<h2 id="b-4">b</h2>
+<p>令图<span
+class="math inline">\(G=(V,E),V=\{a,b,c,d\},E=\{(a,b),(b,c),(c,d)\},w(a,b)=2,w(b,c)=1,w(c,d)=3\)</span>。那么对于这个边权，有<span
+class="math inline">\(S_G=\{(a,b),(c,d)\}\)</span>；然而<span
+class="math inline">\(T_G=E\)</span>，因此有<span
+class="math inline">\(S_G\neq T_G\)</span>。图<span
+class="math inline">\(G\)</span>和权值函数<span
+class="math inline">\(w\)</span>为题目所求。</p>
+<h2 id="c-3">c</h2>
+<p>使用反正法进行证明。假设<span
+class="math inline">\(G=(V,E)\)</span>存在一棵最大生成树的边集<span
+class="math inline">\(T_G\)</span>以及一条边<span
+class="math inline">\((u,v)\in S_G\)</span>，并且<span
+class="math inline">\((u,v)\not\in T_G\)</span>。</p>
+<p>不失一般性，假设<span
+class="math inline">\(\max(u)=(u,v)\)</span>，考虑<span
+class="math inline">\(T_G\)</span>上的一条从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>的路径，令<span
+class="math inline">\(x\)</span>是这条路径上和<span
+class="math inline">\(w\)</span>相邻的那个节点（也就是这条路径的第二个节点。由于每条边都有不同边权，并且<span
+class="math inline">\(\max(u)=(u,v)\)</span>，因此有<span
+class="math inline">\(w(u,x)&lt;w(u,v)\)</span>。从<span
+class="math inline">\(T_G\)</span>去除这条边后，整棵树就变成了两棵森林，再连上边<span
+class="math inline">\((u,v)\)</span>后，又成为了一棵新树。因此，令<span
+class="math inline">\(T_G&#39;=(T_G-\{(u,w)\})\cup
+\{(u,v)\}\)</span>，可见<span
+class="math inline">\(w(T_G&#39;)&gt;w(T_G)\)</span>，由此构造出了一棵更优的生成树，这和<span
+class="math inline">\(T_G\)</span>是最大生成树是矛盾的。因此原结论成立。</p>
+<h2 id="d-3">d</h2>
+<p>可见，由于<span
+class="math inline">\(V\)</span>中的所有节点在边集<span
+class="math inline">\(S_G\)</span>中都有边关联着，因此有<span
+class="math inline">\(|S_G|\ge |V|/2\)</span>，也就是有<span
+class="math inline">\(|T_G-S_G|&lt;|V|/2\)</span>。</p>
+<p>按照题目35-6-c的结论，我们可以从森林<span
+class="math inline">\(S_G\)</span>构造出一棵最大生成树。接下来证明，对于所有边<span
+class="math inline">\(T_G-S_G\)</span>，在<span
+class="math inline">\(S_G\)</span>中存在一组边的子集<span
+class="math inline">\(S_G&#39;\subseteq S_G\)</span>，且<span
+class="math inline">\(|S_G&#39;|=|T_G-S_G|\)</span>，在<span
+class="math inline">\(T_G-S_G\)</span>中的每一条边<span
+class="math inline">\(e\)</span>都和<span
+class="math inline">\(S_G&#39;\)</span>中的一条边<span
+class="math inline">\(e&#39;\)</span>对应，并且有<span
+class="math inline">\(w(e)\le w(e&#39;)\)</span>。</p>
+<p>可见，为了连接森林<span
+class="math inline">\(S_G\)</span>中的任意连通块，需要从<span
+class="math inline">\(E\)</span>中寻找边进行连接。可见，在整个迭代过程中，每个森林的连通块中都会有一条<span
+class="math inline">\(S_G\)</span>中的边<span
+class="math inline">\(e&#39;\)</span>仍未被对应。当每次从<span
+class="math inline">\(E\)</span>中加入一条边<span
+class="math inline">\(e\)</span>连通两个块时，总存在一条从<span
+class="math inline">\(e\)</span>到<span
+class="math inline">\(e&#39;\)</span>的“增广路径”（这条路径中，<span
+class="math inline">\(S_G\)</span>的边和非<span
+class="math inline">\(S_G\)</span>中的边交叉出现），使得对应关系改变。因此这组对应关系总是存在的。因此得到<span
+class="math inline">\(w(S_G&#39;)\ge w(T_G-S_G)\)</span>。</p>
+<p>也就是说，<span class="math inline">\(w(S_G)\ge w(S_G&#39;)\ge
+w(T_G-S_G)=w(T_G)-w(S_G)\)</span>，因此有<span
+class="math inline">\(w(S_G)\ge w(T_G)/2\)</span>，原结论成立。</p>
+<h2 id="e-2">e</h2>
+<p>这个贪心算法首先求出<span
+class="math inline">\(S_G\)</span>中的所有边，然后再寻找<span
+class="math inline">\(|V|-1-|S_G|\)</span>中条边，构建出一棵近似最大生成树。按照题目35-6-c的结论，这棵最大生成树<span
+class="math inline">\(T_G&#39;\)</span>的权值满足<span
+class="math inline">\(w(T_G&#39;)\ge w(S_G)\)</span>。也就是有<span
+class="math inline">\(w(T_G&#39;)\ge
+w(T_G)/2\)</span>，因此这是一个<span
+class="math inline">\(2\)</span>近似算法。</p>
+<p>具体过程由<code>APPROX-MAX-SPANNING-TREE</code>给出，其内部使用了并查集进行实现。这个算法时间复杂度为<span
+class="math inline">\(O(V+E)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">APPROX-MAX-SPANNING-TREE(G, w)</span><br><span class="line">  SG = Ø</span><br><span class="line">  for each vertex u in G.V</span><br><span class="line">    v = NIL</span><br><span class="line">    max = -∞</span><br><span class="line">    for each vertex x in G.Adj[u]</span><br><span class="line">      if w(u, x) &gt; max</span><br><span class="line">        max = w(u, x)</span><br><span class="line">        v = x</span><br><span class="line">    SG = SG ∪ &#123;(u, v)&#125;</span><br><span class="line">  TG = SG</span><br><span class="line">  for each vertex u in G.V</span><br><span class="line">    MAKE-SET(u)</span><br><span class="line">  for each edge (u, v) in TG</span><br><span class="line">    UNION(u, v)</span><br><span class="line">  for each vertex u in G.V</span><br><span class="line">    for each vertex v in G.Adj[u]</span><br><span class="line">      if FIND-SET(u) != FIND-SET(V)</span><br><span class="line">        TG = TG ∪ &#123;(u, v)&#125;</span><br><span class="line">        UNION(u, v)</span><br><span class="line">  return TG </span><br></pre></td></tr></table></figure>
+<h1 id="section-6">35-7</h1>
+<h2 id="a-5">a</h2>
+<p>对于问题实例<span
+class="math inline">\(I_j\)</span>，其0-1背包问题的解的选择方式（包括超出背包容量的解）一共有<span
+class="math inline">\(2^{n-j}\)</span>个（即物品<span
+class="math inline">\(j+1,j+2,\dots,n\)</span>可以自由选择是否存放在背包中）。对于问题实例<span
+class="math inline">\(I_k(k&gt;0)\)</span>，任意一个0-1背包问题的解选择方式都必定和<span
+class="math inline">\(I_j\)</span>的解选择方式必定不一样，因为<span
+class="math inline">\(I_k\)</span>要求选择物品<span
+class="math inline">\(k\)</span>，<span
+class="math inline">\(I_j\)</span>要求不选择物品<span
+class="math inline">\(k\)</span>。因此，问题实例<span
+class="math inline">\(I_1,I_2,\dots,I_n\)</span>一共包含了<span
+class="math inline">\(2^{n-1}+2^{n-2}+\dots+2^{0}=2^n-1\)</span>个不同的解选择方式，它们的最优解分别由<span
+class="math inline">\(P_1,P_2,\dots,P_n\)</span>代表。这<span
+class="math inline">\(2^n-1\)</span>个解选择方式对应了原本问题实例<span
+class="math inline">\(I\)</span>的解选择方式。</p>
+<p>因此，问题<span
+class="math inline">\(I\)</span>的0-1背包最优解必定是<span
+class="math inline">\(P_1,P_2,\dots,P_n\)</span>之一。</p>
+<h2 id="b-5">b</h2>
+<p>问题实例<span class="math inline">\(I_j\)</span>要求强制装入物品<span
+class="math inline">\(j\)</span>装入背包中，那么接下来就是将物品<span
+class="math inline">\(\{j+1,j+2,\dots,n\}\)</span>选择装入一个大小为<span
+class="math inline">\(W-w_i\)</span>背包中。对于这个分数背包问题实例，题目15.2-1证明了这种选择策略的贪心选择性质，从而完成了本题的证明。</p>
+<h2 id="c-4">c</h2>
+<p>按照题目35-7-b的思想，可以先按照<span
+class="math inline">\(v_i/w_i\)</span>将每个物品进行排序。由于是尽量取价值较大的物品，因此只需要尽量地完整取一个价值最大物品即可。因此一直迭代下来，如果能够完整地取完一个大价值的物品，那么就继续往下取；否则只尽量取完这个物品的一部分后，算法终止。因此，最多只有一个物品会被部分装进背包。</p>
+<h2 id="d-4">d</h2>
+<p>对于任意0-1背包问题的解，它都是分数背包中的一个解。也就是说，对于同一问题实例下，0-1背包的解空间是分数背包解空间的子集，从0-1背包问题放松限制而来的分数背包问题将会存在更优的解，因此有<span
+class="math inline">\(v(Q_j)\ge v(P_j)\)</span>。</p>
+<p>接下来证明<span class="math inline">\(v(R_j)\ge
+v(Q_j)/2\)</span>。对于问题实例<span
+class="math inline">\(I_j\)</span>，由于物品<span
+class="math inline">\(j\)</span>必须完整地放进这个背包，因此这个背包必定包含了价值<span
+class="math inline">\(v_j\)</span>。由于对于其他<span
+class="math inline">\(i&gt;j\)</span>的物品而言，都有<span
+class="math inline">\(v_j\ge
+v_i\)</span>，并且根据题目37-7-c的结论，所移除的被放进背包的物品必定是<span
+class="math inline">\(J_i\)</span>中的某一部分。因此，移除的这一部分价值必定不会超过<span
+class="math inline">\(v_j\)</span>。由于<span
+class="math inline">\(R_j\)</span>相比<span
+class="math inline">\(Q_j\)</span>而言，仅仅是移除了被部分装入的那个物品<span
+class="math inline">\(i\)</span>，因此有<span
+class="math inline">\(v(R_j)\ge V(Q_j)/2\)</span>。</p>
+<p>最终证明得到<span class="math inline">\(V(R_j)\ge v(Q_j)/2\ge
+v(P_j)/2\)</span>，</p>
+<h2 id="e-3">e</h2>
+<p>首先依次求解每个问题实例<span
+class="math inline">\(I_j\)</span>的0-1背包近似解<span
+class="math inline">\(Q_j\)</span>，然后在这<span
+class="math inline">\(n\)</span>个近似解中选取最优的一个即可。</p>
+<p>具体过程由<code>APPROX-0-1-KNAPSACK-PROBLEM</code>给出，可见这是一个<span
+class="math inline">\(O(n^2\log
+n)\)</span>的简单实现，它是多项式的。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">// 数组J中的每个元素J[i]都含有两个属性w和v，分别表示物品的重量和价值。</span><br><span class="line">FRACTIONAL-KNAPSACK-PROBLEM-DELETE-FRACTIONAL-ITEM(J, n, W)</span><br><span class="line">  sort J in descending order by J[i].v / J[i].s</span><br><span class="line">  p = n</span><br><span class="line">  sum = 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    sum += J[i].s</span><br><span class="line">    if sum &gt; W</span><br><span class="line">      p = i - 1</span><br><span class="line">      break</span><br><span class="line">  return J[1 : m]</span><br><span class="line"></span><br><span class="line">APPROX-0-1-KNAPSACK-PROBLEM(J, n, W)</span><br><span class="line">  sort J in ascending order by J[i].s</span><br><span class="line">  let now be a new array</span><br><span class="line">  for i = n down to 1</span><br><span class="line">    sol = FRACTIONAL-KNAPSACK-PROBLEM-DELETE-FRACTIONAL-ITEM(J[i + 1: n], n - i, W - J[i].s)</span><br><span class="line">    INSERT(sol, J[i])</span><br><span class="line">    if sol is better then now</span><br><span class="line">      now = sol</span><br><span class="line">  return sol</span><br></pre></td></tr></table></figure>
+<p>接下来分析这个算法的近似比例。在每一次迭代中，都求出了问题实例<span
+class="math inline">\(I_j\)</span>的0-1背包问题的一个近似解<span
+class="math inline">\(Q_i\)</span>。按照题目37-7-d的结论，这是一个近似比例为<span
+class="math inline">\(2\)</span>的解。根据题目37-7-a的结论，问题实例<span
+class="math inline">\(I\)</span>的0-1背包问题的最优解<span
+class="math inline">\(P\)</span>必定是某个解<span
+class="math inline">\(P_j\)</span>，那么意味着<span
+class="math inline">\(Q_j\)</span>也是问题实例<span
+class="math inline">\(I\)</span>的0-1背包问题的一个近似比为<span
+class="math inline">\(2\)</span>的解。因此算法<code>APPROX-0-1-KNAPSACK-PROBLEM</code>是一个0-1背包问题近似比为<span
+class="math inline">\(2\)</span>的多项式时间算法。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/problems/" title="算法导论35 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-35/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

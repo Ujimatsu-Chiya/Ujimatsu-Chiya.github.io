@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论29 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-29/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-04T06:40:13.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.176Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-29/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-29/problems/","path":"introduction-to-algorithms/chapter-29/problems/","title":"算法导论29 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论29 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">29-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">29-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">29-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">29-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#farkas%E5%BC%95%E7%90%86"><span class="nav-number">4.1.</span> <span class="nav-text">Farkas引理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">29-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-29/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论29 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论29 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-10-04 14:40:13" itemprop="dateCreated datePublished" datetime="2023-10-04T14:40:13+08:00">2023-10-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">29-1</h1>
+<h2 id="a">a</h2>
+<p>假设现在存在一个标准型线性规划的算法<code>LP-SOLVER-A(A, b, c)</code>（其中<span
+class="math inline">\(\mathbf{A,b}\)</span>表示约束，<span
+class="math inline">\(\mathbf{c}\)</span>表示目标函数对应的向量，最大化<span
+class="math inline">\(\mathbf{c}^T\mathbf{x}\)</span>的值），那么按照定理29.5，这个算法无非就返回<span
+class="math inline">\(3\)</span>种结果：</p>
+<ol type="1">
+<li>一个达到最优目标值的向量<span
+class="math inline">\(\mathbf{x}\)</span>。</li>
+<li><code>"unbounded"</code>，即无界。</li>
+<li><code>"infeasible"</code>，即这个约束不可行。</li>
+</ol>
+<p>那么线性不等式可行性问题检测算法<code>LINEAR-INEQUALITY-FEASIBILITY</code>用于检测标准型线性不等式可行性，只需要调用<code>LP-SOLVER-A</code>作为子程序即可。更具体的过程如下给出：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">LINEAR-INEQUALITY-FEASIBILITY(A, b, m, n):</span><br><span class="line">  let c[1 : n] be a new array</span><br><span class="line">  sol = LP-SOLVE-A(A, b, c)</span><br><span class="line">  if sol != &quot;infeasible&quot;</span><br><span class="line">    return sol</span><br><span class="line">  return NIL</span><br></pre></td></tr></table></figure>
+<p>这个过程用到的变量和约束的个数分是<span
+class="math inline">\(n,m\)</span>，即它们本身。</p>
+<h2 id="b">b</h2>
+<p>如果一个标准型线性规划<span
+class="math inline">\(L\)</span>存在一个有限最优解（最大值），那么其对偶问题也存在一个有限最优解（最小值）。如果我们令这个最大值和最小值相等，再交由<code>LINEAR-INEQUALITY-FEASIBILITY-A</code>求出一个可行解即可。</p>
+<p>更具体地说，线性规划<span
+class="math inline">\(L\)</span>可行当且仅当下面关于<span
+class="math inline">\(\mathbf{x,y}\)</span>的线性不等式是否可行：</p>
+<p><span class="math inline">\(\begin{aligned}
+\mathbf{A}\mathbf{x}&amp;\le\mathbf{b}\\
+\mathbf{A}^T\mathbf{y}&amp;\ge\mathbf{c}\\
+\mathbf{c}^T\mathbf{x}&amp;=\mathbf{b}^T\mathbf{y}\\
+\mathbf{x}&amp;\ge 0\\
+\mathbf{y}&amp;\ge 0\\
+\end{aligned}\)</span></p>
+<p>如果<span
+class="math inline">\(L\)</span>是无界的，那么上面的线性不等式同样是不可行的。因此，我们下一步只需要判断<span
+class="math inline">\(L\)</span>是否为可行，从而区分出无界和不可行这两种情况。只需要进行两次判断以区分这<span
+class="math inline">\(3\)</span>种情况即可。更具体的情况由<code>LP-SOLVE</code>给出，假定<code>LINEAR-INEQUALITY-FEASIBILITY-A</code>是用于求解标准型线性不等式可行性的算法。最终求解线性规划算法由<code>LP-SOLVE</code>给出。</p>
+<p>将上面的线性</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">LP-SOLVE(A, b, c, m, n)</span><br><span class="line">  sol1 = LINEAR-INEQUALITY-FEASIBILITY-A(A, b, m, n)</span><br><span class="line">  if sol1 == NIL</span><br><span class="line">    return &quot;infeasible&quot;</span><br><span class="line">  let A&#x27;[2 * n + 2 * m + 2, n + m] be a new table by 0</span><br><span class="line">  let b&#x27;[2 * n + 2 * m + 2] be a new array by 0</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      A&#x27;[i, j] = A[i, j]</span><br><span class="line">      A&#x27;[m + j][n + i] = A[i, j]</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    A[m + n + 1][n + i] = -b[i]</span><br><span class="line">    A[m + n + 2][n + i] = b[i]</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    A[m + n + 1][j] = c[j]</span><br><span class="line">    A[m + n + 2][j] = -c[j]</span><br><span class="line">  for k = 1 to m + n</span><br><span class="line">    A[m + n + 2 + k][k] = -1</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    b&#x27;[i] = b[i]</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    b&#x27;[m + i] = c[j]</span><br><span class="line">  sol2 = LINEAR-INEQUALITY-FEASIBILITY-A(A, b, 2 * n + 2 * m + 2, n + m)</span><br><span class="line">  if sol2 == NIL</span><br><span class="line">    return &quot;unbounded&quot;</span><br><span class="line">  else</span><br><span class="line">    return sol2</span><br></pre></td></tr></table></figure>
+<p>对上面的线性不等式标准化后，将会有<span
+class="math inline">\(2n+2m+2\)</span>条不等式，<span
+class="math inline">\(n+m\)</span>个变量，它们仍然是<span
+class="math inline">\(n\)</span>和<span
+class="math inline">\(m\)</span>的多项式。</p>
+<h1 id="section-1">29-2</h1>
+<h2 id="a-1">a</h2>
+<p>该线性规划<span
+class="math inline">\(L\)</span>给出的最优可行解为<span
+class="math inline">\(\mathbf{x}^{\ast}=(x_1,x_2,x_3)=(8,4,0)\)</span>，对于其对偶线性规划，其最优可行解为<span
+class="math inline">\(\mathbf{y}^{\ast}=(y_1,y_2,y_3)=(0,1/6,2/3)\)</span>。令<span
+class="math inline">\(\mathbf{A}\)</span>表示原约束的系数矩阵，可以知道，<span
+class="math inline">\(\mathbf{Ax}^{\ast}=(12,24,36)^T,\mathbf{A}^T\mathbf{y}=(3,1,13/6)^T\)</span>。将<span
+class="math inline">\(\mathbf{A}^T\mathbf{y^{\ast}}\)</span>和<span
+class="math inline">\(\mathbf{x}^{\ast}\)</span>以及<span
+class="math inline">\(\mathbf{Ax}\)</span>和<span
+class="math inline">\(\mathbf{y}^{\ast}\)</span>相对比即可完成验证。</p>
+<h2 id="b-1">b</h2>
+<p>必要性：假设互补松驰性成立，那么有<span
+class="math inline">\(\displaystyle{\sum_{j=1}^n
+c_j\overline{x}_j=\sum_{j=1}^n\sum_{i=1}^m
+a_{ij}\overline{y}_i\overline{x}_j}\)</span>。原因在于，考虑每个<span
+class="math inline">\(j\in[1,n]\)</span>，如果<span
+class="math inline">\(\overline{x}_j=0\)</span>，那么<span
+class="math inline">\(\displaystyle{c_j\overline{x}_j=0,\overline{x}_j\cdot\sum_{i=1}^ma_{ij}\overline{y}_i=0}\)</span>，等式<span
+class="math inline">\(\displaystyle{c_j\overline{x}_j=\sum_{i=1}^ma_{ij}\overline{y}_i\overline{x}_j}\)</span>成立；如果<span
+class="math inline">\(\overline{x}_j=0\)</span>不成立，那么按照互补松弛性，此时有<span
+class="math inline">\(\displaystyle{\sum_{i=1}^ma_{ij}\overline{y}_i=c_j}\)</span>，等式<span
+class="math inline">\(\displaystyle{c_j\overline{x}_j=\sum_{i=1}^ma_{ij}\overline{y}_i\overline{x}_j}\)</span>依旧成立。因此有<span
+class="math inline">\(\displaystyle{\sum_{j=1}^n
+c_j\overline{x}_j=\sum_{j=1}^n\sum_{i=1}^m
+a_{ij}\overline{y}_i\overline{x}_j}\)</span>。</p>
+<p>可以用类似的方法证明<span
+class="math inline">\(\displaystyle{\sum_{i=1}^m
+b_i\overline{y}_i=\sum_{i=1}^m\sum_{j=1}^n
+a_{ij}\overline{x}_j\overline{y}_i}\)</span>。考虑每个<span
+class="math inline">\(i\in[1,m]\)</span>，如果<span
+class="math inline">\(\overline{y}_i=0\)</span>，那么<span
+class="math inline">\(\displaystyle{b_i\overline{y}_i=0,y_i\cdot\sum_{j=1}^n}a_{ij}\overline{x}_j=0\)</span>，等式<span
+class="math inline">\(\displaystyle{b_i\overline{y}_i=\sum_{j=1}^n
+a_{ij}\overline{x}_j\overline{y}_i}\)</span>成立。如果<span
+class="math inline">\(\overline{y}_i=0\)</span>不成立，那么按照互补松弛性，此时有<span
+class="math inline">\(\displaystyle{\sum_{j=1}^n
+a_{ij}\overline{x}_j=b_i}\)</span>，等式<span
+class="math inline">\(\displaystyle{b_i\overline{y}_i=\sum_{j=1}^n
+a_{ij}\overline{x}_j\overline{y}_i}\)</span>依旧成立。因此有<span
+class="math inline">\(\displaystyle{\sum_{i=1}^m
+b_i\overline{y}_i=\sum_{i=1}^m\sum_{j=1}^n
+a_{ij}\overline{x}_j\overline{y}_i}\)</span>。</p>
+<p>由于<span
+class="math inline">\(\displaystyle{\sum_{j=1}^n\sum_{i=1}^m
+a_{ij}\overline{y}_i\overline{x}_j=\sum_{i=1}^m\sum_{j=1}^n
+a_{ij}\overline{x}_j\overline{y}}\)</span>，因此有<span
+class="math inline">\(\displaystyle{\sum_{j=1}^n
+c_j\overline{x}_j=\sum_{i=1}^m b_i\overline{y}_i}\)</span>，即<span
+class="math inline">\(\mathbf{c}^T\overline{\mathbf{x}}=\mathbf{b}^T\overline{\mathbf{y}}\)</span>。</p>
+<p>按照定理29.4，<span
+class="math inline">\(\overline{\mathbf{x}},\overline{\mathbf{y}}\)</span>分别是原线性规划和对偶线性规划的最优解，原结论成立。</p>
+<p>充分性：我们将使用反证法完成证明。假设现在<span
+class="math inline">\(\mathbf{x}^{\ast},\mathbf{y}^{\ast}\)</span>分别是原线性规划和对偶线性规划的最优解。假设<span
+class="math inline">\(\exists i\in[1,m]\)</span>满足<span
+class="math inline">\(y_i^{\ast}\neq 0\)</span>，并且有<span
+class="math inline">\(\displaystyle{\sum_{j=1}^n
+a_{ij}x_j^{\ast}&lt;b_i}\)</span>，使用必要性种类似的计算过程，可以得到：</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{j=1}^n
+c_jx_j^{\ast}&amp;=\sum_{j=1}^n\sum_{i=1}^ma_{ij}y_i^{\ast}x_j^{\ast}\\
+&amp;=\sum_{i=1}^m\sum_{j=1}^n a_{ij}x_j^{\ast}y_i^{\ast}\\
+&amp;&lt;\sum_{i=1}^m\sum_{j=1}^n b_iy_i^{\ast}\\
+\end{aligned}\)</span></p>
+<p>按照定理29.4，<span
+class="math inline">\(\overline{\mathbf{x}},\overline{\mathbf{y}}\)</span>必定不是原线性规划和对偶线性规划的最优解，因此原结论成立。</p>
+<p>对于另外一种情况的证明过程类似，假设<span
+class="math inline">\(\exists j\in[1,n]\)</span>满足<span
+class="math inline">\(x_j^{\ast}\neq 0\)</span>，并且有<span
+class="math inline">\(\displaystyle{\sum_{i=1}^m
+a_{ij}y_i^{\ast}&gt;c_j}\)</span>，使用必要性种类似的计算过程，可以得到：</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{j=1}^n
+c_jx_j^{\ast}&amp;&lt;\sum_{j=1}^n\sum_{i=1}^ma_{ij}y_i^{\ast}x_j^{\ast}\\
+&amp;=\sum_{i=1}^m\sum_{j=1}^n a_{ij}x_j^{\ast}y_i^{\ast}\\
+&amp;=\sum_{i=1}^m\sum_{j=1}^n b_iy_i^{\ast}\\
+\end{aligned}\)</span></p>
+<p>同样的，<span
+class="math inline">\(\overline{\mathbf{x}},\overline{\mathbf{y}}\)</span>必定不是原线性规划和对偶线性规划的最优解，因此原结论成立。</p>
+<p>因此原结论成立。</p>
+<h2 id="c">c</h2>
+<p>本题使用29-2-b的结论即可直接证明。 充分性：由于<span
+class="math inline">\(\mathbf{x}^{\ast}\)</span>是原线性规划的最优解，令<span
+class="math inline">\(\mathbf{y}^{\ast}\)</span>是对偶线性规划的最优解，那么其必定满足条件1。按照题目29-2-b的结论，条件2和3都成立。由此充分性成立。</p>
+<p>必要性：条件1说明了<span
+class="math inline">\(\overline{\mathbf{y}}\)</span>是对偶线性规划的一个可行解，根据题目29-2-b的结论，条件2和条件3说明了构造出来的可行解<span
+class="math inline">\(\overline{\mathbf{x,y}}\)</span>都是各自线性规划的最优解。由此必要性成立。</p>
+<p>因此原结论成立。</p>
+<h1 id="section-2">29-3</h1>
+<h2 id="a-2">a</h2>
+<p>证明过程和在线性规划时期，对引理29.1的证明过程完全相同。不失一般性，假设现在需要证明的整数规划是标准型。</p>
+<p>令<span
+class="math inline">\(\mathbf{x}\)</span>是原整数规划的一个可行解，<span
+class="math inline">\(\mathbf{y}\)</span>是对偶整数规划的一个可行解，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+\mathbf{c}^T\overline{\mathbf{x}}&amp;\le
+(\mathbf{A}^T\overline{\mathbf{y}})^T\overline{\mathbf{x}}\\
+&amp;=\overline{\mathbf{y}}^T\mathbf{A}\overline{\mathbf{x}}\\
+&amp;\le\overline{\mathbf{y}}^T\mathbf{b}
+\end{aligned}\)</span></p>
+<p>因此原结论成立。</p>
+<h2 id="b-2">b</h2>
+<p>考虑如下单个变量<span
+class="math inline">\(x\)</span>的标准型整数规划：</p>
+<p><span class="math inline">\(\begin{aligned}
+\text{maximize}&amp;&amp; x\\
+\text{subject to}&amp; \\
+&amp;&amp;x&amp;\le\dfrac{1}{2}\\
+&amp;&amp;x&amp;\ge 0
+\end{aligned}\)</span></p>
+<p>可以发现其最优可行解只有<span
+class="math inline">\(x=0\)</span>，目标函数值为<span
+class="math inline">\(0\)</span>。</p>
+<p>那么其对偶整数规划为：</p>
+<p><span class="math inline">\(\begin{aligned}
+\text{mimimize}&amp;&amp; \dfrac{1}{2}y\\
+\text{subject to}&amp; \\
+&amp;&amp;y&amp;\ge 1\\
+&amp;&amp;y&amp;\ge 0
+\end{aligned}\)</span></p>
+<p>可以发现其最优可行解为<span
+class="math inline">\(y=1\)</span>，目标函数值为<span
+class="math inline">\(\dfrac{1}{2}\)</span>。</p>
+<p>由于它们的最优解不相同，因此整数规划不满足对偶性。</p>
+<h2 id="c-1">c</h2>
+<p>不失一般性，假设现在需要证明的整数规划是标准型。</p>
+<p>令<span class="math inline">\(L_I\)</span>是一个标准型整数规划，<span
+class="math inline">\(L\)</span>是<span
+class="math inline">\(L_I\)</span>除去整数约束后所得到的线性规划，<span
+class="math inline">\(L_I^D\)</span>是<span
+class="math inline">\(L_I\)</span>的对偶整数规划，<span
+class="math inline">\(L^D\)</span>是<span
+class="math inline">\(L\)</span>的对偶线性规划。那么<span
+class="math inline">\(P,D\)</span>分别是<span
+class="math inline">\(L,L^D\)</span>的目标函数值。按照定理29.4，有<span
+class="math inline">\(P=D\)</span>。</p>
+<p>由于<span class="math inline">\(L_I\)</span>是<span
+class="math inline">\(L\)</span>添加上了整数约束而来，因此<span
+class="math inline">\(L_I\)</span>的可行域必定是<span
+class="math inline">\(L\)</span>的可行域的子集。这意味着在<span
+class="math inline">\(L\)</span>中的最优解必定不劣于<span
+class="math inline">\(L_I\)</span>中的最优解，因此有<span
+class="math inline">\(IP\le P\)</span>；类似的，在<span
+class="math inline">\(L^D\)</span>中的最优解必定不劣于<span
+class="math inline">\(L^D_I\)</span>中的最优解，因此有<span
+class="math inline">\(ID\ge D\)</span>。</p>
+<p>最终有等式<span class="math inline">\(IP\le P=D\le ID\)</span>。</p>
+<h1 id="section-3">29-4</h1>
+<p>这里的证明参考了这篇<a
+target="_blank" rel="noopener" href="https://people.orie.cornell.edu/dpw/orie6300/fall2008/Lectures/lec07.pdf">文章</a>。</p>
+<p>首先列出<strong>原始</strong>Farkas引理：</p>
+<h2 id="farkas引理">Farkas引理</h2>
+<p>给定<span class="math inline">\(M\in\mathbb{R}^{(m+1)\times
+n},g\in\mathbb{R}^{m+1}\)</span>，如下两种陈述只有一种成立：</p>
+<ol type="1">
+<li><span class="math inline">\(\exists \mathbf{v}\in
+\mathbb{R}^{n},\mathbf{Mv=g},\mathbf{v}\ge \mathbf{0}\)</span></li>
+<li><span class="math inline">\(\exists \mathbf{w}\in
+\mathbb{R}^{m+1},\mathbf{M}^T\mathbf{w}\ge
+\mathbf{0},\mathbf{g}^T\mathbf{w}&lt;0\)</span></li>
+</ol>
+<hr />
+<p>接下来证明题目中给定的<strong>变种</strong>Farkas引理。第一步则是使用反证法证明<strong>至多</strong>只有一个陈述成立。假设这两个陈述都成立，那么我们针对<span
+class="math inline">\(\mathbf{v,w}\)</span>的存在性，可以列出：</p>
+<p><span class="math inline">\(\begin{aligned}
+\mathbf{Mv}&amp;\le \mathbf{g}\\
+\mathbf{w}^T\mathbf{M}&amp;=\mathbf{0}\\
+\mathbf{w}^T\mathbf{g}&amp;&lt;\mathbf{0}
+\end{aligned}\)</span></p>
+<p>对第一条不等式左乘上一个恒非负的向量<span
+class="math inline">\(\mathbf{w^T}\)</span>，得到<span
+class="math inline">\(\mathbf{w}^T\mathbf{Mv}\le
+\mathbf{w}^T\mathbf{g}\)</span>，即得到<span
+class="math inline">\(\mathbf{w}^T\mathbf{g}=\mathbf{0}\)</span>，和第三条不等式矛盾，因此这两个陈述至多只有一个成立。</p>
+<p>接下来证明第2个陈述和如下第3个陈述是等价的：</p>
+<ol start="3" type="1">
+<li><span class="math inline">\(\exists \mathbf{w}\in
+\mathbb{R}^{m+1}\)</span>，使得<span class="math inline">\(\mathbf{w}\ge
+\mathbf{0},\mathbf{M}^T\mathbf{w}=0,\mathbf{w}^T\mathbf{g}=-1\)</span>。</li>
+</ol>
+<p>必要性显然成立，因为<span
+class="math inline">\(\mathbf{w}^T\mathbf{g}=-1&lt;0\)</span>，从而第2个陈述也是成立的。接下来证明充分性，令<span
+class="math inline">\(\mathbf{w&#39;}=-\dfrac{1}{\mathbf{w}^T\mathbf{g}}\cdot
+w\)</span>，那么由于<span
+class="math inline">\(-\dfrac{1}{\mathbf{w}^T\mathbf{g}}&lt;0\)</span>，因此<span
+class="math inline">\(\mathbf{w&#39;}\ge 0\)</span>仍然成立；<span
+class="math inline">\(\mathbf{w&#39;}^T\mathbf{g}=\dfrac{1}{\mathbf{w}^T\mathbf{g}}\cdot(\mathbf{w}^T\mathbf{g})=-1\)</span>；此外，<span
+class="math inline">\(\mathbf{w&#39;}^T\mathbf{M}=-\dfrac{1}{\mathbf{w}^T\mathbf{g}}\cdot
+(\mathbf{w}^T\mathbf{M})=0\)</span>，最终<span
+class="math inline">\(\mathbf{w&#39;}\)</span>的存在说明充分性成立。由此，第2个陈述和第3个陈述等价。</p>
+<p>假设现在第2个陈述不成立，那么第3个陈述也不成立。那么可以将<span
+class="math inline">\(\mathbf{M}^T\mathbf{w}=\mathbf{0},\mathbf{g}^T\mathbf{w}=-1\)</span>重写成<span
+class="math inline">\(\mathbf{A}=(\mathbf{M},\mathbf{g})^T,\mathbf{b}=(0,0,\dots,0,-1)^T\)</span>。</p>
+<p>由于第3个陈述不成立，这意味着<span class="math inline">\(\nexists
+\mathbf{x}\in\mathbb{R}^{m+1},\mathbf{x}\ge 0\)</span>使得<span
+class="math inline">\(\mathbf{Ax=b}\)</span>。也就是说，这时不满足<strong>原始</strong>Farkas引理的第1个陈述，那么这意味着<strong>原始</strong>Farkas引理第2个陈述必须成立，因此通过这条陈述，给出了<span
+class="math inline">\(\exists
+\mathbf{y}\in\mathbb{R}^{n+1},\mathbf{A}^T\mathbf{y}\ge
+0,\mathbf{b}^T\mathbf{y}&lt;0\)</span>。</p>
+<p>令<span
+class="math inline">\(\mathbf{y}=\begin{pmatrix}\mathbf{z}\\\lambda\end{pmatrix}\)</span>，其中<span
+class="math inline">\(\mathbf{z}\in \mathbb{R}^n,\lambda\in
+\mathbb{R}\)</span>。由于<span
+class="math inline">\(\mathbf{b}^T\)</span>前<span
+class="math inline">\(n\)</span>个分量都是<span
+class="math inline">\(0\)</span>，因此<span
+class="math inline">\(\mathbf{b}^T\mathbf{y}=-\lambda&lt;0\)</span>，因此得到<span
+class="math inline">\(\lambda&gt;0\)</span>。<span
+class="math inline">\(\mathbf{A}^T\mathbf{y}\ge 0\)</span>意味着<span
+class="math inline">\(\begin{pmatrix}\mathbf{M}&amp;\mathbf{g}\end{pmatrix}\begin{pmatrix}\mathbf{z}\\\lambda\end{pmatrix}\ge
+0\)</span>，这给出了<span class="math inline">\(\mathbf{Mz}+\lambda
+\mathbf{g}\ge 0\)</span>，即<span
+class="math inline">\(\mathbf{M}(-\mathbf{z}/\lambda)\le
+g\)</span>。向量<span
+class="math inline">\((-\mathbf{z}/\lambda)\)</span>的存在证明了<strong>变种</strong>Farkas引理的第1条陈述是正确的，因此原结论成立。</p>
+<h1 id="section-4">29-5</h1>
+<h2 id="a-3">a</h2>
+<p>由于删除了一些约束，因此这个问题的线性规划可以从最小费用流问题转化而来：</p>
+<p><span class="math inline">\(\begin{aligned}
+\text{minimize}&amp;&amp; \sum_{(u,v)\in E}a(u,v)\cdot f_{uv}\\
+\text{subject to}&amp; \\
+&amp;&amp;f_{uv}&amp;\le c(u,v) &amp;&amp;\forall (u,v)\in E \\
+&amp;&amp;f_{uv}&amp;\ge 0 &amp;&amp;\forall (u,v)\in E \\
+&amp;&amp;\sum_{(u,v)\in E} f_{uv}&amp;=\sum_{(v,u)\in E} f_{vu}
+&amp;&amp;\forall u\in V
+\end{aligned}\)</span></p>
+<h2 id="b-3">b</h2>
+<p>由于花费函数<span
+class="math inline">\(a(u,v)&gt;0\)</span>，并且线性规划的目标函数是最小化费用。因此线性规划的最优方案将是：不使用任何边进行流动，那么这样将不会产生任何花费。因此，这个流是的大小为<span
+class="math inline">\(0\)</span>。</p>
+<h2 id="c-2">c</h2>
+<p>不失一般性，我们可以删除<span class="math inline">\(E\)</span>中<span
+class="math inline">\((t,s)\)</span>的边，这不会减少最大流的值。</p>
+<p>我们构造图<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>，其中<span
+class="math inline">\(V&#39;=V,E&#39;=E\cup\{(t,s)\}\)</span>。令<span
+class="math inline">\(a(t,s)=-1,c(t,s)=+\infty\)</span>，对于<span
+class="math inline">\(\forall(u,v)\in E\)</span>，都有<span
+class="math inline">\(a(u,v)=0,c(u,v)\)</span>为原最大流问题中，有向边<span
+class="math inline">\((u,v)\)</span>的容量。考虑新构造后的图<span
+class="math inline">\(G&#39;\)</span>，以及对应的容量函数<span
+class="math inline">\(c\)</span>和费用函数<span
+class="math inline">\(a\)</span>，那么最大流问题就相当于解决如此一个最小费用流通问题。</p>
+<p>在<span class="math inline">\(G&#39;\)</span>中，如果一个“流”从<span
+class="math inline">\(t\)</span>流动到<span
+class="math inline">\(s\)</span>，那么将会有一个真正的流从<span
+class="math inline">\(s\)</span>流动到<span
+class="math inline">\(t\)</span>。并且由于<span
+class="math inline">\(a(t,s)=-1\)</span>，因此线性规划算法将会“激励”尽量多的流产生，并且产生一个真正的流并不会添加任何代价。由于<span
+class="math inline">\(c(t,s)=+\infty\)</span>，因此这将不会限制从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(t\)</span>的流产生。</p>
+<p>最终，舍去变量<span
+class="math inline">\(f_{ts}\)</span>的值（或者是让其值为<span
+class="math inline">\(0\)</span>），那么计算出的一组解<span
+class="math inline">\(f\)</span>为原图<span
+class="math inline">\(G\)</span>上的最大流。</p>
+<h2 id="d">d</h2>
+<p>令<span class="math inline">\(\displaystyle{A=1+\sum_{(u,v)\in
+E}a(u,v)}\)</span>，其中<span
+class="math inline">\(a(u,v)\)</span>是从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>的距离。也就是说，<span
+class="math inline">\(M\)</span>是一个足够大的数，但并非是无穷大。</p>
+<p>同样的，不失一般性，我们可以删除<span
+class="math inline">\(E\)</span>中<span
+class="math inline">\(s\)</span>的所有入边，这不会增加从<span
+class="math inline">\(s\)</span>到任意节点的最短路径。</p>
+<p>可以构造图<span
+class="math inline">\(G&#39;=(V&#39;,E&#39;)\)</span>，其中<span
+class="math inline">\(V&#39;=V,E&#39;=E\cup\{(v,s):v\in
+V-\{s\}\}\)</span>。<span class="math inline">\(\forall (v,s)\in
+E&#39;\)</span>，令<span
+class="math inline">\(c(v,s)=1,a(v,s)=-A\)</span>。<span
+class="math inline">\(\forall (u,v)\in
+E,c(u,v)=+\infty,a(u,v)\)</span>为原最短路问题中，从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>的距离边权。考虑新构造后的图<span
+class="math inline">\(G&#39;\)</span>，以及对应的容量函数<span
+class="math inline">\(c\)</span>和费用函数<span
+class="math inline">\(a\)</span>，那么最短路问题就相当于解决如此一个最小费用流通问题。</p>
+<p>在<span
+class="math inline">\(G&#39;\)</span>中，任意一条<strong>简单路径</strong>的长度都小于<span
+class="math inline">\(A\)</span>。因此在一个最小费用流通问题中，使用边<span
+class="math inline">\((v,s)\in
+E&#39;\)</span>一定是更优的。对于任意<span class="math inline">\(v\in
+V-\{s\}\)</span>，这意味着必定有一个流从<span
+class="math inline">\(s\)</span>到达<span
+class="math inline">\(v\)</span>，并且这个流的费用是最小的，这时从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(v\)</span>的这个流恰好就对应了原问题的最短路径。</p>
+<p>最终，舍去所有变量<span class="math inline">\(f_{vs}(s\in
+V-\{s\})\)</span>（或者是让其值为<span
+class="math inline">\(0\)</span>）。对于任意节点<span
+class="math inline">\(v\in V-\{s\}\)</span>，求出从<span
+class="math inline">\(s\)</span>到<span
+class="math inline">\(v\)</span>的最短路径，需要从<span
+class="math inline">\(v\)</span>开始，逐渐向前移动，找到这个流的起点即可。最终处理出来的流就是对应最短路径。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-29/problems/" title="算法导论29 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-29/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

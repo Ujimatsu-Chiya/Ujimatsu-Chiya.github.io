@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论33.1 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-1/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-19T14:02:25.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.183Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-1/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-1/","path":"introduction-to-algorithms/chapter-33/exercises-1/","title":"算法导论33.1 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论33.1 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">33.1-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">33.1-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">33.1-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">33.1-4</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论33.1 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论33.1 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-19 22:02:25" itemprop="dateCreated datePublished" datetime="2023-05-19T22:02:25+08:00">2023-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">33.1-1</h1>
+<p><span class="math inline">\(\begin{aligned}
+f(S,C)&amp;=\sum_{\ell=1}^k\dfrac{1}{2|S^{(\ell)}|}\sum_{\mathbf{x,y}\in
+S^{(\ell)}:\mathbf{x\neq y}}\Delta(\mathbf{x,y})\\
+&amp;=\sum_{\ell=1}^k\dfrac{1}{2|S^{(\ell)}|}\sum_{\mathbf{x,y}\in
+S^{(\ell)}}\Delta(\mathbf{x,y})&amp;\qquad(A)\\
+&amp;=\sum_{\ell=1}^k\dfrac{1}{2|S^{(\ell)}|}\sum_{a=1}^d\sum_{\mathbf{x,y}\in
+S^{(\ell)}}(x_a-y_a)^2\\
+&amp;=\sum_{\ell=1}^k\dfrac{1}{2|S^{(\ell)}|}\sum_{a=1}^d\left(2|S^{(l)}|\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a^2-2\sum_{\mathbf{x,y}\in S^{(\ell)}}x_ay_a\right)\\
+&amp;=\sum_{\ell=1}^k\dfrac{1}{2|S^{(\ell)}|}\sum_{a=1}^d\left(2|S^{(l)}|\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a^2-2\left(\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a\right)^2\right)\\
+&amp;=\sum_{\ell=1}^k\dfrac{1}{2|S^{(\ell)}|}\sum_{a=1}^d\left(2|S^{(l)}|\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a^2-2|S^{(\ell)}|^2(c_a^{(\ell)})^2\right)&amp;\qquad(B)\\
+&amp;=\sum_{\ell=1}^k\sum_{a=1}^d\left(\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a^2-|S^{(\ell)}|(c_a^{(\ell)})^2\right)\\
+&amp;=\sum_{\ell=1}^k\sum_{a=1}^d\left(\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a^2-2\left(\sum_{\mathbf{x}\in
+S^{\ell}}\right)c_a^{(\ell)}+|S^{(\ell)}|(c_a^{(\ell)})^2\right)&amp;\qquad(C)\\
+&amp;=\sum_{\ell=1}^k\sum_{a=1}^d\sum_{\mathbf{x}\in
+S^{(\ell)}}(x_a-c_a^{(\ell)})^2\\
+&amp;=\sum_{\ell=1}^k\sum_{\mathbf{x}\in
+S^{(\ell)}}\Delta(\mathbf{x,c^{(\ell)}})
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>是基于<span
+class="math inline">\(\Delta(\mathbf{x,x})=0\)</span>这个事实，步骤<span
+class="math inline">\((B),(C)\)</span>则使用了第1010页所给定的方程<span
+class="math inline">\(\displaystyle{-2\sum_{\mathbf{x}\in
+S^{(\ell)}}x_a+2|S^{(\ell)}|c_a^{(\ell)}=0}\)</span>进行移项，补项。</p>
+<h1 id="section-1">33.1-2</h1>
+<p>令<span
+class="math inline">\(S=\{(0,0),(1,0),(0,2),(1,2)\},C=\{(0,1),(1,1)\}\)</span>，并且<span
+class="math inline">\(\mathbf{x^{(1)},x^{(3)}}\in
+S^{(1)};\mathbf{x^{(2)},x^{(4)}}\in
+S^{(2)}\)</span>。经过一次迭代后，发现<span
+class="math inline">\(S^{(1)}\)</span>的重心仍然是<span
+class="math inline">\(\mathbf{c^{(1)}}\)</span>，并且<span
+class="math inline">\(S^{(2)}\)</span>的重心仍然是<span
+class="math inline">\(\mathbf{c^{(2)}}\)</span>，所有点的归属不会改变，算法终止，<span
+class="math inline">\(f(S,C)=4\)</span>。</p>
+<p>然而实际上，如果<span
+class="math inline">\(C&#39;=\{(0.5,0),(0.5,2)\}\)</span>，并且<span
+class="math inline">\(\mathbf{x^{(1)},x^{(2)}}\in
+S&#39;^{(1)};\mathbf{x^{(3)},x^{(4)}}\in
+S&#39;^{(2)}\)</span>，那么实际上这个聚类更优，并且有<span
+class="math inline">\(f(S,C&#39;)=1\)</span>。</p>
+<h1 id="section-2">33.1-3</h1>
+<p>首先使用一个哈希表，对这些点进行去重，最终以<span
+class="math inline">\(O(n)\)</span>的算法得到一个单重集<span
+class="math inline">\(X&#39;\)</span>，其中<span
+class="math inline">\(|X&#39;|=m\)</span>。</p>
+<p>如果<span class="math inline">\(m\le k\)</span>，那么直接返回<span
+class="math inline">\(m\)</span>个点和<span
+class="math inline">\(k-m\)</span>个原点即可。返回原点的思想类似Lloyd程序的第4步。</p>
+<p>如果<span
+class="math inline">\(m&gt;k\)</span>，那么使用练习5.3-5的算法返回一个只有大小为<span
+class="math inline">\(k\)</span>的初始中心。由算法<code>SAMPLE-K-CENTER</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">SAMPLE-K-CENTER(X&#x27;, m, k)</span><br><span class="line">  Let C be new array</span><br><span class="line">  S = ∅</span><br><span class="line">  for i = m - k + 1 to m</span><br><span class="line">    if i ∈ S</span><br><span class="line">      S = S ∪ &#123;k&#125;</span><br><span class="line">      INSERT(C, X&#x27;[k])</span><br><span class="line">    else</span><br><span class="line">      S = S ∪ &#123;i&#125;</span><br><span class="line">      INSERT(C, X&#x27;[i])</span><br><span class="line">  return C</span><br></pre></td></tr></table></figure>
+<h1 id="section-3">33.1-4</h1>
+<p>我们首先需要证明，对于<span
+class="math inline">\(X\)</span>中的任意<span
+class="math inline">\(4\)</span>个数据<span
+class="math inline">\(x_1,x_2,x_3,x_4\)</span>，其中有<span
+class="math inline">\(x_1\le x_2\le x_3\le
+x_4\)</span>。那么如果存在一种聚合方式是将<span
+class="math inline">\(x_1,x_3\)</span>聚合到同一类<span
+class="math inline">\(S^{(1)}\)</span>，<span
+class="math inline">\(x_2,x_4\)</span>聚合到同一类<span
+class="math inline">\(S^{(2)}\)</span>，那么这种聚合肯定不是最优的。因为更优的方式为<span
+class="math inline">\((x_1,x_2),(x_3,x_4)\)</span>。考虑</p>
+<p><span class="math inline">\(\begin{aligned}
+((x_4-x_2)^2+(x_3-x_1)^2)-((x_4-x_3)^2+(x_2-x_1)^2)&amp;=2(x_4-x_1)(x_3-x_2)\\
+&amp;\ge 0
+\end{aligned}\)</span></p>
+<p>并且相对于<span
+class="math inline">\(S^{(1)}\)</span>中的元素而言，<span
+class="math inline">\(\forall x\in S-\{x_3\},x\le
+x_1\)</span>都成立，那么令<span
+class="math inline">\(S&#39;^{(1)}=(S-\{x_3\})\cup
+\{x_2\}\)</span>，可以知道<span class="math inline">\(\sum_{x}
+\Delta(x,c_1)\)</span>将会减少（<span
+class="math inline">\(S&#39;^{(2)}\)</span>的过程同理）。</p>
+<p>这个证明说明了，在一个有序的序列中，只有<strong>连续的一整段</strong>才有可能是一个最优的聚类方式。也就是说，将一个排好序的数组划分成段一个个段，才是最优的做法。</p>
+<p>这给出了我们一个使用动态规划算法最小化<span
+class="math inline">\(f(S,C)\)</span>的值。令<span
+class="math inline">\(X\)</span>是一个长度为<span
+class="math inline">\(n\)</span>的已排好序的数组（也就是这个数据集）。令状态<span
+class="math inline">\(g[i,j](0\le i\le k,0\le j\le
+n)\)</span>表示将<span class="math inline">\(X\)</span>的前<span
+class="math inline">\(j\)</span>个值划分<span
+class="math inline">\(i\)</span>个段时，最近中心平方距离和<span
+class="math inline">\(f(X[1:i],C)\)</span>的最小值。那么可以得到<span
+class="math inline">\(g\)</span>的状态转移方程：</p>
+<p><span class="math inline">\(g[i,j]=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad  j=0 \\
+  &amp;\infty &amp; &amp; \text{if}\quad  i = 0\land j &gt; 0 \\
+  &amp;\min_{l=0}^{j} \{g[i-1,l]+w_X(l,j)\} &amp; &amp;
+\text{if}\quad  i &gt; 0\land j &gt; 0 \\
+\end{aligned}\right.\)</span></p>
+<p>其中，<span class="math inline">\(w(i,j)\)</span>表示数组<span
+class="math inline">\(X[i+1:j]\)</span>被划分到同一块时，其产生的距离平方和。注意状态转移方程的第3行，当<span
+class="math inline">\(l=j\)</span>时，表明这个集合是空的，<span
+class="math inline">\(w(j,j)=0\)</span>。</p>
+<p>至于<span
+class="math inline">\(w(i,j)\)</span>的计算，我们使用题目33.1-1给出的过程，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+w(i,j)&amp;=\dfrac{1}{2(j-i)}\left(2(j-i)\sum_{k=i+1}^jX[i]^2-2\left(\sum_{k=i+1}^jX[i]\right)^2\right)\\
+&amp;=\sum_{k=i+1}^jX[i]^2-\dfrac{1}{j-i}
+\left(\sum_{k=i+1}^jX[i]\right)^2
+\end{aligned}\)</span></p>
+<p>令<span class="math inline">\(\displaystyle{S[k]=\sum_{i=1}^{k}
+X[i],T[k]=\sum_{i=1}^k X[i]^2}\)</span>，那么可以将<span
+class="math inline">\(w(i,j)\)</span>进一步化简成<span
+class="math inline">\(w(i,j)=T[j]-T[i]-\dfrac{(S[j]-S[i])^2}{j-i}\)</span>。也就是说，使用<span
+class="math inline">\(O(n)\)</span>的运行时间预处理出<span
+class="math inline">\(S,T\)</span>后，就可以以<span
+class="math inline">\(O(1)\)</span>的时间计算<span
+class="math inline">\(w\)</span>。</p>
+<p>那么最终答案为<span
+class="math inline">\(g[k,n]\)</span>，求解的时间复杂度为<span
+class="math inline">\(O(n^2k)\)</span>。求解划分的算法由程序<code>CLUSTER-1-DIMENSION</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">CLUSTER-1-DIMENSION(X, n, k)</span><br><span class="line">  //先进行排序</span><br><span class="line">  RANDOMIZED-QUICKSORT(X, 1, n)</span><br><span class="line">  let S[0 : n], T[0 : n] be new arrays</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    S[i] = S[i - 1] + X[i]</span><br><span class="line">    T[i] = T[i - 1] + X[i] * X[i]</span><br><span class="line">  let g[0 : k, 0 : n], pre[0 : k, 0 : n] be new matrices</span><br><span class="line">  for i = 0 to k</span><br><span class="line">    g[i, 0] = 0</span><br><span class="line">  for j = 1 to n</span><br><span class="line">    g[0, j] = ∞</span><br><span class="line">  for i = 1 to k</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      g[i, j] = g[i - 1, j]</span><br><span class="line">      pre[i, j] = j</span><br><span class="line">      for l = 0 to j - 1</span><br><span class="line">          w = T[j] - T[i] + (S[j] - S[i]) * (S[j] - S[i]) / (j - i)</span><br><span class="line">        if g[i, j] &gt; g[i - 1, l] + w</span><br><span class="line">          g[i, j] = g[i - 1, l] + w</span><br><span class="line">          pre[i, j] = l</span><br><span class="line">  // 开始存储最终答案。</span><br><span class="line">  U = ∅</span><br><span class="line">  now = n</span><br><span class="line">  for i = k down to 1</span><br><span class="line">    p = pre[i, now]</span><br><span class="line">    if p != now</span><br><span class="line">      INSERT(U, X[p + 1 : now])</span><br><span class="line">    now = p</span><br><span class="line">  return g[k, n], U</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-1/" title="算法导论33.1 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-1/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论11 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-11/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-26T14:50:16.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.125Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-11/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-11/problems/","path":"introduction-to-algorithms/chapter-11/problems/","title":"算法导论11 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论11 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">11-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">1.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">11-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">11-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">3.5.</span> <span class="nav-text">e</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">11-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-11/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论11 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论11 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-26 22:50:16" itemprop="dateCreated datePublished" datetime="2023-01-26T22:50:16+08:00">2023-01-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">11-1</h1>
+<h2 id="a">a</h2>
+<p>令随机变量<span class="math inline">\(X_i\)</span>表示第<span
+class="math inline">\(i\)</span>个键插入所期望的时间。在第<span
+class="math inline">\(i\)</span>次插入时，哈希表中已经有<span
+class="math inline">\(i-1\)</span>个键，执行一次插入操作相当于执行了一次<strong>不成功查找</strong>。令随机变量<span
+class="math inline">\(Y_i\)</span>表示当填充因子为<span
+class="math inline">\(\dfrac{i}{m}(0\le i&lt;
+m)\)</span>时，进行一次<strong>不成功查找</strong>的时间，那么可以知道<span
+class="math inline">\(X_i=Y_{i+1}\)</span>。考虑计算<span
+class="math inline">\(\Pr\{Y_i&gt;p\}\)</span>的值，根据定理11.6，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\Pr\{Y_i&gt;p\} &amp;= \Pr\{Y_i\ge p+1\}\\
+&amp;\le \left(\dfrac{n}{m}\right)^p\\
+&amp;\le 2^{-p} &amp;\qquad(A)
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>使用了假设<span
+class="math inline">\(n\le m/2\)</span>。</p>
+<p>那么，进行一次插入操作时使用了严格多于<span
+class="math inline">\(p\)</span>次探测的概率为<span
+class="math inline">\(\Pr\{X_i&gt;p\}=\Pr\{Y_{i+1}&gt;p\}=2^{-p}\)</span>。</p>
+<h2 id="b">b</h2>
+<p>考虑计算<span
+class="math inline">\(\Pr\{Y_i&gt;p\}\)</span>的值，根据定理11.6，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\Pr\{Y_i&gt;2\lg n\} &amp;= \Pr\{Y_i\ge 2\lg n+1\}\\
+&amp;\le \left(\dfrac{n}{m}\right)^{2\lg n}\\
+&amp;\le \left(\dfrac{1}{2}\right)^{2\lg n}\\
+&amp;=\dfrac{1}{n^2}
+\end{aligned}\)</span></p>
+<p>因此有<span class="math inline">\(\Pr\{X_i&gt;2\lg
+n\}=\Pr\{Y_{i+1}&gt;2\lg n\}=O(1/n^2)\)</span>。</p>
+<h2 id="c">c</h2>
+<p>令事件<span class="math inline">\(A_i\)</span>表示<span
+class="math inline">\(X_i&gt;2\lg n\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+\Pr\{X&gt;2\lg n\} &amp;= \Pr\left\{\max_{i=1}^n X_i&gt;2\lg n\right\}\\
+&amp;=\Pr\left\{\bigcup_{i=1}^n A_i\right\}\\
+&amp;\le \sum_{i=1}^n \Pr\{A_i\}\\
+&amp;= \sum_{i=1}^n \Pr\{X_i&gt;2\lg n\}\\
+&amp;\le n\cdot \dfrac{1}{n^2}\\
+&amp;= \dfrac{1}{n}
+\end{aligned}\)</span></p>
+<p>因此有<span class="math inline">\(\Pr\{X&gt;2\lg
+n\}=O(1/n)\)</span>。</p>
+<h2 id="d">d</h2>
+<p><span class="math inline">\(\begin{aligned}
+E[X] &amp;= \sum_{i=1}^{\infty} \Pr\{X\ge i\}\\
+&amp;=\sum_{i=1}^{2\lg n} \Pr\{X\ge i\}+\sum_{i=2\lg n+1}^{n} \Pr\{X\ge
+i\}+\sum_{i=n+1}^{\infty} \Pr\{X\ge i\}\\
+&amp;\le\sum_{i=1}^{2\lg n} 1+\sum_{i=2\lg n+1}^{n} \dfrac{1}{n}+0\\
+&amp;\le\sum_{i=1}^{2\lg n} 1+\sum_{i=1}^{n} \dfrac{1}{n}\\
+&amp;=2\lg n+1\\
+&amp;\le 3\lg n &amp;\qquad(A)
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>假设了<span
+class="math inline">\(n&gt; 1\)</span>，那么有<span
+class="math inline">\(\lg n\ge 1\)</span>。因此有<span
+class="math inline">\(E[X]=O(\lg n)\)</span>。</p>
+<h1 id="section-1">11-2</h1>
+<h2 id="a-1">a</h2>
+<p>离线操作：将所有元素先进行排序，需要<span
+class="math inline">\(O(n\lg n)\)</span>的运行时间。</p>
+<p>在线操作：使用二分法可以在<span class="math inline">\(O(\lg
+n)\)</span>的时间内查找一个数是否在这个有序序列中，由算法<code>ORDERED-SEAECH</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ORDERED-SEAECH(A, n, k)</span><br><span class="line">  l = 1</span><br><span class="line">  r = n</span><br><span class="line">  while l &lt; r</span><br><span class="line">    mid = ⌊(l + r) / 2⌋</span><br><span class="line">    if A[mid] &gt;= k</span><br><span class="line">      l = mid</span><br><span class="line">    else</span><br><span class="line">      r = mid - 1</span><br><span class="line">  return l &lt;= n and A[l] == k</span><br></pre></td></tr></table></figure>
+<h2 id="b-1">b</h2>
+<p>令随机变量<span
+class="math inline">\(X\)</span>表示进行一次不成功的查找时，所需要进行探测次数的期望值。根据定理11.6，有<span
+class="math inline">\(E[X]\le
+\dfrac{1}{1-\alpha}=\dfrac{m}{m-n}\)</span>。</p>
+<p>如果使用开放寻址法的运行事件至少和题目11-2-a的效率一致，那么考虑解方程<span
+class="math inline">\(\dfrac{m}{m-n}\le c\lg n\)</span>，最终得到<span
+class="math inline">\(m\ge \dfrac{n\lg n}{\lg n - 1}-n\)</span>。</p>
+<p>经过变换，得到<span class="math inline">\(m-n\ge \dfrac{n}{\lg n -
+1}\ge \dfrac{n}{2\lg n}\)</span>。</p>
+<p>因此，最终只有当额外的空间满足<span
+class="math inline">\(m-n=\Omega(n/\lg
+n)\)</span>时，使用开放寻址法的效率才会接近二分法。</p>
+<h1 id="section-2">11-3</h1>
+<h2 id="a-2">a</h2>
+<p>对于某一特定槽而言，一个键被插入该槽的概率为<span
+class="math inline">\(\dfrac{1}{n}\)</span>，不被插入该槽的概率为<span
+class="math inline">\(1-\dfrac{1}{n}\)</span>。这<span
+class="math inline">\(n\)</span>个键的插入过程都是独立的，某一键插入该槽的情况可以看作是做一次概率为<span
+class="math inline">\(\dfrac{1}{n}\)</span>的伯努利实验，那么这<span
+class="math inline">\(n\)</span>个键对该槽插入的情况相当于是做<span
+class="math inline">\(n\)</span>次相同的伯努利实验。因此<span
+class="math inline">\(k\)</span>服从参数为<span
+class="math inline">\(n,\dfrac{1}{n}\)</span>的二项分布，即</p>
+<p><span
+class="math display">\[Q_k=b\left(k,n,\dfrac{1}{n}\right)=\left(\dfrac{1}{n}\right)^k\left(1-\dfrac{1}{n}\right)^{n-k}\dbinom{n}{k}\]</span></p>
+<h2 id="b-2">b</h2>
+<p>令随机变量<span class="math inline">\(X_i\)</span>表示第<span
+class="math inline">\(i\)</span>个槽中的链的长度。令事件<span
+class="math inline">\(A_i\)</span>表示<span
+class="math inline">\(X_i=k\)</span>，事件<span
+class="math inline">\(A=\displaystyle{\bigcap_{i=1}^n
+A_i}\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+P_k&amp;\le \Pr\{A\} &amp;\qquad(A)\\
+&amp;=\Pr\left\{\bigcap_{i=1}^n A_i\right\}\\
+&amp;\le \sum_{i=1}^n \Pr\{A_i\}\\
+&amp;= \sum_{i=1}^n Q_k\\
+&amp;= nQ_k
+\end{aligned}\)</span></p>
+<p>其中，步骤<span
+class="math inline">\(A\)</span>扩大了事件所代表的空间：<span
+class="math inline">\(\{X_i\}\)</span>的最大值为<span
+class="math inline">\(k\)</span>，可以推出所有随机变量中存在一个随机变量取值为<span
+class="math inline">\(k\)</span>，而不能反向推出。</p>
+<h2 id="c-1">c</h2>
+<p>使用不等式C.6：<span class="math inline">\(\dbinom{n}{k}\le
+\left(\dfrac{en}{k}\right)^k\)</span>，有</p>
+<p><span class="math inline">\(\begin{aligned}
+Q_k&amp;=\left(\dfrac{1}{n}\right)^k\left(\dfrac{n-1}{n}\right)^{n-k}\dbinom{n}{k}\\
+&amp;\le \dfrac{(n-1)^{n-k}}{n^n} \cdot \dfrac{e^kn^k}{k^k}\\
+&amp;&lt; \dfrac{n^{n-k}}{n^n} \cdot \dfrac{e^kn^k}{k^k}\\
+&amp;=\dfrac{e^k}{k^k}
+\end{aligned}\)</span></p>
+<h2 id="d-1">d</h2>
+<p>考虑求满足条件的<span class="math inline">\(k_0\)</span>使得<span
+class="math inline">\(\dfrac{e^{k_0}}{k_0^{k_0}}&lt;\dfrac{1}{n^3}\)</span>.两边对<span
+class="math inline">\(2\)</span>取对数，移项后得到</p>
+<p><span class="math display">\[3\lg n&lt;k_0(\lg k_0-\lg
+e)\]</span></p>
+<p>代入<span class="math inline">\(k_0=\dfrac{c\lg n}{\lg\lg
+n}\)</span>，那么得到<span class="math inline">\(3\lg n&lt;\dfrac{c\lg
+n}{\lg \lg n}\left(\lg \dfrac{c\lg n}{\lg\lg n}-\lg
+e\right)\)</span>。</p>
+<p>假设<span
+class="math inline">\(n&gt;2\)</span>，更进一步，可以化简到<span
+class="math inline">\(\dfrac{c}{\lg\lg n}\left(\lg c-\lg\lg\lg n-\lg
+e\right)+c&gt;3\)</span>。</p>
+<p>令<span class="math inline">\(g(n)=\dfrac{c}{\lg\lg n}\left(\lg
+c-\lg\lg\lg n-\lg e\right)+c\)</span>，可以发现<span
+class="math inline">\(\displaystyle{\lim_{n\rightarrow\infty}g(n)=c}\)</span>。如果<span
+class="math inline">\(c=4\)</span>，<span class="math inline">\(\exists
+n_0&gt;3,\forall n\ge n_0,g(n)&gt;3\)</span>恒成立。当<span
+class="math inline">\(n&lt; n_0\)</span>时，令<span
+class="math inline">\(c(n)\)</span>是满足<span
+class="math inline">\(g(n)&gt;3\)</span>的最小<span
+class="math inline">\(c\)</span>。那么构造出<span
+class="math inline">\(c=\displaystyle{\max\left\{4,\max_{n=3}^{n-1}\{h(i)\}\right\}}\)</span>。此时对于<span
+class="math inline">\(\forall n\ge 3,g(n)&gt; 3\)</span>都将成立。</p>
+<p>按照如上方式，我们构造出了一个<span
+class="math inline">\(c\)</span>，使得<span
+class="math inline">\(\forall n\ge 3\)</span>，令<span
+class="math inline">\(k_0=\dfrac{c\lg n}{\lg\lg
+n},Q_{k_0}&lt;\dfrac{1}{n^3}\)</span>总成立。</p>
+<p>由于<span
+class="math inline">\(c&gt;1,n&gt;2\)</span>，那么可以知道<span
+class="math inline">\(k_0\ge 1\)</span>。根据等式C.45，可以得知当<span
+class="math inline">\(k\ge k_0\)</span>时，<span
+class="math inline">\(Q_k\)</span>是一个递减函数，因此<span
+class="math inline">\(\forall k\ge
+k_0,Q_k&lt;\dfrac{1}{n^3}\)</span>均成立。因此按照题目11-3-b的结论，<span
+class="math inline">\(\forall k\ge k_0,P_{k_0}&lt;
+nQ_{k_0}&lt;\dfrac{1}{n^2}\)</span>均成立。</p>
+<h2 id="e">e</h2>
+<p><span class="math inline">\(\begin{aligned}
+E[M]&amp;=\sum_{k=1}^n k\cdot P_k\\
+&amp;=\sum_{k=1}^{k_0} k\cdot P_k+\sum_{k=k_0+1}^n k\cdot P_k\\
+&amp;\le\sum_{k=1}^{k_0} k_0\cdot P_k+\sum_{k=k_0+1}^n n\cdot P_k\\
+&amp;=\Pr\{M\le k_0\}\cdot k_0 + \Pr\{M&gt;k_0\}\cdot n
+\end{aligned}\)</span></p>
+<p>令<span class="math inline">\(k_0=\dfrac{c\lg n}{\lg\lg
+n}\)</span>，得证关于<span
+class="math inline">\(E[M]\)</span>的表达式。</p>
+<p>考虑计算<span
+class="math inline">\(\Pr\{M&gt;k_0\}\)</span>的上限，有<span
+class="math inline">\(\displaystyle{\Pr\{M&gt;k_0\}=\sum_{i=k_0+1}^nP_k\le\sum_{i=k_0+1}^n\dfrac{1}{n^2}}\le
+n\cdot \dfrac{1}{n^2}=\dfrac{1}{n}\)</span></p>
+<p><span class="math inline">\(\begin{aligned}
+E[M]&amp;\le \Pr\{M\le k_0\}\cdot k_0 + \Pr\{M&gt;k_0\}\cdot n\\
+&amp;\le 1\cdot k_0+\dfrac{1}{n}\cdot n\\
+&amp;=k_0+1
+\end{aligned}\)</span></p>
+<p>因此有<span class="math inline">\(E[M]=O\left(\dfrac{\lg n}{\lg\lg
+n}\right)\)</span>。</p>
+<h1 id="section-3">11-4</h1>
+<h2 id="a-3">a</h2>
+<p>由于函数簇<span class="math inline">\(\mathscr{H}\)</span>是<span
+class="math inline">\(2\)</span>-独立的，因此对任意不同的<span
+class="math inline">\(k_1,k_2\in U,\forall d_1,d_2\in
+\mathbb{Z}_m,\Pr\{h(k_1)=d_1\land
+h(k_2)=d_2\}=\dfrac{1}{m^2}\)</span>。</p>
+<p>那么<span
+class="math inline">\(\displaystyle{\Pr\{h(k_1)=h(k_2)\}=\sum_{d\in\mathbb{Z}_m}\Pr\{h(k_1)=d\land
+h(k_2)=d\}=m\cdot \dfrac{1}{m^2}=\dfrac{1}{m}}\)</span>。因此函数簇<span
+class="math inline">\(\mathscr{H}\)</span>是全域的。</p>
+<h2 id="b-3">b</h2>
+<p>对于<span class="math inline">\(x,y\in U,x\neq y\)</span>，考虑<span
+class="math inline">\(h_a(x)=h_a(y)\)</span>的概率<span
+class="math inline">\(\Pr\{h_a(x)=h_a(y)\}\)</span>，即<span
+class="math inline">\(\displaystyle{\sum_{i=0}^{n-1}a_ix_i\equiv\sum_{i=0}^{n-1}a_iy_i
+\pmod p}\)</span>的概率。</p>
+<p>令<span
+class="math inline">\(\displaystyle{f(a)=\left(\sum_{i=0}^{n-1}a_i(x_i-y_i)\right)\bmod{p}}\)</span>。由于<span
+class="math inline">\(x\neq y\)</span>，因此<span
+class="math inline">\(\exists k\in\{0,1,2,\dots,n-1\},x_k\not\equiv y_k
+\pmod p\)</span>成立。令<span class="math inline">\(c=a_k(x_k-y_k)\bmod
+p\)</span>，随机变量<span class="math inline">\(X=(f(a)-c)\bmod
+p,Y=f(a)\)</span>。</p>
+<p>考虑随机变量<span class="math inline">\(Y\)</span>的分布。无论<span
+class="math inline">\(X\)</span>的分布如何，可知有<span
+class="math inline">\(\displaystyle{\sum_{i=0}^{p-1}
+\Pr\{X=i\}=1}\)</span>。由于<span
+class="math inline">\(a\)</span>向量是从<span
+class="math inline">\(U\)</span>中均匀随机选择的，因此<span
+class="math inline">\(a_k\)</span>和<span
+class="math inline">\(a\)</span>中的其它值相互独立，并且<span
+class="math inline">\(a_k\)</span>取到<span
+class="math inline">\(\mathbb{Z}_p\)</span>中的数也是等概率的。由于<span
+class="math inline">\((x_k-y_k)\)</span>是一个固定的非零整数，并且<span
+class="math inline">\(p\)</span>是质数，那么<span
+class="math inline">\(\gcd(p,x_k-y_k)=1\)</span>，因此如果<span
+class="math inline">\(a_k\)</span>取遍<span
+class="math inline">\(\mathbb{Z}_p\)</span>中的所有数，<span
+class="math inline">\(c\)</span>也会取便<span
+class="math inline">\(\mathbb{Z}_p\)</span>中的所有数。也就是说，<span
+class="math inline">\(\forall i\in
+\mathbb{Z}_p,\Pr\{c=i\}=\dfrac{1}{p}\)</span>。</p>
+<p>那么考虑计算<span
+class="math inline">\(\Pr\{Y=j\}\)</span>的值，其中<span
+class="math inline">\(j\in \mathbb{Z}_p\)</span>：</p>
+<p><span class="math inline">\(\begin{aligned}
+\Pr\{Y=j\}&amp;=\sum_{i=0}^{p-1} \Pr\{X=(j-i)\bmod p\land c=i\}\\
+&amp;=\sum_{i=0}^{p-1} \Pr\{X=(j-i)\bmod p\}\cdot \Pr\{c=i\}\\
+&amp;=\sum_{i=0}^{p-1} \Pr\{X=(j-i)\bmod p\}\cdot \dfrac{1}{p}\\
+&amp;=\dfrac{1}{p} \sum_{i=0}^{p-1} \Pr\{X=i\}\\
+&amp;=\dfrac{1}{p}
+\end{aligned}\)</span></p>
+<p>注意在整个步骤中，<span
+class="math inline">\(X\)</span>的分布是什么并不关心。那么得到<span
+class="math inline">\(\Pr\{Y=0\}=\dfrac{1}{p}\)</span>，也就是说，<span
+class="math inline">\(\Pr\{h_a(x)=h_a(y)\}=\Pr\{Y=0\}=\dfrac{1}{p}\)</span>。</p>
+<p>因此，函数簇<span
+class="math inline">\(\mathscr{H}\)</span>是全域的。</p>
+<p>当<span class="math inline">\(x\)</span>是一个全<span
+class="math inline">\(0\)</span>元组<span
+class="math inline">\(x_z\)</span>时，<span
+class="math inline">\(\mathscr{H}\)</span>不再是<span
+class="math inline">\(2\)</span>-独立的。因为无论<span
+class="math inline">\(n\)</span>元组<span
+class="math inline">\(a\)</span>如何取值，<span
+class="math inline">\(h_a(x_z)=0\)</span>总是成立的。那么对于任意<span
+class="math inline">\(x&#39;\in U-\{x_z\},d_1\in
+\mathbb{Z}_p-\{0\},d_2\in\mathbb{Z}_p\)</span>，都有<span
+class="math inline">\(\Pr\{h(x_z)=d_1\land
+h(x&#39;)=d_2\}=0\neq\dfrac{1}{m^2}\)</span>。因此函数簇<span
+class="math inline">\(\mathscr{H}\)</span>不满足<span
+class="math inline">\(2\)</span>-独立性。</p>
+<h2 id="c-2">c</h2>
+<p>可以看出，函数簇<span
+class="math inline">\(\mathscr{H}&#39;\)</span>一共有<span
+class="math inline">\(p^{n+1}\)</span>个函数。</p>
+<p>令<span class="math inline">\(x,y\in U,x\neq
+y\)</span>。那么对于任意<span class="math inline">\(d_x,d_y\in
+\mathbb{Z_p}\)</span>，可以列出一个<span
+class="math inline">\(n+1\)</span>元方程组：</p>
+<p><span class="math inline">\(\left \{\begin{aligned}
+  &amp; \sum_{i=0}^{n-1}a_ix_i+b\equiv d_x\pmod p\\
+  &amp; \sum_{i=0}^{n-1}a_iy_i+b\equiv d_y \pmod p\\
+\end{aligned}\right.\)</span></p>
+<p>这个线性方程组一共只有两个方程，并且<span
+class="math inline">\(a_i,b\)</span>都是未知数。由于<span
+class="math inline">\(x\neq
+y\)</span>，因此这个方程组对应的系数矩阵对值的秩和增广矩阵的秩相等，均为<span
+class="math inline">\(2\)</span>。因此，这个线性方程组有<span
+class="math inline">\(n-1\)</span>个自由元，也就是说，有<span
+class="math inline">\(p^{n-1}\)</span>个解。即<span
+class="math inline">\(\mathscr{H}&#39;\)</span>中有<span
+class="math inline">\(p^{n-1}\)</span>个函数使得<span
+class="math inline">\(h_{ab}&#39;(x)=d_x\land
+h_{ab}&#39;(y)=d_{y}\)</span>.</p>
+<p>因此<span class="math inline">\(\Pr\{h_{ab}&#39;(x)=d_x\land
+h_{ab}&#39;(y)=d_{y}\}=\dfrac{p^{n-1}}{p^{n+1}}=\dfrac{1}{p^2}\)</span>。</p>
+<p>可以看出，函数簇<span
+class="math inline">\(\mathscr{H}&#39;\)</span>满足<span
+class="math inline">\(2\)</span>-独立性。</p>
+<h2 id="d-2">d</h2>
+<p>由于函数簇<span class="math inline">\(\mathscr{H}\)</span>满足<span
+class="math inline">\(2\)</span>-独立性，因此对于任意一对不同消息<span
+class="math inline">\(\langle
+m,m&#39;\rangle\)</span>，它们出现成对的标签<span
+class="math inline">\(\langle
+t,t&#39;\rangle\)</span>在统计上的概率都是相同的，为<span
+class="math inline">\(\dfrac{1}{p^2}\)</span>，由于<span
+class="math inline">\(t\)</span>是固定的，标签<span
+class="math inline">\(t&#39;\)</span>是<span
+class="math inline">\(\mathbb{Z}_p\)</span>中等可能的任意一个，因此最多只能以<span
+class="math inline">\(\dfrac{1}{p}\)</span>的概率伪造出来。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-11/problems/" title="算法导论11 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-11/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

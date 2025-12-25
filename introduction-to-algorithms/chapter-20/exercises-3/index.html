@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论20.3 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/20.3-7.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/20.3-10.png">
+<meta property="article:published_time" content="2023-04-23T16:37:59.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.143Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/20.3-7.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/","path":"introduction-to-algorithms/chapter-20/exercises-3/","title":"算法导论20.3 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论20.3 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">20.3-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">20.3-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">20.3-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">20.3-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">20.3-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">20.3-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">20.3-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">20.3-8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-8"><span class="nav-number">9.</span> <span class="nav-text">20.3-9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-9"><span class="nav-number">10.</span> <span class="nav-text">20.3-10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-10"><span class="nav-number">11.</span> <span class="nav-text">20.3-11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-11"><span class="nav-number">12.</span> <span class="nav-text">20.3-12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-20.3-13"><span class="nav-number">13.</span> <span class="nav-text">\(\star\)
+20.3-13</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论20.3 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论20.3 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-04-24 00:37:59" itemprop="dateCreated datePublished" datetime="2023-04-24T00:37:59+08:00">2023-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">20.3-1</h1>
+<p>如下是有向图的情形。</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|l|}\hline
+\texttt{FROM}\backslash \texttt{TO}&amp;W&amp;G&amp;B\\
+\hline
+W&amp;\texttt{TBFC}&amp;\texttt{BC}&amp;\texttt{C}\\
+\hline
+G&amp;\texttt{TF}&amp;\texttt{TFB}&amp;\texttt{TFC}\\
+\hline
+B&amp;&amp;\texttt{B}&amp;\texttt{TBFC}\\
+\hline
+\end{array}\)</span></p>
+<p>其中，<span class="math inline">\(\texttt{T}\)</span>表示树边，<span
+class="math inline">\(\texttt{B}\)</span>表示后向边，<span
+class="math inline">\(\texttt{F}\)</span>表示前向边，<span
+class="math inline">\(\texttt{C}\)</span>表示横跨边。</p>
+<p>如下是无向图的情形，去除了横跨边和前向边的情况。</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|l|}\hline
+\texttt{FROM}\backslash \texttt{TO}&amp;W&amp;G&amp;B\\
+\hline
+W&amp;\texttt{TB}&amp;\texttt{TB}&amp;\\
+\hline
+G&amp;\texttt{TB}&amp;\texttt{TB}&amp;\texttt{TB}\\
+\hline
+B&amp;&amp;\texttt{TB}&amp;\texttt{TB}\\
+\hline
+\end{array}\)</span></p>
+<h1 id="section-1">20.3-2</h1>
+<p><span class="math inline">\(G\)</span>中的每个节点<span
+class="math inline">\(v\)</span>的发现时间<span
+class="math inline">\(v.d\)</span>和完成时间<span
+class="math inline">\(v.f\)</span>如下表所示：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|l|}\hline
+v&amp;v.d&amp;v.f\\
+\hline
+q&amp;1&amp;16\\
+\hline
+r&amp;17&amp;20\\
+\hline
+s&amp;2&amp;7\\
+\hline
+t&amp;8&amp;15\\
+\hline
+u&amp;18&amp;19\\
+\hline
+v&amp;3&amp;6\\
+\hline
+w&amp;4&amp;5\\
+\hline
+x&amp;9&amp;12\\
+\hline
+y&amp;13&amp;14\\
+\hline
+z&amp;10&amp;11\\
+\hline
+\end{array}\)</span></p>
+<p><span class="math inline">\(G\)</span>中的每条边分类如下：</p>
+<ul>
+<li>树边: <span class="math inline">\((q, s),(s, v),(v, w),(q, t),(t,
+x),(x, z),(t, y),(r, u)\)</span></li>
+<li>后向边: <span class="math inline">\((w, s),(y, q),(z,
+x)\)</span></li>
+<li>前向边: <span class="math inline">\((q, w)\)</span></li>
+<li>横向边: <span class="math inline">\((u, y),(r, y)\)</span></li>
+</ul>
+<h1 id="section-2">20.3-3</h1>
+<p><span class="math inline">\((u(v(y(xx)y)v)u)(w(zz)w)\)</span></p>
+<h1 id="section-3">20.3-4</h1>
+<p>点的颜色仅仅用于判断点的状态，只要当前节点已经被深度优先算法访问过了，那么当前点的颜色就没有用处了。因此黑色和灰色状态可以合并，与白色状态一起，我们就可以只使用<span
+class="math inline">\(1\)</span>比特来表示点的状态。因此最终的做法是，将算法<code>DFS-VISIT</code>的第3行修改成<code>u.color=BLACK</code>，并将第8行删去。</p>
+<h1 id="section-4">20.3-5</h1>
+<h2 id="a">a</h2>
+<p>充分性：无论是树边还是前向边，<span
+class="math inline">\(v\)</span>都是<span
+class="math inline">\(u\)</span>在DF树上的子节点。根据定理20.7的第三部分，有<span
+class="math inline">\(u.d&lt;v.d&lt;v.f&lt;u.f\)</span>。</p>
+<p>必要性：根据推论20.8，可以知道满足<span
+class="math inline">\(u.d&lt;v.d&lt;v.f&lt;u.f\)</span>时，必须满足<span
+class="math inline">\(v\)</span>是<span
+class="math inline">\(u\)</span>的后代。此时边<span
+class="math inline">\((u,v)\)</span>要么是树边，要么是前向边。</p>
+<h2 id="b">b</h2>
+<p>充分性：由于<span
+class="math inline">\((u,v)\)</span>是后向边，因此<span
+class="math inline">\(u\)</span>是<span
+class="math inline">\(v\)</span>的后代。因此，如果<span
+class="math inline">\(u=v\)</span>，那么<span
+class="math inline">\(v.d=u.d&lt;u.f=v.f\)</span>，原结论成立。如果<span
+class="math inline">\(u\neq
+c\)</span>，那么根据定理20.7的第二部分，有<span
+class="math inline">\(v.d&lt;u.d&lt;u.f&lt;v.f\)</span>。因此原结论成立。</p>
+<p>必要性：当<span class="math inline">\(u=v\)</span>时，有<span
+class="math inline">\(v.d=u.d&lt;u.f=v.f\)</span>。因此<span
+class="math inline">\((u,v)\)</span>是自环，而自环将会被归类到有向边中。当<span
+class="math inline">\(u\neq v\)</span>时，有<span
+class="math inline">\(v.d&lt;u.d&lt;u.f&lt;v.f\)</span>，此时根据定理20.7的第2部分，可以知道<span
+class="math inline">\(v\)</span>是<span
+class="math inline">\(u\)</span>的祖先。因此边<span
+class="math inline">\((u,v)\)</span>是后向边。</p>
+<h2 id="c">c</h2>
+<p>充分性：由于<span
+class="math inline">\((u,v)\)</span>是横向边，因此<span
+class="math inline">\(u\)</span>和<span
+class="math inline">\(v\)</span>并不互为祖孙关系，因此根据定理20.7的第一条，将会有<span
+class="math inline">\(u.d &lt; u.f &lt; v.d &lt; v.f\)</span>和<span
+class="math inline">\(v.d &lt; v.f &lt; u.d &lt;
+u.f\)</span>这两种情况之一，我们将通过反证法证明前者是错误的。假设<span
+class="math inline">\(u.d&lt;
+v.d\)</span>成立，那么根据定理20.9，在时刻<span
+class="math inline">\(u.d\)</span>，将会有一条从<span
+class="math inline">\(u\)</span>到<span
+class="math inline">\(v\)</span>的白色路径，那么此时<span
+class="math inline">\(v\)</span>必定是<span
+class="math inline">\(u\)</span>的后代，与横向边的定义不符合。因此必定有<span
+class="math inline">\(v.d &lt; v.f &lt; u.d &lt; u.f\)</span>。</p>
+<p>必要性：由于<span class="math inline">\(v.d &lt; v.f &lt; u.d &lt;
+u.f\)</span>，根据定理20.7的第一部分，<span
+class="math inline">\(u,v\)</span>并不就有祖孙关系，因此<span
+class="math inline">\((u,v)\)</span>是横向边。</p>
+<h1 id="section-5">20.3-6</h1>
+<p>为了保证递归时上下文能够保存，我们设计非递归算法时，同样需要设计一个方法<code>GET-NEXT-WHITE-VERTEX(G, u)</code>，它的功能是<strong>多次</strong>被调用时，返回邻接表<code>G.Adj[u]</code>的第一个白色节点（如果没有，那么返回<code>NIL</code>）。通过均摊分析，这个方法的平均时间复杂度可以达到<span
+class="math inline">\(O(1)\)</span>，此处我们不讨论<code>GET-NEXT-WHITE-VERTEX</code>的实现细节。</p>
+<p>其余细节则和递归时的情形相近。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">DFS&#x27;(G)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.π = NIL</span><br><span class="line">  time = 0</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    if u.color == WHITE</span><br><span class="line">      DFS-VISIT&#x27;(G, u)</span><br><span class="line"></span><br><span class="line">// TOP(S)表示返回S的栈顶元素，POP(S)表示弹出S的栈顶元素。</span><br><span class="line">DFS-VISIT&#x27;(G, u)</span><br><span class="line">  S = Ø</span><br><span class="line">  PUSH(S, u)</span><br><span class="line">  time = time + 1           // white vertex u has just been discovered</span><br><span class="line">  u.d = time</span><br><span class="line">  u.color = GRAY</span><br><span class="line">  while S ≠ Ø</span><br><span class="line">    u = TOP(S)</span><br><span class="line">    v = GET-NEXT-WHITE-VERTEX(G, u)</span><br><span class="line">    time = time + 1</span><br><span class="line">    if v == NIL</span><br><span class="line">      POP(S)</span><br><span class="line">      u.f = time</span><br><span class="line">      u.color = BLACK       // blacken u; it is finished</span><br><span class="line">    else</span><br><span class="line">      v.π = u</span><br><span class="line">      v.d = time</span><br><span class="line">      v.color = GRAY</span><br><span class="line">      PUSH(S, v)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="section-6">20.3-7</h1>
+<p>令<span
+class="math inline">\(V=\{a,b,c\},E=\{(a,b),(b,a),(b,c)\},G=(V,E)\)</span>，那么从<span
+class="math inline">\(b\)</span>到<span
+class="math inline">\(c\)</span>就会有路径<span
+class="math inline">\(b\rightarrow a\rightarrow
+c\)</span>。但是如果按照从<span class="math inline">\(b\rightarrow
+a\rightarrow b \rightarrow c\)</span>的顺序访问各个节点，那么就会有<span
+class="math inline">\(b.d=1,a.d=2,c.d=4\)</span>，并且树边集合为<span
+class="math inline">\(E_{\pi}=\{(b,a),(b,c)\}\)</span>，此时<span
+class="math inline">\(c\)</span>不是<span
+class="math inline">\(a\)</span>的后代。<span
+class="math inline">\(G\)</span>如下图所示。</p>
+<p><img data-src="20.3-7.png" /></p>
+<h1 id="section-7">20.3-8</h1>
+<p>本例子重用题目20.3-7所提出来的图。如果按照从<span
+class="math inline">\(b\rightarrow a\rightarrow b \rightarrow
+c\)</span>的顺序访问各个节点，由于从<span
+class="math inline">\(b\)</span>到<span
+class="math inline">\(c\)</span>就会有路径<span
+class="math inline">\(b\rightarrow a\rightarrow
+c\)</span>，并且按照从<span class="math inline">\(b\rightarrow
+a\rightarrow b \rightarrow c\)</span>的顺序访问各个节点，那么有<span
+class="math inline">\(c.d=4,a.f=3\)</span>，这是不满足条件<span
+class="math inline">\(c.d\le a.f\)</span>的。</p>
+<h1 id="section-8">20.3-9</h1>
+<p>综合<span
+class="math inline">\(4\)</span>种有向边的定义，可以设计出算法<code>DFS''</code>来打印有向图<span
+class="math inline">\(G\)</span>中的每条有向边的种类。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">DFS&#x27;&#x27;(G)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.π = NIL</span><br><span class="line">  time = 0</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    if u.color == WHITE</span><br><span class="line">      DFS-VISIT&#x27;&#x27;(G, u)</span><br><span class="line"></span><br><span class="line">DFS-VISIT&#x27;&#x27;(G, u)</span><br><span class="line">  time = time + 1                 // white vertex u has just been discovered</span><br><span class="line">  u.d = time</span><br><span class="line">  u.color = GRAY</span><br><span class="line">  for each vertex v in G.Adj[u]   // explore each edge (u, v)</span><br><span class="line">    if v.color == WHITE</span><br><span class="line">      print (u, v) is a tree edge</span><br><span class="line">      v.π = u</span><br><span class="line">      DFS-VISIT&#x27;&#x27;(G, v)</span><br><span class="line">    else if v.color == GRAY</span><br><span class="line">      print (u, v) is a back edge</span><br><span class="line">    else if u.d &lt; v.d</span><br><span class="line">      print (u, v) is a forward edge</span><br><span class="line">    else</span><br><span class="line">      print (u, v) is a cross edge</span><br><span class="line">  time = time + 1</span><br><span class="line">  u.f = time</span><br><span class="line">  u.color = BLACK                 // blacken u; it is finished</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>如果<span
+class="math inline">\(G\)</span>是一个无向图，那么直接删去判断前向边和横向边的判断即可，代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">DFS-U(G)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.π = NIL</span><br><span class="line">  time = 0</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    if u.color == WHITE</span><br><span class="line">      DFS-VISIT-U(G, u, NIL)</span><br><span class="line"></span><br><span class="line">// 第三个参数是为了避免父节点被作为子节点遍历。</span><br><span class="line">DFS-VISIT-U(G, u, fa)</span><br><span class="line">  time = time + 1                 // white vertex u has just been discovered</span><br><span class="line">  u.d = time</span><br><span class="line">  u.color = GRAY</span><br><span class="line">  for each vertex v in G.Adj[u]   // explore each edge (u, v)</span><br><span class="line">    if v.color == WHITE</span><br><span class="line">      print (u, v) is a tree edge</span><br><span class="line">      v.π = u</span><br><span class="line">      DFS-VISIT-U(G, v, u)</span><br><span class="line">    else if v != fa and v.color == GRAY</span><br><span class="line">      print (u, v) is a back edge</span><br><span class="line">  time = time + 1</span><br><span class="line">  u.f = time</span><br><span class="line">  u.color = BLACK                 // blacken u; it is finished</span><br></pre></td></tr></table></figure>
+<h1 id="section-9">20.3-10</h1>
+<p>如果一个节点<span
+class="math inline">\(u\)</span>在一棵DF森林中是一个孤立节点，那么只需要做到以下要求即可：</p>
+<ul>
+<li><span
+class="math inline">\(u\)</span>的所有后继节点都先被访问。</li>
+<li>接下来<span class="math inline">\(u\)</span>被访问，那么<span
+class="math inline">\(u\)</span>的所有出边都不是树边。</li>
+<li>接下来<span
+class="math inline">\(u\)</span>的前驱节点被访问，由于<span
+class="math inline">\(u\)</span>已经被访问过，因此所有<span
+class="math inline">\(u\)</span>的入边都不可能是树边。</li>
+</ul>
+<p>从而，<span
+class="math inline">\(u\)</span>在这棵DF森林就是一个孤立节点，示意图如下所示。</p>
+<p><img data-src="20.3-10.png" /></p>
+<p>其中，和<span
+class="math inline">\(u\)</span>关联的所有节点旁边的数字表示它们被访问的其中一个相对时间戳。</p>
+<h1 id="section-10">20.3-11</h1>
+<p>无向图中的边仅仅有树边和后向边这两种，那么对树边，进行真实的遍历，并记录下来；而对于后向边，只需要往返跳跃一次即可，同样记下这个跳跃记录，算法由<code>DFS-U'</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">DFS-U&#x27;(G)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.π = NIL</span><br><span class="line">  select u ∈ G.V randomly</span><br><span class="line">  time = 0</span><br><span class="line">  let path be new array           // path 表示一个全局变量，用来存储这条路径。</span><br><span class="line">  INSERT(path, u)</span><br><span class="line">  DFS-VISIT-U&#x27;(G, u)</span><br><span class="line">  return path</span><br><span class="line"></span><br><span class="line">DFS-VISIT-U&#x27;(G, u)</span><br><span class="line">  time = time + 1                 // white vertex u has just been discovered</span><br><span class="line">  u.d = time</span><br><span class="line">  u.color = GRAY</span><br><span class="line">  for each vertex v in G.Adj[u]   // explore each edge (u, v)</span><br><span class="line">    if v.color == WHITE</span><br><span class="line">      INSERT(path, v)             // 正向</span><br><span class="line">      v.π = u</span><br><span class="line">      DFS-VISIT-U&#x27;(G, v)</span><br><span class="line">      INSERT(path, u)             // 反向</span><br><span class="line">    else</span><br><span class="line">      INSERT(path, v)             // 正向</span><br><span class="line">      INSERT(path, u)             // 反向</span><br><span class="line">  time = time + 1</span><br><span class="line">  u.f = time</span><br><span class="line">  u.color = BLACK                 // blacken u; it is finished</span><br></pre></td></tr></table></figure>
+<h1 id="section-11">20.3-12</h1>
+<p>和原版dfs的方案类似，多维护一个全局变量<code>component</code>，用来表示当前遍历图<span
+class="math inline">\(G\)</span>时的连通分量编号。这个值在遍历每一个连通分量之前就已经维护好，遍历过程中只需要赋值即可。算法由<code>DFS-U''</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">DFS-U&#x27;&#x27;(G)</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    u.color = WHITE</span><br><span class="line">    u.π = NIL</span><br><span class="line">  time = 0</span><br><span class="line">  component = 0</span><br><span class="line">  for each vertex u ∈ G.V</span><br><span class="line">    if u.color == WHITE</span><br><span class="line">      component = component + 1</span><br><span class="line">      DFS-U&#x27;&#x27;(G, u)</span><br><span class="line"></span><br><span class="line">DFS-VISIT-U&#x27;&#x27;(G, u)</span><br><span class="line">  time = time + 1                 // white vertex u has just been discovered</span><br><span class="line">  u.d = time</span><br><span class="line">  u.color = GRAY</span><br><span class="line">  u.cc = component</span><br><span class="line">  for each vertex v in G.Adj[u]   // explore each edge (u, v)</span><br><span class="line">    if v.color == WHITE</span><br><span class="line">      v.π = u</span><br><span class="line">      DFS-VISIT-U&#x27;&#x27;(G, v)</span><br><span class="line">  time = time + 1</span><br><span class="line">  u.f = time</span><br><span class="line">  u.color = BLACK                 // blacken u; it is finished</span><br></pre></td></tr></table></figure>
+<h1 id="star-20.3-13"><span class="math inline">\(\star\)</span>
+20.3-13</h1>
+<p>以下是一个比较暴力的做法，其期望时间复杂度为<span
+class="math inline">\(O(VE)\)</span>。</p>
+<ol type="1">
+<li>使用tarjan算法对图<span
+class="math inline">\(G\)</span>进行缩点，得到<span
+class="math inline">\(G\)</span>的所有边双连通分量，以及这些双连通分量之间的关系图<span
+class="math inline">\(G&#39;\)</span>。注意<span
+class="math inline">\(G&#39;\)</span>是一个有向无环图。这个步骤需要花费<span
+class="math inline">\(O(V+E)\)</span>的时间。</li>
+<li>枚举<span
+class="math inline">\(G\)</span>中的所有双连通分量，判断这些双连通分量是否存在超过<span
+class="math inline">\(1\)</span>个环。如果存在一个双连通分量超过<span
+class="math inline">\(1\)</span>个环，那么<span
+class="math inline">\(G\)</span>不是单连通图，算法结束。这个步骤需要花费<span
+class="math inline">\(O(V+E)\)</span>的时间。</li>
+<li>对<span class="math inline">\(G&#39;\)</span>中的每个入度为<span
+class="math inline">\(0\)</span>的节点进向后进行搜索。在单次搜索中，如果存在一个节点<span
+class="math inline">\(v\)</span>被访问了两次或以上，那么说明从<span
+class="math inline">\(u\)</span>至<span
+class="math inline">\(v\)</span>有两条路径，原图<span
+class="math inline">\(G\)</span>不是单连通图。否则<span
+class="math inline">\(G\)</span>是单连通图。这个步骤需要花费<span
+class="math inline">\(O(VE)\)</span>的时间。</li>
+</ol>
+<p>因此，总共需要<span
+class="math inline">\(O(VE)\)</span>的时间判断<span
+class="math inline">\(G\)</span>是否为单连通图。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/" title="算法导论20.3 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-20/exercises-3/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

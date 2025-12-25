@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论15.3 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-15/exercises-3/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-04T08:35:07.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.133Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-15/exercises-3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-15/exercises-3/","path":"introduction-to-algorithms/chapter-15/exercises-3/","title":"算法导论15.3 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论15.3 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">15.3-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">15.3-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">15.3-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">15.3-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">15.3-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">15.3-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">15.3-7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-7"><span class="nav-number">8.</span> <span class="nav-text">15.3-8</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-15/exercises-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论15.3 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论15.3 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-04 16:35:07" itemprop="dateCreated datePublished" datetime="2023-02-04T16:35:07+08:00">2023-02-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">15.3-1</h1>
+<p>由于<span class="math inline">\(x.freq\le y.freq\)</span>，因此<span
+class="math inline">\(x.freq\)</span>是<span
+class="math inline">\(C\)</span>中频率的<strong>最小值</strong>，此时<span
+class="math inline">\(y.freq\)</span>是<span
+class="math inline">\(C\)</span>中频率的<strong>次小值</strong>。由于<span
+class="math inline">\(a.freq\le b.freq\)</span>，并且有<span
+class="math inline">\(x.freq=b.freq\)</span>，那么有<span
+class="math inline">\(x.freq=a.freq\)</span>。由于<span
+class="math inline">\(y.freq\)</span>是<span
+class="math inline">\(C\)</span>中的次小值，并且<span
+class="math inline">\(C\)</span>中已经有<span
+class="math inline">\(3\)</span>个频率值是最小且相等的，因此<span
+class="math inline">\(y.freq=b.freq\)</span>。最终有<span
+class="math inline">\(x.freq=y.freq=a.freq=b.freq\)</span>。</p>
+<h1 id="section-1">15.3-2</h1>
+<p>令<span class="math inline">\(T\)</span>为这一棵非满二叉树，并且<span
+class="math inline">\(u\)</span>是某一个只包含一个子节点的节点，那么考虑删除节点<span
+class="math inline">\(u\)</span>，并将<span
+class="math inline">\(u\)</span>的这个儿子拼接到其父节点中，得到一棵新树<span
+class="math inline">\(T&#39;\)</span>。这棵树<span
+class="math inline">\(T&#39;\)</span>将会比<span
+class="math inline">\(T\)</span>更加优秀，证明过程是考虑比较<span
+class="math inline">\(B(T)\)</span>和<span
+class="math inline">\(B(T&#39;)\)</span>的大小。</p>
+<p>注意到，由于<span
+class="math inline">\(u\)</span>节点被删除，此时以<span
+class="math inline">\(u\)</span>为子树的所有节点的深度都减少了<span
+class="math inline">\(1\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+B(T&#39;)&amp;=\sum_{c\in C} c.freq\cdot d_{T&#39;}(x)\\
+&amp;=\sum_{u\text{ is an ancestor of }x} x.freq\cdot
+d_{T&#39;}(x)+\sum_{u\text{ isn&#39;t an ancestor of }x} x.freq\cdot
+d_{T&#39;}(x)\\
+&amp;=\sum_{u\text{ is an ancestor of }x} x.freq\cdot
+d_{T}(x)+\sum_{u\text{ isn&#39;t an ancestor of }x} x.freq\cdot
+(d_{T}(x)-1)\\
+&amp;&lt;\sum_{u\text{ is an ancestor of }x} x.freq\cdot
+d_{T}(x)+\sum_{u\text{ isn&#39;t an ancestor of }x} x.freq\cdot
+d_{T}(x)\\
+&amp;=B(T)
+\end{aligned}\)</span></p>
+<p>由此可知，我们构造出了一棵更优秀的树<span
+class="math inline">\(T&#39;\)</span>。因此一个非满二叉树必定不可能对应一个最优无前缀编码。</p>
+<h1 id="section-2">15.3-3</h1>
+<p>由此可以产生出如下的哈夫曼树。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">graph TD</span><br><span class="line">  A[a:1]</span><br><span class="line">  B[b:1]</span><br><span class="line">  C[c:2]</span><br><span class="line">  D[d:3]</span><br><span class="line">  E[e:5]</span><br><span class="line">  F[f:8]</span><br><span class="line">  G[g:13]</span><br><span class="line">  H[h:21]</span><br><span class="line">  ab((2))</span><br><span class="line">  ac((4))</span><br><span class="line">  ad((7))</span><br><span class="line">  ae((12))</span><br><span class="line">  af((20))</span><br><span class="line">  ag((33))</span><br><span class="line">  ah((54))</span><br><span class="line">  ah--0---H</span><br><span class="line">  ah--1---ag</span><br><span class="line">  ab--0---B</span><br><span class="line">  ab--1---A</span><br><span class="line">  ac--0---C</span><br><span class="line">  ac--1---ab</span><br><span class="line">  ad--0---D</span><br><span class="line">  ad--1---ac</span><br><span class="line">  ae--0---E</span><br><span class="line">  ae--1---ad</span><br><span class="line">  af--0---F</span><br><span class="line">  af--1---ae</span><br><span class="line">  ag--0---G</span><br><span class="line">  ag--1---af</span><br><span class="line">  </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>由此可以构造出哈夫曼编码：</p>
+<p><span class="math inline">\(\begin{array}{|l|l|}
+\hline
+a &amp; 1111111\\
+\hline
+b &amp; 1111110\\
+\hline
+c &amp; 111110\\
+\hline
+d &amp; 11110\\
+\hline
+e &amp; 1110\\
+\hline
+f &amp; 110\\
+\hline
+g &amp; 10\\
+\hline
+h &amp; 0\\
+\hline
+\end{array}\)</span></p>
+<p>对于一般情况而言，如果现在有<span
+class="math inline">\(n\)</span>个字符，第<span
+class="math inline">\(n\)</span>个字符的频率为<span
+class="math inline">\(f_n(f_1=f_2=1,f_n=f_{n-1}+f_{n-2})\)</span>，那么可以按照如下构造哈夫曼编码：第<span
+class="math inline">\(1\)</span>个字符的哈夫曼编码为<span
+class="math inline">\(1^{n-1}\)</span>，对于第<span
+class="math inline">\(m(m&gt;1)\)</span>个字符，其哈夫曼编码为<span
+class="math inline">\(1^{n-m} \mid\mid 0\)</span>。</p>
+<p>接下来通过说明算法<code>HUFFMAN</code>的运行结果说明这个结论是正确的。</p>
+<p>首先证明：<span class="math inline">\(\displaystyle{F_n=\sum_{i=1}^n
+f_i = f_{i+2}-1}\)</span>。考虑使用数学归纳法进行证明。</p>
+<ul>
+<li><p>当<span class="math inline">\(n=1\)</span>时，<span
+class="math inline">\(F_1=f_3-1=2-1=1\)</span>，成立。</p></li>
+<li><p>当<span class="math inline">\(n&gt;1\)</span>时，假设对于<span
+class="math inline">\(m=1,2,\dots,m-1\)</span>，<span
+class="math inline">\(F_m=f_{m+2}-1\)</span>都成立。那么有<span
+class="math inline">\(F_n=F_{n-1}+f_n=f_{n+1}-1+f_n=f_{n+2}-1\)</span>。结论仍然成立。</p></li>
+</ul>
+<p>因此，<span class="math inline">\(F_n=f_{n+2}-1\)</span>成立。</p>
+<p>接下来证明循环不变量：最小优先队列中的关键字按顺序总是<span
+class="math inline">\(\{f_i,F_{i-1},f_{i+2},f_{i+3},\dots,f_n\}\)</span>，并且用<span
+class="math inline">\(F\)</span>表示的关键字<span
+class="math inline">\(F_{i-1}\)</span>要么是最小值，要么是次小值。这个序列已经有序的原因是，当<span
+class="math inline">\(i\ge 2\)</span>时，<span
+class="math inline">\(F_{i-1}=f_{i+1}-1=f_i+(f_{i-1}-1)\ge
+f_i,F_{i-1}=f_{i+1}-1&lt;f_{i+2}\)</span>。</p>
+<p>因此，算法<code>HUFFMAN</code>总是弹出<span
+class="math inline">\(Q\)</span>中用<span
+class="math inline">\(F\)</span>表示的那个关键字，最终变成了一个新关键字<span
+class="math inline">\(F_i=F_{i-1}+f_i\)</span>。最终产生的编码如上述结论。</p>
+<p>初始化：<span class="math inline">\(Q\)</span>中的元素一开始为<span
+class="math inline">\(\{f_2,f_1,f_3,\dots,f_n\}\)</span>，将<span
+class="math inline">\(f_1\)</span>用<span
+class="math inline">\(F_1\)</span>代替后，循环不变量成立。</p>
+<p>保持：若<span class="math inline">\(Q\)</span>中的元素当前为<span
+class="math inline">\(\{f_i,F_{i-1},f_{i+1},f_{i+2},\dots,f_n\}\)</span>，那么弹出最小的两个元素<span
+class="math inline">\(f_i,F_{i-1}\)</span>，构造出新元素<span
+class="math inline">\(F_i=F_{i-1}+f_i\)</span>后，再添加进<span
+class="math inline">\(Q\)</span>中，得到<span
+class="math inline">\(\{f_{i+1},F_{i},f_{i+2},f_{i+3},\dots,f_n\}\)</span>，根据上面的结论可知，这个序列仍然是有序的。在这个保持过程中，用<span
+class="math inline">\(F\)</span>表示的那个关键字被弹出来，这个用<span
+class="math inline">\(F\)</span>表示的关键字添加进<span
+class="math inline">\(Q\)</span>后，仍然是<span
+class="math inline">\(Q\)</span>中最小或者是次小的数，在下一次仍然会被弹出。</p>
+<p>终止：<span class="math inline">\(Q\)</span>中只剩下一个元素<span
+class="math inline">\(F_n\)</span>，整个序列仍然是有序的。</p>
+<p>因此，用<span
+class="math inline">\(F\)</span>表示的关键字不断被弹出、加入，最终构造出的哈夫曼树的所有内部节点至少都有一个叶子节点，因此构造出来的哈夫曼编码如上结论所述。</p>
+<h1 id="section-3">15.3-4</h1>
+<p>令<span class="math inline">\(L(T)\)</span>表示满二叉树<span
+class="math inline">\(T\)</span>的叶子节点的频率之和，<span
+class="math inline">\(t(u)\)</span>表示以<span
+class="math inline">\(u\)</span>为根节点的子树，<span
+class="math inline">\(l(T),r(T)\)</span>分别为<span
+class="math inline">\(T\)</span>的左子树和右子树。</p>
+<p>题目相当于证明<span
+class="math inline">\(\displaystyle{B(T)=\sum_{u\in T}
+L(l(t(u)))+L(r(t(u)))}\)</span>。对于<span
+class="math inline">\(T\)</span>中的一个内部节点<span
+class="math inline">\(u\)</span>而言，<span
+class="math inline">\(L(l(t(u)))+L(r(t(u)))\)</span>相当于是以<span
+class="math inline">\(u\)</span>为根节点的子树的叶节点频率之和，即<span
+class="math inline">\(L(t(u))\)</span>；对于一个叶节点<span
+class="math inline">\(l\)</span>，由于左右子节点都为空，因此<span
+class="math inline">\(L(l(t(u)))+L(r(t(u)))\)</span>的值为<span
+class="math inline">\(0\)</span>。</p>
+<p>最终转化成证明<span
+class="math inline">\(\displaystyle{B(T)=\sum_{u\in T}
+L(t(u))-L(T)}\)</span>。考虑使用归纳法证明这个式子。</p>
+<p>对于一棵只有<span class="math inline">\(1\)</span>个节点的二叉树<span
+class="math inline">\(E\)</span>，注意<span
+class="math inline">\(E\)</span>也是一个满二叉树，那么根据<span
+class="math inline">\(B(E)\)</span>的定义，可知<span
+class="math inline">\(B(E)=L(E)-L(E)=0\)</span>，原结论成立。</p>
+<p>对于任意一棵<span
+class="math inline">\(n\)</span>个节点的满二叉树树<span
+class="math inline">\(T\)</span>，设其根节点为<span
+class="math inline">\(x\)</span>。假设对于<span
+class="math inline">\(1,2,3,\dots
+n-1\)</span>个节点的满二叉树，上面的结论都成立，那么其左子树<span
+class="math inline">\(l(t(x))\)</span>和右子树<span
+class="math inline">\(r(t(x))\)</span>都满足这个条件。由于<span
+class="math inline">\(T\)</span>可以视为是由根节点<span
+class="math inline">\(x\)</span>，左子树<span
+class="math inline">\(l(t(x))\)</span>和右子树<span
+class="math inline">\(r(t(x))\)</span>构成，因此相对于<span
+class="math inline">\(T,l(t(x))\)</span>和<span
+class="math inline">\(r(t(x))\)</span>无论是根节点还是叶子节点，深度都增加了<span
+class="math inline">\(1\)</span>，因此总体代价都增加了<span
+class="math inline">\(L(l(t(x)))+L(r(t(x)))=L(T)\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+B(T)&amp;=B(l(x))+B(r(x))+L(T)\\
+&amp;= \sum_{u\in l(x)} L(t(u))-L(l(x))+\sum_{u\in r(x)} L(t(u))-L(r(x))
++ L(T)\\
+&amp;= \sum_{u\in l(x)} L(t(u))+\sum_{u\in r(x)} L(t(u))\\
+&amp;= \sum_{u\in T-\{x\}} L(t(u))\\
+&amp;= \sum_{u\in T} L(t(u))-L(T)\\
+\end{aligned}\)</span></p>
+<p>故原结论成立。</p>
+<h1 id="section-4">15.3-5</h1>
+<p>首先，每一个字符都需要用<span class="math inline">\(\lceil\lg
+n\rceil\)</span>位二进制编码表示，最终需要<span
+class="math inline">\(n\lceil\lg
+n\rceil\)</span>位的编码表示这个从编码映射到字符的字典。另外的<span
+class="math inline">\(2n-1\)</span>个字符则用来表示这棵哈夫曼树的结构。这棵树一共有<span
+class="math inline">\(2n-1\)</span>个节点，我们用<span
+class="math inline">\(0\)</span>表示内部节点，用<span
+class="math inline">\(1\)</span>来表示叶子节点，然后先序遍历整棵树，得到一个<span
+class="math inline">\(2n-1\)</span>比特的序列。由于满二叉树每个内部节点必定有两个子节点，回溯到原来的节点再继续遍历时直接从另外一个子节点往下走即可，因此这个比特序列一定能够还原出原来的满二叉树结构。</p>
+<p>具体的过程由<code>REBUILD-CODING</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">// S是这个n ⌈lg n⌉ + 2n - 1长度的字符串；D表示编码规则的转换（可以抽象地理解成一个哈希表），将⌈lg n⌉位比特转换成一个字符。</span><br><span class="line">// S是一个位字符串，假设其有一个子程序READ，READ(x)表示继续往下读取x比特，并返回这个长度为x的比特串；S还有一个方法FINISH，用于判断S的字符串是否读完。</span><br><span class="line">REBUILD-TABLE(S, D, n)</span><br><span class="line">  let S1 and S2 be new STACKS</span><br><span class="line">  let T be a new HASH-TABLE</span><br><span class="line">  c = S.READ(1)</span><br><span class="line">  if c == 1</span><br><span class="line">    error &quot;illegal code&quot;</span><br><span class="line">  PUSH(S1, 0)</span><br><span class="line">  while not S.FINISH()</span><br><span class="line">    while NOT-EMPTY(S1)</span><br><span class="line">      // 当前节点已经都被向下遍历了2次，应该回溯。</span><br><span class="line">      if S1[S1.size] == 2</span><br><span class="line">        POP(S1)</span><br><span class="line">        POP(S2)</span><br><span class="line">      else</span><br><span class="line">        break</span><br><span class="line">    // S1[S1.size]即为栈顶的值，它要么为0，要么为1，表示它是左子节点还是右子节点。</span><br><span class="line">    PUSH(S2, S1[S1.size])</span><br><span class="line">    S1[S1.size] = S1[S1.size] + 1</span><br><span class="line">    PUSH(S1, 0)</span><br><span class="line">    c = S.READ(1)</span><br><span class="line">    if c == 1</span><br><span class="line">      s = S.read(⌈lg n⌉)</span><br><span class="line">      parse S2 into a string t</span><br><span class="line">      T[D[s]] = t</span><br><span class="line">      POP(S2)</span><br><span class="line">      POP(S1)</span><br><span class="line">  return T  </span><br></pre></td></tr></table></figure>
+<h1 id="section-5">15.3-6</h1>
+<p>先插入频率为<span
+class="math inline">\(0\)</span>的哑节点，使得最小优先队列<span
+class="math inline">\(Q\)</span>的大小模<span
+class="math inline">\(3\)</span>的值为<span
+class="math inline">\(1\)</span>。与构建二元哈夫曼树时的情况相同，每次取出<span
+class="math inline">\(3\)</span>个节点，并且新生成一个节点<span
+class="math inline">\(q\)</span>的频率是这<span
+class="math inline">\(3\)</span>个节点的频率之和，并将<span
+class="math inline">\(q\)</span>连接到这<span
+class="math inline">\(3\)</span>个节点。具体过程由算法<code>HUFFMAN3</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">HUFFMAN3(C)</span><br><span class="line">  Q = C</span><br><span class="line">  while Q.size mod 2 != 1</span><br><span class="line">    let p be a new node</span><br><span class="line">    p.freq = 0</span><br><span class="line">    p.left = NIL</span><br><span class="line">    p.right = NIL</span><br><span class="line">    // 将哑节点p插入最小优先队列Q中。</span><br><span class="line">    INSERT(Q, p)</span><br><span class="line">  while Q.size &gt; 1</span><br><span class="line">    let q be a new node</span><br><span class="line">    x = EXTRACT-MIN(Q)</span><br><span class="line">    y = EXTRACT-MIN(Q)</span><br><span class="line">    z = EXTRACT-MIN(Q)</span><br><span class="line">    第i个子节点用p[i]表示。</span><br><span class="line">    q.p[0] = x</span><br><span class="line">    q.p[1] = y</span><br><span class="line">    q.p[2] = z</span><br><span class="line">    INSERT(Q, q)</span><br><span class="line">  return EXTRACT-MIN(Q)</span><br></pre></td></tr></table></figure>
+<p>贪心选择性和最优子结构证明和二叉的情况几乎完全相同。最优子结构的证明过程是替换一个三叉节点，贪心选择性证明则考虑频率最小的<span
+class="math inline">\(3\)</span>个节点和深度最深的<span
+class="math inline">\(3\)</span>个节点。</p>
+<h1 id="section-6">15.3-7</h1>
+<p>令<span class="math inline">\(n=8\)</span>，序列<span
+class="math inline">\(\{f_1,f_2,\dots,f_{2^n}\}\)</span>表示所有字符的频率之和，并且已经排好序。按照题目定义，还满足<span
+class="math inline">\(2f_1\ge f_{2^n}\)</span>。</p>
+<p>按照<code>HUFFMAN</code>算法，可以知道之后插入的新节点<span
+class="math inline">\(F_1=f_1+f_2\ge
+f_{2^n}\)</span>，可以视为经过了<span
+class="math inline">\(2^{n-1}-1\)</span>次<code>FOR</code>循环后，节点<span
+class="math inline">\(F_1\)</span>才有机会再弹出。那么在这<span
+class="math inline">\(2^{n-1}\)</span>次迭代中，<span
+class="math inline">\(f\)</span>的所有元素都将被第5-6行弹出了一次，并且构建成了一个长度为<span
+class="math inline">\(F_{2^{n-1}}\)</span>的有序序列。可以证明仍然满足<span
+class="math inline">\(2F_1\ge F_{2^n-1}\)</span>，因为<span
+class="math inline">\(2F_1=2f_1+2f_2\ge
+f_{2^{n}-1}+f_{2^{n}}=F_{2^{n-1}}\)</span>。</p>
+<p>最终由于同一层下的节点每次都恰好被遍历，因此构建出来的哈夫曼树是一个满二叉树，每一个字符都用一个<span
+class="math inline">\(n\)</span>比特编码来表示。因此在这种情况下，哈夫曼编码并不比定长编码有效。</p>
+<h1 id="section-7">15.3-8</h1>
+<p>可以知道，大小为<span
+class="math inline">\(n\)</span>比特的不同文件一共有<span
+class="math inline">\(2^n\)</span>。一个无损压缩器为了区分这<span
+class="math inline">\(2^n\)</span>个文件，压缩产生的结果必定也是<span
+class="math inline">\(2^n\)</span>个不同的编码。如果使用小于<span
+class="math inline">\(n\)</span>比特的所有位串来区分这些文件，那么一共有<span
+class="math inline">\(2^0+2^1+\dots+2^{n-1}=2^n-1\)</span>种方法，但是仍然还有<span
+class="math inline">\(1\)</span>个文件不能用小于<span
+class="math inline">\(n\)</span>比特的编码表示。因此不存在一个无损压缩器可以对所有文件，都能产生有效的压缩。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-15/exercises-3/" title="算法导论15.3 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-15/exercises-3/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

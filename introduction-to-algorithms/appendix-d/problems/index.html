@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论D Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-d/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-02-20T15:09:32.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.210Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-d/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-d/problems/","path":"introduction-to-algorithms/appendix-d/problems/","title":"算法导论D Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论D Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#d-1"><span class="nav-number">1.</span> <span class="nav-text">D-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#d-2"><span class="nav-number">2.</span> <span class="nav-text">D-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">2.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">2.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">2.5.</span> <span class="nav-text">e</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-d/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论D Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论D Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-02-20 23:09:32" itemprop="dateCreated datePublished" datetime="2023-02-20T23:09:32+08:00">2023-02-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="d-1">D-1</h1>
+<p>考虑使用归纳法进行证明。</p>
+<p>当<span class="math inline">\(n=2\)</span>时，有<span
+class="math inline">\(V(x_0,x_1)=\begin{pmatrix} 1 &amp; x_0\\1 &amp;
+x_1\end{pmatrix}\)</span>，那么有<span
+class="math inline">\(\det(V(x_0,x_1))=x_1-x_0\)</span>，原结论成立。</p>
+<p>当<span class="math inline">\(n&gt;2\)</span>时，假设对于<span
+class="math inline">\(\displaystyle{n&#39;=1,2,3,\dots,n-1,\det(V(x_0,x_1,\dots,x_{n&#39;-1}))=\prod_{0\le
+j&lt; k&lt; n&#39;}(x_k-x_j)}\)</span>均成立。考虑<span
+class="math inline">\(\det(V(x_0,x_1,\dots,x_{n-1}))\)</span>的值，有</p>
+<p><span class="math inline">\(\begin{aligned}
+\det(V(x_0,x_1,\dots,x_{n-1})) &amp;= \left|\begin{matrix}
+1&amp;x_0&amp;x_0^2&amp;\dots&amp;x_0^{n-1}\\
+1&amp;x_1&amp;x_1^2&amp;\dots&amp;x_1^{n-1}\\
+1&amp;x_2&amp;x_2^2&amp;\dots&amp;x_2^{n-1}\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+1&amp;x_{n-1}&amp;x_{n-1}^2&amp;\dots&amp;x_{n-1}^{n-1}\\
+\end{matrix}\right|\\
+&amp;=\left|\begin{matrix}
+1&amp;0&amp;0&amp;\dots&amp;0\\
+1&amp;x_1-x_0&amp;x_1^2-x_1x_0&amp;\dots&amp;x_1^{n-1}-x_1^{n-2}x_0\\
+1&amp;x_2-x_0&amp;x_2^2-x_2x_0&amp;\dots&amp;x_2^{n-1}-x_2^{n-2}x_0\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+1&amp;x_{n-1}-x_0&amp;x_{n-1}^2-x_{n-1}x_0&amp;\dots&amp;x_{n-1}^{n-1}-x_{n-1}^{n-2}x_0\\
+\end{matrix}\right|\\
+&amp;=\left|\begin{matrix}
+1&amp;0&amp;0&amp;\dots&amp;0\\
+1&amp;x_1-x_0&amp;x_1(x_1-x_0)&amp;\dots&amp;x_1^{n-2}(x_1-x_0)\\
+1&amp;x_2-x_0&amp;x_2(x_2-x_0)&amp;\dots&amp;x_2^{n-2}(x_2-x_0)\\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+1&amp;x_{n-1}-x_0&amp;x_{n-1}(x_{n-1}-x_0)&amp;\dots&amp;x_{n-1}^{n-2}(x_{n-1}-x_0)\\
+\end{matrix}\right|\\
+&amp;=\left|\begin{matrix}
+x_1-x_0&amp;x_1(x_1-x_0)&amp;\dots&amp;x_1^{n-2}(x_1-x_0)\\
+x_2-x_0&amp;x_2(x_2-x_0)&amp;\dots&amp;x_2^{n-2}(x_2-x_0)\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+x_{n-1}-x_0&amp;x_{n-1}(x_{n-1}-x_0)&amp;\dots&amp;x_{n-1}^{n-2}(x_{n-1}-x_0)\\
+\end{matrix}\right|\\
+&amp;=\prod_{i=1}^{n-1}(x_i-x_0)\cdot\left|\begin{matrix}
+1&amp;x_1&amp;\dots&amp;x_1^{n-2}\\
+1&amp;x_2&amp;\dots&amp;x_2^{n-2}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+1&amp;x_{n-1}&amp;\dots&amp;x_{n-1}^{n-2}\\
+\end{matrix}\right|\\
+&amp;=\prod_{i=1}^{n-1}(x_i-x_0)\cdot \det(V(x_1,x_2,\dots,x_{n-1}))\\
+&amp;=\prod_{0\le j&lt; k&lt; n}(x_k-x_j)
+\end{aligned}\)</span></p>
+<p>故原结论成立。</p>
+<h1 id="d-2">D-2</h1>
+<h2 id="a">a</h2>
+<p>不失一般性，假设<span class="math inline">\(A\)</span>大小为<span
+class="math inline">\(r\)</span>的所有列向量的极大无关组分别为<span
+class="math inline">\(a_1,a_2,a_3,\dots,a_r\)</span>。</p>
+<p>那么列向量<span
+class="math inline">\(a_{r+1},a_{r+2},\dots,a_n\)</span>都可以由<span
+class="math inline">\(a_1,a_2,a_3,\dots,a_r\)</span>线性表示出。考虑向量<span
+class="math inline">\(y=Ax\)</span>，那么<span
+class="math inline">\(\displaystyle{y_i=\sum_{j=1}^n
+a_{ij}x_j}=\sum_{j=1}^ra_{ij} \left(x_j+ \sum_{k=r+1}^n
+b_{kj}x_k\right)\)</span>。其中<span
+class="math inline">\(b_{kj}\)</span>表示使用<span
+class="math inline">\(a_j\)</span>来表示<span
+class="math inline">\(a_k\)</span>时的系数，即<span
+class="math inline">\(\displaystyle{a_k=\sum_{j=1}^r
+b_{kj}a_j}\)</span>，也就是说，<span
+class="math inline">\(y\)</span>是前<span
+class="math inline">\(r\)</span>个列向量作为线性无关组表示的结果，因此有<span
+class="math inline">\(|R(A)|\le 2^r\)</span>。</p>
+<p>另外，由于前<span
+class="math inline">\(r\)</span>个向量是一个极大线性无关组，这个线性无关组的任何子集的组合结果都不相同，因此有<span
+class="math inline">\(|R(A)|\ge 2^r\)</span>。</p>
+<p>最终有<span
+class="math inline">\(|R(A)|=2^r\)</span>。另外，当矩阵<span
+class="math inline">\(A\)</span>满秩时，即<span
+class="math inline">\(r=n\)</span>，有<span
+class="math inline">\(|R(A)|=2^n\)</span>，此时<span
+class="math inline">\(A\)</span>定义了一个<span
+class="math inline">\(S_n\)</span>上的排列。</p>
+<h2 id="b">b</h2>
+<p>与D-2-a一样，不失一般性，假设<span
+class="math inline">\(A\)</span>大小为<span
+class="math inline">\(r\)</span>的所有列向量的极大无关组分别为<span
+class="math inline">\(a_1,a_2,a_3,\dots,a_r\)</span>。</p>
+<p>对于任意<span class="math inline">\(y\in R(A)\)</span>，<span
+class="math inline">\(y\)</span>可以由<span
+class="math inline">\(a_1,a_2,a_3,\dots,a_r\)</span>线性表示出。由于列向量<span
+class="math inline">\(a_{r+1},a_{r+2},\dots,a_n\)</span>都可以由<span
+class="math inline">\(a_1,a_2,a_3,\dots,a_r\)</span>线性表示出，因此对于任意<span
+class="math inline">\(T\subseteq
+\{a_{r+1},a_{r+2},\dots,a_n\}\)</span>，令<span
+class="math inline">\(z=\displaystyle{\sum_{a\in
+T}a}\)</span>。那么，<span class="math inline">\(z\)</span>也可以由<span
+class="math inline">\(a_1,a_2,a_3,\dots,a_r\)</span>线性表示出，因此<span
+class="math inline">\(y-z\in
+R(A)\)</span>。也就是说，总存在唯一一个<span
+class="math inline">\(0-1\)</span>向量<span
+class="math inline">\((x_1,x_2,x_3\dots,x_r)\)</span>，使得<span
+class="math inline">\(a_1x_1+a_2x_2+a_3x_3+\dots+a_rx_r=y-z\)</span>。由于子集<span
+class="math inline">\(T\)</span>一共有<span
+class="math inline">\(2^{n-r}\)</span>个，因此对于任意<span
+class="math inline">\(y\in R(A)\)</span>，总有<span
+class="math inline">\(\vert P(A,y)\vert=2^{n-r}\)</span>。</p>
+<h2 id="c">c</h2>
+<p>矩阵<span class="math inline">\(A\)</span>的前<span
+class="math inline">\(m\)</span>行的变化只会影响最终计算结果<span
+class="math inline">\(y=Ax\)</span>的低<span
+class="math inline">\(m\)</span>比特，而不会影响<span
+class="math inline">\(y\)</span>的剩下<span
+class="math inline">\(n-m\)</span>比特。<span
+class="math inline">\(y\)</span>始终在同一个大小为<span
+class="math inline">\(2^m\)</span>的块中，因此不考虑低<span
+class="math inline">\(m\)</span>比特的情况。</p>
+<p>由于<span
+class="math inline">\(x\)</span>始终是在同一块中，因此不失一般性，令<span
+class="math inline">\(x=(x_1,x_2,x_3,\dots
+x_{m-1},x_m,c_{m+1},c_{m+2},\dots,c_n)^T\)</span>，其中<span
+class="math inline">\(c_i\)</span>是常数。</p>
+<p>那么对于<span class="math inline">\(A\)</span>的右下方<span
+class="math inline">\((n-m)\times(n-m)\)</span>这一块，由于它们仅与<span
+class="math inline">\(x\)</span>的高<span
+class="math inline">\(n-m,\)</span>比特有关系，因此<span
+class="math inline">\(A\)</span>的这部分的第<span
+class="math inline">\(i\)</span>行对最终<span
+class="math inline">\(y_i\)</span>的贡献值<span
+class="math inline">\(\displaystyle{\sum_{j=m+1}^n
+a_{ij}c_j}\)</span>为常数，这一部分不会对证明产生影响。</p>
+<p>因此我们只考虑左下角这<span class="math inline">\((n-m)\times
+m\)</span>这一块子矩阵。那么第<span
+class="math inline">\(i\)</span>行对<span
+class="math inline">\(y_i\)</span>的贡献值为<span
+class="math inline">\(\displaystyle{y_m&#39;=\sum_{j=1}^m
+a_{ij}x_j}\)</span>。</p>
+<p>令<span
+class="math inline">\(y&#39;=(y_m&#39;,y_{m+1}&#39;,\dots,y_n&#39;)^T\)</span>。接下来的证明方法与D-2-b类似。由于这部分矩阵可以看成是<span
+class="math inline">\(m\)</span>个<span
+class="math inline">\(n-m\)</span>维的列向量组合<span
+class="math inline">\((a_1&#39;,a_2&#39;,\dots,a_m&#39;)\)</span>而成，并且这一个子矩阵的秩为<span
+class="math inline">\(r\)</span>，因此这<span
+class="math inline">\(m\)</span>个列向量中存在一个大小为<span
+class="math inline">\(r\)</span>的极大无关组<span
+class="math inline">\(a&#39;_1,a_2&#39;,a_3&#39;,\dots,a_r&#39;\)</span>。也就是说，<span
+class="math inline">\(a_{r+1}&#39;,a_{r+2}&#39;,\dots,a_n&#39;\)</span>都可以由<span
+class="math inline">\(a_1&#39;,a_2&#39;,a_3&#39;,\dots,a_r&#39;\)</span>线性表出。对于任意<span
+class="math inline">\(T\subseteq\{a&#39;_1,a_2&#39;,a_3&#39;,\dots,a_r&#39;\}\)</span>，它们所组合出的<span
+class="math inline">\(\displaystyle{y&#39;=\sum_{x\in
+T}x}\)</span>都是两两不同的，因此一共有<span
+class="math inline">\(2^r\)</span>个不同的<span
+class="math inline">\(y&#39;\)</span>。也就是说，<span
+class="math inline">\(y\)</span>的高<span
+class="math inline">\(n-m\)</span>比特一共有<span
+class="math inline">\(2^r\)</span>种不同的情况，因此按照定义，<span
+class="math inline">\(|B(S&#39;,m)|=2^r\)</span>。对于<span
+class="math inline">\(B(S&#39;,m)\)</span>中的任意一个块<span
+class="math inline">\(b_0\)</span>，假设它重新对应得到的<span
+class="math inline">\(y&#39;=y_0&#39;\)</span>，那么对于任意<span
+class="math inline">\(T\subseteq
+\{a&#39;_{r+1},a_{r+2}&#39;,\dots,a_m&#39;\}\)</span>，令<span
+class="math inline">\(z=\displaystyle{\sum_{a&#39;\in
+T}a&#39;}\)</span>，那么<span
+class="math inline">\(y_0-z\)</span>也可以由<span
+class="math inline">\(a&#39;_1,a_2&#39;,a_3&#39;,\dots,a_r&#39;\)</span>线性表出，因此总存在唯一一个<span
+class="math inline">\(0-1\)</span>向量<span
+class="math inline">\((x_1&#39;,x_2&#39;,x_3&#39;\dots,x_r&#39;)\)</span>，使得<span
+class="math inline">\(a_1&#39;x_1&#39;+a_2&#39;x_2&#39;+a_3&#39;x_3&#39;+\dots+a_r&#39;x_r&#39;=y-z\)</span>成立。由于<span
+class="math inline">\(T\)</span>一共有<span
+class="math inline">\(2^{m-r}\)</span>个，因此<span
+class="math inline">\(S\)</span>中总有<span
+class="math inline">\(2^{m-r}\)</span>个数对应到这个块<span
+class="math inline">\(b_0\)</span>中。</p>
+<h2 id="d">d</h2>
+<p>此处统计<span class="math inline">\(n\)</span>阶满秩矩阵<span
+class="math inline">\(A\)</span>的个数<span
+class="math inline">\(p(n)\)</span>。</p>
+<p>将<span class="math inline">\(A\)</span>看成是<span
+class="math inline">\(n\)</span>个行向量的组合。为了保证<span
+class="math inline">\(A\)</span>是满秩的，那么就需要保证第<span
+class="math inline">\(i\)</span>个向量不能够由第<span
+class="math inline">\(1,2,3,\dots,i-1\)</span>个向量线性表出。因此，第<span
+class="math inline">\(1\)</span>个行向量有<span
+class="math inline">\(2^n-1\)</span>种选择。选择好<span
+class="math inline">\(1\)</span>后，第<span
+class="math inline">\(2\)</span>个行向量有<span
+class="math inline">\(2^n-2\)</span>种选择。以此类推，第<span
+class="math inline">\(i\)</span>个行向量有<span
+class="math inline">\(2^n-2^{i-1}\)</span>种选择。每个行向量之间选择的数量是独立的，因此有</p>
+<p><span class="math display">\[p(n)=\prod_{i=0}^{n-1}
+(2^n-2^i)\]</span></p>
+<p>再加上向量<span class="math inline">\(c\)</span>有<span
+class="math inline">\(2^n\)</span>种选择，那么线性排列数目<span
+class="math inline">\(P(n)\)</span>满足<span
+class="math inline">\(P(n)\le p(n)\cdot 2^n\)</span>。</p>
+<p>而<span class="math inline">\(S_n\)</span>的排列数为<span
+class="math inline">\(Q(n)=(2^n)!\)</span>。可以发现<span
+class="math inline">\(Q(n)\)</span>是由前<span
+class="math inline">\(2^n\)</span>个正整数构造而成的乘积，而<span
+class="math inline">\(P(n)\)</span>的上界仅仅是这<span
+class="math inline">\(2^n\)</span>个正整数中其中的<span
+class="math inline">\(n+1\)</span>个，因此最终可知，<span
+class="math inline">\(P(n)\)</span>远小于<span
+class="math inline">\(Q(n)\)</span>。</p>
+<h2 id="e">e</h2>
+<p>考虑<span class="math inline">\(n=3\)</span>时的情况。这个置换为<span
+class="math inline">\(\pi=(0, 1, 2, 3, 4, 5, 7, 6)\)</span>。由于<span
+class="math inline">\(\pi(0)=0\)</span>，因此向量<span
+class="math inline">\(c=0\)</span>。由于<span
+class="math inline">\(\pi(7)=6\)</span>，因此<span
+class="math inline">\(A\)</span>的后<span
+class="math inline">\(2\)</span>行有奇数个<span
+class="math inline">\(1\)</span>，第<span
+class="math inline">\(1\)</span>行有<span
+class="math inline">\(2\)</span>个<span
+class="math inline">\(1\)</span>（如果没有<span
+class="math inline">\(1\)</span>，那么<span
+class="math inline">\(A\)</span>就不满秩了）。<span
+class="math inline">\(\pi(1)=1\)</span>说明<span
+class="math inline">\(a_{11}=1\)</span>。考虑<span
+class="math inline">\(\pi(3)=3\)</span>和<span
+class="math inline">\(\pi(5)=5\)</span>，可以发现无论是取<span
+class="math inline">\(a_{12}=1,a_{13}=0\)</span>还是取<span
+class="math inline">\(a_{12}=0,a_{13}=1,\pi(3)=3,\pi(5)=5\)</span>不能同时成立。也就是说，符合条件的<span
+class="math inline">\(A\)</span>并不存在，因此这个排列为所求。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-d/problems/" title="算法导论D Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/appendix-d/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

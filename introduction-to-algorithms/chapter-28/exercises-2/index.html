@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论28.2 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-28/exercises-2/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-08-01T08:15:46.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.175Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-28/exercises-2/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-28/exercises-2/","path":"introduction-to-algorithms/chapter-28/exercises-2/","title":"算法导论28.2 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论28.2 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">28.2-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">28.2-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">28.2-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">28.2-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#star-28.2-5"><span class="nav-number">5.</span> <span class="nav-text">\(\star\)
+28.2-5</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-28/exercises-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论28.2 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论28.2 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-08-01 16:15:46" itemprop="dateCreated datePublished" datetime="2023-08-01T16:15:46+08:00">2023-08-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">28.2-1</h1>
+<p>首先证明矩阵平方并不比矩阵乘法更难。令任意一个矩阵<span
+class="math inline">\(A\)</span>，那么有<span
+class="math inline">\(A^2=A\cdot A\)</span>。也就是说，一个<span
+class="math inline">\(M(n)\)</span>时间复杂度的矩阵乘法算法意味着一个<span
+class="math inline">\(O(M(n))\)</span>的矩阵平方算法。</p>
+<p>接下来证明矩阵乘法并不比矩阵平方更难，证明过程和定理28.1的过程类似：假设<span
+class="math inline">\(S(n)\)</span>时间内可以求出两个<span
+class="math inline">\(n\times n\)</span>矩阵的乘积，并且<span
+class="math inline">\(S(n)=\Omega(n^2)\)</span>且满足正则性条件：<span
+class="math inline">\(S(2n)=O(S(n))\)</span>，那么可以在<span
+class="math inline">\(O(S(n))\)</span>求出任意两个矩阵的乘积。</p>
+<p>证明：构造矩阵<span class="math inline">\(C=\begin{pmatrix}
+A&amp;B\\I&amp;O\end{pmatrix}\)</span>，其中<span
+class="math inline">\(A,B\)</span>分别是两个<span
+class="math inline">\(n\times n\)</span>大小的矩阵，那么有：</p>
+<p><span
+class="math display">\[C^2=\begin{pmatrix}A^2+B&amp;AB\\A&amp;B\end{pmatrix}\]</span></p>
+<p>可以发现，计算<span
+class="math inline">\(C^2\)</span>完后，相当于完成了一次<span
+class="math inline">\(AB\)</span>的矩阵乘法。计算上其它开销，可以知道</p>
+<p><span class="math display">\[M(n)\le S(2n)=O(S(n))\]</span></p>
+<p>其中等号是通过正则性条件得出，最终有<span
+class="math inline">\(M(n)=O(S(n))\)</span>。</p>
+<p>因此，对矩阵进行平方和乘法的困难性是一样的。</p>
+<h1 id="section-1">28.2-2</h1>
+<p>本解答参考了此<a
+target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/1084486/show-that-matrices-multiplication-and-lup-decompositions-have-the-same-difficult">页面</a>的信息。</p>
+<p>我们令<span class="math inline">\(L(n)\)</span>表示对大小为<span
+class="math inline">\(n\)</span>的方阵进行LUP分解的时间。证明过程和定理28.2的过程类似：假设<span
+class="math inline">\(S(n)\)</span>时间内可以求出两个<span
+class="math inline">\(n\times n\)</span>矩阵的乘积，并且<span
+class="math inline">\(M(n)=\Omega(n^2)\)</span>且满足两个正则性条件：<span
+class="math inline">\(\forall
+k\in[0,n],M(n+k)=O(M(n))\)</span>均成立；<span
+class="math inline">\(\exists c&lt;1/2,M(n/2)\le
+cM(n)\)</span>成立。那么可以在<span
+class="math inline">\(O(M(n))\)</span>内对矩阵进行LUP分解。</p>
+<p>证明：假设矩阵<span class="math inline">\(A\)</span>的大小<span
+class="math inline">\(n\)</span>是二次幂，那么对<span
+class="math inline">\(A\)</span>进行分块<span
+class="math inline">\(A=\begin{pmatrix}
+B&amp;C\\D&amp;E\end{pmatrix}\)</span>，可以发现每个矩阵大小都是一样的。</p>
+<p>对<span class="math inline">\(B\)</span>递归进行分解，假设是<span
+class="math inline">\(P_1B=L_1U_1\)</span>，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+A&amp;=\begin{pmatrix}P_1^{-1}&amp;O\\O&amp;I_{n/2}\end{pmatrix}\begin{pmatrix}L_1U_1&amp;(P_1^{-1})^T
+C\\D&amp;E\end{pmatrix}\\
+&amp;=\begin{pmatrix}P_1^{-1}&amp;O\\O&amp;I_{n/2}\end{pmatrix}\begin{pmatrix}L_1&amp;O\\DU_1^{-1}&amp;E-DU_1^{-1}L_1^{-1}(P_{1}^{-1})^TC\end{pmatrix}\begin{pmatrix}U_1&amp;L_1^{-1}(P_1^{-1})^T
+C\\O&amp;I_{n/2}\end{pmatrix}\\
+\end{aligned}\)</span></p>
+<p>接下来再对<span
+class="math inline">\(E-DU_1^{-1}L_1^{-1}(P_{1}^{-1})^TC=P_2^{-1}L_2U_2\)</span>进行LUP分解，那么得到</p>
+<p><span class="math inline">\(\begin{aligned}
+A&amp;=\begin{pmatrix}P_1^{-1}&amp;O\\O&amp;I_{n/2}\end{pmatrix}\begin{pmatrix}L_1&amp;O\\DU_1^{-1}&amp;P_2^{-1}L_2U_2\end{pmatrix}\begin{pmatrix}U_1&amp;L_1^{-1}(P_1^{-1})^T
+C\\O&amp;I_{n/2}\end{pmatrix}\\
+&amp;=\begin{pmatrix}P_1^{-1}&amp;O\\O&amp;I_{n/2}\end{pmatrix}\begin{pmatrix}I_{n/2}&amp;O\\O&amp;P_2^{-1}\end{pmatrix}\begin{pmatrix}L_1&amp;O\\DU_1^{-1}&amp;L_2\end{pmatrix}\begin{pmatrix}U_1&amp;L_1^{-1}(P_1^{-1})^T
+C\\O&amp;U_2\end{pmatrix}\\
+&amp;=\begin{pmatrix}P_1^{-1}&amp;O\\O&amp;P_2^{-1}\end{pmatrix}\begin{pmatrix}L_1&amp;O\\DU_1^{-1}&amp;L_2\end{pmatrix}\begin{pmatrix}U_1&amp;L_1^{-1}(P_1^{-1})^T
+C\\O&amp;U_2\end{pmatrix}\\
+\end{aligned}\)</span></p>
+<p>那么令<span
+class="math inline">\(P=\begin{pmatrix}P_1&amp;O\\O&amp;P_2\end{pmatrix},L=\begin{pmatrix}L_1&amp;O\\DU_1^{-1}&amp;L_2\end{pmatrix},U=\begin{pmatrix}U_1&amp;L_1^{-1}(P_1^{-1})^T
+C\\O&amp;U_2\end{pmatrix}\)</span>，我们得到了<span
+class="math inline">\(A\)</span>的一个LUP分解。</p>
+<p>在这个过程中，我们进行了<span
+class="math inline">\(2\)</span>次小矩阵的递归LUP分解。其余操作都是对小矩阵进行矩阵乘法，矩阵求匿，根据定理28.1和28.2，这两个操作的时间都为<span
+class="math inline">\(O(M(n))\)</span>；此外还涉及了一些矩阵转置，矩阵移位等操作，这些操作的时间为<span
+class="math inline">\(O(n^2)\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+L(n)&amp;\le2L(n/2)+O(M(n))+O(n^2)\\
+&amp;=2L(n/2)+O(M(n))\\
+&amp;=O(M(n))
+\end{aligned}\)</span></p>
+<p>与定理28.2的证明过程类似，最终有<span
+class="math inline">\(L(n)=O(M(n))\)</span>，原结论成立。</p>
+<p>对于<span class="math inline">\(n\)</span>不是<span
+class="math inline">\(2\)</span>的幂的情况，证明方式和定理28.2的证明过程相同，此处不赘述。</p>
+<h1 id="section-2">28.2-3</h1>
+<p>首先证明：如果存在一个时间为<span
+class="math inline">\(M(n)\)</span>的布尔矩阵乘法算法，那么存在一个时间复杂度为<span
+class="math inline">\(O(M(n)\lg n)\)</span>的求解传递闭包算法。</p>
+<p>布尔矩阵<span
+class="math inline">\(A,B\)</span>上的乘法定义成是：<span
+class="math inline">\(\displaystyle{(AB)_{ij}=\bigvee_{k=1}^n
+a_{ik}\land b_{kj}}\)</span>。此外由于<span
+class="math inline">\(A\)</span>的传递闭包<span
+class="math inline">\(A^{\ast}\)</span>相当于是<span
+class="math inline">\(A^n\)</span>，因此按照第23.1章的思想，可以使用单次矩阵乘法依次计算出<span
+class="math inline">\(A^2,A^4,A^8,\dots\)</span>也就是说，总共需要进行<span
+class="math inline">\(\lceil
+\lg(n-1)\rceil\)</span>次矩阵乘法即可。因此存在一个时间复杂度为<span
+class="math inline">\(O(M(n)\lg n)\)</span>的求解传递闭包算法。</p>
+<p>接下来证明：如果存在一个时间为<span
+class="math inline">\(T(n)\)</span>的求解转递闭包算法，那么存在一个时间复杂度为<span
+class="math inline">\(O(T(n))\)</span>的布尔矩阵乘法。此处需要假设<span
+class="math inline">\(T(n)\)</span>满足正则性条件<span
+class="math inline">\(T(3n)=O(T(n))\)</span>。</p>
+<p>将矩阵<span
+class="math inline">\(A,B\)</span>视为是某些矩阵的邻接矩阵。需要注意的是，传递闭包所求出的是从当前节点<span
+class="math inline">\(u\)</span>能够到达的所有节点。因此我们考虑构造出一个图<span
+class="math inline">\(G=(V,E)\)</span>（其邻接矩阵为<span
+class="math inline">\(D\)</span>），最长路径只有<span
+class="math inline">\(2\)</span>，从而保证对这个图求出其传递闭包后，这个传递闭包的一部分就是矩阵<span
+class="math inline">\(A,B\)</span>的乘积。</p>
+<p>假设对于<span class="math inline">\(A\)</span>的每一行（列），在<span
+class="math inline">\(G\)</span>中都有<span
+class="math inline">\(3\)</span>个节点。其中第<span
+class="math inline">\(i\)</span>行表示有节点<span
+class="math inline">\(u_i,v_i,w_i\)</span>。此外，矩阵<span
+class="math inline">\(D\)</span>的行和列顺序都是<span
+class="math inline">\(u_1,u_2,\dots,u_n,v_1,v_2,\dots,v_n,w_1,w_2,\dots,w_n\)</span>。如果<span
+class="math inline">\(a_{ik}=1\)</span>，那么<span
+class="math inline">\((u_i,v_k)\in E\)</span>；如果<span
+class="math inline">\(b_{kj}=1\)</span>，那么<span
+class="math inline">\((v_k,w_j)\in E\)</span>。并且令<span
+class="math inline">\(D\)</span>中的主对角线上的值都为<span
+class="math inline">\(1\)</span>，那么构造好的<span
+class="math inline">\(D\)</span>如下：</p>
+<p><span class="math display">\[D=\begin{bmatrix}
+I_n&amp;A&amp;O\\
+O&amp;I_n&amp;B\\
+O&amp;O&amp;I_n
+\end{bmatrix}\]</span></p>
+<p>可见，右上角的那一块属于至少长度为<span
+class="math inline">\(2\)</span>的路径的区域。因此可以得到<span
+class="math inline">\(D\)</span>的传递闭包<span
+class="math inline">\(D^{\ast}\)</span>为：</p>
+<p><span class="math display">\[D^{\ast}=\begin{bmatrix}
+I_n&amp;A&amp;AB\\
+O&amp;I_n&amp;B\\
+O&amp;O&amp;I_n
+\end{bmatrix}\]</span></p>
+<p>只需要取出右上角的一块即可得到<span
+class="math inline">\(AB\)</span>的乘积。因此，求出矩阵<span
+class="math inline">\(AB\)</span>需要<span
+class="math inline">\(T(3n)\)</span>的运行时间。如果<span
+class="math inline">\(T(3n)=O(T(n))\)</span>，那么矩阵乘法只需要花费<span
+class="math inline">\(O(T(n))\)</span>的时间。</p>
+<h1 id="section-3">28.2-4</h1>
+<p>此时定理28.2所提出的矩阵所发求逆无效。定理28.2指出，如果<span
+class="math inline">\(A\)</span>不是正定矩阵，那么可以构造出对称正定矩阵<span
+class="math inline">\(A^TA\)</span>，通过间接求出对称正定矩阵<span
+class="math inline">\(A^TA\)</span>的逆矩阵<span
+class="math inline">\((A^TA)^{-1}\)</span>，从而通过<span
+class="math inline">\(A^{-1}=(A^TA)^{-1}A^T\)</span>间接求出<span
+class="math inline">\(A^{-1}\)</span>。然而，<span
+class="math inline">\(A_TA\)</span>是正定矩阵在<span
+class="math inline">\(\mathbb{Z}_2\)</span>中不一定是成立的。</p>
+<p>定理D.6指出在<span class="math inline">\(\mathbb{R}\)</span>中，<span
+class="math inline">\(A^TA\)</span>是正定矩阵，是因为对于某个<span
+class="math inline">\(n\)</span>维向量向量<span
+class="math inline">\(\mathbf{x}\in\mathbb{R}^n,\mathbf{x}^T(A^TA)\mathbf{x}=\lVert
+A\mathbf{x}\rVert=0\)</span>当且仅当<span
+class="math inline">\(\mathbf{x}\)</span>中的全部值为<span
+class="math inline">\(\mathbf{x}\)</span>。但是在<span
+class="math inline">\(\mathbb{Z}_2^n\)</span>中，<span
+class="math inline">\(\lVert
+A\mathbf{x}\rVert=0\)</span>并不意味着向量<span
+class="math inline">\(A\mathbf{x}\)</span>中全部值为<span
+class="math inline">\(0\)</span>（可以是偶数个<span
+class="math inline">\(1\)</span>）。</p>
+<p>最终，由于<span
+class="math inline">\(A^TA\)</span>不一定是正定的，定理28.2无法有效地求出非正定对称（但满秩）矩阵<span
+class="math inline">\(A\)</span>的一个逆。</p>
+<h1 id="star-28.2-5"><span class="math inline">\(\star\)</span>
+28.2-5</h1>
+<p>和证明定理28.2的过程类似。首先假设Hermitian矩阵<span
+class="math inline">\(A\)</span>是正定的，其大小为<span
+class="math inline">\(2\)</span>的整数次幂。因此矩阵<span
+class="math inline">\(A\)</span>可以分块成</p>
+<p><span class="math display">\[A=\begin{bmatrix}
+B&amp;C^{\ast}\\
+C&amp;D
+\end{bmatrix}\]</span></p>
+<p>其中<span class="math inline">\(C^{\ast}\)</span>是<span
+class="math inline">\(C\)</span>的共轭对称矩阵。</p>
+<p>其余过程的步骤完全相同。</p>
+<p>当<span
+class="math inline">\(A\)</span>不是Hermitian矩阵，或者不是正定矩阵时，使用类似的方式，先计算出<strong>Hermitian且正定的矩阵</strong><span
+class="math inline">\(A^{\ast}A\)</span>的逆<span
+class="math inline">\((A^{\ast}A)^{-1}\)</span>，然后再计算<span
+class="math inline">\(A^{-1}=(A^{\ast}A)^{-1}A^{\ast}\)</span>即可。容易验证<span
+class="math inline">\(((A^{\ast}A)^{-1}
+A^{\ast})A=(A^{\ast}A)^{-1}(A^{\ast}A)=I_n\)</span>。</p>
+<p>接下来证明<span
+class="math inline">\(A^{\ast}A\)</span>是既是Hermitian矩阵，又是正定的矩阵。整个过程分三步进行。</p>
+<ol type="1">
+<li>证明对于任意复数矩阵<span
+class="math inline">\(A,B\)</span>，都有<span
+class="math inline">\((AB)^{\ast}=B^{\ast}A^{\ast}\)</span>。证明过程和题目D.1-2类似。为了方便表示，<span
+class="math inline">\(A\)</span>中的元素用<span
+class="math inline">\(a_{rc}+b_{rc}i\)</span>表示，<span
+class="math inline">\(B\)</span>中的元素用<span
+class="math inline">\(x_{rc}+y_{rc}i\)</span>表示。</li>
+</ol>
+<p>令<span
+class="math inline">\(a_{rc}^{\ast}+b_{rc}^{\ast}i\)</span>表示转置矩阵<span
+class="math inline">\(A^T\)</span>的元素，也就是有<span
+class="math inline">\(a_{rc}^{\ast}+b_{rc}^{\ast}i=a_{cr}-b_{cr}i\)</span>。同理，<span
+class="math inline">\(x_{rc}^{\ast}+y_{rc}^{\ast}i\)</span>表示转置矩阵<span
+class="math inline">\(B^T\)</span>的元素。</p>
+<p>对于<span class="math inline">\((AB)^{\ast}\)</span>中的元素<span
+class="math inline">\(p_{rc}+q_{rc}i\)</span>，有：</p>
+<p><span class="math inline">\(\begin{aligned}
+p_{cr}^{\ast}-q_{cr}^{\ast}i&amp;=p_{rc}+q_{rc}i\\
+&amp;=\sum_{k=1}^n (a_{rk}+b_{rk}i)(x_{kc}+y_{kc}i)\\
+&amp;=\sum_{k=1}^n
+(a_{kr}^{\ast}-b_{kr}^{\ast}i)(x_{ck}^{\ast}-y_{ck}^{\ast}i)\\
+&amp;=\sum_{k=1}^n
+(x_{ck}^{\ast}-y_{ck}^{\ast}i)(a_{kr}^{\ast}-b_{kr}^{\ast}i)\\
+\end{aligned}\)</span></p>
+<p>可见，对于最后一行，<span
+class="math inline">\(\displaystyle{\sum_{k=1}^n
+(x_{ck}^{\ast}-y_{ck}^{\ast}i)(a_{kr}^{\ast}-b_{kr}^{\ast}i)}\)</span>是计算<span
+class="math inline">\(B^{\ast}A^{\ast}\)</span>矩阵乘法的单个元素的定义式。因此有<span
+class="math inline">\((AB)^{\ast}=B^{\ast}A^{\ast}\)</span>。</p>
+<ol start="2" type="1">
+<li><p>证明对于列满秩矩阵<span
+class="math inline">\(A,A^{\ast}A\)</span>是一个正定矩阵。对于任意<span
+class="math inline">\(n\)</span>维向量<span
+class="math inline">\(\mathbf{x}\)</span>，都有<span
+class="math inline">\(\mathbf{x}^{\ast}A^{\ast}A\mathbf{x}=(A\mathbf{x})^{\ast}
+(A\mathbf{x})=\langle
+((A\mathbf{x})^{\ast})^T,A\mathbf{x}\rangle\)</span>。如果<span
+class="math inline">\(Ax\)</span>中存在一个项目不为<span
+class="math inline">\(0\)</span>，那么<span
+class="math inline">\(\langle
+((A\mathbf{x})^{\ast})^T,A\mathbf{x}\rangle\)</span>的值就大于<span
+class="math inline">\(0\)</span>，因此<span
+class="math inline">\(A^{\ast}A\)</span>是一个正定矩阵。</p></li>
+<li><p>证明对于列满秩矩阵<span
+class="math inline">\(A,A^{\ast}A\)</span>是一个Hermitian矩阵。这里是直接计算<span
+class="math inline">\(A^{\ast}A\)</span>中的每个元素<span
+class="math inline">\(u_{rc}+v_{rc}i\)</span>。可见，有</p></li>
+</ol>
+<p><span class="math inline">\(\begin{aligned}
+u_{rc}+v_{rc}i&amp;=\sum_{k=1}^n
+(a_{rk}^{\ast}+b_{rk}^{\ast}i)(a_{kc}+b_{kc}i)\\
+&amp;=\sum_{k=1}^n (a_{kr}-b_{kr}i)(a^{\ast}_{ck}-b^{\ast}_{ck}i)\\
+&amp;=u_{cr}^{\ast}-v_{cr}^{\ast}i
+\end{aligned}\)</span></p>
+<p>因此<span
+class="math inline">\(A^{\ast}A\)</span>是一个Hermitian矩阵。</p>
+<p>当<span class="math inline">\(n\)</span>不是<span
+class="math inline">\(2\)</span>的幂时，对矩阵<span
+class="math inline">\(A\)</span>的操作相同。因此原结论成立。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-28/exercises-2/" title="算法导论28.2 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-28/exercises-2/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

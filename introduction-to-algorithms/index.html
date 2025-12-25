@@ -1,0 +1,3349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="目前有计划重新阅读算法导论。以下是本人解答课后习题的一些答案。尽量独立完成，有一部分参考了其他人的解决方案。 如下题目仍有待思考（没想出来，或者是证明出来的结论和书上的不一样）： 1234567896.4-46.4-516-432-1-b32-1-c33.2-333.2-433-1-b33-2 Chapter 1">
+<meta property="og:type" content="website">
+<meta property="og:title" content="算法导论（第4版）部分题目解答">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:description" content="目前有计划重新阅读算法导论。以下是本人解答课后习题的一些答案。尽量独立完成，有一部分参考了其他人的解决方案。 如下题目仍有待思考（没想出来，或者是证明出来的结论和书上的不一样）： 1234567896.4-46.4-516-432-1-b32-1-c33.2-333.2-433-1-b33-2 Chapter 1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-11-26T13:26:58.000Z">
+<meta property="article:modified_time" content="2025-12-25T11:34:25.435Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/index.html","path":"introduction-to-algorithms/index.html","title":"算法导论（第4版）部分题目解答"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论（第4版）部分题目解答 | Ujimatsu Chiya
+</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-1"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-2"><span class="nav-number">2.</span> <span class="nav-text">Chapter 2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-3"><span class="nav-number">3.</span> <span class="nav-text">Chapter 3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-4"><span class="nav-number">4.</span> <span class="nav-text">Chapter 4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-5"><span class="nav-number">5.</span> <span class="nav-text">Chapter 5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-6"><span class="nav-number">6.</span> <span class="nav-text">Chapter 6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-7"><span class="nav-number">7.</span> <span class="nav-text">Chapter 7</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-8"><span class="nav-number">8.</span> <span class="nav-text">Chapter 8</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-9"><span class="nav-number">9.</span> <span class="nav-text">Chapter 9</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-10"><span class="nav-number">10.</span> <span class="nav-text">Chapter 10</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-11"><span class="nav-number">11.</span> <span class="nav-text">Chapter 11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-12"><span class="nav-number">12.</span> <span class="nav-text">Chapter 12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-13"><span class="nav-number">13.</span> <span class="nav-text">Chapter 13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-14"><span class="nav-number">14.</span> <span class="nav-text">Chapter 14</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-15"><span class="nav-number">15.</span> <span class="nav-text">Chapter 15</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-16"><span class="nav-number">16.</span> <span class="nav-text">Chapter 16</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-17"><span class="nav-number">17.</span> <span class="nav-text">Chapter 17</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-18"><span class="nav-number">18.</span> <span class="nav-text">Chapter 18</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-19"><span class="nav-number">19.</span> <span class="nav-text">Chapter 19</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-20"><span class="nav-number">20.</span> <span class="nav-text">Chapter 20</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-21"><span class="nav-number">21.</span> <span class="nav-text">Chapter 21</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-22"><span class="nav-number">22.</span> <span class="nav-text">Chapter 22</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-23"><span class="nav-number">23.</span> <span class="nav-text">Chapter 23</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-24"><span class="nav-number">24.</span> <span class="nav-text">Chapter 24</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-25"><span class="nav-number">25.</span> <span class="nav-text">Chapter 25</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-26"><span class="nav-number">26.</span> <span class="nav-text">Chapter 26</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-27"><span class="nav-number">27.</span> <span class="nav-text">Chapter 27</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-28"><span class="nav-number">28.</span> <span class="nav-text">Chapter 28</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-29"><span class="nav-number">29.</span> <span class="nav-text">Chapter 29</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-30"><span class="nav-number">30.</span> <span class="nav-text">Chapter 30</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-31"><span class="nav-number">31.</span> <span class="nav-text">Chapter 31</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-32"><span class="nav-number">32.</span> <span class="nav-text">Chapter 32</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-33"><span class="nav-number">33.</span> <span class="nav-text">Chapter 33</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-34"><span class="nav-number">34.</span> <span class="nav-text">Chapter 34</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-35"><span class="nav-number">35.</span> <span class="nav-text">Chapter 35</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">算法导论（第4版）部分题目解答
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>目前有计划重新阅读算法导论。以下是本人解答课后习题的一些答案。尽量独立完成，有一部分参考了其他人的解决方案。</p>
+<p>如下题目仍有待思考（没想出来，或者是证明出来的结论和书上的不一样）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">6.4-4</span><br><span class="line">6.4-5</span><br><span class="line">16-4</span><br><span class="line">32-1-b</span><br><span class="line">32-1-c</span><br><span class="line">33.2-3</span><br><span class="line">33.2-4</span><br><span class="line">33-1-b</span><br><span class="line">33-2</span><br></pre></td></tr></table></figure>
+<h1 id="chapter-1">Chapter 1</h1>
+<table>
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-1/exercises-1/">Exercise
+1</a></td>
+<td>1.1-1</td>
+<td>1.1-2</td>
+<td>1.1-3</td>
+<td>1.1-4</td>
+<td>1.1-5</td>
+<td>1.1-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-1/exercises-2/">Exercise
+2</a></td>
+<td>1.2-1</td>
+<td>1.2-2</td>
+<td>1.2-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-1/problems/">Problems</a></td>
+<td>1-1</td>
+<td>1-2</td>
+<td>1-3</td>
+<td>1-4</td>
+<td>1-5</td>
+<td>1-6</td>
+<td>1-7</td>
+<td>1-8</td>
+<td>1-9</td>
+<td>1-10</td>
+<td>1-11</td>
+<td>1-12</td>
+<td>1-13</td>
+<td>1-14</td>
+<td>1-15</td>
+<td>1-16</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-2">Chapter 2</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-2/exercises-1/">Exercise
+1</a></td>
+<td>2.1-1</td>
+<td>2.1-2</td>
+<td>2.1-3</td>
+<td>2.1-4</td>
+<td>2.1-5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-2/exercises-2/">Exercise
+2</a></td>
+<td>2.2-1</td>
+<td>2.2-2</td>
+<td>2.2-3</td>
+<td>2.2-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-2/exercises-3/">Exercise
+3</a></td>
+<td>2.3-1</td>
+<td>2.3-2</td>
+<td>2.3-3</td>
+<td>2.3-4</td>
+<td>2.3-5</td>
+<td>2.3-6</td>
+<td>2.3-7</td>
+<td>2.3-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-2/problems/">Problems</a></td>
+<td>2-1</td>
+<td>2-2</td>
+<td>2-3</td>
+<td>2-4</td>
+<td>2-5</td>
+<td>2-6</td>
+<td>2-7</td>
+<td>2-8</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-3">Chapter 3</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-3/exercises-1/">Exercise
+1</a></td>
+<td>3.1-1</td>
+<td>3.1-2</td>
+<td>3.1-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-3/exercises-2/">Exercise
+2</a></td>
+<td>3.2-1</td>
+<td>3.2-2</td>
+<td>3.2-3</td>
+<td>3.2-4</td>
+<td>3.2-5</td>
+<td>3.2-6</td>
+<td>3.2-7</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-3/exercises-3/">Exercise
+3</a></td>
+<td>3.3-1</td>
+<td>3.3-2</td>
+<td>3.3-3</td>
+<td>3.3-4</td>
+<td>3.3-5</td>
+<td>3.3-6</td>
+<td>3.3-7</td>
+<td>3.3-8</td>
+<td>3.3-9</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-3/problems/">Problems</a></td>
+<td>3-1</td>
+<td>3-2</td>
+<td>3-3</td>
+<td>3-4</td>
+<td>3-5</td>
+<td>3-6</td>
+<td>3-7</td>
+<td>3-8</td>
+<td>3-9</td>
+<td>3-10</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-4">Chapter 4</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-1/">Exercise
+1</a></td>
+<td>4.1-1</td>
+<td>4.1-2</td>
+<td>4.1-3</td>
+<td>4.1-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-2/">Exercise
+2</a></td>
+<td>4.2-1</td>
+<td>4.2-2</td>
+<td>4.2-3</td>
+<td>4.2-4</td>
+<td>4.2-5</td>
+<td>4.2-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-3/">Exercise
+3</a></td>
+<td>4.3-1</td>
+<td>4.3-2</td>
+<td>4.3-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-4/">Exercise
+4</a></td>
+<td>4.4-1</td>
+<td>4.4-2</td>
+<td>4.4-3</td>
+<td>4.4-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-5/">Exercise
+5</a></td>
+<td>4.5-1</td>
+<td>4.5-2</td>
+<td>4.5-3</td>
+<td>4.5-4</td>
+<td>4.5-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-6/">Exercise
+6</a></td>
+<td>4.6-1</td>
+<td>4.6-2</td>
+<td>4.6-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/exercises-7/">Exercise
+7</a></td>
+<td>4.7-1</td>
+<td>4.7-2</td>
+<td>4.7-3</td>
+<td>4.7-4</td>
+<td>4.7-5</td>
+<td>4.7-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-4/problems/">Problems</a></td>
+<td>4-1</td>
+<td>4-2</td>
+<td>4-3</td>
+<td>4-4</td>
+<td>4-5</td>
+<td>4-6</td>
+<td>4-7</td>
+<td>4-8</td>
+<td>4-9</td>
+<td>4-10</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-5">Chapter 5</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-5/exercises-1/">Exercise
+1</a></td>
+<td>5.1-1</td>
+<td>5.1-2</td>
+<td>5.1-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-5/exercises-2/">Exercise
+2</a></td>
+<td>5.2-1</td>
+<td>5.2-2</td>
+<td>5.2-3</td>
+<td>5.2-4</td>
+<td>5.2-5</td>
+<td>5.2-6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-5/exercises-3/">Exercise
+3</a></td>
+<td>5.3-1</td>
+<td>5.3-2</td>
+<td>5.3-3</td>
+<td>5.3-4</td>
+<td>5.3-5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-5/exercises-4/">Exercise
+4</a></td>
+<td>5.4-1</td>
+<td>5.4-2</td>
+<td>5.4-3</td>
+<td>5.4-4</td>
+<td>5.4-5</td>
+<td>5.4-6</td>
+<td>5.4-7</td>
+<td>5.4-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-5/problems/">Problems</a></td>
+<td>5-1</td>
+<td>5-2</td>
+<td>5-3</td>
+<td>5-4</td>
+<td>5-5</td>
+<td>5-6</td>
+<td>5-7</td>
+<td>5-8</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-6">Chapter 6</h1>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-6/exercises-1/">Exercise
+1</a></td>
+<td>6.1-1</td>
+<td>6.1-2</td>
+<td>6.1-3</td>
+<td>6.1-4</td>
+<td>6.1-5</td>
+<td>6.1-6</td>
+<td>6.1-7</td>
+<td>6.1-8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-6/exercises-2/">Exercise
+2</a></td>
+<td>6.2-1</td>
+<td>6.2-2</td>
+<td>6.2-3</td>
+<td>6.2-4</td>
+<td>6.2-5</td>
+<td>6.2-6</td>
+<td>6.2-7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-6/exercises-3/">Exercise
+3</a></td>
+<td>6.3-1</td>
+<td>6.3-2</td>
+<td>6.3-3</td>
+<td>6.3-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-6/exercises-4/">Exercise
+4</a></td>
+<td>6.4-1</td>
+<td>6.4-2</td>
+<td>6.4-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-6/exercises-5/">Exercise
+5</a></td>
+<td>6.5-1</td>
+<td>6.5-2</td>
+<td>6.5-3</td>
+<td>6.5-4</td>
+<td>6.5-5</td>
+<td>6.5-6</td>
+<td>6.5-7</td>
+<td>6.5-8</td>
+<td>6.5-9</td>
+<td>6.5-10</td>
+<td>6.5-11</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-6/problems/">Problems</a></td>
+<td>6-1</td>
+<td>6-2</td>
+<td>6-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-7">Chapter 7</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-7/exercises-1/">Exercise
+1</a></td>
+<td>7.1-1</td>
+<td>7.1-2</td>
+<td>7.1-3</td>
+<td>7.1-4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-7/exercises-2/">Exercise
+2</a></td>
+<td>7.2-1</td>
+<td>7.2-2</td>
+<td>7.2-3</td>
+<td>7.2-4</td>
+<td>7.2-5</td>
+<td>7.2-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-7/exercises-3/">Exercise
+3</a></td>
+<td>7.3-1</td>
+<td>7.3-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-7/exercises-4/">Exercise
+4</a></td>
+<td>7.4-1</td>
+<td>7.4-2</td>
+<td>7.4-3</td>
+<td>7.4-4</td>
+<td>7.4-5</td>
+<td>7.4-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-7/problems/">Problems</a></td>
+<td>7-1</td>
+<td>7-2</td>
+<td>7-3</td>
+<td>7-4</td>
+<td>7-5</td>
+<td>7-6</td>
+<td>7-7</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-8">Chapter 8</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-8/exercises-1/">Exercise
+1</a></td>
+<td>8.1-1</td>
+<td>8.1-2</td>
+<td>8.1-3</td>
+<td>8.1-4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-8/exercises-2/">Exercise
+2</a></td>
+<td>8.2-1</td>
+<td>8.2-2</td>
+<td>8.2-3</td>
+<td>8.2-4</td>
+<td>8.2-5</td>
+<td>8.2-6</td>
+<td>8.2-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-8/exercises-3/">Exercise
+3</a></td>
+<td>8.3-1</td>
+<td>8.3-2</td>
+<td>8.3-3</td>
+<td>8.3-4</td>
+<td>8.3-5</td>
+<td>8.3-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-8/exercises-4/">Exercise
+4</a></td>
+<td>8.4-1</td>
+<td>8.4-2</td>
+<td>8.4-3</td>
+<td>8.4-4</td>
+<td>8.4-5</td>
+<td>8.4-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-8/problems/">Problems</a></td>
+<td>8-1</td>
+<td>8-2</td>
+<td>8-3</td>
+<td>8-4</td>
+<td>8-5</td>
+<td>8-6</td>
+<td>8-7</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-9">Chapter 9</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-9/exercises-1/">Exercise
+1</a></td>
+<td>9.1-1</td>
+<td>9.1-2</td>
+<td>9.1-3</td>
+<td>9.1-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-9/exercises-2/">Exercise
+2</a></td>
+<td>9.2-1</td>
+<td>9.2-2</td>
+<td>9.2-3</td>
+<td>9.2-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-9/exercises-3/">Exercise
+3</a></td>
+<td>9.3-1</td>
+<td>9.3-2</td>
+<td>9.3-3</td>
+<td>9.3-4</td>
+<td>9.3-5</td>
+<td>9.3-6</td>
+<td>9.3-7</td>
+<td>9.3-8</td>
+<td>9.3-9</td>
+<td>9.3-10</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-9/problems/">Problems</a></td>
+<td>9-1</td>
+<td>9-2</td>
+<td>9-3</td>
+<td>9-4</td>
+<td>9-5</td>
+<td>9-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-10">Chapter 10</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-10/exercises-1/">Exercise
+1</a></td>
+<td>10.1-1</td>
+<td>10.1-2</td>
+<td>10.1-3</td>
+<td>10.1-4</td>
+<td>10.1-5</td>
+<td>10.1-6</td>
+<td>10.1-7</td>
+<td>10.1-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-10/exercises-2/">Exercise
+2</a></td>
+<td>10.2-1</td>
+<td>10.2-2</td>
+<td>10.2-3</td>
+<td>10.2-4</td>
+<td>10.2-5</td>
+<td>10.2-6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-10/exercises-3/">Exercise
+3</a></td>
+<td>10.3-1</td>
+<td>10.3-2</td>
+<td>10.3-3</td>
+<td>10.3-4</td>
+<td>10.3-5</td>
+<td>10.3-6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-10/problems/">Problems</a></td>
+<td>10-1</td>
+<td>10-2</td>
+<td>10-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-11">Chapter 11</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-11/exercises-1/">Exercise
+1</a></td>
+<td>11.1-1</td>
+<td>11.1-2</td>
+<td>11.1-3</td>
+<td>11.1-4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-11/exercises-2/">Exercise
+2</a></td>
+<td>11.2-1</td>
+<td>11.2-2</td>
+<td>11.2-3</td>
+<td>11.2-4</td>
+<td>11.2-5</td>
+<td>11.2-6</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-11/exercises-3/">Exercise
+3</a></td>
+<td>11.3-1</td>
+<td>11.3-2</td>
+<td>11.3-3</td>
+<td>11.3-4</td>
+<td>11.3-5</td>
+<td>11.3-6</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-11/exercises-4/">Exercise
+4</a></td>
+<td>11.4-1</td>
+<td>11.4-2</td>
+<td>11.4-3</td>
+<td>11.4-4</td>
+<td>11.4-5</td>
+<td>11.4-6</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-11/exercises-5/">Exercise
+5</a></td>
+<td>11.5-1</td>
+<td>11.5-2</td>
+<td>11.5-3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-11/problems/">Problems</a></td>
+<td>11-1</td>
+<td>11-2</td>
+<td>11-3</td>
+<td>11-4</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-12">Chapter 12</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-12/exercises-1/">Exercise
+1</a></td>
+<td>12.1-1</td>
+<td>12.1-2</td>
+<td>12.1-3</td>
+<td>12.1-4</td>
+<td>12.1-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-12/exercises-2/">Exercise
+2</a></td>
+<td>12.2-1</td>
+<td>12.2-2</td>
+<td>12.2-3</td>
+<td>12.2-4</td>
+<td>12.2-5</td>
+<td>12.2-6</td>
+<td>12.2-7</td>
+<td>12.2-8</td>
+<td>12.2-9</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-12/exercises-3/">Exercise
+3</a></td>
+<td>12.3-1</td>
+<td>12.3-2</td>
+<td>12.3-3</td>
+<td>12.3-4</td>
+<td>12.3-5</td>
+<td>12.3-6</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-12/problems/">Problems</a></td>
+<td>12-1</td>
+<td>12-2</td>
+<td>12-3</td>
+<td>12-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-13">Chapter 13</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-13/exercises-1/">Exercise
+1</a></td>
+<td>13.1-1</td>
+<td>13.1-2</td>
+<td>13.1-3</td>
+<td>13.1-4</td>
+<td>13.1-5</td>
+<td>13.1-6</td>
+<td>13.1-7</td>
+<td>13.1-8</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-13/exercises-2/">Exercise
+2</a></td>
+<td>13.2-1</td>
+<td>13.2-2</td>
+<td>13.2-3</td>
+<td>13.2-4</td>
+<td>13.2-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-13/exercises-3/">Exercise
+3</a></td>
+<td>13.3-1</td>
+<td>13.3-2</td>
+<td>13.3-3</td>
+<td>13.3-4</td>
+<td>13.3-5</td>
+<td>13.3-6</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-13/exercises-4/">Exercise
+4</a></td>
+<td>13.4-1</td>
+<td>13.4-2</td>
+<td>13.4-3</td>
+<td>13.4-4</td>
+<td>13.4-5</td>
+<td>13.4-6</td>
+<td>13.4-7</td>
+<td>13.4-8</td>
+<td>13.4-9</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-13/problems/">Problems</a></td>
+<td>13-1</td>
+<td>13-2</td>
+<td>13-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-14">Chapter 14</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-14/exercises-1/">Exercise
+1</a></td>
+<td>14.1-1</td>
+<td>14.1-2</td>
+<td>14.1-3</td>
+<td>14.1-4</td>
+<td>14.1-5</td>
+<td>14.1-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-14/exercises-2/">Exercise
+2</a></td>
+<td>14.2-1</td>
+<td>14.2-2</td>
+<td>14.2-3</td>
+<td>14.2-4</td>
+<td>14.2-5</td>
+<td>14.2-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-14/exercises-3/">Exercise
+3</a></td>
+<td>14.3-1</td>
+<td>14.3-2</td>
+<td>14.3-3</td>
+<td>14.3-4</td>
+<td>14.3-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-14/exercises-4/">Exercise
+4</a></td>
+<td>14.4-1</td>
+<td>14.4-2</td>
+<td>14.4-3</td>
+<td>14.4-4</td>
+<td>14.4-5</td>
+<td>14.4-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-14/exercises-5/">Exercise
+5</a></td>
+<td>14.5-1</td>
+<td>14.5-2</td>
+<td>14.5-3</td>
+<td>14.5-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-14/problems/">Problems</a></td>
+<td>14-1</td>
+<td>14-2</td>
+<td>14-3</td>
+<td>14-4</td>
+<td>14-5</td>
+<td>14-6</td>
+<td>14-7</td>
+<td>14-8</td>
+<td>14-9</td>
+<td>14-10</td>
+<td>14-11</td>
+<td>14-12</td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-15">Chapter 15</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-15/exercises-1/">Exercise
+1</a></td>
+<td>15.1-1</td>
+<td>15.1-2</td>
+<td>15.1-3</td>
+<td>15.1-4</td>
+<td>15.1-5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-15/exercises-2/">Exercise
+2</a></td>
+<td>15.2-1</td>
+<td>15.2-2</td>
+<td>15.2-3</td>
+<td>15.2-4</td>
+<td>15.2-5</td>
+<td>15.2-6</td>
+<td>15.2-7</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-15/exercises-3/">Exercise
+3</a></td>
+<td>15.3-1</td>
+<td>15.3-2</td>
+<td>15.3-3</td>
+<td>15.3-4</td>
+<td>15.3-5</td>
+<td>15.3-6</td>
+<td>15.3-7</td>
+<td>15.3-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-15/exercises-4/">Exercise
+4</a></td>
+<td>15.4-1</td>
+<td>15.4-2</td>
+<td>15.4-3</td>
+<td>15.4-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-15/problems/">Problems</a></td>
+<td>15-1</td>
+<td>15-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-16">Chapter 16</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-16/exercises-1/">Exercise
+1</a></td>
+<td>16.1-1</td>
+<td>16.1-2</td>
+<td>16.1-3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-16/exercises-2/">Exercise
+2</a></td>
+<td>16.2-1</td>
+<td>16.2-2</td>
+<td>16.2-3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-16/exercises-3/">Exercise
+3</a></td>
+<td>16.3-1</td>
+<td>16.3-2</td>
+<td>16.3-3</td>
+<td>16.3-4</td>
+<td>16.3-5</td>
+<td>16.3-6</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-16/exercises-4/">Exercise
+4</a></td>
+<td>16.4-1</td>
+<td>16.4-2</td>
+<td>16.4-3</td>
+<td>16.4-4</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-16/problems/">Problems</a></td>
+<td>16-1</td>
+<td>16-2</td>
+<td>16-3</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-17">Chapter 17</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-17/exercises-1/">Exercise
+1</a></td>
+<td>17.1-1</td>
+<td>17.1-2</td>
+<td>17.1-3</td>
+<td>17.1-4</td>
+<td>17.1-5</td>
+<td>17.1-6</td>
+<td>17.1-7</td>
+<td>17.1-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-17/exercises-2/">Exercise
+2</a></td>
+<td>17.2-1</td>
+<td>17.2-2</td>
+<td>17.2-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-17/exercises-3/">Exercise
+3</a></td>
+<td>17.3-1</td>
+<td>17.3-2</td>
+<td>17.3-3</td>
+<td>17.3-4</td>
+<td>17.3-5</td>
+<td>17.3-6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-17/problems/">Problems</a></td>
+<td>17-1</td>
+<td>17-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-18">Chapter 18</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-18/exercises-1/">Exercise
+1</a></td>
+<td>18.1-1</td>
+<td>18.1-2</td>
+<td>18.1-3</td>
+<td>18.1-4</td>
+<td>18.1-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-18/exercises-2/">Exercise
+2</a></td>
+<td>18.2-1</td>
+<td>18.2-2</td>
+<td>18.2-3</td>
+<td>18.2-4</td>
+<td>18.2-5</td>
+<td>18.2-6</td>
+<td>18.2-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-18/exercises-3/">Exercise
+3</a></td>
+<td>18.3-1</td>
+<td>18.3-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-18/problems/">Problems</a></td>
+<td>18-1</td>
+<td>18-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-19">Chapter 19</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-19/exercises-1/">Exercise
+1</a></td>
+<td>19.1-1</td>
+<td>19.1-2</td>
+<td>19.1-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-19/exercises-2/">Exercise
+2</a></td>
+<td>19.2-1</td>
+<td>19.2-2</td>
+<td>19.2-3</td>
+<td>19.2-4</td>
+<td>19.2-5</td>
+<td>19.2-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-19/exercises-3/">Exercise
+3</a></td>
+<td>19.3-1</td>
+<td>19.3-2</td>
+<td>19.3-3</td>
+<td>19.3-4</td>
+<td>19.3-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-19/exercises-4/">Exercise
+4</a></td>
+<td>19.4-1</td>
+<td>19.4-2</td>
+<td>19.4-3</td>
+<td>19.4-4</td>
+<td>19.4-5</td>
+<td>19.4-6</td>
+<td>19.4-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-19/problems/">Problems</a></td>
+<td>19-1</td>
+<td>19-2</td>
+<td>19-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-20">Chapter 20</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-20/exercises-1/">Exercise
+1</a></td>
+<td>20.1-1</td>
+<td>20.1-2</td>
+<td>20.1-3</td>
+<td>20.1-4</td>
+<td>20.1-5</td>
+<td>20.1-6</td>
+<td>20.1-7</td>
+<td>20.1-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-20/exercises-2/">Exercise
+2</a></td>
+<td>20.2-1</td>
+<td>20.2-2</td>
+<td>20.2-3</td>
+<td>20.2-4</td>
+<td>20.2-5</td>
+<td>20.2-6</td>
+<td>20.2-7</td>
+<td>20.2-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-20/exercises-3/">Exercise
+3</a></td>
+<td>20.3-1</td>
+<td>20.3-2</td>
+<td>20.3-3</td>
+<td>20.3-4</td>
+<td>20.3-5</td>
+<td>20.3-6</td>
+<td>20.3-7</td>
+<td>20.3-8</td>
+<td>20.3-9</td>
+<td>20.3-10</td>
+<td>20.3-11</td>
+<td>20.3-12</td>
+<td>20.3-13</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-20/exercises-4/">Exercise
+4</a></td>
+<td>20.4-1</td>
+<td>20.4-2</td>
+<td>20.4-3</td>
+<td>20.4-4</td>
+<td>20.4-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-20/exercises-5/">Exercise
+5</a></td>
+<td>20.5-1</td>
+<td>20.5-2</td>
+<td>20.5-3</td>
+<td>20.5-4</td>
+<td>20.5-5</td>
+<td>20.5-6</td>
+<td>20.5-7</td>
+<td>20.5-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-20/problems/">Problems</a></td>
+<td>20-1</td>
+<td>20-2</td>
+<td>20-3</td>
+<td>20-4</td>
+<td>20-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-21">Chapter 21</h1>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-21/exercises-1/">Exercise
+1</a></td>
+<td>21.1-1</td>
+<td>21.1-2</td>
+<td>21.1-3</td>
+<td>21.1-4</td>
+<td>21.1-5</td>
+<td>21.1-6</td>
+<td>21.1-7</td>
+<td>21.1-8</td>
+<td>21.1-9</td>
+<td>21.1-10</td>
+<td>21.1-11</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-21/exercises-2/">Exercise
+2</a></td>
+<td>21.2-1</td>
+<td>21.2-2</td>
+<td>21.2-3</td>
+<td>21.2-4</td>
+<td>21.2-5</td>
+<td>21.2-6</td>
+<td>21.2-7</td>
+<td>21.2-8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-21/problems/">Problems</a></td>
+<td>21-1</td>
+<td>21-2</td>
+<td>21-3</td>
+<td>21-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-22">Chapter 22</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-22/exercises-1/">Exercise
+1</a></td>
+<td>22.1-1</td>
+<td>22.1-2</td>
+<td>22.1-3</td>
+<td>22.1-4</td>
+<td>22.1-5</td>
+<td>22.1-6</td>
+<td>22.1-7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-22/exercises-2/">Exercise
+2</a></td>
+<td>22.2-1</td>
+<td>22.2-2</td>
+<td>22.2-3</td>
+<td>22.2-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-22/exercises-3/">Exercise
+3</a></td>
+<td>22.3-1</td>
+<td>22.3-2</td>
+<td>22.3-3</td>
+<td>22.3-4</td>
+<td>22.3-5</td>
+<td>22.3-6</td>
+<td>22.3-7</td>
+<td>22.3-8</td>
+<td>22.3-9</td>
+<td>22.3-10</td>
+<td>22.3-11</td>
+<td>22.3-12</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-22/exercises-4/">Exercise
+4</a></td>
+<td>22.4-1</td>
+<td>22.4-2</td>
+<td>22.4-3</td>
+<td>22.4-4</td>
+<td>22.4-5</td>
+<td>22.4-6</td>
+<td>22.4-7</td>
+<td>22.4-8</td>
+<td>22.4-9</td>
+<td>22.4-10</td>
+<td>22.4-11</td>
+<td>22.4-12</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-22/exercises-5/">Exercise
+5</a></td>
+<td>22.5-1</td>
+<td>22.5-2</td>
+<td>22.5-3</td>
+<td>22.5-4</td>
+<td>22.5-5</td>
+<td>22.5-6</td>
+<td>22.5-7</td>
+<td>22.5-8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-22/problems/">Problems</a></td>
+<td>22-1</td>
+<td>22-2</td>
+<td>22-3</td>
+<td>22-4</td>
+<td>22-5</td>
+<td>22-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-23">Chapter 23</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-23/exercises-1/">Exercise
+1</a></td>
+<td>23.1-1</td>
+<td>23.1-2</td>
+<td>23.1-3</td>
+<td>23.1-4</td>
+<td>23.1-5</td>
+<td>23.1-6</td>
+<td>23.1-7</td>
+<td>23.1-8</td>
+<td>23.1-9</td>
+<td>23.1-10</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-23/exercises-2/">Exercise
+2</a></td>
+<td>23.2-1</td>
+<td>23.2-2</td>
+<td>23.2-3</td>
+<td>23.2-4</td>
+<td>23.2-5</td>
+<td>23.2-6</td>
+<td>23.2-7</td>
+<td>23.2-8</td>
+<td>23.2-9</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-23/exercises-3/">Exercise
+3</a></td>
+<td>23.3-1</td>
+<td>23.3-2</td>
+<td>23.3-3</td>
+<td>23.3-4</td>
+<td>23.3-5</td>
+<td>23.3-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-23/problems/">Problems</a></td>
+<td>23-1</td>
+<td>23-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-24">Chapter 24</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-24/exercises-1/">Exercise
+1</a></td>
+<td>24.1-1</td>
+<td>24.1-2</td>
+<td>24.1-3</td>
+<td>24.1-4</td>
+<td>24.1-5</td>
+<td>24.1-6</td>
+<td>24.1-7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-24/exercises-2/">Exercise
+2</a></td>
+<td>24.2-1</td>
+<td>24.2-2</td>
+<td>24.2-3</td>
+<td>24.2-4</td>
+<td>24.2-5</td>
+<td>24.2-6</td>
+<td>24.2-7</td>
+<td>24.2-8</td>
+<td>24.2-9</td>
+<td>24.2-10</td>
+<td>24.2-11</td>
+<td>24.2-12</td>
+<td>24.2-13</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-24/exercises-3/">Exercise
+3</a></td>
+<td>24.3-1</td>
+<td>24.3-2</td>
+<td>24.3-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-24/problems/">Problems</a></td>
+<td>24-1</td>
+<td>24-2</td>
+<td>24-3</td>
+<td>24-4</td>
+<td>24-5</td>
+<td>24-6</td>
+<td>24-7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-25">Chapter 25</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-25/exercises-1/">Exercise
+1</a></td>
+<td>25.1-1</td>
+<td>25.1-2</td>
+<td>25.1-3</td>
+<td>25.1-4</td>
+<td>25.1-5</td>
+<td>25.1-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-25/exercises-2/">Exercise
+2</a></td>
+<td>25.2-1</td>
+<td>25.2-2</td>
+<td>25.2-3</td>
+<td>25.2-4</td>
+<td>25.2-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-25/exercises-3/">Exercise
+3</a></td>
+<td>25.3-1</td>
+<td>25.3-2</td>
+<td>25.3-3</td>
+<td>25.3-4</td>
+<td>25.3-5</td>
+<td>25.3-6</td>
+<td>25.3-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-25/problems/">Problems</a></td>
+<td>25-1</td>
+<td>25-2</td>
+<td>25-3</td>
+<td>25-4</td>
+<td>25-5</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-26">Chapter 26</h1>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-26/exercises-1/">Exercise
+1</a></td>
+<td>26.1-1</td>
+<td>26.1-2</td>
+<td>26.1-3</td>
+<td>26.1-4</td>
+<td>26.1-5</td>
+<td>26.1-6</td>
+<td>26.1-7</td>
+<td>26.1-8</td>
+<td>26.1-9</td>
+<td>26.1-10</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-26/exercises-2/">Exercise
+2</a></td>
+<td>26.2-1</td>
+<td>26.2-2</td>
+<td>26.2-3</td>
+<td>26.2-4</td>
+<td>26.2-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-26/exercises-3/">Exercise
+3</a></td>
+<td>26.3-1</td>
+<td>26.3-2</td>
+<td>26.3-3</td>
+<td>26.3-4</td>
+<td>26.3-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-26/problems/">Problems</a></td>
+<td>26-1</td>
+<td>26-2</td>
+<td>26-3</td>
+<td>26-4</td>
+<td>26-5</td>
+<td>26-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-27">Chapter 27</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+<col style="width: 16%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-27/exercises-1/">Exercise
+1</a></td>
+<td>27.1-1</td>
+<td>27.1-2</td>
+<td>27.1-3</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-27/exercises-2/">Exercise
+2</a></td>
+<td>27.2-1</td>
+<td>27.2-2</td>
+<td>27.2-3</td>
+<td>27.2-4</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-27/exercises-3/">Exercise
+3</a></td>
+<td>27.3-1</td>
+<td>27.3-2</td>
+<td>27.3-3</td>
+<td>27.3-4</td>
+<td>27.3-5</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-27/problems/">Problems</a></td>
+<td>27-1</td>
+<td>27-2</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-28">Chapter 28</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-28/exercises-1/">Exercise
+1</a></td>
+<td>28.1-1</td>
+<td>28.1-2</td>
+<td>28.1-3</td>
+<td>28.1-4</td>
+<td>28.1-5</td>
+<td>28.1-6</td>
+<td>28.1-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-28/exercises-2/">Exercise
+2</a></td>
+<td>28.2-1</td>
+<td>28.2-2</td>
+<td>28.2-3</td>
+<td>28.2-4</td>
+<td>28.2-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-28/exercises-3/">Exercise
+3</a></td>
+<td>28.3-1</td>
+<td>28.3-2</td>
+<td>28.3-3</td>
+<td>28.3-4</td>
+<td>28.3-5</td>
+<td>28.3-6</td>
+<td>28.3-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-28/problems/">Problems</a></td>
+<td>28-1</td>
+<td>28-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-29">Chapter 29</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-29/exercises-1/">Exercise
+1</a></td>
+<td>29.1-1</td>
+<td>29.1-2</td>
+<td>29.1-3</td>
+<td>29.1-4</td>
+<td>29.1-5</td>
+<td>29.1-6</td>
+<td>29.1-7</td>
+<td>29.1-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-29/exercises-2/">Exercise
+2</a></td>
+<td>29.2-1</td>
+<td>29.2-2</td>
+<td>29.2-3</td>
+<td>29.2-4</td>
+<td>29.2-5</td>
+<td>29.2-6</td>
+<td>29.2-7</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-29/exercises-3/">Exercise
+3</a></td>
+<td>29.3-1</td>
+<td>29.3-2</td>
+<td>29.3-3</td>
+<td>29.3-4</td>
+<td>29.3-5</td>
+<td>29.3-6</td>
+<td>29.3-7</td>
+<td>29.3-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-29/problems/">Problems</a></td>
+<td>29-1</td>
+<td>29-2</td>
+<td>29-3</td>
+<td>29-4</td>
+<td>29-5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-30">Chapter 30</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-30/exercises-1/">Exercise
+1</a></td>
+<td>30.1-1</td>
+<td>30.1-2</td>
+<td>30.1-3</td>
+<td>30.1-4</td>
+<td>30.1-5</td>
+<td>30.1-6</td>
+<td>30.1-7</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-30/exercises-2/">Exercise
+2</a></td>
+<td>30.2-1</td>
+<td>30.2-2</td>
+<td>30.2-3</td>
+<td>30.2-4</td>
+<td>30.2-5</td>
+<td>30.2-6</td>
+<td>30.2-7</td>
+<td>30.2-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-30/exercises-3/">Exercise
+3</a></td>
+<td>30.3-1</td>
+<td>30.3-2</td>
+<td>30.3-3</td>
+<td>30.3-4</td>
+<td>30.3-5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-30/problems/">Problems</a></td>
+<td>30-1</td>
+<td>30-2</td>
+<td>30-3</td>
+<td>30-4</td>
+<td>30-5</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-31">Chapter 31</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-1/">Exercise
+1</a></td>
+<td>31.1-1</td>
+<td>31.1-2</td>
+<td>31.1-3</td>
+<td>31.1-4</td>
+<td>31.1-5</td>
+<td>31.1-6</td>
+<td>31.1-7</td>
+<td>31.1-8</td>
+<td>31.1-9</td>
+<td>31.1-10</td>
+<td>31.1-11</td>
+<td>31.1-12</td>
+<td>31.1-13</td>
+<td>31.1-14</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-2/">Exercise
+2</a></td>
+<td>31.2-1</td>
+<td>31.2-2</td>
+<td>31.2-3</td>
+<td>31.2-4</td>
+<td>31.2-5</td>
+<td>31.2-6</td>
+<td>31.2-7</td>
+<td>31.2-8</td>
+<td>31.2-9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-3/">Exercise
+3</a></td>
+<td>31.3-1</td>
+<td>31.3-2</td>
+<td>31.3-3</td>
+<td>31.3-4</td>
+<td>31.3-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-4/">Exercise
+4</a></td>
+<td>31.4-1</td>
+<td>31.4-2</td>
+<td>31.4-3</td>
+<td>31.4-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-5/">Exercise
+5</a></td>
+<td>31.5-1</td>
+<td>31.5-2</td>
+<td>31.5-3</td>
+<td>31.5-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-6/">Exercise
+6</a></td>
+<td>31.6-1</td>
+<td>31.6-2</td>
+<td>31.6-3</td>
+<td>31.6-4</td>
+<td>31.6-5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-7/">Exercise
+7</a></td>
+<td>31.7-1</td>
+<td>31.7-2</td>
+<td>31.7-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/exercises-8/">Exercise
+8</a></td>
+<td>31.8-1</td>
+<td>31.8-2</td>
+<td>31.8-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-31/problems/">Problems</a></td>
+<td>31-1</td>
+<td>31-2</td>
+<td>31-3</td>
+<td>31-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-32">Chapter 32</h1>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-32/exercises-1/">Exercise
+1</a></td>
+<td>32.1-1</td>
+<td>32.1-2</td>
+<td>32.1-3</td>
+<td>32.1-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-32/exercises-2/">Exercise
+2</a></td>
+<td>32.2-1</td>
+<td>32.2-2</td>
+<td>32.2-3</td>
+<td>32.2-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-32/exercises-3/">Exercise
+3</a></td>
+<td>32.3-1</td>
+<td>32.3-2</td>
+<td>32.3-3</td>
+<td>32.3-4</td>
+<td>32.3-5</td>
+<td>32.3-6</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-32/exercises-4/">Exercise
+4</a></td>
+<td>32.4-1</td>
+<td>32.4-2</td>
+<td>32.4-3</td>
+<td>32.4-4</td>
+<td>32.4-5</td>
+<td>32.4-6</td>
+<td>32.4-7</td>
+<td>32.4-8</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-32/exercises-5/">Exercise
+5</a></td>
+<td>32.5-1</td>
+<td>32.5-2</td>
+<td>32.5-3</td>
+<td>32.5-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-32/problems/">Problems</a></td>
+<td>32-1</td>
+<td>32-2</td>
+<td>32-3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-33">Chapter 33</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-33/exercises-1/">Exercise
+1</a></td>
+<td>33.1-1</td>
+<td>33.1-2</td>
+<td>33.1-3</td>
+<td>33.1-4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-33/exercises-2/">Exercise
+2</a></td>
+<td>33.2-1</td>
+<td>33.2-2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-33/exercises-3/">Exercise
+3</a></td>
+<td>33.3-1</td>
+<td>33.3-2</td>
+<td>33.3-3</td>
+<td>33.3-4</td>
+<td>33.3-5</td>
+<td>33.3-6</td>
+<td>33.3-7</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-33/problems/">Problems</a></td>
+<td>33-1</td>
+<td></td>
+<td>33-3</td>
+<td>33-4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-34">Chapter 34</h1>
+<table>
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-34/exercises-1/">Exercise
+1</a></td>
+<td>34.1-1</td>
+<td>34.1-2</td>
+<td>34.1-3</td>
+<td>34.1-4</td>
+<td>34.1-5</td>
+<td>34.1-6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-34/exercises-2/">Exercise
+2</a></td>
+<td>34.2-1</td>
+<td>34.2-2</td>
+<td>34.2-3</td>
+<td>34.2-4</td>
+<td>34.2-5</td>
+<td>34.2-6</td>
+<td>34.2-7</td>
+<td>34.2-8</td>
+<td>34.2-9</td>
+<td>34.2-10</td>
+<td>34.2-11</td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-34/exercises-3/">Exercise
+3</a></td>
+<td>34.3-1</td>
+<td>34.3-2</td>
+<td>34.3-3</td>
+<td>34.3-4</td>
+<td>34.3-5</td>
+<td>34.3-6</td>
+<td>34.3-7</td>
+<td>34.3-8</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-34/exercises-4/">Exercise
+4</a></td>
+<td>34.4-1</td>
+<td>34.4-2</td>
+<td>34.4-3</td>
+<td>34.4-4</td>
+<td>34.4-5</td>
+<td>34.4-6</td>
+<td>34.4-7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-34/exercises-5/">Exercise
+5</a></td>
+<td>34.5-1</td>
+<td>34.5-2</td>
+<td>34.5-3</td>
+<td>34.5-4</td>
+<td>34.5-5</td>
+<td>34.5-6</td>
+<td>34.5-7</td>
+<td>34.5-8</td>
+<td>34.5-9</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-34/problems/">Problems</a></td>
+<td>34-1</td>
+<td>34-2</td>
+<td>34-3</td>
+<td>34-4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="chapter-35">Chapter 35</h1>
+<table>
+<colgroup>
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+</colgroup>
+<tbody>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-35/exercises-1/">Exercise
+1</a></td>
+<td>35.1-1</td>
+<td>35.1-2</td>
+<td>35.1-3</td>
+<td>35.1-4</td>
+<td>35.1-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-35/exercises-2/">Exercise
+2</a></td>
+<td>35.2-1</td>
+<td>35.2-2</td>
+<td>35.2-3</td>
+<td>35.2-4</td>
+<td>35.2-5</td>
+<td>35.2-6</td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-35/exercises-3/">Exercise
+3</a></td>
+<td>35.3-1</td>
+<td>35.3-2</td>
+<td>35.3-3</td>
+<td>35.3-4</td>
+<td>35.3-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-35/exercises-4/">Exercise
+4</a></td>
+<td>35.4-1</td>
+<td>35.4-2</td>
+<td>35.4-3</td>
+<td>35.4-4</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-35/exercises-5/">Exercise
+5</a></td>
+<td>35.5-1</td>
+<td>35.5-2</td>
+<td>35.5-3</td>
+<td>35.5-4</td>
+<td>35.5-5</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><a
+href="../introduction-to-algorithms/chapter-35/problems/">Problems</a></td>
+<td>35-1</td>
+<td>35-2</td>
+<td>35-3</td>
+<td>35-4</td>
+<td>35-5</td>
+<td>35-6</td>
+<td>35-7</td>
+</tr>
+</tbody>
+</table>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论33.3 Exercises 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-3/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-19T14:02:30.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.184Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-3/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-3/","path":"introduction-to-algorithms/chapter-33/exercises-3/","title":"算法导论33.3 Exercises 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论33.3 Exercises 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">33.3-1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">33.3-2</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">33.3-3</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">33.3-4</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">33.3-5</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">33.3-6</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-6"><span class="nav-number">7.</span> <span class="nav-text">33.3-7</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论33.3 Exercises 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论33.3 Exercises 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-05-19 22:02:30" itemprop="dateCreated datePublished" datetime="2023-05-19T22:02:30+08:00">2023-05-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">33.3-1</h1>
+<p>由于<span
+class="math inline">\(f\)</span>是凸函数，因此改写不等式33.18，可以得到</p>
+<p><span
+class="math display">\[f(\mathbf{y}+\lambda(\mathbf{x}-\mathbf{y}))\le\lambda
+f(\mathbf{x})+(1-\lambda)f(\mathbf{y})\]</span></p>
+<p>经过移项，可以写出</p>
+<p><span
+class="math display">\[f(\mathbf{y}+\lambda(\mathbf{x}-\mathbf{y}))-f(\mathbf{y})\le\lambda
+f(\mathbf{x})-\lambda f(\mathbf{y})\]</span></p>
+<p>假设<span class="math inline">\(\lambda\neq 0\)</span>，那么有</p>
+<p><span
+class="math display">\[\dfrac{f(\mathbf{y}+\lambda(\mathbf{x}-\mathbf{y}))-f(\mathbf{y})}{\lambda}+f(\mathbf{y})\le
+f(\mathbf{x})\]</span></p>
+<p>当<span class="math inline">\(\lambda\)</span>无限接近于<span
+class="math inline">\(0\)</span>时，也就是</p>
+<p><span class="math display">\[\lim_{\lambda\rightarrow
+0^{+}}\dfrac{f(\mathbf{y}+\lambda(\mathbf{x}-\mathbf{y}))-f(\mathbf{y})}{\lambda}+f(\mathbf{y})\le
+f(\mathbf{x})\]</span></p>
+<p>最终得到</p>
+<p><span class="math display">\[\langle(\nabla
+f)(\mathbf{y}),\mathbf{x-y}\rangle+f(\mathbf{y})\le
+f(\mathbf{x})\]</span></p>
+<p>也就是有</p>
+<p><span class="math display">\[f(\mathbf{y})\le
+f(\mathbf{x})+\langle(\nabla
+f)(\mathbf{y}),\mathbf{y-x}\rangle\]</span></p>
+<p>交换变量<span
+class="math inline">\(\mathbf{x,y}\)</span>即可得到原结论。</p>
+<h1 id="section-1">33.3-2</h1>
+<p>为了方便，这题使用的下标范围是从<span
+class="math inline">\(1\)</span>到<span
+class="math inline">\(T\)</span>，即证明 <span
+class="math display">\[f\left(\dfrac{\mathbf{x^{(1)}+x^{(2)}+\dots+x^{(T)}}}{T}\right)\le\dfrac{f(\mathbf{x^{(1)}})+f(\mathbf{x^{(2)}})+\dots+f(\mathbf{x^{(T)}})}{T}\]</span></p>
+<p>令<span
+class="math inline">\(\displaystyle{\mathbf{y^{(i)}}=\dfrac{\sum_{j=1}^i
+\mathbf{x^{(j)}}}{T}}\)</span>，那么对<span
+class="math inline">\(i=2,3,4,\dots,T\)</span>，都有</p>
+<p><span class="math inline">\(\begin{aligned}
+f(\mathbf{y^{i}})&amp;=f\left(\dfrac{\mathbf{x^{(i)}}}{i}+\dfrac{(i-1)\mathbf{y^{(i-1)}}}{i}\right)\\
+&amp;\le
+\dfrac{f(\mathbf{x^i})}{i}+\dfrac{(i-1)f(\mathbf{y^{(i-1)}})}{i}&amp;\qquad(A)
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>使用了凸函数<span
+class="math inline">\(f\)</span>的性质，因为此时<span
+class="math inline">\(\lambda=\dfrac{1}{i}\)</span>。</p>
+<p>考虑对<span
+class="math inline">\(Tf(\mathbf{y^{(T)}})\)</span>循环代入上面的不等式，那么得到</p>
+<p><span class="math inline">\(\begin{aligned}
+T(\mathbf{y^{(T)}})&amp;\le
+f(\mathbf{x^{(T)}})+(T-1)f(\mathbf{y^{(T-1)}})\\
+&amp;\le
+f(\mathbf{x^{(T)}})+f(\mathbf{x^{(T-1)}})+(T-2)f(\mathbf{y^{(T-2)}})\\
+&amp;\dots\\
+&amp;\le f(\mathbf{x^{(T)}})+f(\mathbf{x^{(T-1)}})+\dots+
+f(\mathbf{y^{(1)}})\\
+&amp;\le
+f(\mathbf{x^{(T)}})+f(\mathbf{x^{(T-1)}})+\dots+f(\mathbf{x^{(1)}})
+\end{aligned}\)</span></p>
+<p>重新将<span
+class="math inline">\(\mathbf{y^{(T)}}\)</span>回代到上面的不等式，并将<span
+class="math inline">\(T\)</span>进行移项，即可得到 <span
+class="math display">\[f\left(\dfrac{\mathbf{x^{(1)}+x^{(2)}+\dots+x^{(T)}}}{T}\right)\le\dfrac{f(\mathbf{x^{(1)}})+f(\mathbf{x^{(2)}})+\dots+f(\mathbf{x^{(T)}})}{T}\]</span></p>
+<h1 id="section-2">33.3-3</h1>
+<p>令<span
+class="math inline">\(\mathbf{a}=(a_1,a_2,\dots,a_n),\mathbf{b}=(b_1,b_2,\dots,b_n)\)</span>。考虑计算<span
+class="math inline">\(\lVert\mathbf{a}+\mathbf{b}\rVert^2-\lVert\mathbf{a}\rVert^2\)</span>的值，根据向量积和模长的定义，可以得到：</p>
+<p><span class="math inline">\(\begin{aligned}
+\lVert\mathbf{a}+\mathbf{b}\rVert^2-\lVert\mathbf{a}\rVert^2&amp;=\sum_{i=1}^n(a_i+b_i)^2-\sum_{i=1}^na_i^2\\
+&amp;=\sum_{i=1}^n(2a_ib_i+b_i^2)\\
+&amp;=2\sum_{i=1}^na_ib_i+\sum_{i=1}^nb_i^2\\
+&amp;=2\langle\mathbf{a},\mathbf{b}\rangle+\lVert\mathbf{b}\rVert^2
+\end{aligned}\)</span></p>
+<p>原结论得证。</p>
+<h1 id="section-3">33.3-4</h1>
+<p>令<span
+class="math inline">\(\mathbf{x}=(x_1,x_2,\dots,x_n),\mathbf{y}=(y_1,y_2,\dots,y_n)\)</span>。考虑使用不等式33.18来证明<span
+class="math inline">\(f(\mathbf{x})\)</span>是凸函数。那么对于<span
+class="math inline">\(\lambda\in[0,1]\)</span>，有以下两个值：</p>
+<p><span class="math inline">\(\begin{aligned}
+f(\lambda\mathbf{x}+(1-\lambda)\mathbf{y})&amp;=w_0+\sum_{i=1}^n
+w_i(\lambda x_i+(1-\lambda)y_i)\\
+&amp;=w_0+\sum_{i=1}^n (w_iy_i+\lambda w_i(x_i-y_i))\\
+\\
+\lambda
+f(\mathbf{x})+(1-\lambda)f(\mathbf{y})&amp;=\lambda\left(w_0+\sum_{i=1}^{n}w_ix_i\right)+(1-\lambda)\left(w_0+\sum_{i=1}^{n}w_iy_i\right)\\
+&amp;=w_0+\sum_{i=1}^n \lambda w_i x_i+(1-\lambda)w_iy_i\\
+&amp;=w_0+\sum_{i=1}^n (w_iy_i+\lambda w_i(x_i-y_i))\\
+\end{aligned}\)</span></p>
+<p>因此有<span
+class="math inline">\(f(\lambda\mathbf{x}+(1-\lambda)\mathbf{y})=\lambda
+f(\mathbf{x})+(1-\lambda)f(\mathbf{y})\)</span>。这满足了凸函数的等号特殊条件，因此<span
+class="math inline">\(f(\mathbf{x})\)</span>是凸函数。</p>
+<h1 id="section-4">33.3-5</h1>
+<p>令<span
+class="math inline">\(\displaystyle{g(\mathbf{w})=\dfrac{1}{m}\sum_{i=1}^m
+(e^{(i)})^2}\)</span>，其中<span
+class="math inline">\(\displaystyle{e^{(i)}}=\left(w_0+\sum_{j=1}^nw_jx_j^{(i)}\right)-y^{(i)}\)</span>。注意，<span
+class="math inline">\(\mathbf{w}\)</span>是未知的；但是<span
+class="math inline">\(\mathbf{x^{(i)}}\)</span>和<span
+class="math inline">\(y^{(i)}\)</span>都是已知的，都将它们看作常数对待。</p>
+<p>先考虑计算<span class="math inline">\(\dfrac{\partial g}{\partial
+w_0}\)</span>的值，那么有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\dfrac{\partial g}{\partial w_0}&amp;=\sum_{i=1}^m \dfrac{\partial
+(e^{(i)})^2}{\partial w_0}\\
+&amp;=\dfrac{2}{m}\sum_{i=1}^m
+\left(w_0+\sum_{j=1}^nw_jx_j^{(i)}\right)-y^{(i)}\\
+&amp;=\dfrac{2}{m}\sum_{i=1}^m e^{(i)}
+\end{aligned}\)</span></p>
+<p>再考虑计算<span class="math inline">\(\dfrac{\partial g}{\partial
+w_k}\)</span>的值，其中<span
+class="math inline">\(k\in[1,n]\)</span>，那么有：</p>
+<p><span class="math inline">\(\begin{aligned}
+\dfrac{\partial g}{\partial w_k}&amp;=\dfrac{1}{m}\sum_{i=1}^m
+\dfrac{\partial (e^{(i)})^2}{\partial w_k}\\
+&amp;=\dfrac{2}{m}\sum_{i=1}^m
+x_k^{(i)}\cdot\left(\left(w_0+\sum_{j=1}^nw_jx_j^{(i)}\right)-y^{(i)}\right)\\
+&amp;=\dfrac{2}{m}\sum_{i=1}^m x_k^{(i)}\cdot e^{(i)}
+\end{aligned}\)</span></p>
+<p>那么计算方法非常简单。对于第<span
+class="math inline">\(i\)</span>条数据，我们先以<span
+class="math inline">\(O(n)\)</span>的时间计算出<span
+class="math inline">\(e^{(i)}\)</span>的值，然后根据<span
+class="math inline">\(e^{(i)}\)</span>，分别以<span
+class="math inline">\(O(1)\)</span>的时间再计算出<span
+class="math inline">\(\dfrac{\partial g}{\partial w_0},\dfrac{\partial
+g}{\partial w_1},\dots,\dfrac{\partial g}{\partial
+w_n}\)</span>的值，这总共需要<span
+class="math inline">\(O(n)\)</span>的时间。对这<span
+class="math inline">\(m\)</span>条数据都进行这样的操作，并将对应的梯度值相加即可得到结果，总共花费的时间为<span
+class="math inline">\(O(nm)\)</span>。这个算法由<code>NABLA-W</code>给出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">NABLA-W(W, X, Y, n, m)</span><br><span class="line">  let D[0 : n] be new array by 0</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    e = 0</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      e = e + W[j] * X[i, j]</span><br><span class="line">    e = e + W[0] - Y[i]</span><br><span class="line">    D[0] = D[0] + 2 * e</span><br><span class="line">    for j = 1 to n</span><br><span class="line">      D[j] = D[j] + 2 * e * X[i, j]</span><br><span class="line">  return D</span><br></pre></td></tr></table></figure>
+<h1 id="section-5">33.3-6</h1>
+<p>令<span
+class="math inline">\(\mathbf{x}=(x_1,x_2,\dots,x_n),\mathbf{w}=(w_{\mathbf{0}},w_1,w_2,\dots,w_n)\)</span>。</p>
+<p>由于<span
+class="math inline">\(\displaystyle{f(\mathbf{x})=w_0+\sum_{i=1}^n
+w_ix_i}\)</span>，因此对于<span class="math inline">\(\forall i\in
+[1,n]\)</span>，都有<span class="math inline">\(\dfrac{\partial
+f}{\partial x_i}=w_i\)</span>。也就是说，有<span
+class="math inline">\((\nabla
+f)(\mathbf{x})=(w_1,w_2,\dots,w_n)\)</span>。</p>
+<p>由于<span class="math inline">\(\lVert \mathbf{w}\rVert\le
+B\)</span>，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+\lVert (\nabla f)(\mathbf{x})\rVert &amp;=\sqrt{\sum_{i=1}^n w_i^2}\\
+&amp;\le\sqrt{w_0^2+\sum_{i=1}^n w_i^2}\\
+&amp;=B
+\end{aligned}\)</span></p>
+<p>因此<span class="math inline">\(\lVert (\nabla
+f)(\mathbf{x})\rVert\le B\)</span>对于任意<span
+class="math inline">\(\mathbf{x}\in
+\mathbb{R}^n\)</span>都成立。只需要取<span
+class="math inline">\(L=B\)</span>即可，因此<span
+class="math inline">\(L=O(B)\)</span>。</p>
+<h1 id="section-6">33.3-7</h1>
+<p>本质上，我们的目标是将<span
+class="math inline">\(\displaystyle{f(S,C)=\sum_{\ell=1}^k\sum_{\mathbf{x}\in
+S^{(\ell)}}\Delta(\mathbf{c^{(\ell)},x})}\)</span>最小化。对每个聚类中的重心<span
+class="math inline">\(\mathbf{c^{(\ell)}}\)</span>，使用梯度下降来让重心朝某个方向<strong>移动</strong>一定距离，并且保证最终距离平方和减少。</p>
+<p>具体过程是，令<span
+class="math inline">\(\displaystyle{h(\mathbf{c^{(\ell)}})=\sum_{\mathbf{x}\in
+S^{(\ell)}}\Delta(\mathbf{c^{(\ell)},x})}\)</span>。那么将<span
+class="math inline">\(h(\mathbf{c^{(\ell)}})\)</span>当作是损失函数，对原来的重心<span
+class="math inline">\(\mathbf{c^{(\ell)}}\)</span>移动<span
+class="math inline">\(\lambda \cdot(\nabla
+h)(\mathbf{c^{(\ell)}})\)</span>的一步。根据梯度下降的原理，<span
+class="math inline">\(h(\mathbf{c^{(\ell)}})\)</span>值已经减小了。如果在下一步迭代中，某个点所属类别发生了变更（假设变更到了<span
+class="math inline">\(S^{\ell&#39;}\)</span>），那么说明<span
+class="math inline">\(\Delta(\mathbf{x,c^{(\ell)}})&gt;\Delta(\mathbf{x,c^{(\ell&#39;)}})\)</span>，这将确保总体上<span
+class="math inline">\(f(S,C)\)</span>的值是下降的。</p>
+<p>因此，使用梯度下降可以有效解决<span
+class="math inline">\(k\)</span>-means问题。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-3/" title="算法导论33.3 Exercises 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-33/exercises-3/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

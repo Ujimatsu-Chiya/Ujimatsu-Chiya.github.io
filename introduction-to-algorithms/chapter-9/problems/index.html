@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="算法导论9 Problems 答案">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/9-6-c-1.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/9-6-c-2.png">
+<meta property="article:published_time" content="2023-01-18T16:46:57.000Z">
+<meta property="article:modified_time" content="2025-12-23T05:14:07.198Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/9-6-c-1.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/","path":"introduction-to-algorithms/chapter-9/problems/","title":"算法导论9 Problems 答案"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>算法导论9 Problems 答案 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#section"><span class="nav-number">1.</span> <span class="nav-text">9-1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a"><span class="nav-number">1.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b"><span class="nav-number">1.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c"><span class="nav-number">1.3.</span> <span class="nav-text">c</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-1"><span class="nav-number">2.</span> <span class="nav-text">9-2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-1"><span class="nav-number">2.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-1"><span class="nav-number">2.2.</span> <span class="nav-text">b</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-2"><span class="nav-number">3.</span> <span class="nav-text">9-3</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-2"><span class="nav-number">3.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-2"><span class="nav-number">3.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-1"><span class="nav-number">3.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d"><span class="nav-number">3.4.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#e"><span class="nav-number">3.5.</span> <span class="nav-text">e</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-3"><span class="nav-number">4.</span> <span class="nav-text">9-4</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-3"><span class="nav-number">4.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-3"><span class="nav-number">4.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-2"><span class="nav-number">4.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-1"><span class="nav-number">4.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-4"><span class="nav-number">5.</span> <span class="nav-text">9-5</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-4"><span class="nav-number">5.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-4"><span class="nav-number">5.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-3"><span class="nav-number">5.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-2"><span class="nav-number">5.4.</span> <span class="nav-text">d</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#section-5"><span class="nav-number">6.</span> <span class="nav-text">9-6</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#a-5"><span class="nav-number">6.1.</span> <span class="nav-text">a</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#b-5"><span class="nav-number">6.2.</span> <span class="nav-text">b</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#c-4"><span class="nav-number">6.3.</span> <span class="nav-text">c</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#d-3"><span class="nav-number">6.4.</span> <span class="nav-text">d</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">669</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="算法导论9 Problems 答案 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          算法导论9 Problems 答案
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-01-19 00:46:57" itemprop="dateCreated datePublished" datetime="2023-01-19T00:46:57+08:00">2023-01-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%AE%97%E6%B3%95%E5%AF%BC%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">算法导论</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="section">9-1</h1>
+<h2 id="a">a</h2>
+<p>先直接进行排序，需要<span class="math inline">\(O(n\lg
+n)\)</span>的运行时间，然后直接返回最后<span
+class="math inline">\(i\)</span>个数。这个算法的总体时间复杂度为<span
+class="math inline">\(O(n\lg n)\)</span>。</p>
+<h2 id="b">b</h2>
+<p>使用算法<code>BUILD-MAX-HEAP</code>对整个数组进行建堆，需要<span
+class="math inline">\(O(n)\)</span>的运行时间。然后使用<span
+class="math inline">\(i\)</span>次算法<code>EXTRACT-MAX</code>分别弹出当前最大值，每次使用的运行时间为<span
+class="math inline">\(O(\lg n)\)</span>。这个算法的总体时间复杂度为<span
+class="math inline">\(O(n + i\lg n)\)</span>。</p>
+<h2 id="c">c</h2>
+<p>先用算法<code>SELECT</code>求出第<span
+class="math inline">\(n-i+1\)</span>小的数（也就是第<span
+class="math inline">\(i\)</span>大的数），需要<span
+class="math inline">\(O(n)\)</span>的运行时间。然后直接对后面<span
+class="math inline">\(i\)</span>个元素进行排序后直接返回，这个过程需要<span
+class="math inline">\(O(i\lg
+i)\)</span>的运行时间。这个算法的总体时间复杂度为<span
+class="math inline">\(O(n + i\lg i)\)</span>。</p>
+<h1 id="section-1">9-2</h1>
+<h2 id="a-1">a</h2>
+<p>如果第3行代码返回的<span
+class="math inline">\(q\)</span>恰好是下标最大值<span
+class="math inline">\(r\)</span>，那么<span
+class="math inline">\(k=r-p+1\)</span>，由于<span
+class="math inline">\(i\le
+r-p+1\)</span>是恒成立的，因此必定进入第6行的分支。此时的递归调用相当于是<code>SIMPLER-RANDOMIZED-SELECT(A, p, r, i)</code>，这没有对区间做任何的缩减。因此，在最坏情况下相当于进行无限递归，程序不会终止。</p>
+<h2 id="b-1">b</h2>
+<p>算法<code>SIMPLER-RANDOMIZED-SELECT</code>的第3行相当于从区间<span
+class="math inline">\(A[p:r]\)</span>中均匀随机选择一个数作为支点，最终划分完成后（假设这是第<span
+class="math inline">\(i\)</span>小的数），在第6-7行中选择一个分支继续进行查找。</p>
+<p>假设在最坏情况下，每次递归查找的都是大小比较大的那个区间，那么假设<span
+class="math inline">\(T(n)\)</span>为运行时间，有</p>
+<p><span class="math display">\[T(n)\le \dfrac{1}{n}\cdot\sum_{i=1}^n
+T(\max\{i,n-i\}) + O(n)\]</span></p>
+<p>整理一下，可以写成</p>
+<p><span class="math display">\[T(n)\le
+\dfrac{1}{n-1}\cdot\sum_{i=1}^{n-1} T(\max\{i,n-i\}) + O(n)\]</span></p>
+<p>考虑消去<span class="math inline">\(\max\)</span>。如果<span
+class="math inline">\(n-1\)</span>是奇数，那么项<span
+class="math inline">\(T(n/2)\)</span>会出现<span
+class="math inline">\(1\)</span>次，项<span
+class="math inline">\(T(n/2+1),T(n/2+2),\dots,T(n-1)\)</span>都会出现<span
+class="math inline">\(2\)</span>次；如果<span
+class="math inline">\(n-1\)</span>是偶数，那么项<span
+class="math inline">\(T((n+1)/2),T((n+1)/2+1),\dots,T(n-1)\)</span>都会出现<span
+class="math inline">\(2\)</span>次。</p>
+<p>因此为了避免分别讨论，缩放时，<span
+class="math inline">\(n-1\)</span>为奇数的情况再添加多一个项，那么可以写出</p>
+<p><span class="math display">\[T(n)\le
+\dfrac{2}{n-1}\cdot\sum_{i=\lceil n/2\rceil}^{n-1} T(i) +
+O(n)\]</span></p>
+<p>假设<span class="math inline">\(T(n)\le cn\)</span>，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;\le \dfrac{2}{n-1}\cdot\sum_{i=\lceil n/2\rceil}^{n-1} T(i) +
+O(n)\\
+&amp;\le \dfrac{2c}{n-1} \cdot \dfrac{(\lceil n/2\rceil+n-1)(n-\lceil
+n/2\rceil)}{2} + O(n)\\
+&amp;=c\cdot \dfrac{(\lceil n/2\rceil+n-1)(n-\lceil n/2\rceil)}{n-1} +
+O(n)\\
+&amp;\le c\cdot \dfrac{(n/2+1+n-1)(n-n/2-1)}{n-1} + O(n)\\
+&amp;=\dfrac{3cn(n-2)}{4(n-1)} + O(n) \\
+&amp;\le\dfrac{3cn(n-2)}{4(n-2)} + O(n) \\
+&amp;=\dfrac{3}{4} cn+O(n)\\
+&amp;\le cn &amp; \qquad(A)
+\end{aligned}\)</span></p>
+<p>其中步骤<span class="math inline">\((A)\)</span>使用了如下假设：<span
+class="math inline">\(c\)</span>足够大，使得<span
+class="math inline">\(\dfrac{cn}{4}\)</span>的渐进增长快于<span
+class="math inline">\(O(n)\)</span>。</p>
+<p>因此有<span class="math inline">\(T(n)=O(n)\)</span>。</p>
+<h1 id="section-2">9-3</h1>
+<p>这里的中位数默认是第<span
+class="math inline">\(\left\lceil\dfrac{n}{2}\right\rceil\)</span>小的数。</p>
+<p>需要注意的是，通过哈希表，我们可以把相同的<span
+class="math inline">\(x\)</span>合并成一个，并且其权值进行相加。只要哈希表的性能足够优秀，那么这个预处理需要<span
+class="math inline">\(\Theta(n)\)</span>的时间复杂度完成。因此在接下来的过程中，我们默认<span
+class="math inline">\(x\)</span>是两两不同的。</p>
+<h2 id="a-2">a</h2>
+<p>小于中位数的数有<span
+class="math inline">\(\left\lceil\dfrac{n}{2}\right\rceil-1\)</span>个。那么这些数的权值之和为<span
+class="math inline">\(\dfrac{1}{n}\left(\left\lceil\dfrac{n}{2}\right\rceil-1\right)\)</span>。可以发现，当<span
+class="math inline">\(n\)</span>为偶数时，权值和为<span
+class="math inline">\(\dfrac{1}{2}-\dfrac{1}{n}\)</span>，当<span
+class="math inline">\(n\)</span>为奇数时，权值和为<span
+class="math inline">\(\dfrac{n-1}{2n}\)</span>。无论那种情况都小于<span
+class="math inline">\(\dfrac{1}{2}\)</span>。</p>
+<p>大于中位数的数有<span
+class="math inline">\(n-\left\lceil\dfrac{n}{2}\right\rceil=\left\lfloor\dfrac{n}{2}\right\rfloor\)</span>个。那么这些数的权值之和为<span
+class="math inline">\(\dfrac{1}{n}\left\lfloor\dfrac{n}{2}\right\rfloor\)</span>。无论<span
+class="math inline">\(n\)</span>取何值，权值之和总小于等于<span
+class="math inline">\(\dfrac{1}{2}\)</span>。</p>
+<p>因此，<span
+class="math inline">\(\{x\}\)</span>的普通中位数就是这种特殊情况下的带权中位数。</p>
+<h2 id="b-2">b</h2>
+<p>算法<code>GET-WEIGHTED-MEDIAN1</code>给出了求取一个带权中位数的算法。其中排序算法的时间复杂度假设为<span
+class="math inline">\(O(n\lg n)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 数组A中的每一个元素都有两个属性，分别为x和w，x表示数值，w表示权重。</span><br><span class="line">GET-WEIGHTED-MEDIAN1(A, n)</span><br><span class="line">  sort A[1 : n] by key x</span><br><span class="line">  s = 0</span><br><span class="line">  for i = 1 to n</span><br><span class="line">    s = s + A[i].w</span><br><span class="line">    if s &gt;= 0.5</span><br><span class="line">      return A[i].x</span><br><span class="line">  return NIL</span><br></pre></td></tr></table></figure>
+<p>直接排完序后，从小到大将所有数的权值逐渐相加，将第一个大于等于0.5的数直接返回。如果输入是合法的（权值之和为<span
+class="math inline">\(1\)</span>），那么第7行的代码<code>return NIL</code>不会被运行到。</p>
+<h2 id="c-1">c</h2>
+<p>整个算法通过如下伪代码给出给出。子程序<code>RANDOMIZED-PARTITION-WEIGHTED</code>和<code>PARTITION-WEIGHTED</code>与原版的行为基本相同，多统计了一个权值之和。它们的时间复杂度为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>算法<code>MEDIAN-WEIGHT</code>的时间复杂度<span
+class="math inline">\(T(n)\)</span>的分析过程和9-2-b完全一致，为<span
+class="math inline">\(T(n)=O(n)\)</span>。第5行代码第一次对整个数组进行了一次划分，因此有<span
+class="math inline">\(T(n)=\Omega(n)\)</span>。那么整个算法的时间复杂度为<span
+class="math inline">\(T(n)=\Theta(n)\)</span>。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">// PARTITION-WEIGHTED返回两个值，一个是划分后这个数的下标q，一个是A[p : q]中所有数的权值之和。</span><br><span class="line">PARTITION-WEIGHTED(A, p, r)</span><br><span class="line">  s = 0</span><br><span class="line">  x = A[r].x // the pivot</span><br><span class="line">  i = p – 1 // highest index into the low side</span><br><span class="line">  for j = p to r – 1 // process each element other than the pivot</span><br><span class="line">    if A[j].x &lt; x // does this element belong on the low side?</span><br><span class="line">      i = i + 1 // index of a new slot in the low side</span><br><span class="line">      exchange A[i] with A[j] // put this element there</span><br><span class="line">  exchange A[i + 1] with A[r] // pivot goes just to the right of the low side</span><br><span class="line">  return i + 1, s + A[i + 1].w</span><br><span class="line"></span><br><span class="line">RANDOMIZED-PARTITION-WEIGHTED(A, p, r)</span><br><span class="line">  i = RANDOM(p, r)</span><br><span class="line">  exchange A[r] with A[i]</span><br><span class="line">  return PARTITION-WEIGHTED(A, p, r)</span><br><span class="line"></span><br><span class="line">// 目标是求出最小的数x，使得小于等于x的所有权值之和大于等于0.5.</span><br><span class="line">MEDIAN-WEIGHT(A, n)</span><br><span class="line">  pw = 0.5</span><br><span class="line">  p = 1</span><br><span class="line">  r = n</span><br><span class="line">  while p &lt; r</span><br><span class="line">    q, nw = RANDOMIZED-PARTITION(A, p, r)</span><br><span class="line">    if nw &gt;= pw</span><br><span class="line">      r = q</span><br><span class="line">    else</span><br><span class="line">      pw = pw - nw</span><br><span class="line">      p = q + 1</span><br><span class="line">  return A[p].x</span><br></pre></td></tr></table></figure>
+<h2 id="d">d</h2>
+<p>假设<span class="math inline">\(x\)</span>是目前的最小值解，且<span
+class="math inline">\(x\)</span>不是带权中位数，即不满足带权中位数条件<span
+class="math inline">\(\displaystyle{\sum_{x_i&lt; x_k}
+w_i&lt;\dfrac{1}{2},\sum_{x_i&gt; x_k} w_i\le
+\dfrac{1}{2}}\)</span>中的一个。</p>
+<p>不失一般性，假设不满足第<span
+class="math inline">\(2\)</span>个条件，那么有<span
+class="math inline">\(\displaystyle{\sum_{p_i&gt; x} w_i-\sum_{p_i&lt;
+x} w_i&gt;0}\)</span>。</p>
+<p>令<span
+class="math inline">\(\displaystyle{k=\min_{i=1}^n\{|x-p_i|\}}\)</span>，那么取<span
+class="math inline">\(l\)</span>使得<span class="math inline">\(l\in
+[0,k)\)</span>。从<span
+class="math inline">\(x\)</span>向右迈出一小步<span
+class="math inline">\(l\)</span>，那么此时有</p>
+<p><span class="math inline">\(\begin{aligned}
+\sum_{i=1}^n w_i  d(x+l,p_i) &amp;= \sum_{p_i&lt;x} w_i(x+l-p_i) +
+\sum_{p_i&gt;x} w_i(p_i-x-l)\\
+&amp;=\sum_{p_i&lt;x} w_i(x-p_i)+\sum_{p_i&gt;x} w_i(p_i-x) -
+l\left(\sum_{p_i&gt;x} w_i-\sum_{p_i&lt;x} w_i\right)\\
+&amp;=\sum_{i=1}^n w_i  d(x,p_i)- l\left(\sum_{p_i&gt;x}
+w_i-\sum_{p_i&lt;x} w_i\right)\\
+&amp;\le \sum_{i=1}^n w_i  d(x,p_i)
+\end{aligned}\)</span></p>
+<p>由此可见，得到了一个更优秀的解<span
+class="math inline">\(x+l\)</span>。</p>
+<p>当不满足第<span
+class="math inline">\(1\)</span>个条件时，则是按反方向走，证明方法类似。</p>
+<p>因此，当<span
+class="math inline">\(x\)</span>是带权中位数时，得到的解是最优的。</p>
+<h2 id="e">e</h2>
+<p>由于<span class="math inline">\(\displaystyle{\sum_{i=1}^n
+d(p,p_i)=\sum_{i=1}^n w_i(|x-x_i|+|y-y_i|)=\left(\sum_{i=1}^n
+w_i|x-x_i|\right)+\left(\sum_{i=1}^n
+w_i|y-y_i|\right)}\)</span>，可以分别将两个维度的坐标看成是两个独立的一维问题进行解决。分别求出<span
+class="math inline">\(x\)</span>坐标和<span
+class="math inline">\(y\)</span>坐标后进行组合即可。</p>
+<h1 id="section-3">9-4</h1>
+<h2 id="a-3">a</h2>
+<p>这个算法由<code>SELECT'</code>给出。基本思想是先一对对元素进行比较并且绑定，完成<span
+class="math inline">\(\left\lfloor\dfrac{n}{2}\right\rfloor\)</span>次比较后，递归划分出<span
+class="math inline">\(\left\lceil\dfrac{n}{2}\right\rceil\)</span>个小元素中前<span
+class="math inline">\(i\)</span>小的元素。划分好后，第<span
+class="math inline">\(i\)</span>小数必定是这<span
+class="math inline">\(i\)</span>对数中的第<span
+class="math inline">\(i\)</span>小数。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">SELECT&#x27;(A, n, i)</span><br><span class="line">  if 2 * i &gt;= n</span><br><span class="line">    return SELECT(A, 1, n, i)</span><br><span class="line">  if n % 2 == 1</span><br><span class="line">    INSERT(A, +∞)</span><br><span class="line">    n += 1</span><br><span class="line">  m = n / 2</span><br><span class="line">  for i = 1 to m</span><br><span class="line">    if A[i] &gt; A[i + m]</span><br><span class="line">      exchange A[i] with A[i + m]</span><br><span class="line">      combine A[i] and A[i + m]</span><br><span class="line">  SELECT&#x27;(A[1 : m], m, i)</span><br><span class="line">  let B[1 : i + i] be new array</span><br><span class="line">  for j = 1 to i</span><br><span class="line">    B[j] = A[i]</span><br><span class="line">    B[j + i] = the number that A[i] combine</span><br><span class="line">  return SELECT(B, 1, i + i, i)</span><br></pre></td></tr></table></figure>
+<h2 id="b-3">b</h2>
+<p>我们使用代入法来证明<span
+class="math inline">\(U_i(n)-n=O(T(2i)\lg(n/i))\)</span>。假设<span
+class="math inline">\(U_i(n) -n\le c \cdot T(2i)\cdot
+\lg(n/i)\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+U_i(n)-n&amp;= (U_i(\lceil n/2\rceil)-\lceil n/2\rceil)+T(2i)\\
+&amp;\le c\cdot T(2i)\cdot \lg(\lceil n/2\rceil/i) + T(2i)\\
+&amp;\le c\cdot T(2i)\cdot(\lg( n/2/i) + 1) &amp; \qquad(A)\\
+&amp;\le c\cdot T(2i)\cdot(\lg(n/i)) \\
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>假设了<span
+class="math inline">\(c&gt;1\)</span>，并且足够大到消去符号<span
+class="math inline">\(\lceil\rceil\)</span>。</p>
+<p>因此，<span
+class="math inline">\(U_i(n)-n=O(T(2i)\lg(n/i))\)</span>，即<span
+class="math inline">\(U_i(n)=n+O(T(2i)\lg(n/i))\)</span>。</p>
+<h2 id="c-2">c</h2>
+<p>根据题目9-4-b的结论，可以得出：<span class="math inline">\(\exists
+c,n_0&gt;0,\forall n&gt;n_0,0\le U_i(n)-n\le c\cdot S(2i)\cdot
+\lg(n/i)\)</span>恒成立。</p>
+<p>那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+U_i(n)-n &amp;\le c\cdot S(2i)\cdot \lg(n/i)\\
+&amp;= c\cdot S(2i)\cdot (\lg n-\lg i)\\
+&amp;\le c\cdot S(2i)\cdot \lg n
+\end{aligned}\)</span></p>
+<p>构造一个新常数<span class="math inline">\(c&#39;=c\cdot
+S(2i)\)</span>，那么这对常数<span
+class="math inline">\(\{c&#39;,n_0\}\)</span>说明<span
+class="math inline">\(U_i(n)-n=O(\lg n)\)</span>，即<span
+class="math inline">\(U_i(n)=n+O(\lg n)\)</span>。</p>
+<h2 id="d-1">d</h2>
+<p>当<span class="math inline">\(k\ge 2\)</span>时，<span
+class="math inline">\(i=n/k&lt;n/2\)</span>。因此根据题目9-4-b的结论，代入<span
+class="math inline">\(i=n/k\)</span>，可以得到<span
+class="math inline">\(U_i(n)=n+O(S(2n/k)\lg k)\)</span>。</p>
+<h1 id="section-4">9-5</h1>
+<h2 id="a-4">a</h2>
+<p>和分析<code>RANDOMIZED-QUICKSORT</code>时的思想一致，如果我们选择的支点处在<span
+class="math inline">\(\min\{z_i,z_j\}\)</span>和<span
+class="math inline">\(\max\{z_i,z_k\}\)</span>之间时，才会有讨论的意义。否则，每次划分区间时，这<span
+class="math inline">\(3\)</span>个元素仍然处在同一个区间内部，<span
+class="math inline">\(z_j\)</span>和<span
+class="math inline">\(z_k\)</span>是否被比较仍然未知。并且按照上面的思想，<span
+class="math inline">\(z_j\)</span>和<span
+class="math inline">\(z_k\)</span>是否被比较，当且仅当<span
+class="math inline">\(z_j,z_k\)</span>处在同一区间内，并且着两个数之一成为支点<span
+class="math inline">\(q\)</span>。那么分别考虑三种情况：</p>
+<ol type="1">
+<li><p>当<span class="math inline">\(z_i&lt; z_j&lt;
+z_k\)</span>时，如果支点<span
+class="math inline">\(q\in\{z_j,z_k\}\)</span>，那么就会产生对<span
+class="math inline">\(z_j,z_k\)</span>的比较。如果<span
+class="math inline">\(q\in
+[z_i,z_j)\)</span>，那么下一层递归将会进入区间<span
+class="math inline">\([z_i,q),z_j,z_k\)</span>永远不会被比较。如果<span
+class="math inline">\(q\in (z_j,z_k)\)</span>，那么<span
+class="math inline">\(z_j\)</span>和<span
+class="math inline">\(z_k\)</span>将会被分隔开，永远不会被比较。此时<span
+class="math inline">\(E[X_{ijk}]=\dfrac{2}{k-i+1}\)</span>。</p></li>
+<li><p>当<span class="math inline">\(z_j&lt; z_k&lt;
+z_i\)</span>时，此时和情况1类似。此时<span
+class="math inline">\(E[X_{ijk}]=\dfrac{2}{i-j+1}\)</span>。</p></li>
+<li><p>当<span class="math inline">\(z_j\le z_i\le
+z_k\)</span>时，类似的，如果<span class="math inline">\(q\in
+(z_j,z_k)\)</span>，那么<span class="math inline">\(z_j\)</span>和<span
+class="math inline">\(z_k\)</span>将会被分隔开，永远不会被比较；否则必定会被比较，此时<span
+class="math inline">\(E[X_{ijk}]=\dfrac{2}{k-j+1}\)</span>。</p></li>
+</ol>
+<p>因此有：</p>
+<p><span class="math inline">\(E[X_{ijk}]=
+\left \{\begin{aligned}
+  &amp;\dfrac{2}{k-i+1} &amp; &amp; \text{if}\quad  z_i&lt; z_j&lt; z_k
+\\
+  &amp;\dfrac{2}{i-j+1} &amp; &amp; \text{if}\quad  z_j&lt; z_k&lt; z_i
+\\
+  &amp;\dfrac{2}{k-j+1} &amp; &amp; \text{if}\quad  z_j\le z_i\le z_k \\
+\end{aligned}\right.\)</span></p>
+<h2 id="b-4">b</h2>
+<p>根据示性随机变量<span
+class="math inline">\(X_i\)</span>的定义，有<span
+class="math inline">\(\displaystyle{X_i=\sum_{j=1}^{n-1}\sum_{k=j+1}^n
+X_{ijk}}\)</span>。那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+E[X_i]&amp;=E\left[\sum_{j=1}^{n-1}\sum_{k=j+1}^n X_{ijk}\right]\\
+&amp;=\sum_{j=1}^{n-1}\sum_{k=j+1}^n E[X_{ijk}]\\
+&amp;=\sum_{j=i+1}^{n-1}\sum_{k=j+1}^n E[X_{ijk}] +
+\sum_{j=1}^{i-2}\sum_{k=j+1}^{i-1} E[X_{ijk}] +
+\sum_{j=1}^{i}\sum_{k=i}^n E[X_{ijk}]\\
+&amp;=\sum_{j=i+1}^{n-1}\sum_{k=j+1}^n \dfrac{2}{k-i+1} +
+\sum_{j=1}^{i-2}\sum_{k=j+1}^{i-1} \dfrac{2}{i-j+1} +
+\sum_{j=1}^{i}\sum_{k=i}^n \dfrac{2}{k-j+1}\\
+&amp;=2\left(\sum_{j=i+1}^{n-1}\sum_{k=j+1}^n \dfrac{1}{k-i+1} +
+\sum_{j=1}^{i-2}\sum_{k=j+1}^{i-1} \dfrac{1}{i-j+1} +
+\sum_{j=1}^{i}\sum_{k=i}^n \dfrac{1}{k-j+1}\right)\\
+&amp;=2\left(\sum_{k=i+2}^{n}\dfrac{k-i-1}{k-i+1} +
+\sum_{j=1}^{i-2}\dfrac{i-j-1}{i-j+1} + \sum_{j=1}^{i}\sum_{k=i}^n
+\dfrac{1}{k-j+1}\right)\\
+&amp;\le 2\left(\sum_{k=i+1}^{n}\dfrac{k-i-1}{k-i+1} +
+\sum_{j=1}^{i-2}\dfrac{i-j-1}{i-j+1} + \sum_{j=1}^{i}\sum_{k=i}^n
+\dfrac{1}{k-j+1}\right)
+\end{aligned}\)</span></p>
+<h2 id="c-3">c</h2>
+<p>由题目9-5-b的推导继续进行。</p>
+<p><span class="math inline">\(\begin{aligned}
+E[X_i]&amp;\le 2\left(\sum_{k=i+1}^{n}\dfrac{k-i-1}{k-i+1} +
+\sum_{j=1}^{i-2}\dfrac{i-j-1}{i-j+1} + \sum_{j=1}^{i}\sum_{k=i}^n
+\dfrac{1}{k-j+1}\right)\\
+&amp;\le 2\left(\sum_{k=i+1}^{n} 1 + \sum_{j=1}^{i-2}1 +
+\sum_{j=1}^{i}\sum_{k=i}^n \dfrac{1}{k-j+1}\right)\\
+&amp;= 2\left(n-2 + \sum_{j=1}^{i}\sum_{k=i}^n \dfrac{1}{k-j+1}\right)\\
+&amp;= 2\left(n-2 + \sum_{c=1}^n \dfrac{1}{c}\cdot\sum_{1\le j\le i,i\le
+j+c-1\le n} 1\right)\\
+&amp;\le 2\left(n-2 + \sum_{c=1}^n \dfrac{1}{c}\cdot c\right)\\
+&amp;\le 2(n-2+n)\\
+&amp;\le 4n
+\end{aligned}\)</span></p>
+<h2 id="d-2">d</h2>
+<p>算法<code>RANDOMIZED-SELECT</code>的整个过程是围绕子程序<code>RANDOMIZED-PARTITION</code>进行的，比较过程就在这个子程序中进行。</p>
+<p>根据题目9-5-c的结论，所有调用子程序<code>RANDOMIZED-PARTITION</code>的过程中，总期望比较次数不超过<span
+class="math inline">\(4n\)</span>。因此算法<code>RANDOMIZED-SELECT</code>的时间复杂度为<span
+class="math inline">\(O(n)\)</span>。</p>
+<h1 id="section-5">9-6</h1>
+<p>假设单个组的大小为<span
+class="math inline">\(2k+1\)</span>，其中<span
+class="math inline">\(k\)</span>是一个正整数，且是常数。</p>
+<h2 id="a-5">a</h2>
+<p>此时意味着有前提条件：<span class="math inline">\(k\ge
+2\)</span>.</p>
+<p>前11行代码，无非就是将所有为<span
+class="math inline">\(5\)</span>的常量转化成<span
+class="math inline">\(2k+1\)</span>。这一段的代码运行时间仍然为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第12-13行代码对每组<span
+class="math inline">\(2k+1\)</span>个元素进行原地排序。由于每组内部元素数量相同，一共有<span
+class="math inline">\(\Theta(n)\)</span>组，这一段的运行时间仍然为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第16行对中间的一组再进行一次调用，产生了<span
+class="math inline">\(T(n/(2k+1))\)</span>的开销。</p>
+<p>第17行对数组进行了一次划分，这一段的运行时间仍然为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>总而言之，上面这部分算法内部开销的时间复杂度为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第20-24行递归进入所划分的区间。按照这种划分方法，可以知道，第16行中的<span
+class="math inline">\(x\)</span>至少有<span
+class="math inline">\(\dfrac{n\cdot
+(k+1)}{2\cdot(2k+1)}=\dfrac{k+1}{4k+2}n\)</span>个数比它大，至少有<span
+class="math inline">\(\dfrac{k+1}{4k+2}n\)</span>个数比它小。因此每次进行下一次递归时，至多可以去除<span
+class="math inline">\(\dfrac{k+1}{4k+2}n\)</span>个数。假设<span
+class="math inline">\(T(n)\)</span>为对<span
+class="math inline">\(n\)</span>个元素进行选择的运行时间，那么有</p>
+<p><span class="math display">\[T(n)\le
+T(n/(2k+1))+T((3k+1)n/(4k+2))+\Theta(n)\]</span></p>
+<p>使用代入法，假设<span class="math inline">\(T(n)\le
+cn\)</span>，那么有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;\le T(n/(2k+1))+T((3k+1)n/(4k+2))+\Theta(n)\\
+&amp;\le \dfrac{c}{2k+1} n+\dfrac{c(3k+1)}{4k+2}n+\Theta(n)\\
+&amp;=cn-\dfrac{c(k-1)}{4k+2}n+\Theta(n)\\
+&amp;\le cn &amp;\qquad(A)
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>假设了<span
+class="math inline">\(c\)</span>足够大，以至于项<span
+class="math inline">\(\dfrac{c(k-1)}{4k+2}n\)</span>的渐进增长速度超过<span
+class="math inline">\(\Theta(n)\)</span>。并且，由于<span
+class="math inline">\(k\ge 2\)</span>，因此这个项是恒正的。</p>
+<p>因此有<span class="math inline">\(T(n)=O(n)\)</span>。</p>
+<p>由于第17行对数组进行了一次<span
+class="math inline">\(\Theta(n)\)</span>的划分，因此说明<span
+class="math inline">\(T(n)=\Omega(n)\)</span>。</p>
+<p>因此最终有<span class="math inline">\(T(n)=\Theta(n)\)</span>。</p>
+<h2 id="b-5">b</h2>
+<p>此时意味着有前提条件：<span class="math inline">\(k=1\)</span>.</p>
+<p>那么<span class="math inline">\(T(n)\)</span>可以写成</p>
+<p><span class="math display">\[T(n)\le
+T(n/3)+T(2n/3)+\Theta(n)\]</span></p>
+<p>由于<span class="math inline">\(k=1\)</span>，项<span
+class="math inline">\(\dfrac{c(k-1)}{4k+2}n\)</span>的值恒为<span
+class="math inline">\(0\)</span>，因此题目9-6-a的结论不适用。</p>
+<p>那么假设<span class="math inline">\(T(n)\le cn\lg n\)</span>，有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;\le T(n/3)+T(2n/3)+\Theta(n)\\
+&amp;\le \dfrac{cn}{3} \lg\dfrac{cn}{3}+\dfrac{2n}{3} \lg\dfrac{2n}{3}
++\Theta(n)\\
+&amp;=cn\lg n-\dfrac{c}{3}\cdot \lg \dfrac{27}{4}\cdot n + \Theta(n)\\
+&amp;\le cn\lg n &amp;\qquad(A)
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>假设了<span
+class="math inline">\(c\)</span>足够大，以至于<span
+class="math inline">\(\dfrac{c}{3}\cdot \lg \dfrac{27}{4}\cdot
+n\)</span>的渐进增长速度超过<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>因此有<span class="math inline">\(T(n)=O(n\lg n)\)</span>。</p>
+<h2 id="c-4">c</h2>
+<p>前11行代码是为了调整整个数组的长度是<span
+class="math inline">\(9\)</span>的倍数。</p>
+<p>第12-13行代码则是对组内的所有元素进行排序，每组有<span
+class="math inline">\(3\)</span>个元素。排完序后的示意图如下：</p>
+<p><img data-src="9-6-c-1.png" /></p>
+<p>第16-17行代码则是对大组中的所有中位数再次进行排序，由于排序元素数量恒定为<span
+class="math inline">\(3\)</span>个。排完序后的示意图如下：</p>
+<p><img data-src="9-6-c-2.png" /></p>
+<p>其中，蓝色区域表示比<span
+class="math inline">\(x\)</span>小的数，黄色区域表示比<span
+class="math inline">\(x\)</span>大的数。</p>
+<p>因此可以发现，整个序列可以划分成大小为<span
+class="math inline">\(9\)</span>的组，也就是说一共有<span
+class="math inline">\(\dfrac{n}{9}\)</span>组。其中一半的大组至少有<span
+class="math inline">\(4\)</span>个数比<span
+class="math inline">\(x\)</span>小，一半的大组至少有<span
+class="math inline">\(4\)</span>个数比<span
+class="math inline">\(x\)</span>大。那么在每一次的划分过程中，我们可以排除掉至少<span
+class="math inline">\(\dfrac{n\cdot 4}{2\cdot
+9}=\dfrac{2}{9}n\)</span>个数。</p>
+<p>由此继续进行划分下去，最终可以成功找到一个第<span
+class="math inline">\(i\)</span>大的数。</p>
+<h2 id="d-3">d</h2>
+<p>第1行的<code>while</code>循环次数最多为<span
+class="math inline">\(8\)</span>，内部嵌套的<code>for</code>循环长度为<span
+class="math inline">\(\Theta(n)\)</span>，因此前11行代码的运行时间为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第12-13行代码则是对组内的所有元素进行排序，由于排序元素数量恒定为<span
+class="math inline">\(3\)</span>个，组数为<span
+class="math inline">\(\Theta(n)\)</span>。因此第12-13行代码的运行时间为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第16-17行代码则是对大组中的所有中位数再次进行排序，由于排序元素数量恒定为<span
+class="math inline">\(3\)</span>个，大组的组数也是<span
+class="math inline">\(\Theta(n)\)</span>。因此第12-13行代码的运行时间为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第20行对中间的一个大组再进行一次调用，产生了<span
+class="math inline">\(T(n/9)\)</span>的开销。</p>
+<p>第21行对数组进行了一次划分，这一段的运行时间仍然为<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>第23-28行递归进入所划分的区间。按照题目9-6-c的描述，这个开销最大为<span
+class="math inline">\(T(7n/9)\)</span>。</p>
+<p>那么可以写出<span
+class="math inline">\(T(n)\)</span>的递推关系式：</p>
+<p><span class="math display">\[T(n)\le
+T(n/9)+T(7n/9)+\Theta(n)\]</span></p>
+<p>进一步化简，有</p>
+<p><span class="math inline">\(\begin{aligned}
+T(n)&amp;\le T(n/9)+T(7n/9)+\Theta(n)\\
+&amp;\le cn/9+7cn/9+\Theta(n)\\
+&amp;=cn-cn/9+\Theta(n)\\
+&amp;\le cn &amp;\qquad(A)
+\end{aligned}\)</span></p>
+<p>其中，步骤<span class="math inline">\((A)\)</span>假设了<span
+class="math inline">\(c\)</span>足够大，以至于项<span
+class="math inline">\(cn/9\)</span>的渐进增长速度超过<span
+class="math inline">\(\Theta(n)\)</span>。</p>
+<p>因此有<span class="math inline">\(T(n)=O(n)\)</span>。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/" title="算法导论9 Problems 答案">https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-9/problems/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:18</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
