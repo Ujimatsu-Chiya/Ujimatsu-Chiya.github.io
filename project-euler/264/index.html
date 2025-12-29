@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 264">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/264/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p264_TriangleCentres.gif">
+<meta property="article:published_time" content="2025-12-29T16:50:42.000Z">
+<meta property="article:modified_time" content="2025-12-29T16:50:42.858Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p264_TriangleCentres.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/264/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/264/","path":"project-euler/264/","title":"Project Euler 264"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 264 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-264"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 264</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#triangle-centres"><span class="nav-number">1.1.1.</span> <span class="nav-text">Triangle Centres</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/264/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 264 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 264
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-30 00:50:42" itemprop="dateCreated datePublished" datetime="2025-12-30T00:50:42+08:00">2025-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-264">Project Euler 264</h1>
+<h2 id="题目">题目</h2>
+<h3 id="triangle-centres">Triangle Centres</h3>
+<p>Consider all the triangles having:</p>
+<ul>
+<li>All their vertices on <dfn title="Integer coordinates">lattice
+points</dfn>.</li>
+<li><dfn title="Centre of the circumscribed circle">Circumcentre</dfn>
+at the origin <span class="math inline">\(O\)</span>.</li>
+<li><dfn title="Point where the three altitudes meet">Orthocentre</dfn>
+at the point <span class="math inline">\(H(5, 0)\)</span>.</li>
+</ul>
+<p>There are nine such triangles having a perimeter <span
+class="math inline">\(\le 50\)</span>.</p>
+<p>Listed and shown in ascending order of their perimeter, they are:</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;A(-4, 3), B(5, 0), C(4, -3)\\
+&amp;A(4, 3), B(5, 0), C(-4, -3)\\
+&amp;A(-3, 4), B(5, 0), C(3, -4)\\
+\\
+\\
+&amp;A(3, 4), B(5, 0), C(-3, -4)\\
+&amp;A(0, 5), B(5, 0), C(0, -5)\\
+&amp;A(1, 8), B(8, -1), C(-4, -7)\\
+\\
+\\
+&amp;A(8, 1), B(1, -8), C(-4, 7)\\
+&amp;A(2, 9), B(9, -2), C(-6, -7)\\
+&amp;A(9, 2), B(2, -9), C(-6, 7)\\
+\end{aligned}\)</span></p>
+<p><img data-src="../images/p264_TriangleCentres.gif" /></p>
+<p>The sum of their perimeters, rounded to four decimal places, is <span
+class="math inline">\(291.0089\)</span>.</p>
+<p>Find all such triangles with a perimeter <span
+class="math inline">\(\le 10^5\)</span>.</p>
+<p>Enter as your answer the sum of their perimeters rounded to four
+decimal places.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>欧拉线定理：在任意三角形中，外心、重心、垂心共线，且重心到垂心的距离是重心到外心的距离的两倍。</p>
+<p><strong>证明</strong>：设三角形 <span
+class="math inline">\(ABC\)</span>，其外心为 <span
+class="math inline">\(O\)</span>，重心为 <span
+class="math inline">\(G\)</span>，垂心为 <span
+class="math inline">\(H\)</span>。</p>
+<p>以 <span class="math inline">\(O\)</span> 为原点建立向量坐标系，设
+<span class="math inline">\(\overrightarrow{OA} =
+\mathbf{a}\)</span>，<span class="math inline">\(\overrightarrow{OB} =
+\mathbf{b}\)</span>，<span class="math inline">\(\overrightarrow{OC} =
+\mathbf{c}\)</span>，则 <span class="math inline">\(|\mathbf{a}| =
+|\mathbf{b}| = |\mathbf{c}| = R\)</span>（<span
+class="math inline">\(R\)</span> 为外接圆半径）。</p>
+<p>垂心 <span class="math inline">\(H\)</span> 满足 <span
+class="math inline">\(AH \perp BC\)</span>，即 <span
+class="math inline">\((\overrightarrow{H} - \mathbf{a}) \cdot
+(\mathbf{b} - \mathbf{c}) = 0\)</span>。代入 <span
+class="math inline">\(\overrightarrow{H} = \mathbf{a} + \mathbf{b} +
+\mathbf{c}\)</span> 验证：</p>
+<p><span class="math display">\[(\mathbf{a} + \mathbf{b} + \mathbf{c} -
+\mathbf{a}) \cdot (\mathbf{b} - \mathbf{c}) = (\mathbf{b} + \mathbf{c})
+\cdot (\mathbf{b} - \mathbf{c}) = |\mathbf{b}|^2 - |\mathbf{c}|^2 =
+0.\]</span></p>
+<p>同理可验证 <span class="math inline">\(BH \perp AC\)</span>。因此当
+<span class="math inline">\(O\)</span> 为原点时，<span
+class="math inline">\(\overrightarrow{H} = \mathbf{a} + \mathbf{b} +
+\mathbf{c}\)</span>。</p>
+<p>回归一般坐标系，有 <span class="math inline">\(\overrightarrow{OH} =
+\overrightarrow{OA} + \overrightarrow{OB} +
+\overrightarrow{OC}\)</span>，即：</p>
+<p><span class="math display">\[H = O + (\overrightarrow{OA} +
+\overrightarrow{OB} + \overrightarrow{OC}) = O + (A - O + B - O + C - O)
+= A + B + C - 2O.\]</span></p>
+<p>又重心 <span class="math inline">\(G\)</span> 满足 <span
+class="math inline">\(G = \dfrac{A + B + C}{3}\)</span>，即 <span
+class="math inline">\(A + B + C = 3G\)</span>。代入上式得：</p>
+<p><span class="math display">\[H = 3G - 2O \Rightarrow H - G = 2(G -
+O).\]</span></p>
+<p>所以 <span class="math inline">\(\overrightarrow{HG} = 2
+\overrightarrow{GO}\)</span>，即 <span
+class="math inline">\(O\)</span>、<span
+class="math inline">\(G\)</span>、<span class="math inline">\(H\)</span>
+三点共线，且 <span class="math inline">\(|HG| = 2|GO|\)</span>。</p>
+<p>由上面的结论，可以直接得出：重心<span
+class="math inline">\(G\)</span>的坐标是<span
+class="math inline">\(\left(\dfrac{5}{3},0\right)\)</span>。</p>
+<p>假设<span
+class="math inline">\(A(x_1,y_1),B(x_2,y_2),C(x_3,y_3)\)</span>。那么有：<span
+class="math inline">\(x_1+x_2+x_3=5,y_1+y_2+y_3=0.\)</span></p>
+<p>于是第三点被强制为<span
+class="math inline">\(C(x_3,y_3)=(5-x_1-x_2,-y_1-y_2).\)</span></p>
+<p>由三点同在圆 <span class="math inline">\(x^2+y^2=R^2\)</span>
+上，得到</p>
+<ol type="1">
+<li><p><span class="math inline">\(A,B\)</span> 同半径：</p>
+<p><span class="math display">\[
+x_2^2+y_2^2=x_1^2+y_1^2.
+\tag{B}
+\]</span></p></li>
+<li><p><span class="math inline">\(A,C\)</span> 同半径，且用 <span
+class="math inline">\(x_3=5-x_1-x_2\)</span>、<span
+class="math inline">\(y_3=-y_1-y_2\)</span> 代入： <span
+class="math display">\[
+(5-x_1-x_2)^2+(-y_1-y_2)^2=x_1^2+y_1^2.
+\tag{C}
+\]</span></p></li>
+</ol>
+<p>到此，几何条件已完全等价于整数方程系统 (B),(C) 加上线性关系。</p>
+<p>联立<span
+class="math inline">\((1),(2)\)</span>，化简后可以得到关于<span
+class="math inline">\(y_2\)</span>的线性关系：</p>
+<p><span class="math display">\[
+2y_1y_2=2(5-x_1)x_2-(5-x_1)^2-y_1^2.
+\tag{L}
+\]</span></p>
+<p>由 <span class="math inline">\((B)\)</span>：</p>
+<p><span class="math display">\[
+y_2^2=x_1^2+y_1^2-x_2^2.
+\tag{U2}
+\]</span></p>
+<p>将 <span class="math inline">\((L)\)</span> 两边平方并代入 <span
+class="math inline">\((U2)\)</span>：</p>
+<p><span class="math display">\[
+4y_1^2(x_1^2+y_1^2-x_2^2)=(2(5-x_1)x_2-(5-x_1)^2-y_1^2)^2.
+\tag{*}
+\]</span></p>
+<p>为简化符号，令<span class="math inline">\(q=x_1-5,
+a=q^2+y_1^2=(x_1-5)^2+y_1^2.\)</span></p>
+<p>注意 <span class="math inline">\(5-x_1=-q\)</span>，则括号为</p>
+<p><span class="math display">\[
+2(5-x_1)x_2-(5-x_1)^2-y_1^2=-2qx_2-q^2-y_1^2=-(2qx_2+a).
+\]</span></p>
+<p>平方后符号无关，<span class="math inline">\((*)\)</span> 等价于</p>
+<p><span class="math display">\[
+(2qx_2+a)^2=4y_1^2(x_1^2+y_1^2-x_2^2).
+\]</span></p>
+<p>整理为关于 <span class="math inline">\(x_2\)</span>
+的二次方程，最终得到</p>
+<p><span class="math display">\[
+4ax_2^2+4qax_2+(q^4-2(x_1^2+10x_1-25)y_1^2-3y_1^4)=0.
+\tag{Q}
+\]</span></p>
+<p>把 <span class="math inline">\(q=x_1-5\)</span>、<span
+class="math inline">\(a=(x_1-5)^2+y_1^2\)</span> 展开即</p>
+<p><span class="math display">\[
+4((x_1-5)^2+y_1^2)x_2^2
++4(x_1-5)((x_1-5)^2+y_1^2)x_2
++(x_1-5)^4-2(x_1^2+10x_1-25)y_1^2-3y_1^4=0.
+\]</span></p>
+<p>可以得出结论：固定 <span class="math inline">\(A(x_1,y_1)\)</span>
+后，<span class="math inline">\(B\)</span> 的横坐标 <span
+class="math inline">\(x_2\)</span> 必须是该二次方程的整数根。因此对
+<span class="math inline">\((Q)\)</span> 记</p>
+<p><span class="math display">\[
+A_2=4a, B_2=4qa, C_2=q^4-2(x_1^2+10x_1-25)y_1^2-3y_1^4.
+\]</span></p>
+<p>判别式</p>
+<p><span class="math display">\[
+\Delta=B_2^2-4A_2C_2
+=16q^2a^2-16aC_2
+=16a(q^2a-C_2).
+\]</span></p>
+<p>计算括号内：</p>
+<p><span class="math display">\[
+q^2a=q^2(q^2+y_1^2)=q^4+q^2y_1^2,
+\]</span></p>
+<p>因此</p>
+<p><span class="math display">\[
+q^2a-C_2
+=(q^4+q^2y_1^2)-(q^4-2(x_1^2+10x_1-25)y_1^2-3y_1^4)
+=y_1^2(q^2+2(x_1^2+10x_1-25)+3y_1^2).
+\]</span></p>
+<p>又因为 <span
+class="math inline">\(q^2=(x_1-5)^2=x_1^2-10x_1+25\)</span>，所以</p>
+<p><span class="math display">\[
+q^2+2(x_1^2+10x_1-25)
+=(x_1^2-10x_1+25)+(2x_1^2+20x_1-50)
+=3x_1^2+10x_1-25.
+\]</span></p>
+<p>于是</p>
+<p><span class="math display">\[
+q^2a-C_2=y_1^2(3x_1^2+10x_1+3y_1^2-25).
+\]</span></p>
+<p>最终</p>
+<p><span class="math display">\[
+\Delta=16ay_1^2(3x_1^2+10x_1+3y_1^2-25).
+\]</span></p>
+<p>定义</p>
+<p><span class="math display">\[
+e=a(3x_1^2+10x_1+3y_1^2-25),
+\]</span></p>
+<p>则</p>
+<p><span class="math display">\[
+\Delta=16y_1^2e.
+\]</span></p>
+<p>因此若要让 <span class="math inline">\(x_2\)</span>
+为整数解，必须先让 <span class="math inline">\(\Delta\)</span>
+成为完全平方数，从而要求 <span class="math inline">\(e\)</span>
+为完全平方数（再配合整除条件得到整数根）。</p>
+<p>由求根公式可得，并写回<span
+class="math inline">\(q=x_1-5\)</span>，得到：</p>
+<p><span class="math display">\[
+x_2=\frac{-B_2\pm\sqrt\Delta}{2A_2}
+=\frac{-4qa\pm 4y_1\sqrt e}{8a}
+=\frac{-qa\pm y_1\sqrt e}{2a}
+=\frac{-(x_1-5)a\pm y_1\sqrt e}{2a}.
+\]</span></p>
+<p>因此当 <span class="math inline">\(e\)</span>
+为平方数时，仍需满足分子能被 <span class="math inline">\(2a\)</span>
+整除，才能使 <span class="math inline">\(x_2\)</span> 为整数。</p>
+<p>一旦得到整数 <span class="math inline">\(x_2\)</span>，由 <span
+class="math inline">\((B)\)</span> 得</p>
+<p><span class="math display">\[
+y_2^2=x_1^2+y_1^2-x_2^2.
+\]</span></p>
+<p>必须要求右边是完全平方数，才能得到整数 <span
+class="math inline">\(y_2\)</span>：</p>
+<p><span class="math display">\[
+y_2=\pm\sqrt{x_1^2+y_1^2-x_2^2}.
+\]</span></p>
+<p>然后由线性约束恢复第三点：<span
+class="math inline">\(C(x_3,y_3)=(5-x_1-x_2,,-y_1-y_2).\)</span></p>
+<p>最后再用同圆校验确保三点确实同半径。</p>
+<p>不过，上述推导中隐含了除以 <span class="math inline">\(y_1\)</span>
+的可能性，因此当 <span class="math inline">\(y_1=0(\Delta=0)\)</span>
+时应回到原始条件。</p>
+<p>当 <span class="math inline">\(y_1=0，(B)\)</span> 变为</p>
+<p><span class="math display">\[
+y_2^2=x_1^2-x_2^2.
+\]</span></p>
+<p><span class="math inline">\((C)\)</span> 变为</p>
+<p><span class="math display">\[
+(5-x_1-x_2)^2+y_2^2=x_1^2.
+\]</span></p>
+<p>代入 <span class="math inline">\(y_2^2\)</span>：</p>
+<p><span class="math display">\[
+(5-x_1-x_2)^2+x_1^2-x_2^2=x_1^2,
+\]</span></p>
+<p>即</p>
+<p><span class="math display">\[
+(5-x_1-x_2)^2=x_2^2.
+\]</span></p>
+<p>因此要么</p>
+<p><span class="math display">\[
+5-x_1-x_2=x_2\Rightarrow x_2=\frac{5-x_1}{2},
+\]</span></p>
+<p>要么</p>
+<p><span class="math display">\[
+5-x_1=0\Rightarrow x_1=5
+\]</span></p>
+<p>此时 <span class="math inline">\(A=H\)</span>
+会导致退化/不合法，应排除。</p>
+<p>最终，对于每个整数点 <span
+class="math inline">\(A(x_1,y_1)\)</span>，定义好<span
+class="math inline">\(q,a\)</span>后，通过判别式计算出<span
+class="math inline">\(B(x_2,y_2)\)</span>，并计算出<span
+class="math inline">\(C\)</span>的坐标，并进行进一步判定即可。</p>
+<h2 id="代码">代码</h2>
+<p>可见，<span class="math inline">\(x_1\ge -M/3-2,y_1\le
+M/3\)</span>。此外，<span
+class="math inline">\(y_2\)</span>还有一个上界：</p>
+<p>上文由消元得到关于 <span class="math inline">\(x_2\)</span>
+的二次方程，其判别式可写为</p>
+<p><span class="math display">\[
+d=a(3x_1^2+10x_1+3y_1^2-25).
+\]</span></p>
+<p>并且根能写成</p>
+<p><span class="math display">\[
+x_2=\frac{-(x_1-5)a\pm y_1\sqrt d}{2a}.
+\]</span></p>
+<p>由于只枚举 <span class="math inline">\(y_1\ge 0\)</span>，并选取使
+<span class="math inline">\(x_2\)</span> 落在排序区间（特别是 <span
+class="math inline">\(x_2\le x_3\)</span>）的那一支，也就是取</p>
+<p><span class="math display">\[
+x_2=\frac{-(x_1-5)a-y_1\sqrt d}{2a}.
+\]</span></p>
+<p>因为我们只统计满足 <span class="math inline">\(A&lt;B&lt;C\)</span>
+的那一套解，所以必须有<span class="math inline">\(x_1\le
+x_2\)</span>.代入上式并乘以正数 <span
+class="math inline">\(2a\)</span>：</p>
+<p><span class="math display">\[
+2ax_1 \le -(x_1-5)a - y_1\sqrt d.
+\]</span></p>
+<p>移项得到</p>
+<p><span class="math display">\[
+y_1\sqrt d \le a(5-3x_1).
+\]</span></p>
+<p>注意左边非负（因为 <span class="math inline">\(y_1\ge 0\)</span> 且
+<span class="math inline">\(\sqrt d\ge
+0\)</span>），因此右边也必须非负。</p>
+<p>两边平方：</p>
+<p><span class="math display">\[
+y_1^2 d \le a^2(5-3x_1)^2.
+\]</span></p>
+<p>代入 <span
+class="math inline">\(d=a(3x_1^2+10x_1+3y_1^2-25)\)</span>，并约去一个
+<span class="math inline">\(a&gt;0\)</span>：</p>
+<p><span class="math display">\[
+y_1^2(3x_1^2+10x_1+3y_1^2-25)\le a(5-3x_1)^2.
+\]</span></p>
+<p>把 <span class="math inline">\(a=(x_1-5)^2+y_1^2\)</span>
+代回，就得到代码注释里的不等式形式：</p>
+<p><span class="math display">\[
+(5-3x_1)^2((x_1-5)^2+y_1^2)-y_1^2(3x_1^2+10x_1+3y_1^2-25)\ge 0.
+\]</span></p>
+<p>令 <span class="math inline">\(s=y_1^2\)</span>，再令</p>
+<p><span class="math display">\[
+k=3x_1^2-20x_1+25=x_1(3x_1-20)+25.
+\]</span></p>
+<p>把上面的不等式整理（这一步是纯代数化简）会变成</p>
+<p><span class="math display">\[
+k^2+2ks-3s^2\ge 0.
+\]</span></p>
+<p>这是一元二次不等式。解它可得在 <span class="math inline">\(s\ge
+0\)</span> 的情况下必须满足</p>
+<p><span class="math display">\[
+0\le s \le k,
+\]</span></p>
+<p>也就是</p>
+<p><span class="math display">\[
+y_1^2 \le 3x_1^2-20x_1+25=x_1(3x_1-20)+25.
+\]</span></p>
+<p>由于我们只枚举 <span class="math inline">\(y_1\ge
+0\)</span>，最终得到</p>
+<p><span class="math display">\[
+0\le y_1 \le \sqrt{x_1(3x_1-20)+25}.
+\]</span></p>
+<p>这就是第二个上界的来源，而且它是<strong>由排序条件 <span
+class="math inline">\(x_1\le x_2\)</span>
+必然推出的可行域界</strong>。</p>
+<h2 id="代码-1">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> combinations</span><br><span class="line"></span><br><span class="line"><span class="comment"># 周长上限（题目要求 perimeter &lt;= 1e5）</span></span><br><span class="line">N = <span class="number">100000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用集合去重：每个三角形用“排序后的三点坐标元组”作为唯一标识</span></span><br><span class="line"><span class="comment"># 形式为 ((x_a,y_a),(x_b,y_b),(x_c,y_c))，三点按字典序排序</span></span><br><span class="line">st = <span class="built_in">set</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">check</span>(<span class="params">x1, y1, x2, y2</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    给定 A=(x1,y1), B=(x2,y2)，利用本题的关键向量恒等式确定 C，并做合法性校验与去重收集。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    关键恒等式（外心在原点时）：</span></span><br><span class="line"><span class="string">        H = A + B + C  （向量相加）</span></span><br><span class="line"><span class="string">    本题 H=(5,0)，因此：</span></span><br><span class="line"><span class="string">        x1 + x2 + x3 = 5</span></span><br><span class="line"><span class="string">        y1 + y2 + y3 = 0</span></span><br><span class="line"><span class="string">    得到：</span></span><br><span class="line"><span class="string">        C=(x3,y3)=(5-x1-x2, -y1-y2)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    外心在原点的条件是：</span></span><br><span class="line"><span class="string">        |A| = |B| = |C|   （三点在同一以原点为圆心的圆上）</span></span><br><span class="line"><span class="string">    在主循环里我们构造 B 时已经保证 |A|=|B|（用 y2^2 = |A|^2 - x2^2）</span></span><br><span class="line"><span class="string">    因此这里只需要再检查 |A|=|C| 即可，保证 C 也在同圆上。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    最后把 (A,B,C) 三点排序，放入集合 st 去重。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># |A|^2 = x1^2 + y1^2</span></span><br><span class="line">    dis2 = x1 ** <span class="number">2</span> + y1 ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 由 H=A+B+C=(5,0) 唯一确定 C</span></span><br><span class="line">    x3 = <span class="number">5</span> - x1 - x2</span><br><span class="line">    y3 = -y1 - y2</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 检查 |C|^2 == |A|^2，保证 C 在同一圆上</span></span><br><span class="line">    <span class="keyword">if</span> dis2 == x3 ** <span class="number">2</span> + y3 ** <span class="number">2</span>:</span><br><span class="line">        <span class="comment"># 对三点排序，作为三角形的“标准表示”，用来去重</span></span><br><span class="line">        pts = <span class="built_in">tuple</span>(<span class="built_in">sorted</span>([(x1, y1), (x2, y2), (x3, y3)]))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 过滤退化情况：</span></span><br><span class="line">        <span class="comment"># 如果 B 与 A 相同，或 B 与 C 相同，则三角形退化（有重复点）</span></span><br><span class="line">        <span class="comment"># 注意这里用 pts[1] 与 pts[0], pts[2] 比较，等价于“至少有两个点相同就不收”</span></span><br><span class="line">        <span class="keyword">if</span> pts[<span class="number">1</span>] != pts[<span class="number">0</span>] <span class="keyword">and</span> pts[<span class="number">1</span>] != pts[<span class="number">2</span>]:</span><br><span class="line">            st.add(pts)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 主搜索：枚举 A=(x1,y1)，再由代数条件构造 B=(x2,y2)，从而得到 C</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># x1 的枚举范围：</span></span><br><span class="line"><span class="comment">#   下界约为 -N/3（来自周长上界+排序约束的推导），这里额外减 2 做安全余量</span></span><br><span class="line"><span class="comment">#   上界取到 1（结合对称/排序去重策略，可以只枚举较小 x1）</span></span><br><span class="line"><span class="keyword">for</span> x1 <span class="keyword">in</span> <span class="built_in">range</span>(-N // <span class="number">3</span> - <span class="number">2</span>, <span class="number">2</span>):</span><br><span class="line">    <span class="comment"># y1 的上界使用两个剪枝界的最小值：</span></span><br><span class="line">    <span class="comment"># 1) N/3 - |x1|：来自周长上界的粗剪枝（非严格但很有效）</span></span><br><span class="line">    <span class="comment"># 2) sqrt(x1*(3*x1-20)+25)：来自严格可行域（由 x1 &lt;= x2 等排序约束推导）</span></span><br><span class="line">    mx = <span class="built_in">min</span>(</span><br><span class="line">        N // <span class="number">3</span> - <span class="built_in">abs</span>(x1),</span><br><span class="line">        <span class="built_in">int</span>((x1 * (<span class="number">3</span> * x1 - <span class="number">20</span>) + <span class="number">25</span>) ** <span class="number">0.5</span>),</span><br><span class="line">    )</span><br><span class="line">    <span class="keyword">if</span> mx &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 经验剪枝：似乎总有 5 | (x1^2 + y1^2)</span></span><br><span class="line">    <span class="comment"># 因为平方 mod 5 只有 0,1,4：</span></span><br><span class="line">    <span class="comment">#   若 x1^2 ≡ 1，则 y1^2 需 ≡ 4 -&gt; y1 ≡ 2 或 3 (mod 5)</span></span><br><span class="line">    <span class="comment">#   若 x1^2 ≡ 4，则 y1^2 需 ≡ 1 -&gt; y1 ≡ 1 或 4 (mod 5)</span></span><br><span class="line">    <span class="comment">#   若 x1^2 ≡ 0，则 y1^2 需 ≡ 0 -&gt; y1 ≡ 0 (mod 5)</span></span><br><span class="line">    <span class="keyword">if</span> x1 * x1 % <span class="number">5</span> == <span class="number">1</span>:</span><br><span class="line">        st_ls = [<span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">    <span class="keyword">elif</span> x1 * x1 % <span class="number">5</span> == <span class="number">4</span>:</span><br><span class="line">        st_ls = [<span class="number">1</span>, <span class="number">4</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        st_ls = [<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 枚举 y1（只枚举 y1&gt;=0 的代表，再通过 check 里补充 y1 的符号对称）</span></span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> st_ls:</span><br><span class="line">        <span class="keyword">for</span> y1 <span class="keyword">in</span> <span class="built_in">range</span>(m, mx + <span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">            <span class="comment"># 记 a = (x1-5)^2 + y1^2</span></span><br><span class="line">            <span class="comment"># 在推导中 a 常写作 (x1-5)^2 + y1^2</span></span><br><span class="line">            a = (x1 - <span class="number">5</span>) ** <span class="number">2</span> + y1 * y1</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 判别式相关量：</span></span><br><span class="line">            <span class="comment"># 推导可得（固定 A=(x1,y1) 后）B 的 x 坐标 x2 满足一元二次方程，</span></span><br><span class="line">            <span class="comment"># 其判别式可写成：</span></span><br><span class="line">            <span class="comment">#   d = a * (3*x1^2 + 10*x1 + 3*y1^2 - 25)</span></span><br><span class="line">            <span class="comment"># 若 d 不是完全平方数，就不会得到整数 x2</span></span><br><span class="line">            d = a * (<span class="number">3</span> * x1 * x1 + <span class="number">10</span> * x1 + <span class="number">3</span> * y1 * y1 - <span class="number">25</span>)</span><br><span class="line">            <span class="keyword">if</span> d &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 需要 d 是完全平方数</span></span><br><span class="line">            sd = math.isqrt(d)</span><br><span class="line">            <span class="keyword">if</span> sd ** <span class="number">2</span> != d:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 由根公式可得一支候选：</span></span><br><span class="line">            <span class="comment">#   x2 = (-(x1-5)*a - y1*sqrt(d)) / (2a)</span></span><br><span class="line">            <span class="comment"># 要使 x2 为整数，分子必须能被 2a 整除</span></span><br><span class="line">            tmp = -(x1 - <span class="number">5</span>) * a - y1 * sd</span><br><span class="line">            <span class="keyword">if</span> tmp % (<span class="number">2</span> * a) != <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            x2 = tmp // (<span class="number">2</span> * a)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 现在要恢复 y2。因为外心在原点要求 |A|=|B|：</span></span><br><span class="line">            <span class="comment">#   x1^2+y1^2 = x2^2+y2^2  =&gt;  y2^2 = (x1^2+y1^2) - x2^2</span></span><br><span class="line">            dis2 = x1 ** <span class="number">2</span> + y1 ** <span class="number">2</span></span><br><span class="line">            y22 = dis2 - x2 * x2</span><br><span class="line">            <span class="keyword">if</span> y22 &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            y2 = math.isqrt(y22)</span><br><span class="line">            <span class="keyword">if</span> y2 ** <span class="number">2</span> != y22:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 至此得到一个候选 B=(x2,y2)（还未考虑 y2 的符号）</span></span><br><span class="line">            <span class="comment"># C 会由 H=A+B+C=(5,0) 唯一决定：</span></span><br><span class="line">            <span class="comment">#   C=(x3,y3)=(5-x1-x2, -y1-y2)</span></span><br><span class="line">            <span class="comment"># 这里先计算一次，主要是为了直观（check 内部会重新算）</span></span><br><span class="line">            x3, y3 = <span class="number">5</span> - x1 - x2, -y1 - y2</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 由于 (x1,y1) 与 (x1,-y1) 在同一圆上，对称同样可能产生解；</span></span><br><span class="line">            <span class="comment"># (x2,y2) 与 (x2,-y2) 也同理。</span></span><br><span class="line">            <span class="comment"># 因此把 4 种符号组合都丢进 check，让 check 负责：</span></span><br><span class="line">            <span class="comment">#   - 生成 C</span></span><br><span class="line">            <span class="comment">#   - 验证 |A|=|C|</span></span><br><span class="line">            <span class="comment">#   - 排序去重加入 st</span></span><br><span class="line">            check(x1, y1, x2, y2)</span><br><span class="line">            check(x1, y1, x2, -y2)</span><br><span class="line">            check(x1, -y1, x2, y2)</span><br><span class="line">            check(x1, -y1, x2, -y2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 汇总答案：对 st 中的每个三角形计算周长，若 &lt;= N 则累加</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"></span><br><span class="line">ans = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">for</span> tr <span class="keyword">in</span> st:</span><br><span class="line">    <span class="comment"># tr 是三个点的排序元组：((x_a,y_a),(x_b,y_b),(x_c,y_c))</span></span><br><span class="line">    <span class="comment"># 计算周长：三条边的距离之和</span></span><br><span class="line">    s = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> p, q <span class="keyword">in</span> combinations(tr, <span class="number">2</span>):</span><br><span class="line">        <span class="comment"># 组合取三对点：(A,B),(A,C),(B,C)，把三条边长度相加</span></span><br><span class="line">        s += ((p[<span class="number">0</span>] - q[<span class="number">0</span>]) ** <span class="number">2</span> + (p[<span class="number">1</span>] - q[<span class="number">1</span>]) ** <span class="number">2</span>) ** <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 只统计周长 &lt;= N 的三角形（主循环剪枝只是“候选生成”，最终还要过周长关）</span></span><br><span class="line">    <span class="keyword">if</span> s &lt;= N:</span><br><span class="line">        ans += s</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按题目要求输出 4 位小数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.4</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/264/" title="Project Euler 264">https://ujimatsu-chiya.github.io/project-euler/264/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

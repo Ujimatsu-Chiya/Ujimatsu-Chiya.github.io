@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 275">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/275/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p275_sculptures2.gif">
+<meta property="article:published_time" content="2025-12-29T16:50:51.000Z">
+<meta property="article:modified_time" content="2025-12-29T16:50:51.049Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta property="article:tag" content="DFS">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p275_sculptures2.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/275/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/275/","path":"project-euler/275/","title":"Project Euler 275"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 275 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-275"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 275</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#balanced-sculptures"><span class="nav-number">1.1.1.</span> <span class="nav-text">Balanced Sculptures</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#redelmeier-%E6%80%9D%E6%83%B3"><span class="nav-number">1.2.1.</span> <span class="nav-text">Redelmeier
+思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E5%8E%BB%E9%87%8D"><span class="nav-number">1.2.2.</span> <span class="nav-text">镜像去重</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E8%A1%A1%E6%9D%A1%E4%BB%B6%E4%B8%8E%E5%89%AA%E6%9E%9D"><span class="nav-number">1.2.3.</span> <span class="nav-text">平衡条件与剪枝</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/275/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 275 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 275
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-30 00:50:51" itemprop="dateCreated datePublished" datetime="2025-12-30T00:50:51+08:00">2025-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-275">Project Euler 275</h1>
+<h2 id="题目">题目</h2>
+<h3 id="balanced-sculptures">Balanced Sculptures</h3>
+<p>Let us define a <em>balanced sculpture</em> of order n as
+follows:</p>
+<ul>
+<li>A
+<dfn title="An arrangement of identical squares connected through shared edges; holes are allowed.">polyomino</dfn>
+made up of <span class="math inline">\(n+1\)</span> tiles known as the
+<em>blocks</em> (<span class="math inline">\(n\)</span> tiles) and the
+<em>plinth</em> (remaining tile);</li>
+<li>the plinth has its centre at position <span
+class="math inline">\((x=0, y=0)\)</span>;</li>
+<li>the blocks have <span class="math inline">\(y\)</span>-coordinates
+greater than zero (so the plinth is the unique lowest tile);</li>
+<li>the centre of mass of all the blocks, combined, has <span
+class="math inline">\(x\)</span>-coordinate equal to zero.</li>
+</ul>
+<p>When counting the sculptures, any arrangements which are simply
+reflections about the <span class="math inline">\(y\)</span>-axis, are
+<u>not</u> counted as distinct. For example, the <span
+class="math inline">\(18\)</span> balanced sculptures of order <span
+class="math inline">\(6\)</span> are shown below; note that each pair of
+mirror images (about the <span class="math inline">\(y\)</span>-axis) is
+counted as one sculpture:</p>
+<p><img data-src="../images/p275_sculptures2.gif" /></p>
+<p>There are <span class="math inline">\(964\)</span> balanced
+sculptures of order <span class="math inline">\(10\)</span> and <span
+class="math inline">\(360505\)</span> of order <span
+class="math inline">\(15\)</span>. How many balanced sculptures are
+there of order <span class="math inline">\(18\)</span>?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>由于因为每个方格质量相同，所以质心的 <span
+class="math inline">\(x\)</span> 坐标等于 blocks 的 <span
+class="math inline">\(x\)</span> 坐标平均值为 <span
+class="math inline">\(0\)</span>。此外，关于 <span
+class="math inline">\(y\)</span>
+轴的镜像视为同一个，这启发我们可以镜像地进行操作拼接。</p>
+<p>本题基本思路是搜索，但是使用了如下思想进行剪枝：</p>
+<h3 id="redelmeier-思想"><a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Polyomino#Algorithms_for_enumeration_of_fixed_polyominoes">Redelmeier
+思想</a></h3>
+<p>朴素做法是：每次在形状边界上加一个格子，靠“形状哈希/判重”去掉重复。但
+polyomino 的分支数非常大，判重也很贵。Redelmeier
+方法的关键是：通过“候选格子的编号顺序 +
+单调选择规则”，从构造过程上保证每个 fixed polyomino
+只生成一次，从而避免大规模判重。</p>
+<p>具体来说，我们维护两个集合概念：</p>
+<ul>
+<li>当前形状（已放入的格子）。</li>
+<li><code>frontier</code>（候选边界列表）：所有与当前形状边相邻、且尚未加入形状、也合法的空格子。<code>frontier</code>
+的插入顺序就是它的“编号”。</li>
+</ul>
+<p>那么递归步骤如下：</p>
+<ol type="1">
+<li>选择一个 <code>frontier</code> 中的格子加入形状；</li>
+<li>把它的四邻域（上下左右）中符合规则且未出现过的格子加入
+<code>frontier</code>（会得到更大的编号）；</li>
+<li>下一次递归时，只允许选择“编号不小于本次所选编号”的候选格（也就是从
+<code>frontier</code> 的某个起点往后选）。</li>
+</ol>
+<p>这条“编号单调”规则就是 Redelmeier
+的去重核心：同一个形状可能有很多加入顺序，但只有一种顺序会满足“每一步都从允许的编号区间中挑选”，因此不会重复生成。</p>
+<h3 id="镜像去重">镜像去重</h3>
+<p>如果先生成所有形状再做镜像归并，会多一倍左右的工作；更好的做法是把“镜像不区分”变成搜索约束。</p>
+<p>维护一个状态：当前部分形状是否仍关于 <span
+class="math inline">\(y\)</span> 轴对称（记为
+<code>symmetric</code>）。</p>
+<ul>
+<li><p>若 <code>symmetric</code> 为真：</p>
+<ul>
+<li><p>当考虑加入一个候选格 <span class="math inline">\((x,y)\)</span>
+且 <span class="math inline">\(x\neq 0\)</span> 时，它的镜像 <span
+class="math inline">\((-x,y)\)</span>
+也会同时出现在候选集中（可以视作“成对候选”）。</p></li>
+<li><p>此时分两条分支：</p>
+<ol type="1">
+<li>保持对称：一次性把这对格子都加入（消耗 <span
+class="math inline">\(2\)</span> 个 blocks），<code>symmetric</code>
+仍为真；</li>
+<li>打破对称：只加入其中一侧（消耗 <span
+class="math inline">\(1\)</span> 个 block），然后进入
+<code>symmetric</code> 为假的状态。</li>
+</ol></li>
+<li><p>关键点：只允许在“成对候选”的一个代表侧执行“打破对称”，这样不会生成镜像等价的重复分支。</p></li>
+</ul></li>
+<li><p>若 <code>symmetric</code> 为假：
+对称已经破坏，不再需要特殊处理（正常枚举即可），最终计数时也不再需要“镜像归并”。</p></li>
+</ul>
+<p>这种策略的本质是：把“镜像等价类”中的一个代表在搜索树里唯一化，从源头避免重复。</p>
+<hr />
+<h3 id="平衡条件与剪枝">平衡条件与剪枝</h3>
+<p>若一直保持对称：每个 <span class="math inline">\(x\neq 0\)</span>
+的格子都成对出现、互相抵消，且 <span class="math inline">\(x=0\)</span>
+的格子贡献为 <span class="math inline">\(0\)</span>，因此 blocks 的
+<span class="math inline">\(\sum x\)</span> 必为 <span
+class="math inline">\(0\)</span>，无需再算。 只有当
+<code>symmetric</code> 被打破后，才需要维护：</p>
+<p>当已经不对称时，仍需放置 <span class="math inline">\(r\)</span> 个
+blocks。设当前 blocks 的 <span class="math inline">\(x\)</span>
+取值范围大致落在 <span class="math inline">\([x_{\min},
+x_{\max}]\)</span>。</p>
+<p>由于 polyomino 是通过“贴边加格”生长的，每放一个格子，极端情况下 <span
+class="math inline">\(x_{\min}\)</span> 最多向左扩 <span
+class="math inline">\(1\)</span>、<span
+class="math inline">\(x_{\max}\)</span> 最多向右扩 <span
+class="math inline">\(1\)</span>。于是剩余 <span
+class="math inline">\(r\)</span> 步中：</p>
+<ul>
+<li>最“偏左”的 <span class="math inline">\(x\)</span>
+贡献可以粗略下界为：<span class="math inline">\(r\cdot x_{\min} -
+\dfrac{r(r+1)}{2}\)</span></li>
+<li>最“偏右”的贡献上界为：<span class="math inline">\(r\cdot x_{\max} +
+\dfrac{r(r+1)}{2}\)</span></li>
+</ul>
+<p>如果把下一步要加的格子的 <span class="math inline">\(x\)</span>
+也计入（得到新和 <span
+class="math inline">\(S&#39;\)</span>），那么最终可能达到的总和范围必落在：</p>
+<p><span class="math display">\[
+\left[S&#39; + rx_{\min} - \dfrac{r(r+1)}{2}, S&#39; + r x_{\max} +
+\dfrac{r(r+1)}{2}\right]
+\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Project Euler 275: Balanced Sculptures (order n)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  目标：统计由 n 个 blocks + 1 个 plinth 组成的 polyomino（连通方格图形）数量，满足：</span></span><br><span class="line"><span class="comment">    1) plinth 固定在 (0,0)，且它是唯一 y=0 的方格（所以 blocks 必须 y&gt;0）</span></span><br><span class="line"><span class="comment">    2) 只看 blocks（不含 plinth），其质心 x=0</span></span><br><span class="line"><span class="comment">       等价于：所有 blocks 的 x 坐标之和为 0</span></span><br><span class="line"><span class="comment">    3) 关于 y 轴的镜像视作同一个（不重复计数）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  主要思想（对应到实现）：</span></span><br><span class="line"><span class="comment">    A) Redelmeier 法枚举 fixed polyomino：用“候选边界列表 frontier + 只从起点往后选”避免同形重复</span></span><br><span class="line"><span class="comment">    B) 镜像去重：搜索过程中维护 symmetry 状态（是否仍保持 y 轴对称）</span></span><br><span class="line"><span class="comment">       - symmetry==true 时：对 x!=0 的添加点，分两条路：</span></span><br><span class="line"><span class="comment">          1) 保持对称：一次性加入 (x,y) 与 (-x,y) 两块（消耗 2 个 block）</span></span><br><span class="line"><span class="comment">          2) 打破对称：只加入一侧（消耗 1 个 block），之后 symmetry=false</span></span><br><span class="line"><span class="comment">       - “打破对称”只从镜像对中的一个代表侧发生，避免左右两侧重复生成镜像等价解</span></span><br><span class="line"><span class="comment">    C) 平衡剪枝：当 symmetry 已被打破后，维护 blocks 的 x 和 balance_sum；</span></span><br><span class="line"><span class="comment">       利用“剩余 r 步能到达的 x 和区间”判断是否仍可能回到 0，不可能则剪枝。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 题目要解 n=18；这里把坐标范围、数组大小按 N=18 预留。</span></span><br><span class="line"><span class="comment">// 经验上：x 在 [-N, N] 足够（更大也不会在最优搜索中出现），y 在 [0, N] 足够（最多叠 N 层）。</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">18</span>;        <span class="comment">// order: number of blocks</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> SHIFT = N;     <span class="comment">// 将 x 平移到非负下标</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> W = <span class="number">2</span> * N + <span class="number">1</span>; <span class="comment">// x 维度：[-N..N] 共 37</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> H = N + <span class="number">1</span>;     <span class="comment">// y 维度：[0..N] 共 19</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将 (x,y) 映射到 used 数组下标</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">idx</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (x + SHIFT) + y * W;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Pos</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> x, y;</span><br><span class="line">    <span class="built_in">Pos</span>(<span class="type">int</span> xx = <span class="number">0</span>, <span class="type">int</span> yy = <span class="number">0</span>) : <span class="built_in">x</span>(xx), <span class="built_in">y</span>(yy) &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> total_sculptures;</span><br><span class="line"></span><br><span class="line"><span class="comment">// balance_sum 的定义非常关键：</span></span><br><span class="line"><span class="comment">//   当 symmetry==false 时，我们需要追踪 blocks 的 x 坐标和最终是否为 0。</span></span><br><span class="line"><span class="comment">//   在递归函数 dfs(pos, rem, ...) 中：</span></span><br><span class="line"><span class="comment">//     - balance_sum 存的是“已经放置的 blocks 的 x 和（不包含当前参数 pos 这一块）”</span></span><br><span class="line"><span class="comment">//     - 因此：</span></span><br><span class="line"><span class="comment">//         * 剪枝时用 balance_sum + pos.x 来表示“放下 pos 之后的新和”</span></span><br><span class="line"><span class="comment">//         * 递归展开时会在进入后执行 balance_sum += pos.x（但注意叶子 rem==0 会提前返回）</span></span><br><span class="line"><span class="comment">//         * 叶子处用 balance_sum + pos.x 判断是否为 0</span></span><br><span class="line"><span class="type">int</span> balance_sum;</span><br><span class="line"></span><br><span class="line"><span class="comment">// used 的语义：在当前递归分支里，某个格子是否已经“被占用（已在形状里）或已进入候选列表 frontier”。</span></span><br><span class="line"><span class="comment">// 目的：避免同一个位置被重复加入 frontier（即避免 frontier 出现重复点）。</span></span><br><span class="line">vector&lt;<span class="type">unsigned</span> <span class="type">char</span>&gt; used;</span><br><span class="line"></span><br><span class="line"><span class="comment">// frontier（候选边界列表）：Redelmeier 法的核心数据结构。</span></span><br><span class="line"><span class="comment">// 它保存“当前形状周围所有可添加的空格子”，并且每个格子在第一次出现时被加入，形成隐式编号顺序。</span></span><br><span class="line"><span class="comment">// 递归时用 from 下标来保证“只能选择编号不小于上一次选择的候选格”，从而让每个 fixed polyomino 只生成一次。</span></span><br><span class="line">vector&lt;Pos&gt; frontier;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  平衡可达剪枝（只在 symmetry==false 时使用）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  当前准备添加一个 block，其 x 为 x；当前已放置 blocks 的 x 和为 balance_sum（不含这块 x）；</span></span><br><span class="line"><span class="comment">  还剩 r 个 block（在放下这块之后，还要放 r 个）——注意 r 的含义是 dfs 里的 rem。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  设放下这块后新和 new_balance = balance_sum + x。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  我们还需要判断：在剩余 r 个块内，是否存在某种摆放使得最终 x 和能变为 0？</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  关键上界/下界推导：</span></span><br><span class="line"><span class="comment">    - 设当前 blocks 的最左 x 为 minx，最右 x 为 maxx（这是已经放置 + 即将放置这块后的边界）</span></span><br><span class="line"><span class="comment">    - 每加 1 块，边界最多向外扩 1（因为只能贴边扩展）</span></span><br><span class="line"><span class="comment">    - 因此未来 r 块最极端情况下：</span></span><br><span class="line"><span class="comment">        最左可能出现 minx, (minx-1), ..., (minx-r) 的贡献，总和 &gt;= r*minx - (1+2+...+r)</span></span><br><span class="line"><span class="comment">        最右可能出现 maxx, (maxx+1), ..., (maxx+r) 的贡献，总和 &lt;= r*maxx + (1+2+...+r)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  若 0 不落在 [min_possible, max_possible] 内，则无论如何都无法平衡，直接剪枝。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">balanceable_after_adding</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> minx, <span class="type">int</span> maxx, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> new_balance = balance_sum + x;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把“即将放置的这块”也纳入边界</span></span><br><span class="line">    <span class="type">int</span> new_minx = <span class="built_in">min</span>(minx, x);</span><br><span class="line">    <span class="type">int</span> new_maxx = <span class="built_in">max</span>(maxx, x);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> tri = <span class="number">1LL</span> * r * (r + <span class="number">1</span>) / <span class="number">2</span>; <span class="comment">// 1+2+...+r</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 极端向左时未来 r 块的最小总贡献</span></span><br><span class="line">    <span class="type">int</span> min_possible = new_balance + <span class="number">1LL</span> * r * new_minx - tri;</span><br><span class="line">    <span class="comment">// 极端向右时未来 r 块的最大总贡献</span></span><br><span class="line">    <span class="type">int</span> max_possible = new_balance + <span class="number">1LL</span> * r * new_maxx + tri;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> min_possible &lt;= <span class="number">0</span> &amp;&amp; max_possible &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  将某个候选空格 (x,y) 加入 frontier（如果尚未加入过）</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  约束：</span></span><br><span class="line"><span class="comment">    - blocks 必须满足 y&gt;0；只有 plinth 是 (0,0)</span></span><br><span class="line"><span class="comment">      =&gt; 禁止任何 (x!=0, y==0) 的加入</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  symmetry==true 时的特殊处理：</span></span><br><span class="line"><span class="comment">    - 若加入了 (x,y) 且 x!=0，则必须同时加入其镜像 (-x,y)，并保证它们在 frontier 中相邻</span></span><br><span class="line"><span class="comment">      这样遍历时就能“一次处理一对镜像点”，并在保持对称分支里跳过镜像点，确保不会重复。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">void</span> <span class="title">enqueue_cell</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y, <span class="type">bool</span> symmetry)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// blocks 必须 y&gt;0；y==0 只能是 (0,0) 的 plinth</span></span><br><span class="line">    <span class="keyword">if</span> (y == <span class="number">0</span> &amp;&amp; x != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> id = <span class="built_in">idx</span>(x, y);</span><br><span class="line">    <span class="keyword">if</span> (used[id])</span><br><span class="line">        <span class="keyword">return</span>; <span class="comment">// 已经在当前分支中入过 frontier（或已占用），无需重复加入</span></span><br><span class="line"></span><br><span class="line">    used[id] = <span class="number">1</span>;</span><br><span class="line">    frontier.<span class="built_in">emplace_back</span>(x, y);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (symmetry &amp;&amp; x != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 在对称模式下，镜像点必须同步进入 frontier，且紧跟在原点之后，方便后续成对处理</span></span><br><span class="line">        <span class="type">int</span> mid = <span class="built_in">idx</span>(-x, y);</span><br><span class="line">        used[mid] = <span class="number">1</span>;</span><br><span class="line">        frontier.<span class="built_in">emplace_back</span>(-x, y);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  核心 DFS：在当前分支里，把参数 pos 当作“这一步要放下的方格”，然后继续放剩下的 rem 个 block。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  参数含义：</span></span><br><span class="line"><span class="comment">    - pos：当前要放置的位置（注意：symmetry==true 且 pos.x!=0 时，它代表“放置 (pos) 和它的镜像”这一对）</span></span><br><span class="line"><span class="comment">    - rem：放下 pos（或 pos+镜像对）之后，仍需放置的 blocks 数量</span></span><br><span class="line"><span class="comment">    - from：Redelmeier 去重关键：后续只能从 frontier 的 [from, end) 里选择下一个格子</span></span><br><span class="line"><span class="comment">            这等价于“候选点按入队顺序编号，并强制编号递增选择”</span></span><br><span class="line"><span class="comment">    - symmetry：当前形状是否仍关于 y 轴对称</span></span><br><span class="line"><span class="comment">    - minx, maxx：当前 blocks 的 x 边界，用于平衡剪枝（对称时也维护 maxx 方便后续）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">dfs</span><span class="params">(<span class="type">const</span> Pos &amp;pos,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">int</span> rem,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">int</span> from,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">bool</span> symmetry,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">int</span> minx,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">int</span> maxx)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 叶子：已经没有 block 需要放了</span></span><br><span class="line">    <span class="comment">// 注意：这里还没把 pos.x 加进 balance_sum（因为 balance_sum 的维护发生在后面），</span></span><br><span class="line">    <span class="comment">// 所以 symmetry==false 时必须用 balance_sum + pos.x 来判定最终是否平衡。</span></span><br><span class="line">    <span class="keyword">if</span> (rem == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (symmetry || balance_sum + pos.x == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 仍然对称 =&gt; blocks 的 x 和必为 0（非轴成对抵消，轴上 x=0）</span></span><br><span class="line">            ++total_sculptures;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 平衡可达剪枝：只在 symmetry==false 才有意义（对称时天然平衡），并且只在后期 rem 较小时启用</span></span><br><span class="line">    <span class="keyword">if</span> (!symmetry &amp;&amp; !<span class="built_in">balanceable_after_adding</span>(pos.x, minx, maxx, rem))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// symmetry==false 时，真正把当前这块 pos 计入 balance_sum</span></span><br><span class="line">    <span class="comment">// （但注意：叶子 rem==0 已提前 return，因此叶子处不会执行这句）</span></span><br><span class="line">    <span class="keyword">if</span> (!symmetry)</span><br><span class="line">        balance_sum += pos.x;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 记录 frontier 旧大小，回溯时把本层新增的候选点全部弹出并清 used 标记</span></span><br><span class="line">    <span class="type">size_t</span> old_frontier_size = frontier.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 把 pos 的四邻域空格加入 frontier（维护候选边界）</span></span><br><span class="line">    <span class="comment">// 这个调用顺序会影响 frontier 内镜像对的相对顺序，</span></span><br><span class="line">    <span class="comment">// 这里的顺序安排是为了让 (x&gt;0) 更倾向先进入，再紧跟 (-x)。</span></span><br><span class="line">    <span class="built_in">enqueue_cell</span>(pos.x + <span class="number">1</span>, pos.y, symmetry);</span><br><span class="line">    <span class="built_in">enqueue_cell</span>(pos.x - <span class="number">1</span>, pos.y, symmetry);</span><br><span class="line">    <span class="built_in">enqueue_cell</span>(pos.x, pos.y + <span class="number">1</span>, symmetry);</span><br><span class="line">    <span class="keyword">if</span> (pos.y &gt; <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">enqueue_cell</span>(pos.x, pos.y - <span class="number">1</span>, symmetry);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 遍历可选的候选点：只从 from 到 end（Redelmeier 去重：编号递增选择）</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = from; i &lt; (<span class="type">int</span>)frontier.<span class="built_in">size</span>();)</span><br><span class="line">    &#123;</span><br><span class="line">        Pos nxt = frontier[i];</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (symmetry &amp;&amp; nxt.x != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              对称模式下，nxt 与其镜像点必然在 frontier 中相邻出现：</span></span><br><span class="line"><span class="comment">                ... (x,y), (-x,y), ...</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">              对于这一对镜像候选，我们分两种扩展：</span></span><br><span class="line"><span class="comment">                1) 保持对称：同时放下这对（消耗 2 个 block），symmetry 继续为 true</span></span><br><span class="line"><span class="comment">                2) 打破对称：只放下一侧（消耗 1 个 block），symmetry 变为 false</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">              为避免镜像重复：</span></span><br><span class="line"><span class="comment">                - “打破对称”只从这对中的一个代表位置发生（这里就是 nxt），</span></span><br><span class="line"><span class="comment">                  并在遍历时跳过镜像点，从而不会再从另一侧产生镜像等价的分支。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="type">int</span> new_max = <span class="built_in">max</span>(maxx, <span class="built_in">abs</span>(nxt.x));</span><br><span class="line"></span><br><span class="line">            <span class="comment">// i 指向 (x,y)，i+1 应当是 (-x,y) 的镜像点；遍历时直接跳过镜像点</span></span><br><span class="line">            <span class="type">int</span> next_i = i + <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 分支 1：保持对称（一次放下两块）</span></span><br><span class="line">            <span class="keyword">if</span> (rem &gt;= <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">dfs</span>(nxt, rem - <span class="number">2</span>, next_i, <span class="literal">true</span>, -new_max, new_max);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 分支 2：打破对称（只放下一侧），从此需要维护 balance_sum</span></span><br><span class="line">            <span class="built_in">dfs</span>(nxt, rem - <span class="number">1</span>, next_i, <span class="literal">false</span>, <span class="built_in">min</span>(minx, nxt.x), <span class="built_in">max</span>(maxx, nxt.x));</span><br><span class="line"></span><br><span class="line">            i = next_i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              非对称模式（或 nxt 在对称轴 x=0 上）：</span></span><br><span class="line"><span class="comment">                - 一次只放下一块</span></span><br><span class="line"><span class="comment">                - symmetry 状态保持不变</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="type">int</span> next_i = i + <span class="number">1</span>;</span><br><span class="line">            <span class="built_in">dfs</span>(nxt, rem - <span class="number">1</span>, next_i, symmetry, <span class="built_in">min</span>(minx, nxt.x), <span class="built_in">max</span>(maxx, nxt.x));</span><br><span class="line">            i = next_i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 回溯：撤销本层对 balance_sum 的影响</span></span><br><span class="line">    <span class="keyword">if</span> (!symmetry)</span><br><span class="line">        balance_sum -= pos.x;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 回溯：撤销本层 add_neighbours 引入的新候选点</span></span><br><span class="line">    <span class="comment">// 只需要弹出到 old_frontier_size，并把对应 used 标记清掉即可。</span></span><br><span class="line">    <span class="keyword">while</span> (frontier.<span class="built_in">size</span>() &gt; old_frontier_size)</span><br><span class="line">    &#123;</span><br><span class="line">        Pos p = frontier.<span class="built_in">back</span>();</span><br><span class="line">        used[<span class="built_in">idx</span>(p.x, p.y)] = <span class="number">0</span>;</span><br><span class="line">        frontier.<span class="built_in">pop_back</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  求解给定 order = n_blocks 的答案。</span></span><br><span class="line"><span class="comment">  初始化：</span></span><br><span class="line"><span class="comment">    - plinth 固定在 (0,0)，并标记 used（相当于形状初始已有一个方格）</span></span><br><span class="line"><span class="comment">    - 从 plinth 开始 DFS 生长 blocks</span></span><br><span class="line"><span class="comment">    - 初始 symmetry=true（只有一个点一定对称）</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">solve_order</span><span class="params">(<span class="type">int</span> n_blocks)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    total_sculptures = <span class="number">0</span>;</span><br><span class="line">    balance_sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    used.<span class="built_in">assign</span>(W * H, <span class="number">0</span>);</span><br><span class="line">    frontier.<span class="built_in">clear</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// reserve 是为了减少扩容带来的常数开销（扩容会导致迭代器失效，且更慢）</span></span><br><span class="line">    frontier.<span class="built_in">reserve</span>((n_blocks + <span class="number">1</span>) * <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// plinth at (0,0)</span></span><br><span class="line">    used[<span class="built_in">idx</span>(<span class="number">0</span>, <span class="number">0</span>)] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 从 plinth 出发；rem=n_blocks 表示还需要放 n_blocks 个 blocks</span></span><br><span class="line">    <span class="comment">// minx=maxx=0 初始边界</span></span><br><span class="line">    <span class="comment">// from=0 表示从 frontier[0] 开始遍历候选（此时 frontier 还为空，进入 dfs 后会先扩张邻居）</span></span><br><span class="line">    <span class="built_in">dfs</span>(<span class="built_in">Pos</span>(<span class="number">0</span>, <span class="number">0</span>), n_blocks, <span class="number">0</span>, <span class="literal">true</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total_sculptures;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> num = <span class="built_in">solve_order</span>(N);</span><br><span class="line">    cout &lt;&lt; num &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/275/" title="Project Euler 275">https://ujimatsu-chiya.github.io/project-euler/275/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/DFS/" rel="tag"><i class="fa fa-tag"></i> DFS</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

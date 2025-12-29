@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 302">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/302/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-29T16:51:12.000Z">
+<meta property="article:modified_time" content="2025-12-29T16:51:12.624Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/302/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/302/","path":"project-euler/302/","title":"Project Euler 302"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 302 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-302"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 302</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#strong-achilles-numbers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Strong Achilles Numbers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9-varphin-%E7%9A%84%E5%88%A4%E5%AE%9A%E7%BB%B4%E6%8A%A4%E7%B4%A0%E5%9B%A0%E5%AD%90%E6%8C%87%E6%95%B0%E8%A1%A8"><span class="nav-number">1.2.1.</span> <span class="nav-text">3.3 对 \(\varphi(n)\) 的判定：维护素因子指数表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/302/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 302 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 302
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-30 00:51:12" itemprop="dateCreated datePublished" datetime="2025-12-30T00:51:12+08:00">2025-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-302">Project Euler 302</h1>
+<h2 id="题目">题目</h2>
+<h3 id="strong-achilles-numbers">Strong Achilles Numbers</h3>
+<p>A positive integer <span class="math inline">\(n\)</span> is
+<strong>powerful</strong> if <span class="math inline">\(p^2\)</span> is
+a divisor of <span class="math inline">\(n\)</span> for every prime
+factor <span class="math inline">\(p\)</span> in <span
+class="math inline">\(n\)</span>.</p>
+<p>A positive integer <span class="math inline">\(n\)</span> is a
+<strong>perfect power</strong> if <span class="math inline">\(n\)</span>
+can be expressed as a power of another positive integer.</p>
+<p>A positive integer <span class="math inline">\(n\)</span> is an
+<strong>Achilles number</strong> if <span
+class="math inline">\(n\)</span> is powerful but not a perfect power.
+For example, <span class="math inline">\(864\)</span> and <span
+class="math inline">\(1800\)</span> are Achilles numbers: <span
+class="math inline">\(864 = 2^5\cdot3^3\)</span> and <span
+class="math inline">\(1800 = 2^3\cdot3^2\cdot5^2\)</span>.</p>
+<p>We shall call a positive integer S a <em>Strong Achilles number</em>
+if both <span class="math inline">\(S\)</span> and <span
+class="math inline">\(\varphi(S)\)</span> are Achilles numbers.<span
+class="math inline">\(^1\)</span></p>
+<p>For example, <span class="math inline">\(864\)</span> is a Strong
+Achilles number: <span class="math inline">\(\varphi(864) = 288 =
+2^5\cdot3^2\)</span>. However, <span class="math inline">\(1800\)</span>
+isn’t a Strong Achilles number because: $ (1800) = 480 =
+2<sup>5</sup>1^1$.</p>
+<p>There are <span class="math inline">\(7\)</span> Strong Achilles
+numbers below <span class="math inline">\(10^4\)</span> and <span
+class="math inline">\(656\)</span> below <span
+class="math inline">\(10^8\)</span>.</p>
+<p>How many Strong Achilles numbers are there below <span
+class="math inline">\(M\)</span>?</p>
+<p><span class="math inline">\(^1 \varphi\)</span> denotes
+<strong>Euler’s totient function</strong>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(M=M\)</span>。设<span
+class="math inline">\(n\)</span>的质因数分解为<span
+class="math inline">\(\displaystyle{n=\prod_{i=1}^t p_i^{e_i},p_1\le
+p_2\le \dots\le p_t}\)</span>。</p>
+<p>那么，<span class="math inline">\(n\)</span> 是
+<strong>powerful</strong> 当且仅当对每个素因子 <span
+class="math inline">\(p_i\)</span>，都有 <span
+class="math inline">\(p_i^2\mid n\)</span>，也就是 <span
+class="math inline">\(\displaystyle{\min_{i=1}^t\{e_i\}\ge
+2}\)</span>。</p>
+<p><span class="math inline">\(n\)</span> 是 <strong>perfect
+power</strong> 当且仅当存在整数 <span class="math inline">\(a\ge
+2\)</span> 和 <span class="math inline">\(m\ge 2\)</span> 使得 <span
+class="math inline">\(n=a^m\)</span>。</p>
+<p>在素因子指数表示下，<span class="math inline">\(n\)</span> 是 perfect
+power 当且仅当<span class="math inline">\(\gcd(e_1,e_2,\dots,e_t)\ge
+2.\)</span>这是因为：<span class="math inline">\(n=a^m\)</span>
+等价于每个素因子指数都能被同一个 <span class="math inline">\(m\ge
+2\)</span> 整除。</p>
+<p>因此 <span class="math inline">\(n\)</span> 是
+<strong>Achilles</strong> 当且仅当：</p>
+<ul>
+<li>powerful：<span
+class="math inline">\(\displaystyle{\min_{i=1}^t\{e_i\}\ge
+2}\)</span></li>
+<li>但不是 perfect power：<span
+class="math inline">\(\gcd(e_1,\dots,e_t)=1\)</span></li>
+</ul>
+<p>那么<span
+class="math inline">\(\varphi(n)\)</span>可以计算得出：<span
+class="math inline">\(\varphi(n)=\displaystyle{\prod_{i=1}^t
+p_i^{e_i-1}\cdot \prod_{i=1}^t (p_i-1).}\)</span></p>
+<p>接下来论证<span class="math inline">\(e_t\ge 3\)</span>。</p>
+<p>可见 <span class="math inline">\(p_t\)</span> 为 <span
+class="math inline">\(n\)</span> 的最大质因子。看 <span
+class="math inline">\(\varphi(n)\)</span> 中质数 <span
+class="math inline">\(p_t\)</span> 的指数来源：</p>
+<ul>
+<li>来自 <span class="math inline">\(\prod_{i=1}^t
+p_i^{e_i-1}\)</span>：给出 <span
+class="math inline">\(p_t^{e_t-1}\)</span>。</li>
+<li>来自 <span class="math inline">\(\prod_{i=1}^t
+(p_i-1)\)</span>：可见，对于所有<span
+class="math inline">\(p_i\)</span>，都有<span
+class="math inline">\(p_i-1&lt;p_t\)</span>，因此不可能含因子 <span
+class="math inline">\(p_t\)</span>。</li>
+</ul>
+<p>所以<span class="math inline">\(v_{p_t}(\varphi(n)) =
+e_{t}-1.\)</span></p>
+<p>若要 <span class="math inline">\(\varphi(n)\)</span> powerful，则必须
+<span class="math inline">\(v_{p_t}(\varphi(n))\ge
+2\)</span>，即可得到<span class="math inline">\(e_{t}-1\ge
+3.\)</span></p>
+<p>这给出非常强的剪枝：<span class="math inline">\(n\)</span>
+的最大质因子必须以至少 3 次方出现。</p>
+<p>因此当 <span class="math inline">\(n&lt;M\)</span> 时，<span
+class="math inline">\(p_t^3 \le n \le M \Longrightarrow\ p_t \le
+\sqrt[3]{M}.\)</span></p>
+<p>所以只需要用到 <span class="math inline">\(\sqrt[3]{M}\)</span>
+以内的质数。</p>
+<p>现在我们要数满足 <span class="math inline">\(S&lt;M\)</span> 且 <span
+class="math inline">\(S,\varphi(S)\)</span> 都是 Achilles 的 <span
+class="math inline">\(S\)</span>。因此按质数从大到小递归选择是否加入一个因子
+<span class="math inline">\(p^e\)</span>（其中 <span
+class="math inline">\(e\ge 2\)</span>），构造<span
+class="math inline">\(\displaystyle{n=\prod p^e \le
+M}\)</span>，并保证递归时后续只允许用更小质数，避免重复。</p>
+<p>如果当前选到的指数集合是 <span
+class="math inline">\({e_1,\dots,e_t}\)</span>，那么</p>
+<ul>
+<li><span class="math inline">\(n\)</span> 是否 powerful
+由构造保证（所有 <span class="math inline">\(e_i\ge 2\)</span>）</li>
+<li><span class="math inline">\(n\)</span> 是否不是 perfect power
+等价于<span
+class="math inline">\(g_n=\gcd(e_1,\dots,e_t)=1.\)</span>所以递归里只要维护
+<span class="math inline">\(g_n\)</span> 即可。</li>
+</ul>
+<h3 id="对-varphin-的判定维护素因子指数表">3.3 对 <span
+class="math inline">\(\varphi(n)\)</span> 的判定：维护素因子指数表</h3>
+<p>由欧拉函数的定义<span
+class="math inline">\(\varphi(n)=\displaystyle{\prod_{i=1}^t
+p_i^{e_i-1}(p_i-1)}\)</span>可知，当我们把 <span
+class="math inline">\(p^e\)</span> 乘进 <span
+class="math inline">\(n\)</span> 时，对 <span
+class="math inline">\(\varphi(n)\)</span> 的影响是：</p>
+<ul>
+<li>素数 <span class="math inline">\(p\)</span> 的指数增加 <span
+class="math inline">\(e-1\)</span></li>
+<li>分解 <span class="math inline">\(p-1\)</span>，把其素因子指数也加到
+<span class="math inline">\(\varphi(n)\)</span> 的指数表中</li>
+</ul>
+<p>因此需要维护一个哈希表即可在任意时刻判断 <span
+class="math inline">\(\varphi(n)\)</span> 是否 Achilles：</p>
+<ul>
+<li>powerful：对所有 <span class="math inline">\(i\)</span>，有 <span
+class="math inline">\(v_{p_i}(\varphi(n))\ge 2\)</span></li>
+<li>非 perfect power：<span
+class="math inline">\(\gcd(v_{p_1}(\varphi(n)),v_{p_2}(\varphi(n)),\dots,v_{p_t}(\varphi(n)))=1\)</span></li>
+</ul>
+<p>递归过程中，<span class="math inline">\(\varphi(n)\)</span>
+的指数表里可能出现某些质数 <span class="math inline">\(q\)</span> 满足
+<span class="math inline">\(v_q(\varphi(n))=1\)</span>。如果最终要让
+<span class="math inline">\(\varphi(n)\)</span>
+powerful，就必须把它提升到至少 <span
+class="math inline">\(2\)</span>。</p>
+<p>但注意：我们后续递归只会加入更小质数 <span
+class="math inline">\(p\)</span>。若 <span
+class="math inline">\(p&lt;q\)</span>，则 <span
+class="math inline">\(p-1&lt;q\)</span>，所以 <span
+class="math inline">\(q\)</span> 不可能出现在 <span
+class="math inline">\(p-1\)</span> 的分解中；而 <span
+class="math inline">\(p^{e-1}\)</span> 只会影响质数 <span
+class="math inline">\(p\)</span> 本身的指数，也不能增加 <span
+class="math inline">\(q\)</span> 的指数。</p>
+<p>因此：若当前 <span class="math inline">\(\varphi(n)\)</span>
+中存在最大质数 <span class="math inline">\(q\)</span> 满足 <span
+class="math inline">\(v_q(\varphi(n))&lt;2\)</span>，那么后续可选的质数
+<span class="math inline">\(p\)</span> 必须满足 <span
+class="math inline">\(p\ge q\)</span>，否则该分支必然无法补齐 <span
+class="math inline">\(q\)</span>
+的指数。也就是说，我们可以维护一个数据结构来维护最大的单个质因子<span
+class="math inline">\(P\)</span>，一旦枚举到的<span
+class="math inline">\(p\)</span>小于<span
+class="math inline">\(P\)</span>就停止。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heapq</span><br><span class="line"><span class="keyword">from</span> bisect <span class="keyword">import</span> bisect_left, bisect_right</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> ceil, isqrt, gcd</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> Factorizer</span><br><span class="line">N = <span class="number">10</span> ** <span class="number">18</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_strong_achilles</span>(<span class="params">N: <span class="built_in">int</span> = <span class="number">10</span>**<span class="number">18</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 目标：统计 Strong Achilles 数 S &lt; N</span></span><br><span class="line">    <span class="comment"># 条件：S 是 Achilles（powerful 且不是 perfect power）</span></span><br><span class="line">    <span class="comment">#       phi(S) 也是 Achilles</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># powerful：对每个质因子 p，指数 &gt;= 2</span></span><br><span class="line">    <span class="comment"># not perfect power：所有指数的 gcd == 1</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 构造思路（常见做法）：</span></span><br><span class="line">    <span class="comment">#   DFS 枚举 n 的质因子分解 n = ∏ p^a，且 a&gt;=2（保证 n powerful）</span></span><br><span class="line">    <span class="comment">#   在 DFS 同时维护 phi(n) 的质因子指数表 phi_exp</span></span><br><span class="line">    <span class="comment">#   到每个 DFS 节点判断：</span></span><br><span class="line">    <span class="comment">#       - n 是否 Achilles：g_n == 1（指数 gcd == 1）</span></span><br><span class="line">    <span class="comment">#       - phi(n) 是否 Achilles：phi_exp powerful 且 gcd(exps)==1 且至少两种质因子</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 由于 n powerful，最小指数为 2，因此若 n &lt; N，则最大质数 p 至少满足 p^2 &lt;= N</span></span><br><span class="line">    <span class="comment"># 更强的剪枝：很多实现从“最大质数指数至少 3”推导出只需 primes &lt;= N^(1/3)，</span></span><br><span class="line">    <span class="comment"># 这里直接采用经典上界：PMAX = ceil(N^(1/3))（对 N=1e18 正好 1e6）</span></span><br><span class="line">    PMAX = ceil(N ** (<span class="number">1</span> / <span class="number">3</span>))</span><br><span class="line">    fact = Factorizer(PMAX)  <span class="comment"># 预筛到 PMAX，用于快速分解 &lt;= PMAX 的整数</span></span><br><span class="line">    primes = fact.primes</span><br><span class="line">    Pn = <span class="built_in">len</span>(primes)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 预处理每个质数 p 的 (p-1) 的质因子分解</span></span><br><span class="line">    <span class="comment"># 因为 phi(∏ p^a) = ∏ p^(a-1) * (p-1)，每次选 p 都要把 (p-1) 的因子加入 phi_exp</span></span><br><span class="line">    <span class="comment"># 预分解能减少 DFS 内重复 factor 的开销</span></span><br><span class="line">    pm1_fac = [([] <span class="keyword">if</span> p == <span class="number">2</span> <span class="keyword">else</span> fact.factor_small(p - <span class="number">1</span>)) <span class="keyword">for</span> p <span class="keyword">in</span> primes]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 维护 phi(n) 的指数表：phi_exp[q] = v_q(phi(n))</span></span><br><span class="line">    <span class="comment"># 注意：phi_exp 只存指数 &gt; 0 的质因子（指数为 0 的不保存）</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    phi_exp = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    <span class="comment"># bad_cnt：phi(n) 里指数为 1 的质因子个数</span></span><br><span class="line">    <span class="comment"># powerful 要求所有指数 &gt;= 2，因此 powerful &lt;=&gt; bad_cnt == 0</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 这里之所以能用 “指数==1” 来代表 “指数&lt;2”，是因为：</span></span><br><span class="line">    <span class="comment"># - phi_exp 中指数不会是负数</span></span><br><span class="line">    <span class="comment"># - 我们构造过程中只会增加指数；指数从 0 变 1 的时候就成为 bad</span></span><br><span class="line">    <span class="comment"># - 只要把所有 bad 修补到 &gt;=2，就实现 powerful</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    bad_cnt = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    <span class="comment"># 剪枝需要“当前 phi(n) 中最大 bad 质因子 q（即指数==1 的最大质数）”</span></span><br><span class="line">    <span class="comment"># 因为 DFS 后续只会加入更小的质数 p：</span></span><br><span class="line">    <span class="comment">#   - (p-1) 的质因子都 &lt; p</span></span><br><span class="line">    <span class="comment">#   - p^(a-1) 只会增加质数 p 自己的指数</span></span><br><span class="line">    <span class="comment"># 因此如果某个大质数 q 已经出现且指数为 1，那么未来只靠更小的 p 无法再把 q 的指数抬高</span></span><br><span class="line">    <span class="comment"># =&gt; 后续允许选择的 p 必须 &gt;= q，否则该分支必死</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 实现方式：用最大堆（Python heapq 是最小堆，所以存 -q），并 lazy 删除失效元素</span></span><br><span class="line">    <span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">    bad_heap = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">assign</span>(<span class="params">p: <span class="built_in">int</span>, new: <span class="built_in">int</span>, log_old: <span class="built_in">dict</span>, touched: <span class="built_in">list</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        将 phi_exp[p] 设置为 new（new=0 表示删除该质因子）。</span></span><br><span class="line"><span class="string">        这是 DFS 过程中“修改状态”的基础操作。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        参数：</span></span><br><span class="line"><span class="string">        - p: 质数</span></span><br><span class="line"><span class="string">        - new: 新指数（可为 0）</span></span><br><span class="line"><span class="string">        - log_old: 当前 DFS 栈帧的“旧值记录字典”（只记录一次，便于回溯）</span></span><br><span class="line"><span class="string">        - touched: 当前 DFS 栈帧中被修改过的质数列表（回溯时按逆序恢复）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        维护：</span></span><br><span class="line"><span class="string">        - bad_cnt：指数==1 的质因子个数</span></span><br><span class="line"><span class="string">        - bad_heap：当 new==1 时，把 p 推入堆（lazy 即可）</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">nonlocal</span> bad_cnt</span><br><span class="line"></span><br><span class="line">        old = phi_exp.get(p, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> old == new:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 只在本 DFS 栈帧第一次触碰该质数 p 时，记录它的 old 值</span></span><br><span class="line">        <span class="comment"># 这样回溯时只要恢复到 old 即可，不需要记录每一次中间变化</span></span><br><span class="line">        <span class="keyword">if</span> p <span class="keyword">not</span> <span class="keyword">in</span> log_old:</span><br><span class="line">            log_old[p] = old</span><br><span class="line">            touched.append(p)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 去掉 old 对 bad_cnt 的贡献</span></span><br><span class="line">        <span class="keyword">if</span> old == <span class="number">1</span>:</span><br><span class="line">            bad_cnt -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 加上 new 对 bad_cnt 的贡献</span></span><br><span class="line">        <span class="keyword">if</span> new == <span class="number">1</span>:</span><br><span class="line">            bad_cnt += <span class="number">1</span></span><br><span class="line">            <span class="comment"># p 现在成为 bad（指数==1），候选最大 bad 质数可能更新</span></span><br><span class="line">            heapq.heappush(bad_heap, -p)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 写回 phi_exp</span></span><br><span class="line">        <span class="keyword">if</span> new == <span class="number">0</span>:</span><br><span class="line">            phi_exp.pop(p, <span class="literal">None</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            phi_exp[p] = new</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">add_factors</span>(<span class="params">fac_list, log_old, touched</span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        将 fac_list = [(q, e), ...] 加到 phi_exp 上</span></span><br><span class="line"><span class="string">        即：phi_exp[q] += e</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        fac_list 来自对 (p-1) 的分解，或其它需要累加的部分。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">for</span> q, e <span class="keyword">in</span> fac_list:</span><br><span class="line">            assign(q, phi_exp.get(q, <span class="number">0</span>) + e, log_old, touched)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">restore</span>(<span class="params">log_old: <span class="built_in">dict</span>, touched: <span class="built_in">list</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        回溯：将当前 DFS 栈帧所有 touched 的质数恢复到进入栈帧时的旧值 old</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        注意：</span></span><br><span class="line"><span class="string">        - 我们只保证恢复正确性，bad_heap 采用 lazy 策略：</span></span><br><span class="line"><span class="string">          恢复时如果 old==1 也会 push 一次堆，可能造成重复；</span></span><br><span class="line"><span class="string">          但查询最大 bad 质数时会验证 phi_exp[q]==1，不符合就弹出。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">nonlocal</span> bad_cnt</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">reversed</span>(touched):</span><br><span class="line">            old = log_old[p]</span><br><span class="line">            cur = phi_exp.get(p, <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">if</span> cur == old:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 去掉 cur 对 bad_cnt 的贡献</span></span><br><span class="line">            <span class="keyword">if</span> cur == <span class="number">1</span>:</span><br><span class="line">                bad_cnt -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 加上 old 对 bad_cnt 的贡献</span></span><br><span class="line">            <span class="keyword">if</span> old == <span class="number">1</span>:</span><br><span class="line">                bad_cnt += <span class="number">1</span></span><br><span class="line">                heapq.heappush(bad_heap, -p)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 恢复 phi_exp</span></span><br><span class="line">            <span class="keyword">if</span> old == <span class="number">0</span>:</span><br><span class="line">                phi_exp.pop(p, <span class="literal">None</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                phi_exp[p] = old</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">current_max_bad_prime</span>() -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        返回当前 phi(n) 中指数==1 的最大质数 q。</span></span><br><span class="line"><span class="string">        若不存在 bad（bad_cnt==0），返回 2 作为默认下界。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        实现：</span></span><br><span class="line"><span class="string">        - bad_heap 里存的是候选 bad 质数（可能已失效）</span></span><br><span class="line"><span class="string">        - 反复检查堆顶 q 是否仍满足 phi_exp[q]==1</span></span><br><span class="line"><span class="string">          - 若是，q 就是最大 bad 质数（因为堆按 -q 最小即 q 最大）</span></span><br><span class="line"><span class="string">          - 若否，弹出并继续（lazy 清理）</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">while</span> bad_heap:</span><br><span class="line">            q = -bad_heap[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">if</span> phi_exp.get(q, <span class="number">0</span>) == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> q</span><br><span class="line">            heapq.heappop(bad_heap)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">phi_is_achilles</span>() -&gt; <span class="built_in">bool</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        判断当前维护的 phi(n) 是否为 Achilles：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        1) powerful：所有指数 &gt;= 2</span></span><br><span class="line"><span class="string">           在本实现中等价于 bad_cnt == 0（不存在指数==1）</span></span><br><span class="line"><span class="string">        2) not perfect power：所有指数 gcd == 1</span></span><br><span class="line"><span class="string">        3) 不为单质数幂：质因子数 &gt;= 2</span></span><br><span class="line"><span class="string">           因为 p^e 一定是 perfect power，不可能是 Achilles</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        注：len(phi_exp) &lt; 2 在“正确性上”可以省略（因为 gcd 也会判掉），</span></span><br><span class="line"><span class="string">            但保留它可作为 cheap early-exit，减少 gcd 遍历开销。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> bad_cnt != <span class="number">0</span> <span class="keyword">or</span> <span class="built_in">len</span>(phi_exp) &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        g = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> e <span class="keyword">in</span> phi_exp.values():</span><br><span class="line">            g = gcd(g, e)</span><br><span class="line">            <span class="keyword">if</span> g == <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">now: <span class="built_in">int</span>, last_idx: <span class="built_in">int</span>, g_n: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        深搜枚举 n：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        参数含义：</span></span><br><span class="line"><span class="string">        - now：当前构造出的 n 的数值</span></span><br><span class="line"><span class="string">        - last_idx：允许选择的质数下标范围是 primes[0:last_idx]</span></span><br><span class="line"><span class="string">                    （我们从大到小选质数，保证不重不漏）</span></span><br><span class="line"><span class="string">        - g_n：当前 n 的所有指数的 gcd（0 表示还没选任何质因子）</span></span><br><span class="line"><span class="string">               由于所有指数 a&gt;=2，n 是 Achilles &lt;=&gt; g_n == 1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        DFS 的一次扩展：</span></span><br><span class="line"><span class="string">        - 选择一个质数 p（从大到小）</span></span><br><span class="line"><span class="string">        - 先把 (p-1) 的质因子指数加入 phi_exp（对应 phi 里的乘子 (p-1)）</span></span><br><span class="line"><span class="string">        - 再枚举 n 中 p 的指数 a = 2,3,4,...：</span></span><br><span class="line"><span class="string">              n *= p^a</span></span><br><span class="line"><span class="string">              phi(n) 额外乘 p^(a-1) -&gt; phi_exp[p] 指数 + (a-1)</span></span><br><span class="line"><span class="string">          这里我们用“每次 a 增加 1，就把 phi_exp[p] +1”的方式增量维护</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">nonlocal</span> ans</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 统计答案：</span></span><br><span class="line">        <span class="comment"># - now&gt;1：排除空积 n=1</span></span><br><span class="line">        <span class="comment"># - g_n==1：n 不是 perfect power（因为指数 gcd==1），且 powerful 由构造保证</span></span><br><span class="line">        <span class="comment"># - phi(n) 也要 Achilles</span></span><br><span class="line">        <span class="keyword">if</span> now &gt; <span class="number">1</span> <span class="keyword">and</span> g_n == <span class="number">1</span> <span class="keyword">and</span> phi_is_achilles():</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> last_idx &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 下一步至少要乘 p^2 才能保持 n powerful</span></span><br><span class="line">        <span class="comment"># 因此需要 now * p^2 &lt;= N  -&gt; p &lt;= sqrt(N/now)</span></span><br><span class="line">        limit_p = isqrt(N // now)</span><br><span class="line">        <span class="keyword">if</span> limit_p &lt; <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 我们只允许使用 &lt;= primes[last_idx-1] 的质数（保持降序）</span></span><br><span class="line">        max_p_val = <span class="built_in">min</span>(limit_p, primes[last_idx - <span class="number">1</span>])</span><br><span class="line">        max_idx = <span class="built_in">min</span>(last_idx, bisect_right(primes, max_p_val))</span><br><span class="line">        <span class="keyword">if</span> max_idx &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 剪枝：</span></span><br><span class="line">        <span class="comment"># 若当前 phi(n) 中存在最大 bad 质数 q（指数==1），</span></span><br><span class="line">        <span class="comment"># 则后续选取的 p 必须满足 p &gt;= q，否则无法再增加 q 的指数（该分支必死）</span></span><br><span class="line">        q = current_max_bad_prime()</span><br><span class="line">        min_idx = bisect_left(primes, q)</span><br><span class="line">        <span class="keyword">if</span> min_idx &gt;= max_idx:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 从大到小选质数 p</span></span><br><span class="line">        <span class="comment"># 注意：这里为了效率，真正应该从 max_idx-1 下降到 min_idx</span></span><br><span class="line">        <span class="comment"># （否则会做很多无意义枚举）</span></span><br><span class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> <span class="built_in">range</span>(max_idx - <span class="number">1</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">            p = primes[idx]</span><br><span class="line"></span><br><span class="line">            <span class="comment"># -------------------------</span></span><br><span class="line">            <span class="comment"># 这一帧对 phi_exp 的改动日志：</span></span><br><span class="line">            <span class="comment"># log_old: 记录每个 touched 质数进入本帧时的 old 值</span></span><br><span class="line">            <span class="comment"># touched: 记录被修改过的质数，用于回溯</span></span><br><span class="line">            <span class="comment"># -------------------------</span></span><br><span class="line">            log_old = &#123;&#125;</span><br><span class="line">            touched = []</span><br><span class="line"></span><br><span class="line">            <span class="comment"># phi *= (p-1)：把 (p-1) 的分解因子加到 phi_exp</span></span><br><span class="line">            add_factors(pm1_fac[idx], log_old, touched)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 枚举指数 a &gt;= 2：</span></span><br><span class="line">            <span class="comment"># 维护 now * p^a（用 have 增量乘 p）</span></span><br><span class="line">            <span class="comment"># 同时 phi_exp[p] 每次 +1（因为 phi(n) 的 p 指数是 a-1）</span></span><br><span class="line">            cur_p_exp = phi_exp.get(p, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">            have = now * p  <span class="comment"># 当前 have = now * p^1</span></span><br><span class="line">            a = <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> have &lt;= N // p:</span><br><span class="line">                have *= p</span><br><span class="line">                a += <span class="number">1</span>  <span class="comment"># 此时 have = now * p^a，且 a&gt;=2</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># phi 里 p 的指数增加 1（对应 a-1 增加 1）</span></span><br><span class="line">                cur_p_exp += <span class="number">1</span></span><br><span class="line">                assign(p, cur_p_exp, log_old, touched)</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 更新 n 的指数 gcd：把新指数 a 纳入 gcd</span></span><br><span class="line">                <span class="comment"># g_n==0 表示第一次选质数：gcd(0, a) 视为 a</span></span><br><span class="line">                dfs(have, idx, gcd(g_n, a))</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 回溯：撤销本帧所有对 phi_exp / bad_cnt 的修改</span></span><br><span class="line">            restore(log_old, touched)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从空积开始：n=1，允许使用所有 primes，指数 gcd 初始化为 0</span></span><br><span class="line">    dfs(<span class="number">1</span>, Pn, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(solve_strong_achilles(N))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/302/" title="Project Euler 302">https://ujimatsu-chiya.github.io/project-euler/302/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

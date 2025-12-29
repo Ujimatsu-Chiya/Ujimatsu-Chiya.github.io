@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 298">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/298/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-29T16:51:07.000Z">
+<meta property="article:modified_time" content="2025-12-29T16:51:07.014Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta property="article:tag" content="动态规划">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/298/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/298/","path":"project-euler/298/","title":"Project Euler 298"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 298 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-298"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 298</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#selective-amnesia"><span class="nav-number">1.1.1.</span> <span class="nav-text">Selective Amnesia</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/298/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 298 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 298
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-30 00:51:07" itemprop="dateCreated datePublished" datetime="2025-12-30T00:51:07+08:00">2025-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-298">Project Euler 298</h1>
+<h2 id="题目">题目</h2>
+<h3 id="selective-amnesia">Selective Amnesia</h3>
+<p>Larry and Robin play a memory game involving a sequence of random
+numbers between <span class="math inline">\(1\)</span> and <span
+class="math inline">\(10\)</span>, inclusive, that are called out one at
+a time. Each player can remember up to <span
+class="math inline">\(5\)</span> previous numbers. When the called
+number is in a player’s memory, that player is awarded a point. If it’s
+not, the player adds the called number to his memory, removing another
+number if his memory is full.</p>
+<p>Both players start with empty memories. Both players always add new
+missed numbers to their memory but use a different strategy in deciding
+which number to remove:</p>
+<p>Larry’s strategy is to remove the number that hasn’t been called in
+the longest time.</p>
+<p>Robin’s strategy is to remove the number that’s been in the memory
+the longest time.</p>
+<p>Example game:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+<col style="width: 18%" />
+<col style="width: 19%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr>
+<th>Turn</th>
+<th>Called number</th>
+<th>Larry’s memory</th>
+<th>Larry’s score</th>
+<th>Robin’s memory</th>
+<th>Robin’s score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1,2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1,2\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(1,2,4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1,2,4\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(6\)</span></td>
+<td><span class="math inline">\(1,2,4,6\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1,2,4,6\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1,2,4,6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1,2,4,6\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(6\)</span></td>
+<td><span class="math inline">\(8\)</span></td>
+<td><span class="math inline">\(1,2,4,6,8\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1,2,4,6,8\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(7\)</span></td>
+<td><span class="math inline">\(10\)</span></td>
+<td><span class="math inline">\(1,4,6,8,10\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2,4,6,8,10\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(8\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1,2,6,8,10\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2,4,6,8,10\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(9\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(1,2,4,8,10\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2,4,6,8,10\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(10\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1,2,4,8,10\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(1,4,6,8,10\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Denoting Larry’s score by <span class="math inline">\(L\)</span> and
+Robin’s score by <span class="math inline">\(R\)</span>, what is the
+expected value of <span class="math inline">\(|L-R|\)</span> after <span
+class="math inline">\(50\)</span> turns? Give your answer rounded to
+eight decimal places using the format x.xxxxxxxx .</p>
+<h2 id="解决方案">解决方案</h2>
+<p>这题使用概率动态规划来解决。</p>
+<p>本题的随机过程长度固定为 <span class="math inline">\(T=50\)</span>
+回合，每回合报出的数在 <span
+class="math inline">\(\{1,...,M\}(M=10)\)</span>
+间<strong>独立等概率</strong>。两位玩家的记忆容量均为 <span
+class="math inline">\(N=5\)</span>，但更新策略不同：</p>
+<ul>
+<li>Larry：移除“<strong>最久没有被报到</strong>”的数（LRU）。</li>
+<li>Robin：移除“<strong>在记忆里待得最久</strong>”的数（FIFO）。</li>
+</ul>
+<p>我们记 Larry 的得分为 <span class="math inline">\(L\)</span>，Robin
+的得分为 <span class="math inline">\(R\)</span>，目标是计算 <span
+class="math inline">\(T\)</span> 回合后 <span
+class="math inline">\(\mathbb E[|L-R|].\)</span></p>
+<p>由于策略依赖顺序信息，我们必须把每位玩家的记忆表示为有序序列。</p>
+<p>对于 Larry 的记忆：令 <span
+class="math inline">\(A=(a_1,\dots,a_p)\)</span> 表示 Larry
+当前记忆<span class="math inline">\((0\le p\le N)\)</span>，并约定：</p>
+<ul>
+<li><span class="math inline">\(a_1\)</span>
+是<strong>最久没被报到</strong>的数</li>
+<li><span class="math inline">\(a_p\)</span>
+是<strong>最近被报到</strong>的数</li>
+<li>拼接：<span
+class="math inline">\((a_1,\dots,a_p)\circ(x)=(a_1,\dots,a_p,x)\)</span></li>
+<li>删除：若 <span class="math inline">\(x=a_k\)</span>，则<span
+class="math inline">\(A\ominus
+x=(a_1,\dots,a_{k-1},a_{k+1},\dots,a_p)\)</span></li>
+<li>取尾： $ (A)=
+<span class="math display">\[\begin{cases}
+(a_2,\dots,a_p),&amp;p\ge 1\\
+(),&amp;p=0
+\end{cases}\]</span>
+$</li>
+</ul>
+<p>那么 Larry（LRU）的更新可写为</p>
+<p><span class="math display">\[
+U_L(A,x)=
+\begin{cases}
+(A\ominus x)\circ(x), &amp; x\in A\\
+A\circ(x), &amp; x\notin A\land|A|&lt;N\\
+\mathrm{tail}(A)\circ(x), &amp; x\notin A\land|A|=N.
+\end{cases}
+\]</span></p>
+<p>令 <span class="math inline">\(B=(b_1,\dots,b_q)\)</span> 表示 Robin
+当前记忆<span class="math inline">\((0\le q\le N)\)</span>，并约定：</p>
+<ul>
+<li><span class="math inline">\(b_1\)</span>
+是最早进入记忆、因此“驻留时间最长”的数（将被 FIFO 淘汰）</li>
+<li>命中时 Robin <strong>不改变顺序</strong></li>
+</ul>
+<p>则 Robin（FIFO）的更新可写为</p>
+<p><span class="math display">\[
+U_R(B,x)=
+\begin{cases}
+B, &amp; x\in B,\\
+B\circ(x), &amp; x\notin B \land |B|&lt;N,\\
+\mathrm{tail}(B)\circ(x), &amp; x\notin B  \land |B|=N.
+\end{cases}
+\]</span></p>
+<p>令分差 <span class="math inline">\(D=L-R\)</span>。当报到数字为 <span
+class="math inline">\(x\)</span> 时，设<span
+class="math inline">\(\Delta(A,B,x)=\mathbf 1[x\in A]-\mathbf 1[x\in
+B]\in\{-1,0,1\}.\)</span>那么每回合分差更新为$
+DD+(A,B,x).$因此我们只需在动态规划过程中追踪<strong>记忆状态</strong>和当前<strong>分差</strong>。</p>
+<p>如果直接把数字当作 <span
+class="math inline">\(\{1,...,10\}\)</span>，状态数会爆炸。但注意：<strong>数字本身没有任何区别</strong>，策略只依赖“相等/不等”和“是否在记忆里”的结构。</p>
+<p>因此我们把当前出现过的数字做<strong>规范化重命名</strong>：</p>
+<ul>
+<li>给当前状态中出现的所有数字依次编号为 <span
+class="math inline">\(0,1,...,m-1(m\le 10)\)</span></li>
+<li>编号规则取一个确定性的方式即可，例如：从左到右先扫描 <span
+class="math inline">\(A\)</span> 再扫描 <span
+class="math inline">\(B\)</span>，某数字第一次出现就赋予下一个新编号</li>
+</ul>
+<p>记这个规范化映射为 <span
+class="math inline">\(\varphi\)</span>。于是我们把真实状态映射到一个<strong>规范状态</strong>：<span
+class="math inline">\(A&#39;,B&#39;=\varphi(A,B)\)</span>。</p>
+<p>这一步的意义在于：任意两个仅仅是把 <span
+class="math inline">\(\{1,...,M\}\)</span>
+重新置换的状态，在规范化后都会落到同一个 <span
+class="math inline">\(S\)</span>，从而极大减少状态数。</p>
+<p>令 <span class="math inline">\(f_t(s,d)\)</span> 表示进行了 <span
+class="math inline">\(t\)</span> 回合后，处于规范状态 <span
+class="math inline">\(s\)</span>，且分差为<span
+class="math inline">\(d\)</span>的概率。其中<span
+class="math inline">\(0\le t\le T,-d\le t\le d\)</span>。</p>
+<p>初始状态为两人记忆为空、分差为 0：<span
+class="math inline">\(f_0[S_0][0]=1, S_0=((),()).\)</span></p>
+<p>设当前规范状态为 S=(A,B)<span
+class="math inline">\(。定义并集大小\)</span>m=|{A}{B}|.$</p>
+<p>那么下一次报到的数字分两类：</p>
+<ol type="1">
+<li><p><strong>报到一个已出现过的编号</strong> <span
+class="math inline">\(x\in\{0,1,\dots,m-1\}\)</span>
+每个具体数字概率都是 <span
+class="math inline">\(1/M\)</span>，因此这一类一共有 <span
+class="math inline">\(m\)</span> 个分支、每个权重 <span
+class="math inline">\(1/M\)</span>。</p></li>
+<li><p><strong>报到一个完全没出现过的数字</strong>（即不在 <span
+class="math inline">\(A\)</span> 也不在 <span
+class="math inline">\(B\)</span> 中） 这样的数字共有 <span
+class="math inline">\(M-m\)</span> 个，总概率为 <span
+class="math inline">\((M-m)/10\)</span>。并且它们对后续的影响完全等价，因此我们可以把它们聚合成一个“新编号”
+<span class="math inline">\(x=m\)</span> 来处理。</p></li>
+</ol>
+<p>于是对任意 <span class="math inline">\(x\)</span>（包括 <span
+class="math inline">\(\{0,...,m-1\}\)</span> 以及聚合的新编号 <span
+class="math inline">\(m\)</span>），定义：</p>
+<ul>
+<li>分差增量：<span
+class="math inline">\(\Delta=\Delta(A,B,x)\)</span></li>
+<li>更新后的真实序列：<span class="math inline">\(A&#39; = U_L(A,x),
+B&#39;=U_R(B,x)\)</span></li>
+<li>更新后的规范状态：<span
+class="math inline">\(S&#39;=\varphi(A&#39;,B&#39;)\)</span></li>
+</ul>
+<p>那么转移可以写成：<span
+class="math inline">\(f_{t+1}(S&#39;,d+\Delta)\leftarrow f_t(s,d)\cdot
+\Pr(x).\)</span></p>
+<p>其中<span class="math inline">\(\Pr(x)=\left\{
+\begin{aligned}
+&amp;\dfrac{1}{M} &amp;&amp;\text{if}\quad 0\le x\le m-1\\
+&amp;\dfrac{M-m}{M} &amp;&amp;\text{else} \\
+\end{aligned}\right.\)</span></p>
+<p>最终，<span class="math inline">\(T\)</span> 回合后分差分布为<span
+class="math inline">\(\displaystyle{P(D=d)=\sum_{S}
+f_{T}(s,d)}.\)</span></p>
+<p>所以答案为</p>
+<p><span class="math display">\[E[|D|]=\sum_{d=-T}^{T}|d|
+\cdot\sum_{S}  f_{T}[S][d].\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">R = <span class="number">50</span>                    <span class="comment"># 回合数（总共报数 50 次）</span></span><br><span class="line">SIZE = <span class="number">2</span> * R + <span class="number">1</span>          <span class="comment"># 分差 d = L-R 的可能取值范围 [-R, R]，共 2R+1 个</span></span><br><span class="line">OFF = R                   <span class="comment"># 将 d 映射到数组下标：idx = d + OFF，使得 d=0 对应 idx=OFF</span></span><br><span class="line">M = <span class="number">10</span>                    <span class="comment"># 每回合报数均匀独立地从 &#123;1..10&#125; 选一个</span></span><br><span class="line">N = <span class="number">5</span>                     <span class="comment"># 两位玩家记忆容量都是 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># normalize(A, B)：状态规范化（对称性压缩）</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 关键观察：</span></span><br><span class="line"><span class="comment">#   真实数字 1..10 本身没有区别，只要保持“是否相等 / 是否在记忆中 / 顺序”即可。</span></span><br><span class="line"><span class="comment">#   因此可以把当前出现过的数字重新命名成 0..m-1（m 为并集大小），以合并等价状态。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 规范化规则（确定性）：</span></span><br><span class="line"><span class="comment">#   先从左到右扫描 A，再从左到右扫描 B。</span></span><br><span class="line"><span class="comment">#   某个数字第一次出现时分配一个新的编号（0,1,2,...），以后都用该编号替代。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 这样任何仅靠“数字重命名置换”不同的状态都会被压到同一个规范状态，从而大幅减少状态数。</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">normalize</span>(<span class="params">A, B</span>):</span><br><span class="line">    mp = &#123;&#125;              <span class="comment"># 原始数字 -&gt; 规范编号</span></span><br><span class="line">    A2, B2 = [], []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 先扫描 A：按首次出现顺序分配编号</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> A:</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> mp:</span><br><span class="line">            mp[x] = <span class="built_in">len</span>(mp)</span><br><span class="line">        A2.append(mp[x])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 再扫描 B：若该数字未出现过则继续分配新编号</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> B:</span><br><span class="line">        <span class="keyword">if</span> x <span class="keyword">not</span> <span class="keyword">in</span> mp:</span><br><span class="line">            mp[x] = <span class="built_in">len</span>(mp)</span><br><span class="line">        B2.append(mp[x])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 用 tuple 作为 dict key</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">tuple</span>(A2), <span class="built_in">tuple</span>(B2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># step_state(state, x)：给定当前状态与本回合报到的编号 x，返回新状态与分差增量</span></span><br><span class="line"><span class="comment"># ---------------------------------------------------------</span></span><br><span class="line"><span class="comment"># state = (A, B)</span></span><br><span class="line"><span class="comment">#   A：Larry 的记忆顺序（LRU 顺序）</span></span><br><span class="line"><span class="comment">#      A[0] 最久没被报到（最旧），A[-1] 最近被报到（最新）</span></span><br><span class="line"><span class="comment">#   B：Robin 的记忆顺序（FIFO 顺序）</span></span><br><span class="line"><span class="comment">#      B[0] 最早进入（驻留最久），B[-1] 最近进入</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># x：本回合报到的“规范编号”</span></span><br><span class="line"><span class="comment">#   - 如果 x &lt; m（m = |A ∪ B|），表示报到的是并集内某个已有数字</span></span><br><span class="line"><span class="comment">#   - 如果 x == m，表示报到了一个“完全没出现过的新数字”（把所有新数字聚合成一类）</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># delta：本回合分差变化 = (Larry 是否得分) - (Robin 是否得分) ∈ &#123;-1,0,1&#125;</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 更新规则：</span></span><br><span class="line"><span class="comment">#   Larry（LRU）：</span></span><br><span class="line"><span class="comment">#     命中：把 x 移到末尾（变成最新）</span></span><br><span class="line"><span class="comment">#     未命中：若满则弹出头部（最旧），再把 x 加到末尾</span></span><br><span class="line"><span class="comment">#   Robin（FIFO）：</span></span><br><span class="line"><span class="comment">#     命中：不改变顺序</span></span><br><span class="line"><span class="comment">#     未命中：若满则弹出头部（最老驻留），再把 x 加到末尾</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">step_state</span>(<span class="params">state, x</span>):</span><br><span class="line">    A, B = state</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 判断命中与否</span></span><br><span class="line">    hitA = x <span class="keyword">in</span> A</span><br><span class="line">    hitB = x <span class="keyword">in</span> B</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 本回合分差增量：Larry 命中 +1，Robin 命中 -1</span></span><br><span class="line">    delta = hitA - hitB</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -------- Larry：LRU 更新 --------</span></span><br><span class="line">    A2 = <span class="built_in">list</span>(A)</span><br><span class="line">    <span class="keyword">if</span> hitA:</span><br><span class="line">        <span class="comment"># 命中：把 x 从原位置移除</span></span><br><span class="line">        A2.remove(x)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment"># 未命中：若满则移除最久没被报到的元素（队头）</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(A2) == N:</span><br><span class="line">            A2.pop(<span class="number">0</span>)</span><br><span class="line">    <span class="comment"># 无论命中/未命中，最终都把 x 放到末尾（最新）</span></span><br><span class="line">    A2.append(x)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -------- Robin：FIFO 更新 --------</span></span><br><span class="line">    B2 = <span class="built_in">list</span>(B)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> hitB:</span><br><span class="line">        <span class="comment"># 仅未命中时才插入/淘汰</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(B2) == N:</span><br><span class="line">            <span class="comment"># 淘汰最早进入的元素（队头）</span></span><br><span class="line">            B2.pop(<span class="number">0</span>)</span><br><span class="line">        B2.append(x)</span><br><span class="line">    <span class="comment"># 命中时 B2 不变（不移动）</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 返回规范化后的新状态 + 分差增量</span></span><br><span class="line">    <span class="keyword">return</span> normalize(A2, B2), delta</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================================================</span></span><br><span class="line"><span class="comment"># 概率动态规划定义</span></span><br><span class="line"><span class="comment"># =========================================================</span></span><br><span class="line"><span class="comment"># f[state] 是一个长度 SIZE 的数组 dist</span></span><br><span class="line"><span class="comment"># dist[OFF + d] 表示：到当前回合结束时，处于该规范状态 state 且分差 D = d 的概率</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 初始：回合 0，双方记忆为空，分差为 0，概率 1</span></span><br><span class="line">f = defaultdict(<span class="keyword">lambda</span>: np.zeros(SIZE, dtype=np.float64))</span><br><span class="line">f[((), ())][OFF] = <span class="number">1.0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================================================</span></span><br><span class="line"><span class="comment"># 进行 R 回合转移</span></span><br><span class="line"><span class="comment"># =========================================================</span></span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(R):</span><br><span class="line">    nf = defaultdict(<span class="keyword">lambda</span>: np.zeros(SIZE, dtype=np.float64))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 遍历所有当前可达状态</span></span><br><span class="line">    <span class="keyword">for</span> state, dist <span class="keyword">in</span> f.items():</span><br><span class="line">        A, B = state</span><br><span class="line"></span><br><span class="line">        <span class="comment"># m = 当前并集大小 |A ∪ B|</span></span><br><span class="line">        <span class="comment"># 在规范状态下，出现过的编号恰好是 0..m-1</span></span><br><span class="line">        m = <span class="built_in">len</span>(<span class="built_in">set</span>(A + B))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># ----------------------------------------------</span></span><br><span class="line">        <span class="comment"># 情况 1：报到的是并集内某个已有编号 x ∈ [0..m-1]</span></span><br><span class="line">        <span class="comment"># ----------------------------------------------</span></span><br><span class="line">        <span class="comment"># 原问题每个真实数字概率都是 1/M。</span></span><br><span class="line">        <span class="comment"># 对于规范状态中每个已有编号 x，都对应一个具体真实数字，因此每个分支概率都是 1/M。</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            ns, delta = step_state(state, x)</span><br><span class="line">            w = <span class="number">1.0</span> / M</span><br><span class="line">            arr = nf[ns]</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 把 dist 按 delta 平移后累加到 arr</span></span><br><span class="line">            <span class="comment"># 用 numpy 切片完成“整体平移”，避免逐 d 循环</span></span><br><span class="line">            <span class="keyword">if</span> delta == <span class="number">0</span>:</span><br><span class="line">                arr += dist * w</span><br><span class="line">            <span class="keyword">elif</span> delta == <span class="number">1</span>:</span><br><span class="line">                <span class="comment"># d -&gt; d+1，对应数组右移 1</span></span><br><span class="line">                arr[<span class="number">1</span>:] += dist[:-<span class="number">1</span>] * w</span><br><span class="line">            <span class="keyword">else</span>:  <span class="comment"># delta == -1</span></span><br><span class="line">                <span class="comment"># d -&gt; d-1，对应数组左移 1</span></span><br><span class="line">                arr[:-<span class="number">1</span>] += dist[<span class="number">1</span>:] * w</span><br><span class="line"></span><br><span class="line">        <span class="comment"># ----------------------------------------------</span></span><br><span class="line">        <span class="comment"># 情况 2：报到的是“全新数字”（不在 A ∪ B 中）</span></span><br><span class="line">        <span class="comment"># ----------------------------------------------</span></span><br><span class="line">        <span class="comment"># 这样的真实数字有 (M - m) 个，总概率 (M-m)/M。</span></span><br><span class="line">        <span class="comment"># 它们完全对称，因此可以聚合成一个分支：用 x = m 代表“新编号”。</span></span><br><span class="line">        <span class="keyword">if</span> m &lt; M:</span><br><span class="line">            x = m</span><br><span class="line">            ns, delta = step_state(state, x)</span><br><span class="line">            w = (M - m) / M</span><br><span class="line">            arr = nf[ns]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> delta == <span class="number">0</span>:</span><br><span class="line">                arr += dist * w</span><br><span class="line">            <span class="keyword">elif</span> delta == <span class="number">1</span>:</span><br><span class="line">                arr[<span class="number">1</span>:] += dist[:-<span class="number">1</span>] * w</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                arr[:-<span class="number">1</span>] += dist[<span class="number">1</span>:] * w</span><br><span class="line"></span><br><span class="line">    f = nf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># =========================================================</span></span><br><span class="line"><span class="comment"># 汇总：把所有状态的分差分布加起来，然后算 E[|D|]</span></span><br><span class="line"><span class="comment"># =========================================================</span></span><br><span class="line">total = np.zeros(SIZE, dtype=np.float64)</span><br><span class="line"><span class="keyword">for</span> dist <span class="keyword">in</span> f.values():</span><br><span class="line">    total += dist</span><br><span class="line"></span><br><span class="line"><span class="comment"># 下标 0..SIZE-1 对应的分差是 -R..R</span></span><br><span class="line">d_vals = np.arange(-R, R + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 期望：sum |d| * P(D=d)</span></span><br><span class="line">ans = <span class="built_in">float</span>(np.<span class="built_in">sum</span>(np.<span class="built_in">abs</span>(d_vals) * total))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按题目要求输出 8 位小数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.8</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/298/" title="Project Euler 298">https://ujimatsu-chiya.github.io/project-euler/298/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"><i class="fa fa-tag"></i> 动态规划</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 295">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/295/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p295_lenticular.gif">
+<meta property="article:published_time" content="2025-12-29T16:51:03.000Z">
+<meta property="article:modified_time" content="2025-12-29T16:51:03.216Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p295_lenticular.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/295/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/295/","path":"project-euler/295/","title":"Project Euler 295"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 295 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-295"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 295</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lenticular-holes"><span class="nav-number">1.1.1.</span> <span class="nav-text">Lenticular holes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/295/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 295 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 295
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-30 00:51:03" itemprop="dateCreated datePublished" datetime="2025-12-30T00:51:03+08:00">2025-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-295">Project Euler 295</h1>
+<h2 id="题目">题目</h2>
+<h3 id="lenticular-holes">Lenticular holes</h3>
+<p>We call the convex area enclosed by two circles a <em>lenticular
+hole</em> if:</p>
+<ul>
+<li>The centres of both circles are on lattice points.</li>
+<li>The two circles intersect at two distinct lattice points.</li>
+<li>The interior of the convex area enclosed by both circles does not
+contain any lattice points.</li>
+</ul>
+<p>Consider the circles:</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;C_0: x^2+y^2=25\\
+&amp;C_1: (x+4)^2+(y-4)^2=1\\
+&amp;C_2: (x-12)^2+(y-4)^2=65
+\end{aligned}\)</span></p>
+<p>The circles <span class="math inline">\(C_0, C_1\)</span> and <span
+class="math inline">\(C_2\)</span> are drawn in the picture below.</p>
+<p><img data-src="../images/p295_lenticular.gif" /></p>
+<p><span class="math inline">\(C_0\)</span> and <span
+class="math inline">\(C_1\)</span> form a lenticular hole, as well as
+<span class="math inline">\(C_0\)</span> and <span
+class="math inline">\(C_2\)</span>.</p>
+<p>We call an ordered pair of positive real numbers <span
+class="math inline">\((r_1, r_2)\)</span> a <em>lenticular pair</em> if
+there exist two circles with radii <span
+class="math inline">\(r_1\)</span> and <span
+class="math inline">\(r_2\)</span> that form a lenticular hole.</p>
+<p>We can verify that <span class="math inline">\((1, 5)\)</span> and
+<span class="math inline">\((5, \sqrt{65})\)</span> are the lenticular
+pairs of the example above.</p>
+<p>Let <span class="math inline">\(L(N)\)</span> be the number of
+<strong>distinct</strong> lenticular pairs <span
+class="math inline">\((r_1, r_2)\)</span> for which <span
+class="math inline">\(0 &lt; r_1 \le r_2 \le N\)</span>.</p>
+<p>We can verify that <span class="math inline">\(L(10) = 30\)</span>
+and <span class="math inline">\(L(100) = 3442\)</span>.</p>
+<p>Find <span class="math inline">\(L(100 000)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>两圆相交于两格点 <span
+class="math inline">\(A,B\)</span>，透镜是两圆盘交集形成的凸“月牙”区域。平移不改变格点结构与“内部是否含格点”，故不妨令</p>
+<ul>
+<li><span class="math inline">\(A=(0,0)\)</span></li>
+<li><span class="math inline">\(B=(x,y)\)</span>，其中 <span
+class="math inline">\(x,y\in\mathbb Z\)</span> 且不全为 <span
+class="math inline">\(0\)</span>。</li>
+</ul>
+<p>透镜内部不能含格点，尤其线段 <span class="math inline">\(AB\)</span>
+上不能出现除端点外的格点；否则这些点在两圆盘交集中，必在透镜内部，违背定义。因此必须有：<span
+class="math inline">\(\gcd(x,y)=1.\)</span></p>
+<p>此外，过 <span class="math inline">\(A,B\)</span> 的圆心必须在 <span
+class="math inline">\(AB\)</span> 的垂直平分线上。<span
+class="math inline">\(AB\)</span> 的中点为 <span
+class="math inline">\(\left(\dfrac x2,\dfrac
+y2\right)\)</span>，垂直方向向量可取 <span
+class="math inline">\((y,-x)\)</span>，所以垂直平分线为</p>
+<p><span class="math display">\[M(t)=\left(\frac x2,\frac
+y2\right)+t(y,-x), t\in\mathbb R.\]</span></p>
+<p>如果要求圆心 <span class="math inline">\(M(t)\)</span> 也是格点。由于
+<span class="math inline">\(\gcd(x,y)=1\)</span>，那么 <span
+class="math inline">\(x,y\)</span> 不可能同为偶数；要让 <span
+class="math inline">\(\left(\dfrac {x}{2},\dfrac {y}{2}\right)\)</span>
+与 <span class="math inline">\(t(y,-x)\)</span>
+合起来变成整数坐标，唯一可行的是 <strong><span
+class="math inline">\(x,y\)</span>
+同为奇数</strong>。原因在于，如果<span
+class="math inline">\(x\)</span>是偶数，那么<span
+class="math inline">\(y\)</span>必须是奇数，由于<span
+class="math inline">\(2\mid ty\)</span>，因此<span
+class="math inline">\(t\)</span>必须是偶数，但是<span
+class="math inline">\(\dfrac{y}{2}-tx\)</span>
+此时不可能是整数。因此，<span class="math inline">\(x,y\)</span>
+同为奇数。</p>
+<p>因此我们只需枚举 <strong>互素的奇数对</strong> <span
+class="math inline">\((x,y)\)</span>（利用对称性可取 <span
+class="math inline">\(1\le x&lt;y\)</span>，并单独处理 <span
+class="math inline">\((1,1)\)</span>）。</p>
+<p>当 <span class="math inline">\(x,y\)</span> 为奇数时，令 <span
+class="math inline">\(t=k+\dfrac{1}{2}\)</span>（<span
+class="math inline">\(k\in\mathbb Z\)</span>），则</p>
+<p><span class="math display">\[
+M_k=\left(\frac{x}{2},\frac{y}{2}\right)+\left(k+\dfrac{1}{2}\right)(y,-x)=\left(\frac{x+y}{2}+ky,\frac{y-x}{2}-kx\right)
+\]</span></p>
+<p>给出了垂直平分线上的全部格点圆心。</p>
+<p>因为圆过原点 <span
+class="math inline">\(A=(0,0)\)</span>，半径平方就是</p>
+<p><span class="math display">\[r_k^2 =
+|M_k|^2=\left(\frac{x+y}{2}+ky\right)^2+\left(\frac{y-x}{2}-kx\right)^2=\frac{x^2+y^2}{2}(2k^2+2k+1)\]</span></p>
+<p>记<span class="math inline">\(b=x^2+y^2\)</span>，注意到 <span
+class="math inline">\(x,y\)</span> 为奇数时 <span
+class="math inline">\(b\equiv 2\pmod 4\)</span>，所以 <span
+class="math inline">\(\dfrac{b}{2}\in\mathbb Z\)</span>，从而<span
+class="math inline">\(r_k^2=\dfrac{b}{2}(2k^2+2k+1)\in\mathbb
+Z\)</span>，于是本题可用“半径平方”这个整数来表示半径，去重也在整数域完成。</p>
+<p>对于固定的 <span class="math inline">\((x,y)\)</span>，当 <span
+class="math inline">\(|k|\)</span> 增大时，圆心 <span
+class="math inline">\(M_k\)</span> 远离弦 <span
+class="math inline">\(AB\)</span>，圆弧会更贴近弦，透镜那一侧的“圆弓形”单调变薄；因此存在最小
+<span class="math inline">\(k_{\min}\)</span>，使得当 <span
+class="math inline">\(k\ge k_{\min}\)</span>
+时，该圆弓形不再包含任何格点，并且所有更大的 <span
+class="math inline">\(k\)</span> 都安全。</p>
+<p>接下来的任务是求 <span
+class="math inline">\(k_{\min}\)</span>。为了保证<span
+class="math inline">\(AB\)</span>下方的每个格点都不在内部里，因此对每个整数
+<span class="math inline">\(u\in\{0,1,\dots,x-1\}\)</span>，令<span
+class="math inline">\(v(u)=\left\lfloor
+\dfrac{uy}{x}\right\rfloor+1,P_u=(u,v(u)).\)</span>那么<span
+class="math inline">\(P_u\)</span>是固定 <span
+class="math inline">\(u\)</span> 的那一列里，它是<strong>离直线 <span
+class="math inline">\(AB\)</span> 最近的格点</strong>，因为在<span
+class="math inline">\(P_u\)</span>正下方的格点更早退出。</p>
+<p>圆心为 <span class="math inline">\(M_k=(M_x,M_y)\)</span>
+且过原点的圆满足</p>
+<p><span class="math display">\[
+(X-M_x)^2+(Y-M_y)^2 = M_x^2+M_y^2\iff X^2+Y^2-2(M_xX+M_yY)=0.
+\]</span></p>
+<p>对格点 <span class="math inline">\(P=(u,v)\)</span>，定义<span
+class="math inline">\(F_k(P)=u^2+v^2-2(M_xu+M_yv).\)</span>则 <span
+class="math inline">\(F_k(P)&lt;0\)</span> 表示 <span
+class="math inline">\(P\)</span> 在圆内，<span
+class="math inline">\(F_k(P)=0\)</span> 在圆上，<span
+class="math inline">\(F_k(P)&gt;0\)</span> 在圆外。把 <span
+class="math inline">\(M_k\)</span> 代入并整理可得：</p>
+<p><span class="math display">\[
+F_k(P)=(u^2+v^2-u(x+y)+v(x-y))+2k(vx-uy).
+\]</span></p>
+<p>由于<span class="math inline">\(P\)</span>不在圆内（允许在圆上），即
+<span class="math inline">\(F_k(P)\ge 0\)</span>，并且可见，<span
+class="math inline">\(P\)</span>在<span
+class="math inline">\(\overrightarrow{AB}\)</span>左侧，因此<span
+class="math inline">\(\overrightarrow{AB}\times
+\overrightarrow{AP}=vx-uy&gt;0\)</span>，因此这时有<span
+class="math inline">\(\displaystyle{k\ge
+\frac{-(u^2+v^2+v(x-y)-u(x+y))}{2(vx-uy)}}\)</span></p>
+<p>因此，对于任意<span
+class="math inline">\(u\in\{0,\dots,x-1\}\)</span>，有<span
+class="math inline">\(k_{\min}(u)=\left\lceil\dfrac{u(x+y)-v(u)(x-y)-u^2-v(u)^2}{2(vx-uy)}\right\rceil.\)</span></p>
+<p>最终有：</p>
+<p><span class="math display">\[
+k_{\min}=\max_{u=0}^{x-1} \{k_{\min}(u)\}.
+\]</span></p>
+<p>此外，由于<span class="math inline">\(r_k^2=\dfrac
+{b}{2}(2k^2+2k+1)\le N^2\)</span>.因此<span
+class="math inline">\(k_{\max}\)</span>只需要满足<span
+class="math inline">\(k_{\max}^2+2k_{\max}+1 \le
+\left\lfloor\dfrac{2N^2}{b}\right\rfloor\)</span>即可.</p>
+<p>对每个合法 <span class="math inline">\((x,y)\)</span>，可用的 <span
+class="math inline">\(k\)</span> 区间为<span
+class="math inline">\(k_{\min}\le k\le
+k_{\max}\)</span>。设区间长度<span class="math inline">\(f =
+k_{\max}-k_{\min}+1.\)</span></p>
+<p>则该 <span class="math inline">\((x,y)\)</span>
+产生的半径平方集合大小为 <span
+class="math inline">\(f\)</span>，任取两圆半径（允许相等，表示两圆同半径但圆心在弦两侧）得到的有序对数为<span
+class="math inline">\(\dbinom{f+1}{2}\)</span>。把所有 <span
+class="math inline">\((x,y)\)</span>
+的该值累加得到一个“带重复”的总数。</p>
+<p>记每个<span class="math inline">\((x,y)\)</span>对应的半径平方集合为
+<span class="math inline">\(S_{x,y}\)</span>，我们要数的是所有<span
+class="math inline">\(S_{x,y}=\{(a,b): (a,b)\in S_{x,y}, a\le
+b\}\)</span>的并集大小。重复只会由“某些半径平方同时出现在多个 <span
+class="math inline">\(S_{x,y}\)</span>”引起。</p>
+<p>做法：</p>
+<ol type="1">
+<li>第一遍枚举所有 <span class="math inline">\((x,y,k)\)</span> 生成所有
+<span class="math inline">\(r^2\)</span>，找出出现超过一次的 <span
+class="math inline">\(r^2\)</span>。</li>
+<li>第二遍再次枚举，把每个重复 <span class="math inline">\(r^2\)</span>
+关联到它出现过的 <span class="math inline">\((x,y)\)</span> 列表 <span
+class="math inline">\(I(r^2)\)</span>。</li>
+<li>对每个 <span class="math inline">\(I(r^2)\)</span>，把它的所有子集
+<span class="math inline">\(T\)</span>（<span
+class="math inline">\(|T|\ge 2\)</span>）的计数 <span
+class="math inline">\(c_T\)</span> 加一，其中 <span
+class="math inline">\(c_T\)</span> 表示<span
+class="math inline">\(\displaystyle{c_T = \left|\bigcap_{(x,y)\in T}
+S_{x,y}\right|.}\)</span></li>
+<li>用容斥原理修正：<span
+class="math inline">\(\displaystyle{\sum_{|T|\ge
+2}(-1)^{|T|+1}\binom{c_T+1}{2}}\)</span>加回到初始累加值即可得到去重后的
+<span class="math inline">\(L(N)\)</span>。</li>
+</ol>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> int_sqrt, gcd</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">ceil_div</span>(<span class="params">a: <span class="built_in">int</span>, b: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    向上取整的整除：ceil(a / b)，要求 b &gt; 0。</span></span><br><span class="line"><span class="string">    这里用 -((-a)//b) 的技巧保证 a 为负数时也正确。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    例：</span></span><br><span class="line"><span class="string">      ceil_div(5,2)=3</span></span><br><span class="line"><span class="string">      ceil_div(-5,2)=-2   (因为 -2 &lt;= -2.5 &lt; -1)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> -((-a) // b)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rr_from_b_k</span>(<span class="params">b: <span class="built_in">int</span>, k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    给定 chord 的 b = x^2 + y^2，以及整数 k，</span></span><br><span class="line"><span class="string">    计算对应圆的半径平方 r^2（注意 r 可能是无理数，但 r^2 是整数）：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        r^2 = (b/2) * (2k^2 + 2k + 1)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    在本题中 x,y 必为奇数 =&gt; b ≡ 2 (mod 4)，因此 b/2 为整数，</span></span><br><span class="line"><span class="string">    故 r^2 是整数，可直接用整型存储、去重与比较。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> (b * (<span class="number">2</span> * k * k + <span class="number">2</span> * k + <span class="number">1</span>)) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_kmin</span>(<span class="params">x: <span class="built_in">int</span>, y: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算给定 chord 向量 (x,y) 的最小 k（k_min），使得：</span></span><br><span class="line"><span class="string">      对所有落在 chord 线段 AB 的同侧、且“最靠近 AB 的格点”，圆不包含它们在内部。</span></span><br><span class="line"><span class="string">    从而保证透镜内部不含格点。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    几何背景（对应题解的“严格版本”）：</span></span><br><span class="line"><span class="string">      - 固定两交点 A=(0,0), B=(x,y)，圆心在 AB 的垂直平分线上</span></span><br><span class="line"><span class="string">      - 当我们用整数 k 枚举垂直平分线上的格点圆心 M_k 时，</span></span><br><span class="line"><span class="string">        k 越大圆心离 AB 越远，对侧圆弓形越薄，越不容易包进格点</span></span><br><span class="line"><span class="string">      - 因此存在最小 k_min，使得对所有 k &gt;= k_min 都“安全”</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这里采用的严格计算方法：</span></span><br><span class="line"><span class="string">      对每一列 u = 0..x-1，取该列中“刚好在直线 AB 上方的最邻近格点”</span></span><br><span class="line"><span class="string">        P_u = (u, floor(u*y/x) + 1)</span></span><br><span class="line"><span class="string">      对每个 P_u，写出点幂/代入展开得到不等式：</span></span><br><span class="line"><span class="string">        F_k(P_u) = C(P_u) + 2k * Delta(P_u) &gt;= 0</span></span><br><span class="line"><span class="string">      其中</span></span><br><span class="line"><span class="string">        Delta(P) = (AB x AP) = v*x - u*y  &gt; 0  (保证 P 在 AB 左侧/上方那一侧)</span></span><br><span class="line"><span class="string">        C(P)     = u^2 + v^2 - u(x+y) + v(x-y)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      因此对每个 P_u，</span></span><br><span class="line"><span class="string">        k &gt;= ceil( -C(P_u) / (2*Delta(P_u)) )</span></span><br><span class="line"><span class="string">      取所有列 u 的最大值，即得到 k_min。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    为什么只用这些 P_u 就够：</span></span><br><span class="line"><span class="string">      它们构成“紧贴 AB 的那层格点边界”，任何更远的格点需要更厚的圆弓形才包得住，</span></span><br><span class="line"><span class="string">      所以若这层边界都在圆外/圆上，则更远的格点也不会在圆内。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    km = <span class="number">0</span></span><br><span class="line">    xp = x + y  <span class="comment"># 预先缓存 x+y</span></span><br><span class="line">    xm = x - y  <span class="comment"># 预先缓存 x-y</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 枚举 u=0..x-1，构造每一列刚好在 AB 上方的最近格点 P_u</span></span><br><span class="line">    <span class="keyword">for</span> u <span class="keyword">in</span> <span class="built_in">range</span>(x):</span><br><span class="line">        v = (u * y) // x + <span class="number">1</span>  <span class="comment"># floor(u*y/x)+1，确保点在直线 AB 上方（同侧）</span></span><br><span class="line">        <span class="comment"># C = u^2+v^2 - u(x+y) + v(x-y)</span></span><br><span class="line">        <span class="comment"># 不等式：C + 2k*Delta &gt;= 0  =&gt; k &gt;= -C/(2*Delta)</span></span><br><span class="line">        C = u * u + v * v - u * xp + v * xm</span><br><span class="line">        delta = v * x - u * y  <span class="comment"># Delta = v*x - u*y，按构造必为正</span></span><br><span class="line">        k = ceil_div(-C, <span class="number">2</span> * delta)</span><br><span class="line">        <span class="keyword">if</span> k &gt; km:</span><br><span class="line">            km = k</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> km</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_kmax</span>(<span class="params">b: <span class="built_in">int</span>, N2: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算给定 b=x^2+y^2 时，满足 r^2 &lt;= N^2 的最大 k（k_max）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    r^2 = b/2 * (2k^2+2k+1) &lt;= N^2</span></span><br><span class="line"><span class="string">    等价于：</span></span><br><span class="line"><span class="string">      2k^2+2k+1 &lt;= floor(2N^2 / b) = s</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    解二次不等式可得：</span></span><br><span class="line"><span class="string">      k &lt;= (sqrt(2s-1)-1)/2</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    为避免浮点误差，这里用整数 sqrt：</span></span><br><span class="line"><span class="string">      t = isqrt(2s-1)</span></span><br><span class="line"><span class="string">      k = (t-1)//2</span></span><br><span class="line"><span class="string">    再用 while 做一两步安全修正，确保 rr_from_b_k(b,k) &lt;= N2 且 k+1 不再满足。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    s = (<span class="number">2</span> * N2) // b</span><br><span class="line">    <span class="keyword">if</span> s &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2k^2+2k+1 &lt;= s  =&gt;  k &lt;= (sqrt(2s-1)-1)/2</span></span><br><span class="line">    t = int_sqrt(<span class="number">2</span> * s - <span class="number">1</span>)</span><br><span class="line">    k = (t - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 安全修正（理论上不多次循环，通常 0~1 次）</span></span><br><span class="line">    <span class="keyword">while</span> k &gt;= <span class="number">0</span> <span class="keyword">and</span> rr_from_b_k(b, k) &gt; N2:</span><br><span class="line">        k -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> rr_from_b_k(b, k + <span class="number">1</span>) &lt;= N2:</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gen_chords</span>(<span class="params">N: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    枚举所有可能产生至少一个可行半径的 chord 向量 (x,y)。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    结论（来自几何/格点条件）：</span></span><br><span class="line"><span class="string">      1) 交点差向量 (x,y) 必须为奇奇（x,y 均为奇数），否则垂直平分线上没有格点圆心</span></span><br><span class="line"><span class="string">      2) gcd(x,y)=1，否则 AB 上有内部格点，透镜必含格点</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    利用对称性：</span></span><br><span class="line"><span class="string">      chord (x,y) 与 (y,x) 其实是旋转/对称等价，因此只取 1 &lt;= x &lt; y，</span></span><br><span class="line"><span class="string">      另外特殊处理 (1,1)（它不满足 x&lt;y）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    终止条件：</span></span><br><span class="line"><span class="string">      对每个 y（奇数递增），先检查 x=1 是否还存在可行 k 区间；</span></span><br><span class="line"><span class="string">      若 (1,y) 已无可行半径，则更大的 y（以及同 y 的更大 x）也不会有（本题经验上单调），可 break。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    N2 = N * N</span><br><span class="line">    chords = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 单独加入 (1,1)</span></span><br><span class="line">    x = y = <span class="number">1</span></span><br><span class="line">    b = <span class="number">2</span></span><br><span class="line">    km = get_kmin(x, y)</span><br><span class="line">    kx = get_kmax(b, N2)</span><br><span class="line">    <span class="keyword">if</span> kx &gt;= km:</span><br><span class="line">        chords.append((x, y, b, km, kx))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 枚举 y 为奇数：3,5,7,...</span></span><br><span class="line">    y = <span class="number">3</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># 先用 (1,y) 做“是否可以停止”的判定（经验上单调足够）</span></span><br><span class="line">        btest = <span class="number">1</span> + y * y</span><br><span class="line">        km_test = get_kmin(<span class="number">1</span>, y)</span><br><span class="line">        kx_test = get_kmax(btest, N2)</span><br><span class="line">        <span class="keyword">if</span> kx_test &lt; km_test:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 对固定 y，枚举所有奇数 x &lt; y</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, y, <span class="number">2</span>):</span><br><span class="line">            <span class="keyword">if</span> gcd(x, y) != <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            b = x * x + y * y</span><br><span class="line">            kx = get_kmax(b, N2)</span><br><span class="line">            <span class="keyword">if</span> kx &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            km = get_kmin(x, y)</span><br><span class="line">            <span class="keyword">if</span> kx &gt;= km:</span><br><span class="line">                <span class="comment"># 记录该 chord 对应的 b 以及可行 k 区间 [km,kx]</span></span><br><span class="line">                chords.append((x, y, b, km, kx))</span><br><span class="line"></span><br><span class="line">        y += <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> chords</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">add_all_subsets_ge2</span>(<span class="params">ids, mp</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    给定一个 chord-id 列表 ids（已去重并排序），</span></span><br><span class="line"><span class="string">    对其所有大小 &gt;=2 的子集 T，令 mp[T] += 1。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这里的语义用于包含-排除（PIE）：</span></span><br><span class="line"><span class="string">      - 某个半径平方 rr 可能出现在多个 chord 的可行集合 S_&#123;x,y&#125; 中</span></span><br><span class="line"><span class="string">      - 对这个 rr，我们得到它出现过的 chord-id 集合 I(rr)</span></span><br><span class="line"><span class="string">      - 那么对于 I(rr) 的任意子集 T，rr 都属于所有 chord in T 的交集</span></span><br><span class="line"><span class="string">        =&gt; 交集计数 c_T 需要 +1</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    最终 mp[T] 存的就是 c_T = | ∩_&#123;i in T&#125; S_i |（仅统计“重复 rr”带来的部分）。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    m = <span class="built_in">len</span>(ids)</span><br><span class="line">    <span class="keyword">if</span> m &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    cur = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">start</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(start, m):</span><br><span class="line">            cur.append(ids[i])</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(cur) &gt;= <span class="number">2</span>:</span><br><span class="line">                t = <span class="built_in">tuple</span>(cur)</span><br><span class="line">                mp[t] += <span class="number">1</span></span><br><span class="line">            dfs(i + <span class="number">1</span>)</span><br><span class="line">            cur.pop()</span><br><span class="line"></span><br><span class="line">    dfs(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">L</span>(<span class="params">N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    主函数：计算 L(N)，即所有不同 lenticular pair (r1,r2)（r1&lt;=r2&lt;=N）的个数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    总体思路：</span></span><br><span class="line"><span class="string">      - 对每个 chord (x,y)，它对应一段可行 k 区间 [kmin,kmax]，</span></span><br><span class="line"><span class="string">        生成一组半径平方 S_&#123;x,y&#125;</span></span><br><span class="line"><span class="string">      - 在该 chord 内，任取两条半径（允许相同）都能组成一个“半径对”</span></span><br><span class="line"><span class="string">        =&gt; 贡献 |S|*(|S|+1)/2</span></span><br><span class="line"><span class="string">      - 但不同 chord 的集合可能有交集（相同 rr 出现多次），导致 (r1,r2) 重复计数</span></span><br><span class="line"><span class="string">      - 通过“两遍扫描 + PIE 修正”精确去重</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    两遍扫描：</span></span><br><span class="line"><span class="string">      Pass1:</span></span><br><span class="line"><span class="string">        - 计算 baseline = sum over chord of f*(f+1)/2</span></span><br><span class="line"><span class="string">        - 同时找出哪些 rr（半径平方）在不同 chord 中出现过不止一次 =&gt; multiples 集合</span></span><br><span class="line"><span class="string">      Pass2:</span></span><br><span class="line"><span class="string">        - 仅对 rr in multiples，记录它出现在哪些 chord（形成 I(rr)）</span></span><br><span class="line"><span class="string">        - 对每个 rr 的 chord 列表 I(rr)，对其所有子集 T (|T|&gt;=2) 做 c_T++</span></span><br><span class="line"><span class="string">      PIE：</span></span><br><span class="line"><span class="string">        - 对每个 T，有 c_T 个共同 rr，它们内部产生的半径对数为 C(c_T+1,2)</span></span><br><span class="line"><span class="string">        - 并集计数的包含-排除修正项为：</span></span><br><span class="line"><span class="string">            + sum_&#123;|T| odd&#125;  C(c_T+1,2)</span></span><br><span class="line"><span class="string">            - sum_&#123;|T| even&#125; C(c_T+1,2)</span></span><br><span class="line"><span class="string">        - 把该修正项加到 baseline 上，即得到去重后的答案</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    chords = gen_chords(N)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Pass 1: baseline 累加 + 找到重复出现的 rr</span></span><br><span class="line">    unique = <span class="built_in">set</span>()     <span class="comment"># 所有出现过的 rr</span></span><br><span class="line">    multiples = <span class="built_in">set</span>()  <span class="comment"># 出现次数 &gt;=2 的 rr</span></span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> x, y, b, km, kx <span class="keyword">in</span> chords:</span><br><span class="line">        f = kx - km + <span class="number">1</span></span><br><span class="line">        ans += f * (f + <span class="number">1</span>) // <span class="number">2</span>  <span class="comment"># chord 内的半径对数量（允许相同半径）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 逐个生成 rr(k)，并检测是否重复</span></span><br><span class="line">        rr = rr_from_b_k(b, km)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(km, kx + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> rr <span class="keyword">in</span> unique:</span><br><span class="line">                multiples.add(rr)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                unique.add(rr)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 递推：rr(k+1) = rr(k) + 2*b*(k+1)</span></span><br><span class="line">            <span class="comment"># 因为：</span></span><br><span class="line">            <span class="comment">#   2k^2+2k+1 的差分为 4(k+1)</span></span><br><span class="line">            <span class="comment">#   rr = b/2 * (...)，所以差分为 b/2 * 4(k+1) = 2*b*(k+1)</span></span><br><span class="line">            rr += <span class="number">2</span> * b * (k + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Pass 2: 对每个重复 rr，收集它出现的 chord-id 列表</span></span><br><span class="line">    in_map = defaultdict(<span class="built_in">list</span>)</span><br><span class="line">    <span class="keyword">for</span> x, y, b, km, kx <span class="keyword">in</span> chords:</span><br><span class="line">        cid = (x &lt;&lt; <span class="number">16</span>) | y  <span class="comment"># 一个可哈希/可比较的 chord 编码</span></span><br><span class="line">        rr = rr_from_b_k(b, km)</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(km, kx + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> rr <span class="keyword">in</span> multiples:</span><br><span class="line">                in_map[rr].append(cid)</span><br><span class="line">            rr += <span class="number">2</span> * b * (k + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 对每个 rr 的 chord 列表 I(rr)，对所有子集 T (|T|&gt;=2) 令 c_T++</span></span><br><span class="line">    count = defaultdict(<span class="built_in">int</span>)</span><br><span class="line">    <span class="keyword">for</span> lst <span class="keyword">in</span> in_map.values():</span><br><span class="line">        ids = <span class="built_in">sorted</span>(<span class="built_in">set</span>(lst))</span><br><span class="line">        add_all_subsets_ge2(ids, count)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Inclusion-Exclusion 修正：</span></span><br><span class="line">    <span class="comment"># 对每个子集 T，有 c = c_T 个共同 rr，则它们内部的半径对数为 c*(c+1)/2。</span></span><br><span class="line">    <span class="comment"># 若 |T| 为奇数 =&gt; 加；若 |T| 为偶数 =&gt; 减。</span></span><br><span class="line">    <span class="keyword">for</span> subset, c <span class="keyword">in</span> count.items():</span><br><span class="line">        add = c * (c + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(subset) % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            ans -= add</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            ans += add</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 题目给出的校验值</span></span><br><span class="line">    <span class="built_in">print</span>(L(<span class="number">10</span>))        <span class="comment"># 30</span></span><br><span class="line">    <span class="built_in">print</span>(L(<span class="number">100</span>))       <span class="comment"># 3442</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 目标</span></span><br><span class="line">    <span class="built_in">print</span>(L(<span class="number">100000</span>))    <span class="comment"># 4884650818</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/295/" title="Project Euler 295">https://ujimatsu-chiya.github.io/project-euler/295/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

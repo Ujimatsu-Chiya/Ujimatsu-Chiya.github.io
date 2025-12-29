@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 262">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/262/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p262-1.jpg">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p262-2.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p262-3.png">
+<meta property="article:published_time" content="2025-12-29T16:50:38.000Z">
+<meta property="article:modified_time" content="2025-12-29T16:50:38.632Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/images/p262-1.jpg">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/262/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/262/","path":"project-euler/262/","title":"Project Euler 262"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 262 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-262"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 262</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mountain-range"><span class="nav-number">1.1.1.</span> <span class="nav-text">Mountain Range</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/262/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 262 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 262
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-30 00:50:38" itemprop="dateCreated datePublished" datetime="2025-12-30T00:50:38+08:00">2025-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-262">Project Euler 262</h1>
+<h2 id="题目">题目</h2>
+<h3 id="mountain-range">Mountain Range</h3>
+<p>The following equation represents the <em>continuous</em> topography
+of a mountainous region, giving the
+<dfn title="height above sea level">elevation</dfn> h at any point <span
+class="math inline">\((x,y)\)</span>:</p>
+<p><span class="math display">\[h = \left(5000 - \frac{x^2 + y^2 +
+xy}{200} + \frac{25(x + y)}2\right) \cdot e^{-\left|\frac{x^2 +
+y^2}{1000000} - \frac{3(x + y)}{2000} + \frac 7
+{10}\right|}\]</span></p>
+<p>A mosquito intends to fly from <span
+class="math inline">\(A(200,200)\)</span> to <span
+class="math inline">\(B(1400,1400)\)</span>, without leaving the area
+given by <span class="math inline">\(0\le x,y\le1600\)</span>.</p>
+<p>Because of the intervening mountains, it first rises straight up to a
+point <span class="math inline">\(A&#39;\)</span>, having elevation
+<span class="math inline">\(f\)</span>.</p>
+<p>Then, while remaining at the same elevation <span
+class="math inline">\(f\)</span>, it flies around any obstacles until it
+arrives at a point <span class="math inline">\(B&#39;\)</span> directly
+above <span class="math inline">\(B\)</span>.</p>
+<p>First, determine <span class="math inline">\(f_{\min}\)</span> which
+is the minimum constant elevation allowing such a trip from <span
+class="math inline">\(A\)</span> to <span
+class="math inline">\(B\)</span>, while remaining in the specified
+area.</p>
+<p>Then, find the length of the shortest path between <span
+class="math inline">\(A&#39;\)</span> and <span
+class="math inline">\(B&#39;\)</span>, while flying at that constant
+elevation <span class="math inline">\(f_{\min}\)</span>.</p>
+<p>Give that length as your answer, rounded to three decimal places.</p>
+<p><u>Note</u>: For convenience, the elevation function shown above is
+repeated below, in a form suitable for most programming languages:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">h=(5000-0.005*(x*x+y*y+x*y)+12.5*(x+y))*exp(-abs(0.000001*(x*x+y*y)-0.0015*(x+y)+0.7))</span><br></pre></td></tr></table></figure>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(p(x,y)=5000 - \dfrac{x^2 + y^2 +
+xy}{200} + \dfrac{25(x + y)}{2},g(x,y)=\dfrac{x^2 + y^2}{1000000} -
+\dfrac{3(x+y)}{2000} + \dfrac{7}{10}\)</span>，那么有<span
+class="math inline">\(h(x, y) = p(x,y)\cdot e^{-|g(x,y)|}.\)</span></p>
+<p>此外还需要注意的一点是，<span
+class="math inline">\(h(x,y)=h(y,x).\)</span></p>
+<p><span
+class="math inline">\(h(x,y)\)</span>的图像和等高线图如下图所示。所使用的
+Mathematica 代码如下：</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">p</span><span class="punctuation">[</span><span class="type">x_</span><span class="operator">,</span> <span class="type">y_</span><span class="punctuation">]</span> <span class="operator">:=</span> <span class="number">5000</span> <span class="operator">-</span> <span class="punctuation">(</span><span class="variable">x</span><span class="operator">^</span><span class="number">2</span> <span class="operator">+</span> <span class="variable">y</span><span class="operator">^</span><span class="number">2</span> <span class="operator">+</span> <span class="variable">x</span><span class="operator">*</span><span class="variable">y</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">200</span> <span class="operator">+</span> <span class="punctuation">(</span><span class="number">25</span><span class="operator">*</span><span class="punctuation">(</span><span class="variable">x</span> <span class="operator">+</span> <span class="variable">y</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">2</span><span class="operator">;</span></span><br><span class="line"><span class="variable">g</span><span class="punctuation">[</span><span class="type">x_</span><span class="operator">,</span> <span class="type">y_</span><span class="punctuation">]</span> <span class="operator">:=</span> <span class="punctuation">(</span><span class="variable">x</span><span class="operator">^</span><span class="number">2</span> <span class="operator">+</span> <span class="variable">y</span><span class="operator">^</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">1000000</span> <span class="operator">-</span> <span class="punctuation">(</span><span class="number">3</span><span class="operator">*</span><span class="punctuation">(</span><span class="variable">x</span> <span class="operator">+</span> <span class="variable">y</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">2000</span> <span class="operator">+</span> <span class="number">7</span><span class="operator">/</span><span class="number">10</span><span class="operator">;</span></span><br><span class="line"><span class="variable">h</span><span class="punctuation">[</span><span class="type">x_</span><span class="operator">,</span> <span class="type">y_</span><span class="punctuation">]</span> <span class="operator">:=</span> <span class="variable">p</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="operator">*</span><span class="built_in">Exp</span><span class="punctuation">[</span><span class="operator">-</span><span class="built_in">Abs</span><span class="punctuation">[</span><span class="variable">g</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">(*三维曲面图*)</span></span><br><span class="line"><span class="built_in">Plot3D</span><span class="punctuation">[</span><span class="variable">h</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">x</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1600</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">y</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1600</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="built_in">PlotRange</span> <span class="operator">-&gt;</span> <span class="built_in">All</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">AxesLabel</span> <span class="operator">-&gt;</span> <span class="punctuation">&#123;</span><span class="string">&quot;x&quot;</span><span class="operator">,</span> <span class="string">&quot;y&quot;</span><span class="operator">,</span> <span class="string">&quot;h&quot;</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="built_in">PlotPoints</span> <span class="operator">-&gt;</span> <span class="number">50</span><span class="operator">,</span> <span class="built_in">Mesh</span> <span class="operator">-&gt;</span> <span class="built_in">None</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">ColorFunction</span> <span class="operator">-&gt;</span> <span class="string">&quot;Rainbow&quot;</span><span class="operator">,</span> <span class="built_in">PerformanceGoal</span> <span class="operator">-&gt;</span> <span class="string">&quot;Quality&quot;</span><span class="punctuation">]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">(*等高线图*)</span></span><br><span class="line"><span class="built_in">ContourPlot</span><span class="punctuation">[</span><span class="variable">h</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">x</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1600</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">y</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1600</span><span class="punctuation">&#125;</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">PlotLegends</span> <span class="operator">-&gt;</span> <span class="built_in">Automatic</span><span class="operator">,</span> <span class="built_in">ColorFunction</span> <span class="operator">-&gt;</span> <span class="string">&quot;Rainbow&quot;</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">PlotRange</span> <span class="operator">-&gt;</span> <span class="built_in">All</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">Epilog</span> <span class="operator">-&gt;</span> <span class="punctuation">&#123;</span><span class="punctuation">&#123;</span><span class="built_in">Red</span><span class="operator">,</span> <span class="built_in">PointSize</span><span class="punctuation">[</span><span class="number">0.03</span><span class="punctuation">]</span><span class="operator">,</span> <span class="built_in">Point</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="number">200</span><span class="operator">,</span> <span class="number">200</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="built_in">Blue</span><span class="operator">,</span></span><br><span class="line">    <span class="built_in">PointSize</span><span class="punctuation">[</span><span class="number">0.03</span><span class="punctuation">]</span><span class="operator">,</span> <span class="built_in">Point</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="number">1400</span><span class="operator">,</span> <span class="number">1400</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="operator">,</span></span><br><span class="line">   <span class="built_in">Text</span><span class="punctuation">[</span><span class="built_in">Style</span><span class="punctuation">[</span><span class="string">&quot;A(200,200)&quot;</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="built_in">Bold</span><span class="operator">,</span> <span class="built_in">Background</span> <span class="operator">-&gt;</span> <span class="built_in">White</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">200</span><span class="operator">,</span></span><br><span class="line">     <span class="number">200</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="built_in">Scaled</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">0.01</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="operator">,</span></span><br><span class="line">   <span class="built_in">Text</span><span class="punctuation">[</span><span class="built_in">Style</span><span class="punctuation">[</span><span class="string">&quot;B(1400,1400)&quot;</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="built_in">Bold</span><span class="operator">,</span> <span class="built_in">Background</span> <span class="operator">-&gt;</span> <span class="built_in">White</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">1400</span><span class="operator">,</span></span><br><span class="line">     <span class="number">1400</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="built_in">Scaled</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="number">0</span><span class="operator">,</span> <span class="number">0.01</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<p><img data-src="../images/p262-1.jpg" /></p>
+<p><img data-src="../images/p262-2.png" /></p>
+<p>若在恒定高度 <span class="math inline">\(f\)</span>
+飞行，则蚊子在平面上允许经过的点必须满足：<span
+class="math inline">\(h(x,y)\le f\)</span>.</p>
+<p>因此对任意 <span class="math inline">\(f\)</span>，可把<span
+class="math inline">\(\Omega_f=\{(x,y)\in[0,1600]^2:\
+h(x,y)&gt;f\}\)</span>视为“山体障碍”。</p>
+<p>可飞区域为<span
+class="math inline">\(D_f=[0,1600]^2\setminus\Omega_f.\)</span></p>
+<p>随着 <span class="math inline">\(f\)</span> 增大，障碍 <span
+class="math inline">\(\Omega_f={h&gt;f}\)</span>
+单调缩小，连通性只会“从不连通变为连通”，并在某个临界值首次连通。</p>
+<p>在临界时刻<span
+class="math inline">\(f=f_{\min}\)</span>，“从不可连通到可连通”通常发生在一个<strong>瓶颈</strong>被刚好打开的瞬间。对于连续地形的等高线结构，这个瞬间对应两种典型事件之一：</p>
+<ol type="1">
+<li><strong>障碍集合 <span class="math inline">\(\Omega_f\)</span>
+自身发生拓扑变化</strong>（比如出现/消失一个洞、两个分支接触等）；</li>
+<li><strong>障碍集合 <span class="math inline">\(\Omega_f\)</span>
+与边界 <span class="math inline">\([0,1600]^2\)</span>
+的边界发生“相切接触”</strong>，从而堵住或打开通道。</li>
+</ol>
+<p>本题的地形形态（经典解法所依赖的事实）属于第 2 类：临界时障碍的边界
+<span class="math inline">\({h=f_{\min}}\)</span>
+<strong>恰好与正方形边界相切</strong>，形成“刚好卡住/刚好放开”的狭口，这在我们图中可以观察得出。</p>
+<p>因此，我们假设，这个相切点落在边界 <span
+class="math inline">\(y=0\)</span> 上，记为<span
+class="math inline">\(S=(x_0,0).\)</span></p>
+<p>若 <span class="math inline">\(\Gamma\)</span>
+在边界处“刚好接触”而不穿出边界，则沿边界方向高度必须达到局部极值。对边界
+(y=0) 而言，相切点满足<span
+class="math inline">\(\displaystyle{x_0=\arg\max_{x\in[0,1600]}
+h(x,0)}\)</span>，那么就有<span
+class="math inline">\(f_{\min}=h(x_0,0)\)</span>.</p>
+<p>固定高度 <span class="math inline">\(f_{\min}\)</span>
+后，障碍边界就是等高线<span class="math inline">\(\Gamma={(x,y):
+h(x,y)=f_{\min}}\)</span>.</p>
+<figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">p</span><span class="punctuation">[</span><span class="type">x_</span><span class="operator">,</span> <span class="type">y_</span><span class="punctuation">]</span> <span class="operator">:=</span> <span class="number">5000</span> <span class="operator">-</span> <span class="punctuation">(</span><span class="variable">x</span><span class="operator">^</span><span class="number">2</span> <span class="operator">+</span> <span class="variable">y</span><span class="operator">^</span><span class="number">2</span> <span class="operator">+</span> <span class="variable">x</span><span class="operator">*</span><span class="variable">y</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">200</span> <span class="operator">+</span> <span class="punctuation">(</span><span class="number">25</span><span class="operator">*</span><span class="punctuation">(</span><span class="variable">x</span> <span class="operator">+</span> <span class="variable">y</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">2</span><span class="operator">;</span></span><br><span class="line"><span class="variable">g</span><span class="punctuation">[</span><span class="type">x_</span><span class="operator">,</span> <span class="type">y_</span><span class="punctuation">]</span> <span class="operator">:=</span> <span class="punctuation">(</span><span class="variable">x</span><span class="operator">^</span><span class="number">2</span> <span class="operator">+</span> <span class="variable">y</span><span class="operator">^</span><span class="number">2</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">1000000</span> <span class="operator">-</span> <span class="punctuation">(</span><span class="number">3</span><span class="operator">*</span><span class="punctuation">(</span><span class="variable">x</span> <span class="operator">+</span> <span class="variable">y</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="operator">/</span><span class="number">2000</span> <span class="operator">+</span> <span class="number">7</span><span class="operator">/</span><span class="number">10</span><span class="operator">;</span></span><br><span class="line"><span class="variable">h</span><span class="punctuation">[</span><span class="type">x_</span><span class="operator">,</span> <span class="type">y_</span><span class="punctuation">]</span> <span class="operator">:=</span> <span class="variable">p</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="operator">*</span><span class="built_in">Exp</span><span class="punctuation">[</span><span class="operator">-</span><span class="built_in">Abs</span><span class="punctuation">[</span><span class="variable">g</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="operator">;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">ContourPlot</span><span class="punctuation">[</span><span class="variable">h</span><span class="punctuation">[</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">x</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1600</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">y</span><span class="operator">,</span> <span class="number">0</span><span class="operator">,</span> <span class="number">1600</span><span class="punctuation">&#125;</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">Contours</span> <span class="operator">-&gt;</span> <span class="punctuation">&#123;</span><span class="number">10396.462193284104</span><span class="punctuation">&#125;</span><span class="operator">,</span><span class="comment">(*特定等高线*)</span></span><br><span class="line"> <span class="built_in">ContourStyle</span> <span class="operator">-&gt;</span> <span class="built_in">Directive</span><span class="punctuation">[</span><span class="built_in">Thick</span><span class="operator">,</span> <span class="built_in">Black</span><span class="punctuation">]</span><span class="operator">,</span><span class="comment">(*等高线样式*)</span></span><br><span class="line"> <span class="built_in">ContourLabels</span> <span class="operator">-&gt;</span></span><br><span class="line">  <span class="built_in">Function</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="operator">,</span> <span class="variable">z</span><span class="punctuation">&#125;</span><span class="operator">,</span></span><br><span class="line">   <span class="built_in">Text</span><span class="punctuation">[</span><span class="built_in">Style</span><span class="punctuation">[</span><span class="built_in">NumberForm</span><span class="punctuation">[</span><span class="variable">z</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">8</span><span class="operator">,</span> <span class="number">3</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="built_in">Bold</span><span class="operator">,</span></span><br><span class="line">     <span class="built_in">Background</span> <span class="operator">-&gt;</span> <span class="built_in">White</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="variable">x</span><span class="operator">,</span> <span class="variable">y</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">]</span><span class="operator">,</span> <span class="built_in">PlotLegends</span> <span class="operator">-&gt;</span> <span class="built_in">Automatic</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">ColorFunction</span> <span class="operator">-&gt;</span> <span class="string">&quot;Rainbow&quot;</span><span class="operator">,</span> <span class="built_in">PlotRange</span> <span class="operator">-&gt;</span> <span class="built_in">All</span><span class="operator">,</span></span><br><span class="line"> <span class="built_in">Epilog</span> <span class="operator">-&gt;</span> <span class="punctuation">&#123;</span><span class="punctuation">&#123;</span><span class="built_in">Red</span><span class="operator">,</span> <span class="built_in">PointSize</span><span class="punctuation">[</span><span class="number">0.03</span><span class="punctuation">]</span><span class="operator">,</span> <span class="built_in">Point</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="number">200</span><span class="operator">,</span> <span class="number">200</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="built_in">Blue</span><span class="operator">,</span></span><br><span class="line">    <span class="built_in">PointSize</span><span class="punctuation">[</span><span class="number">0.03</span><span class="punctuation">]</span><span class="operator">,</span> <span class="built_in">Point</span><span class="punctuation">[</span><span class="punctuation">&#123;</span><span class="number">1400</span><span class="operator">,</span> <span class="number">1400</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="operator">,</span></span><br><span class="line">   <span class="built_in">Text</span><span class="punctuation">[</span><span class="built_in">Style</span><span class="punctuation">[</span><span class="string">&quot;A(200,200)&quot;</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="built_in">Bold</span><span class="operator">,</span> <span class="built_in">Background</span> <span class="operator">-&gt;</span> <span class="built_in">White</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">200</span><span class="operator">,</span></span><br><span class="line">     <span class="number">200</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">0</span><span class="operator">,</span> <span class="operator">-</span><span class="number">8</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="operator">,</span></span><br><span class="line">   <span class="built_in">Text</span><span class="punctuation">[</span><span class="built_in">Style</span><span class="punctuation">[</span><span class="string">&quot;B(1400,1400)&quot;</span><span class="operator">,</span> <span class="number">12</span><span class="operator">,</span> <span class="built_in">Bold</span><span class="operator">,</span> <span class="built_in">Background</span> <span class="operator">-&gt;</span> <span class="built_in">White</span><span class="punctuation">]</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">1400</span><span class="operator">,</span></span><br><span class="line">     <span class="number">1400</span><span class="punctuation">&#125;</span><span class="operator">,</span> <span class="punctuation">&#123;</span><span class="number">0</span><span class="operator">,</span> <span class="number">8</span><span class="punctuation">&#125;</span><span class="punctuation">]</span><span class="punctuation">&#125;</span><span class="punctuation">]</span></span><br></pre></td></tr></table></figure>
+<figure>
+<img data-src="../images/p262-3.png" alt="alt text" />
+<figcaption aria-hidden="true">alt text</figcaption>
+</figure>
+<p>在欧氏平面中，绕开光滑障碍的最短路满足经典几何性质：</p>
+<ol type="1">
+<li><strong>在可行区域内部</strong>（未贴着障碍边界）的部分，最短路一定是<strong>直线段</strong>；</li>
+<li>最短路与障碍边界的连接点必须满足<strong>相切条件</strong>：若不是相切，可在局部“削去拐角”得到更短路径，矛盾。</li>
+</ol>
+<p>因此，最短路径必可表示为：<span class="math inline">\(A \rightarrow
+T_A \rightarrow T_B \rightarrow B\)</span>：其中<span
+class="math inline">\(A \rightarrow T_A, T_B \rightarrow
+B\)</span>均为直线段，<span class="math inline">\(T_A \rightarrow
+T_B\)</span>，且中间一段<span
+class="math inline">\(T_A,T_B\in\Gamma\)</span> 沿着等高线 <span
+class="math inline">\(\Gamma\)</span> 绕行，并在连接点 <span
+class="math inline">\(T_A\)</span>、<span
+class="math inline">\(T_B\)</span> 处与 <span
+class="math inline">\(Γ\)</span> 满足相切条件（即直线段在该点与 <span
+class="math inline">\(\Gamma\)</span> 的切线方向一致）。</p>
+<p>因此，<span
+class="math inline">\(T_A,T_B\)</span>满足连线方向应当与法向量正交，即<span
+class="math inline">\(\nabla h(T_A)\cdot \overrightarrow{T_AA}=0,\nabla
+h(T_B)\cdot \overrightarrow{T_BB}=0.\)</span></p>
+<!-- 可见，本质上中间突兀的凹进去的那部分就是由绝对值导致的，因此令$w(x, y) = p(x,y)\cdot e^{-g(x,y)}$，那么可以将$h(x)$去绝对值。本质上，$\Gamma$其实就是$w(x,y)=f_{\min}$。 -->
+<p>为计算在<span
+class="math inline">\(\Gamma\)</span>上的固定目标切点，不妨假设 <span
+class="math inline">\(G\in\{A,B\}.\)</span></p>
+<p>对等高线上的点 <span class="math inline">\(X\)</span> 定义<span
+class="math inline">\(\Phi(X)=\nabla h(X)\cdot
+\overrightarrow{GX}.\)</span>当<span
+class="math inline">\(\Phi(X)=0\)</span>时，连线 <span
+class="math inline">\(GX\)</span> 与等高线在 <span
+class="math inline">\(X\)</span>
+处满足切线条件（也就是连线方向落在切空间内，等价于与法向量正交）。</p>
+<p>因此，从瓶颈点 <span class="math inline">\(S\)</span> 沿 <span
+class="math inline">\(\Gamma\)</span> 走动时，只要监控 <span
+class="math inline">\(\Phi\)</span>
+的符号变化，就能找到“从尚未切到已经越过”的过零点；再对该过零区间做二分，就能把切点逼近到任意精度。</p>
+<p>最终，用很小步长沿某个方向推进一个坐标，再在新竖线或新横线上解方程<span
+class="math inline">\(h(\cdot,\cdot)=f_{\min}\)</span>把点“拉回”到等高线。因为步长小，求根区间很短，用二分法非常稳健。相邻点的欧氏距离累加就是弧长近似。</p>
+<p>分别得到：</p>
+<ul>
+<li>从 <span class="math inline">\(S\)</span> 到 <span
+class="math inline">\(T_A\)</span> 的等高线弧长记为 <span
+class="math inline">\(L_A^{\text{arc}}\)</span>，直线段长度记为 <span
+class="math inline">\(|AT_A|\)</span>；</li>
+<li>从 <span class="math inline">\(S\)</span> 到 <span
+class="math inline">\(T_B\)</span> 的等高线弧长记为 <span
+class="math inline">\(L_B^{\text{arc}}\)</span>，直线段长度记为 <span
+class="math inline">\(|BT_B|\)</span>。</li>
+</ul>
+<p>总最短路长度为<span
+class="math inline">\(L=(L_A^{\text{arc}}+|AT_A|)+(L_B^{\text{arc}}+|BT_B|).\)</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math  <span class="comment"># 导入数学库：用到 exp / abs / hypot 等基础函数</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">h</span>(<span class="params">x: <span class="built_in">float</span>, y: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 高度函数：输入 (x,y)，输出海拔 h</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    地形高度函数 h(x, y)。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    题面给定：</span></span><br><span class="line"><span class="string">        h = P(x,y) * exp(-|G(x,y)|)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    其中：</span></span><br><span class="line"><span class="string">        P(x,y) = 5000 - 0.005*(x^2 + y^2 + x*y) + 12.5*(x+y)</span></span><br><span class="line"><span class="string">        G(x,y) = 1e-6*(x^2 + y^2) - 0.0015*(x+y) + 0.7</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    注意：exp(-|G|) 使得高度在某些区域会被指数衰减。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    p = <span class="number">5000.0</span> - <span class="number">0.005</span> * (x * x + y * y + x * y) + <span class="number">12.5</span> * (x + y)  <span class="comment"># 多项式部分 P(x,y)</span></span><br><span class="line">    g = <span class="number">0.000001</span> * (x * x + y * y) - <span class="number">0.0015</span> * (x + y) + <span class="number">0.7</span>  <span class="comment"># 指数衰减的“指数内部”G(x,y)</span></span><br><span class="line">    <span class="keyword">return</span> p * math.exp(-<span class="built_in">abs</span>(g))  <span class="comment"># 组合得到 h = P * exp(-|G|)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dh</span>(<span class="params">x: <span class="built_in">float</span>, y: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 辅助“导数表达式”：主要用于方向判定与切线判据</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算一个“沿 x 方向的辅助导数表达式”。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这里返回的是：</span></span><br><span class="line"><span class="string">        dh = Px - P * Gx</span></span><br><span class="line"><span class="string">    其中：</span></span><br><span class="line"><span class="string">        Px = ∂P/∂x</span></span><br><span class="line"><span class="string">        Gx = ∂G/∂x</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    它的用途是：</span></span><br><span class="line"><span class="string">    - 在 y=0 的截线上，用 dh(x,0)=0 来定位该截线上的极值点位置（峰顶/鞍点方向上的临界点）。</span></span><br><span class="line"><span class="string">    - 在沿等高线行走时，用 dh(x,y) 与 dh(y,x) 组合成一个“近似梯度方向”的向量，</span></span><br><span class="line"><span class="string">      用于判断何时达到“切线”条件、以及决定下一步沿哪条坐标方向更新。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    注意：这里并没有完整展开 h 的真实偏导（真实偏导还会带 exp(-|G|) 和 |G| 的符号项）。</span></span><br><span class="line"><span class="string">    这种写法相当于提取出对“方向/符号判断”最有用的部分，从而使算法更简洁、数值上也较稳。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    p = <span class="number">5000.0</span> - <span class="number">0.005</span> * (x * x + y * y + x * y) + <span class="number">12.5</span> * (x + y)  <span class="comment"># 计算 P(x,y)，供后续复用</span></span><br><span class="line">    px = -<span class="number">0.005</span> * (<span class="number">2.0</span> * x + y) + <span class="number">12.5</span>  <span class="comment"># 计算 Px = ∂P/∂x（对 x 求偏导）</span></span><br><span class="line">    gx = <span class="number">0.000002</span> * x - <span class="number">0.0015</span>  <span class="comment"># 计算 Gx = ∂G/∂x（对 x 求偏导）</span></span><br><span class="line">    <span class="keyword">return</span> px - gx * p  <span class="comment"># 返回 dh = Px - P*Gx（作为“法向/梯度方向”的简化替身）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dist</span>(<span class="params">ax: <span class="built_in">float</span>, ay: <span class="built_in">float</span>, bx: <span class="built_in">float</span>, by: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 两点距离函数：用于累计弧长、以及末段直线距离</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    欧氏距离。</span></span><br><span class="line"><span class="string">    用于累计等高线走过的弧长、以及最终切点到目标点的直线距离。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> math.hypot(ax - bx, ay - by)  <span class="comment"># hypot(u,v)=sqrt(u^2+v^2)，数值更稳健</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sgn</span>(<span class="params">v: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 符号函数：只返回 ±1（这里不区分 0）</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    符号函数：返回 +1 或 -1（不区分 0）。</span></span><br><span class="line"><span class="string">    在构造“用于夹住根”的区间端点时，用它来决定向哪一侧试探。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">1.0</span> <span class="keyword">if</span> v &gt; <span class="number">0.0</span> <span class="keyword">else</span> -<span class="number">1.0</span>  <span class="comment"># v&gt;0 返回 +1，否则返回 -1（v==0 也走 -1）</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">findz</span>(<span class="params">eps: <span class="built_in">float</span></span>):  <span class="comment"># 在 y=0 上二分定位 dh(x,0)=0 的点，并取其高度作为候选 f_min</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    在 y=0 的截线上，用二分法寻找 dh(x,0)=0 的位置 x0，</span></span><br><span class="line"><span class="string">    并返回该点与其高度 (x0, h(x0,0))。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    直观意义：</span></span><br><span class="line"><span class="string">    - y=0 是边界的一条线。</span></span><br><span class="line"><span class="string">    - 我们在这条线上找一个“高度达到峰值附近的关键点”，作为等高线追踪的起点 S=(x0,0)。</span></span><br><span class="line"><span class="string">    - 然后把 z0 = h(x0,0) 当作候选的“最低可通行高度 f_min”。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    二分规则：</span></span><br><span class="line"><span class="string">    - 对区间中点 c 计算 dh(c,0)。</span></span><br><span class="line"><span class="string">    - 若 dh(c,0) &gt; 0，表示在该侧高度仍在上升趋势，于是移动左端点到 c；</span></span><br><span class="line"><span class="string">      否则移动右端点到 c。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    l, r = <span class="number">0.0</span>, <span class="number">1600.0</span>  <span class="comment"># 搜索区间：[0,1600]，对应题面允许的边界范围</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">abs</span>(l - r) &gt; eps:  <span class="comment"># 直到区间长度收缩到 eps 以内（满足精度要求）</span></span><br><span class="line">        mid = (l + r) * <span class="number">0.5</span>  <span class="comment"># 取中点</span></span><br><span class="line">        <span class="keyword">if</span> dh(mid, <span class="number">0.0</span>) &gt; <span class="number">0.0</span>:  <span class="comment"># 若 dh&gt;0，按约定认为“往右仍在上升”，根在右侧</span></span><br><span class="line">            l = mid  <span class="comment"># 丢弃左半段：l 向右收缩到 mid</span></span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># 否则认为“已不再上升”，根在左侧</span></span><br><span class="line">            r = mid  <span class="comment"># 丢弃右半段：r 向左收缩到 mid</span></span><br><span class="line"></span><br><span class="line">    x0 = (l + r) * <span class="number">0.5</span>  <span class="comment"># 取最终区间中点作为 x0 的近似值</span></span><br><span class="line">    <span class="keyword">return</span> x0, h(x0, <span class="number">0.0</span>)  <span class="comment"># 返回 (x0, z0)，其中 z0=h(x0,0)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">bisect_root_for_level</span>(<span class="params">z0: <span class="built_in">float</span>, fixed_y: <span class="built_in">float</span>, a: <span class="built_in">float</span>, b: <span class="built_in">float</span>, eps: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 在一条竖线/横线上用二分把点“拉回”到等高线</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    在固定 fixed_y 的情况下，求解方程：</span></span><br><span class="line"><span class="string">        h(x, fixed_y) = z0</span></span><br><span class="line"><span class="string">    在给定区间 [a,b] 上做二分（要求端点函数值异号才能保证夹住根）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回值：</span></span><br><span class="line"><span class="string">    - 若 [a,b] 的确夹住根：返回该根的近似位置。</span></span><br><span class="line"><span class="string">    - 若没夹住根：返回端点中更接近等高线的那个点（更“贴近” z0）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这个函数的目的：</span></span><br><span class="line"><span class="string">    - 在等高线行走时，我们会先把某个坐标推进一步得到新的 x（或 y），</span></span><br><span class="line"><span class="string">      然后需要在该新 x（或新 y）上反求对应的 y（或 x），</span></span><br><span class="line"><span class="string">      让点重新落回到同一条等高线上 h=z0。</span></span><br><span class="line"><span class="string">    - 由于步长不大，通常 [a,b] 是一个很短的邻域区间，因此二分非常稳定。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    fa = h(a, fixed_y) - z0  <span class="comment"># 计算端点 a 处的“等高线残差”：h(a,fixed_y)-z0</span></span><br><span class="line">    fb = h(b, fixed_y) - z0  <span class="comment"># 计算端点 b 处的“等高线残差”：h(b,fixed_y)-z0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> fa == <span class="number">0.0</span>:  <span class="comment"># 若 a 点恰好在等高线上</span></span><br><span class="line">        <span class="keyword">return</span> a  <span class="comment"># 直接返回 a</span></span><br><span class="line">    <span class="keyword">if</span> fb == <span class="number">0.0</span>:  <span class="comment"># 若 b 点恰好在等高线上</span></span><br><span class="line">        <span class="keyword">return</span> b  <span class="comment"># 直接返回 b</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 若 fa 与 fb 同号，说明 [a,b] 未必穿过等高线（可能没夹住根）</span></span><br><span class="line">    <span class="keyword">if</span> fa * fb &gt; <span class="number">0.0</span>:  <span class="comment"># 同号：无法保证区间内存在根</span></span><br><span class="line">        <span class="keyword">return</span> a <span class="keyword">if</span> <span class="built_in">abs</span>(fa) &lt; <span class="built_in">abs</span>(fb) <span class="keyword">else</span> b  <span class="comment"># 退而求其次：返回更接近等高线的端点</span></span><br><span class="line"></span><br><span class="line">    l, r = a, b  <span class="comment"># 初始化二分区间端点</span></span><br><span class="line">    fl, fr = fa, fb  <span class="comment"># 保存端点函数值，避免重复计算</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="built_in">abs</span>(r - l) &gt; eps:  <span class="comment"># 二分直到区间缩到 eps</span></span><br><span class="line">        m = (l + r) * <span class="number">0.5</span>  <span class="comment"># 中点</span></span><br><span class="line">        fm = h(m, fixed_y) - z0  <span class="comment"># 中点残差</span></span><br><span class="line">        <span class="keyword">if</span> fl * fm &lt;= <span class="number">0.0</span>:  <span class="comment"># 若 [l,m] 异号（或中点为零），则根在左半区间</span></span><br><span class="line">            r, fr = m, fm  <span class="comment"># 收缩右端点到 m</span></span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># 否则根在 [m,r]</span></span><br><span class="line">            l, fl = m, fm  <span class="comment"># 收缩左端点到 m</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (l + r) * <span class="number">0.5</span>  <span class="comment"># 返回最终区间中点作为根的近似</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">get_length</span>(<span class="params">step: <span class="built_in">float</span>, eps: <span class="built_in">float</span>, x0: <span class="built_in">float</span>, z0: <span class="built_in">float</span>, gx: <span class="built_in">float</span>, gy: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 从 S 沿等高线追踪到切点，再直线连到目标点 (gx,gy)</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    从起点 S=(x0,0) 出发，沿着等高线 h=z0 进行“折线式追踪”，</span></span><br><span class="line"><span class="string">    直到到达一个切点 T，使得从 T 到目标点 (gx,gy) 的直线</span></span><br><span class="line"><span class="string">    与等高线在 T 处“刚好相切/不再穿入障碍”。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回值：</span></span><br><span class="line"><span class="string">        等高线弧长( S -&gt; ... -&gt; T ) + 直线距离( T -&gt; (gx,gy) )</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    关键思想：</span></span><br><span class="line"><span class="string">    - 在高度限制为 z0 时，可飞行区域是 &#123; (x,y) | h(x,y) &lt;= z0 &#125;。</span></span><br><span class="line"><span class="string">      障碍物边界就是等高线 h=z0。</span></span><br><span class="line"><span class="string">    - 最短路径会由两段组成：从目标到切点的直线 + 沿边界滑行的弧线（反过来一样）。</span></span><br><span class="line"><span class="string">      切点处满足“直线方向与边界切线相切”的几何条件（等价于：目标方向与法向的点积为 0）。</span></span><br><span class="line"><span class="string">    - 本函数用一个简单的“切线判据”来检测何时到了切点。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    追踪方法：</span></span><br><span class="line"><span class="string">    - 在当前点 (x,y) 处，构造一个近似法向量 (dx,dy)：</span></span><br><span class="line"><span class="string">        dx = dh(x,y)</span></span><br><span class="line"><span class="string">        dy = dh(y,x)</span></span><br><span class="line"><span class="string">    - 若 (dx,dy)·((x,y)-(gx,gy)) &gt;= 0，则认为已经到达切点：</span></span><br><span class="line"><span class="string">      再沿等高线走只会“更不利于直线连到目标”，于是结束追踪并改走直线。</span></span><br><span class="line"><span class="string">    - 否则继续沿等高线走一步：</span></span><br><span class="line"><span class="string">      先推进一个坐标（x 或 y），再在对应的竖线/横线上解 h(·,·)=z0，</span></span><br><span class="line"><span class="string">      把点“拉回”到等高线。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    x, y = x0, <span class="number">0.0</span>  <span class="comment"># 当前追踪点从 S=(x0,0) 出发（在边界 y=0 上）</span></span><br><span class="line">    t = <span class="number">0.0</span>  <span class="comment"># 用于累计等高线段的“折线弧长”（相邻点欧氏距离之和）</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 迭代上限：防止步长/精度不合适导致无止境循环</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5_000_000</span>):  <span class="comment"># 最多走这么多步，理论上足够覆盖整条相关等高线段</span></span><br><span class="line">        dx = dh(x, y)  <span class="comment"># 近似法向量的 x 分量（辅助导数表达式）</span></span><br><span class="line">        dy = dh(y, x)  <span class="comment"># 近似法向量的 y 分量（利用对称交换 x/y）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 切线判据：当法向量与“从目标指向当前点”的向量点积 &gt;= 0 时，认为到达切点</span></span><br><span class="line">        <span class="keyword">if</span> dx * (x - gx) + dy * (y - gy) &gt;= <span class="number">0.0</span>:  <span class="comment"># 等价于：沿等高线继续前进将不再“朝向目标”</span></span><br><span class="line">            <span class="keyword">return</span> t + dist(gx, gy, x, y)  <span class="comment"># 返回：已累计弧长 t + 最后一段直线距离</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 决策：优先更新“变化更陡”的方向（|d| 更大），通常更稳，减少数值抖动</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(dx) &lt; <span class="built_in">abs</span>(dy):  <span class="comment"># 若 y 方向更“陡”，则优先更新 x（让“拉回”过程更稳定）</span></span><br><span class="line">            s = -step <span class="keyword">if</span> x &gt; gx <span class="keyword">else</span> step  <span class="comment"># x 朝向目标方向推进：若当前 x&gt;gx，就往左走，否则往右走</span></span><br><span class="line">            nx = x + s  <span class="comment"># 先把 x 推进一步，得到新的竖线 x=nx</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 构造一个 y 的试探端点，目的是在 [y, y_guess] 上尽量跨过等高线以便二分夹根</span></span><br><span class="line">            y_guess = y - sgn(dy * dx) * s  <span class="comment"># 方向由 dy*dx 的符号决定（经验性选择，使区间更可能异号）</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 在固定 x=nx 的竖线上，解出 y 使 h(nx,y)=z0，从而把点拉回等高线</span></span><br><span class="line">            ny = bisect_root_for_level(z0, fixed_y=nx, a=y, b=y_guess, eps=eps)  <span class="comment"># 二分求根（或取更贴近端点）</span></span><br><span class="line">            nx2, ny2 = nx, ny  <span class="comment"># 得到下一步等高线点 P_next=(nx2,ny2)</span></span><br><span class="line">        <span class="keyword">else</span>:  <span class="comment"># 否则 x 方向更“陡”，则优先更新 y（对称处理）</span></span><br><span class="line">            s = -step <span class="keyword">if</span> y &gt; gy <span class="keyword">else</span> step  <span class="comment"># y 朝向目标方向推进：若当前 y&gt;gy，就往下走，否则往上走</span></span><br><span class="line">            ny = y + s  <span class="comment"># 先把 y 推进一步，得到新的横线 y=ny</span></span><br><span class="line">            x_guess = x - sgn(dy * dx) * s  <span class="comment"># 构造 x 的试探端点，用于夹住根（同理，经验性方向选择）</span></span><br><span class="line">            nx = bisect_root_for_level(z0, fixed_y=ny, a=x, b=x_guess, eps=eps)  <span class="comment"># 在固定 y=ny 上解 h(x,ny)=z0</span></span><br><span class="line">            nx2, ny2 = nx, ny  <span class="comment"># 得到下一步等高线点 P_next=(nx2,ny2)</span></span><br><span class="line"></span><br><span class="line">        t += dist(x, y, nx2, ny2)  <span class="comment"># 用相邻点欧氏距离近似弧长微元并累加（折线弧长）</span></span><br><span class="line">        x, y = nx2, ny2  <span class="comment"># 更新当前点：继续从新的等高线点出发追踪</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;rawrr: exceeded max steps (did not converge)&quot;</span>)  <span class="comment"># 若走完上限仍未到切点，说明参数需调整</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">step: <span class="built_in">float</span> = <span class="number">1.0</span>, eps: <span class="built_in">float</span> = <span class="number">1e-7</span></span>) -&gt; <span class="built_in">float</span>:  <span class="comment"># 总流程：先定 f_min，再计算两侧长度并相加</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    主流程：</span></span><br><span class="line"><span class="string">    1) 在边界 y=0 上找到关键点 S=(x0,0)，并取 z0=h(x0,0) 作为最低通行高度候选。</span></span><br><span class="line"><span class="string">    2) 分别计算：</span></span><br><span class="line"><span class="string">       - 从 S 沿等高线走到“对 A(200,200) 的切点”所需的弧长 + 切点到 A 的直线距离</span></span><br><span class="line"><span class="string">       - 从 S 沿等高线走到“对 B(1400,1400) 的切点”所需的弧长 + 切点到 B 的直线距离</span></span><br><span class="line"><span class="string">    3) 两段相加，得到从 A&#x27; 到 B&#x27; 的最短路径长度（在高度 z0 的等高线上绕障 + 两端直线连接）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    step：</span></span><br><span class="line"><span class="string">    - 等高线追踪的步长，越小越精细但更慢；越大越快但可能丢精度/不稳。</span></span><br><span class="line"><span class="string">    eps：</span></span><br><span class="line"><span class="string">    - 二分与关键点定位的收敛阈值，越小越精确但更慢。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    x0, z0 = findz(eps)  <span class="comment"># 在 y=0 上定位关键点 S=(x0,0)，并得到候选最低高度 z0=h(x0,0)</span></span><br><span class="line">    <span class="keyword">return</span> (  <span class="comment"># 返回两段“从同一 S 出发到两个目标”的长度之和（对称拼成 A&#x27;-&gt;B&#x27; 的最短路径长度）</span></span><br><span class="line">        get_length(step, eps, x0, z0, <span class="number">200.0</span>, <span class="number">200.0</span>)  <span class="comment"># 计算：S -&gt; 切点(对A) 的弧长 + 切点 -&gt; A 的直线</span></span><br><span class="line">        + get_length(step, eps, x0, z0, <span class="number">1400.0</span>, <span class="number">1400.0</span>)  <span class="comment"># 计算：S -&gt; 切点(对B) 的弧长 + 切点 -&gt; B 的直线</span></span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:  <span class="comment"># Python 入口：脚本直接运行时才执行下面内容</span></span><br><span class="line">    ans = solve(step=<span class="number">1.0</span>, eps=<span class="number">1e-7</span>)  <span class="comment"># 调用主流程求解；step/eps 控制速度与精度</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.3</span>f&#125;</span>&quot;</span>)  <span class="comment"># 按题意保留三位小数输出</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/262/" title="Project Euler 262">https://ujimatsu-chiya.github.io/project-euler/262/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.3m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">19:52</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
