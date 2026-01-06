@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 305">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/305/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-06T17:03:05.000Z">
+<meta property="article:modified_time" content="2026-01-06T17:03:05.039Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/305/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/305/","path":"project-euler/305/","title":"Project Euler 305"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 305 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-305"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 305</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#reflexive-position"><span class="nav-number">1.1.1.</span> <span class="nav-text">Reflexive Position</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">692</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/305/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 305 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 305
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-07 01:03:05" itemprop="dateCreated datePublished" datetime="2026-01-07T01:03:05+08:00">2026-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-305">Project Euler 305</h1>
+<h2 id="题目">题目</h2>
+<h3 id="reflexive-position">Reflexive Position</h3>
+<p>Let’s call <span class="math inline">\(S\)</span> the (infinite)
+string that is made by concatenating the consecutive positive integers
+(starting from <span class="math inline">\(1\)</span>) written down in
+base <span class="math inline">\(10\)</span>.</p>
+<p>Thus, <span class="math inline">\(S =
+1234567891011121314151617181920212223242\dots\)</span></p>
+<p>It’s easy to see that any number will show up an infinite number of
+times in <span class="math inline">\(S\)</span>.</p>
+<p>Let’s call <span class="math inline">\(f(n)\)</span> the starting
+position of the <span class="math inline">\(n^\text{th}\)</span>
+occurrence of <span class="math inline">\(n\)</span> in <span
+class="math inline">\(S\)</span>.</p>
+<p>For example, <span class="math inline">\(f(1)=1, f(5)=81,
+f(12)=271\)</span> and <span
+class="math inline">\(f(7780)=111111365\)</span>.</p>
+<p>Find <span class="math inline">\(\sum f(3^k)\)</span> for <span
+class="math inline">\(1\le k\le13\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(T(N)=&quot;123\cdots
+N&quot;\)</span>的拼接，也就是 <span class="math inline">\(S\)</span>
+的前缀。对给定正整数 <span
+class="math inline">\(n\)</span>，记模式串<span
+class="math inline">\(P=\mathrm{str}(n),m=|P|.\)</span></p>
+<p>因此题目定义 <span class="math inline">\(f(n)\)</span> 为 <span
+class="math inline">\(P\)</span> 在 <span
+class="math inline">\(S\)</span> 中第 <span
+class="math inline">\(n\)</span> 次出现的起始位置（从 1 开始）。</p>
+<p>定义<span class="math inline">\(D(N)=|T(N)|\)</span>，即写下 <span
+class="math inline">\(1,2,\dots,N\)</span> 一共用了多少位字符。若 <span
+class="math inline">\(N\)</span> 有 <span
+class="math inline">\(L\)</span> 位，则</p>
+<p><span class="math display">\[
+D(N)=\sum_{d=1}^{L-1} 9\cdot 10^{d-1}\cdot d + (N-10^{L-1}+1)\cdot
+L=\dfrac{1+10^{L-1}(9L-10)}{9}+ (N-10^{L-1}+1)\cdot L.
+\]</span></p>
+<p>因此整数 <span class="math inline">\(x\)</span> 在 <span
+class="math inline">\(S\)</span> 中的起始位置为<span
+class="math inline">\(\mathrm{pos}(x)=D(x-1)+1.\)</span>其中<span
+class="math inline">\(\text{pos}(x)=1\)</span>。</p>
+<p>定义<span class="math inline">\(\mathrm{Occ}(N)\)</span>表示模式<span
+class="math inline">\(P\)</span>在<span
+class="math inline">\(T(N)\)</span>中出现的总次数（允许重叠）。如果能快速算
+<span class="math inline">\(\mathrm{Occ}(N)\)</span>，就可以二分找最小
+<span class="math inline">\(y\)</span> 使得$ (y)n$。再从最后一段把第
+<span class="math inline">\(n\)</span> 次出现的精确起点定位出来。</p>
+<p>从 <span class="math inline">\(T(y-1)\)</span> 扩展到 <span
+class="math inline">\(T(y)\)</span>，新增字符只来自 <span
+class="math inline">\(\mathrm{str}(y)\)</span>。当 <span
+class="math inline">\(y\)</span> 的位数 <span class="math inline">\(d\ge
+m\)</span> 时，长度为 <span class="math inline">\(m\)</span>
+的匹配窗口：</p>
+<ul>
+<li>要么完全落在 <span class="math inline">\(\mathrm{str}(y)\)</span>
+内部（内部出现），计入<span
+class="math inline">\(\mathrm{Occ}_{i}(N)\)</span>；</li>
+<li>要么跨越唯一边界 <span class="math inline">\(\mathrm{str}(y-1) ||
+\mathrm{str}(y)\)</span>（边界出现），计入<span
+class="math inline">\(\mathrm{Occ}_{b}(N)\)</span>；</li>
+</ul>
+<p>因为窗口长度是 <span class="math inline">\(m\le
+d\)</span>，不可能同时跨过两条以上边界。对于更加困难的“跨三数或更多”的情况只会在右端数字位数
+<strong>小于</strong> 模式长度时出现。这里 <span
+class="math inline">\(n=3^k\le 3^{13}=1594323\)</span>，所以 <span
+class="math inline">\(m\le 7\)</span>，我们只需把有限前缀<span
+class="math inline">\(y&lt;10^{m-1}\)</span>这部分用暴力预处理即可。这部分计入<span
+class="math inline">\(\mathrm{Occ}_{s}(N)\)</span>。</p>
+<p>于是<span
+class="math inline">\(\mathrm{Occ}(N)=\mathrm{Occ}_{s}(N)+\mathrm{Occ}_{i}(N)+\mathrm{Occ}_{b}(N).\)</span></p>
+<p>现在计算<span
+class="math inline">\(\mathrm{Occ}_{i}(N)\)</span>的值。</p>
+<p>固定当前处理的位数档为 <span class="math inline">\(d\ge
+m\)</span>。模式 <span class="math inline">\(P\)</span> 可以放在偏移
+<span class="math inline">\(i\)</span>（从左起 0-index）处：<span
+class="math inline">\(0\le i\le d-m.\)</span> 令后缀自由段长度为$
+=d-i-m<span class="math inline">\(，因此自由后缀\)</span>R.$</p>
+<ul>
+<li>若 <span class="math inline">\(i=0\)</span>，满足条件的最高位就从
+<span class="math inline">\(P\)</span> 开始，结构为<span
+class="math inline">\(x=P\cdot 10^{d-m}+R.\)</span>共 <span
+class="math inline">\(10^{\ell}\)</span> 个。</li>
+<li>若 <span class="math inline">\(i&gt;0\)</span>：<span
+class="math inline">\(x\)</span> 由三段拼起来：左前缀 <span
+class="math inline">\(L\)</span>（<span class="math inline">\(i\)</span>
+位，首位非零）、中间固定段 <span
+class="math inline">\(P\)</span>、右后缀 <span
+class="math inline">\(R\)</span>（<span
+class="math inline">\(\ell\)</span> 位，可含前导零）：<span
+class="math inline">\(x=L\cdot 10^{d-i}+P\cdot
+10^{\ell}+R,\)</span>其中<span
+class="math inline">\(L\in[10^{i-1},10^i-1],
+R\in[0,10^\ell-1].\)</span></li>
+</ul>
+<p>因此对 <span class="math inline">\(d&gt;m\)</span>，总贡献为<span
+class="math inline">\(10^{d-m}+(d-m)\cdot 9\cdot 10^{d-m-1}.\)</span>若
+<span class="math inline">\(d=m\)</span>，只有 <span
+class="math inline">\(x=n\)</span> 贡献 1 次。</p>
+<p>那么对于 <span
+class="math inline">\(d&lt;\mathrm{len}(N)\)</span>，所有<span
+class="math inline">\(d\)</span>位数都要计算。对于<span
+class="math inline">\(d=\mathrm{len}(N)\)</span>位数，只计算不超过<span
+class="math inline">\(N\)</span>的那一部分。</p>
+<p>现在讨论<span
+class="math inline">\(d=\mathrm{len}(N)\)</span>的情况。</p>
+<p>把 <span class="math inline">\(N\)</span> 按照同样的切点拆开：<span
+class="math inline">\(N = H\cdot 10^{d-i}+T,\)</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(H=\left\lfloor
+\dfrac{N}{10^{d-i}}\right\rfloor\)</span> 是 <span
+class="math inline">\(N\)</span> 的前 <span
+class="math inline">\(i\)</span> 位（当 <span
+class="math inline">\(i=0\)</span> 时就是 <span
+class="math inline">\(H=0\)</span>）；</li>
+<li><span class="math inline">\(T=N\bmod 10^{d-i}\)</span>
+是剩下的尾部（长度 <span class="math inline">\(d-i\)</span>）。</li>
+</ul>
+<p>对于某个特定的 <span class="math inline">\(L\)</span>，所有候选 <span
+class="math inline">\(x\)</span> 的最高 <span
+class="math inline">\(i\)</span> 位都等于 <span
+class="math inline">\(L\)</span>。因此：</p>
+<ul>
+<li>若 <span class="math inline">\(L &lt; H\)</span>，则整个块都满足
+<span class="math inline">\(x\le N\)</span>，贡献 <strong>整块</strong>
+<span class="math inline">\(10^\ell\)</span> 个；</li>
+<li>若 <span class="math inline">\(L &gt; H\)</span>，则整个块都 <span
+class="math inline">\(&gt;N\)</span>，贡献 <strong>0</strong>；</li>
+<li>只有当 <span class="math inline">\(L=H\)</span>
+时，才需要精细比较尾部：此时<span class="math inline">\(x \le N\iff
+P\cdot 10^\ell + R \le T\iff R \le T - P\cdot 10^\ell.\)</span>于是这时
+<span class="math inline">\(L=H\)</span> 时的贡献为<span
+class="math inline">\(T-P\cdot 10^\ell+1.\)</span></li>
+</ul>
+<p>因此有</p>
+<p><span
+class="math display">\[\mathrm{Occ}_{i}(N)=\sum_{d=m}^{\text{len}(N)-1}10^{d-m}+(d-m)\cdot
+9\cdot 10^{d-m-1}+\sum_{i=0}^{d-m} \max(0,\min(10^{d-i-m},N\bmod
+10^{d-i}-P\cdot 10^{d-i-m}+1)).\]</span></p>
+<p>现在计算<span
+class="math inline">\(\mathrm{Occ}_{b}(N)\)</span>的值。</p>
+<p>边界出现指 <span class="math inline">\(P\)</span> 跨越 <span
+class="math inline">\((y-1)||y\)</span>。令<span
+class="math inline">\(P=A||B, |A|=a\ge 1, |B|=b=m-a\ge 1.\)</span></p>
+<p>边界出现条件是：</p>
+<ul>
+<li><span class="math inline">\((y-1)\)</span> 的后 <span
+class="math inline">\(a\)</span> 位等于 <span
+class="math inline">\(A\)</span>；</li>
+<li><span class="math inline">\(y\)</span> 的前 <span
+class="math inline">\(b\)</span> 位等于 <span
+class="math inline">\(B\)</span>；</li>
+<li>且 <span class="math inline">\(B\)</span> 不能以 <span
+class="math inline">\(0\)</span> 开头（否则 <span
+class="math inline">\(y\)</span> 的最高位会是 <span
+class="math inline">\(0\)</span>，不可能是合法 <span
+class="math inline">\(d\)</span> 位数）。</li>
+</ul>
+<p>由于 <span class="math inline">\(y\)</span> 的后 <span
+class="math inline">\(a\)</span> 位 = <span
+class="math inline">\(((y-1)\)</span> 的后 <span
+class="math inline">\(a\)</span> 位 <span class="math inline">\(+1)\bmod
+10^a\)</span>。因此如果 <span class="math inline">\((y-1)\)</span> 的后
+<span class="math inline">\(a\)</span> 位是 <span
+class="math inline">\(A\)</span>，那么 <span
+class="math inline">\(y\)</span> 的后 <span
+class="math inline">\(a\)</span> 位必为<span class="math inline">\(S
+\equiv (A+1)\bmod 10^a, 0\le S&lt;10^a.\)</span></p>
+<p>于是边界条件等价于对 <span class="math inline">\(y\)</span>
+本身的约束：</p>
+<ul>
+<li>前 <span class="math inline">\(b\)</span> 位固定为 <span
+class="math inline">\(B\)</span>；</li>
+<li>后 <span class="math inline">\(a\)</span> 位固定为 <span
+class="math inline">\(S\)</span>。</li>
+</ul>
+<p>注意，这一步没有遗漏“进位”问题：模 <span
+class="math inline">\(10^a\)</span> 正是把跨过第 <span
+class="math inline">\(a\)</span> 位之外的进位全部抹去，而“后 <span
+class="math inline">\(a\)</span> 位”本来就只关心模 <span
+class="math inline">\(10^a\)</span> 的结果。</p>
+<p>固定当前处理的位数档为 <span class="math inline">\(d\ge
+m\)</span>。设中间自由段长度为<span
+class="math inline">\(t=d-b-a=d-m.\)</span>则 <span
+class="math inline">\(y\)</span> 具有结构<span class="math inline">\(y =
+B\cdot 10^{d-b} + M\cdot 10^{a} + S, M\in[0,10^t-1].\)</span></p>
+<p>因此在完整的 <span class="math inline">\(d\)</span>
+位范围内，每个合法切分 <span class="math inline">\((a,b)\)</span>
+都有恰好<span class="math inline">\(10^{d-m}\)</span>个 <span
+class="math inline">\(y\)</span>。</p>
+<p>同样那么对于 <span
+class="math inline">\(d&lt;\mathrm{len}(N)\)</span>，所有<span
+class="math inline">\(d\)</span>位数都要计算。对于<span
+class="math inline">\(d=\mathrm{len}(N)\)</span>位数，只计算不超过<span
+class="math inline">\(N\)</span>的那一部分。</p>
+<p>现在讨论<span
+class="math inline">\(d=\mathrm{len}(N)\)</span>的情况。把 <span
+class="math inline">\(N\)</span> 按“前 <span
+class="math inline">\(b\)</span> 位 / 其余”拆开：<span
+class="math inline">\(N = H\cdot 10^{d-b} + R\)</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(H=\left\lfloor
+\dfrac{N}{10^{d-b}}\right\rfloor\)</span> 是 <span
+class="math inline">\(N\)</span> 的前 <span
+class="math inline">\(b\)</span> 位；</li>
+<li><span class="math inline">\(R=N\bmod 10^{d-b}\)</span> 是后面剩余的
+<span class="math inline">\(d-b\)</span> 位。</li>
+</ul>
+<p>而候选 <span class="math inline">\(y\)</span> 的结构是</p>
+<p><span class="math display">\[
+y = B\cdot 10^{d-b} + (M\cdot 10^a + S).
+\]</span></p>
+<p>于是比较分三种情况：</p>
+<ol type="1">
+<li><p><strong>若 <span
+class="math inline">\(B&lt;H\)</span></strong>：候选 <span
+class="math inline">\(y\)</span> 的前 <span
+class="math inline">\(b\)</span> 位更小，必然 <span
+class="math inline">\(y\le N\)</span>，所以贡献整块<span
+class="math inline">\(10^{d-m}\)</span>.</p></li>
+<li><p><strong>若 <span
+class="math inline">\(B&gt;H\)</span></strong>：候选前缀更大，必然 <span
+class="math inline">\(y&gt;N\)</span>，贡献 <span
+class="math inline">\(0\)</span>。</p></li>
+<li><p><strong>若 <span
+class="math inline">\(B=H\)</span></strong>：需要比较尾部，要求<span
+class="math inline">\(M\cdot 10^a + S \le R.\)</span></p>
+<ul>
+<li>若 <span class="math inline">\(R&lt;S\)</span>，无解，贡献 <span
+class="math inline">\(0\)</span>；</li>
+<li>否则<span class="math inline">\(M \le \left\lfloor
+\dfrac{R-S}{10^a}\right\rfloor\)</span>，所以贡献为<span
+class="math inline">\(\min\left(10^{d-m},\left\lfloor
+\dfrac{R-S}{10^a}\right\rfloor +1\right).\)</span></li>
+</ul></li>
+</ol>
+<p>因此，通过倍增和二分，我们可以找到最小的<span
+class="math inline">\(y\)</span> 使得 <span
+class="math inline">\(\mathrm{Occ}(y)\ge n\)</span>。</p>
+<p>当找出<span
+class="math inline">\(y\)</span>后，我们通过模拟计算出出现在<span
+class="math inline">\((y-1)||y\)</span>的那一次位置，然后再逐步模拟计算出具体位置即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ----------------------------</span></span><br><span class="line"><span class="comment"># 1) digits count: |&quot;123...N&quot;|</span></span><br><span class="line"><span class="comment"># ----------------------------</span></span><br><span class="line"><span class="comment"># 预先准备 10 的幂：POW10[k] = 10^k</span></span><br><span class="line"><span class="comment"># 这里开到 10^39 足够覆盖本题中所有会出现的位数运算（N &lt;= 1e18）</span></span><br><span class="line">K = <span class="number">13</span></span><br><span class="line">pow10 = [<span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">40</span>):</span><br><span class="line">    pow10.append(pow10[-<span class="number">1</span>] * <span class="number">10</span>)</span><br><span class="line">MAX_BRUTE = <span class="number">10</span>**<span class="number">6</span> - <span class="number">1</span>  <span class="comment"># 999999：构建到 10^6 级别，长度约 5.9e6，内存可接受</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 预先一次性构建暴力前缀</span></span><br><span class="line">S_BRUTE = <span class="string">&quot;&quot;</span>.join(<span class="built_in">str</span>(x) <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,MAX_BRUTE))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">digit_count_upto</span>(<span class="params">N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    D(N) = 串 &quot;123...N&quot; 的总长度（字符数）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    例如：</span></span><br><span class="line"><span class="string">      N=9   -&gt; &quot;123456789&quot; 长度 9</span></span><br><span class="line"><span class="string">      N=10  -&gt; &quot;12345678910&quot; 长度 11</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    计算方法：</span></span><br><span class="line"><span class="string">      将 1..N 按位数分组：</span></span><br><span class="line"><span class="string">        1 位数：1..9   共 9 个，每个贡献 1 位</span></span><br><span class="line"><span class="string">        2 位数：10..99 共 90 个，每个贡献 2 位</span></span><br><span class="line"><span class="string">        ...</span></span><br><span class="line"><span class="string">      对于最后一组（位数为 d），只取到 N 为止。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> N &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    s = <span class="number">0</span>          <span class="comment"># 累计长度</span></span><br><span class="line">    d = <span class="number">1</span>          <span class="comment"># 当前位数</span></span><br><span class="line">    start = <span class="number">1</span>      <span class="comment"># 当前位数段的起点：1,10,100,...</span></span><br><span class="line">    <span class="comment"># 完整累加所有“满段”：[start, start*10 - 1]</span></span><br><span class="line">    <span class="keyword">while</span> start * <span class="number">10</span> &lt;= N:</span><br><span class="line">        <span class="comment"># 该段有 9*start 个数，每个 d 位</span></span><br><span class="line">        s += <span class="number">9</span> * start * d</span><br><span class="line">        start *= <span class="number">10</span></span><br><span class="line">        d += <span class="number">1</span></span><br><span class="line">    <span class="comment"># 最后一段：从 start 到 N，一共 (N - start + 1) 个数</span></span><br><span class="line">    s += (N - start + <span class="number">1</span>) * d</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="comment"># 2) brute prefix for the finite &quot;small&quot; part</span></span><br><span class="line"><span class="comment">#    (covers multi-number overlaps)</span></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="comment"># 为了处理“跨越 &gt;=3 个相邻整数”的匹配（多边界），我们在前面一小段用暴力。</span></span><br><span class="line"><span class="comment"># 典型的“跨多边界”发生在像 &quot;89101112&quot; 这种模式里，它可以跨越 8|9|10|11|12。</span></span><br><span class="line"><span class="comment"># 这类情况如果只靠“跨一个边界”的计数容易漏，需要额外处理。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># 本实现做法：把足够长的前缀 S_BRUTE = &quot;123...MAX_BRUTE&quot; 直接构建出来，</span></span><br><span class="line"><span class="comment"># 并且对所有 “右端整数 &lt;= small_limit” 的情况直接用暴力 find 计数，避免复杂边界分类。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_in_prefix_string</span>(<span class="params">pat: <span class="built_in">str</span>, upto: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    暴力统计 pat 在 &#x27;123...upto&#x27; 中出现次数（允许重叠）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    实现方式：</span></span><br><span class="line"><span class="string">      先通过 digit_count_upto(upto) 计算出 &quot;123...upto&quot; 的精确长度 L，</span></span><br><span class="line"><span class="string">      再在 S_BRUTE 的前 L 个字符上做 find 循环。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    注意：</span></span><br><span class="line"><span class="string">      这里 i = j+1，从而允许重叠出现（如 &#x27;11&#x27; 在 &#x27;111&#x27; 中出现两次）。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> upto &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    L = digit_count_upto(upto)</span><br><span class="line">    <span class="keyword">return</span> S_BRUTE[:L].count(pat)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="comment"># 3) Fast counter for occurrences up to N</span></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PatternCounter</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    针对固定模式串 pat = str(n)，提供 occ_end(N)：</span></span><br><span class="line"><span class="string">      occ_end(N) = pat 在 &quot;123...N&quot; 中出现次数（允许重叠）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    整体策略：</span></span><br><span class="line"><span class="string">      - 对于比较小的 N（&lt;= small_limit），直接在暴力前缀中数（准确且简单）。</span></span><br><span class="line"><span class="string">      - 对于大的 N，把计数拆成两部分：</span></span><br><span class="line"><span class="string">          1) internal：pat 完全落在某个整数 y 的十进制表示内部（不跨边界）</span></span><br><span class="line"><span class="string">          2) boundary：pat 跨越边界 (y-1)|y（跨 1 个边界）</span></span><br><span class="line"><span class="string">        同时把所有 “右端整数 &lt;= small_limit” 的部分统一用 base_count 预先暴力计算，</span></span><br><span class="line"><span class="string">        这样能覆盖跨越 &gt;=2 个边界的情况（这些情况只会发生在比较小的整数附近）。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, n: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.n = n</span><br><span class="line">        <span class="variable language_">self</span>.pat_str = <span class="built_in">str</span>(n)   <span class="comment"># 模式串 P</span></span><br><span class="line">        <span class="variable language_">self</span>.m = <span class="built_in">len</span>(<span class="variable language_">self</span>.pat_str)  <span class="comment"># 模式串长度 m</span></span><br><span class="line">        <span class="variable language_">self</span>.pat_int = n        <span class="comment"># 模式串作为整数，用于内部计数的比较</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># small_limit 的含义：</span></span><br><span class="line">        <span class="comment">#   当右端整数 y &lt; 10^(m-1) 时，y 的位数 &lt; m，</span></span><br><span class="line">        <span class="comment">#   pat 只能通过跨多个整数拼接才能出现（可能跨 &gt;=2 边界），分类会变得麻烦。</span></span><br><span class="line">        <span class="comment">#   因此我们把 y &lt;= 10^(m-1)-1 的这部分统一用暴力精确算完。</span></span><br><span class="line">        <span class="variable language_">self</span>.small_limit = pow10[<span class="variable language_">self</span>.m - <span class="number">1</span>] - <span class="number">1</span> <span class="keyword">if</span> <span class="variable language_">self</span>.m &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># base_count：模式串在 &quot;123...small_limit&quot; 中的出现次数（暴力）</span></span><br><span class="line">        <span class="comment"># 之后 occ_end(N) 若 N &gt; small_limit，则结果 = base_count + 大数部分计数</span></span><br><span class="line">        <span class="variable language_">self</span>.base_count = (</span><br><span class="line">            count_in_prefix_string(<span class="variable language_">self</span>.pat_str, <span class="variable language_">self</span>.small_limit)</span><br><span class="line">            <span class="keyword">if</span> <span class="variable language_">self</span>.small_limit &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="comment"># valid_splits：用于跨一个边界 (y-1)|y 的计数</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># 设模式串 P 长度 m，考虑切分：</span></span><br><span class="line">        <span class="comment">#     P = A | B</span></span><br><span class="line">        <span class="comment"># 其中 A 非空、B 非空。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># 若 P 跨越边界 (y-1)|y，且 y 为右端整数：</span></span><br><span class="line">        <span class="comment">#   - B 必须是 y 的前缀（所以 B 不能以 &#x27;0&#x27; 开头，否则 y 会出现前导零）</span></span><br><span class="line">        <span class="comment">#   - A 必须是 (y-1) 的后缀</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># 关键变换（等价写法）：</span></span><br><span class="line">        <span class="comment">#   让 y 的前缀为 B，</span></span><br><span class="line">        <span class="comment">#   且 y 的后缀（长度 |A|）等于 (A + 1) mod 10^&#123;|A|&#125;</span></span><br><span class="line">        <span class="comment"># 这样通过“固定前缀 + 固定后缀”的计数，就能统计跨边界出现次数。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># 存储形式：(prefix_len=b, prefix_val=int(B), suffix_len=a, suffix_val=(int(A)+1) mod 10^a)</span></span><br><span class="line">        <span class="variable language_">self</span>.valid_splits = []</span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="variable language_">self</span>.m):</span><br><span class="line">            A = <span class="variable language_">self</span>.pat_str[:a]</span><br><span class="line">            B = <span class="variable language_">self</span>.pat_str[a:]</span><br><span class="line">            <span class="comment"># B 是 y 的前缀，必须保证 B 的首位不是 0（否则 y 作为十进制数会有前导零）</span></span><br><span class="line">            <span class="keyword">if</span> B[<span class="number">0</span>] == <span class="string">&#x27;0&#x27;</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            b = <span class="variable language_">self</span>.m - a</span><br><span class="line">            prefix_val = <span class="built_in">int</span>(B)</span><br><span class="line">            suffix_len = a</span><br><span class="line">            suffix_val = (<span class="built_in">int</span>(A) + <span class="number">1</span>) % pow10[a]</span><br><span class="line">            <span class="variable language_">self</span>.valid_splits.append((b, prefix_val, suffix_len, suffix_val))</span><br><span class="line">        <span class="variable language_">self</span>.s_count = <span class="built_in">len</span>(<span class="variable language_">self</span>.valid_splits)  <span class="comment"># 可用切分的数量</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># -------- internal: full blocks --------</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">count_internal_full_block</span>(<span class="params">self, d: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        统计：所有 d 位数 y（范围 [10^&#123;d-1&#125;, 10^d-1]），模式串 P 完全落在 y 内部的出现总数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        若 d &lt; m：不可能</span></span><br><span class="line"><span class="string">        若 d == m：每个 y 只有一个窗口，且 y==P 时贡献 1，所以总数为 1</span></span><br><span class="line"><span class="string">        若 d &gt; m：有两类窗口：</span></span><br><span class="line"><span class="string">            - 从开头对齐（i=0）：形如 y = P * 10^&#123;d-m&#125; + suffix，共 10^&#123;d-m&#125; 个</span></span><br><span class="line"><span class="string">            - 中间对齐（i&gt;0）：需要枚举前缀长度 i (1..d-m)，每个 i 对应</span></span><br><span class="line"><span class="string">                  前缀有 9*10^&#123;i-1&#125; 种（首位不能为 0）</span></span><br><span class="line"><span class="string">                  后缀有 10^&#123;d-i-m&#125; 种</span></span><br><span class="line"><span class="string">              总数为 sum_&#123;i=1..d-m&#125; 9*10^&#123;i-1&#125; * 10^&#123;d-i-m&#125;</span></span><br><span class="line"><span class="string">                     = (d-m)*9*10^&#123;d-m-1&#125;</span></span><br><span class="line"><span class="string">        所以总数：</span></span><br><span class="line"><span class="string">          10^&#123;d-m&#125; + (d-m)*9*10^&#123;d-m-1&#125;</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        dm = d - <span class="variable language_">self</span>.m</span><br><span class="line">        <span class="keyword">if</span> dm == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> pow10[dm] + dm * <span class="number">9</span> * pow10[dm - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -------- internal: &lt;= limit for fixed length d and position i --------</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">count_internal_pos_leq</span>(<span class="params">self, limit: <span class="built_in">int</span>, d: <span class="built_in">int</span>, i: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        在所有 d 位数 y 且 y &lt;= limit 的范围内，统计：</span></span><br><span class="line"><span class="string">          模式串 P 作为 y 的子串，且子串起点在 y 的第 i 位（0-index）时的出现次数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        记：</span></span><br><span class="line"><span class="string">          y = (prefix of length i) + P + (suffix of length (d-i-m))</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        特殊处理：</span></span><br><span class="line"><span class="string">          i==0：prefix 为空，此时 y = P*10^&#123;d-m&#125; + suffix，suffix 取 0..10^&#123;d-m&#125;-1</span></span><br><span class="line"><span class="string">          i&gt;0：prefix 首位不能为 0（保证 y 是 d 位数），suffix 任意</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        计数方法：</span></span><br><span class="line"><span class="string">          通过把 limit 拆成 prefix_limit 与 rest，</span></span><br><span class="line"><span class="string">          精确计算 prefix &lt; prefix_limit 的全量贡献 + prefix == prefix_limit 的边界贡献。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        m = <span class="variable language_">self</span>.m</span><br><span class="line">        <span class="comment"># limit 不足以达到 d 位数</span></span><br><span class="line">        <span class="keyword">if</span> limit &lt; pow10[d - <span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># i == 0：y = P*10^&#123;d-m&#125; + suffix</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="number">0</span>:</span><br><span class="line">            base = <span class="variable language_">self</span>.pat_int * pow10[d - m]</span><br><span class="line">            <span class="keyword">if</span> base &gt; limit:</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">            <span class="comment"># suffix 的可取数量受 limit 限制</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">min</span>(pow10[d - m], limit - base + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># i &gt; 0：prefix(长度 i, 首位不为0) + P + suffix</span></span><br><span class="line">        suffix_len = d - i - m</span><br><span class="line">        suffix_pow = pow10[suffix_len]  <span class="comment"># suffix 取值范围大小</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix_limit：limit 的前 i 位；rest：剩余 (d-i) 位</span></span><br><span class="line">        prefix_limit = limit // pow10[d - i]</span><br><span class="line">        rest = limit % pow10[d - i]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 合法 prefix 范围：[10^&#123;i-1&#125;, 10^i-1]</span></span><br><span class="line">        pre_min = pow10[i - <span class="number">1</span>]</span><br><span class="line">        pre_max = pow10[i] - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix_limit 小于最小合法 prefix =&gt; 没有贡献</span></span><br><span class="line">        <span class="keyword">if</span> prefix_limit &lt; pre_min:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="comment"># prefix_limit 大于最大合法 prefix =&gt; 全部 prefix 都可取</span></span><br><span class="line">        <span class="keyword">if</span> prefix_limit &gt; pre_max:</span><br><span class="line">            <span class="keyword">return</span> (pre_max - pre_min + <span class="number">1</span>) * suffix_pow</span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix &lt; prefix_limit：每个 prefix 都可以搭配任意 suffix</span></span><br><span class="line">        count = (prefix_limit - pre_min) * suffix_pow</span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix == prefix_limit：需要 rest &gt;= P*suffix_pow 才能放下 P</span></span><br><span class="line">        need = <span class="variable language_">self</span>.pat_int * suffix_pow</span><br><span class="line">        <span class="keyword">if</span> rest &gt;= need:</span><br><span class="line">            count += <span class="built_in">min</span>(suffix_pow, rest - need + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> count</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">count_internal_large</span>(<span class="params">self, N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        统计 internal 部分（P 完全落在某个 y 内部）在 y &lt;= N 的出现次数，</span></span><br><span class="line"><span class="string">        仅对 y &gt;= 10^&#123;m-1&#125; 的“长整数部分”计数（短整数部分由 base_count 暴力覆盖）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        做法：</span></span><br><span class="line"><span class="string">          - 对所有位数 d &lt; D（D = len(N)），整段使用 count_internal_full_block(d)</span></span><br><span class="line"><span class="string">          - 对位数 d = D，只统计 y &lt;= N 的部分，需对每个起点 i 使用 count_internal_pos_leq(N,D,i)</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> N &lt; pow10[<span class="variable language_">self</span>.m - <span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        D = <span class="built_in">len</span>(<span class="built_in">str</span>(N))</span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 完整位数段：d = m..D-1</span></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.m, D):</span><br><span class="line">            total += <span class="variable language_">self</span>.count_internal_full_block(d)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 边界位数段：d = D，只能统计 &lt;= N 的那部分</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, D - <span class="variable language_">self</span>.m + <span class="number">1</span>):</span><br><span class="line">            total += <span class="variable language_">self</span>.count_internal_pos_leq(N, D, i)</span><br><span class="line">        <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line">    <span class="comment"># -------- boundary: count y &lt;= limit with fixed prefix/suffix --------</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">count_affix_leq</span>(<span class="params">self, limit: <span class="built_in">int</span>, d: <span class="built_in">int</span>, prefix_len: <span class="built_in">int</span>, prefix_val: <span class="built_in">int</span>,</span></span><br><span class="line"><span class="params">                        suffix_len: <span class="built_in">int</span>, suffix_val: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        统计：在所有 d 位数 y 且 y &lt;= limit 的范围内，满足：</span></span><br><span class="line"><span class="string">          y 的前 prefix_len 位 == prefix_val</span></span><br><span class="line"><span class="string">          y 的后 suffix_len 位 == suffix_val</span></span><br><span class="line"><span class="string">        的 y 的数量。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        对应跨边界匹配：</span></span><br><span class="line"><span class="string">          y 的前缀固定为 B（prefix_len=b）</span></span><br><span class="line"><span class="string">          y 的后缀固定为 (A+1) mod 10^a（suffix_len=a）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        设中间长度：</span></span><br><span class="line"><span class="string">          mid_len = d - prefix_len - suffix_len</span></span><br><span class="line"><span class="string">        那么 y 结构为：</span></span><br><span class="line"><span class="string">          y = prefix_val * 10^&#123;d-prefix_len&#125; + mid * 10^&#123;suffix_len&#125; + suffix_val</span></span><br><span class="line"><span class="string">          mid 的范围：[0, 10^&#123;mid_len&#125;-1]</span></span><br><span class="line"><span class="string">        所以问题变成：求满足上述形式且 y &lt;= limit 的 mid 的数量。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> limit &lt; pow10[d - <span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        mid_len = d - prefix_len - suffix_len</span><br><span class="line">        <span class="keyword">if</span> mid_len &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix_limit：limit 的前 prefix_len 位</span></span><br><span class="line">        prefix_pow = pow10[d - prefix_len]</span><br><span class="line">        prefix_limit = limit // prefix_pow</span><br><span class="line">        rest = limit % prefix_pow  <span class="comment"># limit 的后 d-prefix_len 位</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix_val 与 prefix_limit 比较决定是否整段全取/全不取/边界取</span></span><br><span class="line">        <span class="keyword">if</span> prefix_val &lt; prefix_limit:</span><br><span class="line">            <span class="keyword">return</span> pow10[mid_len]</span><br><span class="line">        <span class="keyword">if</span> prefix_val &gt; prefix_limit:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># prefix 相等：需要 mid*10^&#123;suffix_len&#125; + suffix_val &lt;= rest</span></span><br><span class="line">        <span class="keyword">if</span> rest &lt; suffix_val:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        max_mid = (rest - suffix_val) // pow10[suffix_len]</span><br><span class="line">        <span class="keyword">if</span> max_mid &gt;= pow10[mid_len]:</span><br><span class="line">            <span class="keyword">return</span> pow10[mid_len]</span><br><span class="line">        <span class="keyword">return</span> max_mid + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">count_boundary_full_block</span>(<span class="params">self, d: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        对所有 d 位数 y（整段）统计跨边界出现次数：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        对每一种合法切分 (A|B)，固定前缀 B 和固定后缀 (A+1 mod 10^a)，</span></span><br><span class="line"><span class="string">        在所有 d 位数 y 中，满足“前缀+后缀”的 y 数量为 10^&#123;d-m&#125;（中间自由位数 d-m）。</span></span><br><span class="line"><span class="string">        合法切分共有 s_count 种，因此整段总数：</span></span><br><span class="line"><span class="string">          s_count * 10^&#123;d-m&#125;</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.s_count * pow10[d - <span class="variable language_">self</span>.m]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">count_boundary_large</span>(<span class="params">self, N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        统计 boundary 部分（跨 (y-1)|y 的出现）在 y &lt;= N 的出现次数，</span></span><br><span class="line"><span class="string">        同样只对 y &gt;= 10^&#123;m-1&#125; 的“长整数部分”计数（短整数部分由 base_count 暴力覆盖）。</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> N &lt; pow10[<span class="variable language_">self</span>.m - <span class="number">1</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        D = <span class="built_in">len</span>(<span class="built_in">str</span>(N))</span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 完整位数段：d = m..D-1</span></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.m, D):</span><br><span class="line">            total += <span class="variable language_">self</span>.count_boundary_full_block(d)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 位数段 d=D：对每个 split 用 count_affix_leq 处理 &lt;=N 的边界</span></span><br><span class="line">        <span class="keyword">for</span> (b, prefix_val, a, suffix_val) <span class="keyword">in</span> <span class="variable language_">self</span>.valid_splits:</span><br><span class="line">            total += <span class="variable language_">self</span>.count_affix_leq(N, D, b, prefix_val, a, suffix_val)</span><br><span class="line">        <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">occ</span>(<span class="params">self, N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        Occ(N) = 模式串 P 在 &quot;123...N&quot; 中出现次数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        若 N &lt;= small_limit：直接暴力（保证涵盖所有跨多边界的特殊情况）。</span></span><br><span class="line"><span class="string">        否则：</span></span><br><span class="line"><span class="string">          Occ(N) = base_count + internal_large(N) + boundary_large(N)</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> N &lt;= <span class="variable language_">self</span>.small_limit:</span><br><span class="line">            <span class="keyword">return</span> count_in_prefix_string(<span class="variable language_">self</span>.pat_str, N)</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.base_count + <span class="variable language_">self</span>.count_internal_large(N) + <span class="variable language_">self</span>.count_boundary_large(N)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="comment"># 4) find f(n): the start position of n-th occurrence of n in S</span></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_f</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    求题目定义的 f(n)：n 在无限串 S 中第 n 次出现的起始位置（1-indexed）。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    做法：</span></span><br><span class="line"><span class="string">      1) 用 PatternCounter 提供的 occ_end(N) 对 N 二分：</span></span><br><span class="line"><span class="string">           找到最小 y，使得 Occ(y) &gt;= n</span></span><br><span class="line"><span class="string">         那么第 n 次出现一定“新发生在 y 的加入过程中”</span></span><br><span class="line"><span class="string">         即发生在串 &quot;...(y-1)(y)&quot; 的某个窗口中，并且该窗口必须使用到 y 的数字。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      2) 令 before = Occ(y-1)，则在加入 y 这一段里新增的出现次数为：</span></span><br><span class="line"><span class="string">           k = n - before</span></span><br><span class="line"><span class="string">         我们只需在 W = str(y-1)+str(y) 中找出所有“跨到 y 一侧”的匹配起点，</span></span><br><span class="line"><span class="string">         取第 k 个。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      3) 将该起点换算到全局位置：</span></span><br><span class="line"><span class="string">           全局起点 = len(&quot;123...(y-2)&quot;) + (窗口起点 p) + 1</span></span><br><span class="line"><span class="string">         其中 len(&quot;123...(y-2)&quot;) = digit_count_upto(y-2)</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    pc = PatternCounter(n)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --------------- 二分找 y ---------------</span></span><br><span class="line">    <span class="comment"># 找到最小 y，使得 Occ(y) &gt;= n</span></span><br><span class="line">    l, r = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> pc.occ(r) &lt; n:</span><br><span class="line">        r *= <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r:</span><br><span class="line">        mid = (l + r) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> pc.occ(mid) &gt;= n:</span><br><span class="line">            r = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l = mid + <span class="number">1</span></span><br><span class="line">    y = l</span><br><span class="line"></span><br><span class="line">    <span class="comment"># before = Occ(y-1)，k 表示在“新增部分（加入 y）”里是第 k 个新增匹配</span></span><br><span class="line">    before = pc.occ(y - <span class="number">1</span>) <span class="keyword">if</span> y &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    k = n - before</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --------------- 在 str(y-1)+str(y) 里定位第 k 个新增匹配 ---------------</span></span><br><span class="line">    P = pc.pat_str</span><br><span class="line">    m = pc.m</span><br><span class="line"></span><br><span class="line">    left = <span class="built_in">str</span>(y - <span class="number">1</span>) <span class="keyword">if</span> y &gt; <span class="number">1</span> <span class="keyword">else</span> <span class="string">&quot;&quot;</span></span><br><span class="line">    right = <span class="built_in">str</span>(y)</span><br><span class="line">    W = left + right</span><br><span class="line">    L = <span class="built_in">len</span>(left)  <span class="comment"># y-1 的长度，用于判断匹配是否“使用到了 y 的数字”</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 收集所有匹配起点 p，且必须满足 p+m &gt; L：</span></span><br><span class="line">    <span class="comment">#   - 若 p+m &lt;= L，则匹配完全落在 left（y-1）内部，这不是“新增匹配”，应排除</span></span><br><span class="line">    starts = []</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(W) - m + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> W[p:p + m] == P <span class="keyword">and</span> p + m &gt; L:</span><br><span class="line">            starts.append(p)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 第 k 个新增匹配起点（0-index）</span></span><br><span class="line">    p = starts[k - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># --------------- 还原到全局起始位置（1-indexed）---------------</span></span><br><span class="line">    <span class="comment"># digit_count_upto(y-2) 是 &quot;123...(y-2)&quot; 的长度</span></span><br><span class="line">    <span class="comment"># 再加上窗口起点 p，最后 +1 转为 1-indexed</span></span><br><span class="line">    <span class="keyword">return</span> digit_count_upto(y - <span class="number">2</span>) + p + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="comment"># 5) solve Project Euler 305</span></span><br><span class="line"><span class="comment"># -----------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    题目要求：计算</span></span><br><span class="line"><span class="string">      sum_&#123;k=1..13&#125; f(3^k)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    逐个求 f(3^k) 并累加即可。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line">    x = <span class="number">3</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(K):</span><br><span class="line">        total += find_f(x)</span><br><span class="line">        x *= <span class="number">3</span></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(solve())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/305/" title="Project Euler 305">https://ujimatsu-chiya.github.io/project-euler/305/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.4m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20:40</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

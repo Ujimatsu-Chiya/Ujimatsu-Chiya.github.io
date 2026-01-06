@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/exercises-1/26.1-3.png">
 <meta property="og:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/exercises-1/26.1-5.png">
 <meta property="article:published_time" content="2023-10-01T11:27:56.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:14:07.168Z">
+<meta property="article:modified_time" content="2026-01-04T09:21:58.750Z">
 <meta property="article:author" content="Ujimatsu Chiya">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ujimatsu-chiya.github.io/introduction-to-algorithms/chapter-26/exercises-1/26.1-3.png">
@@ -188,7 +188,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">681</span>
+          <span class="site-state-item-count">692</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -199,7 +199,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">31</span>
+        <span class="site-state-item-count">32</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -276,7 +276,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+      <time title="修改时间：2026-01-04 17:21:58" itemprop="dateModified" datetime="2026-01-04T17:21:58+08:00">2026-01-04</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -324,8 +324,8 @@
 <p>一个串行算法的运行轨迹是看起来是一个单链表。相比于图26.2和图26.4所展示的运行轨迹，每个节点最多只有一条入边和一条出边。</p>
 <h1 id="section-1">26.1-2</h1>
 <p>相比于原来，现在<code>P-FIB</code>变成了<code>P-FIB'</code>，如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">P-FIB&#x27;(n)</span><br><span class="line">  if n &lt;= 1</span><br><span class="line">    return n</span><br><span class="line">  else </span><br><span class="line">    x = spawn P-FIB&#x27;(n − 1)</span><br><span class="line">    y = spawn P-FIB&#x27;(n − 2)</span><br><span class="line">    sync</span><br><span class="line">    return x + y</span><br></pre></td></tr></table></figure>
-<p>与原来的区别在于，父线程一进入<code>else</code>就被挂起，并且产生了两个子线程来求解<code>P-FIB'(n − 1)</code>和<code>P-FIB'(n − 2)</code>，父线程会一直等待，直到这两个线程完成执行，最终才返回计算结果。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">P-FIB&#x27;(n)</span><br><span class="line">  if n &lt;= 1</span><br><span class="line">    return n</span><br><span class="line">  else </span><br><span class="line">    x = spawn P-FIB&#x27;(n - 1)</span><br><span class="line">    y = spawn P-FIB&#x27;(n - 2)</span><br><span class="line">    sync</span><br><span class="line">    return x + y</span><br></pre></td></tr></table></figure>
+<p>与原来的区别在于，父线程一进入<code>else</code>就被挂起，并且产生了两个子线程来求解<code>P-FIB'(n - 1)</code>和<code>P-FIB'(n - 2)</code>，父线程会一直等待，直到这两个线程完成执行，最终才返回计算结果。</p>
 <p>因此，除了增加了一些线程本身的空间占用，这种做法并不会产生任何的改进，因此其渐进工作量<span
 class="math inline">\(T_1&#39;\)</span>仍然为<span
 class="math inline">\(\Theta(\phi^n)\)</span>，其持续时间仍然是<span
@@ -457,7 +457,7 @@ class="math inline">\(T_1(n)/T_{\infty}(n)=\Theta(n^2/\lg
 n)\)</span>。</p>
 <h1 id="section-8">26.1-9</h1>
 <p>也就是说，现在的程序转化为<code>P-TRANSPOSE'</code>，即：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">P-TRANSPOSE(A, n)</span><br><span class="line">  parallel for j = 2 to n</span><br><span class="line">    for i = 1 to j − 1</span><br><span class="line">      exchange a_&#123;ij&#125; with a_&#123;ji&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">P-TRANSPOSE(A, n)</span><br><span class="line">  parallel for j = 2 to n</span><br><span class="line">    for i = 1 to j - 1</span><br><span class="line">      exchange a_&#123;ij&#125; with a_&#123;ji&#125;</span><br></pre></td></tr></table></figure>
 <p>工作量和题目28.1-8的情况一样，为<span
 class="math inline">\(T_1(n)=\Theta(n^2)\)</span>。</p>
 <p>接下来求解持续时间<span
@@ -552,7 +552,7 @@ class="math inline">\(147\)</span>个处理器就能使这两个版本的算法�
 
   <div class="copyright">
     &copy; 2022 – 
-    <span itemprop="copyrightYear">2025</span>
+    <span itemprop="copyrightYear">2026</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -564,14 +564,14 @@ class="math inline">\(147\)</span>个处理器就能使这两个版本的算法�
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">1.3m</span>
+    <span title="站点总字数">1.4m</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">19:52</span>
+    <span title="站点阅读时长">20:40</span>
   </span>
 </div>
 <div class="busuanzi-count">

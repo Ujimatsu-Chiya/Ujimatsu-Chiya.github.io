@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 325">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/325/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-06T17:03:35.000Z">
+<meta property="article:modified_time" content="2026-01-06T17:03:35.290Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/325/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/325/","path":"project-euler/325/","title":"Project Euler 325"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 325 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-325"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 325</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#stone-game-ii"><span class="nav-number">1.1.1.</span> <span class="nav-text">Stone Game II</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">692</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/325/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 325 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 325
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-07 01:03:35" itemprop="dateCreated datePublished" datetime="2026-01-07T01:03:35+08:00">2026-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-325">Project Euler 325</h1>
+<h2 id="题目">题目</h2>
+<h3 id="stone-game-ii">Stone Game II</h3>
+<p>A game is played with two piles of stones and two players. On each
+player’s turn, the player may remove a number of stones from the larger
+pile. The number of stones removed must be a positive multiple of the
+number of stones in the smaller pile.</p>
+<p>E.g. Let the ordered pair <span class="math inline">\((6,14)\)</span>
+describe a configuration with <span class="math inline">\(6\)</span>
+stones in the smaller pile and <span class="math inline">\(14\)</span>
+stones in the larger pile, then the first player can remove <span
+class="math inline">\(6\)</span> or <span
+class="math inline">\(12\)</span> stones from the larger pile.</p>
+<p>The player taking all the stones from a pile wins the game.</p>
+<p>A <em>winning configuration</em> is one where the first player can
+force a win. For example, <span class="math inline">\((1,5)\)</span>,
+<span class="math inline">\((2,6)\)</span>, and <span
+class="math inline">\((3,12)\)</span> are winning configurations because
+the first player can immediately remove all stones in the second
+pile.</p>
+<p>A <em>losing configuration</em> is one where the second player can
+force a win, no matter what the first player does. For example, <span
+class="math inline">\((2,3)\)</span> and <span
+class="math inline">\((3,4)\)</span> are losing configurations: any
+legal move leaves a winning configuration for the second player.</p>
+<p>Define <span class="math inline">\(S(N)\)</span> as the sum of <span
+class="math inline">\((x_i + y_i)\)</span> for all losing configurations
+<span class="math inline">\((x_i, y_i), 0 \lt x_i \lt y_i \le
+N\)</span>.</p>
+<p>We can verify that <span class="math inline">\(S(10) = 211\)</span>
+and <span class="math inline">\(S(10^4) = 230312207313\)</span>.</p>
+<p>Find <span class="math inline">\(S(10^{16}) \bmod
+7^{10}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>局面是 <span class="math inline">\((x,y)\)</span>，满足 <span
+class="math inline">\(0&lt;x&lt;y\)</span>。一次操作：从大堆 <span
+class="math inline">\(y\)</span> 中减去 <span class="math inline">\(k
+x\)</span>，其中 <span class="math inline">\(k\ge 1\)</span> 且 <span
+class="math inline">\(k x\le y\)</span>。若减成 <span
+class="math inline">\(0\)</span> 则立刻获胜，否则重排成新的有序对 <span
+class="math inline">\((x&#39;,y&#39;)\)</span>。</p>
+<p>把 <span class="math inline">\(y\)</span> 对 <span
+class="math inline">\(x\)</span> 做除法：<span
+class="math inline">\(y=qx+s, q=\left\lfloor
+\dfrac{y}{x}\right\rfloor\ge 1, 0\le s&lt;x.\)</span></p>
+<ul>
+<li><p>若 <span class="math inline">\(s=0\)</span>（即 <span
+class="math inline">\(x\mid y\)</span>），玩家可以选 <span
+class="math inline">\(k=q\)</span> 直接把 <span
+class="math inline">\(y\)</span> 减成 <span
+class="math inline">\(0\)</span>，<strong>立刻赢</strong>。 所以所有
+<span class="math inline">\(s=0\)</span> 都是必胜态。</p></li>
+<li><p>若 <span class="math inline">\(s&gt;0\)</span>，合法的 <span
+class="math inline">\(k\)</span> 是 <span
+class="math inline">\(1,2,\dots,q\)</span>：</p>
+<ul>
+<li>选 <span class="math inline">\(k&lt;q\)</span>：新大堆仍 <span
+class="math inline">\(\ge x\)</span>，新局面变成 <span
+class="math inline">\((x,y-kx)\)</span>；</li>
+<li>选 <span class="math inline">\(k=q\)</span>：新大堆变成 <span
+class="math inline">\(s&lt;x\)</span>，重排后新局面是 <span
+class="math inline">\((s,x)\)</span>。</li>
+</ul></li>
+</ul>
+<p>可见，这就是欧几里得算法的减法版一步：不是从 <span
+class="math inline">\((x,y)\to (y\bmod
+x,x)\)</span>，而是允许先做几次减法再决定是否交换。</p>
+<p>令比值<span
+class="math inline">\(r=\dfrac{y}{x}\in(1,\infty).\)</span></p>
+<p>当 <span class="math inline">\(1&lt;r&lt;2\)</span> 时，必有 <span
+class="math inline">\(q=1\)</span>，也就是 <span
+class="math inline">\(y=x+s\)</span>（<span
+class="math inline">\(0&lt;s&lt;x\)</span>）。此时合法操作只有 <span
+class="math inline">\(k=1\)</span>，而且必然发生交换：$
+(x,x+s)(s,x).$</p>
+<p>新比值为<span
+class="math inline">\(r&#39;=\dfrac{x}{s}=\dfrac{1}{\frac{x+s}{x}-1}=\dfrac{1}{r-1}.\)</span></p>
+<p>当 <span class="math inline">\(r\in(1,2)\)</span>
+时，这一步没有任何选择：只能取走一次小堆大小，局面比值被<strong>强制变换</strong>为<span
+class="math inline">\(T(r)=\dfrac{1}{r-1}.\)</span></p>
+<p>因此在区间 <span class="math inline">\((1,2)\)</span>
+上，胜负判定完全由迭代 <span class="math inline">\(r\rightarrow
+T(r)\)</span> 的行为决定；这正是后续会出现临界点的根源（由于<span
+class="math inline">\(T(r)\)</span>在<span
+class="math inline">\((1,2)\)</span>上单调递减，临界点有且仅有一个）。另一方面，当
+<span class="math inline">\(r&gt;2\)</span> 时玩家可以选择合适的整数
+<span class="math inline">\(k\)</span> 将比值一次压回 <span
+class="math inline">\((1,2)\)</span>（或在 <span
+class="math inline">\(r\)</span>
+为整数时直接获胜），所以整个游戏的核心分析会反复落在 <span
+class="math inline">\((1,2)\)</span> 这段“被迫变换”上。</p>
+<p>我们希望存在一个临界值 <span
+class="math inline">\(\alpha\in(1,2)\)</span>，使得：</p>
+<ul>
+<li>当 <span class="math inline">\(1&lt;r&lt;\alpha\)</span>
+时，这类局面是必败（因为唯一一步把对手送到必胜区）；</li>
+<li>当 <span class="math inline">\(\alpha&lt;r&lt;2\)</span>
+时，这类局面是必胜（因为唯一一步把对手送到必败区）。</li>
+</ul>
+<p>临界值之下之所以是必败态，是因为当 <span
+class="math inline">\(r\)</span> 足够接近 <span
+class="math inline">\(1\)</span> 时，强制变换 <span
+class="math inline">\(T(r)=\dfrac{1}{r-1}\)</span>
+会变得非常大，往往直接跳出区间 <span
+class="math inline">\((1,2)\)</span>
+并落到一个明显的必胜区域（例如为整数的局面）。由于在 <span
+class="math inline">\((1,2)\)</span>
+内走法唯一，当前玩家无法避免把对手送入必胜态，因此这样的 <span
+class="math inline">\(r\)</span> 本身必然是必败态。</p>
+<p>在 <span class="math inline">\((1,2)\)</span>
+内只有一步可走，所以“必败/必胜”要靠 <span
+class="math inline">\(T\)</span> 的去向来切分。最自然的“分界点”就是
+<strong><span class="math inline">\(T\)</span> 把它映回自己</strong>
+的点：如果 <span class="math inline">\(r=\alpha\)</span> 时 <span
+class="math inline">\(T(r)=r\)</span>，那么 <span
+class="math inline">\(T\)</span> 在该点两侧一定把区间对换（因为 <span
+class="math inline">\(T\)</span> 在 <span
+class="math inline">\((1,2)\)</span> 上严格递减且连续）。</p>
+<p>于是令<span class="math inline">\(\alpha =
+T(\alpha)=\dfrac{1}{\alpha-1}.\)</span>解得<span
+class="math inline">\(\alpha=\dfrac{1+\sqrt5}{2}\)</span>。这就是黄金比例
+<span class="math inline">\(\varphi\)</span>。</p>
+<p>并且因为 <span class="math inline">\(T\)</span> 在 <span
+class="math inline">\((1,2)\)</span> 上递减，且 <span
+class="math inline">\(T(\varphi)=\varphi\)</span>，立刻得到：</p>
+<ul>
+<li>若 <span class="math inline">\(1&lt;r&lt;\varphi\)</span>，则 <span
+class="math inline">\(T(r)&gt;\varphi\)</span>；</li>
+<li>若 <span class="math inline">\(\varphi&lt;r&lt;2\)</span>，则 <span
+class="math inline">\(T(r)&lt;\varphi\)</span>。</li>
+</ul>
+<p>因此在 <span class="math inline">\((1,2)\)</span>
+内的输赢已经被迫确定为：当 <span
+class="math inline">\(1&lt;\dfrac{y}{x}&lt;\varphi\)</span> 时必败；当
+<span class="math inline">\(\varphi&lt;\dfrac{y}{x}&lt;2\)</span>
+时必胜。</p>
+<p>接下来证明 <strong>全局定理</strong>：</p>
+<p>对任意整数局面 <span class="math inline">\((x,y)\)</span>（<span
+class="math inline">\(0&lt;x&lt;y\)</span>），它是必败态当且仅当<span
+class="math inline">\(\dfrac{y}{x}&lt;\varphi\)</span>。</p>
+<p>当<span class="math inline">\(q=1\)</span>，即<span
+class="math inline">\(r\in (1,2)\)</span>时，可见</p>
+<ul>
+<li>若 <span class="math inline">\(r&lt;\varphi\)</span>，唯一一步到
+<span
+class="math inline">\(T(r)&gt;\varphi\)</span>（对手必胜），所以当前必败；</li>
+<li>若 <span class="math inline">\(r&gt;\varphi\)</span>，唯一一步到
+<span
+class="math inline">\(T(r)&lt;\varphi\)</span>（对手必败），所以当前必胜。</li>
+</ul>
+<p>当<span class="math inline">\(q\ge 2\)</span>，即 <span
+class="math inline">\(r\ge 2\)</span>时，可以写成<span
+class="math inline">\(y=qx+s, q\ge 2,0&lt;s&lt;x,
+r=q+\dfrac{s}{x}.\)</span></p>
+<p>我们将展示：<strong>总能一步走到必败区 <span
+class="math inline">\(y&#39;&lt;\varphi x&#39;\)</span></strong>。</p>
+<p>注意 <span class="math inline">\(\varphi\)</span> 满足<span
+class="math inline">\(\varphi-1=\frac{1}{\varphi}.\)</span></p>
+<p>那么有两种候选走法：</p>
+<ol type="1">
+<li><p>选 <span class="math inline">\(k=q-1\)</span>，新局面为 <span
+class="math inline">\((x,x+s)\)</span>（因为 <span
+class="math inline">\(y-(q-1)x=x+s\)</span> 且仍 <span
+class="math inline">\(\ge x\)</span>），新比值<span
+class="math inline">\(r_1=\dfrac{x+s}{x}=1+\dfrac{s}{x}.\)</span>
+它落入必败区当且仅当<span
+class="math inline">\(1+\dfrac{s}{x}&lt;\varphi\Longleftrightarrow\dfrac{s}{x}&lt;\varphi-1=\dfrac{1}{\varphi}\Longleftrightarrow
+s&lt;\dfrac{x}{\varphi}.\)</span></p></li>
+<li><p>选 <span class="math inline">\(k=q\)</span>，新局面为 <span
+class="math inline">\((s,x)\)</span>（交换），新比值<span
+class="math inline">\(r_2=\dfrac{x}{s}.\)</span>它落入必败区当且仅当<span
+class="math inline">\(\dfrac{x}{s}&lt;\varphi\Longleftrightarrow
+s&gt;\dfrac{x}{\varphi}.\)</span></p></li>
+</ol>
+<p>因为 <span class="math inline">\(\varphi\)</span> 无理数，<span
+class="math inline">\(s\)</span> 不可能恰好等于 <span
+class="math inline">\(\dfrac{x}{\varphi}\)</span>，所以上述两条件必有一个成立：</p>
+<ul>
+<li>若 <span
+class="math inline">\(s&lt;\dfrac{x}{\varphi}\)</span>，走法 1
+直接送入必败区；</li>
+<li>若 <span
+class="math inline">\(s&gt;\dfrac{x}{\varphi}\)</span>，走法 2
+直接送入必败区。</li>
+</ul>
+<p>因此所有 <span class="math inline">\(q\ge 2\)</span>
+的局面都是必胜态。</p>
+<p>综上，全局定理成立：</p>
+<ul>
+<li><span class="math inline">\(y&lt;\varphi x\)</span>（且 <span
+class="math inline">\(y&gt;x\)</span>）必败；</li>
+<li><span class="math inline">\(y&gt;\varphi x\)</span> 必胜；</li>
+<li><span class="math inline">\(x\mid y\)</span> 也必胜（是 <span
+class="math inline">\(y&gt;\varphi x\)</span>
+的特例之外，但不冲突）。</li>
+</ul>
+<hr />
+<p>令<span class="math inline">\(N=10^{16}\)</span>，那么必败态满足<span
+class="math inline">\(x&lt;y\le N, y&lt;\varphi x.\)</span></p>
+<p>对每个 <span class="math inline">\(x\)</span>，可取的 <span
+class="math inline">\(y\)</span> 是<span
+class="math inline">\(x+1,\dots,\min(N,\lfloor \varphi
+x\rfloor).\)</span>令<span class="math inline">\(U_x=\min(N,\lfloor
+\varphi x\rfloor).\)</span></p>
+<p>则<span
+class="math inline">\(S\displaystyle{(N)=\sum_{x=1}^{N-1}\sum_{y=x+1}^{U_x}
+(x+y).}\)</span></p>
+<p>设<span
+class="math inline">\(K=\left\lfloor\dfrac{N}{\varphi}\right\rfloor.\)</span>当
+<span class="math inline">\(x\le K\)</span> 时 <span
+class="math inline">\(\lfloor\varphi x\rfloor\le N\)</span>，所以 <span
+class="math inline">\(U_x=\lfloor\varphi x\rfloor\)</span>；当 <span
+class="math inline">\(x&gt;K\)</span> 时 <span
+class="math inline">\(U_x=N\)</span>。</p>
+<p>于是<span
+class="math inline">\(\displaystyle{S(N)=S_1+S_2,S_1=\sum_{x=1}^{K}\sum_{y=x+1}^{\lfloor\varphi
+x\rfloor} (x+y),S_2=\sum_{x=K+1}^{N-1}\sum_{y=x+1}^{N}
+(x+y).}\)</span>化简后得：</p>
+<p><span
+class="math display">\[S_2=\dfrac{(N-K-1)(N-K)(N+K+1)}{2}.\]</span></p>
+<p>接下来计算<span class="math inline">\(S_1\)</span>。利用 <span
+class="math inline">\(\varphi^2=\varphi+1\)</span> 得<span
+class="math inline">\(\lfloor\varphi x\rfloor=\left\lfloor
+x+\dfrac{x}{\varphi}\right\rfloor=
+x+\left\lfloor\dfrac{x}{\varphi}\right\rfloor.\)</span></p>
+<p>记<span
+class="math inline">\(t_x=\left\lfloor\dfrac{x}{\varphi}\right\rfloor.\)</span>则对
+<span class="math inline">\(x\le K\)</span>，<span
+class="math inline">\(y\)</span> 从 <span
+class="math inline">\(x+1\)</span> 到 <span
+class="math inline">\(x+t_x\)</span>，共有 <span
+class="math inline">\(t_x\)</span> 项：<span
+class="math inline">\(\displaystyle{\sum_{y=x+1}^{x+t_x}(x+y)=\frac{t_x(4x+t_x+1)}{2}=\frac{4xt_x+t_x^2+t_x}{2}.}\)</span></p>
+<p>因此</p>
+<p><span class="math display">\[
+S_1=\sum_{x=1}^{K}\frac{4xt_x+t_x^2+t_x}{2}=2\sum_{x=1}^{K}x
+t_x+\frac12\sum_{x=1}^{K}(t_x^2+t_x).
+\]</span></p>
+<p>所以只要能快速计算<span
+class="math inline">\(\displaystyle{F(K)=\sum_{x=1}^{K}
+t_x,V(K)=\sum_{x=1}^{K} x t_x,U(K)=\sum_{x=1}^{K}
+t_x^2}\)</span>，就有<span
+class="math inline">\(S_1=2V(K)+\dfrac{U(K)+F(K)}{2}.\)</span></p>
+<p>定义<span
+class="math inline">\(g(n)=\left\lfloor\dfrac{n+1}{\varphi}\right\rfloor.\)</span>（在
+<a target="_blank" rel="noopener" href="https://oeis.org/A005206">OEIS A005206</a> 中，<span
+class="math inline">\(g\)</span> 与Zeckendorf
+右移是同一个对象的等价描述。则<span
+class="math inline">\(t_x=g(x-1)\)</span>。</p>
+<p>于是</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;F(K)=\sum_{x=1}^{K}t_x=\sum_{i=0}^{K-1}g(i),\\
+&amp;U(K)=\sum_{i=0}^{K-1}g(i)^2,\\
+&amp;V(K)=\sum_{x=1}^{K}xg(x-1)=\sum_{i=0}^{K-1}(i+1)g(i)=\sum_{i=0}^{K-1}i
+g(i)+\sum_{i=0}^{K-1}g(i).
+\end{aligned}\]</span></p>
+<p>因此只要能求</p>
+<p><span class="math display">\[
+G(n)=\sum_{i=0}^{n}g(i),
+H(n)=\sum_{i=0}^{n} g(i),
+Q(n)=\sum_{i=0}^{n} g(i)^2,
+\]</span></p>
+<p>就有</p>
+<p><span class="math display">\[
+F(K)=G(K-1),
+U(K)=Q(K-1),
+V(K)=H(K-1)+G(K-1).
+\]</span></p>
+<p>接下来开始用的是“黄金比的 Beatty/Zeckendorf
+对应性质”的一个非常实用形式：</p>
+<p>取 Zeckendorf 用的斐波那契数列 <span
+class="math inline">\(F_0=1;F_1=2;F_{k}=F_{k-1}+F_{k-2} (k\ge
+2).\)</span></p>
+<p>在第297题，我们介绍过<strong>Zeckendorf 定理</strong>：任意正整数
+<span class="math inline">\(n\)</span> 可唯一写成若干个互不相邻的 <span
+class="math inline">\(F_k\)</span> 之和。</p>
+<p>对函数 <span
+class="math inline">\(g(n)=\left\lfloor\dfrac{n+1}{\varphi}\right\rfloor\)</span>，有下面的性质：</p>
+<p>若 <span class="math inline">\(F_k\le n&lt; F_{k+1}\)</span>，令
+<span class="math inline">\(n=F_k+r\)</span>，则 Zeckendorf 保证 <span
+class="math inline">\(0\le r &lt; F_{k-1}\)</span>，因此在 Zeckendorf
+表示里，<span class="math inline">\(F_k\)</span> 这一项不会和 <span
+class="math inline">\(r\)</span> 的表示发生“相邻冲突/进位合并”（<span
+class="math inline">\(r\)</span> 只能用到 <span
+class="math inline">\(F_{k-2}\)</span> 及更小的项）。因此<span
+class="math inline">\(n\)</span>的Zeckendorf 表示为<span
+class="math inline">\(\displaystyle{n = F_k + \sum_j F_{i_j}, i_j\le
+k-2.}\)</span></p>
+<p>那么对 Zeckendorf 表示做右移就得到<span
+class="math inline">\(\displaystyle{g(n)=F_{k-1}+\sum_j
+F_{i_j-1}=F_{k-1}+g(r)}\)</span>，即<span
+class="math inline">\(g(F_k+r)=F_{k-1}+g(r)\)</span>。</p>
+<p>设 <span class="math inline">\(n=F_k+r\)</span>（<span
+class="math inline">\(0\le r&lt;F_{k-1}\)</span>）。区间 <span
+class="math inline">\([0,n]\)</span> 分成两段：</p>
+<ul>
+<li><span
+class="math inline">\([0,F_k-1]\)</span>：这是一个“整块端点”，我们可以预处理其
+<span class="math inline">\(G,H,Q\)</span>；</li>
+<li><span class="math inline">\([F_k,F_k+r]\)</span>：写成 <span
+class="math inline">\(F_k+j\)</span>（<span class="math inline">\(0\le
+j\le r\)</span>），用性质 <span
+class="math inline">\(g(F_k+j)=F_{k-1}+g(j)\)</span> 逐项展开。</li>
+</ul>
+<p>于是，为计算 <span
+class="math inline">\(\displaystyle{G(n)=\sum_{i=0}^n
+g(i)}\)</span>，那么有：</p>
+<p><span class="math display">\[
+\sum_{j=0}^r g(F_k+j)=\sum_{j=0}^rl(F_{k-1}+g(j)r)=(r+1)F_{k-1}+G(r),
+\]</span></p>
+<p>所以有关于<span class="math inline">\(G\)</span>的递推式：</p>
+<p><span class="math display">\[
+G(n)=G(F_k-1)+(r+1)F_{k-1}+G(r).
+\]</span></p>
+<p>为计算 <span class="math inline">\(\displaystyle{H(n)=\sum_{i=0}^n i
+g(i)}\)</span>，那么对 <span
+class="math inline">\(i=F_k+j\)</span>：有<span class="math inline">\(i
+g(i)=(F_k+j)(F_{k-1}+g(j))=F_kF_{k-1}+F_k g(j)+jF_{k-1}+j
+g(j).\)</span></p>
+<p>求和得</p>
+<p><span class="math display">\[
+\sum_{j=0}^r i g(i)
+=(r+1)F_kF_{k-1}+F_k G(r)+F_{k-1}\frac{r(r+1)}{2}+H(r),
+\]</span></p>
+<p>所以有关于<span class="math inline">\(H\)</span>的递推式：</p>
+<p><span class="math display">\[
+H(n)=H(F_k-1)+(r+1)F_kF_{k-1}+F_k G(r)+F_{k-1}\frac{r(r+1)}{2}+H(r).
+\]</span></p>
+<p>为计算 <span class="math inline">\(\displaystyle{Q(n)=\sum_{i=0}^n
+g(i)^2}\)</span>，那么<span
+class="math inline">\(\displaystyle{g(F_k+j)^2=(F_{k-1}+g(j))^2=F_{k-1}^2+2F_{k-1}g(j)+g(j)^2.}\)</span></p>
+<p>求和得</p>
+<p><span class="math display">\[
+\sum_{j=0}^r g(F_k+j)^2=(r+1)F_{k-1}^2+2F_{k-1}G(r)+Q(r),
+\]</span></p>
+<p>所以有关于<span class="math inline">\(Q\)</span>的递推式：</p>
+<p><span class="math display">\[
+Q(n)=Q(F_k-1)+(r+1)F_{k-1}^2+2F_{k-1}G(r)+Q(r).
+\]</span></p>
+<p>把 <span class="math inline">\(F_k-1\)</span> 自身再按 <span
+class="math inline">\(F_k=F_{k-1}+F_{k-2}\)</span>
+分段，就能得到端点数组 <span
+class="math inline">\(G(F_k-1),H(F_k-1),Q(F_k-1)\)</span> 的递推。</p>
+<p>令<span class="math inline">\(G_k=G(F_k-1), H_k=H(F_k-1),
+Q_k=Q(F_k-1).\)</span>把 <span
+class="math inline">\([0,F_k-1]\)</span>拆成两段：<span
+class="math inline">\([0,F_k-1]=[0,F_{k-1}-1] \cup
+[F_{k-1},F_k-1].\)</span></p>
+<p>那么计算递推 <span class="math inline">\(G_k\)</span>时，第二段用
+<span class="math inline">\(n=F_{k-1}+r\)</span>：</p>
+<p><span class="math display">\[\sum_{n=F_{k-1}}^{F_k-1}
+g(n)=\sum_{r=0}^{F_{k-2}-1}(F_{k-2}+g(r))=F_{k-2}^2+G(F_{k-2}-1).\]</span></p>
+<p>所以</p>
+<p><span class="math display">\[
+G_k=G_{k-1}+G_{k-2}+F_{k-2}^2.
+\]</span></p>
+<p>那么计算递推 <span
+class="math inline">\(Q_k\)</span>时，也是类似的：</p>
+<p><span class="math display">\[
+\sum_{n=F_{k-1}}^{F_k-1} g(n)^2
+=\sum_{r=0}^{F_{k-2}-1}l(F_{k-2}+g(r)r)^2
+=\sum_{r=0}^{F_{k-2}-1}(F_{k-2}^2+2F_{k-2}g(r)+g(r)^2).
+\]</span></p>
+<p>于是</p>
+<p><span class="math display">\[
+\sum_{n=F_{k-1}}^{F_k-1} g(n)^2
+=F_{k-2}\cdot F_{k-2}^2 + 2F_{k-2}G_{k-2}+Q_{k-2}
+=F_{k-2}^3+2F_{k-2}G_{k-2}+Q_{k-2}.
+\]</span></p>
+<p>计算递推 <span class="math inline">\(H_k\)</span>时，有：</p>
+<p>第二段： <span class="math display">\[
+\begin{aligned}
+    \sum_{n=F_{k-1}}^{F_k-1} ng(n)&amp;=\sum_{r=0}^{F_{k-2}-1}
+(F_{k-1}+r)(F_{k-2}+g(r))\\
+    &amp;=\left[F_{k-2}\sum_{r=0}^{F_{k-2}-1}(F_{k-1}+r)\right] +
+\left[\sum_{r=0}^{F_{k-2}-1}(F_{k-1}+r)g(r)\right]\\
+    &amp;=\left[F_{k-2}^2F_{k-1}+\frac{F_{k-2}^2(F_{k-2}-1)}{2}\right] +
+\left[F_{k-1}G_{k-2}+H_{k-2}\right]\\
+    &amp;=F_{k-2}^2F_{k-1}+\frac{F_{k-2}^2(F_{k-2}-1)}{2}+F_{k-1}G_{k-2}+H_{k-2}.
+\end{aligned}
+\]</span></p>
+<p>因此 <span
+class="math display">\[H_k=H_{k-1}+H_{k-2}+F_{k-1}G_{k-2}+F_{k-2}^2F_{k-1}+\frac{F_{k-2}^2(F_{k-2}-1)}{2}.\]</span></p>
+<p>自此所有递推完成计算过程已经完成。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bisect <span class="keyword">import</span> bisect_right</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># Project Euler 325: Stone Game II</span></span><br><span class="line"><span class="comment"># 目标：计算 S(10^16) mod 7^10</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">16</span></span><br><span class="line">MOD = <span class="number">7</span>**<span class="number">10</span>  <span class="comment"># 282475249</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 1) Zeckendorf 用 Fibonacci 序列：F0=1, F1=2, Fk=Fk-1+Fk-2</span></span><br><span class="line"><span class="comment">#    这套序列的特点：任何正整数都有唯一的“非相邻表示”</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_fibs</span>(<span class="params">limit: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    构造 Zeckendorf 用的 Fibonacci：</span></span><br><span class="line"><span class="string">      fib[0]=1, fib[1]=2, fib[k]=fib[k-1]+fib[k-2]</span></span><br><span class="line"><span class="string">    直到 fib[-1] &gt; limit 为止（保证覆盖分解需要）。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    fib = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">    <span class="keyword">while</span> fib[-<span class="number">1</span>] &lt;= limit:</span><br><span class="line">        fib.append(fib[-<span class="number">1</span>] + fib[-<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">return</span> fib</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 2) 关键函数 g(n) = floor((n+1)/phi) 的“Zeckendorf 右移”计算</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    性质：若 n = sum fib[i_j]（无相邻），则</span></span><br><span class="line"><span class="comment">#      g(n) = sum shift(fib[i_j])</span></span><br><span class="line"><span class="comment">#    其中 shift(fib[k]) = fib[k-1]，并且约定 shift(fib[0]=1) = 1。</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    这允许完全不用浮点数（避免 sqrt5/phi 的精度问题）。</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">g_zeck</span>(<span class="params">n: <span class="built_in">int</span>, fib</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    返回 g(n) = floor((n+1)/phi)，用 Zeckendorf 表示右移实现。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> n &lt; <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    rem = n</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    k = bisect_right(fib, n) - <span class="number">1</span>  <span class="comment"># 最大 fib[k] &lt;= n</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 贪心取 Zeckendorf：取了 fib[k] 后下一项不能取 fib[k-1]，所以 k -= 2</span></span><br><span class="line">    <span class="keyword">while</span> k &gt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> fib[k] &lt;= rem:</span><br><span class="line">            rem -= fib[k]</span><br><span class="line">            <span class="comment"># shift：fib[k] -&gt; fib[k-1]；k==0 时约定 shift(1)=1</span></span><br><span class="line">            ans += fib[k - <span class="number">1</span>] <span class="keyword">if</span> k &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">            k -= <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            k -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 3) 三个前缀和：</span></span><br><span class="line"><span class="comment">#    G(n) = sum_&#123;i=0..n&#125; g(i)</span></span><br><span class="line"><span class="comment">#    H(n) = sum_&#123;i=0..n&#125; i*g(i)</span></span><br><span class="line"><span class="comment">#    Q(n) = sum_&#123;i=0..n&#125; g(i)^2</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    对 n=F_k + r (0&lt;=r&lt;F_&#123;k-1&#125;) 有递推：</span></span><br><span class="line"><span class="comment">#      g(F_k+j) = F_&#123;k-1&#125; + g(j)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    从而：</span></span><br><span class="line"><span class="comment">#      G(n)=G(F_k-1) + (r+1)*F_&#123;k-1&#125; + G(r)</span></span><br><span class="line"><span class="comment">#      H(n)=H(F_k-1) + (r+1)*F_k*F_&#123;k-1&#125; + F_k*G(r) + F_&#123;k-1&#125;*r(r+1)/2 + H(r)</span></span><br><span class="line"><span class="comment">#      Q(n)=Q(F_k-1) + (r+1)*F_&#123;k-1&#125;^2 + 2F_&#123;k-1&#125;*G(r) + Q(r)</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment">#    所以需要预处理端点：</span></span><br><span class="line"><span class="comment">#      G_end[k]=G(F_k-1), H_end[k]=H(F_k-1), Q_end[k]=Q(F_k-1)</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">precompute_endpoints</span>(<span class="params">fib</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    预处理 G(F_k-1), H(F_k-1), Q(F_k-1)。</span></span><br><span class="line"><span class="string">    用 fib[k]=fib[k-1]+fib[k-2] 分段：</span></span><br><span class="line"><span class="string">      [0..F_&#123;k-1&#125;-1] 与 [F_&#123;k-1&#125;..F_k-1]</span></span><br><span class="line"><span class="string">    后一段用同样的 g(F_&#123;k-1&#125;+j)=F_&#123;k-2&#125;+g(j) 展开即可。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    m = <span class="built_in">len</span>(fib)</span><br><span class="line">    G_end = [<span class="number">0</span>] * m</span><br><span class="line">    H_end = [<span class="number">0</span>] * m</span><br><span class="line">    Q_end = [<span class="number">0</span>] * m</span><br><span class="line"></span><br><span class="line">    <span class="comment"># k=0: F_0=1 =&gt; n=0，仅 g(0)=floor(1/phi)=0</span></span><br><span class="line">    G_end[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    H_end[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">    Q_end[<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># k=1: F_1=2 =&gt; n=1，g(0)=0, g(1)=floor(2/phi)=1</span></span><br><span class="line">    G_end[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    H_end[<span class="number">1</span>] = <span class="number">1</span>   <span class="comment"># 0*g(0) + 1*g(1) = 1</span></span><br><span class="line">    Q_end[<span class="number">1</span>] = <span class="number">1</span>   <span class="comment"># g(0)^2 + g(1)^2 = 1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, m):</span><br><span class="line">        <span class="comment"># 记 A=F_&#123;k-1&#125;, B=F_&#123;k-2&#125;, 且 F_k = A + B</span></span><br><span class="line">        A = fib[k - <span class="number">1</span>]</span><br><span class="line">        B = fib[k - <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># G: 后一段长度 B，每项多了常数 B（因为 shift 后是 F_&#123;k-2&#125;=B）</span></span><br><span class="line">        <span class="comment"># Σ_&#123;j=0..B-1&#125; (B + g(j)) = B*B + G_end[k-2]</span></span><br><span class="line">        G_end[k] = G_end[k - <span class="number">1</span>] + B * B + G_end[k - <span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># H: Σ (A+j)*(B+g(j))</span></span><br><span class="line">        <span class="comment"># = B*Σ(A+j) + A*Σ g(j) + Σ j g(j)</span></span><br><span class="line">        <span class="comment"># Σ(A+j)=B*A + B(B-1)/2</span></span><br><span class="line">        segH = (</span><br><span class="line">            B * (B * A + B * (B - <span class="number">1</span>) // <span class="number">2</span>)</span><br><span class="line">            + A * G_end[k - <span class="number">2</span>]</span><br><span class="line">            + H_end[k - <span class="number">2</span>]</span><br><span class="line">        )</span><br><span class="line">        H_end[k] = H_end[k - <span class="number">1</span>] + segH</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Q: Σ (B+g(j))^2 = Σ(B^2 + 2B g(j) + g(j)^2)</span></span><br><span class="line">        segQ = B * B * B + <span class="number">2</span> * B * G_end[k - <span class="number">2</span>] + Q_end[k - <span class="number">2</span>]</span><br><span class="line">        Q_end[k] = Q_end[k - <span class="number">1</span>] + segQ</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> G_end, H_end, Q_end</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">make_GHQ</span>(<span class="params">limit: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    构造 fib，并返回一个可在 O(log n) 求 (G(n),H(n),Q(n)) 的函数。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    fib = build_fibs(limit)</span><br><span class="line">    G_end, H_end, Q_end = precompute_endpoints(fib)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">shift_value</span>(<span class="params">k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 对应 g(F_k + r) = shift(F_k) + g(r)</span></span><br><span class="line">        <span class="comment"># shift(F_0=1)=1，其余 shift(F_k)=F_&#123;k-1&#125;</span></span><br><span class="line">        <span class="keyword">return</span> fib[k - <span class="number">1</span>] <span class="keyword">if</span> k &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @lru_cache(<span class="params">maxsize=<span class="literal">None</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">GHQ</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">        返回 (G(n), H(n), Q(n))，其中：</span></span><br><span class="line"><span class="string">          G(n)=Σ_&#123;i=0..n&#125; g(i)</span></span><br><span class="line"><span class="string">          H(n)=Σ_&#123;i=0..n&#125; i g(i)</span></span><br><span class="line"><span class="string">          Q(n)=Σ_&#123;i=0..n&#125; g(i)^2</span></span><br><span class="line"><span class="string">        &quot;&quot;&quot;</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># n=0 时 g(0)=0，所以三个都是 0</span></span><br><span class="line">            <span class="keyword">return</span> (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        k = bisect_right(fib, n) - <span class="number">1</span>      <span class="comment"># 最大 F_k &lt;= n</span></span><br><span class="line">        r = n - fib[k]                    <span class="comment"># n = F_k + r，且 0&lt;=r&lt;F_&#123;k-1&#125;</span></span><br><span class="line">        Gr, Hr, Qr = GHQ(r)</span><br><span class="line">        s = shift_value(k)                <span class="comment"># s = shift(F_k)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># G(n)=G(F_k-1) + (r+1)*s + G(r)</span></span><br><span class="line">        G = G_end[k] + (r + <span class="number">1</span>) * s + Gr</span><br><span class="line"></span><br><span class="line">        <span class="comment"># H(n)=H(F_k-1)</span></span><br><span class="line">        <span class="comment">#     + Σ_&#123;j=0..r&#125;(F_k+j)*(s+g(j))</span></span><br><span class="line">        <span class="comment">#     = H_end[k] + (r+1)*F_k*s + F_k*G(r) + s*Σj + H(r)</span></span><br><span class="line">        H = (</span><br><span class="line">            H_end[k]</span><br><span class="line">            + (r + <span class="number">1</span>) * fib[k] * s</span><br><span class="line">            + fib[k] * Gr</span><br><span class="line">            + s * (r * (r + <span class="number">1</span>) // <span class="number">2</span>)</span><br><span class="line">            + Hr</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Q(n)=Q(F_k-1) + (r+1)*s^2 + 2s*G(r) + Q(r)</span></span><br><span class="line">        Q = Q_end[k] + (r + <span class="number">1</span>) * s * s + <span class="number">2</span> * s * Gr + Qr</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> (G, H, Q)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> fib, GHQ</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 4) S2 的 O(1) 求和辅助：区间和与平方和</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_range</span>(<span class="params">a: <span class="built_in">int</span>, b: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Σ_&#123;x=a..b&#125; x&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> (a + b) * (b - a + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sumsq_range</span>(<span class="params">a: <span class="built_in">int</span>, b: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;Σ_&#123;x=a..b&#125; x^2&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">S2</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">return</span> n * (n + <span class="number">1</span>) * (<span class="number">2</span> * n + <span class="number">1</span>) // <span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> S2(b) - S2(a - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 5) 计算 S(N)</span></span><br><span class="line"><span class="comment">#    1) K = floor(N/phi) = g(N-1)</span></span><br><span class="line"><span class="comment">#    2) 用 GHQ 得到 G,H,Q，从而得到 F,FM,FF</span></span><br><span class="line"><span class="comment">#    3) S1 = 2*FM + (FF+F)/2</span></span><br><span class="line"><span class="comment">#    4) S2 用闭式</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">S</span>(<span class="params">N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># GHQ 的 fib 需要覆盖到 N 的量级即可</span></span><br><span class="line">    fib, GHQ = make_GHQ(N + <span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># K = floor(N/phi) = g(N-1)</span></span><br><span class="line">    K = g_zeck(N - <span class="number">1</span>, fib)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># t_x = floor(x/phi) = g(x-1)</span></span><br><span class="line">    <span class="comment"># F(K)=Σ_&#123;x=1..K&#125; t_x = Σ_&#123;i=0..K-1&#125; g(i) = G(K-1)</span></span><br><span class="line">    <span class="comment"># FM(K)=Σ x t_x = Σ (i+1)g(i) = H(K-1)+G(K-1)</span></span><br><span class="line">    <span class="comment"># FF(K)=Σ t_x^2 = Σ g(i)^2 = Q(K-1)</span></span><br><span class="line">    Gk, Hk, Qk = GHQ(K - <span class="number">1</span>)</span><br><span class="line">    F = Gk</span><br><span class="line">    FM = Hk + Gk</span><br><span class="line">    FF = Qk</span><br><span class="line"></span><br><span class="line">    <span class="comment"># S1 = Σ_&#123;x=1..K&#125; (4x t_x + t_x^2 + t_x)/2</span></span><br><span class="line">    S1 = <span class="number">2</span> * FM + (FF + F) // <span class="number">2</span></span><br><span class="line">    S2 = (N - K - <span class="number">1</span>) * (N - K) * (N + K + <span class="number">1</span>) // <span class="number">2</span> % MOD</span><br><span class="line">    <span class="keyword">return</span> (S1 + S2) % MOD</span><br><span class="line"></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"><span class="comment"># 6) 输出题目要求：S(10^16) mod 7^10</span></span><br><span class="line"><span class="comment"># ------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line">ans = S(N) % MOD</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/325/" title="Project Euler 325">https://ujimatsu-chiya.github.io/project-euler/325/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.4m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20:40</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

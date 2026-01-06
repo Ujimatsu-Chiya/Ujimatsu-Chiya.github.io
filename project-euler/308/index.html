@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="&lt;– more –&gt; Project Euler 308 题目 An amazing Prime-generating Automaton A program written in the programming language Fractran consists of a list of fractions. The internal state of the Fra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 308">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/308/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:description" content="&lt;– more –&gt; Project Euler 308 题目 An amazing Prime-generating Automaton A program written in the programming language Fractran consists of a list of fractions. The internal state of the Fra">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-06T17:03:10.000Z">
+<meta property="article:modified_time" content="2026-01-06T17:03:10.645Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/308/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/308/","path":"project-euler/308/","title":"Project Euler 308"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 308 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-308"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 308</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#an-amazing-prime-generating-automaton"><span class="nav-number">1.1.1.</span> <span class="nav-text">An amazing
+Prime-generating Automaton</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-s0%E6%97%A0%E6%A0%87%E8%AE%B0e4e5e6e70"><span class="nav-number">1.2.1.</span> <span class="nav-text">状态 \(S0\)（无标记：e[4]&#x3D;e[5]&#x3D;e[6]&#x3D;e[7]&#x3D;0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-s11e41"><span class="nav-number">1.2.2.</span> <span class="nav-text">状态 \(S11\)（e[4]&#x3D;1）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-s13e51"><span class="nav-number">1.2.3.</span> <span class="nav-text">状态 \(S13\)（e[5]&#x3D;1）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-s17e61"><span class="nav-number">1.2.4.</span> <span class="nav-text">状态 \(S17\)（e[6]&#x3D;1）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81-s19e71"><span class="nav-number">1.2.5.</span> <span class="nav-text">状态 \(S19\)（e[7]&#x3D;1）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">692</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/308/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 308 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 308
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-07 01:03:10" itemprop="dateCreated datePublished" datetime="2026-01-07T01:03:10+08:00">2026-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape>&lt;– more –&gt;</escape></p>
+<h1 id="project-euler-308">Project Euler 308</h1>
+<h2 id="题目">题目</h2>
+<h3 id="an-amazing-prime-generating-automaton">An amazing
+Prime-generating Automaton</h3>
+<p>A program written in the programming language Fractran consists of a
+list of fractions.</p>
+<p>The internal state of the Fractran Virtual Machine is a positive
+integer, which is initially set to a seed value. Each iteration of a
+Fractran program multiplies the state integer by the first fraction in
+the list which will leave it an integer.</p>
+<p>For example, one of the Fractran programs that John Horton Conway
+wrote for prime-generation consists of the following <span
+class="math inline">\(14\)</span> fractions:</p>
+<p><span class="math inline">\(\dfrac{17}{91}, \dfrac{78}{85},
+\dfrac{19}{51}, \dfrac{23}{38}, \dfrac{29}{33}, \dfrac{77}{29},
+\dfrac{95}{23}, \dfrac{77}{19}, \dfrac{1}{17}, \dfrac{11}{13},
+\dfrac{13}{11}, \dfrac{15}{2}, \dfrac{1}{7}, \dfrac{55}{1}\)</span></p>
+<p>Starting with the seed integer <span
+class="math inline">\(2\)</span>, successive iterations of the program
+produce the sequence:</p>
+<p><span class="math inline">\(15, 825, 725, 1925, 2275, 425, \dots, 68,
+\mathbf{4}, 30, \dots, 136, \mathbf{8}, 60, \dots, 544, \mathbf{32},
+240, \dots\)</span></p>
+<p>The powers of <span class="math inline">\(2\)</span> that appear in
+this sequence are <span class="math inline">\(2^2, 2^3, 2^5,
+\dots\)</span></p>
+<p>It can be shown that <em>all</em> the powers of <span
+class="math inline">\(2\)</span> in this sequence have prime exponents
+and that <em>all</em> the primes appear as exponents of powers of <span
+class="math inline">\(2\)</span>, in proper order!</p>
+<p>If someone uses the above Fractran program to solve Project Euler
+Problem 7 (find the <span class="math inline">\(10001^\text{st}\)</span>
+prime), how many iterations would be needed until the program produces
+<span class="math inline">\(2^{10001\text{st prime}}\)</span> ?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>FRACTRAN 的关键技巧在于：把当前整数写成素因子分解<span
+class="math inline">\(\displaystyle{N = \prod_{i=1}^t
+p_i^{e_i}.}\)</span>乘以一个分数等价于对若干 <span
+class="math inline">\(e_i\)</span>
+做加减；而“能否整除”只取决于分母所需的素因子指数是否足够。</p>
+<p>因此我们把指数统一存进长度为 10
+的数组<code>e[10]={e[0],e[1],...,e[9]}</code></p>
+<p>因此，每一步按顺序找第一条满足条件的规则，执行其更新。</p>
+<ol type="1">
+<li><p><span class="math inline">\(\dfrac{17}{91}=\dfrac{17}{7\cdot
+13}\)</span></p>
+<ul>
+<li>条件：<code>e[3] &gt;= 1 and e[5] &gt;= 1</code></li>
+<li>更新：<code>e[3] -= 1, e[5] -= 1, e[6] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{78}{85}=\dfrac{2\cdot 3\cdot
+13}{5\cdot 17}\)</span></p>
+<ul>
+<li>条件：<code>e[2] &gt;= 1 and e[6] &gt;= 1</code></li>
+<li>更新：<code>e[2] -= 1, e[6] -= 1, e[0] += 1, e[1] += 1, e[5] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{19}{51}=\dfrac{19}{3\cdot
+17}\)</span></p>
+<ul>
+<li>条件：<code>e[1] &gt;= 1 and e[6] &gt;= 1</code></li>
+<li>更新：<code>e[1] -= 1, e[6] -= 1, e[7] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{23}{38}=\dfrac{23}{2\cdot
+19}\)</span></p>
+<ul>
+<li>条件：<code>e[0] &gt;= 1 and e[7] &gt;= 1</code></li>
+<li>更新：<code>e[0] -= 1, e[7] -= 1, e[8] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{29}{33}=\dfrac{29}{3\cdot
+11}\)</span></p>
+<ul>
+<li>条件：<code>e[1] &gt;= 1 and e[4] &gt;= 1</code></li>
+<li>更新：<code>e[1] -= 1, e[4] -= 1, e[9] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{77}{29}=\dfrac{7\cdot
+11}{29}\)</span></p>
+<ul>
+<li>条件：<code>e[9] &gt;= 1</code></li>
+<li>更新：<code>e[9] -= 1, e[3] += 1, e[4] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{95}{23}=\dfrac{5\cdot
+19}{23}\)</span></p>
+<ul>
+<li>条件：<code>e[8] &gt;= 1</code></li>
+<li>更新：<code>e[8] -= 1, e[2] += 1, e[7] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{77}{19}=\dfrac{7\cdot
+11}{19}\)</span></p>
+<ul>
+<li>条件：<code>e[7] &gt;= 1</code></li>
+<li>更新：<code>e[7] -= 1, e[3] += 1, e[4] += 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{1}{17}\)</span></p>
+<ul>
+<li>条件：<code>e[6] &gt;= 1</code></li>
+<li>更新：<code>e[6] -= 1</code></li>
+</ul></li>
+<li><p><span class="math inline">\(\dfrac{11}{13}\)</span></p></li>
+</ol>
+<ul>
+<li>条件：<code>e[5] &gt;= 1</code></li>
+<li>更新：<code>e[5] -= 1, e[4] += 1</code></li>
+</ul>
+<ol start="11" type="1">
+<li><span class="math inline">\(\dfrac{13}{11}\)</span></li>
+</ol>
+<ul>
+<li>条件：<code>e[4] &gt;= 1</code></li>
+<li>更新：<code>e[4] -= 1, e[5] += 1</code></li>
+</ul>
+<ol start="12" type="1">
+<li><span class="math inline">\(\dfrac{15}{2}=\dfrac{3\cdot
+5}{2}\)</span></li>
+</ol>
+<ul>
+<li>条件：<code>e[0] &gt;= 1</code></li>
+<li>更新：<code>e[0] -= 1, e[1] += 1, e[2] += 1</code></li>
+</ul>
+<ol start="13" type="1">
+<li><span class="math inline">\(\dfrac{1}{7}\)</span></li>
+</ol>
+<ul>
+<li>条件：<code>e[3] &gt;= 1</code></li>
+<li>更新：<code>e[3] -= 1</code></li>
+</ul>
+<ol start="14" type="1">
+<li><span class="math inline">\(\dfrac{55}{1}=5\cdot 11\)</span></li>
+</ol>
+<ul>
+<li>条件：<code>True</code>（永远可用）</li>
+<li>更新：<code>e[2] += 1, e[4] += 1</code></li>
+</ul>
+<p>初始种子 <span class="math inline">\(N=2\)</span>
+对应<code>[1,0,0,0,0,0,0,0,0,0]</code>.因此“当前是否为纯 2 的幂” 等价于
+<code>e[1]=e[2]=...e[9]==0</code>.</p>
+<p>这是一份模拟这个过程的 python 代码：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span>, <span class="type">Tuple</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># p[0..9] = (2,3,5,7,11,13,17,19,23,29)</span></span><br><span class="line"><span class="comment"># e[0..9] = exponent vector for these primes</span></span><br><span class="line"></span><br><span class="line">RULES = [</span><br><span class="line">    <span class="comment"># 1) 17/91 = 17/(7*13)</span></span><br><span class="line">    (&#123;<span class="number">3</span>: <span class="number">1</span>, <span class="number">5</span>: <span class="number">1</span>&#125;, &#123;<span class="number">3</span>: -<span class="number">1</span>, <span class="number">5</span>: -<span class="number">1</span>, <span class="number">6</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 2) 78/85 = (2*3*13)/(5*17)</span></span><br><span class="line">    (&#123;<span class="number">2</span>: <span class="number">1</span>, <span class="number">6</span>: <span class="number">1</span>&#125;, &#123;<span class="number">2</span>: -<span class="number">1</span>, <span class="number">6</span>: -<span class="number">1</span>, <span class="number">0</span>: <span class="number">1</span>, <span class="number">1</span>: <span class="number">1</span>, <span class="number">5</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3) 19/51 = 19/(3*17)</span></span><br><span class="line">    (&#123;<span class="number">1</span>: <span class="number">1</span>, <span class="number">6</span>: <span class="number">1</span>&#125;, &#123;<span class="number">1</span>: -<span class="number">1</span>, <span class="number">6</span>: -<span class="number">1</span>, <span class="number">7</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 4) 23/38 = 23/(2*19)</span></span><br><span class="line">    (&#123;<span class="number">0</span>: <span class="number">1</span>, <span class="number">7</span>: <span class="number">1</span>&#125;, &#123;<span class="number">0</span>: -<span class="number">1</span>, <span class="number">7</span>: -<span class="number">1</span>, <span class="number">8</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 5) 29/33 = 29/(3*11)</span></span><br><span class="line">    (&#123;<span class="number">1</span>: <span class="number">1</span>, <span class="number">4</span>: <span class="number">1</span>&#125;, &#123;<span class="number">1</span>: -<span class="number">1</span>, <span class="number">4</span>: -<span class="number">1</span>, <span class="number">9</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 6) 77/29 = (7*11)/29</span></span><br><span class="line">    (&#123;<span class="number">9</span>: <span class="number">1</span>&#125;, &#123;<span class="number">9</span>: -<span class="number">1</span>, <span class="number">3</span>: <span class="number">1</span>, <span class="number">4</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 7) 95/23 = (5*19)/23</span></span><br><span class="line">    (&#123;<span class="number">8</span>: <span class="number">1</span>&#125;, &#123;<span class="number">8</span>: -<span class="number">1</span>, <span class="number">2</span>: <span class="number">1</span>, <span class="number">7</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 8) 77/19 = (7*11)/19</span></span><br><span class="line">    (&#123;<span class="number">7</span>: <span class="number">1</span>&#125;, &#123;<span class="number">7</span>: -<span class="number">1</span>, <span class="number">3</span>: <span class="number">1</span>, <span class="number">4</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 9) 1/17</span></span><br><span class="line">    (&#123;<span class="number">6</span>: <span class="number">1</span>&#125;, &#123;<span class="number">6</span>: -<span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 10) 11/13</span></span><br><span class="line">    (&#123;<span class="number">5</span>: <span class="number">1</span>&#125;, &#123;<span class="number">5</span>: -<span class="number">1</span>, <span class="number">4</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 11) 13/11</span></span><br><span class="line">    (&#123;<span class="number">4</span>: <span class="number">1</span>&#125;, &#123;<span class="number">4</span>: -<span class="number">1</span>, <span class="number">5</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 12) 15/2 = (3*5)/2</span></span><br><span class="line">    (&#123;<span class="number">0</span>: <span class="number">1</span>&#125;, &#123;<span class="number">0</span>: -<span class="number">1</span>, <span class="number">1</span>: <span class="number">1</span>, <span class="number">2</span>: <span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 13) 1/7</span></span><br><span class="line">    (&#123;<span class="number">3</span>: <span class="number">1</span>&#125;, &#123;<span class="number">3</span>: -<span class="number">1</span>&#125;),</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 14) 55/1 = 5*11  (always applicable)</span></span><br><span class="line">    (&#123;&#125;, &#123;<span class="number">2</span>: <span class="number">1</span>, <span class="number">4</span>: <span class="number">1</span>&#125;),</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">step_fractran</span>(<span class="params">e: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Execute exactly ONE FRACTRAN iteration on exponent vector e[10],</span></span><br><span class="line"><span class="string">    applying the first applicable rule among RULES.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns:</span></span><br><span class="line"><span class="string">        idx (int): which rule (1..14) was applied.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> idx, (need, delta) <span class="keyword">in</span> <span class="built_in">enumerate</span>(RULES, start=<span class="number">1</span>):</span><br><span class="line">        ok = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">for</span> i, req <span class="keyword">in</span> need.items():</span><br><span class="line">            <span class="keyword">if</span> e[i] &lt; req:</span><br><span class="line">                ok = <span class="literal">False</span></span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> ok:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i, dv <span class="keyword">in</span> delta.items():</span><br><span class="line">            e[i] += dv</span><br><span class="line">        <span class="keyword">return</span> idx</span><br><span class="line"></span><br><span class="line">    <span class="keyword">raise</span> RuntimeError(<span class="string">&quot;No rule applicable (should be impossible because last rule is always applicable).&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run_fractran</span>(<span class="params">steps: <span class="built_in">int</span>, e0: <span class="type">List</span>[<span class="built_in">int</span>] | <span class="literal">None</span> = <span class="literal">None</span></span>) -&gt; <span class="type">Tuple</span>[<span class="type">List</span>[<span class="built_in">int</span>], <span class="type">List</span>[<span class="built_in">int</span>]]:</span><br><span class="line">    <span class="keyword">if</span> e0 <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        e = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]  <span class="comment"># seed N=2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(e0) != <span class="number">10</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">&quot;e0 must have length 10.&quot;</span>)</span><br><span class="line">        e = e0[:]</span><br><span class="line"></span><br><span class="line">    applied: <span class="type">List</span>[<span class="built_in">int</span>] = []</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(steps):</span><br><span class="line">        applied.append(step_fractran(e))</span><br><span class="line">    <span class="keyword">return</span> e, applied</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_power_of_two_state</span>(<span class="params">e: <span class="type">List</span>[<span class="built_in">int</span>]</span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">all</span>(v == <span class="number">0</span> <span class="keyword">for</span> v <span class="keyword">in</span> e[<span class="number">1</span>:])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    e, applied = run_fractran(<span class="number">50</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;final e =&quot;</span>, e)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;applied rules =&quot;</span>, applied)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;is power of 2?&quot;</span>, is_power_of_two_state(e))</span><br></pre></td></tr></table></figure>
+<p>关键观察：我们可以发现，</p>
+<ul>
+<li>含 <code>e[4], ..., e[9]</code>
+的分母（或分子）只在少数规则里出现；</li>
+<li>而 <code>e[0], ..., e[3]</code>
+几乎贯穿所有“搬运/计数/循环”规则，是典型的“数据寄存器”。</li>
+</ul>
+<p>并且模拟运行代码查看结果后发现，<code>e[4], ..., e[9]</code>不会超过
+2。因此，<code>e[4], ..., e[9]</code> 很像“状态位/标签”；而
+<code>e[0], ..., e[3]</code>
+很像“数值/计数器”。考虑从这个角度进行分析。</p>
+<p>在可达轨道上，<code>e[8]</code>和<code>e[9]</code>
+是“瞬时态”，必成对消去。因此，压缩成 FSM
+的关键，就是两条“不会被别的规则插队”的引理：一旦
+<code>e[9]&gt;0</code>，下一步一定用规则 6 把 <code>e[9]</code>
+消掉；一旦 <code>e[8]&gt;0</code>，下一步一定用规则 7 把
+<code>e[8]</code> 消掉。</p>
+<p>首先证明如果<code>e[9]&gt;0</code>，下一步一定用规则 6 把
+<code>e[9]</code> 消掉。要证明“下一步一定选 6”，只需证明规则 1–5
+在这一时刻都不可用。在本题的可达轨道里，<code>e[9]</code>
+的产生只能来自规则 5。当我们第一次看到 <code>e[9]</code> 从 <span
+class="math inline">\(0\)</span> 变为 <span
+class="math inline">\(1\)</span> 时，这一步一定是刚执行完规则
+5。执行规则 5 的更新是而在可达轨道中，规则 5 被触发的场景是稳定态 <span
+class="math inline">\(S11\)</span>（后面会定义），即执行规则 5
+之前满足<code>e[4]=1,e[5]=e[6]=e[7]=e[8]=0</code>。因此执行规则 5
+之后立刻得到
+<code>e[9]=1,e[4]=0,e[5]=e[6]=e[7]=e[8]=0</code>。因此，根据这些条件，我们检查规则
+1-5，可以发现它们并不可用。因此，规则 5 执行完（一旦
+<code>e[9]&gt;0</code>）立会跟着规则 6。</p>
+<p>首先证明如果<code>e[8]&gt;0</code>，下一步一定用规则 7 把
+<code>e[8]</code> 消掉。可见，在本题可达轨道里，<code>e[8]</code>
+的产生只能来自规则 4：而在可达轨道中，规则 4 被触发的场景是稳定态 <span
+class="math inline">\(S19\)</span>（后面会定义），即执行规则 4
+之前满足<code>e[7]=1,e[4]=e[5]=e[6]=0.</code>因此执行完规则 4
+后立刻得到<code>e[8]=1,e[7]=0,e[4]=e[5]=e[6]=0</code>。因此，根据这些条件，我们检查规则
+1-6，可以发现它们并不可用。因此，规则 4 执行完（一旦
+<code>e[9]&gt;0</code>）立会跟着规则 7。</p>
+<p>综上所述，规则 5+6 可以一个 2 步的宏，并吸收掉规则 6：</p>
+<ul>
+<li>条件：<code>e[1] &gt;= 1 and e[4] &gt;= 1</code></li>
+<li>更新：<code>e[1] -= 1, e[3] += 1</code></li>
+</ul>
+<p>规则 4+7 可以一个 2 步的宏，并吸收掉规则 7：</p>
+<ul>
+<li>条件：<code>e[0] &gt;= 1 and e[7] &gt;= 1</code></li>
+<li>更新：<code>e[0] -= 1, e[2] += 1</code></li>
+</ul>
+<p>通过合并宏后，我们可以仅针对各类状态，建立一个状态机。这个状态机只包含
+5 类状态，并忽略<code>e[8], e[9]</code>的存在。</p>
+<h3 id="状态-s0无标记e4e5e6e70">状态 <span
+class="math inline">\(S0\)</span>（无标记：<code>e[4]=e[5]=e[6]=e[7]=0</code>）</h3>
+<p>那么可见，目前规则 1–11 都不可用；可用的只有 12、13、14。</p>
+<p>一开始，我们连续执行规则 12 共 <code>e[0]</code>
+次，每次更新：<code>e[0] -= 1, e[1] += 1, e[2] += 1</code>。完成后，<code>e[0] = 0</code>，此时规则
+12 不可用。一共进行了<code>e[0]</code>次步骤。</p>
+<p>接下来，连续执行规则 13 共 <code>e[3]</code> 次：每次更新
+<code>e[3] -= 1</code>。执行完后
+<code>e[3] = 0</code>。一共进行了<code>e[3]</code>次步骤。</p>
+<p>最后，执行一次规则
+14，更新<code>e[2] += 1, e[4] += 1</code>。一共进行了 1 次步骤。</p>
+<p>那么现在的状态标记变成了：<code>e[4]=1,e[5]=e[6]=e[7]=0</code>，进入了状态<span
+class="math inline">\(S11\)</span>。</p>
+<p>那么从<span
+class="math inline">\(S0\)</span>状态转移可以总结成：<code>e'[1] = e[1] + e[0]; e'[2] = e[2] + e[0] + 1; e'[0] = e'[3] = 0, e'[4] = 1</code>，并进入了状态<span
+class="math inline">\(S11\)</span>，一共花费了<code>e[0] + e[3] + 1</code>个步骤。</p>
+<h3 id="状态-s11e41">状态 <span
+class="math inline">\(S11\)</span>（<code>e[4]=1</code>）</h3>
+<p>可见，目前规则 1–4 不可用；会被选中的规则只有 5+6 和 11。</p>
+<p>一开始，我们连续执行规则 5+6 共 <code>e[1]</code>
+次，每次更新：<code>e[1] -= 1, e[3] += 1</code>。完成后，<code>e[1] = 0</code>，此时规则
+5+6 不可用。一共进行了<code>e[1] * 2</code>次步骤。</p>
+<p>接下来，执行 1 次规则 11 共更新
+<code>e[4] -= 1, e[5] += 1</code>。一共进行了 1 次步骤。</p>
+<p>那么现在的状态标记变成了：<code>e[5]=1,e[4]=e[6]=e[7]=0</code>，进入了状态<span
+class="math inline">\(S13\)</span>。</p>
+<p>那么从<span
+class="math inline">\(S11\)</span>状态转移可以总结成：<code>e'[3] = e[3] + e[1]; e'[1] = e'[4] = 0, e'[5] = 1</code>，并进入了状态<span
+class="math inline">\(S13\)</span>，一共花费了<code>e[1] * 2 + 1</code>个步骤。</p>
+<h3 id="状态-s13e51">状态 <span
+class="math inline">\(S13\)</span>（<code>e[5]=1</code>）</h3>
+<p>当 <code>e[2]&gt;0 and e[3]&gt;0</code> 时，会发生确定的 2
+步规则：</p>
+<p>首先执行规则 1
+的内容：<code>e[3] -= 1, e[5] -= 1, e[6] += 1</code></p>
+<p>因为这时<code>e[6] = 1</code>，所以规则 2
+紧接着执行：<code>e[2] -= 1, e[6] -= 1,e[0] += 1, e[1] += 1, e[5] += 1</code>。</p>
+<p>因此，规则 1+2
+发生的变化如下：<code>e[2] -= 1, e[3] -= 1, e[0] += 1, e[1] += 1</code>。并且<code>e[5] = 1, e[6] = 0</code>依旧保持不变。</p>
+<p>令<code>m = min(e[2], e[3])</code>，当进行<code>m</code>次规则 1+2
+后，结果就变成：<code>e[2] -= m, e[3] -= m, e[0] += m, e[1] += m</code></p>
+<p>也就是说，如果<code>e[3] == 0</code>，那么规则 1
+不可用，下一条可用的是规则
+10，更新：<code>e[5] -= 1, e[4] += 1</code>，那么贡献了 1
+步数，并进入状态<span class="math inline">\(S11\)</span>。</p>
+<p>否则，如果<code>e[3] &gt; 0</code>，那么此时必有
+<code>e[2]=0</code>。规则 2 不可用，但规则 1 仍可用。执行一次规则
+1：<code>e[3] -= 1, e[5] -= 1, e[6] = 1</code>，那么贡献了 1
+步数，并进入状态<span class="math inline">\(S17\)</span>。</p>
+<p>那么从<span
+class="math inline">\(S13\)</span>状态转移可以总结成：</p>
+<ul>
+<li><p>如果
+<code>e[3] &lt;= e[2]</code>，那么有<code>e'[3] = 0, e'[2] = e[2] - e[3], e'[0] = e[0] + e[3], e'[1] = e[1] + e[3], e'[5] = 0, e'[4] = 1</code>，总共花费<code>e[3] * 2 + 1</code>的步数。并进入状态<span
+class="math inline">\(S11\)</span>。</p></li>
+<li><p>如果
+<code>e[3] &gt; e[2]</code>，那么有<code>e'[3] = e[3] - e[2] - 1, e'[2] = 0, e'[0] = e[0] + e[2], e'[1] = e[1] + e[2], e'[5] = 0, e'[6] = 1</code>，总共花费<code>e[2] * 2 + 1</code>的步数。并进入状态<span
+class="math inline">\(S17\)</span>。</p></li>
+</ul>
+<h3 id="状态-s17e61">状态 <span
+class="math inline">\(S17\)</span>（<code>e[6]=1</code>）</h3>
+<p>在可达轨道上进入 <span class="math inline">\(S17\)</span> 时满足
+<code>e[2]=0</code>（因为它来自 <span class="math inline">\(S13\)</span>
+的分支 2，且该分支恰是 <code>e[2]=0</code> 才发生），因此规则 2
+这时不会插队。此时只有 3 和 9 规则可用，即只有两种情况：</p>
+<ul>
+<li>若 <code>e[1]&gt;0</code>，规则 3
+可用，那么有<code>e[1] -= 1, e[6] = 0, e[7] = 1</code>，花费 1
+步数，进入<span class="math inline">\(S19\)</span>。</li>
+<li>若 <code>e[1]==0</code>，规则 9
+可用，那么有<code>e[6] = 0</code>，花费 1 步数，进入<span
+class="math inline">\(S0\)</span>。</li>
+</ul>
+<h3 id="状态-s19e71">状态 <span
+class="math inline">\(S19\)</span>（<code>e[7]=1</code>）</h3>
+<p>当 <code>e[0]&gt;0</code> 时，可以使用规则 4+7
+进行处理。每执行一次宏，步数加
+2，净效应：<code>e[0] -= 1, e[2] += 1</code>。我们连续执行规则 4+7 共
+<code>e[0]</code>
+次。完成后，<code>e[2] += e[0], e[0] = 0</code>。一共进行了<code>e[0] * 2</code>次步骤。</p>
+<p>此时规则 8
+成为最先可用，更新后，有<code>e[7]=0,e[3]+=1,e[4]+=1</code>,步数加
+1，进入 <span class="math inline">\(S11\)</span>。</p>
+<p>那么从<span
+class="math inline">\(S19\)</span>状态转移可以总结成：<code>e'[2] = e[2] + e[0]; e'[0] = 0; e'[7] = 0, e'[3] = e[3] + 1, e'[4] = 1</code>，并进入了状态<span
+class="math inline">\(S11\)</span>，一共花费了<code>e[0] * 2 + 1</code>个步骤。</p>
+<p>那么这时代码可以加速简化成这样子：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> prime</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">batch_step</span>(<span class="params">e</span>):</span><br><span class="line">    a, b, c, d, s11, s13, s17, s19 = e  <span class="comment"># 2,3,5,7,11,13,17,19</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s11:  <span class="comment"># S11</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * b + <span class="number">1</span>, [a, <span class="number">0</span>, c, d + b, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s13:  <span class="comment"># S13</span></span><br><span class="line">        m = <span class="built_in">min</span>(c, d)</span><br><span class="line">        a += m</span><br><span class="line">        b += m</span><br><span class="line">        c -= m</span><br><span class="line">        d -= m</span><br><span class="line">        <span class="keyword">if</span> d == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span> * m + <span class="number">1</span>, [a, b, c, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]      <span class="comment"># -&gt; S11 (rule10)</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span> * m + <span class="number">1</span>, [a, b, <span class="number">0</span>, d - <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>]  <span class="comment"># -&gt; S17 (extra rule1)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s17:  <span class="comment"># S17</span></span><br><span class="line">        <span class="keyword">if</span> b:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>, [a, b - <span class="number">1</span>, c, d, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]          <span class="comment"># -&gt; S19 (rule3)</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span>, [a, b, c, d, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]              <span class="comment"># -&gt; S0  (rule9)</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> s19:  <span class="comment"># S19</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * a + <span class="number">1</span>, [<span class="number">0</span>, b, c + a, d + <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]  <span class="comment"># (4+7)*a then rule8 -&gt; S11</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># S0</span></span><br><span class="line">    <span class="keyword">return</span> a + d + <span class="number">1</span>, [<span class="number">0</span>, b + a, c + a + <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]  <span class="comment"># 12^a,13^d,14 -&gt; S11</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">run_fractran</span>(<span class="params">prime_index=<span class="number">10001</span></span>):</span><br><span class="line">    target_exp = <span class="built_in">int</span>(prime(prime_index))</span><br><span class="line">    e = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]  <span class="comment"># seed = 2</span></span><br><span class="line">    cost = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> e[<span class="number">0</span>] == target_exp <span class="keyword">and</span> <span class="built_in">all</span>(x == <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> e[<span class="number">1</span>:]):</span><br><span class="line">            <span class="keyword">return</span> cost</span><br><span class="line">        dc, e = batch_step(e)</span><br><span class="line">        cost += dc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(run_fractran(<span class="number">3</span>))</span><br></pre></td></tr></table></figure>
+<p>为了后续方便，我们接下来用<code>a,b,c,d</code>分别替代<code>e[0],e[1],e[2],e[3]</code>。</p>
+<p>首先，我们注意到 <span class="math inline">\(S13\)</span> 与 <span
+class="math inline">\(S11\)</span> 之间形成了一个确定的状态循环；并且
+<span class="math inline">\(S13\)</span> 的入口唯一，只能由 <span
+class="math inline">\(S11\)</span> 转入。因此，一旦进入 <span
+class="math inline">\(S13\)</span>，本轮可执行的二步宏次数就被固定为
+<code>b = min(c, d)</code>。当 <code>d</code> 被减到 <code>0</code>
+时，<code>b</code> 相当于对 <code>d</code> 的一次“备份”：系统回到 <span
+class="math inline">\(S11\)</span>
+后会利用这份备份把除数恢复出来，并继续重复该循环，不断消耗
+<code>c</code>，直到 <code>c = 0</code> 为止。若最终
+<code>c == 0</code>，则进入 <span class="math inline">\(S17\)</span>
+后，<code>b</code> 恰好变为余数意义下的
+<code>c % b</code>。因此，假设起点是“刚进入 <span
+class="math inline">\(S11\)</span>”，那么 <span
+class="math inline">\(S11\rightarrow S13\rightarrow S11\rightarrow
+S13\rightarrow \dots\rightarrow S17\)</span>
+这一整段过程可以被进一步简化为如下代码：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 起点：刚进入 S11（标记11在），此时 a,b,c,d 是当前寄存器值</span></span><br><span class="line"><span class="comment"># S11 -&gt; S13</span></span><br><span class="line">cost += <span class="number">2</span> * b        <span class="comment"># (5+6) 宏 b 次</span></span><br><span class="line">d += b</span><br><span class="line">b = <span class="number">0</span></span><br><span class="line">cost += <span class="number">1</span>            <span class="comment"># 规则 11：11 -&gt; 13，进入 S13</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在确实处于 “进入 S13 的时刻”（b==0 且 d&gt;0）</span></span><br><span class="line"><span class="keyword">while</span> c &gt;= d:</span><br><span class="line">    c -= d</span><br><span class="line">    a += d</span><br><span class="line">    cost += <span class="number">4</span> * d + <span class="number">2</span>      <span class="comment"># 一次完整的 “减掉一个 d”：S13(2d步) -&gt;S11(+1)-&gt;S11(2d步)-&gt;S13(+1)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 现在 c 就是余数 r (0 &lt;= r &lt; d)</span></span><br><span class="line">r = c</span><br><span class="line">a += r</span><br><span class="line">b = r                      <span class="comment"># 进入 S17 时 b 记录余数 r</span></span><br><span class="line">c = <span class="number">0</span></span><br><span class="line">d = d - r - <span class="number">1</span>              <span class="comment"># 先做 r 次(1+2)，再做 1 次规则1：d := d - r - 1</span></span><br><span class="line">cost += <span class="number">2</span> * r + <span class="number">1</span>          <span class="comment"># = 2r（r 次(1+2)） + 1（规则1进 S17）</span></span><br></pre></td></tr></table></figure>
+<p>进入到 <span class="math inline">\(S17\)</span> 之后，若
+<code>b &gt; 0</code>，则会转入 <span
+class="math inline">\(S11\)</span>，从而开启下一轮同构的循环；若
+<code>b = 0</code>，则保持 <code>a</code> 的值不变，此时同时有
+<code>b = 0, c = 0</code>，系统进入 <span
+class="math inline">\(S0\)</span>，并且 <code>d -= 1</code>。</p>
+<p>因此大致代码进一步变成：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="comment"># 起点：刚进入 S11（标记11在），此时 a,b,c,d 是当前寄存器值</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># S11 -&gt; S13</span></span><br><span class="line">    cost += <span class="number">2</span> * b          <span class="comment"># (5+6) 宏 b 次</span></span><br><span class="line">    d += b</span><br><span class="line">    b = <span class="number">0</span></span><br><span class="line">    cost += <span class="number">1</span>              <span class="comment"># 规则11：11 -&gt; 13，进入 S13</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># S13：做 q 次“完整减法”（每次净效应 c-=d, a+=d，且 d 被恢复）</span></span><br><span class="line">    <span class="keyword">while</span> c &gt;= d:</span><br><span class="line">        c -= d</span><br><span class="line">        a += d</span><br><span class="line">        cost += <span class="number">4</span> * d + <span class="number">2</span>  <span class="comment"># = 2d(1+2) +1(10) +2d(5+6) +1(11)</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 现在 c 就是余数 r (0 &lt;= r &lt; d)</span></span><br><span class="line">    r = c</span><br><span class="line">    a += r                 <span class="comment"># 使 a 变成 n = qd+r</span></span><br><span class="line">    b = r                  <span class="comment"># 把余数记到 b</span></span><br><span class="line">    c = <span class="number">0</span></span><br><span class="line">    d = d - r - <span class="number">1</span>          <span class="comment"># r 次(1+2) 抽干 c，再 1 次规则1 进 S17</span></span><br><span class="line">    cost += <span class="number">2</span> * r + <span class="number">1</span>      <span class="comment"># = 2r + 1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 此时：刚进入 S17（还没执行 S17 的那一步）</span></span><br><span class="line">    <span class="keyword">if</span> b &gt; <span class="number">0</span>:              <span class="comment"># r&gt;0：执行规则3，进 S19</span></span><br><span class="line">        cost += <span class="number">1</span>          <span class="comment"># 规则3</span></span><br><span class="line">        b -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># S19：执行 (4+7) 共 a 次，把 a 的值搬到 c；再执行规则8 回 S11</span></span><br><span class="line">        cost += <span class="number">2</span> * a + <span class="number">1</span>  <span class="comment"># 2a(4+7) + 1(8)</span></span><br><span class="line">        c += a</span><br><span class="line">        a = <span class="number">0</span></span><br><span class="line">        d += <span class="number">1</span>             <span class="comment"># 规则8：d += 1，同时回到 S11（标记11恢复）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 循环继续：回到 while True 顶部（起点仍是“刚进入 S11”）</span></span><br><span class="line">    <span class="keyword">else</span>:                  <span class="comment"># r=0：执行规则9，进 S0，然后 S0 批处理回到 S11</span></span><br><span class="line">        cost += <span class="number">1</span>          <span class="comment"># 规则9：离开 S17 进入 S0</span></span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+<p>接下来纳入 <span class="math inline">\(S0\)</span>
+状态，因此外层可以再嵌套一个循环，得到完整的代码：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = c = d = <span class="number">0</span></span><br><span class="line">cost = <span class="number">0</span></span><br><span class="line">N = <span class="number">997</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> a == N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    cost += a + d + <span class="number">1</span></span><br><span class="line">    b += a</span><br><span class="line">    c += a + <span class="number">1</span></span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    d = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># 起点：刚进入 S11（标记11在），此时 a,b,c,d 是当前寄存器值</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># S11 -&gt; S13</span></span><br><span class="line">        cost += <span class="number">2</span> * b          <span class="comment"># (5+6) 宏 b 次</span></span><br><span class="line">        d += b</span><br><span class="line">        b = <span class="number">0</span></span><br><span class="line">        cost += <span class="number">1</span>              <span class="comment"># 规则11：11 -&gt; 13，进入 S13</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># S13：做 q 次“完整减法”（每次净效应 c-=d, a+=d，且 d 被恢复）</span></span><br><span class="line">        <span class="keyword">while</span> c &gt;= d:</span><br><span class="line">            c -= d</span><br><span class="line">            a += d</span><br><span class="line">            cost += <span class="number">4</span> * d + <span class="number">2</span>  <span class="comment"># = 2d(1+2) +1(10) +2d(5+6) +1(11)</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 现在 c 就是余数 r (0 &lt;= r &lt; d)</span></span><br><span class="line">        r = c</span><br><span class="line">        a += r                 <span class="comment"># 使 a 变成 n = qd+r</span></span><br><span class="line">        b = r                  <span class="comment"># 把余数记到 b</span></span><br><span class="line">        c = <span class="number">0</span></span><br><span class="line">        d = d - r - <span class="number">1</span>          <span class="comment"># r 次(1+2) 抽干 c，再 1 次规则1 进 S17</span></span><br><span class="line">        cost += <span class="number">2</span> * r + <span class="number">1</span>      <span class="comment"># = 2r + 1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 此时：刚进入 S17（还没执行 S17 的那一步）</span></span><br><span class="line">        <span class="keyword">if</span> b &gt; <span class="number">0</span>:              <span class="comment"># r&gt;0：执行规则3，进 S19</span></span><br><span class="line">            cost += <span class="number">1</span>          <span class="comment"># 规则3</span></span><br><span class="line">            b -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># S19：执行 (4+7) 共 a 次，把 a 的值搬到 c；再执行规则8 回 S11</span></span><br><span class="line">            cost += <span class="number">2</span> * a + <span class="number">1</span>  <span class="comment"># 2a(4+7) + 1(8)</span></span><br><span class="line">            c += a</span><br><span class="line">            a = <span class="number">0</span></span><br><span class="line">            d += <span class="number">1</span>             <span class="comment"># 规则8：d += 1，同时回到 S11（标记11恢复）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 循环继续：回到 while True 顶部（起点仍是“刚进入 S11”）</span></span><br><span class="line">        <span class="keyword">else</span>:                  <span class="comment"># r=0：执行规则9，进 S0，然后 S0 批处理回到 S11</span></span><br><span class="line">            cost += <span class="number">1</span>          <span class="comment"># 规则9：离开 S17 进入 S0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(cost)</span><br></pre></td></tr></table></figure>
+<p>现在开始精简这份代码。可见，最内层的 <code>while</code>
+循环本质上是求个商值，<code>c</code>
+就变成了余数，因此可以去掉一个循环，变成：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = c = d = <span class="number">0</span></span><br><span class="line">cost = <span class="number">0</span></span><br><span class="line">N = <span class="number">997</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> a == N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    cost += a + d + <span class="number">1</span></span><br><span class="line">    b += a</span><br><span class="line">    c += a + <span class="number">1</span></span><br><span class="line">    a = <span class="number">0</span></span><br><span class="line">    d = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># 起点：刚进入 S11（标记11在），此时 a,b,c,d 是当前寄存器值</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># S11 -&gt; S13</span></span><br><span class="line">        cost += <span class="number">2</span> * b          <span class="comment"># (5+6) 宏 b 次</span></span><br><span class="line">        d += b</span><br><span class="line">        b = <span class="number">0</span></span><br><span class="line">        cost += <span class="number">1</span>              <span class="comment"># 规则11：11 -&gt; 13，进入 S13</span></span><br><span class="line"></span><br><span class="line">        q, r = <span class="built_in">divmod</span>(c, d)</span><br><span class="line">        cost += (<span class="number">4</span> * d + <span class="number">2</span>) * q</span><br><span class="line">        a += d * q</span><br><span class="line">        c = r</span><br><span class="line">        <span class="comment"># 现在 c 就是余数 r (0 &lt;= r &lt; d)</span></span><br><span class="line">        a += r                 <span class="comment"># 使 a 变成 n = qd+r</span></span><br><span class="line">        b = r                  <span class="comment"># 把余数记到 b</span></span><br><span class="line">        c = <span class="number">0</span></span><br><span class="line">        d = d - r - <span class="number">1</span>          <span class="comment"># r 次(1+2) 抽干 c，再 1 次规则1 进 S17</span></span><br><span class="line">        cost += <span class="number">2</span> * r + <span class="number">1</span>      <span class="comment"># = 2r + 1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 此时：刚进入 S17（还没执行 S17 的那一步）</span></span><br><span class="line">        <span class="keyword">if</span> b &gt; <span class="number">0</span>:              <span class="comment"># r&gt;0：执行规则3，进 S19</span></span><br><span class="line">            cost += <span class="number">1</span>          <span class="comment"># 规则3</span></span><br><span class="line">            b -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># S19：执行 (4+7) 共 a 次，把 a 的值搬到 c；再执行规则8 回 S11</span></span><br><span class="line">            cost += <span class="number">2</span> * a + <span class="number">1</span>  <span class="comment"># 2a(4+7) + 1(8)</span></span><br><span class="line">            c += a</span><br><span class="line">            a = <span class="number">0</span></span><br><span class="line">            d += <span class="number">1</span>             <span class="comment"># 规则8：d += 1，同时回到 S11（标记11恢复）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 循环继续：回到 while True 顶部（起点仍是“刚进入 S11”）</span></span><br><span class="line">        <span class="keyword">else</span>:                  <span class="comment"># r=0：执行规则9，进 S0，然后 S0 批处理回到 S11</span></span><br><span class="line">            cost += <span class="number">1</span>          <span class="comment"># 规则9：离开 S17 进入 S0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(cost)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>随后 <code>a</code> 就变成原来的 <code>c</code>
+的值，并且丢弃掉一下用不掉的初始化为 <code>0</code> 的逻辑，合并一些
+<code>cost</code> 计算逻辑，因此进一步简化逻辑：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = c = d = <span class="number">0</span></span><br><span class="line">cost = <span class="number">0</span></span><br><span class="line">N = <span class="number">997</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> a == N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    cost += a + d + <span class="number">1</span></span><br><span class="line">    b += a</span><br><span class="line">    c += a + <span class="number">1</span></span><br><span class="line">    d = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="comment"># 起点：刚进入 S11（标记11在），此时 a,b,c,d 是当前寄存器值</span></span><br><span class="line">        d += b</span><br><span class="line">        q, r = <span class="built_in">divmod</span>(c, d)</span><br><span class="line">        cost += (<span class="number">4</span> * d + <span class="number">2</span>) * q + <span class="number">2</span> * r + <span class="number">2</span> + <span class="number">2</span> * b + <span class="number">1</span></span><br><span class="line">        a = c</span><br><span class="line">        b = r                  <span class="comment"># 把余数记到 b</span></span><br><span class="line">        c = <span class="number">0</span></span><br><span class="line">        d = d - r - <span class="number">1</span>          <span class="comment"># r 次(1+2) 抽干 c，再 1 次规则1 进 S17</span></span><br><span class="line">        <span class="comment"># 此时：刚进入 S17（还没执行 S17 的那一步）</span></span><br><span class="line">        <span class="keyword">if</span> b &gt; <span class="number">0</span>:              <span class="comment"># r&gt;0：执行规则3，进 S19</span></span><br><span class="line">            b -= <span class="number">1</span></span><br><span class="line">            <span class="comment"># S19：执行 (4+7) 共 a 次，把 a 的值搬到 c；再执行规则8 回 S11</span></span><br><span class="line">            cost += <span class="number">2</span> * a + <span class="number">1</span>  <span class="comment"># 2a(4+7) + 1(8)</span></span><br><span class="line">            c += a</span><br><span class="line">            d += <span class="number">1</span>             <span class="comment"># 规则8：d += 1，同时回到 S11（标记11恢复）</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 循环继续：回到 while True 顶部（起点仍是“刚进入 S11”）</span></span><br><span class="line">        <span class="keyword">else</span>:                  <span class="comment"># r=0：执行规则9，进 S0，然后 S0 批处理回到 S11</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(cost)</span><br></pre></td></tr></table></figure>
+<p>由于进入<span
+class="math inline">\(S0\)</span>一开始<code>b, c</code>必定为
+0，因此改为使用<code>=</code>赋值号。而在内层<code>while</code>循环中，<code>a</code>总是作为<code>c</code>的备份来恢复，所以备份逻辑可以简化（甚至去掉，直接用原来的值<code>a</code>操作），到这里，<code>c</code>已经被彻底去掉：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = c = d = <span class="number">0</span></span><br><span class="line">cost = <span class="number">0</span></span><br><span class="line">N = <span class="number">997</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> a == N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    cost += a + d + <span class="number">1</span></span><br><span class="line">    b = a</span><br><span class="line">    a += <span class="number">1</span></span><br><span class="line">    d = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        d += b</span><br><span class="line">        q, r = <span class="built_in">divmod</span>(a, d)</span><br><span class="line">        cost += (<span class="number">4</span> * d + <span class="number">2</span>) * q + <span class="number">2</span> * r + <span class="number">2</span> + <span class="number">2</span> * b + <span class="number">1</span></span><br><span class="line">        b = r</span><br><span class="line">        d = d - r - <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> b &gt; <span class="number">0</span>:</span><br><span class="line">            b -= <span class="number">1</span></span><br><span class="line">            cost += <span class="number">2</span> * a + <span class="number">1</span></span><br><span class="line">            d += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(cost)</span><br></pre></td></tr></table></figure>
+<p>实际上，由于<code>d</code>每次在实际内层循环中都会减去
+1，因此我们可以进一步简化代码以理清计算值的含义：</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = c = d0 = <span class="number">0</span></span><br><span class="line">cost = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">N = <span class="number">997</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> a == N:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    a += <span class="number">1</span></span><br><span class="line">    cost += a + d0</span><br><span class="line">    b = a - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(b, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">        q, r = <span class="built_in">divmod</span>(a, d)</span><br><span class="line">        cost += (<span class="number">4</span> * d + <span class="number">2</span>) * q + <span class="number">2</span> * r + <span class="number">2</span> + <span class="number">2</span> * b + <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> r == <span class="number">0</span>:</span><br><span class="line">            d0 = d - <span class="number">1</span></span><br><span class="line">            b = <span class="number">0</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        b = r - <span class="number">1</span></span><br><span class="line">        cost += <span class="number">2</span> * a + <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(cost)</span><br></pre></td></tr></table></figure>
+<p>也就是说，现在的程序可以理解成：对 <span class="math inline">\(n =
+2,3,4,\dots\)</span> 依次做一次“从大到小试除”的过程，并把 FRACTRAN
+的步数累计到 cost。</p>
+<p>令<span class="math inline">\(B(n)\)</span>表示<span
+class="math inline">\(n\)</span>的最大真因子。那么对于第一部分的
+cost，它的总步数为：</p>
+<p><span class="math display">\[S_1(N)=1+\sum_{n=3}^{N-1}
+n-1+B(n-1)=\dfrac{N(N-1)}{2}+\sum_{n=2}^{N-2} B(n)\]</span></p>
+<p>对于第三部分，它的总步数为：</p>
+<p><span class="math display">\[S_3(N)=\sum_{n=2}^N
+(2n+1)(n-1-B(n))\]</span></p>
+<p>下面把上一条里的所有公式都改成用<code>$...$</code>或<code>$$...$$</code>包裹（内容不变）。</p>
+<p>对固定的<span class="math inline">\(n\)</span>，内层会从<span
+class="math inline">\(d=n-1\)</span>一路试到<span
+class="math inline">\(d=B(n)\)</span>才第一次命中并停止，因此第二条语句对该<span
+class="math inline">\(n\)</span>的总贡献是</p>
+<p><span class="math display">\[
+C_2(n)=\sum_{d=B(n)}^{n-1}\left((4d+2)q_d+2r_d+2b_d+3\right),
+\]</span></p>
+<p>其中<span class="math inline">\(q_d=\left\lfloor
+\dfrac{n}{d}\right\rfloor,\ r_d=n\bmod d\)</span>，而<span
+class="math inline">\(b_d\)</span>是执行到该轮试除<span
+class="math inline">\(d\)</span>时代码里的<span
+class="math inline">\(b\)</span>。</p>
+<p>由代码更新规则可得：</p>
+<ul>
+<li>第一次试除<span class="math inline">\(d=n-1\)</span>时<span
+class="math inline">\(b_{n-1}=n-1\)</span>；</li>
+<li>若在<span class="math inline">\(d\)</span>处失败（<span
+class="math inline">\(r_d&gt;0\)</span>），则下一轮试除<span
+class="math inline">\(d-1\)</span>时用到<span
+class="math inline">\(b_{d-1}=r_d-1\)</span>。</li>
+</ul>
+<p>因此等价地，对<span class="math inline">\(B=B(n)\)</span>，有<span
+class="math inline">\(b_{n-1}=n-1, b_d=r_{d+1}-1 (B\le d\le
+n-2).\)</span></p>
+<p>因此<span class="math inline">\(\displaystyle{\sum_{d=B}^{n-1}
+b_d=(n-1)+\sum_{d=B}^{n-2}(r_{d+1}-1)= B+\sum_{d=B}^{n-1}
+r_d}\)</span>，并且<span class="math inline">\(r_B=0\)</span>（因为<span
+class="math inline">\(B\mid n\)</span>）。</p>
+<hr />
+<p>把<span class="math inline">\(C_2(n)\)</span>拆项：</p>
+<p><span class="math display">\[
+C_2(n)=
+4\sum_{d=B}^{n-1} d q_d
++2\sum_{d=B}^{n-1} q_d
++2\sum_{d=B}^{n-1} r_d
++2\sum_{d=B}^{n-1} b_d
++3(n-B).
+\]</span></p>
+<p>用恒等式<span class="math inline">\(r_d=n-dq_d\)</span>得到</p>
+<p><span class="math display">\[
+\sum_{d=B}^{n-1} r_d
+= n(n-B)-\sum_{d=B}^{n-1} d q_d.
+\]</span></p>
+<p>再代入<span class="math inline">\(\displaystyle{\sum_{d=B}^{n-1} b_d=
+B+\sum_{d=B}^{n-1} r_d}\)</span>，得</p>
+<p><span class="math display">\[
+2\sum_{d=B}^{n-1} b_d
+=2B+2\sum_{d=B}^{n-1} r_d
+=2B+2n(n-B)-2\sum_{d=B}^{n-1} d q_d.
+\]</span></p>
+<p>代回<span class="math inline">\(C_2(n)\)</span>后，<span
+class="math inline">\(\sum d q_d\)</span>项完全抵消，最终得到</p>
+<p><span class="math display">\[
+C_2(n)=
+2\sum_{d=B(n)}^{n-1}\left\lfloor\frac{n}{d}\right\rfloor
++4n\left(n-B(n)\right)
++3n-B(n).
+\]</span></p>
+<p>如果外层让<span class="math inline">\(n\)</span>从<span
+class="math inline">\(2\)</span>跑到<span
+class="math inline">\(N\)</span>，那么第二条语句的总贡献就是</p>
+<p><span class="math display">\[
+\begin{aligned}S_2(n)&amp;=\sum_{n=2}^{N}
+\left(
+2\sum_{d=B(n)}^{n-1}\left\lfloor\frac{n}{d}\right\rfloor
++4n(n-B(n))
++3n-B(n)
+\right)
+\\&amp;=2\sum_{n=2}^{N}\sum_{d=B(n)}^{n-1}\left\lfloor\frac{n}{d}\right\rfloor
++\left(\frac{N(N+1)(8N+13)}{6}-7\right)
+-\sum_{n=2}^{N}(4n+1)B(n).
+\end{aligned}
+\]</span></p>
+<p>那么最终的结果为：</p>
+<p><span class="math display">\[
+\begin{aligned}S(n)&amp;=S_1(n)+S_2(n)+S_3(n)\\
+&amp;=
+\frac{4N^3+9N^2+N-12}{2}
++
+2\sum_{n=2}^{N}\sum_{d=B(n)}^{n-1}\Bigl\lfloor\frac{n}{d}\Bigr\rfloor
++
+\sum_{n=2}^{N-2}B(n)
+-
+\sum_{n=2}^{N}(6n+2)B(n)\\
+&amp;=
+\frac{4N^3+9N^2+N-12}{2}
++
+2\sum_{n=2}^{N}\sum_{d=B(n)}^{n-1}\Bigl\lfloor\frac{n}{d}\Bigr\rfloor
+-\sum_{n=2}^{N-2}(6n+1)B(n)- (6N-4)B(N-1)-(6N+2)B(N).
+\end{aligned}
+\]</span></p>
+<p>注意，第二块可以使用数论分块即可高效求解。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> prime</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_floor_range</span>(<span class="params">n: <span class="built_in">int</span>, L: <span class="built_in">int</span>, R: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;sum_&#123;d=L..R&#125; floor(n/d) via divisor blocking.&quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> L &gt; R:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    i = L</span><br><span class="line">    <span class="keyword">while</span> i &lt;= R:</span><br><span class="line">        q = n // i</span><br><span class="line">        j = n // q</span><br><span class="line">        <span class="keyword">if</span> j &gt; R:</span><br><span class="line">            j = R</span><br><span class="line">        s += q * (j - i + <span class="number">1</span>)</span><br><span class="line">        i = j + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_S</span>(<span class="params">N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> N &lt; <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    spf = Factorizer(N).spf</span><br><span class="line"></span><br><span class="line">    <span class="comment"># B(n) = largest proper divisor = n / spf(n)</span></span><br><span class="line">    B = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(N+<span class="number">1</span>)]</span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">        B[n] = n // spf[n]</span><br><span class="line"></span><br><span class="line">    <span class="comment"># polynomial part: (4N^3 + 9N^2 + N - 12) / 2</span></span><br><span class="line">    poly = (<span class="number">4</span> * N * N * N + <span class="number">9</span> * N * N + N - <span class="number">12</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># F = sum_&#123;n=2..N&#125; sum_&#123;d=B(n)..n-1&#125; floor(n/d)</span></span><br><span class="line">    F = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">        F += sum_floor_range(n, B[n], n - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># B-term: -sum_&#123;n=2..N-1&#125; (6n+1)B(n) -(6N+2)B(N)</span></span><br><span class="line">    Bsum = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N):</span><br><span class="line">        Bsum += (<span class="number">6</span> * n + <span class="number">1</span>) * B[n]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> poly + <span class="number">2</span> * F - Bsum - (<span class="number">6</span> * N + <span class="number">2</span>) * B[N]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(compute_S(prime(<span class="number">10001</span>)))  <span class="comment"># 1274952</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/308/" title="Project Euler 308">https://ujimatsu-chiya.github.io/project-euler/308/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.4m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20:40</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

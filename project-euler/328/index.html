@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 328">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/328/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-06T17:03:37.000Z">
+<meta property="article:modified_time" content="2026-01-06T17:03:37.944Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/328/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/328/","path":"project-euler/328/","title":"Project Euler 328"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 328 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-328"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 328</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lowest-cost-search"><span class="nav-number">1.1.1.</span> <span class="nav-text">Lowest-cost Search</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">692</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/328/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 328 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 328
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-07 01:03:37" itemprop="dateCreated datePublished" datetime="2026-01-07T01:03:37+08:00">2026-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-328">Project Euler 328</h1>
+<h2 id="题目">题目</h2>
+<h3 id="lowest-cost-search">Lowest-cost Search</h3>
+<p>We are trying to find a hidden number selected from the set of
+integers <span class="math inline">\(\{1, 2, \dots, n\}\)</span> by
+asking questions. Each number (question) we ask, has a <u>cost equal to
+the number asked</u> and we get one of three possible answers:</p>
+<ul>
+<li>“Your guess is lower than the hidden number”, or</li>
+<li>“Yes, that’s it!”, or</li>
+<li>“Your guess is higher than the hidden number”.</li>
+</ul>
+<p>Given the value of n, an <em>optimal strategy</em> minimizes the
+total cost (i.e. the sum of all the questions asked) <strong>for the
+worst possible case</strong>. E.g.</p>
+<p>If <span class="math inline">\(n=3\)</span>, the best we can do is
+obviously to ask the number “<span
+class="math inline">\(\mathbf{2}\)</span>“. The answer will immediately
+lead us to find the hidden number (at a total cost = <span
+class="math inline">\(2\)</span>).</p>
+<p>If <span class="math inline">\(n=8\)</span>, we might decide to use a
+“binary search” type of strategy: Our first question would be “<span
+class="math inline">\(\mathbf{4}\)</span>“ and if the hidden number is
+higher than <span class="math inline">\(4\)</span> we will need one or
+two additional questions.</p>
+<p>Let our second question be “<span
+class="math inline">\(\mathbf{6}\)</span>“. If the hidden number is
+still higher than <span class="math inline">\(6\)</span>, we will need a
+third question in order to discriminate between <span
+class="math inline">\(7\)</span> and <span
+class="math inline">\(8\)</span>.</p>
+<p>Thus, our third question will be “<span
+class="math inline">\(\mathbf{7}\)</span>“ and the total cost for this
+worst-case scenario will be <span
+class="math inline">\(4+6+7=\color{red}{\mathbf{17}}\)</span>.</p>
+<p>We can improve considerably the worst-case cost for <span
+class="math inline">\(n=8\)</span>, by asking “<span
+class="math inline">\(\mathbf{5}\)</span>“ as our first question.</p>
+<p>If we are told that the hidden number is higher than <span
+class="math inline">\(5\)</span>, our second question will be “<span
+class="math inline">\(\mathbf{7}\)</span>“, then we’ll know for certain
+what the hidden number is (for a total cost of <span
+class="math inline">\(5+7=\color{blue}{\mathbf{12}}\)</span>.</p>
+<p>If we are told that the hidden number is lower than <span
+class="math inline">\(5\)</span>, our second question will be “<span
+class="math inline">\(\mathbf{3}\)</span>“ and if the hidden number is
+lower than <span class="math inline">\(3\)</span> our third question
+will be “<span class="math inline">\(\mathbf{1}\)</span>“, giving a
+total cost of <span
+class="math inline">\(5+3+1=\color{blue}{\mathbf{9}}\)</span>.</p>
+<p>Since <span
+class="math inline">\({\color{blue}{\mathbf{12}}}&gt;\color{blue}{\mathbf{9}}\)</span>,
+the worst-case cost for this strategy is <span
+class="math inline">\({\color{red}{\mathbf{12}}}\)</span>. That’s better
+than what we achieved previously with the “binary search” strategy; it
+is also better than or equal to any other strategy.</p>
+<p>So, in fact, we have just described an optimal strategy for <span
+class="math inline">\(n=8\)</span>.</p>
+<p>Let <span class="math inline">\(C(n)\)</span> be the worst-case cost
+achieved by an optimal strategy for <span
+class="math inline">\(n\)</span>, as described above.</p>
+<p>Thus <span class="math inline">\(C(1) = 0, C(2) = 1, C(3) =
+2\)</span> and <span class="math inline">\(C(8) = 12\)</span>.</p>
+<p>Similarly, <span class="math inline">\(C(100) = 400\)</span> and
+<span class="math inline">\(\sum \limits_{n = 1}^{100} {C(n)} =
+17575\)</span>.</p>
+<p>Find <span class="math inline">\(\sum \limits_{n = 1}^{200000}
+{C(n)}\)</span> .</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=200000\)</span>。一次猜测相当于在集合
+<span class="math inline">\({1,2,\dots,n}\)</span> 上选一个关键字 <span
+class="math inline">\(k\)</span>，并得到三种结果：</p>
+<ul>
+<li>命中：结束；</li>
+<li>更小：转入 <span class="math inline">\([1,k-1]\)</span>；</li>
+<li>更大：转入 <span class="math inline">\([k+1,n]\)</span>。</li>
+</ul>
+<p>因此任何策略都等价于一棵<strong>二叉搜索树</strong>（BST）：节点是被询问的数，左右子树分别对应更小、更大。对某个隐藏数
+<span class="math inline">\(x\)</span>，实际支付的总代价是从根走到 <span
+class="math inline">\(x\)</span> 的路径上所有节点值之和。</p>
+<p>不难直接想到用DP求解。令区间最优最坏代价为<span
+class="math inline">\(F(l,r)\)</span>，那么不难写出其状态转移方程：</p>
+<p><span class="math display">\[F(l,r)=
+\left \{\begin{aligned}
+  &amp;0 &amp; &amp; \text{if}\quad  l\ge r \\
+  &amp;\min_{k\in[l,r]}\left\{ k+\max(F(l,k-1),\ F(k+1,r))\right\}.
+&amp; &amp; \text{otherwise}\quad \\
+\end{aligned}\right.\]</span></p>
+<p>其中，第一行是边界，第二行则是极小极大递推：哪怕是进入了较差的分支，损失也要最小。</p>
+<p>题目所求<span class="math inline">\(\displaystyle{C(n)=F(1,n),
+\sum_{n=1}^{N}C(n)}.\)</span>因此，<span
+class="math inline">\(F(l,r)\)</span>不足及解决本题。</p>
+<p>把根猜测记为 <span
+class="math inline">\(g\)</span>。那么最坏代价一定是 <span
+class="math display">\[
+C(n)=\min_{1\le g\le n}\left(g+\max(C(g-1),\ F(g+1,n))\right).
+\]</span> 关键难点在于如何快速计算上侧区间 <span
+class="math inline">\(F(g+1,n)\)</span>。</p>
+<p>设上侧区间长度<span
+class="math inline">\(k=n-g,\)</span>则上侧就是长度为 <span
+class="math inline">\(k\)</span> 的后缀区间<span
+class="math inline">\([n-k+1, n].\)</span></p>
+<p>定义一个专门函数： <span class="math display">\[
+H(k,n)=F(n-k+1,\ n).
+\]</span></p>
+<p>于是</p>
+<p><span class="math display">\[
+C(n)=\min_{k\in[1,n-1]}\left\{(n-k)+\max(C(n-k-1),\ H(k,n))\right\}.
+\]</span></p>
+<p>也就是说，<span class="math inline">\(H(k,n)\)</span>等价于：在键集合
+<span class="math inline">\(\{n-k+1,\dots,n\}\)</span>
+上构造一棵“最优”的二叉搜索树，使得“根到某个键的路径和”的最大值最小；在选定的那棵树上，<span
+class="math inline">\(H(k,n)\)</span>就是最大路径和。</p>
+<p>在后缀区间 <span class="math inline">\({n-k+1,\dots,n}\)</span>
+中，数值整体偏大。路径上每多询问一次就会额外付出一个接近 <span
+class="math inline">\(n\)</span>
+的代价，因此对后缀子树的优化具有明显倾向：</p>
+<ol type="1">
+<li><strong>优先最小化高度</strong>：在节点值整体很大时，增加一层深度通常比“稍微换一下根的位置”更昂贵。</li>
+<li><strong>在同高度下，深叶尽量靠左</strong>：因为越靠左的键越小，把更深的叶放在更小的键一侧会减小最坏路径和。</li>
+</ol>
+<p>把这两点合并，可将后缀子树限制到一种形状：节点按层尽量填满，最后一层从左到右填（即完全二叉树），且更深的部分出现在左边。这样后缀子问题
+<span class="math inline">\(H(k,n)\)</span>
+不需要真正建树，而可以沿着“最坏分支”用计数方式直接求路径和。</p>
+<p>因此，<span
+class="math inline">\(H(k,n)\)</span>确实就变成“在这棵完全二叉搜索树上找最坏分支路径和”。</p>
+<p>对完全二叉树，我们不需要<strong>不需要建树</strong>，只要在计数意义上知道“本层能容纳的满子树大小”，就能决定最坏分支落到左还是右，并把根的数值加进答案。</p>
+<p>设后缀规模为 <span class="math inline">\(k\)</span>，右端点为 <span
+class="math inline">\(n\)</span>。令<span
+class="math inline">\(\texttt{next}=2^h-1\)</span>表示“下一个满树规模阈值”，使得当前
+<span class="math inline">\(k&lt;\texttt{next}\)</span>。令<span
+class="math inline">\(b=\left\lfloor\dfrac{\texttt{next}}{2}\right\rfloor=2^{h-1}-1.\)</span></p>
+<p>这里 <span class="math inline">\(b\)</span>
+可视作“上一层满树节点数”。若恰好 <span
+class="math inline">\(b=k\)</span>，说明实际上高度应更小一档，因此令<span
+class="math inline">\(b\leftarrow
+\left\lfloor\dfrac{b}{2}\right\rfloor.\)</span></p>
+<p>在 complete tree 中，最后一层最多还能额外容纳 <span
+class="math inline">\(b+1\)</span>
+个节点。根据填充位置，最坏分支会落在右侧或左侧，对应如下判定：$
+k&gt;b+.$</p>
+<ul>
+<li>若条件为真（最坏分支进入右侧更深部分），根值为<span
+class="math inline">\(\mathrm{root}=n-k+(b+1),\)</span>并更新<span
+class="math inline">\(k\leftarrow k-(b+1),
+b\leftarrow\left\lfloor\dfrac{b}{2}\right\rfloor,\)</span>且 <span
+class="math inline">\(n\)</span> 不变。</li>
+<li>否则（最坏分支进入左侧），根值为<span
+class="math inline">\(\mathrm{root}=n-\left\lfloor\dfrac{b}{2}\right\rfloor,\)</span>并更新<span
+class="math inline">\(s=\left\lfloor\dfrac{b}{2}\right\rfloor+1,k\leftarrow
+k-s,n\leftarrow
+n-s,b\leftarrow\left\lfloor\dfrac{b}{2}\right\rfloor.\)</span></li>
+</ul>
+<p>把每一步的 <span class="math inline">\(\mathrm{root}\)</span>
+累加，直到 <span
+class="math inline">\(k=1\)</span>（只剩一个数无需再问），即可得到 <span
+class="math inline">\(H(k,n)\)</span>。</p>
+<p>对固定 <span class="math inline">\(n\)</span>，候选值为<span
+class="math inline">\((n-k)+\max(C(n-k-1),H(k,n)).\)</span></p>
+<p>实践中（并与题目讨论区常见结论一致），最优后缀规模 <span
+class="math inline">\(k\)</span> 随 <span
+class="math inline">\(n\)</span>
+<strong>单调不减</strong>，这是因为随着<span
+class="math inline">\(n\)</span>的增大，如果<span
+class="math inline">\(k\)</span>递减，左右两侧占用的代价会更加失衡；利用这一点，可以在线性推进
+<span class="math inline">\(n\)</span> 的同时维护当前最优 <span
+class="math inline">\(k\)</span>，并只尝试少量“倍增步长”的候选更新，从而把整体复杂度压到近似
+<span class="math inline">\(O(N\log N)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">2</span> * <span class="number">10</span> ** <span class="number">5</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">suffix_cost</span>(<span class="params">k: <span class="built_in">int</span>, n: <span class="built_in">int</span>, nxt: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算 H(k, n) = F(n-k+1, n)：</span></span><br><span class="line"><span class="string">    即“隐藏数一定落在后缀区间 [n-k+1, n] 内时，在某种（近似最优的）完全二叉搜索树形状下，</span></span><br><span class="line"><span class="string">    根到目标节点的最坏路径（路径上询问值之和）的值”。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    这里的实现并不显式构造 BST，而是利用“完全树（complete）+ 深层尽量靠左”的结构，</span></span><br><span class="line"><span class="string">    沿着“最坏分支”逐层往下走，并把每一层的根节点值累加起来。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数</span></span><br><span class="line"><span class="string">    ----</span></span><br><span class="line"><span class="string">    k   : 后缀区间长度（&gt;=1），区间为 [n-k+1, n]</span></span><br><span class="line"><span class="string">    n   : 区间右端点</span></span><br><span class="line"><span class="string">    nxt : 一个梅森数阈值 2^h - 1，用于表示当前 complete 树的高度级别</span></span><br><span class="line"><span class="string">          要求 k &lt; nxt。（外层 DP 会维护这个 nxt）</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回</span></span><br><span class="line"><span class="string">    ----</span></span><br><span class="line"><span class="string">    int : H(k, n) 的估计值（在该 complete-tree 策略下的最坏路径和）</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># k==1 时后缀只有一个数，已经确定，无需再问，代价为 0</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># b 表示“上一层满树”的规模（节点数），用于决定本层如何分裂</span></span><br><span class="line">    <span class="comment"># 若 nxt = 2^h - 1，则 b = 2^(h-1) - 1</span></span><br><span class="line">    b = nxt // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 如果 b 恰好等于 k，说明 k 其实正好是一个满树规模，</span></span><br><span class="line">    <span class="comment"># 在这里我们希望把它视作更低一档高度来处理（避免边界退化）</span></span><br><span class="line">    <span class="keyword">if</span> b == k:</span><br><span class="line">        b //= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># ans：沿最坏分支累加得到的路径询问代价</span></span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># kk, nn 是“当前还需要处理的后缀规模”和“当前区间右端点”</span></span><br><span class="line">    <span class="comment"># 随着往下走，区间会被切掉一部分，因此 nn 可能会变小</span></span><br><span class="line">    kk = k</span><br><span class="line">    nn = n</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 当 kk &gt; 1 时，说明当前子问题里至少还有 2 个候选数，需要继续询问</span></span><br><span class="line">    <span class="keyword">while</span> kk &gt; <span class="number">1</span>:</span><br><span class="line">        <span class="comment"># complete tree 的结构：在规模 kk 的集合上，根会把集合分裂成左右两部分</span></span><br><span class="line">        <span class="comment"># 这里用 b (上一层满树规模) 来判断“最坏分支”会落到哪一边。</span></span><br><span class="line">        <span class="comment">#</span></span><br><span class="line">        <span class="comment"># 条件 kk &gt; b + (b+1)//2 的含义：</span></span><br><span class="line">        <span class="comment"># 最后一层额外节点如果超过一半，会导致右侧也出现更深的节点，</span></span><br><span class="line">        <span class="comment"># 由于右侧键值更大、且更深会增加路径和，最坏情况会跑到右侧更深部分。</span></span><br><span class="line">        <span class="keyword">if</span> kk &gt; b + (b + <span class="number">1</span>) // <span class="number">2</span>:</span><br><span class="line">            <span class="comment"># 走“右侧更深部分”的最坏分支：</span></span><br><span class="line">            <span class="comment"># 根位置可以写成：left_size = b+1（切掉一个前缀），根键值 = nn-kk+(b+1)</span></span><br><span class="line">            <span class="comment"># 直观理解：后缀区间起点是 nn-kk+1，往右数 (b+1) 个位置作为当前根</span></span><br><span class="line">            ans += nn - kk + b + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 进入右侧子问题：规模减少 (b+1)</span></span><br><span class="line">            kk -= b + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 下一层的 b 对应高度减一，因此 b 右移一半</span></span><br><span class="line">            b //= <span class="number">2</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="comment"># 否则最坏分支走“左侧”（深叶靠左的那部分）：</span></span><br><span class="line">            <span class="comment"># 当前根取在靠近右端点的中位处：root = nn - b//2</span></span><br><span class="line">            ans += nn - b // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 进入左侧子问题时，会切掉 (b//2 + 1) 个元素（含根及其右侧那部分结构）</span></span><br><span class="line">            step = b // <span class="number">2</span> + <span class="number">1</span></span><br><span class="line">            kk -= step</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 区间右端点 nn 也相应左移 step（因为我们等价于在更小的后缀区间里继续）</span></span><br><span class="line">            nn -= step</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 同样进入下一层，高度减一</span></span><br><span class="line">            b //= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算 sum_&#123;n=1..N&#125; C(n)：</span></span><br><span class="line"><span class="string">    C(n) 为在 1..n 上猜隐藏数、每次猜 k 付 k 的代价、要求最坏情况总代价最小的最优值。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    该实现的核心是：</span></span><br><span class="line"><span class="string">    - 用一维数组 C[n] 递推，每次只维护一个“当前最优后缀规模” knots</span></span><br><span class="line"><span class="string">    - 对每个 n，只尝试少量的 knots 增量（按 2 的幂次试探），利用 knots 的单调性与块增长性质</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># C[n] 存储 C(n)</span></span><br><span class="line">    C = [<span class="number">0</span>] * (N + <span class="number">1</span>)</span><br><span class="line">    C[<span class="number">1</span>] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># knots 表示当前认为“最优的右侧后缀规模 k = n-g”</span></span><br><span class="line">    <span class="comment"># 即当前 first guess 取 g = n - knots</span></span><br><span class="line">    knots = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># nxt 是梅森数阈值 2^h - 1，用来表示 knots 所处的高度级别</span></span><br><span class="line">    <span class="comment"># 典型序列：3, 7, 15, 31, ...</span></span><br><span class="line">    <span class="comment"># 维护不变式：knots &lt; nxt</span></span><br><span class="line">    nxt = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># maxadd 用于限制我们试探 knots 的增量范围（也是按 2 的幂增长）</span></span><br><span class="line">    <span class="comment"># 实际上相当于对“下一次 knots 可能增长到多大”做一个动态上界</span></span><br><span class="line">    maxadd = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># total 累加 sum_&#123;n=1..N&#125; C(n)</span></span><br><span class="line">    total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">            <span class="comment"># C(1)=0</span></span><br><span class="line">            total += <span class="number">0</span></span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 令 first guess 为 g，则右侧规模 k = n-g</span></span><br><span class="line">        <span class="comment"># 这里使用当前 knots 作为候选 k，因此 g = n - knots</span></span><br><span class="line">        g = n - knots</span><br><span class="line"></span><br><span class="line">        <span class="comment"># “左侧最坏情况”代价：</span></span><br><span class="line">        <span class="comment"># 若隐藏数 &lt; g，则本次询问支付 g，然后进入 [1..g-1]，</span></span><br><span class="line">        <span class="comment"># 该子问题的最优最坏代价为 C(g-1)</span></span><br><span class="line">        best = g + C[g - <span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># “右侧最坏情况”代价：</span></span><br><span class="line">        <span class="comment"># 若隐藏数 &gt; g，则进入后缀区间 [g+1..n]，长度为 knots</span></span><br><span class="line">        <span class="comment"># 在该后缀区间内的估计最坏代价为 suffix_cost(knots, n, nxt)</span></span><br><span class="line">        up = g + suffix_cost(knots, n, nxt)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 整体最坏代价是左右两边的 max，因此取较大者作为当前策略的最坏代价</span></span><br><span class="line">        <span class="keyword">if</span> best &lt; up:</span><br><span class="line">            best = up</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 尝试把 knots 增加一些（按 2 的幂次试探），看是否能进一步降低最坏代价</span></span><br><span class="line">        add = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 经验/结构性结论：当 knots&gt;=7 后，增长往往以 8,16,32,... 的块推进；</span></span><br><span class="line">        <span class="comment"># 否则从 2 开始尝试更合适</span></span><br><span class="line">        a = <span class="number">8</span> <span class="keyword">if</span> knots &gt;= <span class="number">7</span> <span class="keyword">else</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 约束：</span></span><br><span class="line">        <span class="comment"># - knots + a &lt;= nxt：保证在当前高度级别里试探（nxt 是当前层可容纳的阈值）</span></span><br><span class="line">        <span class="comment"># - a &lt;= maxadd * 2：限制试探深度，避免每次都扫太多</span></span><br><span class="line">        <span class="keyword">while</span> knots + a &lt;= nxt <span class="keyword">and</span> a &lt;= maxadd * <span class="number">2</span>:</span><br><span class="line">            <span class="comment"># k 不能 &gt;= n（否则 g&lt;=0，不合法）</span></span><br><span class="line">            <span class="keyword">if</span> knots + a &gt;= n:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 新的后缀规模为 knots+a，对应 first guess gg = n - (knots+a)</span></span><br><span class="line">            gg = n - (knots + a)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 在该 first guess 下，如果走右侧后缀，代价为 gg + H(knots+a, n)</span></span><br><span class="line">            <span class="comment"># （这里的实现只需要比较这一项就能更新 best，是因为该类试探主要影响右侧形状，</span></span><br><span class="line">            <span class="comment"># 结合 knots 的维护方式，整体比较仍然有效）</span></span><br><span class="line">            cand = gg + suffix_cost(knots + a, n, nxt)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 如果 cand 更小，说明这种更大的后缀规模更好</span></span><br><span class="line">            <span class="keyword">if</span> cand &lt; best:</span><br><span class="line">                best = cand</span><br><span class="line">                add = a</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 继续按 2 倍增量试探</span></span><br><span class="line">            a *= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 记录 C(n)，并累加</span></span><br><span class="line">        C[n] = best</span><br><span class="line">        total += best</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果发现更优的增量 add，就更新 knots</span></span><br><span class="line">        <span class="keyword">if</span> add:</span><br><span class="line">            knots += add</span><br><span class="line"></span><br><span class="line">            <span class="comment"># knots 达到当前阈值 nxt 时，说明高度级别需要提升：</span></span><br><span class="line">            <span class="comment"># nxt 从 (2^h-1) 更新到 (2^(h+1)-1) = 2*nxt + 1</span></span><br><span class="line">            <span class="keyword">if</span> knots == nxt:</span><br><span class="line">                nxt = nxt * <span class="number">2</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果本次增长超过历史最大增长，则更新 maxadd（保持它也是按 2 的幂次增长）</span></span><br><span class="line">        <span class="keyword">if</span> add &gt; maxadd:</span><br><span class="line">            maxadd *= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = solve(N)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/328/" title="Project Euler 328">https://ujimatsu-chiya.github.io/project-euler/328/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.4m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">20:40</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
