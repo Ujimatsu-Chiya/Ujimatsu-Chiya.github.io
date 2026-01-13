@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 338">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/338/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0338_gridpaper.gif">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0338-1.png">
+<meta property="article:published_time" content="2026-01-13T15:52:38.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:38.335Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0338_gridpaper.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/338/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/338/","path":"project-euler/338/","title":"Project Euler 338"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 338 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-338"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 338</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cutting-rectangular-grid-paper"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cutting Rectangular Grid
+Paper</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/338/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 338 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 338
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:38" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:38+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-338">Project Euler 338</h1>
+<h2 id="题目">题目</h2>
+<h3 id="cutting-rectangular-grid-paper">Cutting Rectangular Grid
+Paper</h3>
+<p>A rectangular sheet of grid paper with integer dimensions <span
+class="math inline">\(w \times h\)</span> is given. Its grid spacing is
+<span class="math inline">\(1\)</span>.</p>
+<p>When we cut the sheet along the grid lines into two pieces and
+rearrange those pieces without overlap, we can make new rectangles with
+different dimensions.</p>
+<p>For example, from a sheet with dimensions <span
+class="math inline">\(9 \times 4\)</span>, we can make rectangles with
+dimensions <span class="math inline">\(18 \times 2, 12 \times 3\)</span>
+and <span class="math inline">\(6 \times 6\)</span> by cutting and
+rearranging as below:</p>
+<p><img data-src="../resources/images/0338_gridpaper.gif" /></p>
+<p>Similarly, from a sheet with dimensions <span class="math inline">\(9
+\times 8\)</span> , we can make rectangles with dimensions <span
+class="math inline">\(18 \times 4\)</span> and <span
+class="math inline">\(12 \times 6\)</span> .</p>
+<p>For a pair <span class="math inline">\(w\)</span> and <span
+class="math inline">\(h\)</span>, let <span
+class="math inline">\(F(w,h)\)</span> be the number of distinct
+rectangles that can be made from a sheet with dimensions <span
+class="math inline">\(w \times h\)</span> .</p>
+<p>For example, <span class="math inline">\(F(2,1) = 0, F(2,2) = 1,
+F(9,4) = 3\)</span> and <span class="math inline">\(F(9,8) =
+2\)</span>.</p>
+<p>Note that rectangles congruent to the initial one are not counted in
+<span class="math inline">\(F(w,h)\)</span>.</p>
+<p>Note also that rectangles with dimensions <span
+class="math inline">\(w \times h\)</span> and dimensions <span
+class="math inline">\(h \times w\)</span> are not considered
+distinct.</p>
+<p>For an integer <span class="math inline">\(N\)</span>, let <span
+class="math inline">\(G(N)\)</span> be the sum of <span
+class="math inline">\(F(w,h)\)</span> for all pairs <span
+class="math inline">\(w\)</span> and <span
+class="math inline">\(h\)</span> which satisfy <span
+class="math inline">\(0 &lt; h \le w \le N\)</span>.</p>
+<p>We can verify that <span class="math inline">\(G(10) = 55, G(10^3) =
+971745\)</span> and <span class="math inline">\(G(10^5) =
+9992617687\)</span>.</p>
+<p>Find <span class="math inline">\(G(10^{12})\)</span>. Give your
+answer modulo <span class="math inline">\(10^8\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>把 <span class="math inline">\(w\times h\)</span>
+看成由单位正方形组成。一次切割后得到两块多格子图形，它们的拼接边界必须完全吻合，最终外轮廓要变成矩形。</p>
+<p>经典的（也是唯一能系统产生矩形到矩形的）情形是“阶梯形”边界：边界由若干次
+“向右 1 格 + 向上 1 格” 的重复构成。此时整张纸可以按块分解为一个 <span
+class="math inline">\(i\times(i+1)\)</span> 的小块阵列：存在整数<span
+class="math inline">\(i\ge 1, a\ge 1,b\ge
+1,\)</span>使得原矩形尺寸可写为<span
+class="math inline">\((w,h)=(ai,b(i+1)),\)</span>
+切成两块后交换阶梯的“长边/短边”角色，即可拼成<span
+class="math inline">\((w&#39;,h&#39;)=(a(i+1),bi).\)</span>可以把<span
+class="math inline">\(i\)</span>理解成：阶梯线一侧有 <span
+class="math inline">\(i\)</span> 个台阶，另一侧对应 <span
+class="math inline">\(i+1\)</span> 个台阶（或者说块阵列的行数/列数分别是
+<span class="math inline">\(i\)</span> 与 <span
+class="math inline">\(i+1\)</span>）。</p>
+<p><img data-src="../resources/images/0338-1.png" /></p>
+<p>因此，所有能由一次切割变形得到的矩形对，必然来自某个三元组 <span
+class="math inline">\((a,b,i)\)</span> 的这类相邻因子互换。</p>
+<p>另外，若 <span class="math inline">\(a=b\)</span>，则 <span
+class="math inline">\((ai,a(i+1))\)</span> 变到 <span
+class="math inline">\((a(i+1),ai)\)</span>，只是交换两条边，属于与原矩形全等，按题意不计入。</p>
+<p>把“每个可变形的原矩形贡献 1 次”的计数，改为直接计数所有满足约束的
+<span class="math inline">\((a,b,i)\)</span> 变换，并处理“同一变换被不同
+<span class="math inline">\((a,b,i)\)</span> 表示”的去重。</p>
+<p>固定 <span class="math inline">\(i\)</span>：</p>
+<ul>
+<li><span class="math inline">\(ai\le N \Rightarrow 1\le a\le
+\left\lfloor\dfrac{N}{i}\right\rfloor\)</span></li>
+<li><span class="math inline">\(b(i+1)\le N \Rightarrow 1\le b\le
+\left\lfloor\dfrac{N}{i+1}\right\rfloor\)</span></li>
+</ul>
+<p>候选数为 <span class="math inline">\(\left\lfloor\dfrac
+Ni\right\rfloor\left\lfloor\dfrac N{i+1}\right\rfloor\)</span>。其中
+<span class="math inline">\(a=b\)</span> 的非法（全等）情况数量为 <span
+class="math inline">\(\left\lfloor\dfrac
+N{i+1}\right\rfloor\)</span>。因此未去重总数为</p>
+<p><span class="math display">\[
+S=\sum_{i=1}^{N-1}\left(
+\left\lfloor\frac Ni\right\rfloor\left\lfloor\frac N{i+1}\right\rfloor
+-\left\lfloor\frac N{i+1}\right\rfloor
+\right).
+\]</span></p>
+<p>令<span
+class="math inline">\(\displaystyle{s_1=\sum_{i=1}^{N-1}\left\lfloor\frac{N}{i}\right\rfloor\left\lfloor\frac
+N{i+1}\right\rfloor,s_2=\sum_{i=2}^{N}\left\lfloor\frac
+Ni\right\rfloor,}\)</span>则<span
+class="math inline">\(S=s_1-s_2.\)</span></p>
+<!-- 同一个“矩形变换”可能被不同三元组 $(a,b,i)$ 表示；把重复来源完全抽象后，会落到一个非常干净的有序双重整除和：$\displaystyle{U(N)=\sum_{a=2}^{\infty}\sum_{b=2}^{\infty}\left\lfloor\frac N{ab}\right\rfloor.}$实际上，$ab$只会到$N$。
+
+ -->
+<p>那么为计算 <span
+class="math inline">\(G(N)\)</span>，前面把所有合法的构造按三元组 <span
+class="math inline">\((a,b,i)\)</span> 计数：每个 <span
+class="math inline">\((a,b,i)\)</span> 对应一次变换<span
+class="math inline">\((ai,b(i+1))\longrightarrow
+(a(i+1),bi),\)</span>并要求 <span class="math inline">\(ai\le
+N,b(i+1)\le N\)</span>，同时剔除 <span
+class="math inline">\(a=b\)</span>（否则仅是交换两边、与原矩形全等）。这样得到的总数
+<span class="math inline">\(S\)</span>
+仍然会<strong>多算</strong>，原因是：同一对矩形（起始矩形与其变换后的矩形，均视为无序对）可能由<strong>两组不同参数</strong>
+<span class="math inline">\((a,b,i)\)</span> 与 <span
+class="math inline">\((a&#39;,b&#39;,j)\)</span> 产生。</p>
+<p>设存在两组不同参数 <span class="math inline">\((a,b,i)\)</span> 与
+<span class="math inline">\((a&#39;,b&#39;,j)\)</span>（其中 <span
+class="math inline">\(i\ne
+j\)</span>），产生<strong>同一个</strong>变换。由于矩形不区分长宽顺序，这等价于下面两个无序集合同时相等：<span
+class="math inline">\(\{ai,b(i+1)\}=\{a&#39;j,b&#39;(j+1)\},\{a(i+1),bi\}=\{a&#39;(j+1),b&#39;j\}.\)</span></p>
+<p>如果两边都“同向匹配”（即 <span
+class="math inline">\(ai=a&#39;j\)</span> 且 <span
+class="math inline">\(b(i+1)=b&#39;(j+1)\)</span>，并且 <span
+class="math inline">\(a(i+1)=a&#39;(j+1)\)</span> 且 <span
+class="math inline">\(bi=b&#39;j\)</span>），则由<span
+class="math inline">\(\dfrac{a(i+1)}{ai}=\dfrac{a&#39;(j+1)}{a&#39;j}\)</span>立刻得到
+<span class="math inline">\(\dfrac{i+1}{i}=\dfrac{j+1}{j}\)</span>，从而
+<span class="math inline">\(i=j\)</span>，与 <span
+class="math inline">\(i\ne j\)</span>
+矛盾。因此，产生重复的情形必然来自“交叉匹配”，也就是起始矩形按一种方式对齐，而目标矩形按另一种方式对齐。</p>
+<p>不妨固定一种交叉方式（另一种方式完全对称，稍后合并即可）：<span
+class="math inline">\(ai=a&#39;j,
+b(i+1)=b&#39;(j+1),\)</span>而目标矩形满足<span
+class="math inline">\(a(i+1)=b&#39;j,
+bi=a&#39;(j+1).\)</span>由前两式与第三式相除得<span
+class="math inline">\(\dfrac{a(i+1)}{ai}=\dfrac{b&#39;j}{a&#39;j}\Longrightarrow\dfrac{i+1}{i}=\dfrac{b&#39;}{a&#39;}.\)</span></p>
+<p>由于 <span class="math inline">\(\gcd(i,i+1)=1\)</span>，分数 <span
+class="math inline">\(\dfrac{i+1}{i}\)</span>
+已是既约分数，因此必存在整数 <span class="math inline">\(t\ge1\)</span>
+使得<span class="math inline">\(a&#39;=ti, b&#39;=t(i+1).\)</span>将
+<span class="math inline">\(a&#39;=ti\)</span> 代入 <span
+class="math inline">\(ai=a&#39;j\)</span> 得<span
+class="math inline">\(ai=ti\cdot j\Longrightarrow a=tj.\)</span>再把
+<span class="math inline">\(a&#39;=ti\)</span> 代入 <span
+class="math inline">\(bi=a&#39;(j+1)\)</span> 得<span
+class="math inline">\(bi=ti\cdot (j+1)\Longrightarrow
+b=t(j+1).\)</span></p>
+<p>因此，一旦同一变换出现两套不同参数表示，它们必然具有如下刚性结构：<span
+class="math inline">\((a,b)=(tj,t(j+1)),
+(a&#39;,b&#39;)=(ti,t(i+1)),\)</span>其中 <span
+class="math inline">\(t\ge 1\)</span> 且 <span
+class="math inline">\(i\ne j\)</span>。</p>
+<p>接下来把“是否在范围内”转化为对 <span class="math inline">\(t\)</span>
+的约束。以第一套参数表示的起始矩形为例，其两边为 <span
+class="math inline">\(ai=(tj),i=tij, b(i+1)=t(j+1)(i+1).\)</span>由于
+<span class="math inline">\((j+1)(i+1)&gt;ij\)</span>，约束 <span
+class="math inline">\(ai\le N\)</span> 与 <span
+class="math inline">\(b(i+1)\le N\)</span> 等价于只需满足<span
+class="math inline">\(t(i+1)(j+1)\le N.\)</span>令 <span
+class="math inline">\(A=i+1\ge2,
+B=j+1\ge2,\)</span>则“产生一次重复”的充要条件变成存在整数 <span
+class="math inline">\(t\ge1\)</span> 使得<span
+class="math inline">\(tAB\le N.\)</span>对固定的有序对 <span
+class="math inline">\((A,B)\)</span>，满足 <span
+class="math inline">\(tAB\le N\)</span> 的 <span
+class="math inline">\(t\)</span> 的个数显然是<span
+class="math inline">\(\left\lfloor\dfrac
+N{AB}\right\rfloor.\)</span></p>
+<p>上面的推导对应一种交叉匹配方式；另一种对称的交叉匹配（把 <span
+class="math inline">\(j\)</span> 与 <span
+class="math inline">\(j+1\)</span>
+在匹配中互换）会给出同样的结论，只是把 <span
+class="math inline">\((A,B)\)</span>
+的来源在有序意义下互换。将两种交叉方式合并后，恰好得到：<strong>每一对有序整数
+<span class="math inline">\((A,B)\)</span>（且 <span
+class="math inline">\(A\ge2,B\ge2\)</span>）都会贡献 <span
+class="math inline">\(\left\lfloor\dfrac N{AB}\right\rfloor\)</span>
+个重复来源</strong>。因此需要扣除的重复总数为 <span
+class="math display">\[
+U(N)=\sum_{A=2}^{\infty}\sum_{B=2}^{\infty}\left\lfloor\frac
+N{AB}\right\rfloor.
+\]</span></p>
+<p>并且当 <span class="math inline">\(AB&gt;N\)</span> 时取整项为 <span
+class="math inline">\(0\)</span>，所以实际只需考虑 <span
+class="math inline">\(AB\le N\)</span> 的项。</p>
+<p>最终有 <span class="math display">\[
+G(N)=s_1-s_2-U(N).
+\]</span></p>
+<p>接下来关键是把 <span class="math inline">\(U(N)\)</span> 降到可在
+<span class="math inline">\(N=10^{12}\)</span> 上快速计算。</p>
+<p>注意到<span class="math inline">\(\left\lfloor\dfrac
+N{ab}\right\rfloor=\#\{c\ge 1:abc\le N\}.\)</span> 因此<span
+class="math inline">\(U(N)=\#\{(a,b,c): a\ge2,b\ge2,c\ge1,abc\le
+N\}.\)</span></p>
+<p>引入两个标准计数：</p>
+<ul>
+<li>二维有序计数<span
+class="math inline">\(\displaystyle{T_2(N)=\#\{(x,y)\ge 1:xy\le
+N\}=\sum_{k=1}^{N}\left\lfloor\frac{N}{k}\right\rfloor.}\)</span></li>
+<li>三维有序计数<span
+class="math inline">\(\displaystyle{T_3(N)=\#\{(x,y,z)\ge 1:xyz\le
+N\}=\sum_{n\le N}d_3(n).}\)</span></li>
+</ul>
+<p>用容斥从 <span class="math inline">\(T_3\)</span> 扣掉 <span
+class="math inline">\(a=1\)</span> 或 <span
+class="math inline">\(b=1\)</span>：</p>
+<ul>
+<li><span class="math inline">\(a=1\)</span> 的三元组数为 <span
+class="math inline">\(\#\{(b,c): bc\le N\}=T_2(N)\)</span></li>
+<li><span class="math inline">\(b=1\)</span> 同理也是 <span
+class="math inline">\(T_2(N)\)</span></li>
+<li><span class="math inline">\(a=b=1\)</span> 被扣两次需加回：<span
+class="math inline">\(\#\{c\le N\}=N\)</span></li>
+</ul>
+<p>所以 <span class="math display">\[
+U(N)=T_3(N)-2T_2(N)+N.
+\]</span></p>
+<p>再注意 <span class="math inline">\(s_2=T_2(N)-N\)</span>，代回 <span
+class="math inline">\(G(N)=s_1-s_2-U(N)\)</span> 得到漂亮的消元：</p>
+<p><span class="math display">\[
+G(N)=s_1+T_2(N)-T_3(N).
+\]</span></p>
+<p>求解<span class="math inline">\(s_1,T_2\)</span>可以在<span
+class="math inline">\(O(\sqrt{N})\)</span>时间内使用数论分块求解。</p>
+<p>首先计算<span class="math inline">\(T_2\)</span>。当 <span
+class="math inline">\(v=\lfloor N/k\rfloor\)</span> 固定时，<span
+class="math inline">\(k\)</span> 落在区间<span
+class="math inline">\(k\in\left[\left\lfloor\dfrac
+N{v}\right\rfloor,\left\lfloor\dfrac
+N{\left\lfloor\frac{N}{v}\right\rfloor}\right\rfloor\right]\)</span>
+可用标准写法：令 <span class="math inline">\(k\)</span> 从 1 开始，设
+<span class="math inline">\(v=\lfloor N/k\rfloor\)</span>，则使商为
+<span class="math inline">\(v\)</span> 的最大 <span
+class="math inline">\(k\)</span> 为 <span
+class="math inline">\(r=\lfloor N/v\rfloor\)</span>，区间 <span
+class="math inline">\([k,r]\)</span> 上都等于 <span
+class="math inline">\(v\)</span>。</p>
+<p>接下来计算<span
+class="math inline">\(s_1\)</span>。同样分两部分：</p>
+<ul>
+<li>小 <span
+class="math inline">\(i\)</span>（直到某个阈值）直接算；</li>
+<li>大 <span class="math inline">\(i\)</span> 时 <span
+class="math inline">\(\lfloor N/i\rfloor\)</span> 很小，可按商 <span
+class="math inline">\(q=\lfloor N/i\rfloor\)</span> 分组。对固定 <span
+class="math inline">\(q\)</span>，满足 <span
+class="math inline">\(\lfloor N/i\rfloor=q\)</span> 的 <span
+class="math inline">\(i\)</span> 形成一段<span
+class="math inline">\(i\in\left(\left\lfloor\dfrac
+N{q+1}\right\rfloor,\left\lfloor\dfrac
+Nq\right\rfloor\right].\)</span>在这段里 <span
+class="math inline">\(\lfloor N/(i+1)\rfloor\)</span> 几乎总是 <span
+class="math inline">\(q\)</span>，只有最后一个 <span
+class="math inline">\(i\)</span> 会使 <span
+class="math inline">\(\lfloor
+N/(i+1)\rfloor=q-1\)</span>。于是该段贡献为<span
+class="math inline">\((c-1)\cdot q^2 + q(q-1),\)</span>其中<span
+class="math inline">\(c=\left\lfloor\dfrac
+Nq\right\rfloor-\left\lfloor\dfrac N{q+1}\right\rfloor.\)</span></li>
+</ul>
+<p>接下来计算<span
+class="math inline">\(T_3\)</span>：直接三重循环不行。核心是先数“非降序三元组”：<span
+class="math inline">\(H(N)=\#\{(a,b,c): 1\le a\le b\le c,abc\le
+N\}.\)</span></p>
+<p>显然 <span class="math inline">\(a^3\le abc\le N\)</span>，所以<span
+class="math inline">\(a\le \lfloor\sqrt[3]{N}\rfloor.\)</span>固定 <span
+class="math inline">\(a\)</span>，令 <span
+class="math inline">\(M=\left\lfloor\dfrac
+Na\right\rfloor,\)</span>需要数<span class="math inline">\(\#\{(b,c):
+a\le b\le c,bc\le M\}.\)</span>当 <span class="math inline">\(b\le
+\lfloor\sqrt M\rfloor\)</span> 时，合法 <span
+class="math inline">\(c\)</span> 的个数为<span
+class="math inline">\(\left\lfloor\dfrac
+Mb\right\rfloor-b+1.\)</span>因此，令</p>
+<p><span class="math display">\[
+H(N)=\sum_{a=1}^{\lfloor\sqrt[3]{N}\rfloor}\sum_{b=a}^{\lfloor\sqrt{N/a}\rfloor}\left(\left\lfloor\frac{N/a}{b}\right\rfloor-b+1\right).
+\]</span></p>
+<p>把非降序三元组按相等类型分解：</p>
+<ul>
+<li><span class="math inline">\(A\)</span>：严格递增 <span
+class="math inline">\(a&lt;b&lt;c\)</span></li>
+<li><span class="math inline">\(B\)</span>：<span
+class="math inline">\(a=b&lt;c\)</span></li>
+<li><span class="math inline">\(D\)</span>：<span
+class="math inline">\(a&lt;b=c\)</span></li>
+<li><span class="math inline">\(E\)</span>：<span
+class="math inline">\(a=b=c\)</span></li>
+</ul>
+<p>则<span class="math inline">\(H=A+B+D+E.\)</span>有序三元组数为<span
+class="math inline">\(T_3=6A+3B+3D+E.\)</span>消去<span
+class="math inline">\(A=H-B-D-E,\)</span>得到<span
+class="math inline">\(T_3=6(H-B-D-E)+3B+3D+E=6H-3B-3D-5E.\)</span></p>
+<p>接下来分别计算 <span class="math inline">\(B,D,E\)</span>：</p>
+<ul>
+<li><span
+class="math inline">\(E=\lfloor\sqrt[3]{N}\rfloor\)</span>。</li>
+<li><span class="math inline">\(\displaystyle{B=\#\{(a,c): a\ge
+1,c&gt;a,a^2c\le N\}=\sum_{a=1}^{\lfloor\sqrt
+N\rfloor}\max\left(0,\left\lfloor\frac
+N{a^2}\right\rfloor-a\right).}\)</span></li>
+<li><span class="math inline">\(\displaystyle{D=\#\{(a,b): b\ge
+1,a&lt;b,ab^2\le N\}=\sum_{b=1}^{\lfloor\sqrt
+N\rfloor}\min\left(b-1,\left\lfloor\frac
+N{b^2}\right\rfloor\right).}\)</span></li>
+</ul>
+<p>由此完成对<span class="math inline">\(T_3\)</span>进行计算。</p>
+<p>将所有的结果恢复到</p>
+<p><span class="math display">\[G(N)=s_1+T_2(N)-T_3(N)\]</span></p>
+<p>上合并起来即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> int_sqrt, int_cubert</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span>**<span class="number">12</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">T2_ordered</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># T2(n) = sum_&#123;k=1..n&#125; floor(n/k), O(sqrt n)</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    k = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> k &lt;= n:</span><br><span class="line">        v = n // k</span><br><span class="line">        r = n // v</span><br><span class="line">        s += v * (r - k + <span class="number">1</span>)</span><br><span class="line">        k = r + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">s1_value</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># s1 = sum_&#123;i=1..n-1&#125; floor(n/i)*floor(n/(i+1)), O(sqrt n)</span></span><br><span class="line">    a = int_sqrt(n)</span><br><span class="line">    maxk = n // (a + <span class="number">1</span>)</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># direct part</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, maxk + <span class="number">1</span>):</span><br><span class="line">        ans += (n // i) * (n // (i + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># grouped by q = floor(n/i) for i &gt; maxk</span></span><br><span class="line">    <span class="keyword">for</span> q <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, a + <span class="number">1</span>):</span><br><span class="line">        cnt = n // q - n // (q + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> cnt &gt; <span class="number">0</span>:</span><br><span class="line">            ans += (cnt - <span class="number">1</span>) * q * q + q * (q - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">T3_ordered</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># T3(n) = #&#123;(x,y,z)&gt;=1 : xyz&lt;=n&#125;, computed via nondecreasing triples H</span></span><br><span class="line">    c = int_cubert(n)</span><br><span class="line">    H = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, c + <span class="number">1</span>):</span><br><span class="line">        M = n // a</span><br><span class="line">        r = int_sqrt(M)</span><br><span class="line">        b = a</span><br><span class="line">        <span class="comment"># sum_&#123;b=a..r&#125; (M//b - b + 1), grouped by constant M//b</span></span><br><span class="line">        <span class="keyword">while</span> b &lt;= r:</span><br><span class="line">            v = M // b</span><br><span class="line">            b2 = M // v</span><br><span class="line">            <span class="keyword">if</span> b2 &gt; r:</span><br><span class="line">                b2 = r</span><br><span class="line">            cnt = b2 - b + <span class="number">1</span></span><br><span class="line">            sb = (b + b2) * cnt // <span class="number">2</span></span><br><span class="line">            H += v * cnt - sb + cnt</span><br><span class="line">            b = b2 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    sq = int_sqrt(n)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># B: a=b&lt;c</span></span><br><span class="line">    B = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, sq + <span class="number">1</span>):</span><br><span class="line">        t = n // (a * a) - a</span><br><span class="line">        <span class="keyword">if</span> t &gt; <span class="number">0</span>:</span><br><span class="line">            B += t</span><br><span class="line"></span><br><span class="line">    <span class="comment"># D: a&lt;b=c</span></span><br><span class="line">    D = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, sq + <span class="number">1</span>):</span><br><span class="line">        t = n // (b * b)</span><br><span class="line">        <span class="keyword">if</span> t &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">if</span> t &gt;= b:</span><br><span class="line">            D += b - <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            D += t</span><br><span class="line"></span><br><span class="line">    <span class="comment"># E: a=b=c</span></span><br><span class="line">    E = c</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">6</span> * H - <span class="number">3</span> * B - <span class="number">3</span> * D - <span class="number">5</span> * E</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">G</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    s1 = s1_value(n)</span><br><span class="line">    T2 = T2_ordered(n)</span><br><span class="line">    T3 = T3_ordered(n)</span><br><span class="line">    <span class="keyword">return</span> (s1 + T2 - T3) % mod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(G(N))  <span class="comment"># 15614292</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/338/" title="Project Euler 338">https://ujimatsu-chiya.github.io/project-euler/338/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

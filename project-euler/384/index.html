@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 384">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/384/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:53:02.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:53:02.708Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/384/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/384/","path":"project-euler/384/","title":"Project Euler 384"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 384 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-384"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 384</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#rudin-shapiro-sequence"><span class="nav-number">1.1.1.</span> <span class="nav-text">Rudin-Shapiro sequence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/384/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 384 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 384
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:53:02" itemprop="dateCreated datePublished" datetime="2026-01-13T23:53:02+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-384">Project Euler 384</h1>
+<h2 id="题目">题目</h2>
+<h3 id="rudin-shapiro-sequence">Rudin-Shapiro sequence</h3>
+<p>Define the sequence <span class="math inline">\(a(n)\)</span> as the
+number of adjacent pairs of ones in the binary expansion of n (possibly
+overlapping).</p>
+<p>E.g.: <span class="math inline">\(a(5) = a(101_2) = 0, a(6) =
+a(110_2) = 1, a(7) = a(111_2) = 2\)</span></p>
+<p>Define the sequence <span class="math inline">\(b(n) =
+(-1)^{a(n)}\)</span>.</p>
+<p>This sequence is called the <strong>Rudin-Shapiro</strong>
+sequence.</p>
+<p>Also consider the summatory sequence of <span
+class="math inline">\(b(n)\)</span>: <span class="math inline">\(s(n) =
+\sum \limits_{i = 0}^{n} {b(i)}\)</span>.</p>
+<p>The first couple of values of these sequences are:</p>
+<table>
+<thead>
+<tr>
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(0\)</span></th>
+<th><span class="math inline">\(1\)</span></th>
+<th><span class="math inline">\(2\)</span></th>
+<th><span class="math inline">\(3\)</span></th>
+<th><span class="math inline">\(4\)</span></th>
+<th><span class="math inline">\(5\)</span></th>
+<th><span class="math inline">\(6\)</span></th>
+<th><span class="math inline">\(7\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(a(n)\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(b(n)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(-1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(-1\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+</tr>
+<tr>
+<td><span class="math inline">\(s(n)\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The sequence <span class="math inline">\(s(n)\)</span> has the
+remarkable property that all elements are positive and every positive
+integer <span class="math inline">\(k\)</span> occurs exactly <span
+class="math inline">\(k\)</span> times.</p>
+<p>Define <span class="math inline">\(g(t,c)\)</span>, with <span
+class="math inline">\(1 \le c \le t\)</span>, as the index in <span
+class="math inline">\(s(n)\)</span> for which <span
+class="math inline">\(t\)</span> occurs for the <span
+class="math inline">\(c\)</span>’th time in <span
+class="math inline">\(s(n)\)</span>.</p>
+<p>E.g.: <span class="math inline">\(g(3,3) = 6, g(4,2) = 7\)</span> and
+<span class="math inline">\(g(54321,12345) = 1220847710\)</span>.</p>
+<p>Let <span class="math inline">\(F(n)\)</span> be the fibonacci
+sequence defined by:</p>
+<p><span class="math inline">\(F(0)=F(1)=1\)</span> and</p>
+<p><span class="math inline">\(F(n)=F(n-1)+F(n-2)\)</span> for <span
+class="math inline">\(n&gt;1\)</span>.</p>
+<p>Define <span class="math inline">\(GF(t)=g(F(t),F(t-1))\)</span>.</p>
+<p>Find <span class="math inline">\(\sum GF(t)\)</span> for <span
+class="math inline">\(2\le t\le45\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>为了方便处理前缀和，约定<span
+class="math inline">\(s(-1)=0,s(n)=s(n-1)+b(n)(n\ge 0).\)</span></p>
+<p>现在我们从 <span class="math inline">\(a(n)\)</span> 推出 <span
+class="math inline">\(b(n)\)</span> 的二倍递推</p>
+<p>把 <span class="math inline">\(n\)</span> 左移一位得到 <span
+class="math inline">\(2n\)</span>，末尾补 0，不会新增相邻
+“11”，因此<span class="math inline">\(a(2n)=a(n)\Rightarrow
+b(2n)=b(n).\)</span></p>
+<p>把 <span class="math inline">\(n\)</span> 左移末尾补 1 得到 <span
+class="math inline">\(2n+1\)</span>。只有当 <span
+class="math inline">\(n\)</span> 的最低位为 1（即 <span
+class="math inline">\(n\)</span>
+为奇数）时，新末尾会和原末尾形成一个新的 “11”。于是<span
+class="math inline">\(a(2n+1)=a(n)+(n\bmod 2)\)</span>。从而有<span
+class="math inline">\(b(2n+1)=(-1)^{a(2n+1)}=(-1)^{a(n)}\cdot(-1)^{n\bmod
+2}=b(n)\cdot(-1)^{n\bmod 2}.\)</span>总结如下：</p>
+<p><span class="math display">\[
+\begin{aligned}
+b(0)&amp;=1,\\
+b(2n)&amp;=b(n),\\
+b(2n+1)&amp;=
+\begin{cases}
+b(n),&amp;n\equiv 0\pmod 2,\\
+-b(n),&amp;n\equiv 1\pmod 2.
+\end{cases}
+\end{aligned}
+\]</span></p>
+<p>接下来关键在于：<span class="math inline">\(s(n)\)</span> 的图像（把
+<span class="math inline">\(n\)</span> 当横轴，<span
+class="math inline">\(s(n)\)</span> 当纵轴）是一个步长为 <span
+class="math inline">\(\pm1\)</span> 的折线，而其“斜率序列”正是 <span
+class="math inline">\(b(n)\)</span>。由上面的递推，斜率序列具有强烈的自相似，于是
+<span class="math inline">\(s(n)\)</span> 也会出现自相似结构。</p>
+<p>注意到<span
+class="math inline">\(4^k=2^{2k}.\)</span>当我们把下标范围扩展到长度为
+<span class="math inline">\(4^k\)</span> 的区间时，会自然出现 <span
+class="math inline">\(2^k\)</span>
+这样的高度尺度；这就是后面递推里出现<span
+class="math inline">\(h^2\)</span>的根源。</p>
+<p>令<span class="math inline">\(h=2^k.\)</span>我们关注长度为 <span
+class="math inline">\(2h^2=2\cdot 4^k\)</span> 的前缀区间 <span
+class="math inline">\(n\in[0,2h^2-1]\)</span>。在这个区间内，<span
+class="math inline">\(s(n)\)</span> 的值域恰好覆盖到 <span
+class="math inline">\(1,2,\dots,2h\)</span>，并且出现次数呈现非常规整的分布：</p>
+<ul>
+<li>在前 <span class="math inline">\(h^2\)</span> 项（<span
+class="math inline">\(n\in[0,h^2-1]\)</span>）里：<span
+class="math inline">\(1,2,\dots,h\)</span>分别出现<span
+class="math inline">\(1,2,\dots,h\)</span>次，<span
+class="math inline">\(h+1,h+2,\dots,2h-1\)</span>分别出现<span
+class="math inline">\(h-1,h-2,\dots,1\)</span>次，也就是“先递增再递减”的三角形分布，且最大值不会到
+<span class="math inline">\(2h\)</span>。</li>
+<li>在前 <span class="math inline">\(2h^2\)</span> 项（<span
+class="math inline">\(n\in[0,2h^2-1]\)</span>）里：<span
+class="math inline">\(1,2,\dots,2h-1\)</span>分别出现<span
+class="math inline">\(1,2,\dots,2h-1\)</span>次，<span
+class="math inline">\(2h\)</span>出现<span
+class="math inline">\(h\)</span>次。</li>
+</ul>
+<p>这直接推出题面给的全局性质：每个正整数 <span
+class="math inline">\(k\)</span> 恰好出现 <span
+class="math inline">\(k\)</span> 次，因为当 <span
+class="math inline">\(h\)</span> 翻倍，这个“完成到 <span
+class="math inline">\(2h-1\)</span>”的范围也持续向上推进。</p>
+<p>直观上，可以把长度 <span class="math inline">\(2h^2\)</span>
+的前缀看作由 <strong>4 个长度为 <span
+class="math inline">\(h^2/2\)</span></strong>
+的块拼接而成；每一块要么是小一号图像的平移（加常数），要么是关于某条水平线的镜像（<span
+class="math inline">\(x\mapsto
+\text{const}-x\)</span>）。这会让“某个高度 <span
+class="math inline">\(t\)</span>
+的出现位置集合”能够递归映射到更小的高度集合上。这正是构造 <span
+class="math inline">\(g(t,c)\)</span> 递推的基础。</p>
+<p>对任意 <span class="math inline">\(t\ge 1\)</span>，我们令<span
+class="math inline">\(h=2^{\lfloor \log_2 t\rfloor},d=t-h,\)</span>即
+<span class="math inline">\(h\le t&lt;2h\)</span>，并写成<span
+class="math inline">\(t=h+d,0\le d&lt;h.\)</span></p>
+<p>核心思想是在尺度为 <span class="math inline">\(h\)</span>
+的自相似分块下，值 <span class="math inline">\(t\)</span>
+的出现位置会落在若干个大块里，每个大块内部又对应到一个更小的“目标值”去找第若干次出现，因此得到递归。</p>
+<p>下面给出 <span class="math inline">\(g(t,c)\)</span> 的完整递推。当
+<span class="math inline">\(t=1\)</span> 时，<span
+class="math inline">\(s(0)=1\)</span>，所以<span
+class="math inline">\(g(1,1)=0.\)</span>当 <span
+class="math inline">\(d=0\)</span>（即 <span
+class="math inline">\(t\)</span> 为 2 的幂）时，值 <span
+class="math inline">\(t\)</span>
+的出现位置在自相似结构中分成两段：前一段等价于找 <span
+class="math inline">\(t/2\)</span>，后一段等价于继续找 <span
+class="math inline">\(t\)</span> 的剩余次数。于是：</p>
+<p><span class="math display">\[
+g(t,c)=
+\left\{
+\begin{aligned}
+&amp;0 &amp;&amp;\text{if}\quad t=1,\\
+&amp;\dfrac{t^2}{4}+g\left(\dfrac{t}{2},c\right)
+&amp;&amp;\text{if}\quad d=0\land c\le \dfrac{t}{2},\\
+&amp;\dfrac{t^2}{2}+g\left(t,c-\dfrac{t}{2}\right)
+&amp;&amp;\text{if}\quad d=0\land c&gt;\dfrac{t}{2},\\
+&amp;h^2+g(2h-d,c-h) &amp;&amp;\text{else if}\quad d&gt;0\land c&gt;h,\\
+&amp;h^2+g(d,c+d-h) &amp;&amp;\text{else if}\quad d&gt;0\land
+c&gt;h-d,\\
+&amp;\dfrac{h^2}{2}+g(d,c) &amp;&amp;\text{else if}\quad d&gt;0\land
+c\le d,\\
+&amp;\dfrac{h^2}{2}+g(2h-t,c) &amp;&amp;\text{else}.
+\end{aligned}
+\right.
+\]</span></p>
+<p>这里最后一行的 <span
+class="math inline">\(2h-t=h-d\)</span>，表示镜像对应的“互补高度”。把前缀区间按尺度
+<span class="math inline">\(h\)</span> 切成四段，每段长度为 <span
+class="math inline">\(\dfrac{h^2}{2}\)</span>，分界点恰好是<span
+class="math inline">\(\dfrac{h^2}{2},h^2,\dfrac{3h^2}{2}.\)</span></p>
+<p>对 <span class="math inline">\(t=h+d\)</span>（<span
+class="math inline">\(d&gt;0\)</span>）而言：</p>
+<ul>
+<li>在最前的 <span class="math inline">\([0,h^2/2)\)</span> 中，<span
+class="math inline">\(s\)</span> 的取值不超过 <span
+class="math inline">\(h\)</span>，因此不会出现 <span
+class="math inline">\(t&gt;h\)</span>。所以 <span
+class="math inline">\(t\)</span> 的首次出现一定在 <span
+class="math inline">\(\ge h^2/2\)</span>
+处，这解释了递推里频繁出现的位移 <span
+class="math inline">\(h^2/2\)</span>。</li>
+<li>在 <span class="math inline">\([h^2/2,h^2)\)</span>
+这块里，图像由一个“平移块”和一个“镜像块”拼接： 平移块把小值 <span
+class="math inline">\(d\)</span> 映射成 <span
+class="math inline">\(h+d\)</span>，镜像块把小值 <span
+class="math inline">\(h-d\)</span> 映射成 <span
+class="math inline">\(h+d\)</span>。因此：
+<ul>
+<li>若 <span class="math inline">\(c\)</span>
+很小（落在平移块覆盖的那部分），就对应到 <span
+class="math inline">\(g(d,c)\)</span>；</li>
+<li>否则就对应到 <span class="math inline">\(g(h-d,c)\)</span>。</li>
+</ul></li>
+<li>在 <span class="math inline">\([h^2,2h^2)\)</span>
+的后半部分里，<span class="math inline">\(t\)</span>
+的剩余出现次数会继续被拆成两类： 一类等价于找 <span
+class="math inline">\(d\)</span>（次数要扣掉前半段已经出现的 <span
+class="math inline">\(h-d\)</span> 次，所以出现 <span
+class="math inline">\(c+d-h=c-(h-d)\)</span>）；另一类等价于找镜像高度
+<span class="math inline">\(2h-d\)</span>，对应最后的 <span
+class="math inline">\(c-h\)</span>。</li>
+</ul>
+<p>这样四种情况就对应上了递推的四个分支（再加上 <span
+class="math inline">\(t\)</span> 为 2 的幂时的特殊拆分）。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line">M = <span class="number">45</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache(<span class="params"><span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">g</span>(<span class="params">t: <span class="built_in">int</span>, c: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    g(t,c): s(n) 中值 t 第 c 次出现时的下标 n（0-based）</span></span><br><span class="line"><span class="string">    约束：t&gt;=1, 1&lt;=c&lt;=t</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> t == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    h = <span class="number">1</span> &lt;&lt; (t.bit_length() - <span class="number">1</span>)</span><br><span class="line">    d = t - h</span><br><span class="line"></span><br><span class="line">    <span class="comment"># t 为 2 的幂</span></span><br><span class="line">    <span class="keyword">if</span> d == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">if</span> c &lt;= t // <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> t * t // <span class="number">4</span> + g(t // <span class="number">2</span>, c)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> t * t // <span class="number">2</span> + g(t, c - t // <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># t = h + d, 0&lt;d&lt;h</span></span><br><span class="line">    <span class="keyword">if</span> c &gt; h:</span><br><span class="line">        <span class="keyword">return</span> h * h + g(<span class="number">2</span> * h - d, c - h)</span><br><span class="line">    <span class="keyword">if</span> c &gt; h - d:</span><br><span class="line">        <span class="keyword">return</span> h * h + g(d, c + d - h)</span><br><span class="line">    <span class="keyword">if</span> c &lt;= d:</span><br><span class="line">        <span class="keyword">return</span> h * h // <span class="number">2</span> + g(d, c)</span><br><span class="line">    <span class="keyword">return</span> h * h // <span class="number">2</span> + g(<span class="number">2</span> * h - t, c)  <span class="comment"># 2h-t = h-d</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>() -&gt; <span class="built_in">int</span>:</span><br><span class="line">    F = [<span class="number">1</span>, <span class="number">1</span>]</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, M + <span class="number">1</span>):</span><br><span class="line">        F.append(F[-<span class="number">1</span>] + F[-<span class="number">2</span>])</span><br><span class="line">        ans += g(F[t], F[t - <span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(solve())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/384/" title="Project Euler 384">https://ujimatsu-chiya.github.io/project-euler/384/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

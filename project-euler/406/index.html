@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 406">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/406/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:53:05.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:53:05.874Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/406/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/406/","path":"project-euler/406/","title":"Project Euler 406"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 406 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-406"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 406</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#guessing-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Guessing Game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/406/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 406 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 406
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:53:05" itemprop="dateCreated datePublished" datetime="2026-01-13T23:53:05+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-406">Project Euler 406</h1>
+<h2 id="题目">题目</h2>
+<h3 id="guessing-game">Guessing Game</h3>
+<p>We are trying to find a hidden number selected from the set of
+integers <span class="math inline">\(\{1, 2, \dots, n\}\)</span> by
+asking questions. Each number (question) we ask, we get one of three
+possible answers:</p>
+<ul>
+<li><p>“Your guess is lower than the hidden number” (and you incur a
+cost of <span class="math inline">\(a\)</span>), or</p></li>
+<li><p>“Your guess is higher than the hidden number” (and you incur a
+cost of <span class="math inline">\(b\)</span>), or</p></li>
+<li><p>“Yes, that’s it!” (and the game ends).</p></li>
+</ul>
+<p>Given the value of <span class="math inline">\(n, a\)</span>, and
+<span class="math inline">\(b\)</span>, an <em>optimal strategy</em>
+minimizes the total cost <u>for the worst possible case</u>.</p>
+<p>For example, if <span class="math inline">\(n = 5, a = 2\)</span>,
+and <span class="math inline">\(b = 3\)</span>, then we may begin by
+asking “<span class="math inline">\(\mathbf{2}\)</span>” as our first
+question.</p>
+<p>If we are told that <span class="math inline">\(2\)</span> is higher
+than the hidden number (for a cost of <span
+class="math inline">\(b=3\)</span>), then we are sure that “<span
+class="math inline">\(\mathbf{1}\)</span>” is the hidden number (for a
+total cost of <span
+class="math inline">\(\color{blue}{\mathbf{3}}\)</span>).</p>
+<p>If we are told that <span class="math inline">\(2\)</span> is lower
+than the hidden number (for a cost of <span
+class="math inline">\(a=2\)</span>), then our next question will be
+“<span class="math inline">\(\mathbf{4}\)</span>”.</p>
+<p>If we are told that <span class="math inline">\(4\)</span> is higher
+than the hidden number (for a cost of <span
+class="math inline">\(b=3\)</span>), then we are sure that “<span
+class="math inline">\(\mathbf{3}\)</span>” is the hidden number (for a
+total cost of <span
+class="math inline">\(2+3=\color{blue}{\mathbf{5}}\)</span>).</p>
+<p>If we are told that <span class="math inline">\(4\)</span> is lower
+than the hidden number (for a cost of <span
+class="math inline">\(a=2\)</span>), then we are sure that “<span
+class="math inline">\(\mathbf{5}\)</span>” is the hidden number (for a
+total cost of <span
+class="math inline">\(2+2=\color{blue}{\mathbf{4}}\)</span>).</p>
+<p>Thus, the worst-case cost achieved by this strategy is <span
+class="math inline">\(\color{red}{\mathbf{5}}\)</span> It can also be
+shown that this is the lowest worst-case cost that can be achieved.</p>
+<p>So, in fact, we have just described an optimal strategy for the given
+values of <span class="math inline">\(n, a,\)</span> and <span
+class="math inline">\(b\)</span>.</p>
+<p>Let <span class="math inline">\(C(n, a, b)\)</span> be the worst-case
+cost achieved by an optimal strategy for the given values of <span
+class="math inline">\(n, a\)</span> and <span
+class="math inline">\(b\)</span>.</p>
+<p>Here are a few examples:</p>
+<p><span class="math inline">\(\begin{aligned}
+&amp;C(5, 2, 3) = 5\\
+&amp;C(500, \sqrt 2, \sqrt 3) = 13.22073197\dots\\
+&amp;C(20000, 5, 7) = 82\\
+&amp;C(2000000, \sqrt 5, \sqrt 7) = 49.63755955\dots\\
+\end{aligned}\)</span></p>
+<p>Let <span class="math inline">\(F_k\)</span> be the Fibonacci
+numbers: <span class="math inline">\(F_k=F_{k-1}+F_{k-2}\)</span> with
+base cases <span class="math inline">\(F_1=F_2= 1\)</span>.</p>
+<p>Find <span class="math inline">\(\displaystyle \sum \limits_{k =
+1}^{30} {C \left (10^{12}, \sqrt{k}, \sqrt{F_k} \right )}\)</span>, and
+give your answer rounded to <span class="math inline">\(8\)</span>
+decimal places behind the decimal point.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可见，任意策略都对应一棵二叉搜索树：</p>
+<ul>
+<li>每个节点标一个“猜测值”；</li>
+<li>若回答 “higher”（说明猜大了），进入左子区间，路径代价增加 <span
+class="math inline">\(b\)</span>；</li>
+<li>若回答 “lower”（说明猜小了），进入右子区间，路径代价增加 <span
+class="math inline">\(a\)</span>；</li>
+<li>若猜中，则停在该节点（不增加代价）。</li>
+</ul>
+<p>因此，一条从根到某节点的路径，若其中出现了 <span
+class="math inline">\(i\)</span> 次 “lower”、<span
+class="math inline">\(j\)</span> 次 “higher”，那么该路径累计代价为<span
+class="math inline">\(ia+jb.\)</span></p>
+<p>最坏情况下的总代价，就是整棵树中代价最大的那条“错误反馈序列”对应的代价。</p>
+<p>我们反过来，与其直接求 <span
+class="math inline">\(C(n,a,b)\)</span>，不如先考虑<strong>在最坏总代价不超过
+<span class="math inline">\(T\)</span>
+的前提下，最多能保证猜中多少个候选数？</strong></p>
+<p>设这个最大可覆盖规模为 <span
+class="math inline">\(G(T)\)</span>。如果我们能计算 <span
+class="math inline">\(G(T)\)</span>，那么<span
+class="math inline">\(C(n,a,b)=\min\{T\mid G(T)\ge n\}.\)</span></p>
+<p>考虑预算为 <span class="math inline">\(T\)</span>
+的最优策略在根节点的第一次猜测。无论根节点猜哪个数，它都会把区间分成两段：</p>
+<ul>
+<li>若收到 “lower”，付出 <span
+class="math inline">\(a\)</span>，剩余预算 <span
+class="math inline">\(T-a\)</span>，进入右侧子问题；</li>
+<li>若收到 “higher”，付出 <span
+class="math inline">\(b\)</span>，剩余预算 <span
+class="math inline">\(T-b\)</span>，进入左侧子问题；</li>
+<li>若猜中，直接结束（这对应“根节点本身”也能代表一个可覆盖的隐藏数）。</li>
+</ul>
+<p>因此，在预算 <span class="math inline">\(T\)</span>
+下最多能覆盖的数量满足<span
+class="math inline">\(G(T)=1+G(T-a)+G(T-b),\)</span>并约定当预算为负时无法再继续分支：<span
+class="math inline">\(G(T)=0 (T&lt;0).\)</span></p>
+<p>这条递推的直观意义是：根节点贡献 <span
+class="math inline">\(1\)</span> 个可能值；其余分别由两边子树在预算
+<span class="math inline">\(T-a\)</span> 与 <span
+class="math inline">\(T-b\)</span> 下的最优覆盖数贡献。</p>
+<p>注意到 <span class="math inline">\(G(T)\)</span>
+只会在某些关键点发生变化：当 <span class="math inline">\(T\)</span>
+穿过某个形如<span class="math inline">\(ia+jb (i,j\in\mathbb{Z}_{\ge
+0})\)</span>的值时，递推中 <span class="math inline">\(T-a\)</span> 或
+<span class="math inline">\(T-b\)</span> 才可能“跨过”新的关键点，导致
+<span class="math inline">\(G(T)\)</span> 增加。</p>
+<p>于是我们把所有可表示的代价<span
+class="math inline">\(\mathcal{C}=\{ia+jb\mid i,j\ge
+0\}\)</span>，按从小到大排序，得到一个递增序列<span
+class="math inline">\(0=c_0&lt;c_1&lt;c_2&lt;\cdots\)</span>并只在这些
+<span class="math inline">\(c_t\)</span> 上计算 <span
+class="math inline">\(G(c_t)\)</span>。一旦找到最小的 <span
+class="math inline">\(c_t\)</span> 使得 <span
+class="math inline">\(G(c_t)\ge n\)</span>，它就是答案 <span
+class="math inline">\(C(n,a,b)\)</span>。</p>
+<p>直接枚举所有 <span class="math inline">\(i,j\)</span>
+会很慢，但这里有一个重要结构：集合 <span
+class="math inline">\(\mathcal{C}\)</span> 在加 <span
+class="math inline">\(a\)</span> 与加 <span
+class="math inline">\(b\)</span> 下闭合。</p>
+<p>也就是说，若某个代价已经出现为 <span
+class="math inline">\(c_t\)</span>，那么 <span
+class="math inline">\(c_t+a\)</span> 与 <span
+class="math inline">\(c_t+b\)</span> 也是未来会出现的候选代价。并且随着
+<span class="math inline">\(t\)</span> 增大，序列 <span
+class="math inline">\({c_t+a}\)</span> 与 <span
+class="math inline">\({c_t+b}\)</span> 都是递增的。</p>
+<p>因此，下一个台阶代价一定是两条递增序列的“归并最小值”：<span
+class="math inline">\(c&#39;=\min(c_{p_a}+a,\ c_{p_b}+b),\)</span>其中
+<span class="math inline">\(p_a,p_b\)</span>
+是两个指针，分别指向“下一次从哪一个旧台阶加 <span
+class="math inline">\(a\)</span> / 加 <span
+class="math inline">\(b\)</span> 生成新台阶”。</p>
+<p>令状态 <span class="math inline">\((c_t,F_t)\)</span> 表示：</p>
+<ul>
+<li><span class="math inline">\(c_t\)</span>：第 <span
+class="math inline">\(t\)</span> 个（从 <span
+class="math inline">\(0\)</span> 开始）出现的“关键代价台阶”；</li>
+<li><span class="math inline">\(F_t\)</span>：在最坏总代价不超过 <span
+class="math inline">\(c_t\)</span> 时，能够覆盖的最大候选数规模（也就是
+<span class="math inline">\(G(c_t)\)</span> 的值）。</li>
+</ul>
+<p>初始化显然是：<span class="math inline">\(c_0=0,
+F_0=1,\)</span>因为代价为 <span class="math inline">\(0\)</span>
+时只能一次猜中一个数。</p>
+<p>设当前两个指针为 <span
+class="math inline">\(p_a,p_b\)</span>，则候选的新台阶代价为：<span
+class="math inline">\(c&#39;=\min(c_{p_a}+a,\ c_{p_b}+b)\)</span></p>
+<p>当我们决定这个新台阶 <span class="math inline">\(c&#39;\)</span>
+出现时，它对应的覆盖能力满足（由 <span
+class="math inline">\(G(T)=1+G(T-a)+G(T-b)\)</span> 推得）：<span
+class="math inline">\(F&#39; = F_{p_a}+F_{p_b}.\)</span></p>
+<p>直观理解：新台阶出现时，允许的“错误反馈序列集合”相当于把“还能再走一次
+<span class="math inline">\(a\)</span>”与“还能再走一次 <span
+class="math inline">\(b\)</span>”这两部分组合起来；对应覆盖规模相加（这是该题最关键的可压缩性质）。</p>
+<p>指针更新规则就是归并两条序列：</p>
+<ul>
+<li>若 <span
+class="math inline">\(c_{p_a}+a&lt;c_{p_b}+b\)</span>，则新台阶来自
+<span class="math inline">\(p_a\)</span> 方向，令 <span
+class="math inline">\(p_a\leftarrow p_a+1\)</span>；</li>
+<li>若 <span class="math inline">\(c_{p_a}+a&gt;c_{p_b}+b\)</span>，则令
+<span class="math inline">\(p_b\leftarrow p_b+1\)</span>；</li>
+<li>若二者相等（例如 <span class="math inline">\(a=b\)</span>
+或更一般的有理比值造成碰撞），则同时前进：<span
+class="math inline">\(p_a\leftarrow p_a+1, p_b\leftarrow
+p_b+1.\)</span></li>
+</ul>
+<p>不断生成新台阶，直到出现某一步满足<span
+class="math inline">\(F_t&gt;n,\)</span>那么答案就是前一个台阶代价：<span
+class="math inline">\(C(n,a,b)=c_{t-1}.\)</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span>**<span class="number">12</span></span><br><span class="line">M = <span class="number">30</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">C_opt</span>(<span class="params">n: <span class="built_in">int</span>, a: <span class="built_in">float</span>, b: <span class="built_in">float</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    返回 C(n, a, b)：最坏情况下的最小总代价。</span></span><br><span class="line"><span class="string">    使用“台阶归并 DP”（两指针）：</span></span><br><span class="line"><span class="string">      (vn[t], vc[t]) 依次生成，直到 vn_new &gt; n，则答案为 vc[-2]。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        a, b = b, a</span><br><span class="line"></span><br><span class="line">    <span class="comment"># vn: 对应覆盖规模的台阶序列（单调增）</span></span><br><span class="line">    <span class="comment"># vc: 对应代价台阶序列（单调增）</span></span><br><span class="line">    vn = [<span class="number">1</span>]</span><br><span class="line">    vc = [<span class="number">0.0</span>]</span><br><span class="line"></span><br><span class="line">    pa = <span class="number">0</span></span><br><span class="line">    pb = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 数值误差容忍（只用于判断“是否相等”）</span></span><br><span class="line">    eps = <span class="number">1e-12</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        ca = vc[pa] + a</span><br><span class="line">        cb = vc[pb] + b</span><br><span class="line"></span><br><span class="line">        nn = vn[pa] + vn[pb]</span><br><span class="line">        cc = ca <span class="keyword">if</span> ca &lt; cb <span class="keyword">else</span> cb</span><br><span class="line"></span><br><span class="line">        vn.append(nn)</span><br><span class="line">        vc.append(cc)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 归并指针更新</span></span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">abs</span>(ca - cb) &lt;= eps * (<span class="number">1.0</span> + <span class="built_in">abs</span>(cc)):</span><br><span class="line">            pa += <span class="number">1</span></span><br><span class="line">            pb += <span class="number">1</span></span><br><span class="line">        <span class="keyword">elif</span> ca &lt; cb:</span><br><span class="line">            pa += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            pb += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 按台阶判定：第一次超过 n 时，答案在前一格</span></span><br><span class="line">        <span class="keyword">if</span> nn &gt; n:</span><br><span class="line">            <span class="keyword">return</span> vc[-<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fib_list</span>(<span class="params">m: <span class="built_in">int</span></span>):</span><br><span class="line">    F = [<span class="number">0</span>] * (m + <span class="number">1</span>)</span><br><span class="line">    F[<span class="number">1</span>] = F[<span class="number">2</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>, m + <span class="number">1</span>):</span><br><span class="line">        F[i] = F[i - <span class="number">1</span>] + F[i - <span class="number">2</span>]</span><br><span class="line">    <span class="keyword">return</span> F</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">F = fib_list(M)</span><br><span class="line">s = <span class="number">0.0</span></span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, M + <span class="number">1</span>):</span><br><span class="line">    a = k ** <span class="number">0.5</span></span><br><span class="line">    b = F[k] ** <span class="number">0.5</span></span><br><span class="line">    s += C_opt(N, a, b)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;s:<span class="number">.8</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/406/" title="Project Euler 406">https://ujimatsu-chiya.github.io/project-euler/406/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

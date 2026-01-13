@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 368">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/368/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:52:51.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:51.574Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/368/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/368/","path":"project-euler/368/","title":"Project Euler 368"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 368 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-368"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 368</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#a-kempner-like-series"><span class="nav-number">1.1.1.</span> <span class="nav-text">A Kempner-like series</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/368/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 368 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 368
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:51" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:51+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-368">Project Euler 368</h1>
+<h2 id="题目">题目</h2>
+<h3 id="a-kempner-like-series">A Kempner-like series</h3>
+<p>The <strong>harmonic series</strong> <span class="math inline">\(1 +
+\dfrac{1}{2} + \dfrac{1}{3} + \dfrac{1}{4} + \dots\)</span> is well
+known to be divergent.</p>
+<p>If we however omit from this series every term where the denominator
+has a <span class="math inline">\(9\)</span> in it, the series
+remarkably enough converges to approximately <span
+class="math inline">\(22.9206766193\)</span>.</p>
+<p>This modified harmonic series is called the <strong>Kempner</strong>
+series.</p>
+<p>Let us now consider another modified harmonic series by omitting from
+the harmonic series every term where the denominator has <span
+class="math inline">\(3\)</span> or more equal consecutive digits.</p>
+<p>One can verify that out of the first <span
+class="math inline">\(1200\)</span> terms of the harmonic series, only
+<span class="math inline">\(20\)</span> terms will be omitted.</p>
+<p>These <span class="math inline">\(20\)</span> omitted terms are:
+<span class="math display">\[\dfrac{1}{111}, \dfrac{1}{222},
+\dfrac{1}{333}, \dfrac{1}{444}, \dfrac{1}{555}, \dfrac{1}{666},
+\dfrac{1}{777}, \dfrac{1}{888}, \dfrac{1}{999}, \dfrac{1}{1000},
+\dfrac{1}{1110},\]</span> <span class="math display">\[\dfrac{1}{1111},
+\dfrac{1}{1112}, \dfrac{1}{1113}, \dfrac{1}{1114}, \dfrac{1}{1115},
+\dfrac{1}{1116}, \dfrac{1}{1117}, \dfrac{1}{1118},
+\dfrac{1}{1119}\]</span></p>
+<p>This series converges as well.</p>
+<p>Find the value the series converges to.</p>
+<p>Give your answer rounded to <span class="math inline">\(10\)</span>
+digits behind the decimal point.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>限制条件只与“连续相同数字的长度”有关，因此用末尾两位是否相同来刻画状态最方便。</p>
+<p>对 <span class="math inline">\(n\ge 2\)</span>、<span
+class="math inline">\(d\in\{0,\dots,9\}\)</span>，定义两类
+<strong>合法的 <span class="math inline">\(n\)</span>
+位正整数集合</strong>（首位非零，且不含三连相同）：</p>
+<ul>
+<li><span class="math inline">\(S_1(n,d)\)</span>：末位为 <span
+class="math inline">\(d\)</span>，倒数第二位 <strong>不是</strong> <span
+class="math inline">\(d\)</span>（即末尾同数字连段长度为 <span
+class="math inline">\(1\)</span>）。</li>
+<li><span class="math inline">\(S_2(n,d)\)</span>：末两位都是 <span
+class="math inline">\(d\)</span>（即末尾同数字连段长度为 <span
+class="math inline">\(2\)</span>）。</li>
+</ul>
+<p>再定义幂和（<span class="math inline">\(j\ge 1\)</span>）：<span
+class="math inline">\(\displaystyle{f_1(n,d,j)=\sum_{x\in
+S_1(n,d)}\frac1{x^j},f_2(n,d,j)=\sum_{x\in
+S_2(n,d)}\frac1{x^j}.}\)</span></p>
+<p>那么目标就是把所有位数的 <span class="math inline">\(j=1\)</span>
+汇总：</p>
+<p><span class="math display">\[
+S=\sum_{n\ge 1}\sum_{d=0}^9\bigl(f_1(n,d,1)+f_2(n,d,1)\bigr),
+\]</span></p>
+<p>其中 <span class="math inline">\(n=1\)</span> 时只有一位数 <span
+class="math inline">\(1,\dots,9\)</span>。此时 <span
+class="math inline">\(S_2\)</span> 无定义，可约定 <span
+class="math inline">\(S_2(1,d)=\varnothing\)</span>（等价于 <span
+class="math inline">\(f_2(1,d,j)=0\)</span>），因此一位数部分直接暴力计入即可。</p>
+<p>把一个 <span class="math inline">\((n-1)\)</span> 位数 <span
+class="math inline">\(y\)</span> 追加一位 <span
+class="math inline">\(d\)</span> 得到<span
+class="math inline">\(x=10y+d.\)</span>我们可以基于动态规划的思想来计算。</p>
+<ul>
+<li>因此，若要得到 <span
+class="math inline">\(S_2(n,d)\)</span>：末尾要变成 “<span
+class="math inline">\(dd\)</span>”，因此 <span
+class="math inline">\((n-1)\)</span> 位数必须以 <strong>单个 <span
+class="math inline">\(d\)</span> 结尾</strong>，即来自 <span
+class="math inline">\(S_1(n-1,d)\)</span>。有<span
+class="math inline">\(S_2(n,d)=\{10y+d:y\in S_1(n-1,d)\}.\)</span></li>
+<li>若要得到 <span
+class="math inline">\(S_1(n,d)\)</span>：末尾连段长度为 <span
+class="math inline">\(1\)</span>，说明 <span
+class="math inline">\((n-1)\)</span> 位数的末位必须是 <span
+class="math inline">\(d&#39;\ne d\)</span>，它可以处于 <span
+class="math inline">\(S_1\)</span> 或 <span
+class="math inline">\(S_2\)</span>，有<span
+class="math inline">\(\displaystyle{S_1(n,d)=\bigcup_{d&#39;\ne
+d}\{10y+d:y\in S_1(n-1,d&#39;)\cup S_2(n-1,d&#39;)\}.}\)</span></li>
+</ul>
+<p>到这里为止，集合递推是完全精确的；难点是如何把它变成对 <span
+class="math inline">\(f_1,f_2\)</span>
+的快速递推，而不枚举所有整数。</p>
+<p>接下来使用<a
+target="_blank" rel="noopener" href="https://arxiv.org/pdf/0806.4410.pdf">论文</a>中的按位追加、用幂和递推思想求解。</p>
+<p>对任意 <span class="math inline">\(j\ge 1\)</span>，有<span
+class="math inline">\(\displaystyle{\frac{1}{(10y+d)^j}=\frac1{10^j
+y^j}\left(1+\frac{d}{10y}\right)^{-j}.}\)</span>利用负二项级数：<span
+class="math inline">\(\displaystyle{(1+u)^{-j}=\sum_{t\ge
+0}(-1)^t\binom{j+t-1}{t}u^t,}\)</span>代入 <span
+class="math inline">\(u=\dfrac{d}{10y}\)</span> 得到</p>
+<p><span class="math display">\[
+\frac1{(10y+d)^j}
+=\sum_{t\ge 0}(-1)^t\binom{j+t-1}{t}\frac{d^t}{10^{j+t}}\cdot
+\frac1{y^{j+t}}.
+\]</span></p>
+<p>这正是论文中用于“按位追加、用幂和递推”的核心展开方式；并且由于这里是绝对收敛的幂级数，允许交换求和次序从而把“对
+<span class="math inline">\(y\)</span> 求和”移入每一项系数中。</p>
+<p>我们针对项<span
+class="math inline">\(\dfrac{1}{y^{j+t}}\)</span>，定义系数<span
+class="math inline">\(c(d;j,t)=(-1)^t\dbinom{j+t-1}{t}\dfrac{d^t}{10^{j+t}}.\)</span></p>
+<p>由 <span class="math inline">\(S_2(n,d)=\{10y+d:y\in
+S_1(n-1,d)\}\)</span>，得到</p>
+<p><span class="math display">\[
+f_2(n,d,j)=\sum_{y\in S_1(n-1,d)}\frac1{(10y+d)^j}=\sum_{t\ge
+0}c(d;j,t)f_1(n-1,d,j+t).
+\]</span></p>
+<p>由 <span class="math inline">\(S_1(n,d)\)</span> 来自所有末位 <span
+class="math inline">\(d&#39;\ne d\)</span> 的 <span
+class="math inline">\(S_1\cup S_2\)</span>：</p>
+<p><span class="math display">\[
+f_1(n,d,j)=\sum_{d&#39;\ne d}\sum_{y\in S_1(n-1,d&#39;)\cup
+S_2(n-1,d&#39;)}\frac1{(10y+d)^j}
+=\sum_{t\ge 0}c(d;j,t)\sum_{d&#39;\ne
+d}\bigl(f_1(n-1,d&#39;,j+t)+f_2(n-1,d&#39;,j+t)\bigr).
+\]</span></p>
+<p>为实现上再做一步合并，记<span
+class="math inline">\(\displaystyle{g(n-1,d,k)=f_1(n-1,d,k)+f_2(n-1,d,k),G(n-1,k)=\sum_{d=0}^9
+g(n-1,d,k),}\)</span>则<span
+class="math inline">\(\displaystyle{\sum_{d&#39;\ne
+d}g(n-1,d&#39;,k)=G(n-1,k)-g(n-1,d,k),}\)</span>从而每个 <span
+class="math inline">\(d\)</span> 的“排除自身”只需一次减法即可完成。</p>
+<p>把所有合法正整数按十进制位数分块。令 <span
+class="math inline">\(T_n\)</span> 表示合法的 <span
+class="math inline">\(n\)</span> 位正整数个数，<span
+class="math inline">\(P_n\)</span>
+表示这些整数的集合（首位非零且不含三连）。对每个 <span
+class="math inline">\(n\)</span>，所有 <span
+class="math inline">\(n\)</span> 位数都满足 <span
+class="math inline">\(x\ge 10^{n-1}\)</span>，因此有粗界<span
+class="math inline">\(\displaystyle{\sum_{x\in
+P_n}\frac1x\le\frac{T_n}{10^{n-1}}.}\)</span></p>
+<p>关键是控制 <span class="math inline">\(T_n\)</span>
+的增长率：禁止三连是局部约束，可以用有限状态自动机计数，因此 <span
+class="math inline">\(T_n\)</span> 满足固定维度的线性递推，从而存在常数
+<span class="math inline">\(\lambda&lt;10\)</span> 使得<span
+class="math inline">\(T_n=O(\lambda^n).\)</span></p>
+<p>把这两点合在一起就得到<span
+class="math inline">\(\displaystyle{\sum_{x\in
+P_n}\frac1x=O\left(\left(\frac{\lambda}{10}\right)^n\right),}\)</span>也就是说按位数分块的贡献呈几何级数衰减。于是对任意
+<span class="math inline">\(K\)</span>，尾项满足</p>
+<p><span class="math display">\[
+\sum_{n&gt;K}\sum_{x\in
+P_n}\frac1x=O\left(\left(\frac{\lambda}{10}\right)^K\right),
+\]</span></p>
+<p>因此，选取足够大的 <span class="math inline">\(K\)</span>
+就能把尾项压到远小于最终需要的 <span
+class="math inline">\(10^{-10}\)</span> 精度之外。</p>
+<p>为了给出一个具体的 <span
+class="math inline">\(\lambda\)</span>，可以用“末尾连续相同数字的长度”作状态。对
+<span class="math inline">\(d\in{0,\dots,9}\)</span> 定义：</p>
+<ul>
+<li><span class="math inline">\(U_n(d)\)</span>：长度为 <span
+class="math inline">\(n\)</span> 的合法串，末位为 <span
+class="math inline">\(d\)</span> 且末尾连段长度为 <span
+class="math inline">\(1\)</span> 的数量；</li>
+<li><span class="math inline">\(V_n(d)\)</span>：长度为 <span
+class="math inline">\(n\)</span> 的合法串，末位为 <span
+class="math inline">\(d\)</span> 且末尾连段长度为 <span
+class="math inline">\(2\)</span> 的数量。</li>
+</ul>
+<p>（这里允许前导零；只影响常数项，不影响指数增长率。）</p>
+<p>追加一位时有递推<span
+class="math inline">\(\displaystyle{V_{n+1}(d)=U_n(d),U_{n+1}(d)=\sum_{d&#39;\ne
+d}(U_n(d&#39;)+V_n(d&#39;)).}\)</span>把它们对 <span
+class="math inline">\(d\)</span> 求和，令<span
+class="math inline">\(\displaystyle{U_n=\sum_{d=0}^9 U_n(d),
+V_n=\sum_{d=0}^9 V_n(d),}\)</span>则得到 <span
+class="math inline">\(2\times2\)</span> 的汇总递推</p>
+<p><span class="math display">\[
+\begin{pmatrix}
+U_{n+1}\\V_{n+1}
+\end{pmatrix}=
+\begin{pmatrix}
+9 &amp; 9\\
+1 &amp; 0
+\end{pmatrix}
+\begin{pmatrix}
+U_{n}\\V_{n}
+\end{pmatrix}.
+\]</span></p>
+<p>因此增长率由该矩阵的最大特征值给出：<span
+class="math inline">\(\lambda=\dfrac{9+\sqrt{117}}2\approx
+9.908&lt;10,\)</span>从而位数尾项确实按 <span
+class="math inline">\(\left(\dfrac{\lambda}{10}\right)^n\)</span>
+级别快速衰减。</p>
+<p>递推 <span class="math inline">\(f_1,f_2\)</span> 时要用到展开<span
+class="math inline">\(\displaystyle{\frac1{(10y+d)^j}=\sum_{t\ge
+0}(-1)^t\binom{j+t-1}{t}\frac{d^t}{10^{j+t}}\cdot
+\frac1{y^{j+t}}.}\)</span>这里的高阶项（大 <span
+class="math inline">\(t\)</span>）之所以可以截断，关键在于参与递推的
+<span class="math inline">\(y\)</span>
+足够大，从而使展开参数的绝对值很小。</p>
+<p>当我们从 <span class="math inline">\((n-1)\)</span> 位数 <span
+class="math inline">\(y\)</span> 生成 <span
+class="math inline">\(n\)</span> 位数 <span
+class="math inline">\(10y+d\)</span> 时，总有 <span
+class="math inline">\(y\ge 10^{n-2}\)</span>，因此<span
+class="math inline">\(\left|\dfrac{d}{10y}\right|\le
+\dfrac9{10^{n-1}}.\)</span></p>
+<p>对 <span class="math inline">\(n\ge 4\)</span>，右侧已经不超过 <span
+class="math inline">\(0.009\)</span>。把展开写成<span
+class="math inline">\(\displaystyle{\frac1{(10y+d)^j}\frac1{10^j
+y^j}\left(1+\frac{d}{10y}\right)^{-j},}\)</span></p>
+<p>可以看出这就是在 <span
+class="math inline">\(u=\dfrac{d}{10y}\)</span> 处对 <span
+class="math inline">\((1+u)^{-j}\)</span> 做幂级数展开；而当 <span
+class="math inline">\(|u|\)</span> 极小时，级数的第 <span
+class="math inline">\(t\)</span> 项会按 <span
+class="math inline">\(|u|^t\)</span>
+的速度快速衰减。因此只保留到某个最大阶 <span class="math inline">\(t\le
+J-j\)</span>（等价于只维护到最高幂次 <span class="math inline">\(j+t\le
+J\)</span>）时，被舍去的尾项之和将非常小，并且随着 <span
+class="math inline">\(n\)</span>
+增大衰减得更快。配合位数方向的截断，这保证了在固定的 <span
+class="math inline">\((K,J)\)</span> 下即可达到所需的数值精度。</p>
+<p>由此，在正式计算时，</p>
+<ul>
+<li>直接把 <span class="math inline">\(1\)</span> 到 <span
+class="math inline">\(99\)</span>
+的调和和加入（两位以内不可能出现三连）。</li>
+<li>直接枚举 <span class="math inline">\(100\)</span> 到 <span
+class="math inline">\(999\)</span>，过滤掉 <span
+class="math inline">\(111,222,\dots,999\)</span>，把它们的 <span
+class="math inline">\(\dfrac1n\)</span>
+加入总和；同时用这些三位数精确初始化 <span
+class="math inline">\(f_1(3,d,j), f_2(3,d,j)\)</span>（对 <span
+class="math inline">\(1\le j\le J\)</span>）。</li>
+<li>对 <span class="math inline">\(n=4,5,\dots,K\)</span>
+使用上面的递推计算新的 <span
+class="math inline">\(f_1,f_2\)</span>，每步把 <span
+class="math inline">\(\sum_d\bigl(f_1(n,d,1)+f_2(n,d,1)\bigr)\)</span>
+加到总和。</li>
+</ul>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> comb</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">has_triple_repeat</span>(<span class="params">s: <span class="built_in">str</span></span>) -&gt; <span class="built_in">bool</span>:</span><br><span class="line">    <span class="comment"># contains some ddd</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(s) - <span class="number">2</span>):</span><br><span class="line">        <span class="keyword">if</span> s[i] == s[i + <span class="number">1</span>] == s[i + <span class="number">2</span>]:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">J: <span class="built_in">int</span> = <span class="number">20</span>, K: <span class="built_in">int</span> = <span class="number">4000</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Compute the convergent value of:</span></span><br><span class="line"><span class="string">        sum_&#123;n&gt;=1, n has no 3 equal consecutive decimal digits&#125; 1/n</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Parameters</span></span><br><span class="line"><span class="string">    ----------</span></span><br><span class="line"><span class="string">    J : int</span></span><br><span class="line"><span class="string">        Max power tracked in f1/f2 (Taylor / negative-binomial truncation).</span></span><br><span class="line"><span class="string">    K : int</span></span><br><span class="line"><span class="string">        Max number of digits iterated (tail is negligible).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    Returns</span></span><br><span class="line"><span class="string">    -------</span></span><br><span class="line"><span class="string">    float</span></span><br><span class="line"><span class="string">        Approximate limit value.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="comment"># ---- initial exact contribution for 1..99 ----</span></span><br><span class="line">    total = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">100</span>):</span><br><span class="line">        total += <span class="number">1.0</span> / n</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- add all valid 3-digit numbers, and also build exact f1,f2 for 3 digits ----</span></span><br><span class="line">    <span class="comment"># f1[d][j] = sum_&#123;x in S1(3,d)&#125; x^&#123;-j&#125;, f2 similarly</span></span><br><span class="line">    f1 = [[<span class="number">0.0</span>] * (J + <span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">    f2 = [[<span class="number">0.0</span>] * (J + <span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>, <span class="number">1000</span>):</span><br><span class="line">        <span class="keyword">if</span> has_triple_repeat(<span class="built_in">str</span>(n)):</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        total += <span class="number">1.0</span> / n</span><br><span class="line">        d = n % <span class="number">10</span></span><br><span class="line">        d2 = (n // <span class="number">10</span>) % <span class="number">10</span></span><br><span class="line">        target = f2 <span class="keyword">if</span> (d == d2) <span class="keyword">else</span> f1  <span class="comment"># S2 if last two digits equal, else S1</span></span><br><span class="line">        inv = <span class="number">1.0</span> / n</span><br><span class="line">        v = inv</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, J + <span class="number">1</span>):</span><br><span class="line">            target[d][j] += v</span><br><span class="line">            v *= inv</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- precompute coefficients c(d; j, t) = (-1)^t * C(j+t-1, t) * d^t / 10^(j+t) ----</span></span><br><span class="line">    coeff = [[[<span class="number">0.0</span>] * (J + <span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(J + <span class="number">1</span>)] <span class="keyword">for</span> __ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        dpow = [<span class="number">1.0</span>] * (J + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, J + <span class="number">1</span>):</span><br><span class="line">            dpow[t] = dpow[t - <span class="number">1</span>] * d</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, J + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, J - j + <span class="number">1</span>):</span><br><span class="line">                c = comb(j + t - <span class="number">1</span>, t)</span><br><span class="line">                coeff[d][j][t] = ((-<span class="number">1.0</span>) ** t) * c * dpow[t] / (<span class="number">10.0</span> ** (j + t))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># ---- iterate digits from 4 to K ----</span></span><br><span class="line">    <span class="keyword">for</span> nd <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>, K + <span class="number">1</span>):</span><br><span class="line">        <span class="comment"># g[d][j] = f1[d][j] + f2[d][j]</span></span><br><span class="line">        g = [[f1[d][j] + f2[d][j] <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(J + <span class="number">1</span>)] <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">        total_g = [<span class="number">0.0</span>] * (J + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, J + <span class="number">1</span>):</span><br><span class="line">            s = <span class="number">0.0</span></span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">                s += g[d][j]</span><br><span class="line">            total_g[j] = s</span><br><span class="line"></span><br><span class="line">        new1 = [[<span class="number">0.0</span>] * (J + <span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line">        new2 = [[<span class="number">0.0</span>] * (J + <span class="number">1</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>)]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            cd = coeff[d]</span><br><span class="line">            gd = g[d]</span><br><span class="line">            f1d_prev = f1[d]</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, J + <span class="number">1</span>):</span><br><span class="line">                s1 = <span class="number">0.0</span></span><br><span class="line">                s2 = <span class="number">0.0</span></span><br><span class="line">                max_t = J - j</span><br><span class="line">                <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, max_t + <span class="number">1</span>):</span><br><span class="line">                    co = cd[j][t]</span><br><span class="line">                    idx = j + t</span><br><span class="line">                    <span class="comment"># f2: comes only from S1(n-1, d)</span></span><br><span class="line">                    s2 += co * f1d_prev[idx]</span><br><span class="line">                    <span class="comment"># f1: comes from all last digits != d</span></span><br><span class="line">                    s1 += co * (total_g[idx] - gd[idx])</span><br><span class="line">                new1[d][j] = s1</span><br><span class="line">                new2[d][j] = s2</span><br><span class="line"></span><br><span class="line">        f1, f2 = new1, new2</span><br><span class="line">        total += <span class="built_in">sum</span>(f1[d][<span class="number">1</span>] + f2[d][<span class="number">1</span>] <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    ans = solve(J=<span class="number">20</span>, K=<span class="number">4000</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.10</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/368/" title="Project Euler 368">https://ujimatsu-chiya.github.io/project-euler/368/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

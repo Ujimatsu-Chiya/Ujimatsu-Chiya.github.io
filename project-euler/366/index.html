@@ -25,10 +25,9 @@
 <meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/366/index.html">
 <meta property="og:site_name" content="Ujimatsu Chiya">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-08-21T15:50:57.000Z">
-<meta property="article:modified_time" content="2025-12-23T05:14:07.281Z">
+<meta property="article:published_time" content="2026-01-13T15:52:49.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:57:07.740Z">
 <meta property="article:author" content="Ujimatsu Chiya">
-<meta property="article:tag" content="博弈论">
 <meta name="twitter:card" content="summary">
 
 
@@ -186,7 +185,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">692</span>
+          <span class="site-state-item-count">727</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -266,15 +265,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2022-08-21 23:50:57" itemprop="dateCreated datePublished" datetime="2022-08-21T23:50:57+08:00">2022-08-21</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-12-23 13:14:07" itemprop="dateModified" datetime="2025-12-23T13:14:07+08:00">2025-12-23</time>
+      <time title="创建时间：2026-01-13 23:52:49 / 修改时间：23:57:07" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:49+08:00">2026-01-13</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,14 +293,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.6k</span>
+      <span>5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -335,7 +328,7 @@ player will be able to take all remaining stones.</p>
 <p>If the first player takes one stone, leaving four, his opponent will
 take also one stone, leaving three stones.</p>
 <p>The first player cannot take all three because he may take at most
-<span class="math inline">\(2\times1=2\)</span> stones. So let’s say he
+<span class="math inline">\(2\times 1=2\)</span> stones. So let’s say he
 takes also one stone, leaving <span class="math inline">\(2\)</span>.
 The second player can take the two remaining stones and wins.</p>
 <p>So <span class="math inline">\(5\)</span> is a losing position for
@@ -348,39 +341,214 @@ can remove one or four stones.</p>
 of stones the first player can take from a winning position <em>at his
 first turn</em> and <span class="math inline">\(M(n)=0\)</span> for any
 other position.</p>
-<p><span class="math inline">\(\sum M(n)\)</span> for <span
+<p><span class="math inline">\(\sum M(n)\)</span> for <span
 class="math inline">\(n\le100\)</span> is <span
 class="math inline">\(728\)</span>.</p>
-<p>Find <span class="math inline">\(\sum M(n)\)</span> for <span
-class="math inline">\(n\le10^{18}\)</span>. Give your answer modulo
-<span class="math inline">\(10^8\)</span>.</p>
+<p>Find <span class="math inline">\(\sum M(n)\)</span> for <span
+class="math inline">\(n\le10^{18}\)</span>.</p>
+<p>Give your answer modulo <span
+class="math inline">\(10^8\)</span>.</p>
 <h2 id="解决方案">解决方案</h2>
-<p>通过以下程序，直接打印出<span
-class="math inline">\(M\)</span>的前<span
-class="math inline">\(1000\)</span>项的值：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1000</span>;</span><br><span class="line"><span class="type">bool</span> f[N<span class="number">+4</span>][N<span class="number">+4</span>],v[N<span class="number">+4</span>][N<span class="number">+4</span>];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ok</span><span class="params">(<span class="type">int</span> n,<span class="type">int</span> m)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(n&lt;=m) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(v[n][m]) <span class="keyword">return</span> f[n][m];</span><br><span class="line">    v[n][m]=<span class="number">1</span>;</span><br><span class="line">    <span class="type">bool</span> flag=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m&amp;&amp;!flag;i++)</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">ok</span>(n-i,i*<span class="number">2</span>)) flag=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> f[n][m]=flag;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">1</span>;n&lt;=N;n++)&#123;</span><br><span class="line">        <span class="type">int</span> ans=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!<span class="built_in">ok</span>(n-i,i*<span class="number">2</span>)) ans=i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>,n,ans);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>假设第<span class="math inline">\(i\)</span>个斐波那契数的值为<span
-class="math inline">\(f_i\)</span>，其中<span
-class="math inline">\(f_1=1,f_2=2\)</span>。发现对于区间<span
-class="math inline">\([f_i,f_{i+1})\)</span>内的任意整数，函数值<span
-class="math inline">\(M\)</span>是由一些连续的相邻整数段组成。更具体的解释为：</p>
+<p>我们把局面扩展成更一般的形式（局面 <span
+class="math inline">\((N,m)\)</span>）：</p>
 <ul>
-<li>如果<span class="math inline">\(x\le
-\left\lfloor\dfrac{f_i-1}{2}\right\rfloor\)</span>，有<span
-class="math inline">\(M(f_i+x)=x;\)</span></li>
-<li>否则，对于<span
-class="math inline">\(\left\lfloor\dfrac{f_i-1}{2}\right\rfloor&lt;
-x&lt; f_{i-1}\)</span>，有<span
-class="math inline">\(M(f_i+x)=M(x).\)</span></li>
+<li>当前剩余 <span class="math inline">\(N\)</span> 颗石子；</li>
+<li>当前玩家本步最多可取 <span class="math inline">\(m\)</span>
+颗（当然也不能超过 <span class="math inline">\(N\)</span>）。</li>
 </ul>
-<p>令<span class="math inline">\(S(n)=\sum_{i=1}^n
-M(i)\)</span>，那么我们直接进行分段计算。对于区间<span
-class="math inline">\([f_i,f_{i+1})\)</span>的值，令<span
-class="math inline">\(m_i=\left\lfloor\dfrac{f_i-1}{2}\right\rfloor\)</span>，那么有<span
-class="math inline">\(S(f_{i+1}-1)-S(f_i-1)=\dfrac{m_i(m_i+1)}{2}+S(f_{i-1}-1)-S(m_i)\)</span>。</p>
-<p>暴力分块计算即可，另外使用记忆化搜索进行加速。</p>
+<p>若本步取走 <span class="math inline">\(x\)</span>
+颗，则下一步对手面对状态 <span
+class="math inline">\((N-x,2x)\)</span>。初始局面是 <span
+class="math inline">\((n,n-1)\)</span>（因为第一步不能取光）。因此，某个第一步取法
+<span class="math inline">\(x\)</span> 是否必胜，等价于对手在 <span
+class="math inline">\((n-x,2x)\)</span> 是否必败。</p>
+<p>注意到对固定的 <span class="math inline">\(N\)</span>，状态 <span
+class="math inline">\((N,m)\)</span> 对 <span
+class="math inline">\(m\)</span> 具有<strong>单调性</strong>：若在上限
+<span class="math inline">\(m\)</span>
+下存在必胜策略，则把上限放宽只会增加可选行动，不可能把必胜变成必败。于是对每个
+<span class="math inline">\(N\)</span>，都存在一个由游戏本身诱导出的阈值
+<span class="math inline">\(T(N)\)</span>，使得当 <span
+class="math inline">\(m\ge T(N)\)</span> 时，<span
+class="math inline">\((N,m)\)</span> 为必胜态，而当 <span
+class="math inline">\(m&lt;T(N)\)</span> 时为必败态。</p>
+<p>接下来要做的，是理解这个阈值究竟由什么结构决定。由于规则把“下一步的最大可取数”固定为
+<span
+class="math inline">\(2x\)</span>，一种非常自然的制胜思路是：在本步取走
+<span class="math inline">\(x\)</span>
+之后，把对手送入一个“怎么走都不舒服”的区间——更具体地说，希望对手下一步的上限
+<span class="math inline">\(2x\)</span>
+<strong>严格小于</strong>剩余局面中某个“不可回避的最小结构块”。如果能做到这一点，对手就连触碰该结构块的资格都没有，局面会被锁死在对己不利的一侧。</p>
+<p>这提示我们去寻找一个“局面内禀的最小块”函数 <span
+class="math inline">\(u(\cdot)\)</span>，使得通过取走 <span
+class="math inline">\(u(N)\)</span> 可以触发如下强约束：<span
+class="math inline">\(2u(N)&lt;u(N-u(N)).\)</span>也就是说，取掉最小块后，剩余局面的最小块应当至少“跳跃”到原来的两倍以上。为了让这种“跳跃超过两倍”的现象稳定出现，最紧致、最自然的增长骨架正是斐波那契序列：它恰好提供了“两步跳跃超过两倍”的基本事实。</p>
+<p>因此引入 Zeckendorf 表示所使用的斐波那契数列<span
+class="math inline">\(F_0=1, F_1=2, F_k=F_{k-1}+F_{k-2}\
+(k\ge2).\)</span>在第 <span class="math inline">\(297\)</span>
+题中我们介绍过 <strong>Zeckendorf 定理</strong>：任意正整数 <span
+class="math inline">\(n\)</span> 都能唯一表示为若干个互不相邻的 <span
+class="math inline">\(F_k\)</span> 之和。记<span
+class="math inline">\(\displaystyle{n=\sum_{j=1}^t F_{i_j},
+i_1&gt;i_2&gt;\cdots&gt;i_t, i_{j+1}\le
+i_j-2.}\)</span>这里“互不相邻”正是为了保证相邻层级之间存在空隙，从而形成我们需要的“跳跃”。</p>
+<p>斐波那契数列满足关键不等式<span
+class="math inline">\(F_{t+2}=F_{t+1}+F_t&gt;2F_t.\)</span>这意味着：若某个局面的最小块是
+<span
+class="math inline">\(F_t\)</span>，并且由于“不相邻”约束，下一块至少是
+<span class="math inline">\(F_{t+2}\)</span>，那么你取走 <span
+class="math inline">\(F_t\)</span> 之后，对手的上限变为 <span
+class="math inline">\(2F_t\)</span>，却仍然严格小于 <span
+class="math inline">\(F_{t+2}\)</span>，即对手<strong>连下一块的门槛都够不着</strong>。这正是前面“希望
+<span class="math inline">\(2x&lt;\)</span>
+次小块”的不变式在数值层面的具体落实。</p>
+<p>于是，“让最小块与次小块之间至少隔一个下标”的分解体系就自然浮现出来——这恰恰就是
+Zeckendorf
+分解的特征。换言之，为了让“翻倍上限”与“卡在下一块之前”的机制完美咬合，最自然的刻度体系就是
+Zeckendorf 分解；而在这种分解之下，局面的“最小块”也就自然而然地定义为
+Zeckendorf 表示中的最小项。记<span
+class="math inline">\(z(N)=F_{i_t},\)</span>它就是 <span
+class="math inline">\(N\)</span> 的 Zeckendorf
+表示里最小的那一块，也将成为后续刻画阈值 <span
+class="math inline">\(T(N)\)</span> 的核心量。</p>
+<p>首先证明定理：状态 <span class="math inline">\((N,m)\)</span>
+是必败局面 <strong>当且仅当</strong><span
+class="math inline">\(m&lt;z(N).\)</span>核心证明内容是能不能拿到最小块。</p>
+<p>现在证明若 <span class="math inline">\(m\ge
+z(N)\)</span>：一定能走到必败态。设 <span
+class="math inline">\(z(N)=F_t\)</span>。因为 <span
+class="math inline">\(m\ge F_t\)</span>，当前玩家可以取走 <span
+class="math inline">\(F_t\)</span>。</p>
+<p>看剩余数：<span class="math inline">\(N-F_t = F_{i_1}+ \cdots +
+F_{i_{t-1}},\)</span>其中所有项的下标都至少是 <span
+class="math inline">\(t+2\)</span>（因为 Zeckendorf
+表示不允许相邻下标，既然最小是 <span
+class="math inline">\(t\)</span>，下一项最小只能到 <span
+class="math inline">\(t+2\)</span>）。</p>
+<p>因此剩余的 Zeckendorf 最小项满足<span
+class="math inline">\(z(N-F_t)\ge F_{t+2}.\)</span>而 Fibonacci 有<span
+class="math inline">\(F_{t+2}=F_{t+1}+F_t&gt;2F_t.\)</span>对手下一步的最大可取数是
+<span class="math inline">\(2F_t\)</span>，于是<span
+class="math inline">\(2F_t &lt;
+z(N-F_t).\)</span>这正是“对手处在必败态”的形式：<span
+class="math inline">\((N-F_t,2F_t)\)</span>
+满足最大可取数小于最小块。</p>
+<p>所以，<span class="math inline">\(m\ge z(N)\)</span>
+时当前玩家必胜。</p>
+<p>现在证明，若 <span
+class="math inline">\(m&lt;z(N)\)</span>：无论怎么取都会把对手送进必胜态。</p>
+<p>此时当前玩家只能取 <span class="math inline">\(x\le
+m&lt;z(N)\)</span>。要证明对手必胜，只需证明对手的新状态 <span
+class="math inline">\((N-x,2x)\)</span> 满足<span
+class="math inline">\(2x \ge z(N-x),\)</span>因为这意味着对手“够得着”
+<span
+class="math inline">\(z(N-x)\)</span>，从而能按上面的那部分走到必败态。</p>
+<p>关键在于：当你从 <span class="math inline">\(N\)</span>
+中减去一个比最小块还小的 <span class="math inline">\(x\)</span>
+时，Zeckendorf 归一化会在低位产生更小的 Fibonacci
+块，使得新的最小块不会超过 <span
+class="math inline">\(2x\)</span>。更具体地说，把 <span
+class="math inline">\(x\)</span> 写成 Zeckendorf 形式，设其中最大项为
+<span class="math inline">\(F_j\)</span>，则 <span
+class="math inline">\(F_j\le x&lt;F_{j+1}\)</span>，从而<span
+class="math inline">\(F_{j+1}\le 2F_j \le 2x.\)</span></p>
+<p>而从 <span class="math inline">\(N\)</span> 减去 <span
+class="math inline">\(x\)</span> 时，必然要“拆借”原来最小块 <span
+class="math inline">\(z(N)=F_t\)</span>（因为 <span
+class="math inline">\(x&lt;F_t\)</span>，低位没有可直接抵消的块），拆借过程只会生成下标不超过
+<span class="math inline">\(j+1\)</span> 的块，因此得到<span
+class="math inline">\(z(N-x)\le F_{j+1}\le 2x.\)</span>于是对手确实满足
+<span class="math inline">\(2x\ge z(N-x)\)</span>，是必胜。</p>
+<p>综上，<span class="math inline">\(m&lt;z(N)\)</span>
+时当前玩家必败。定理得证。</p>
+<p>由于初态是 <span
+class="math inline">\((n,n-1)\)</span>。根据定理，必败当且仅当<span
+class="math inline">\(n-1&lt;z(n).\)</span>而 <span
+class="math inline">\(z(n)=n\)</span> 当且仅当 <span
+class="math inline">\(n\)</span> 本身就是某个 Fibonacci 数（Zeckendorf
+只有一项）。此时条件变成 <span class="math inline">\(n-1&lt;n\)</span>
+恒成立，于是这些 <span class="math inline">\(n\)</span> 全必败。</p>
+<p>反之，若 <span class="math inline">\(n\)</span> 不是
+Fibonacci，则存在 <span class="math inline">\(k\)</span> 使得 <span
+class="math inline">\(F_k\le n&lt;F_{k+1}\)</span> 且 <span
+class="math inline">\(k\ge 1\)</span>，并且有 <span
+class="math inline">\(z(n)\le F_{k-1}\le n-1\)</span>，因此 <span
+class="math inline">\(n-1\ge z(n)\)</span>，先手必胜。</p>
+<p>所以：<strong>必败局面正好是 Fibonacci 数</strong>，并且 <span
+class="math inline">\(M(F_k)=0\)</span>。</p>
+<hr />
+<p>接下来求 <span class="math inline">\(M(n)\)</span> 的 Fibonacci
+分块递推取 <span class="math inline">\(n\)</span> 的最大 Fibonacci
+前缀：设<span class="math inline">\(n\)</span>满足<span
+class="math inline">\(F_k \le n &lt; F_{k+1}, n = F_k + y, 0\le y &lt;
+F_{k-1}\)</span>（因为 <span
+class="math inline">\(F_{k+1}=F_k+F_{k-1}\)</span>，这里 <span
+class="math inline">\(k\ge 1\)</span>）。记<span
+class="math inline">\(t=\left\lfloor
+\dfrac{F_k-1}{2}\right\rfloor.\)</span></p>
+<p>当 <span class="math inline">\(1\le y\le t\)</span>时，考虑首步取
+<span class="math inline">\(x=y\)</span>，剩余变为 <span
+class="math inline">\(F_k\)</span>，对手最大可取数为 <span
+class="math inline">\(2y\)</span>。由于 <span
+class="math inline">\(F_k\)</span> 是必败数，且 <span
+class="math inline">\(z(F_k)=F_k\)</span>，对手必败当且仅当<span
+class="math inline">\(2y &lt; F_k.\)</span>这正好等价于 <span
+class="math inline">\(y\le \left\lfloor \dfrac{F_k-1}{2}\right\rfloor =
+t\)</span>，成立。</p>
+<p>而在这些 <span class="math inline">\(n=F_k+y\)</span> 中，取 <span
+class="math inline">\(y\)</span> 已经把剩余压到区间下界 <span
+class="math inline">\(F_k\)</span>，显然没有比 <span
+class="math inline">\(y\)</span>
+更大的“仍能保证必胜”的首步（取更大就会让对手能直接取光或进入可取到最小块的状态）。因此</p>
+<p><span class="math display">\[M(F_k+y)=y, 1\le y\le t.\]</span></p>
+<p>当 <span class="math inline">\(t&lt; y &lt;
+F_{k-1}\)</span>时，此时若首步取 <span class="math inline">\(x\ge
+y\)</span>，剩余 <span class="math inline">\(F_k+y-x \le
+F_k\)</span>，且因为 <span class="math inline">\(y&gt;F_k/2\)</span>
+会使 <span class="math inline">\(2x\ge
+F_k\)</span>，对手可以直接取光剩余而胜，因此必胜首步必须满足 <span
+class="math inline">\(x\le y-1\)</span>，从而剩余写成 <span
+class="math inline">\(F_k + (y-x), (1\le y-x &lt; F_{k-1}).\)</span></p>
+<p>由于 <span class="math inline">\(y-x &lt;
+F_{k-1}\)</span>，Zeckendorf 表示里不会用到 <span
+class="math inline">\(F_{k-1}\)</span>，因此<span
+class="math inline">\(z(F_k+(y-x)) =
+z(y-x).\)</span>对手处于必败态当且仅当<span class="math inline">\(2x
+&lt; z(F_k+(y-x)) = z(y-x),\)</span>这与“从规模为 <span
+class="math inline">\(y\)</span> 的初态出发，首步取 <span
+class="math inline">\(x\)</span>
+是否把对手送入必败态”的判据完全一致（因为那时对手状态是 <span
+class="math inline">\((y-x,2x)\)</span>）。</p>
+<p>因此在这一段里，<span class="math inline">\(F_k+y\)</span> 与 <span
+class="math inline">\(y\)</span>
+的“可行必胜首步集合”相同，最大值也相同： <span class="math display">\[
+M(F_k+y)=M(y), t&lt;y&lt;F_{k-1}.
+\]</span></p>
+<p>因此，对任意 <span class="math inline">\(k\ge 1\)</span>、<span
+class="math inline">\(0\le y&lt;F_{k-1}\)</span>，有 <span
+class="math display">\[
+M(F_k+y)=
+\begin{cases}
+0, &amp;y=0,\\
+y, &amp; 1\le y\le \left\lfloor\dfrac{F_k-1}{2}\right\rfloor,\\
+M(y), &amp; \left\lfloor\dfrac{F_k-1}{2}\right\rfloor&lt;y&lt;F_{k-1}.
+\end{cases}
+\]</span></p>
+<p>这正解释了为什么 <span class="math inline">\(M(n)\)</span> 在两个相邻
+Fibonacci 数之间会出现“先是一段连续整数，再复制更小尺度的图样”。</p>
+<p>为求<span class="math inline">\(\displaystyle{\sum_{n\le N} M(n),
+N=10^{18}.}\)</span>按上面的分块递推：当 <span
+class="math inline">\(n\)</span> 落在同一个区间 <span
+class="math inline">\([F_k, F_{k+1}-1]\)</span> 时</p>
+<ul>
+<li>前半段 <span
+class="math inline">\(M(F_k+y)=y\)</span>，直接用等差数列求和；</li>
+<li>后半段 <span
+class="math inline">\(M(F_k+y)=M(y)\)</span>，把求和“平移”到更小区间继续算。</li>
+</ul>
 <h2 id="代码">代码</h2>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">18</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line">mp = &#123;<span class="number">0</span>: <span class="number">0</span>, <span class="number">1</span>: <span class="number">0</span>, <span class="number">2</span>: <span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">S</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> mp.keys():</span><br><span class="line">        <span class="keyword">return</span> mp[n]</span><br><span class="line">    a, b, c = <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> c &gt; n:</span><br><span class="line">            c = n + <span class="number">1</span></span><br><span class="line">        m = (b - <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> b + m &lt;= n:</span><br><span class="line">            s += m * (m + <span class="number">1</span>) // <span class="number">2</span> + S(a - <span class="number">1</span>) - S(m)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            k = n - b</span><br><span class="line">            s += k * (k + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> c == n + <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        a, b, c = b, c, b + c</span><br><span class="line">    mp[n] = s</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = S(N) % mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bisect <span class="keyword">import</span> bisect_right</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span>**<span class="number">18</span></span><br><span class="line">MOD = <span class="number">10</span>**<span class="number">8</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_fibs</span>(<span class="params">limit: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="comment"># F_0=1, F_1=2 (0-based), then F_k=F_&#123;k-1&#125;+F_&#123;k-2&#125;</span></span><br><span class="line">    f = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">    <span class="keyword">while</span> f[-<span class="number">1</span>] &lt;= limit:</span><br><span class="line">        f.append(f[-<span class="number">1</span>] + f[-<span class="number">2</span>])</span><br><span class="line">    <span class="keyword">return</span> f</span><br><span class="line"></span><br><span class="line">F = build_fibs(N)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">gauss_between</span>(<span class="params">a: <span class="built_in">int</span>, b: <span class="built_in">int</span>, mod: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># sum_&#123;x=a..b&#125; x (a&lt;=b) modulo mod</span></span><br><span class="line">    <span class="keyword">if</span> a &gt; b:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    n = b - a + <span class="number">1</span></span><br><span class="line">    s = a + b</span><br><span class="line">    <span class="comment"># divide by 2 safely (mod not prime)</span></span><br><span class="line">    <span class="keyword">if</span> n % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        n //= <span class="number">2</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        s //= <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> (n % mod) * (s % mod) % mod</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sum_M_range</span>(<span class="params">x1: <span class="built_in">int</span>, x2: <span class="built_in">int</span>, mod: <span class="built_in">int</span> = MOD</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># sum_&#123;n in [x1,x2]&#125; M(n) mod mod</span></span><br><span class="line">    <span class="keyword">if</span> x1 &gt; x2:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    i1 = bisect_right(F, x1) - <span class="number">1</span></span><br><span class="line">    i2 = bisect_right(F, x2) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> i1 != i2:</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        res = (res + sum_M_range(x1, F[i1 + <span class="number">1</span>] - <span class="number">1</span>, mod)) % mod</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(i1 + <span class="number">1</span>, i2):</span><br><span class="line">            res = (res + sum_M_range(F[i], F[i + <span class="number">1</span>] - <span class="number">1</span>, mod)) % mod</span><br><span class="line">        res = (res + sum_M_range(F[i2], x2, mod)) % mod</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    base = F[i1]</span><br><span class="line">    <span class="keyword">if</span> x2 == base:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    t = (base - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    y_min = x1 - base</span><br><span class="line">    y_max = <span class="built_in">min</span>(t, x2 - base)</span><br><span class="line"></span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> y_min &lt;= y_max:</span><br><span class="line">        res = (res + gauss_between(y_min, y_max, mod)) % mod</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> y_max == x2 - base:</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="comment"># tail: M(base+y)=M(y)</span></span><br><span class="line">    <span class="keyword">return</span> (res + sum_M_range(y_max + <span class="number">1</span>, x2 - base, mod)) % mod</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># check sample: sum_&#123;n&lt;=100&#125; M(n) = 728</span></span><br><span class="line"><span class="comment"># print(sum_M_range(1, 100) % MOD)</span></span><br><span class="line"></span><br><span class="line">ans = sum_M_range(<span class="number">1</span>, N, MOD) % MOD</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">10</span> ** <span class="number">18</span></span><br><span class="line">mod = <span class="number">10</span> ** <span class="number">8</span></span><br><span class="line">mp = &#123;<span class="number">0</span>: <span class="number">0</span>, <span class="number">1</span>: <span class="number">0</span>, <span class="number">2</span>: <span class="number">0</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">S</span>(<span class="params">n</span>):</span><br><span class="line">    <span class="keyword">if</span> n <span class="keyword">in</span> mp.keys():</span><br><span class="line">        <span class="keyword">return</span> mp[n]</span><br><span class="line">    a, b, c = <span class="number">1</span>, <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">    s = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> c &gt; n:</span><br><span class="line">            c = n + <span class="number">1</span></span><br><span class="line">        m = (b - <span class="number">1</span>) &gt;&gt; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> b + m &lt;= n:</span><br><span class="line">            s += m * (m + <span class="number">1</span>) // <span class="number">2</span> + S(a - <span class="number">1</span>) - S(m)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            k = n - b</span><br><span class="line">            s += k * (k + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> c == n + <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        a, b, c = b, c, b + c</span><br><span class="line">    mp[n] = s</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = S(N) % mod</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -424,9 +592,6 @@ class="math inline">\(S(f_{i+1}-1)-S(f_i-1)=\dfrac{m_i(m_i+1)}{2}+S(f_{i-1}-1)-S
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" rel="tag"><i class="fa fa-tag"></i> 博弈论</a>
-          </div>
 
         
 
@@ -460,14 +625,14 @@ class="math inline">\(S(f_{i+1}-1)-S(f_i-1)=\dfrac{m_i(m_i+1)}{2}+S(f_{i-1}-1)-S
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">1.4m</span>
+    <span title="站点总字数">1.5m</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">20:40</span>
+    <span title="站点阅读时长">22:47</span>
   </span>
 </div>
 <div class="busuanzi-count">

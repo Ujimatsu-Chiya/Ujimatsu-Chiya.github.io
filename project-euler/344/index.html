@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 344">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/344/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0344_silverdollar.gif">
+<meta property="article:published_time" content="2026-01-13T15:52:41.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:41.517Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0344_silverdollar.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/344/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/344/","path":"project-euler/344/","title":"Project Euler 344"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 344 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-344"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 344</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#silver-dollar-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Silver dollar game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%B6%E5%B8%81%E6%98%AF%E4%BB%8E%E5%B7%A6%E6%95%B0%E7%AC%AC-2-%E6%9E%9A"><span class="nav-number">1.2.1.</span> <span class="nav-text">银币是从左数第 2 枚</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%93%B6%E5%B8%81%E6%98%AF%E4%BB%8E%E5%B7%A6%E6%95%B0%E7%AC%AC-3-%E6%9E%9A%E6%88%96%E6%9B%B4%E9%9D%A0%E5%8F%B3"><span class="nav-number">1.2.2.</span> <span class="nav-text">银币是从左数第 3
+枚或更靠右</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/344/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 344 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 344
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:41" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:41+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-344">Project Euler 344</h1>
+<h2 id="题目">题目</h2>
+<h3 id="silver-dollar-game">Silver dollar game</h3>
+<p>One variant of N.G. de Bruijn’s <strong>silver dollar</strong> game
+can be described as follows:</p>
+<p>On a strip of squares a number of coins are placed, at most one coin
+per square. Only one coin, called the <strong>silver dollar</strong>,
+has any value. Two players take turns making moves. At each turn a
+player must make either a <em>regular</em> or a <em>special</em>
+move.</p>
+<p>A <em>regular</em> move consists of selecting one coin and moving it
+one or more squares to the left. The coin cannot move out of the strip
+or jump on or over another coin.</p>
+<p>Alternatively, the player can choose to make the <em>special</em>
+move of pocketing the leftmost coin rather than making a regular move.
+If no regular moves are possible, the player is forced to pocket the
+leftmost coin.</p>
+<p>The winner is the player who pockets the silver dollar.</p>
+<p><img data-src="../resources/images/0344_silverdollar.gif" /></p>
+<p>A <em>winning configuration</em> is an arrangement of coins on the
+strip where the first player can force a win no matter what the second
+player does.</p>
+<p>Let <span class="math inline">\(W(n,c)\)</span> be the number of
+winning configurations for a strip of <span
+class="math inline">\(n\)</span> squares, <span
+class="math inline">\(c\)</span> worthless coins and one silver
+dollar.</p>
+<p>You are given that <span class="math inline">\(W(10,2) = 324\)</span>
+and <span class="math inline">\(W(100,10) =
+1514704946113500\)</span>.</p>
+<p>Find <span class="math inline">\(W(1 000 000, 100)\)</span> modulo
+the semiprime <span class="math inline">\(1000 036 000 099 (= 1 000 003
+\cdot 1 000 033)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令总硬币数<span class="math inline">\(C=c+1.\)</span>注意这里 <span
+class="math inline">\(c=100\)</span> 为偶数，因此<span
+class="math inline">\(C=101=2f+1, f=\dfrac c2=50\)</span>。注意，<span
+class="math inline">\(C\)</span>为奇数枚硬币的情形，因此胜负判据会化成“bogus
+Nim”。</p>
+<p>把硬币从左到右编号，位置为<span class="math inline">\(1\le
+x_1&lt;x_2&lt;\cdots&lt;x_{2f+1}\le
+n.\)</span>定义相邻硬币之间的空格数（含边界）：</p>
+<ul>
+<li>左端空格 <span class="math inline">\(g_0=x_1-1\)</span></li>
+<li>中间空格 <span class="math inline">\(g_i=x_{i+1}-x_i-1 (1\le i\le
+2f)\)</span></li>
+<li>右端空格 <span
+class="math inline">\(g_{2f+1}=n-x_{2f+1}\)</span></li>
+</ul>
+<p>显然<span class="math inline">\(\displaystyle{g_i\ge 0,
+\sum_{i=0}^{2f+1} g_i = n-(2f+1)=n-C.}\)</span></p>
+<p>把这些空格分成两类：</p>
+<ul>
+<li><strong>重要空格</strong>：<span
+class="math inline">\(g_0,g_2,g_4,\dots,g_{2f}\)</span>（一共 <span
+class="math inline">\(f+1\)</span> 个）</li>
+<li><strong>不重要空格</strong>：<span
+class="math inline">\(g_1,g_3,\dots,g_{2f-1},g_{2f+1}\)</span>（一共
+<span class="math inline">\(f+1\)</span> 个）</li>
+</ul>
+<p>直觉：重要空格对应“成对硬币”之间的缝，会决定胜负；不重要空格只是在“对与对”之间塞空间，对胜负无影响，只影响计数。</p>
+<p>现在开始进行胜负判据，注意这里不需要计算出完整的<span
+class="math inline">\(SG\)</span>值，只需要判定“轮到走的人是必胜还是必败”。</p>
+<p>令总硬币数为 <span
+class="math inline">\(2f+1\)</span>。讨论银币相对最左端的两种关键情况：</p>
+<h3 id="银币是从左数第-2-枚">银币是<strong>从左数第 2 枚</strong></h3>
+<p>此时如果有人选择“把最左硬币装进口袋（special
+move）”，会立刻把银币暴露成最左硬币，下一手对方直接装走银币获胜——等价于自杀操作。最优策略下可视为
+<strong>special move
+不会被主动使用</strong>（除非被迫，但被迫时结果也一致）。为了统一描述，把左边界当作一个“不能越过”的虚拟硬币
+<span class="math inline">\(x_0=0\)</span>，并定义<span
+class="math inline">\(y_i = x_{2i+1}-x_{2i}-1
+(i=0,1,\dots,f).\)</span>那么<span class="math inline">\(y_0=g_0,
+y_i=g_{2i}(i\ge 1),\)</span>即 <span class="math inline">\(y\)</span>
+正好就是“重要空格”的集合。</p>
+<p>可见，增大 <span class="math inline">\(y_i\)</span>
+本身是一种无效赠送动作——你把空间让出来，对手马上在同一对里把它吃回去（把局面拉回你增大前）。这种动作即使因为不重要空格大而能做得更多，也只是给对手更多无意义的应对空间，不会改变谁能强制赢。</p>
+<h3 id="银币是从左数第-3-枚或更靠右">银币是<strong>从左数第 3
+枚或更靠右</strong></h3>
+<p>这时 special
+move（装走最左硬币）并不立刻输；它更像“把最左硬币移到条带左侧外面”，对后续博弈有结构性的影响。</p>
+<p>为把 special move 纳入同一套判据，引入另一种虚拟边界：<span
+class="math inline">\(x_0=-1,\)</span>同样定义<span
+class="math inline">\(y_i = x_{2i+1}-x_{2i}-1.\)</span>这会让<span
+class="math inline">\(y_0 = x_1-(-1)-1 = x_1 = g_0+1, y_i=g_{2i}(i\ge
+1).\)</span>也就是这个情况下，第一堆 <span
+class="math inline">\(y_0\)</span> 比真实左端空格多 <span
+class="math inline">\(1\)</span>。也就是说，这种情况下，我们虚拟了一枚<span
+class="math inline">\(x_0=-1\)</span>的硬币在这个边界位置。这种情况你进行special
+move就相当于把硬币移动到了位置<span
+class="math inline">\(0\)</span>，<span
+class="math inline">\(-1\)</span>是虚拟边界。</p>
+<!-- --- -->
+<p>在上述定义下（情况 1 用 <span
+class="math inline">\(x_0=0\)</span>，情况 2 用 <span
+class="math inline">\(x_0=-1\)</span>），当银币不是最左硬币时：<strong>后手必胜当且仅当</strong><span
+class="math inline">\(\displaystyle{\bigoplus_{i=0}^f y_i=
+0}\)</span>。其中 <span class="math inline">\(\oplus\)</span>
+是按位异或。</p>
+<p>证明思路如下：</p>
+<p>观察第 <span class="math inline">\(i\)</span> 对（对应 <span
+class="math inline">\(x_{2i}\)</span> 与 <span
+class="math inline">\(x_{2i+1}\)</span>）：</p>
+<ul>
+<li>若移动左边那枚 <span class="math inline">\(x_{2i}\)</span> 往左
+<span class="math inline">\(d\)</span> 格，则 <span
+class="math inline">\(x_{2i}\)</span> 变小，二者间距增大，因而 <span
+class="math inline">\(y_i\gets y_i + d.\)</span></li>
+<li>若移动右边那枚 <span class="math inline">\(x_{2i+1}\)</span> 往左
+<span class="math inline">\(d\)</span> 格，则二者间距减小，因而 <span
+class="math inline">\(y_i\gets y_i - d, 0\le d\le y_i.\)</span></li>
+</ul>
+<p>并且这类移动<strong>不会改变其它 <span
+class="math inline">\(y_j\)</span></strong>；它只会在“不重要空格”里做补偿式变化，但我们将看到这些不影响胜负判定。</p>
+<p>假设轮到先手走，且当前满足<span
+class="math inline">\(\displaystyle{Y=\bigoplus_{i=0}^f y_i =
+0.}\)</span></p>
+<p>先手做一个正规移动，只会改变某个 <span
+class="math inline">\(y_k\)</span>。</p>
+<ul>
+<li><p>若先手让某个 <span class="math inline">\(y_k\)</span>
+<strong>变大</strong>（通过移动 <span
+class="math inline">\(x_{2k}\)</span>），后手直接把同一对里的右硬币
+<span class="math inline">\(x_{2k+1}\)</span> 往左移动同样的 <span
+class="math inline">\(d\)</span>，把 <span
+class="math inline">\(y_k\)</span> 原样降回去，所有 <span
+class="math inline">\(y_i\)</span> 复原，仍然 <span
+class="math inline">\(Y=0\)</span>。合法性来自于：右硬币最多只能移动到与左硬币相邻处，恰好能抵消这次增加。</p></li>
+<li><p>若先手让某个 <span class="math inline">\(y_k\)</span>
+<strong>变小</strong>（通过移动 <span
+class="math inline">\(x_{2k+1}\)</span>），则在 Nim
+中必有唯一的目标值<span class="math inline">\(y_k&#39;=y_k\oplus
+Y&#39;\)</span>（这里<span class="math inline">\(Y&#39;\ne
+0\)</span>是先手走后新的异或值）满足 <span
+class="math inline">\(y_k&#39;&lt;y_k\)</span> 且把它改成 <span
+class="math inline">\(y_k&#39;\)</span>
+会令异或归零。在棋盘上，这对应“把右硬币 <span
+class="math inline">\(x_{2k+1}\)</span> 往左移动 <span
+class="math inline">\(y_k-y_k&#39;\)</span> 格”，显然不跨越 <span
+class="math inline">\(x_{2k}\)</span>，因此合法。</p></li>
+</ul>
+<p>因此：<strong>从 <span class="math inline">\(Y=0\)</span>
+出发，后手总能在一回合内把局面拉回到 <span
+class="math inline">\(Y=0\)</span></strong>。</p>
+<p>我们接下来证明 special move 也被这套判据正确处理</p>
+<ul>
+<li><p>情况 1（银币第二）：special move 等价于立刻送死，因此不会成为把
+<span class="math inline">\(Y=0\)</span>
+打破并获利的手段；判据只需覆盖正规移动即可。</p></li>
+<li><p>情况 2（银币第三或更右）：special move 是“装走最左硬币”。在 <span
+class="math inline">\(x_0=-1\)</span> 的表示里，装走 <span
+class="math inline">\(x_1\)</span> 后，新的最左硬币变成原来的 <span
+class="math inline">\(x_2\)</span>，而 <span
+class="math inline">\(y_1,\dots,y_f\)</span> 结构保持；同时原本<span
+class="math inline">\(y_0=g_0+1&gt;0\)</span>会在新局面中变成“边界紧贴最左硬币”的效果，相当于让第一堆变为
+<span class="math inline">\(0\)</span>。这正是把某一堆改成更小值的 Nim
+操作（把 <span class="math inline">\(y_0\)</span> 改成 <span
+class="math inline">\(0\)</span>）。</p></li>
+</ul>
+<p>因此 special move 也不会破坏“<span
+class="math inline">\(\displaystyle{\bigoplus_{i=0}^f y_i}\)</span>
+决定输赢”的结论。</p>
+<p>综上：当银币不是最左时，局面输赢由 <span
+class="math inline">\(\displaystyle{\bigoplus_{i=0}^f y_i}\)</span>
+是否为 <span class="math inline">\(0\)</span> 决定；<span
+class="math inline">\(\displaystyle{\bigoplus_{i=0}^f y_i}\)</span>
+为必败（轮到走的人输），否则必胜。</p>
+<!-- --- -->
+<p>接下来开始计算方案总数。</p>
+<p>总摆放数（先选 <span class="math inline">\(C\)</span>
+个位置，再指定银币是哪一枚）为<span class="math inline">\(T =
+C\dbinom{n}{C}.\)</span> 银币如果是最左硬币，先手直接 special move
+立刻获胜，这部分已包含在 <span class="math inline">\(T\)</span>
+中，不需要特判；我们只需要数出先手必败的配置并从 <span
+class="math inline">\(T\)</span>
+中减去。先手必败等价于后手必胜，即上节判据成立且银币不是最左。</p>
+<p>我们将必败分成两类：</p>
+<ul>
+<li><span class="math inline">\(L_2\)</span>：银币为第 <span
+class="math inline">\(2\)</span> 枚（情况 1），且 <span
+class="math inline">\(\displaystyle{\bigoplus_{i=0}^f y_i}\)</span></li>
+<li><span class="math inline">\(L_{\ge 2}\)</span>：银币不是前两枚（情况
+2），且 <span class="math inline">\(\displaystyle{\bigoplus_{i=0}^f
+y_i}\)</span></li>
+</ul>
+<p>最终 <span class="math display">\[W(n,c)=T-L_2-(C-2)\cdot L_{\ge
+2},\]</span>
+因为当银币不在前两枚时，在同一组“硬币位置集合”上，银币可以是第 <span
+class="math inline">\(3\)</span> 到第 <span
+class="math inline">\(C\)</span> 枚中的任意一枚，共 <span
+class="math inline">\(C-2\)</span> 种指定方式，并且胜负判据对“第 <span
+class="math inline">\(3\)</span>
+枚或更右”只依赖“不是前两枚”，不依赖具体是第几枚。</p>
+<p>令 <span class="math inline">\(f=c/2\)</span>。重要空格（Nim 堆）共有
+<span class="math inline">\(t=f+1\)</span> 堆：<span
+class="math inline">\((y_0,y_1,\dots,y_f).\)</span>设<span
+class="math inline">\(\displaystyle{D_t(K)=\#\left\{(y_0,\dots,y_{t-1})\in\mathbb
+Z_{\ge0}^t:\bigoplus_{i=0}^{t-1} y_i=0,\sum_{i=0}^{t-1}
+y_i=K\right\}}.\)</span></p>
+<p>不重要空格共有 <span class="math inline">\(f+1\)</span>
+个，和为“总空格数减去重要空格和”。因此总空格数：<span
+class="math inline">\(S=n-C=n-(2f+1).\)</span></p>
+<ul>
+<li><p>情况 1：<span
+class="math inline">\(y_0=g_0\)</span>，重要空格和为 <span
+class="math inline">\(\displaystyle{K=\sum_{i=0}^{t-1}
+y_i}\)</span>，则不重要空格总和为 <span
+class="math inline">\(S-K\)</span>。分配方法数为<span
+class="math inline">\(\dbinom{(S-K)+(f+1)-1}{(f+1)-1}=\dbinom{S-K+f}{f}.\)</span>因而</p>
+<p><span class="math display">\[L_2=\sum_{K=0}^{S}
+D_{f+1}(K)\binom{S-K+f}{f}.\]</span></p></li>
+<li><p>情况 2：<span
+class="math inline">\(y_0=g_0+1\)</span>，所以真实占用的“重要空格”是
+<span class="math inline">\((y_0-1)+y_1+\cdots+y_f =
+K-1\)</span>。因此不重要空格总和为 <span
+class="math inline">\(S-(K-1)=S-K+1\)</span>，分配方法数为<span
+class="math inline">\(\dbinom{S-K+1+f}{f}=\dbinom{S-K+f+1}{f}.\)</span>另外情况
+2 需要 <span class="math inline">\(y_0\ge 1\)</span>。把它转成“去掉
+<span class="math inline">\(y_0=0\)</span> 的情况”：若 <span
+class="math inline">\(y_0=0\)</span>，则剩下 <span
+class="math inline">\(f\)</span> 堆仍需异或为 <span
+class="math inline">\(0\)</span> 且和为 <span
+class="math inline">\(K\)</span>，数量是 <span
+class="math inline">\(D_f(K)\)</span>。因而满足 <span
+class="math inline">\(y_0\ge1\)</span> 的数量是 <span
+class="math inline">\(D_{f+1}(K)-D_f(K)\)</span>，于是 <span
+class="math display">\[L_{\ge 2}
+=\sum_{K=0}^{S+1}\bigl(D_{f+1}(K)-D_f(K)\bigr)\binom{S-K+f+1}{f}.\]</span></p></li>
+</ul>
+<hr />
+<p>核心观察：若 <span class="math inline">\((y_0,\dots,y_{t-1})\)</span>
+异或为 <span
+class="math inline">\(0\)</span>，则最低位（奇偶性）必须有偶数个 <span
+class="math inline">\(1\)</span>，也就是<strong>奇数项个数必须为偶数</strong>。</p>
+<p>把每个 <span class="math inline">\(y_i\)</span> 写成<span
+class="math inline">\(y_i = 2z_i + b_i, b_i\in{0,1}.\)</span>则</p>
+<ul>
+<li><span class="math inline">\(\displaystyle{\bigoplus_{i=0}^{t-1}
+y_i=0}\)</span> 等价于：<span
+class="math inline">\(\displaystyle{\sum_{i=0}^{t-1}b_i}\)</span>
+为偶数，且 <span
+class="math inline">\(\displaystyle{\bigoplus_{i=0}^{t-1}
+z_i=0}\)</span>（把所有数右移 <span class="math inline">\(1\)</span>
+位后异或仍为 <span class="math inline">\(0\)</span>）。</li>
+<li><span
+class="math inline">\(\displaystyle{\sum_{i=0}^{t-1}y_i=2\sum_{i=0}^{t-1}z_i+\sum_{i=0}^{t-1}b_i}\)</span>。</li>
+</ul>
+<p>因此若我们已知“右移后”的和为 <span
+class="math inline">\(\displaystyle{\sum_{i=0}^{t-1}z_i=s}\)</span>，并选择其中恰好
+<span class="math inline">\(e\)</span> 个 <span
+class="math inline">\(b_i=1\)</span>（必须 <span
+class="math inline">\(e\)</span> 为偶数），则原和变为 <span
+class="math inline">\(2s+e\)</span>，对应组合数 <span
+class="math inline">\(\dbinom{t}{e}\)</span>。</p>
+<p>因此我们可以写出如下关于<span
+class="math inline">\(D_t(K)\)</span>的转移过程：</p>
+<ul>
+<li>初始：全为 <span class="math inline">\(0\)</span> 的序列唯一，<span
+class="math inline">\(D_t(0)=1\)</span>。</li>
+<li>转移：对每个当前的 <span
+class="math inline">\(s\)</span>，把它扩展到 <span
+class="math inline">\(2s+e\)</span>（<span
+class="math inline">\(e\)</span> 为偶数）：<span
+class="math inline">\(D_t(2s+e)\leftarrow
+D_t(s)\dbinom{t}{e}.\)</span></li>
+</ul>
+<p>由此最终计算出<span class="math inline">\(D_{f}(\cdot),
+D_{f+1}(\cdot)\)</span>后，即可计算出<span
+class="math inline">\(L_2,L_{\ge 2}\)</span>，并构造出最终的结果<span
+class="math inline">\(W(n,c)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> Combinatorics</span><br><span class="line"></span><br><span class="line">MOD = <span class="number">1000036000099</span>  <span class="comment"># 1000003 * 1000033</span></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">6</span></span><br><span class="line">C = <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">n: <span class="built_in">int</span>, c:<span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># c is even in the target task, so total coins C=c+1 is odd: C=2f+1</span></span><br><span class="line">    co = Combinatorics(n, MOD)</span><br><span class="line">    C = c + <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> C % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">raise</span> ValueError(<span class="string">&quot;This implementation assumes c is even (so total coins is odd).&quot;</span>)</span><br><span class="line"></span><br><span class="line">    f = c // <span class="number">2</span>              <span class="comment"># number of pairs</span></span><br><span class="line">    t1 = f + <span class="number">1</span>              <span class="comment"># piles count when including y0</span></span><br><span class="line">    t0 = f                  <span class="comment"># piles count when forcing y0=0 (drop one pile)</span></span><br><span class="line">    S = n - C               <span class="comment"># total empty squares (sum of all gaps)</span></span><br><span class="line">    Kmax = n - c            <span class="comment"># S + 1, needed for case B weights</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">build_xor0_counts</span>(<span class="params">piles: <span class="built_in">int</span>, max_sum: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="comment"># D[sum] = number of piles-tuples with xor=0 and total sum = sum (mod mod).</span></span><br><span class="line">        <span class="comment"># Transition: D[2*s + e] += D[s] * C(piles, e), where e is even.</span></span><br><span class="line">        choose = [co.C(piles, e) <span class="keyword">for</span> e <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, piles + <span class="number">1</span>, <span class="number">2</span>)]  <span class="comment"># e = 0,2,4,...</span></span><br><span class="line">        D = [<span class="number">0</span>] * (max_sum + <span class="number">1</span>)</span><br><span class="line">        D[<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        half = max_sum // <span class="number">2</span></span><br><span class="line">        L = <span class="built_in">len</span>(choose)</span><br><span class="line">        <span class="keyword">for</span> s <span class="keyword">in</span> <span class="built_in">range</span>(half + <span class="number">1</span>):</span><br><span class="line">            val = D[s]</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> val:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            base = <span class="number">2</span> * s</span><br><span class="line">            start = <span class="number">1</span> <span class="keyword">if</span> s == <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span>  <span class="comment"># skip (s=0,e=0) to avoid self-loop</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(start, L):</span><br><span class="line">                dest = base + <span class="number">2</span> * j</span><br><span class="line">                <span class="keyword">if</span> dest &gt; max_sum:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                D[dest] = (D[dest] + val * choose[j]) % MOD</span><br><span class="line">        <span class="keyword">return</span> D</span><br><span class="line"></span><br><span class="line">    <span class="comment"># D_&#123;f+1&#125;(K) and D_f(K)</span></span><br><span class="line">    D1 = build_xor0_counts(t1, Kmax)  <span class="comment"># length 51</span></span><br><span class="line">    D0 = build_xor0_counts(t0, Kmax)  <span class="comment"># length 50</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Weights for distributing unimportant gaps</span></span><br><span class="line">    <span class="comment"># Case A: weightA[K] = C(S-K+f, f), K in [0..S]</span></span><br><span class="line">    weightA = [<span class="number">0</span>] * (S + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">for</span> K <span class="keyword">in</span> <span class="built_in">range</span>(S + <span class="number">1</span>):</span><br><span class="line">        weightA[K] = co.C(S - K + f, f)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Case B: weightB[K] = C(S-K+f+1, f), K in [0..S+1]</span></span><br><span class="line">    weightB = [<span class="number">0</span>] * (S + <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">for</span> K <span class="keyword">in</span> <span class="built_in">range</span>(S + <span class="number">2</span>):</span><br><span class="line">        weightB[K] =  co.C(S - K + f + <span class="number">1</span>, f)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># L2: silver is 2nd</span></span><br><span class="line">    L2 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> K <span class="keyword">in</span> <span class="built_in">range</span>(S + <span class="number">1</span>):</span><br><span class="line">        L2 = (L2 + D1[K] * weightA[K]) % MOD</span><br><span class="line"></span><br><span class="line">    <span class="comment"># L_not12 per fixed choice among coins #3..#C (multiply by C-2 later)</span></span><br><span class="line">    L_ge2 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> K <span class="keyword">in</span> <span class="built_in">range</span>(S + <span class="number">2</span>):  <span class="comment"># up to S+1</span></span><br><span class="line">        L_ge2 = (L_ge2 + (D1[K] - D0[K]) * weightB[K]) % MOD</span><br><span class="line">    L_ge2 %= MOD</span><br><span class="line"></span><br><span class="line">    total = (C *  co.C(n, C)) % MOD</span><br><span class="line">    ans = (total - L2 - (C - <span class="number">2</span>) * L_ge2) % MOD</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">ans = solve(N, C)</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/344/" title="Project Euler 344">https://ujimatsu-chiya.github.io/project-euler/344/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

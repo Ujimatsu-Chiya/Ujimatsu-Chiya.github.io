@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 332">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/332/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0332_spherical.jpg">
+<meta property="article:published_time" content="2026-01-13T15:52:35.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:35.224Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0332_spherical.jpg">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/332/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/332/","path":"project-euler/332/","title":"Project Euler 332"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 332 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-332"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 332</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#spherical-triangles"><span class="nav-number">1.1.1.</span> <span class="nav-text">Spherical triangles</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/332/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 332 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 332
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:35" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:35+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-332">Project Euler 332</h1>
+<h2 id="题目">题目</h2>
+<h3 id="spherical-triangles">Spherical triangles</h3>
+<p>A <strong>spherical triangle</strong> is a figure formed on the
+surface of a sphere by three <strong>great circular arcs</strong>
+intersecting pairwise in three vertices.</p>
+<p><img data-src="../resources/images/0332_spherical.jpg" /></p>
+<p>Let <span class="math inline">\(C(r)\)</span> be the sphere with the
+centre <span class="math inline">\((0,0,0)\)</span> and radius r.</p>
+<p>Let <span class="math inline">\(Z(r)\)</span> be the set of points on
+the surface of <span class="math inline">\(C(r)\)</span> with integer
+coordinates.</p>
+<p>Let <span class="math inline">\(T(r)\)</span> be the set of spherical
+triangles with vertices in <span class="math inline">\(Z(r)\)</span>.
+Degenerate spherical triangles, formed by three points on the same great
+arc, are <u>not</u> included in <span
+class="math inline">\(T(r)\)</span>.</p>
+<p>Let <span class="math inline">\(A(r)\)</span> be the area of the
+smallest spherical triangle in <span
+class="math inline">\(T(r)\)</span>.</p>
+<p>For example <span class="math inline">\(A(14)\)</span> is <span
+class="math inline">\(3.294040\)</span> rounded to six decimal
+places.</p>
+<p>Find <span class="math inline">\(\sum \limits_{r = 1}^{50}
+{A(r)}\)</span>. Give your answer rounded to six decimal places.</p>
+<h2 id="解决方案">解决方案</h2>
+<p><strong>引理：若 <span class="math inline">\(r\)</span> 为偶数，则
+<span class="math inline">\(Z(r)\)</span> 中任意点 <span
+class="math inline">\((x,y,z)\)</span> 的三个坐标都为偶数。</strong></p>
+<p>证明：当 <span class="math inline">\(r\)</span> 为偶数时，<span
+class="math inline">\(r^2\equiv 0\pmod 4\)</span>。对任意整数，平方模
+<span class="math inline">\(4\)</span> 只可能是 <span
+class="math inline">\(0\)</span> 或 <span
+class="math inline">\(1\)</span>。若 <span
+class="math inline">\(x\)</span> 为奇数则 <span
+class="math inline">\(x^2\equiv 1\pmod 4\)</span>，同理奇数平方都为
+<span class="math inline">\(1\)</span>。
+在三个数平方之和中，若存在奇数平方项，则和模 <span
+class="math inline">\(4\)</span> 为 <span
+class="math inline">\(1,2,\)</span> 或 <span
+class="math inline">\(3\)</span>，不可能为 <span
+class="math inline">\(0\)</span>。因此必须<span
+class="math inline">\(x^2\equiv y^2\equiv z^2\equiv 0\pmod 4,\)</span>即
+<span class="math inline">\(x,y,z\)</span> 全为偶数。证毕。</p>
+<p>于是对 <span class="math inline">\(r=2m,Z(2m)=\{(2x,2y,2z):(x,y,z)\in
+Z(m)\}.\)</span></p>
+<p>把点除以半径得到单位向量 <span
+class="math inline">\((x,y,z)/r\)</span>，可见 <span
+class="math inline">\(Z(2m)\)</span> 与 <span
+class="math inline">\(Z(m)\)</span>
+给出的<strong>单位方向集合完全相同</strong>。球面三角形的角度（球面边长、角、球面盈余）只取决于单位方向，而面积会额外乘上
+<span class="math inline">\(r^2\)</span>，因此<span
+class="math inline">\(A(2m)=4A(m), A(4m)=16A(m),\ldots\)</span></p>
+<p>所以只要计算所有奇数半径的 <span
+class="math inline">\(A(r)\)</span>，就能把 <span
+class="math inline">\(r,2r,4r,\dots\le 50\)</span> 的贡献用 <span
+class="math inline">\(4^k\)</span> 直接加进去。</p>
+<hr />
+<p>接下来进行球面三角形面积的向量公式<a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Spherical_trigonometry">推导</a>。取球面三角形三个顶点向量为
+<span class="math inline">\(a,b,c\in\mathbb R^3\)</span>，满足<span
+class="math inline">\(\lVert a\rVert=\lVert b\rVert=\lVert
+c\rVert=r.\)</span>令单位向量<span class="math inline">\(u=\dfrac{a}{r},
+v=\dfrac{b}{r}, w=\dfrac{c}{r}.\)</span></p>
+<p>球面三角形的面积为<span
+class="math inline">\(S=r^2E,\)</span>其中球面盈余（定义为球面曲率造成的角和超额）<span
+class="math inline">\(E=\alpha+\beta+\gamma-\pi,\)</span><span
+class="math inline">\(\alpha,\beta,\gamma\)</span>
+为球面三角形三个顶点角。</p>
+<p>设三条球面边（中心角）分别为<span
+class="math inline">\(A=\arccos(v\cdot w), B=\arccos(w\cdot u),
+C=\arccos(u\cdot v).\)</span>其中 <span class="math inline">\(u\cdot
+v\)</span> 表示点积。由球面三角学可得（将 L’Huilier 公式化简到只含 <span
+class="math inline">\(\cos A,\cos B,\cos C\)</span> 的形态）：</p>
+<p><span class="math display">\[\tan^2\frac E2=\frac{1+2\cos A\cos B\cos
+C-\cos^2A-\cos^2B-\cos^2C}{(1+\cos A+\cos B+\cos C)^2}.\]</span></p>
+<p>取正根并用 <span class="math inline">\(\operatorname{atan2}\)</span>
+写成更稳定的形式：</p>
+<p><span class="math display">\[\frac
+E2=\operatorname{atan2}(\sqrt{1+2\cos A\cos B\cos
+C-\cos^2A-\cos^2B-\cos^2C},1+\cos A+\cos B+\cos C).\]</span></p>
+<p>注意到<span class="math inline">\(\cos A=v\cdot w, \cos B=w\cdot u,
+\cos C=u\cdot v.\)</span></p>
+<p>考虑单位向量的 Gram 矩阵</p>
+<p><span class="math display">\[G=\begin{pmatrix}
+u\cdot u &amp; u\cdot v &amp; u\cdot w\\
+v\cdot u &amp; v\cdot v &amp; v\cdot w\\
+w\cdot u &amp; w\cdot v &amp; w\cdot w
+\end{pmatrix}
+=\begin{pmatrix}
+1 &amp; u\cdot v &amp; u\cdot w\\
+u\cdot v &amp; 1 &amp; v\cdot w\\
+u\cdot w &amp; v\cdot w &amp; 1
+\end{pmatrix}.\]</span></p>
+<p>线性代数恒等式给出<span class="math inline">\(\det(G)=(u\cdot(v\times
+w))^2,\)</span>其中 <span class="math inline">\(v\times w\)</span>
+为叉积。把 <span class="math inline">\(\det(G)\)</span>
+展开，恰好得到</p>
+<p><span class="math display">\[\det(G)=1+2(u\cdot v)(v\cdot w)(w\cdot
+u)-(u\cdot v)^2-(v\cdot w)^2-(w\cdot u)^2.\]</span></p>
+<p>这正是上一节分子中的平方项，因此<span
+class="math inline">\(\sqrt{1+2\cos A\cos B\cos
+C-\cos^2A-\cos^2B-\cos^2C}=|u\cdot(v\times w)|.\)</span></p>
+<p>把分母写回点积和：<span class="math inline">\(1+\cos A+\cos B+\cos C
+= 1+u\cdot v+v\cdot w+w\cdot u.\)</span></p>
+<p>于是得到非常紧凑且数值稳定的公式：</p>
+<p><span class="math display">\[E=2\operatorname{atan2}(|u\cdot(v\times
+w)|,1+u\cdot v+v\cdot w+w\cdot u).\]</span></p>
+<p>代入 <span class="math inline">\(u=a/r\)</span> 等并整理比例：</p>
+<p><span class="math display">\[|u\cdot(v\times w)|
+=\left|\frac a r\cdot\left(\frac b r\times\frac c r\right)\right|
+=\frac{|a\cdot(b\times c)|}{r^3},\]</span></p>
+<p><span class="math display">\[1+u\cdot v+v\cdot w+w\cdot u
+=1+\frac{a\cdot b+b\cdot c+c\cdot a}{r^2}
+=\frac{r^2+a\cdot b+b\cdot c+c\cdot a}{r^2}.\]</span></p>
+<p>因此<span
+class="math inline">\(E=2\operatorname{atan2}(|a\cdot(b\times
+c)|,r(r^2+a\cdot b+b\cdot c+c\cdot a)),\)</span>面积即<span
+class="math inline">\(S=r^2E.\)</span></p>
+<p>这里 <span class="math inline">\(a\cdot(b\times c)\)</span>
+与各点积都可以用<strong>整数运算</strong>精确计算。</p>
+<p>对于退化情形，三点在同一条大圆弧上 <span
+class="math inline">\(\Longleftrightarrow\)</span> 三点与原点共面 <span
+class="math inline">\(\Longleftrightarrow\)</span> 向量 <span
+class="math inline">\(a,b,c\)</span> 线性相关 <span
+class="math inline">\(\Longleftrightarrow a\cdot(b\times
+c)=0.\)</span>因此只要检查三重积是否为 <span
+class="math inline">\(0\)</span>，即可精确排除退化情形。</p>
+<p>对固定 <span class="math inline">\(r\)</span>，由<span
+class="math inline">\(E=2\operatorname{atan2}(\Delta,rN),\Delta=|a\cdot(b\times
+c)|,N=r^2+a\cdot b+b\cdot c+c\cdot a\)</span>可知在 <span
+class="math inline">\(\Delta&gt;0\)</span> 且 <span
+class="math inline">\(N&gt;0\)</span> 时，<span
+class="math inline">\(E\)</span> 随 <span
+class="math inline">\(\dfrac{N}{r}\)</span>（等价于 <span
+class="math inline">\(\dfrac{N}{\Delta}\)</span>）增大而减小。于是最小面积等价于在所有非退化三角形中<strong>最大化</strong><span
+class="math inline">\(\dfrac{N}{\Delta}=\dfrac{r^2+a\cdot b+b\cdot
+c+c\cdot a}{|a\cdot(b\times
+c)|}.\)</span>比较两个分数可用交叉相乘完全避免浮点误差： <span
+class="math inline">\(\dfrac{N_1}{\Delta_1}&gt;\dfrac{N_2}{\Delta_2}\iff
+N_1\Delta_2&gt;N_2\Delta_1.\)</span></p>
+<p>另外，方程 <span class="math inline">\(x^2+y^2+z^2=r^2\)</span>
+对坐标置换与符号翻转对称（共 <span class="math inline">\(48\)</span>
+种正交变换），面积表达式只依赖点积与三重积的绝对值，因此不妨把第一个顶点
+<span class="math inline">\(a\)</span> 限制在一个规范域内，例如<span
+class="math inline">\(0\le x\le y\le
+z.\)</span>这样可以显著减少枚举量，而不影响最小值结果。</p>
+<p>结合第 1 节偶数半径缩放，只需对奇数 <span class="math inline">\(r\le
+50\)</span> 计算一次 <span class="math inline">\(A(r)\)</span>，并按
+<span class="math inline">\(r,2r,4r,\dots\)</span> 把贡献累加即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> int_sqrt</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> atan2</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations, product</span><br><span class="line"></span><br><span class="line">N = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">points_on_sphere</span>(<span class="params">r: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    枚举球面 C(r) 上的整点：x^2 + y^2 + z^2 = r^2。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    返回两份列表：</span></span><br><span class="line"><span class="string">    - base: 仅在规范域 0&lt;=x&lt;=y&lt;=z 内的解 (x,y,z)，用于当作锚点 a</span></span><br><span class="line"><span class="string">            （利用符号翻转与坐标置换对称性，把 48 倍的等价点折叠起来）</span></span><br><span class="line"><span class="string">    - full: 将 base 展开符号翻转与坐标置换后的全集 Z(r)，用于枚举 b,c</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    r2 = r * r</span><br><span class="line"></span><br><span class="line">    <span class="comment"># base 只收集非负且排序的三元组 0&lt;=x&lt;=y&lt;=z，避免同一轨道重复出现</span></span><br><span class="line">    base = []</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(r + <span class="number">1</span>):</span><br><span class="line">        x2 = x * x</span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(x, r + <span class="number">1</span>):</span><br><span class="line">            <span class="comment"># rem = r^2 - x^2 - y^2，若 rem&lt;0 则更大的 y 只会更负，可直接 break</span></span><br><span class="line">            rem = r2 - x2 - y * y</span><br><span class="line">            <span class="keyword">if</span> rem &lt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># z = ceil/floor? 这里要的就是整数平方根（floor），并检查是否恰好平方</span></span><br><span class="line">            z = int_sqrt(rem)</span><br><span class="line"></span><br><span class="line">            <span class="comment"># 维持排序 x&lt;=y&lt;=z；若 z&lt;y 则该 (x,y) 不可能得到规范解</span></span><br><span class="line">            <span class="keyword">if</span> z &lt; y:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> z * z == rem:</span><br><span class="line">                base.append((x, y, z))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># full：把 base 中每个 (x,y,z) 通过</span></span><br><span class="line">    <span class="comment">#   - 坐标置换（最多 6 种）</span></span><br><span class="line">    <span class="comment">#   - 三个坐标独立符号翻转（2^3=8 种）</span></span><br><span class="line">    <span class="comment"># 展开成全集 Z(r)</span></span><br><span class="line">    <span class="comment">#</span></span><br><span class="line">    <span class="comment"># 注意：当 x,y,z 有重复值时 permutations 会产生重复，需要用 set 去重。</span></span><br><span class="line">    pts = <span class="built_in">set</span>()</span><br><span class="line">    <span class="keyword">for</span> x, y, z <span class="keyword">in</span> base:</span><br><span class="line">        <span class="keyword">for</span> px, py, pz <span class="keyword">in</span> <span class="built_in">set</span>(permutations((x, y, z), <span class="number">3</span>)):</span><br><span class="line">            <span class="keyword">for</span> sx, sy, sz <span class="keyword">in</span> product((<span class="number">1</span>, -<span class="number">1</span>), repeat=<span class="number">3</span>):</span><br><span class="line">                pts.add((sx * px, sy * py, sz * pz))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> base, <span class="built_in">list</span>(pts)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">min_area_for_odd_r</span>(<span class="params">r: <span class="built_in">int</span></span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算奇数半径 r 的 A(r)。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    几何公式（向量均以原点为球心，|a|=|b|=|c|=r）：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    设</span></span><br><span class="line"><span class="string">      det = | a · (b × c) |</span></span><br><span class="line"><span class="string">      num = r^2 + a·b + b·c + c·a</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    则该球面三角形对应的球面盈余（也等于立体角）为</span></span><br><span class="line"><span class="string">      E = 2 * atan2(det, r * num)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    面积为</span></span><br><span class="line"><span class="string">      S = r^2 * E</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    退化情形：</span></span><br><span class="line"><span class="string">      三点与原点共面  &lt;=&gt;  det = 0</span></span><br><span class="line"><span class="string">      这正对应“三点在同一条大圆弧上”，题目要求排除。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    由于 r 固定、atan2 对正比值单调递增，最小化 E 等价于最小化 det/(r*num)，</span></span><br><span class="line"><span class="string">    也等价于最大化 num/det（纯整数比较可避免浮点误差）。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    base, Z = points_on_sphere(r)</span><br><span class="line">    r2 = r * r</span><br><span class="line"></span><br><span class="line">    <span class="comment"># best_num/best_det 维护当前发现的最大 num/det（对应最小面积）</span></span><br><span class="line">    <span class="comment"># 初始化为 0，表示尚未找到任何合法三角形</span></span><br><span class="line">    best_num = <span class="number">0</span></span><br><span class="line">    best_det = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    m = <span class="built_in">len</span>(Z)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 关键剪枝：只让 a 在规范域 base 内枚举（约缩小到 1/48），</span></span><br><span class="line">    <span class="comment"># b,c 仍用全集 Z(r) 枚举，这样不会漏掉任何三角形：</span></span><br><span class="line">    <span class="comment"># 任意三角形可通过对称变换把其中一个顶点搬到规范域。</span></span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> base:</span><br><span class="line">        ax, ay, az = a</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 枚举 b（固定后再枚举 c），dab = a·b 可提前算一次</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(m):</span><br><span class="line">            bx, by, bz = Z[j]</span><br><span class="line">            dab = ax * bx + ay * by + az * bz  <span class="comment"># a·b</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># 枚举 c，要求 j&lt;k 避免重复组合（b,c 无序即可）</span></span><br><span class="line">            <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(j + <span class="number">1</span>, m):</span><br><span class="line">                cx, cy, cz = Z[k]</span><br><span class="line"></span><br><span class="line">                <span class="comment"># det = |a · (b × c)|，完全用整数运算：</span></span><br><span class="line">                <span class="comment"># b×c = (by*cz-bz*cy, bz*cx-bx*cz, bx*cy-by*cx)</span></span><br><span class="line">                det = <span class="built_in">abs</span>(</span><br><span class="line">                    ax * (by * cz - bz * cy)</span><br><span class="line">                    + ay * (bz * cx - bx * cz)</span><br><span class="line">                    + az * (bx * cy - by * cx)</span><br><span class="line">                )</span><br><span class="line">                <span class="keyword">if</span> det == <span class="number">0</span>:</span><br><span class="line">                    <span class="comment"># 退化：a,b,c 与原点共面 =&gt; 在同一大圆上 =&gt; 不计入 T(r)</span></span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># num = r^2 + a·b + b·c + c·a（同样是整数）</span></span><br><span class="line">                <span class="comment"># 其中 b·c、c·a 都现场计算</span></span><br><span class="line">                num = (</span><br><span class="line">                    r2</span><br><span class="line">                    + dab</span><br><span class="line">                    + (bx * cx + by * cy + bz * cz)          <span class="comment"># b·c</span></span><br><span class="line">                    + (cx * ax + cy * ay + cz * az)          <span class="comment"># c·a</span></span><br><span class="line">                )</span><br><span class="line"></span><br><span class="line">                <span class="comment"># 对于最小面积候选，num 一定应为正；</span></span><br><span class="line">                <span class="comment"># num&lt;=0 对应 atan2(det, r*num) 接近 π/2 或更大，面积很大，不可能最小</span></span><br><span class="line">                <span class="keyword">if</span> num &lt;= <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                <span class="comment"># 比较 num/det 是否更大：num/det &gt; best_num/best_det</span></span><br><span class="line">                <span class="comment"># 用交叉相乘避免浮点误差：num*best_det &gt; best_num*det</span></span><br><span class="line">                <span class="keyword">if</span> num * best_det &gt; best_num * det:</span><br><span class="line">                    best_num = num</span><br><span class="line">                    best_det = det</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 找到最佳比值后，计算对应球面盈余 E 与面积 S：</span></span><br><span class="line">    <span class="comment"># E = 2*atan2(det, r*num),  S = r^2*E</span></span><br><span class="line">    E = <span class="number">2.0</span> * atan2(best_det, r * best_num)</span><br><span class="line">    <span class="keyword">return</span> r2 * E</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">R</span>) -&gt; <span class="built_in">float</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算 sum_&#123;r=1..R&#125; A(r)。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    关键优化：只计算奇数半径。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    证明思路（只用模 4）：</span></span><br><span class="line"><span class="string">      若 r 为偶数，则 r^2 ≡ 0 (mod 4)。</span></span><br><span class="line"><span class="string">      任意整数平方满足 x^2 ≡ 0 或 1 (mod 4)。</span></span><br><span class="line"><span class="string">      若 x,y,z 中存在奇数，则对应平方 ≡1 (mod 4)，</span></span><br><span class="line"><span class="string">      三个平方之和在 (mod 4) 下只能是 0,1,2,3 中的某个。</span></span><br><span class="line"><span class="string">      想要 x^2+y^2+z^2 ≡ 0 (mod 4) 且只有三个项，唯一可能是三项全 ≡0，</span></span><br><span class="line"><span class="string">      即 x,y,z 全为偶数。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    因此当 r 为偶数时，Z(r) 上所有点坐标都为偶数，可整体除以 2 映射到 Z(r/2)。</span></span><br><span class="line"><span class="string">    这表明：</span></span><br><span class="line"><span class="string">      - 方向（单位向量）不变，球面三角形的角度与球面盈余 E 不变；</span></span><br><span class="line"><span class="string">      - 半径从 r/2 变为 r，面积按 r^2 缩放，故 A(r) = 4*A(r/2)。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    所以对每个奇数 r，只需求一次 A(r)，再把 2r,4r,8r,... 的贡献按 4^k 累加。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    total = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 只枚举奇数半径 r</span></span><br><span class="line">    <span class="keyword">for</span> r <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, R + <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">        a = min_area_for_odd_r(r)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 把 r,2r,4r,... &lt;=R 的 A 值累加：</span></span><br><span class="line">        <span class="comment"># A(2^k r) = 4^k * A(r)</span></span><br><span class="line">        rr = r</span><br><span class="line">        mul = <span class="number">1.0</span></span><br><span class="line">        <span class="keyword">while</span> rr &lt;= R:</span><br><span class="line">            total += a * mul</span><br><span class="line">            rr *= <span class="number">2</span></span><br><span class="line">            mul *= <span class="number">4.0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> total</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ans = solve(N)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:<span class="number">.6</span>f&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/332/" title="Project Euler 332">https://ujimatsu-chiya.github.io/project-euler/332/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

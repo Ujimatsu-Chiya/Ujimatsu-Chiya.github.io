@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 339">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/339/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:52:39.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:39.416Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/339/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/339/","path":"project-euler/339/","title":"Project Euler 339"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 339 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-339"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 339</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#peredur-fab-efrawg"><span class="nav-number">1.1.1.</span> <span class="nav-text">Peredur fab Efrawg</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.3.</span> <span class="nav-text">5. 复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.4.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/339/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 339 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 339
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:39" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:39+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-339">Project Euler 339</h1>
+<h2 id="题目">题目</h2>
+<h3 id="peredur-fab-efrawg">Peredur fab Efrawg</h3>
+<p><em>“And he came towards a valley, through which ran a river; and the
+borders of the valley were wooded, and on each side of the river were
+level meadows. And on one side of the river he saw a flock of white
+sheep, and on the other a flock of black sheep. And whenever one of the
+white sheep bleated, one of the black sheep would cross over and become
+white; and when one of the black sheep bleated, one of the white sheep
+would cross over and become black.”</em></p>
+<p><a target="_blank" rel="noopener" href="http://en.wikisource.org/wiki/The_Mabinogion/Peredur_the_Son_of_Evrawc">en.wikisource.org</a></p>
+<p>Initially each flock consists of <span
+class="math inline">\(n\)</span> sheep. Each sheep (regardless of
+colour) is equally likely to be the next sheep to bleat. After a sheep
+has bleated and a sheep from the other flock has crossed over, Peredur
+may remove a number of white sheep in order to maximize the expected
+final number of black sheep. Let <span
+class="math inline">\(E(n)\)</span> be the expected final number of
+black sheep if Peredur uses an optimal strategy.</p>
+<p>You are given that <span class="math inline">\(E(5) =
+6.871346\)</span> rounded to <span class="math inline">\(6\)</span>
+places behind the decimal point.</p>
+<p>Find <span class="math inline">\(E(10 000)\)</span> and give your
+answer rounded to <span class="math inline">\(6\)</span> places behind
+the decimal point.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>把“河这边白羊、河那边黑羊”的信息抽象为一个二元状态：</p>
+<ul>
+<li>当前黑羊数为 <span class="math inline">\(b\)</span></li>
+<li>当前白羊数为 <span class="math inline">\(w\)</span></li>
+</ul>
+<p>每次“咩叫”发生时，从全部 <span class="math inline">\(b+w\)</span>
+只羊里等概率选出下一只咩叫的羊：</p>
+<ul>
+<li>以概率 <span
+class="math inline">\(\dfrac{b}{b+w}\)</span>：黑羊咩叫，则有一只白羊渡河变黑，<span
+class="math inline">\((b,w)\to(b+1,w-1).\)</span></li>
+<li>以概率 <span
+class="math inline">\(\dfrac{w}{b+w}\)</span>：白羊咩叫，则有一只黑羊渡河变白，<span
+class="math inline">\((b,w)\to(b-1,w+1).\)</span></li>
+</ul>
+<p>每次渡河变色之后，Peredur 可以立刻移走若干只白羊（只能减少 <span
+class="math inline">\(w\)</span>），以最大化最终黑羊数的期望。过程在某一侧羊群为空时结束；终局黑羊数就是当时的
+<span class="math inline">\(b\)</span>。</p>
+<p>令<span class="math inline">\(V(b,w)\)</span>表示在状态 <span
+class="math inline">\((b,w)\)</span>、且
+<strong>下一次咩叫尚未发生之前</strong>，Peredur
+采用最优策略能获得的“最终黑羊数期望”。边界显然为<span
+class="math inline">\(V(b,0)=b, V(0,w)=0.\)</span></p>
+<p>在不移走白羊的前提下，从 <span class="math inline">\((b,w)\)</span>
+经过一次咩叫与变色后，黑羊数的期望变化为 <span class="math display">\[
+\mathbb E[b&#39;]
+= \frac{b}{b+w}(b+1)+\frac{w}{b+w}(b-1)
+= b+\frac{b-w}{b+w}.
+\]</span></p>
+<p>因此：</p>
+<ul>
+<li>若 <span class="math inline">\(w\ge b\)</span>，则 <span
+class="math inline">\(\mathbb E[b&#39;]\le
+b\)</span>，黑羊“没有正向漂移”，局面对黑羊不利。</li>
+<li>若 <span class="math inline">\(w\le b-1\)</span>，则 <span
+class="math inline">\(\mathbb E[b&#39;]\ge
+b+\dfrac{1}{2b-1}\)</span>，黑羊有正向漂移。</li>
+</ul>
+<p>Peredur 唯一能做的就是减少 <span
+class="math inline">\(w\)</span>。为了让局面具备正向漂移，至少应确保<span
+class="math inline">\(w\le b-1.\)</span>另一方面，在满足 <span
+class="math inline">\(w\le b-1\)</span>
+的前提下，保留更多的白羊不会降低黑羊的当步优势（仍然是 <span
+class="math inline">\(w&lt;b\)</span>），并且保留的白羊未来仍有机会通过“黑羊咩叫”变成黑羊，因而不应额外移走。</p>
+<p>这导出一个非常稳定的最优策略结构：<strong>若 <span
+class="math inline">\(w\ge b\)</span>，最优是立刻移走白羊使 <span
+class="math inline">\(w=b-1\)</span>；若 <span
+class="math inline">\(w&lt;b\)</span>，最优是不移走任何白羊。</strong>
+下面的计算都建立在这一策略上；在此策略下，除了起始的 <span
+class="math inline">\((n,n)\)</span> 之外，系统会被“钳制”在区域 <span
+class="math inline">\(w\le b-1\)</span> 中运行，并且只在“刚好触碰到
+<span class="math inline">\(w=b\)</span>（或更大）”时触发一次性移走到
+<span class="math inline">\(w=b-1\)</span>。</p>
+<p>在最优策略下，一个非常重要的族是<span
+class="math inline">\(g(k)=V(k,k-1),(k\ge 1),\)</span>即“黑羊比白羊多
+<span class="math inline">\(1\)</span>”的临界状态。</p>
+<p>当处于 <span class="math inline">\((k,k-1)\)</span> 时：</p>
+<ul>
+<li>以概率 <span class="math inline">\(\dfrac{k}{2k-1}\)</span>
+黑羊咩叫：<span
+class="math inline">\((k,k-1)\to(k+1,k-2).\)</span>此时仍满足 <span
+class="math inline">\(w&lt;b\)</span>，不会移走白羊。</li>
+<li>以概率 <span class="math inline">\(\dfrac{k-1}{2k-1}\)</span>
+白羊咩叫：<span class="math inline">\((k,k-1)\to(k-1,k).\)</span>这时
+<span class="math inline">\(w\ge b\)</span>，按策略立刻移走白羊到 <span
+class="math inline">\(w=b-1=k-2\)</span>，得到<span
+class="math inline">\((k-1,k)\to(k-1,k-2),\)</span>其值为 <span
+class="math inline">\(g(k-1)\)</span>。</li>
+</ul>
+<p>因此有</p>
+<p><span class="math display">\[
+g(k)=\frac{k}{2k-1}V(k+1,k-2)+\frac{k-1}{2k-1}g(k-1).
+\tag{1}
+\]</span></p>
+<p>接下来要把 <span class="math inline">\(V(k+1,k-2)\)</span> 用 <span
+class="math inline">\(g(k)\)</span> 表示出来。</p>
+<p>考虑总羊数固定为 <span class="math inline">\(2k-1\)</span>
+的那条线上的状态<span class="math inline">\((k+d,k-1-d),
+d=0,1,\dots,k-1,\)</span>其中 <span class="math inline">\(d=k-1\)</span>
+对应吸收态 <span class="math inline">\((2k-1,0)\)</span>，其价值为<span
+class="math inline">\(V(2k-1,0)=2k-1.\)</span></p>
+<p>对 <span class="math inline">\(d\ge 1\)</span>
+的这些状态，下一步不会触发“移走白羊”（因为 <span
+class="math inline">\(w&lt;b\)</span>
+仍保持），所以在这条线内部它是一个单纯的生灭链。特别地，从<span
+class="math inline">\((k+1,k-2)(d=1)\)</span>出发，要么先回到 <span
+class="math inline">\(d=0\)</span>（即回到 <span
+class="math inline">\((k,k-1)\)</span>，价值为 <span
+class="math inline">\(g(k)\)</span>），要么先到达吸收端 <span
+class="math inline">\(d=k-1\)</span>（即 <span
+class="math inline">\((2k-1,0)\)</span>，价值为 <span
+class="math inline">\(2k-1\)</span>）。</p>
+<p>接下来只关心从状态 <span class="math inline">\(d=1\)</span>
+出发时，这条生灭链最终会先走到哪一端。把“在到达 <span
+class="math inline">\(d=0\)</span> 之前，先到达右端吸收态 <span
+class="math inline">\(d=k-1\)</span>”的概率记为 <span
+class="math inline">\(p_k\)</span>。换句话说，<span
+class="math inline">\(p_k\)</span> 就是从 <span
+class="math inline">\((k+1,k-2)\)</span> 起步，最终先抵达 <span
+class="math inline">\((2k-1,0)\)</span> 而不是回到 <span
+class="math inline">\((k,k-1)\)</span> 的可能性。</p>
+<p>那么由“调和函数=边界值的命中概率线性组合”得到</p>
+<p><span class="math display">\[
+V(k+1,k-2)=(1-p_k)\cdot g(k)+p_k\cdot (2k-1).
+\tag{2}
+\]</span></p>
+<p>现在只需计算 <span class="math inline">\(p_k\)</span>。 在 <span
+class="math inline">\(d=1,2,\dots,k-2\)</span> 处，向上（<span
+class="math inline">\(d\to d+1\)</span>）与向下（<span
+class="math inline">\(d\to d-1\)</span>）的转移概率分别是</p>
+<ul>
+<li>向上概率：<span
+class="math inline">\(\alpha_d=\dfrac{k+d}{2k-1},\)</span></li>
+<li>向下概率：<span
+class="math inline">\(\beta_d=\dfrac{k-1-d}{2k-1}.\)</span></li>
+</ul>
+<p>令 <span class="math inline">\(r_d\)</span> 为“从 <span
+class="math inline">\(d\)</span> 出发先到 <span
+class="math inline">\(k-1\)</span> 而非 <span
+class="math inline">\(0\)</span>”的概率，则满足<span
+class="math inline">\(r_0=0, r_{k-1}=1,r_d=\alpha_d r_{d+1}+\beta_d
+r_{d-1}\ (1\le d\le k-2).\)</span></p>
+<p>令差分 <span
+class="math inline">\(s_d=r_d-r_{d-1}\)</span>，代入可得经典化简：<span
+class="math inline">\(\displaystyle{s_{d+1}=\frac{\beta_d}{\alpha_d}s_d=\frac{k-1-d}{k+d}s_d.}\)</span>因此<span
+class="math inline">\(\displaystyle{s_{d} =
+s_1\prod_{t=1}^{d-1}\frac{k-1-t}{k+t}.}\)</span>并且因为<span
+class="math inline">\(\displaystyle{1=r_{k-1}-r_0=\sum_{d=1}^{k-1}s_d=s_1\left(1+\sum_{j=1}^{k-2}\prod_{t=1}^{j}\frac{k-1-t}{k+t}\right).}\)</span>
+所以</p>
+<p><span class="math display">\[
+r_1=p_k
+=\frac{1}{
+1+\sum_{j=1}^{k-2}\prod_{t=1}^{j}\frac{k-1-t}{k+t}
+}.
+\tag{3}
+\]</span></p>
+<p>把式 <span class="math inline">\((2)\)</span> 代回 <span
+class="math inline">\((1)\)</span>：<span
+class="math inline">\(g(k)=\dfrac{k}{2k-1}((1-p_k)g(k)+p_k(2k-1))+\dfrac{k-1}{2k-1}g(k-1).\)</span>移项解出
+<span class="math inline">\(g(k)\)</span>，可整理为</p>
+<p><span class="math display">\[
+g(k)=\frac{(2k-1)kp_k+(k-1)g(k-1)}{(k-1)+kp_k}.
+\tag{4}
+\]</span></p>
+<p>初值：<span class="math inline">\(g(1)=V(1,0)=1.\)</span>由 <span
+class="math inline">\((3)(4)\)</span> 就能自底向上算出 <span
+class="math inline">\(g(1),g(2),\dots,g(n)\)</span>。</p>
+<p>题目要求从初始 <span class="math inline">\((n,n)\)</span>
+出发。第一次咩叫发生前不能移走白羊：</p>
+<ul>
+<li>以概率 <span class="math inline">\(\dfrac12\)</span> 黑羊咩叫：<span
+class="math inline">\((n,n)\to(n+1,n-1),\)</span>其期望为 <span
+class="math inline">\(V(n+1,n-1)\)</span>。</li>
+<li>以概率 <span class="math inline">\(\dfrac12\)</span> 白羊咩叫：<span
+class="math inline">\((n,n)\to(n-1,n+1),\)</span>随后触发策略移走白羊到
+<span class="math inline">\(w=b-1\)</span>，即移走 <span
+class="math inline">\(3\)</span> 只白羊得到<span
+class="math inline">\((n-1,n+1)\to(n-1,n-2),\)</span>其期望为 <span
+class="math inline">\(g(n-1)\)</span>。</li>
+</ul>
+<p>因此 <span class="math display">\[
+E(n)=\frac12V(n+1,n-1)+\frac12g(n-1).
+\tag{5}
+\]</span></p>
+<p>剩下只需计算 <span
+class="math inline">\(V(n+1,n-1)\)</span>。在总数固定为 <span
+class="math inline">\(2n\)</span> 的线上定义<span
+class="math inline">\(u_d=V(n+d,n-d), d=1,2,\dots,n,\)</span>其中 <span
+class="math inline">\(u_n=V(2n,0)=2n\)</span>。</p>
+<p>对 <span class="math inline">\(2\le d\le
+n-1\)</span>，一步递推（不触发移走）给出三项关系</p>
+<p><span class="math display">\[
+u_d=\frac{n+d}{2n}u_{d+1}+\frac{n-d}{2n}u_{d-1}.
+\tag{6}
+\]</span></p>
+<p>而对 <span class="math inline">\(d=1\)</span> 的状态 <span
+class="math inline">\((n+1,n-1)\)</span>，若白羊咩叫则到 <span
+class="math inline">\((n,n)\)</span> 并立刻移走到 <span
+class="math inline">\((n,n-1)\)</span>，其值为 <span
+class="math inline">\(g(n)\)</span>；若黑羊咩叫则到 <span
+class="math inline">\((n+2,n-2)\)</span> 即 <span
+class="math inline">\(u_2\)</span>，于是 <span class="math display">\[
+u_1=\frac{n+1}{2n}u_2+\frac{n-1}{2n}g(n).
+\tag{7}
+\]</span></p>
+<p>联立 <span class="math inline">\((6)(7)\)</span> 与边界 <span
+class="math inline">\(u_n=2n\)</span>，得到一个三对角线性方程组，可用
+Thomas 算法解三对角线性方程组 在 <span
+class="math inline">\(O(n)\)</span>时间内解出 <span
+class="math inline">\(u_1\)</span>，再由 <span
+class="math inline">\((5)\)</span> 得到 <span
+class="math inline">\(E(n)\)</span>。</p>
+<hr />
+<h2 id="复杂度">5. 复杂度</h2>
+<ul>
+<li>计算 <span class="math inline">\(p_k\)</span> 的求和/连乘对每个
+<span class="math inline">\(k\)</span> 需 <span
+class="math inline">\(O(k)\)</span>，总计 <span
+class="math inline">\(O(n^2)\)</span>。</li>
+<li>解偶链三对角方程组 <span class="math inline">\(O(n)\)</span>。</li>
+<li>内存 <span class="math inline">\(O(n)\)</span>。</li>
+</ul>
+<p>对 <span class="math inline">\(n=10000\)</span>，该方法在 C++
+中运行非常快且精度足够稳定。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> <span class="type">int</span> n = <span class="number">10000</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// g[k] = V(k, k-1) for k&gt;=1</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">double</span>&gt; <span class="title">g</span><span class="params">(n + <span class="number">1</span>, <span class="number">0.0</span>)</span></span>;</span><br><span class="line">    g[<span class="number">1</span>] = <span class="number">1.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">2</span>; k &lt;= n; k++) &#123;</span><br><span class="line">        <span class="comment">// p_k = 1 / (1 + sum_&#123;j=1&#125;^&#123;k-2&#125; prod_&#123;t=1&#125;^j (k-1-t)/(k+t))</span></span><br><span class="line">        <span class="type">double</span> S = <span class="number">1.0</span>;       <span class="comment">// includes j=0 term</span></span><br><span class="line">        <span class="type">double</span> ratio = <span class="number">1.0</span>;   <span class="comment">// running product</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> t = <span class="number">1</span>; t &lt;= k - <span class="number">2</span>; t++) &#123;</span><br><span class="line">            ratio *= (<span class="type">double</span>)(k - <span class="number">1</span> - t) / (<span class="type">double</span>)(k + t);</span><br><span class="line">            <span class="keyword">if</span> (ratio &lt; <span class="number">1e-320</span>) <span class="keyword">break</span>; <span class="comment">// negligible tail</span></span><br><span class="line">            S += ratio;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">double</span> pk = <span class="number">1.0</span> / S;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// g(k) recurrence</span></span><br><span class="line">        <span class="type">double</span> num = (<span class="type">double</span>)(<span class="number">2</span> * k - <span class="number">1</span>) * (<span class="type">double</span>)k * pk + (<span class="type">double</span>)(k - <span class="number">1</span>) * g[k - <span class="number">1</span>];</span><br><span class="line">        <span class="type">double</span> den = (<span class="type">double</span>)(k - <span class="number">1</span>) + (<span class="type">double</span>)k * pk;</span><br><span class="line">        g[k] = num / den;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Solve even-total line for u1 = V(n+1, n-1)</span></span><br><span class="line">    <span class="comment">// Unknowns: u_d for d=1..n-1, with boundary u_n = 2n</span></span><br><span class="line">    <span class="type">int</span> m = n - <span class="number">1</span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">double</span>&gt; <span class="title">a</span><span class="params">(m + <span class="number">1</span>, <span class="number">0.0</span>)</span>, <span class="title">b</span><span class="params">(m + <span class="number">1</span>, <span class="number">1.0</span>)</span>, <span class="title">c</span><span class="params">(m + <span class="number">1</span>, <span class="number">0.0</span>)</span>, <span class="title">d</span><span class="params">(m + <span class="number">1</span>, <span class="number">0.0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> twon = <span class="number">2.0</span> * n;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// d=1 equation: u1 - (n+1)/(2n) u2 = (n-1)/(2n) g(n)</span></span><br><span class="line">    c[<span class="number">1</span>] = -(<span class="type">double</span>)(n + <span class="number">1</span>) / twon;</span><br><span class="line">    d[<span class="number">1</span>] = (<span class="type">double</span>)(n - <span class="number">1</span>) / twon * g[n];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2 &lt;= d &lt;= n-2</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= m - <span class="number">1</span>; i++) &#123;</span><br><span class="line">        a[i] = -(<span class="type">double</span>)(n - i) / twon;</span><br><span class="line">        c[i] = -(<span class="type">double</span>)(n + i) / twon;</span><br><span class="line">        d[i] = <span class="number">0.0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// d = n-1 equation uses u_n = 2n:</span></span><br><span class="line">    <span class="comment">// u_&#123;n-1&#125; - (n+(n-1))/(2n) u_n - (n-(n-1))/(2n) u_&#123;n-2&#125; = 0</span></span><br><span class="line">    <span class="comment">// =&gt; a[m] = -1/(2n), rhs = (2n-1)/(2n)*(2n) = 2n-1</span></span><br><span class="line">    a[m] = <span class="number">-1.0</span> / twon;</span><br><span class="line">    d[m] = <span class="number">2.0</span> * n - <span class="number">1.0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Thomas forward elimination</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= m; i++) &#123;</span><br><span class="line">        <span class="type">double</span> w = a[i] / b[i - <span class="number">1</span>];</span><br><span class="line">        b[i] -= w * c[i - <span class="number">1</span>];</span><br><span class="line">        d[i] -= w * d[i - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Back substitution</span></span><br><span class="line">    <span class="function">vector&lt;<span class="type">double</span>&gt; <span class="title">x</span><span class="params">(m + <span class="number">1</span>, <span class="number">0.0</span>)</span></span>;</span><br><span class="line">    x[m] = d[m] / b[m];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = m - <span class="number">1</span>; i &gt;= <span class="number">1</span>; i--) &#123;</span><br><span class="line">        x[i] = (d[i] - c[i] * x[i + <span class="number">1</span>]) / b[i];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> u1 = x[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Final answer</span></span><br><span class="line">    <span class="type">double</span> ans = <span class="number">0.5</span> * u1 + <span class="number">0.5</span> * g[n - <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    cout.<span class="built_in">setf</span>(std::ios::fixed);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">setprecision</span>(<span class="number">6</span>) &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/339/" title="Project Euler 339">https://ujimatsu-chiya.github.io/project-euler/339/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

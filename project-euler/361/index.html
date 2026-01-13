@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 361">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/361/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:52:47.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:47.554Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/361/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/361/","path":"project-euler/361/","title":"Project Euler 361"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 361 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-361"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 361</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#subsequence-of-thue-morse-sequence"><span class="nav-number">1.1.1.</span> <span class="nav-text">Subsequence of Thue-Morse
+sequence</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/361/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 361 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 361
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:47" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:47+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-361">Project Euler 361</h1>
+<h2 id="题目">题目</h2>
+<h3 id="subsequence-of-thue-morse-sequence">Subsequence of Thue-Morse
+sequence</h3>
+<p>The <strong>Thue-Morse sequence</strong> <span
+class="math inline">\(\{T_n\}\)</span> is a binary sequence
+satisfying:</p>
+<ul>
+<li><span class="math inline">\(T_0 = 0\)</span></li>
+<li><span class="math inline">\(T_{2n} = T_n\)</span></li>
+<li><span class="math inline">\(T_{2n+1} = 1 - T_n\)</span></li>
+</ul>
+<p>The first several terms of <span class="math inline">\({T_n}\)</span>
+are given as follows:</p>
+<p><span
+class="math inline">\(01101001{\color{red}{10010}}1101001011001101001\dots\)</span>.</p>
+<p>We define <span class="math inline">\(\{A_n\}\)</span> as the sorted
+sequence of integers such that the binary expression of each element
+appears as a subsequence in <span
+class="math inline">\(\{T_n\}\)</span>.</p>
+<p>For example, the decimal number <span
+class="math inline">\(18\)</span> is expressed as <span
+class="math inline">\(10010\)</span> in binary. <span
+class="math inline">\(10010\)</span> appears in <span
+class="math inline">\(\{T_n\}\)</span> (<span
+class="math inline">\(T_8\)</span> to <span
+class="math inline">\(T_{12}\)</span>), so <span
+class="math inline">\(18\)</span> is an element of <span
+class="math inline">\(\{A_n\}\)</span>.</p>
+<p>The decimal number <span class="math inline">\(14\)</span> is
+expressed as <span class="math inline">\(1110\)</span> in binary. <span
+class="math inline">\(1110\)</span> never appears in <span
+class="math inline">\(\{T_n\}\)</span>, so <span
+class="math inline">\(14\)</span> is not an element of <span
+class="math inline">\(\{A_n\}\)</span>.</p>
+<p>The first several terms of <span class="math inline">\(A_n\)</span>
+are given as follows:</p>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 8%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th><span class="math inline">\(n\)</span></th>
+<th><span class="math inline">\(0\)</span></th>
+<th><span class="math inline">\(1\)</span></th>
+<th><span class="math inline">\(2\)</span></th>
+<th><span class="math inline">\(3\)</span></th>
+<th><span class="math inline">\(4\)</span></th>
+<th><span class="math inline">\(5\)</span></th>
+<th><span class="math inline">\(6\)</span></th>
+<th><span class="math inline">\(7\)</span></th>
+<th><span class="math inline">\(8\)</span></th>
+<th><span class="math inline">\(9\)</span></th>
+<th><span class="math inline">\(10\)</span></th>
+<th><span class="math inline">\(11\)</span></th>
+<th><span class="math inline">\(12\)</span></th>
+<th><span class="math inline">\(\dots\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math inline">\(A_n\)</span></td>
+<td><span class="math inline">\(0\)</span></td>
+<td><span class="math inline">\(1\)</span></td>
+<td><span class="math inline">\(2\)</span></td>
+<td><span class="math inline">\(3\)</span></td>
+<td><span class="math inline">\(4\)</span></td>
+<td><span class="math inline">\(5\)</span></td>
+<td><span class="math inline">\(6\)</span></td>
+<td><span class="math inline">\(9\)</span></td>
+<td><span class="math inline">\(10\)</span></td>
+<td><span class="math inline">\(11\)</span></td>
+<td><span class="math inline">\(12\)</span></td>
+<td><span class="math inline">\(13\)</span></td>
+<td><span class="math inline">\(18\)</span></td>
+<td><span class="math inline">\(\dots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>We can also verify that <span class="math inline">\(A_{100} =
+3251\)</span> and <span class="math inline">\(A_{1000} =
+80852364498\)</span>.</p>
+<p>Find the last <span class="math inline">\(9\)</span> digits of <span
+class="math inline">\(\sum_{k=1}^{18}A_{10^k}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>Thue–Morse 序列 <span class="math inline">\((T_n)\)</span>
+定义为<span class="math inline">\(T_n = s_2(n)\bmod 2,\)</span>其中
+<span class="math inline">\(s_2(n)\)</span> 是 <span
+class="math inline">\(n\)</span> 的二进制 1 的个数。题目中 <span
+class="math inline">\(A\)</span> 是所有满足「其二进制表示作为
+<strong>连续子串</strong> 出现在 <span
+class="math inline">\((T_n)\)</span>
+中」的非负整数按从小到大排序得到的序列，且 <span
+class="math inline">\(A_0=0\)</span>。</p>
+<p>对 <span
+class="math inline">\(x&gt;0\)</span>，其标准二进制表示首位一定是
+1，因此：</p>
+<ul>
+<li>对每个长度 <span class="math inline">\(k\ge 1\)</span>，落在区间
+<span class="math inline">\([2^{k-1},2^k)\)</span> 的数恰好对应
+<strong>所有以 1 开头、长度为 <span
+class="math inline">\(k\)</span></strong> 的二进制串。</li>
+<li>同一长度 <span class="math inline">\(k\)</span>
+内，数值大小与二进制串的字典序一致。</li>
+<li>不同长度按长度分块：所有 <span class="math inline">\(k\)</span>
+位数都小于任何 <span class="math inline">\((k+1)\)</span> 位数。</li>
+</ul>
+<p>所以问题转化为：对每个 <span class="math inline">\(k\)</span>，令
+<span class="math inline">\(L(k)\)</span> 为 Thue–Morse 中出现过的、以 1
+开头的长度 <span class="math inline">\(k\)</span> 子串的不同个数。
+令<span class="math inline">\(\displaystyle{S(k)=\sum_{i=1}^k
+L(i)}\)</span>，则 <span class="math inline">\(A_n(n\ge1)\)</span>
+在长度分块里：找最小 <span class="math inline">\(k\)</span> 使 <span
+class="math inline">\(S(k)\ge n\)</span>，并在长度 <span
+class="math inline">\(k\)</span> 的那一块里取第<span
+class="math inline">\(o=n-S(k-1)-1\)</span>个（从 0
+开始）字典序子串，再把该子串当作二进制数。</p>
+<p>接下来要解决三件事：</p>
+<ol type="1">
+<li>快速算 <span class="math inline">\(L(k)\)</span> 与 <span
+class="math inline">\(S(k)\)</span>，以便从 <span
+class="math inline">\(n\)</span> 找到长度 <span
+class="math inline">\(k\)</span> 与 <span
+class="math inline">\(o\)</span>。</li>
+<li>给定 <span class="math inline">\((k,o)\)</span>，快速找到该子串在
+Thue–Morse 中的一个起点位置 <span
+class="math inline">\(pos\)</span>。</li>
+<li>给定 <span class="math inline">\((pos,k)\)</span>，快速求该长度
+<span class="math inline">\(k\)</span> 子串对应的二进制整数 <span
+class="math inline">\(\bmod 10^9\)</span>，而不显式生成 <span
+class="math inline">\(k\)</span> 位。</li>
+</ol>
+<p>可见，Thue–Morse 也是如下 2-一致代换的不动点：<span
+class="math inline">\(\mu(0)=01, \mu(1)=10,\)</span>注意这里的<span
+class="math inline">\(\mu\)</span>只是一个函数名，用来表示一个替换规则。并把它作用在任意二进制串上：把串中每个字符分别替换后再拼接（例如
+<span
+class="math inline">\(\mu(010)=\mu(0)\mu(1)\mu(0)=011001\)</span>）。从初始串
+<span class="math inline">\(0\)</span>
+出发不断重复这一替换，会得到一串不断增长的前缀：</p>
+<p><span class="math display">\[
+0, 01, 0110, 01101001, \dots
+\]</span></p>
+<p>这些前缀在长度上依次翻倍，且每一步都是上一步的延长；因此它们确定了一条唯一的无限二进制序列。该无限序列的第
+<span class="math inline">\(n\)</span> 位恰好等于 Thue–Morse 序列的
+<span class="math inline">\(T_n\)</span>，也就是说 Thue–Morse
+就是由这条替换规则生成的。</p>
+<p>考虑长度 <span class="math inline">\(k&gt;4\)</span>
+的一个出现过的子串 <span
+class="math inline">\(w=T[pos:pos+k)\)</span>。由于代换长度为 2，子串
+<span class="math inline">\(w\)</span> 必然来自两种“对齐方式”之一：</p>
+<ul>
+<li><strong>偶对齐（pos 为偶数）</strong>：<span
+class="math inline">\(pos=2q\)</span>。此时 <span
+class="math inline">\(w\)</span> 落在 <span
+class="math inline">\(\mu(T[q:])\)</span> 的块边界上。把 <span
+class="math inline">\(w\)</span> 每两位分组 <span
+class="math inline">\((w_0w_1)(w_2w_3)\cdots\)</span>，就能通过规则<span
+class="math inline">\(\mu\)</span>唯一还原出一个较短串 <span
+class="math inline">\(u\)</span>，使得 <span
+class="math inline">\(w\)</span> 是 <span
+class="math inline">\(\mu(u)\)</span> 的前 <span
+class="math inline">\(k\)</span> 位。此时 <span
+class="math inline">\(|u|=\lceil
+k/2\rceil\)</span>，且首位保持不变（<span
+class="math inline">\(\mu(1)\)</span> 以 1 开头）。</li>
+<li><strong>奇对齐（pos 为奇数）</strong>：<span
+class="math inline">\(pos=2q+1\)</span>。此时 <span
+class="math inline">\(w\)</span> 从某个 <span
+class="math inline">\(\mu(\cdot)\)</span> 块的第二位开始，相当于对 <span
+class="math inline">\(\mu(v)\)</span> 做“左移一位再截取”。此时 <span
+class="math inline">\(|v|=\lfloor
+k/2\rfloor+1\)</span>，并且首位翻转：因为 <span
+class="math inline">\(\mu(0)=01\)</span> 的第二位是 1，而 <span
+class="math inline">\(\mu(1)=10\)</span> 的第二位是 0。</li>
+</ul>
+<p>并且当 <span class="math inline">\(k&gt;4\)</span>
+时，这种可对齐方式是唯一的（因为通过为<span
+class="math inline">\(k\)</span>的串生成新的长度为<span
+class="math inline">\(2k,2k-1,2k-2\)</span>这4类串是唯一的，短的交替串是唯一会产生二义性的情况，长度
+<span class="math inline">\(\le4\)</span> 可以直接硬处理/预处理）。</p>
+<p>于是对“以 1 开头的长度 <span class="math inline">\(k\)</span>
+子串集合”，它由两部分构成：</p>
+<ul>
+<li>来自偶对齐：对应“以 1 开头、长度 <span class="math inline">\(\lceil
+k/2\rceil\)</span>”的子串集合，数量 <span class="math inline">\(L(\lceil
+k/2\rceil)\)</span>；</li>
+<li>来自奇对齐：对应“以 0 开头、长度 <span class="math inline">\(\lfloor
+k/2\rfloor+1\)</span>”的子串集合。由于 Thue–Morse
+的因子集合对按位取反封闭（出现一个子串则其按位取反也出现），所以“以 0
+开头”的数量与“以 1 开头”相同，数量为 <span
+class="math inline">\(L(\lfloor k/2\rfloor+1)\)</span>。</li>
+</ul>
+<p>从而得到（对 <span class="math inline">\(k&gt;4\)</span>）：</p>
+<ul>
+<li>若 <span class="math inline">\(k=2n:L(2n)=L(n)+L(n+1)\)</span></li>
+<li>若 <span class="math inline">\(k=2n+1:L(2n+1)=2L(n+1)\)</span></li>
+</ul>
+<p>初值：<span
+class="math inline">\(L(1)=1,L(2)=2,L(3)=3,L(4)=5.\)</span></p>
+<p>因此，我们要用二分从 <span class="math inline">\(n\)</span> 找 <span
+class="math inline">\(k\)</span>。因此也需要 <span
+class="math inline">\(S(k)\)</span> 的 <span
+class="math inline">\(O(\log k)\)</span> 算法。对 <span
+class="math inline">\(k\ge 7\)</span>，用上面的 <span
+class="math inline">\(L\)</span> 递推把 <span
+class="math inline">\(S(2n)\)</span>、<span
+class="math inline">\(S(2n+1)\)</span> 写成 <span
+class="math inline">\(S(n),S(n+1)\)</span>
+的线性组合（推导时需要把小的特殊项常数单独扣出来，最终得到对 <span
+class="math inline">\(n\ge3\)</span> 的统一形式）：</p>
+<p><span class="math display">\[
+\begin{aligned}
+S(2n)   &amp;= 3S(n) + S(n+1) - 4,\\
+S(2n+1) &amp;= S(n) + 3S(n+1) - 4,
+\end{aligned}
+\]</span></p>
+<p>其中，<span class="math inline">\(n\ge 3\)</span>。并且由<span
+class="math inline">\(L(1\dots6)\)</span>给出基值求得：<span
+class="math inline">\(S(0)=0,S(1)=1,S(2)=3,S(3)=6,S(4)=11,S(5)=17,S(6)=25.\)</span></p>
+<p>这样 <span class="math inline">\(S(k)\)</span> 也能在 <span
+class="math inline">\(O(\log k)\)</span> 时间得到，于是可以对 <span
+class="math inline">\(k\)</span> 做指数扩张 + 二分，找到最小 <span
+class="math inline">\(k\)</span> 使 <span class="math inline">\(S(k)\ge
+n\)</span>，并得到 <span class="math inline">\(o\)</span>。</p>
+<p>定义 <span class="math inline">\(p(k,o,\texttt{bit})\)</span>：表示
+<strong>以 <span class="math inline">\(\texttt{bit}\)</span>
+开头</strong> 的所有长度 <span class="math inline">\(k\)</span>
+因子按字典序排序后，第 <span class="math inline">\(o\)</span>
+个因子的一个出现位置起点。</p>
+<p>对 <span class="math inline">\(k\le4\)</span>
+直接预处理表即可（长度很小，枚举 Thue–Morse 前几十位就足够覆盖所有长度
+<span class="math inline">\(\le4\)</span> 因子）。</p>
+<p>对 <span class="math inline">\(k&gt;4\)</span>，令<span
+class="math inline">\(a=\left\lceil\dfrac{k}{2}\right\rceil,b=\left\lfloor\dfrac{k}{2}\right\rfloor+1.\)</span></p>
+<p>那么偶对齐那部分有 <span class="math inline">\(L(a)\)</span>
+个，奇对齐那部分有 <span class="math inline">\(L(b)\)</span>
+个。关键点是 <strong>字典序里两部分的先后顺序取决于首位 <span
+class="math inline">\(\texttt{bit}\)</span></strong>：</p>
+<ul>
+<li>首位为 1 时：偶对齐那组排在前（直观上它来自 <span
+class="math inline">\(\mu(1)=10\)</span>
+的块边界结构），奇对齐排在后；</li>
+<li>首位为 0 时：顺序相反（可由按位取反导致字典序整体反向来推出）。</li>
+</ul>
+<p>同时，位置在代换层级上满足：</p>
+<ul>
+<li>偶对齐：子串起点是偶数，映射到上一层起点乘 2；</li>
+<li>奇对齐：子串起点是奇数，映射到上一层起点乘 2 再加
+1，且首位翻转。</li>
+</ul>
+<p>因此递推为（<span class="math inline">\(k&gt;4\)</span>）：</p>
+<ul>
+<li><p>若 <span class="math inline">\(\texttt{bit}=1\)</span>：</p>
+<ul>
+<li>若 <span class="math inline">\(o &lt; L(a):p(k,o,1)=2\cdot
+p(a,o,1)\)</span></li>
+<li>否则：<span class="math inline">\(p(k,o,1)=2\cdot
+p(b,o-L(a),0)+1\)</span></li>
+</ul></li>
+<li><p>若 <span class="math inline">\(\texttt{bit}=0\)</span>：</p>
+<ul>
+<li>若 <span class="math inline">\(o &lt; L(b):p(k,o,0)=2\cdot
+p(b,o,1)+1\)</span></li>
+<li>否则：<span class="math inline">\(p(k,o,0)=2\cdot
+p(a,o-L(b),0)\)</span></li>
+</ul></li>
+</ul>
+<p>最终我们需要的是 <span class="math inline">\(pos =
+p(k,o,1)\)</span>。</p>
+<p>接下来需要计算二进制子串 <span
+class="math inline">\(T[pos:pos+k)\)</span> 所表示的整数。</p>
+<p>对每个 <span class="math inline">\(h\ge 0\)</span>，考虑 Thue–Morse
+序列中<strong>从位置 <span class="math inline">\(0\)</span>
+开始</strong>、长度为 <span class="math inline">\(2^h\)</span>
+的前缀块，记为<span class="math inline">\(Z_h, |Z_h|=2^h.\)</span>由于
+Thue–Morse 具有“自相似 + 取反”的结构，长度 <span
+class="math inline">\(2^h\)</span> 的对齐块只可能是两种之一：</p>
+<ul>
+<li><span class="math inline">\(Z_h\)</span> 本身；</li>
+<li><span class="math inline">\(\overline{Z_h}\)</span>：对 <span
+class="math inline">\(Z_h\)</span> 逐位取反得到的块。</li>
+</ul>
+<p>并且有如下对齐性质：若 <span class="math inline">\(pos\)</span> 是
+<span class="math inline">\(2^h\)</span> 的倍数，则</p>
+<p><span class="math display">\[
+T[pos:pos+2^h)=
+\begin{cases}
+Z_h,&amp; T_{pos/2^h}=0,\\
+\overline{Z_h},&amp; T_{pos/2^h}=1.
+\end{cases}
+\]</span></p>
+<p>设模数 <span
+class="math inline">\(M=10^9\)</span>。预处理两类量：</p>
+<ul>
+<li>幂<span class="math inline">\(P_h = 2^{2^h}\bmod M;\)</span></li>
+<li>块值<span class="math inline">\(V_h(0)\equiv \text{value}(Z_h)\pmod
+M, V_h(1)\equiv \text{value}(\overline{Z_h})\pmod M,\)</span> 其中 <span
+class="math inline">\(\text{value}(\cdot)\)</span>
+表示把一个二进制串当作二进制整数来解释。</li>
+</ul>
+<p>块的构造满足<span class="math inline">\(Z_{h+1}=Z_h\Vert
+\overline{Z_h},\)</span></p>
+<p>因此得到递推： <span class="math display">\[
+\begin{aligned}
+P_{h+1} &amp;\equiv P_h^2 \pmod M,\\
+V_{h+1}(0) &amp;\equiv V_h(0)\cdot P_h + V_h(1)\pmod M,\\
+V_{h+1}(1) &amp;\equiv V_h(1)\cdot P_h + V_h(0)\pmod M.
+\end{aligned}
+\]</span></p>
+<p>接下来，将区间 <span class="math inline">\([pos,pos+k)\)</span>
+做标准的 dyadic 分解：从左到右，每次取一个起点对齐到 <span
+class="math inline">\(2^h\)</span>（即当前 <span
+class="math inline">\(cur\)</span> 可被 <span
+class="math inline">\(2^h\)</span> 整除），且<span
+class="math inline">\(2^h\)</span> 不超过剩余长度的最大块。</p>
+<p>若取到的块长度为 <span class="math inline">\(2^h\)</span>，起点为
+<span class="math inline">\(cur\)</span>，则它对应的块类型由<span
+class="math inline">\(b=T_{cur/2^h}\)</span>决定，于是该块的模值就是
+<span class="math inline">\(V_h(b)\)</span>。</p>
+<p>用“二进制拼接”的方式滚动更新答案：<span class="math inline">\(ans
+\leftarrow ans\cdot P_h + V_h(b)\pmod M.\)</span></p>
+<p>dyadic 分解的块数为 <span class="math inline">\(O(\log
+k)\)</span>，因此整个取值过程也是 <span class="math inline">\(O(\log
+k)\)</span>，无需显式生成长度为 <span class="math inline">\(k\)</span>
+的子串。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"></span><br><span class="line">MOD = <span class="number">10</span>**<span class="number">9</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 1) Thue–Morse bit</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tm_bit</span>(<span class="params">i: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="comment"># T_i = popcount(i) mod 2</span></span><br><span class="line">    <span class="keyword">return</span> i.bit_count() &amp; <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 2) L(k): number of distinct length-k factors starting with &#x27;1&#x27;</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="meta">@lru_cache(<span class="params"><span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">L</span>(<span class="params">k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">2</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span></span><br><span class="line">    <span class="keyword">if</span> k == <span class="number">4</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">5</span></span><br><span class="line">    <span class="keyword">if</span> k &amp; <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">        n = k // <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> L(n) + L(n + <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n = (k - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">2</span> * L(n + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 3) S(k) = sum_&#123;i&lt;=k&#125; L(i), fast via halving recurrences</span></span><br><span class="line"><span class="comment"># base values from L(1..6): 1,2,3,5,6,8  =&gt; prefix: 1,3,6,11,17,25</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line">_S_BASE = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">11</span>, <span class="number">17</span>, <span class="number">25</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache(<span class="params"><span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">S</span>(<span class="params">k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> k &lt;= <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">return</span> _S_BASE[k]</span><br><span class="line">    <span class="keyword">if</span> k &amp; <span class="number">1</span> == <span class="number">0</span>:</span><br><span class="line">        n = k // <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span> * S(n) + S(n + <span class="number">1</span>) - <span class="number">4</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n = k // <span class="number">2</span></span><br><span class="line">        <span class="keyword">return</span> S(n) + <span class="number">3</span> * S(n + <span class="number">1</span>) - <span class="number">4</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">find_length_and_offset</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">tuple</span>[<span class="built_in">int</span>, <span class="built_in">int</span>]:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    For n&gt;=1, find minimal k with S(k)&gt;=n, then offset = n - S(k-1) - 1.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    l, r = <span class="number">1</span>, <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> S(r) &lt; n:</span><br><span class="line">        r &lt;&lt;= <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> l &lt; r:</span><br><span class="line">        mid = (l + r) &gt;&gt; <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> S(mid) &gt;= n:</span><br><span class="line">            r = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l = mid + <span class="number">1</span></span><br><span class="line">    k = l</span><br><span class="line">    offset = n - S(k - <span class="number">1</span>) - <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> k, offset</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 4) small base table for k&lt;=4: positions of lex-sorted distinct factors</span></span><br><span class="line"><span class="comment">#    for both starting bits 0/1.</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_base_table</span>():</span><br><span class="line">    N = <span class="number">256</span>  <span class="comment"># plenty for k&lt;=4</span></span><br><span class="line">    t = [tm_bit(i) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N)]</span><br><span class="line">    base = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">5</span>):</span><br><span class="line">        <span class="keyword">for</span> bit <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>):</span><br><span class="line">            words = <span class="built_in">set</span>()</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N - k + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> t[i] == bit:</span><br><span class="line">                    words.add(<span class="built_in">tuple</span>(t[i : i + k]))</span><br><span class="line">            lex = <span class="built_in">sorted</span>(words)</span><br><span class="line">            pos_list = []</span><br><span class="line">            <span class="keyword">for</span> w <span class="keyword">in</span> lex:</span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(N - k + <span class="number">1</span>):</span><br><span class="line">                    <span class="keyword">if</span> <span class="built_in">tuple</span>(t[i : i + k]) == w:</span><br><span class="line">                        pos_list.append(i)</span><br><span class="line">                        <span class="keyword">break</span></span><br><span class="line">            base[(k, bit)] = pos_list</span><br><span class="line">    <span class="keyword">return</span> base</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">BASE = build_base_table()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 5) Pos(k, offset, bit): unranking -&gt; starting index in Thue–Morse</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="meta">@lru_cache(<span class="params"><span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">p</span>(<span class="params">k: <span class="built_in">int</span>, offset: <span class="built_in">int</span>, bit: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> k &lt;= <span class="number">4</span>:</span><br><span class="line">        <span class="keyword">return</span> BASE[(k, bit)][offset]</span><br><span class="line"></span><br><span class="line">    a = (k + <span class="number">1</span>) // <span class="number">2</span>          <span class="comment"># ceil(k/2)</span></span><br><span class="line">    b = k // <span class="number">2</span> + <span class="number">1</span>            <span class="comment"># floor(k/2)+1</span></span><br><span class="line">    cnt_even = L(a)</span><br><span class="line">    cnt_odd = L(b)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> bit == <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">if</span> offset &lt; cnt_even:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span> * p(a, offset, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span> * p(b, offset - cnt_even, <span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> offset &lt; cnt_odd:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span> * p(b, offset, <span class="number">1</span>) + <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span> * p(a, offset - cnt_odd, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line"><span class="comment"># 6) Precompute mu^h blocks&#x27; numeric values modulo MOD</span></span><br><span class="line"><span class="comment">#    pow2[h] = 2^(2^h) mod MOD</span></span><br><span class="line"><span class="comment">#    val[h][b] = value of mu^h(b) as binary integer mod MOD</span></span><br><span class="line"><span class="comment"># -------------------------</span></span><br><span class="line">MAXH = <span class="number">40</span>  <span class="comment"># enough (we only need up to ~30 for lengths &lt;= 1e9)</span></span><br><span class="line">pow2 = [<span class="number">0</span>] * (MAXH + <span class="number">1</span>)</span><br><span class="line">val = [[<span class="number">0</span>, <span class="number">0</span>] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(MAXH + <span class="number">1</span>)]</span><br><span class="line"></span><br><span class="line">pow2[<span class="number">0</span>] = <span class="number">2</span> % MOD          <span class="comment"># 2^(1)</span></span><br><span class="line">val[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span></span><br><span class="line">val[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, MAXH + <span class="number">1</span>):</span><br><span class="line">    pow2[h] = (pow2[h - <span class="number">1</span>] * pow2[h - <span class="number">1</span>]) % MOD</span><br><span class="line">    <span class="comment"># mu^&#123;h&#125;(0) = mu^&#123;h-1&#125;(0) || mu^&#123;h-1&#125;(1)</span></span><br><span class="line">    val[h][<span class="number">0</span>] = (val[h - <span class="number">1</span>][<span class="number">0</span>] * pow2[h - <span class="number">1</span>] + val[h - <span class="number">1</span>][<span class="number">1</span>]) % MOD</span><br><span class="line">    <span class="comment"># mu^&#123;h&#125;(1) = mu^&#123;h-1&#125;(1) || mu^&#123;h-1&#125;(0)</span></span><br><span class="line">    val[h][<span class="number">1</span>] = (val[h - <span class="number">1</span>][<span class="number">1</span>] * pow2[h - <span class="number">1</span>] + val[h - <span class="number">1</span>][<span class="number">0</span>]) % MOD</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">substring_value</span>(<span class="params">pos: <span class="built_in">int</span>, length: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    Compute integer value of T[pos:pos+length) in binary, modulo MOD,</span></span><br><span class="line"><span class="string">    using dyadic aligned blocks.</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    end = pos + length</span><br><span class="line">    cur = pos</span><br><span class="line">    acc = <span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> cur &lt; end:</span><br><span class="line">        rem = end - cur</span><br><span class="line">        h_rem = rem.bit_length() - <span class="number">1</span>               <span class="comment"># max h with 2^h &lt;= rem</span></span><br><span class="line">        lb = cur &amp; -cur                            <span class="comment"># largest power-of-two dividing cur</span></span><br><span class="line">        h_div = lb.bit_length() - <span class="number">1</span></span><br><span class="line">        h = h_rem <span class="keyword">if</span> h_rem &lt; h_div <span class="keyword">else</span> h_div      <span class="comment"># aligned block exponent</span></span><br><span class="line">        b = tm_bit(cur &gt;&gt; h)                       <span class="comment"># which mu^h(block) to use</span></span><br><span class="line">        acc = (acc * pow2[h] + val[h][b]) % MOD</span><br><span class="line">        cur += <span class="number">1</span> &lt;&lt; h</span><br><span class="line">    <span class="keyword">return</span> acc</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">A_mod</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> n == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    k, off = find_length_and_offset(n)</span><br><span class="line">    pos = p(k, off, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> substring_value(pos, k)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">18</span>):</span><br><span class="line">        n *= <span class="number">10</span></span><br><span class="line">        ans = (ans + A_mod(n)) % MOD</span><br><span class="line"></span><br><span class="line">    <span class="comment"># print last 9 digits (zero-padded if needed)</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;ans:09d&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/361/" title="Project Euler 361">https://ujimatsu-chiya.github.io/project-euler/361/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

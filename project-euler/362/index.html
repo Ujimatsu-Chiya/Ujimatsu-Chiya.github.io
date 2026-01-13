@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 362">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/362/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:52:48.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:48.545Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/362/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/362/","path":"project-euler/362/","title":"Project Euler 362"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 362 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-362"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 362</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#squarefree-factors"><span class="nav-number">1.1.1.</span> <span class="nav-text">Squarefree factors</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/362/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 362 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 362
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:48" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:48+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-362">Project Euler 362</h1>
+<h2 id="题目">题目</h2>
+<h3 id="squarefree-factors">Squarefree factors</h3>
+<p>Consider the number <span class="math inline">\(54\)</span>.</p>
+<p><span class="math inline">\(54\)</span> can be factored in <span
+class="math inline">\(7\)</span> distinct ways into one or more factors
+larger than <span class="math inline">\(1\)</span>:</p>
+<p><span class="math inline">\(54, 2\times27, 3\times18, 6\times9,
+3\times3\times6, 2\times3\times9\)</span> and <span
+class="math inline">\(2\times3\times3\times3\)</span>.</p>
+<p>If we require that the factors are all squarefree only two ways
+remain: <span class="math inline">\(3\times3\times6\)</span> and <span
+class="math inline">\(2\times3\times3\times3\)</span>.</p>
+<p>Let’s call <span class="math inline">\(\text{Fsf}(n)\)</span> the
+number of ways <span class="math inline">\(n\)</span> can be factored
+into one or more squarefree factors larger than <span
+class="math inline">\(1\)</span>, so <span
+class="math inline">\(\text{Fsf}(54)=2\)</span>.</p>
+<p>Let <span class="math inline">\(S(n)\)</span> be <span
+class="math inline">\(\sum \text{Fsf}(k)\)</span> for <span
+class="math inline">\(k=2\)</span> to <span
+class="math inline">\(n\)</span>.</p>
+<p><span class="math inline">\(S(100)=193\)</span>.</p>
+<p>Find <span class="math inline">\(S(10 000 000 000)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span
+class="math inline">\(N=10^{10}\)</span>。注意：每一种“平方自由因子分解”<span
+class="math inline">\(k=a_1a_2\cdots a_t,  2\le a_1\le a_2\le\cdots\le
+a_t,  a_i \text{ squarefree}\)</span>都会给 <span
+class="math inline">\(\mathrm{Fsf}(k)\)</span> 贡献 1；因此它也会给
+<span class="math inline">\(S(N)\)</span> 贡献 1 当且仅当 <span
+class="math inline">\(k\le N\)</span>。</p>
+<p>所以：<span class="math inline">\(S(N)\)</span> 等于所有满足<span
+class="math inline">\(2\le a_1\le a_2\le \cdots\le a_t, a_i \text{
+squarefree}, \prod a_i\le N\)</span>的序列（长度 <span
+class="math inline">\(t\ge 1\)</span>）的总数。</p>
+<p>这就把“对 <span class="math inline">\(k\)</span>
+求和”变成了“数所有合法序列”。</p>
+<p>定义 <span class="math inline">\(G(x,m)\)</span>：所有满足</p>
+<ul>
+<li>因子都是 squarefree 且 <span class="math inline">\(\ge
+m\)</span>，</li>
+<li>因子按非递减排列，</li>
+<li>乘积 <span class="math inline">\(\le x\)</span>，</li>
+</ul>
+<p>的序列数量，<strong>允许空序列</strong>（空序列代表“不再选因子”）。</p>
+<p>那么我们要的答案是<span
+class="math inline">\(S(N)=G(N,2)-1\)</span>（减去空序列那 1 个）。</p>
+<p>如果选择第一个因子为 <span class="math inline">\(f\)</span>（要求
+<span class="math inline">\(f\ge m\)</span>、squarefree、且 <span
+class="math inline">\(f\le
+x\)</span>），后面还要选一个非递减序列，乘积上限变成 <span
+class="math inline">\(\left\lfloor
+x/f\right\rfloor\)</span>，且最小因子变为 <span
+class="math inline">\(f\)</span>。</p>
+<p>可以写出关于<span class="math inline">\(G\)</span>的递推式：</p>
+<p><span class="math display">\[
+G(x,m)=1+\sum_{\substack{f \text{ squarefree}\\m\le f\le x}}
+G\left(\left\lfloor\frac{x}{f}\right\rfloor,f\right).
+\]</span></p>
+<p>其中前面的 “1” 就是“空序列”。</p>
+<p>但是这个式子不能够直接使用，因为要遍历到 <span
+class="math inline">\(x\)</span>（这里 <span
+class="math inline">\(x\)</span> 可达 <span
+class="math inline">\(N\)</span>）。接下来开始进行优化。</p>
+<p>若 <span class="math inline">\(f&gt;\sqrt{x}\)</span>，则在子问题
+<span class="math inline">\(G(\lfloor x/f\rfloor,f)\)</span>
+里，任何再选的因子都 <span class="math inline">\(\ge
+f&gt;\sqrt{x}\)</span>，两次相乘必定 <span
+class="math inline">\(&gt;x\)</span>，所以子问题只能是“空序列”——也就是说每个这样的
+<span class="math inline">\(f\)</span> 都只贡献 1。</p>
+<p>因此当 <span class="math inline">\(m\le
+\lfloor\sqrt{x}\rfloor\)</span> 时可改写：</p>
+<p><span class="math display">\[
+G(x,m)=1+\sum_{\substack{m\le f\le \lfloor\sqrt{x}\rfloor \\f \text{
+squarefree}}} G\left(\left\lfloor\frac{x}{f}\right\rfloor,f\right)
++\#\{f: \lfloor\sqrt{x}\rfloor&lt;f\le x, f \text{ squarefree}\}.
+\]</span></p>
+<p>上式最后一项只需要“数区间内 squarefree 的个数”。</p>
+<p>考虑子问题 <span class="math inline">\(G(x&#39;,f)\)</span> 其中
+<span class="math inline">\(x&#39;=\lfloor x/f\rfloor\)</span>。若 <span
+class="math inline">\(f&gt;\sqrt[3]{x}\)</span>，则 <span
+class="math inline">\(f^2&gt;x/f\ge
+x&#39;\)</span>（忽略整除误差不影响结论），于是 <span
+class="math inline">\(f&gt;\sqrt{x&#39;}\)</span>。这意味着在子问题中<strong>最多只能再选一个因子</strong>（因为两个
+<span class="math inline">\(\ge f\)</span>
+的因子相乘就超过上限了）。</p>
+<p>因此：</p>
+<ul>
+<li>空序列：1 种；</li>
+<li>选 1 个因子 <span class="math inline">\(g\)</span>（squarefree 且
+<span class="math inline">\(f\le g\le x&#39;\)</span>）：每个 <span
+class="math inline">\(g\)</span> 贡献 1。</li>
+</ul>
+<p>所以<span class="math inline">\(G(x&#39;,f)=1+\#\{g: f\le g\le
+x&#39;, g \text{
+squarefree}\}.\)</span>这让大量递归调用变成了一个区间计数。</p>
+<p>设 <span class="math inline">\(Q(n)\)</span> 表示 <span
+class="math inline">\(\le n\)</span> 的 squarefree 数量（<strong>包含
+1</strong>）。那么有<span
+class="math inline">\(\displaystyle{Q(n)=\sum_{k=1}^{\lfloor\sqrt{n}\rfloor}\mu(k)\left\lfloor\frac{n}{k^2}\right\rfloor,}\)</span>其中
+<span class="math inline">\(\mu\)</span> 是 Möbius 函数。</p>
+<p>对本题 <span class="math inline">\(n\le N\)</span>，<span
+class="math inline">\(\sqrt{n}\le
+\lfloor\sqrt{N}\rfloor\)</span>，我们可以先线性筛出 <span
+class="math inline">\(\mu(1\dots\lfloor\sqrt{N}\rfloor)\)</span>，并做前缀和<span
+class="math inline">\(\displaystyle{M(t)=\sum_{k\le
+t}\mu(k).}\)</span></p>
+<p>然后用分块：当 <span class="math inline">\(v=\left\lfloor
+n/k^2\right\rfloor\)</span> 固定时，<span
+class="math inline">\(k\)</span> 落在一个连续区间<span
+class="math inline">\(k\in\left[L,R\right],  R=\left\lfloor\sqrt{\dfrac{n}{v}}\right\rfloor.\)</span>于是<span
+class="math inline">\(\displaystyle{\sum_{k=L}^{R}\mu(k)\left\lfloor\frac{n}{k^2}\right\rfloor=
+v\cdot\left(M(R)-M(L-1)\right)}.\)</span></p>
+<p>并且这种不同的 <span class="math inline">\(v\)</span> 的个数大约是
+<span class="math inline">\(O(N^{1/3})\)</span>，所以一次 <span
+class="math inline">\(Q(n)\)</span> 很快。因此，区间 <span
+class="math inline">\([A,B]\)</span> 内 squarefree 个数就是 <span
+class="math inline">\(Q(B)-Q(A-1)\)</span>。</p>
+<p>最终，令 <span
+class="math inline">\(\ell=\lfloor\sqrt{x}\rfloor\)</span>，<span
+class="math inline">\(c=\lfloor\sqrt[3]{x}\rfloor\)</span>。</p>
+<ul>
+<li>若 <span class="math inline">\(m&gt;\ell\)</span>：<span
+class="math inline">\(G(x,m)=1+Q(x)-Q(m-1).\)</span></li>
+<li>否则：<span
+class="math inline">\(\displaystyle{G(x,m)=1+\bigl(Q(x)-Q(\ell)\bigr)+\sum_{\substack{m\le
+f\le \min(\ell,c)\\ f \text{ squarefree}}}G(\lfloor
+x/f\rfloor,f)+\sum_{\substack{\max(m,c+1)\le f\le \ell\\ f \text{
+squarefree}}}\left(1+Q(\lfloor x/f\rfloor)-Q(f-1)\right).}\)</span></li>
+</ul>
+<p>最后一大段用按 <span class="math inline">\(\lfloor
+x/f\rfloor\)</span> 分块把 <span class="math inline">\(\sum Q(\lfloor
+x/f\rfloor)\)</span> 聚合，避免逐个 <span
+class="math inline">\(f\)</span> 递归计算。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tools.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line">ll N = <span class="number">10000000000LL</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">icbrtll</span><span class="params">(ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll x = (ll)<span class="built_in">llround</span>(<span class="built_in">powl</span>((<span class="type">long</span> <span class="type">double</span>)n, <span class="number">1.0L</span> / <span class="number">3.0L</span>));</span><br><span class="line">    <span class="keyword">while</span> ((x + <span class="number">1</span>) * (x + <span class="number">1</span>) * (x + <span class="number">1</span>) &lt;= n)</span><br><span class="line">        ++x;</span><br><span class="line">    <span class="keyword">while</span> (x * x * x &gt; n)</span><br><span class="line">        --x;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// pack key for memo: (x &lt;&lt; 17) | m, since m &lt;= 1e5 &lt; 2^17 and x &lt;= 1e10 &lt; 2^34</span></span><br><span class="line"><span class="function">ll <span class="title">pack_key</span><span class="params">(ll x, <span class="type">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (<span class="built_in">ll</span>(x) &lt;&lt; <span class="number">17</span>) | (ll)m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- globals ----------</span></span><br><span class="line">ll GN;   <span class="comment">// N in problem</span></span><br><span class="line"><span class="type">int</span> LIM; <span class="comment">// floor(sqrt(N))</span></span><br><span class="line"></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mu;                <span class="comment">// mu[1..LIM]</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; mu_pref;           <span class="comment">// prefix sum of mu</span></span><br><span class="line">vector&lt;<span class="type">char</span>&gt; is_sqfree;        <span class="comment">// squarefree up to LIM</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; sf_pref;           <span class="comment">// Q_small prefix counts including 1</span></span><br><span class="line">vector&lt;<span class="type">int</span>&gt; sq_list;           <span class="comment">// squarefree numbers &gt;=2 up to LIM</span></span><br><span class="line">vector&lt;ll&gt; sq_Qm1_pref;        <span class="comment">// prefix sum over squarefree f: Q(f-1) for f in sq_list (small only)</span></span><br><span class="line">unordered_map&lt;ll, ll&gt; Q_cache; <span class="comment">// Q(x) for x &gt; LIM</span></span><br><span class="line">unordered_map&lt;ll, ll&gt; G_cache; <span class="comment">// G(x,m)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- build mobius up to LIM ----------</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_mobius</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    mu.<span class="built_in">assign</span>(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; primes;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">spf</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (spf[i] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            spf[i] = i;</span><br><span class="line">            primes.<span class="built_in">push_back</span>(i);</span><br><span class="line">            mu[i] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> p : primes)</span><br><span class="line">        &#123;</span><br><span class="line">            ll v = <span class="number">1LL</span> * i * p;</span><br><span class="line">            <span class="keyword">if</span> (v &gt; n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            spf[(<span class="type">int</span>)v] = p;</span><br><span class="line">            <span class="keyword">if</span> (i % p == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                mu[(<span class="type">int</span>)v] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            mu[(<span class="type">int</span>)v] = -mu[i];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    mu_pref.<span class="built_in">assign</span>(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        s += mu[i];</span><br><span class="line">        mu_pref[i] = s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- build squarefree prefix up to LIM ----------</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_squarefree_prefix</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    is_sqfree.<span class="built_in">assign</span>(n + <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">    is_sqfree[<span class="number">0</span>] = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">2</span>; <span class="number">1LL</span> * p * p &lt;= n; ++p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> pp = p * p;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = pp; k &lt;= n; k += pp)</span><br><span class="line">            is_sqfree[k] = <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    sf_pref.<span class="built_in">assign</span>(n + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> s = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (is_sqfree[i])</span><br><span class="line">            ++s;</span><br><span class="line">        sf_pref[i] = s;</span><br><span class="line">    &#125;</span><br><span class="line">    sq_list.<span class="built_in">clear</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">        <span class="keyword">if</span> (is_sqfree[i])</span><br><span class="line">            sq_list.<span class="built_in">push_back</span>(i);</span><br><span class="line"></span><br><span class="line">    sq_Qm1_pref.<span class="built_in">assign</span>(sq_list.<span class="built_in">size</span>() + <span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; sq_list.<span class="built_in">size</span>(); ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> f = sq_list[i];</span><br><span class="line">        <span class="comment">// for f &lt;= LIM, Q(f-1) = sf_pref[f-1]</span></span><br><span class="line">        sq_Qm1_pref[i + <span class="number">1</span>] = sq_Qm1_pref[i] + sf_pref[f - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- Q(x): count squarefree &lt;= x INCLUDING 1 ----------</span></span><br><span class="line"><span class="function">ll <span class="title">Q</span><span class="params">(ll x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= LIM)</span><br><span class="line">        <span class="keyword">return</span> sf_pref[(<span class="type">int</span>)x];</span><br><span class="line">    <span class="keyword">auto</span> it = Q_cache.<span class="built_in">find</span>(x);</span><br><span class="line">    <span class="keyword">if</span> (it != Q_cache.<span class="built_in">end</span>())</span><br><span class="line">        <span class="keyword">return</span> it-&gt;second;</span><br><span class="line"></span><br><span class="line">    ll res = <span class="number">0</span>;</span><br><span class="line">    ll k = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (k * k &lt;= x)</span><br><span class="line">    &#123;</span><br><span class="line">        ll v = x / (k * k);</span><br><span class="line">        ll kmax = <span class="built_in">int_square</span>(x / v);</span><br><span class="line">        res += v * ((ll)mu_pref[(<span class="type">int</span>)kmax] - (ll)mu_pref[(<span class="type">int</span>)k - <span class="number">1</span>]);</span><br><span class="line">        k = kmax + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Q_cache.<span class="built_in">emplace</span>(x, res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">count_sqfree_interval_small</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> sf_pref[b] - sf_pref[a - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">sum_Qm1_interval_small</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (a &gt; b)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">auto</span> l = <span class="built_in">lower_bound</span>(sq_list.<span class="built_in">begin</span>(), sq_list.<span class="built_in">end</span>(), a) - sq_list.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">auto</span> r = <span class="built_in">upper_bound</span>(sq_list.<span class="built_in">begin</span>(), sq_list.<span class="built_in">end</span>(), b) - sq_list.<span class="built_in">begin</span>();</span><br><span class="line">    <span class="keyword">return</span> sq_Qm1_pref[r] - sq_Qm1_pref[l];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- G(x,m): # nondecreasing sequences of squarefree factors &gt;=m, product&lt;=x, allowing empty ----------</span></span><br><span class="line"><span class="function">ll <span class="title">G</span><span class="params">(ll x, <span class="type">int</span> m)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll key = <span class="built_in">pack_key</span>(x, m);</span><br><span class="line">    <span class="keyword">auto</span> it = G_cache.<span class="built_in">find</span>(key);</span><br><span class="line">    <span class="keyword">if</span> (it != G_cache.<span class="built_in">end</span>())</span><br><span class="line">        <span class="keyword">return</span> it-&gt;second;</span><br><span class="line"></span><br><span class="line">    ll lim = <span class="built_in">int_square</span>(x);</span><br><span class="line">    ll res;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (m &gt; lim)</span><br><span class="line">    &#123;</span><br><span class="line">        res = <span class="number">1</span> + (<span class="built_in">Q</span>(x) - <span class="built_in">Q</span>((ll)m - <span class="number">1</span>));</span><br><span class="line">        G_cache.<span class="built_in">emplace</span>(key, res);</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// empty + choose a single factor &gt; sqrt(x)</span></span><br><span class="line">    res = <span class="number">1</span> + (<span class="built_in">Q</span>(x) - <span class="built_in">Q</span>(lim));</span><br><span class="line"></span><br><span class="line">    ll cbr = <span class="built_in">icbrtll</span>(x);</span><br><span class="line">    <span class="type">int</span> upper = (<span class="type">int</span>)<span class="built_in">min</span>(lim, cbr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// recursive part: m &lt;= f &lt;= upper (squarefree)</span></span><br><span class="line">    <span class="keyword">if</span> (m &lt;= upper)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> li = <span class="built_in">lower_bound</span>(sq_list.<span class="built_in">begin</span>(), sq_list.<span class="built_in">end</span>(), m) - sq_list.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">auto</span> ri = <span class="built_in">upper_bound</span>(sq_list.<span class="built_in">begin</span>(), sq_list.<span class="built_in">end</span>(), upper) - sq_list.<span class="built_in">begin</span>();</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">size_t</span> idx = li; idx &lt; ri; ++idx)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> f = sq_list[idx];</span><br><span class="line">            res += <span class="built_in">G</span>(x / f, f);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// compressed part: upper &lt; f &lt;= lim  (here lim &lt;= LIM always)</span></span><br><span class="line">    <span class="type">int</span> A = <span class="built_in">max</span>(m, upper + <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> B = (<span class="type">int</span>)lim;</span><br><span class="line">    <span class="keyword">if</span> (A &lt;= B)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> cnt = <span class="built_in">count_sqfree_interval_small</span>(A, B);</span><br><span class="line">        ll sum_qm1 = <span class="built_in">sum_Qm1_interval_small</span>(A, B);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// sum_&#123;squarefree f in [A,B]&#125; Q(x/f), grouped by q = floor(x/f)</span></span><br><span class="line">        ll sum_qq = <span class="number">0</span>;</span><br><span class="line">        <span class="type">int</span> t = A;</span><br><span class="line">        <span class="keyword">while</span> (t &lt;= B)</span><br><span class="line">        &#123;</span><br><span class="line">            ll q = x / t;</span><br><span class="line">            <span class="type">int</span> tmax = (<span class="type">int</span>)<span class="built_in">min</span>&lt;ll&gt;(B, x / q);</span><br><span class="line">            <span class="type">int</span> c = <span class="built_in">count_sqfree_interval_small</span>(t, tmax);</span><br><span class="line">            <span class="keyword">if</span> (c)</span><br><span class="line">                sum_qq += <span class="built_in">Q</span>(q) * (ll)c;</span><br><span class="line">            t = tmax + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// add sum_f (1 + Q(x/f) - Q(f-1))</span></span><br><span class="line">        res += (ll)cnt + sum_qq - sum_qm1;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    G_cache.<span class="built_in">emplace</span>(key, res);</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// S(N) = sum_&#123;k=2..N&#125; Fsf(k) = G(N,2) - 1</span></span><br><span class="line"><span class="function">ll <span class="title">S</span><span class="params">(ll N)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    GN = N;</span><br><span class="line">    LIM = (<span class="type">int</span>)<span class="built_in">int_square</span>(GN);</span><br><span class="line">    <span class="built_in">build_mobius</span>(LIM);</span><br><span class="line">    <span class="built_in">build_squarefree_prefix</span>(LIM);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">G</span>(GN, <span class="number">2</span>) - <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">S</span>(N) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/362/" title="Project Euler 362">https://ujimatsu-chiya.github.io/project-euler/362/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

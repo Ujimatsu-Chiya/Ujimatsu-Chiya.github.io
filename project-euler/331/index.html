@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 331">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/331/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0331_crossflips3.gif">
+<meta property="article:published_time" content="2026-01-13T15:52:34.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:34.100Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0331_crossflips3.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/331/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/331/","path":"project-euler/331/","title":"Project Euler 331"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 331 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-331"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 331</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cross-flips"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cross flips</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/331/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 331 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 331
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:34" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:34+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-331">Project Euler 331</h1>
+<h2 id="题目">题目</h2>
+<h3 id="cross-flips">Cross flips</h3>
+<p><span class="math inline">\(N\times N\)</span> disks are placed on a
+square game board. Each disk has a black side and white side.</p>
+<p>At each turn, you may choose a disk and flip all the disks in the
+same row and the same column as this disk: thus <span
+class="math inline">\(2\times N-1\)</span> disks are flipped. The game
+ends when all disks show their white side. The following example shows a
+game on a <span class="math inline">\(5\times5\)</span> board.</p>
+<p><img data-src="../resources/images/0331_crossflips3.gif" /></p>
+<p>It can be proven that <span class="math inline">\(3\)</span> is the
+minimal number of turns to finish this game.</p>
+<p>The bottom left disk on the <span class="math inline">\(N\times
+N\)</span> board has coordinates <span
+class="math inline">\((0,0)\)</span>;</p>
+<p>the bottom right disk has coordinates <span
+class="math inline">\((N-1,0)\)</span> and the top left disk has
+coordinates <span class="math inline">\((0,N-1)\)</span>.</p>
+<p>Let <span class="math inline">\(C_N\)</span> be the following
+configuration of a board with <span class="math inline">\(N\times
+N\)</span> disks:</p>
+<p>A disk at <span class="math inline">\((x,y)\)</span> satisfying <span
+class="math inline">\(N-1 \le \sqrt{x^2+y^2} \lt N\)</span>, shows its
+black side; otherwise, it shows its white side. <span
+class="math inline">\(C_5\)</span> is shown above.</p>
+<p>Let <span class="math inline">\(T(N)\)</span> be the minimal number
+of turns to finish a game starting from configuration <span
+class="math inline">\(C_N\)</span> or <span
+class="math inline">\(0\)</span> if configuration <span
+class="math inline">\(C_N\)</span> is unsolvable.</p>
+<p>We have shown that <span class="math inline">\(T(5)=3\)</span>. You
+are also given that <span class="math inline">\(T(10)=29\)</span> and
+<span class="math inline">\(T(1 000)=395253\)</span>.</p>
+<p>Find <span class="math inline">\(\sum \limits_{i = 3}^{31} {T(2^i -
+i)}\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>把每个格子的颜色用 <span class="math inline">\(0/1\)</span> 表示（白
+<span class="math inline">\(0\)</span>，黑 <span
+class="math inline">\(1\)</span>），所有格子组成向量空间 <span
+class="math inline">\(\mathbb F_2^{N^2}\)</span>。</p>
+<p>用 <span class="math inline">\(X_{ij}\in\{0,1\}\)</span> 表示是否在
+<span class="math inline">\((i,j)\)</span>
+按一次（按两次等于没按，所以只需 <span
+class="math inline">\(0/1\)</span>）。设初始棋盘为矩阵 <span
+class="math inline">\(B\)</span>，操作集合为矩阵 <span
+class="math inline">\(X\)</span>，最终棋盘为 <span
+class="math inline">\(B+\Phi(X)\)</span>（加法在 <span
+class="math inline">\(\mathbb F_2\)</span>
+中即异或）。要清空棋盘等价于<span
+class="math inline">\(\Phi(X)=B.\)</span></p>
+<p>关键是写出线性算子 <span class="math inline">\(\Phi\)</span>。按一次
+<span class="math inline">\((i,j)\)</span> 会翻转整行 <span
+class="math inline">\(i\)</span> 与整列 <span
+class="math inline">\(j\)</span>，在 <span class="math inline">\(\mathbb
+F_2\)</span> 下“翻转”就是加 <span
+class="math inline">\(1\)</span>。因此对任意 <span
+class="math inline">\(X\)</span>，令 <span
+class="math display">\[R_i=\sum_{k=0}^{N-1}X_{ik}\bmod 2,
+C_j=\sum_{k=0}^{N-1}X_{kj}\bmod 2.\]</span> 那么 <span
+class="math inline">\((i,j)\)</span>
+这个格子被翻转的次数，正是“本格子是否被按”加上“本行按的个数”加上“本列按的个数”（交点在行与列里被算两次，在
+<span class="math inline">\(\mathbb F_2\)</span> 中自动抵消，最终仍留下
+<span class="math inline">\(X_{ij}\)</span>
+这一项）。于是得到非常核心的公式： <span
+class="math display">\[(\Phi(X))_{ij}=(X_{ij}+R_i+C_j)\bmod 2
+\tag{1}\]</span></p>
+<p>接下来研究算子平方 <span
+class="math inline">\(\Phi(\Phi(X))\)</span>。令 <span
+class="math inline">\(Y=\Phi(X)\)</span>，其行列和为<span
+class="math inline">\(\displaystyle{R&#39;_i=\sum_{j=0}^{N-1} Y_{ij}
+\bmod 2, C&#39;_j=\sum_{i=0}^{N-1} Y_{ij} \bmod 2.}\)</span></p>
+<p>由 <span class="math inline">\((1)\)</span> 有</p>
+<p><span class="math display">\[
+R&#39;_i=\sum_j\left(X_{ij}+R_i+C_j\right)=\underbrace{\sum_j
+X_{ij}}_{R_i}+\underbrace{\sum_j R_i}_{N R_i}+\underbrace{\sum_j
+C_j}_{S},
+\]</span></p>
+<p>其中<span class="math inline">\(\displaystyle{S=\sum_{i,j}X_{ij}\bmod
+2}\)</span>是 <span class="math inline">\(X\)</span> 中 <span
+class="math inline">\(1\)</span> 的总个数的奇偶性。于是<span
+class="math inline">\(R&#39;_i=((1+N)R_i+S)\bmod 2.\)</span>同理 <span
+class="math inline">\(C&#39;_j=((1+N)C_j+S)\bmod 2.\)</span></p>
+<p>再套一次 <span class="math inline">\((1)\)</span>：</p>
+<p><span class="math display">\[
+(\Phi^2(X))_{ij}
+=Y_{ij}+R&#39;_i+C&#39;_j
+=\bigl(X_{ij}+R_i+C_j\bigr)+R&#39;_i+C&#39;_j.
+\]</span></p>
+<p>若 <span class="math inline">\(N\)</span> 偶数，则 <span
+class="math inline">\(1+N\equiv 1\pmod 2\)</span>，所以<span
+class="math inline">\(R&#39;_i=R_i+S,
+C&#39;_j=C_j+S.\)</span>代回去：<span
+class="math inline">\((\Phi^2(X))_{ij}=X_{ij}+R_i+C_j+(R_i+S)+(C_j+S)=X_{ij}.\)</span></p>
+<p>因此，当<span class="math inline">\(N\)</span>为偶数时，有</p>
+<p><span class="math display">\[\Phi^2=\mathrm{Id} \tag{2}\]</span></p>
+<p>其中<span
+class="math inline">\(\mathrm{Id}\)</span>是指恒等映射。因此可直接推出：<span
+class="math inline">\(\Phi\)</span> 可逆且 <span
+class="math inline">\(\Phi^{-1}=\Phi\)</span>。所以方程 <span
+class="math inline">\(\Phi(X)=B\)</span> 的唯一解是</p>
+<p><span class="math display">\[X=\Phi(B) \tag{3}\]</span></p>
+<p>这点非常强：偶数阶时解不仅存在且唯一，而且就是把同一个算子再作用回去。</p>
+<p>若 <span class="math inline">\(N\)</span> 奇数，则 <span
+class="math inline">\(1+N\equiv 0\pmod 2\)</span>，于是<span
+class="math inline">\(R&#39;_i=S, C&#39;_j=S.\)</span>代回去：<span
+class="math inline">\((\Phi^2(X))_{ij}=X_{ij}+R_i+C_j+S+S=X_{ij}+R_i+C_j=(\Phi(X))_{ij}.\)</span></p>
+<p>所以，当<span class="math inline">\(N\)</span>为奇数时，有</p>
+<p><span class="math display">\[\Phi^2=\Phi\tag{4}\]</span></p>
+<p>这就是“奇数阶出现不可解约束”的根源：<span
+class="math inline">\(\Phi\)</span>
+不再是可逆算子，而是一个投影（idempotent）。于是对任何可达局面 <span
+class="math inline">\(B=\Phi(X)\)</span>，必满足 <span
+class="math inline">\(\Phi(B)=\Phi(\Phi(X))=\Phi(X)=B.\)</span>也就是说，<strong>奇数阶可解的充要条件为：</strong></p>
+<p><span class="math display">\[\Phi(B)=B \tag{5}\]</span></p>
+<p>把 <span class="math inline">\((1)\)</span> 套在 <span
+class="math inline">\(B\)</span> 上，令<span
+class="math inline">\(\displaystyle{r_i=\sum_j B_{ij}\bmod 2, c_j=\sum_i
+B_{ij}\bmod 2,}\)</span>则<span
+class="math inline">\((\Phi(B))_{ij}=B_{ij}+r_i+c_j.\)</span>因此 <span
+class="math inline">\(\Phi(B)=B\)</span> 等价于对所有 <span
+class="math inline">\(i,j\)</span> 都有<span
+class="math inline">\(r_i+c_j=0\bmod
+2.\)</span>也就是所有行奇偶必须相同、所有列奇偶也必须相同，并且两者相同：</p>
+<p><span class="math display">\[\exists t\in\{0,1\}\text{s.t.}\forall
+i,r_i=t;\forall j,c_j=t \tag{6}\]</span></p>
+<p>这就是奇数阶的可解的必要条件——它是由 <span
+class="math inline">\((4)\)</span> 导致的代数必然性。</p>
+<p>回到本题的棋盘<span class="math inline">\(C_N\)</span>。本题初始
+<span class="math inline">\(B\)</span> 为圆环格点：<span
+class="math inline">\((N-1)^2\le x^2+y^2 &lt; N^2.\)</span></p>
+<p>先看最底行 <span class="math inline">\(y=0\)</span>：黑格满足<span
+class="math inline">\((N-1)^2\le x^2 &lt; N^2.\)</span>因为 <span
+class="math inline">\(0\le x\le N-1\)</span>，唯一满足的是 <span
+class="math inline">\(x=N-1\)</span>，所以底行黑格数为 <span
+class="math inline">\(1\)</span>（奇数）。因此若 <span
+class="math inline">\(N\)</span> 为奇数且可解，根据 <span
+class="math inline">\((6)\)</span> 必须取 <span
+class="math inline">\(t=1\)</span>，也就是每一行都必须有奇数个黑格。</p>
+<p>现在取题目真正会遇到的奇数尺寸：<span
+class="math inline">\(N=2^i-i\)</span>，其中<span
+class="math inline">\(i\)</span>是奇数。</p>
+<p>考虑最顶行 <span
+class="math inline">\(y=N-1\)</span>：黑格条件变为<span
+class="math inline">\((N-1)^2\le x^2+(N-1)^2 &lt; N^2\iff x^2 &lt;
+N^2-(N-1)^2=2N-1.\)</span></p>
+<p>所以顶行黑格个数是</p>
+<p><span class="math display">\[
+b_{\text{top}}=\left|{x\in\mathbb Z:0\le x\le
+N-1,x^2&lt;2N-1}\right|=\left\lceil\sqrt{2N-1}\right\rceil \tag{7}
+\]</span></p>
+<p>将 <span class="math inline">\(N=2^i-i\)</span> 代入：<span
+class="math inline">\(2N-1=2^{i+1}-2i-1.\)</span>令<span
+class="math inline">\(a=2^{\frac{i+1}{2}},
+a^2=2^{i+1}\)</span>，这是因为<span
+class="math inline">\(i\)</span>是奇数，需要保持指数为整数。则 <span
+class="math inline">\(2N-1=a^2-(2i+1)&lt;a^2 \Rightarrow\sqrt{2N-1}&lt;a
+\Rightarrow b_{\text{top}}\le a.\)</span></p>
+<p>再证明 <span
+class="math inline">\(\sqrt{2N-1}&gt;a-1\)</span>（从而天花板恰为 <span
+class="math inline">\(a\)</span>）。只需证<span
+class="math inline">\((a-1)^2&lt;2N-1.\)</span>展开：<span
+class="math inline">\((a-1)^2=a^2-2a+1=2^{i+1}-2^{\frac{i+3}{2}}+1.\)</span>因此
+<span class="math inline">\((a-1)^2&lt;2N-1\)</span> 等价于<span
+class="math inline">\(2^{\frac{i+3}{2}}&gt;2i+2.\)</span></p>
+<p>当 <span class="math inline">\(i\ge 5\)</span>
+时，左边指数增长、右边线性增长，且基例 <span
+class="math inline">\(i=5\)</span> 时<span
+class="math inline">\(2^{\frac{8}{2}}=16&gt;12,\)</span>所以对所有奇数
+<span class="math inline">\(i\ge 5\)</span> 成立。于是 <span
+class="math inline">\((a-1)^2&lt;2N-1&lt;a^2
+\Rightarrow\left\lceil\sqrt{2N-1}\right\rceil=a.\)</span></p>
+<p>结合 <span
+class="math inline">\((7)\)</span>，得到结论：<strong>当<span
+class="math inline">\(i\ge 5\)</span>且为奇数时，<span
+class="math inline">\(b_{\text{top}}=2^{\frac{i+1}{2}}\)</span>为偶数但底行黑格数为
+<span
+class="math inline">\(1\)</span>（奇数），因此“所有行都奇数”被顶行直接打破，故不可解</strong>。</p>
+<p>结论：</p>
+<ul>
+<li><p>对题目范围 <span
+class="math inline">\(i=3,5,7,\dots,31\)</span>（奇数）：</p>
+<ul>
+<li><span class="math inline">\(i=3\)</span> 时 <span
+class="math inline">\(N=5\)</span>：可解，题目给出 <span
+class="math inline">\(T(5)=3\)</span>；</li>
+<li>所有 <span class="math inline">\(i\ge
+5\)</span>：由上述结论的顶行偶数黑格，必不可解，故 <span
+class="math inline">\(T(N)=0\)</span>。</li>
+</ul></li>
+</ul>
+<hr />
+<p>偶数阶时由 <span class="math inline">\((3)\)</span> 唯一解为 <span
+class="math inline">\(X=\Phi(B)\)</span>。写成分量形式：令 <span
+class="math inline">\(B\)</span> 的行列奇偶为<span
+class="math inline">\(\displaystyle{r_i=\sum_j B_{ij}\bmod 2, c_j=\sum_i
+B_{ij}\bmod 2,}\)</span>则由 <span
+class="math inline">\((1)\)</span>得：<span
+class="math inline">\(X_{ij}=(B_{ij}+r_i+c_j)\bmod
+2.\)</span>这意味着：</p>
+<ul>
+<li>若 <span class="math inline">\(r_i=c_j\)</span>，则 <span
+class="math inline">\(X_{ij}=B_{ij}\)</span>；</li>
+<li>若 <span class="math inline">\(r_i\ne c_j\)</span>，则 <span
+class="math inline">\(X_{ij}=1-B_{ij}\)</span>。</li>
+</ul>
+<p>最少步数就是 <span class="math inline">\(X\)</span> 中 <span
+class="math inline">\(1\)</span>
+的个数。将其拆开可以整理成非常实用的形式。记<span
+class="math inline">\(s=\#\{i:r_i=1\}, t=\#\{j:c_j=1\}.\)</span></p>
+<p>则满足 <span class="math inline">\(r_i\ne c_j\)</span>
+的格子总数为<span
+class="math inline">\(s(N-t)+(N-s)t.\)</span>再把黑格的“加一/减一”修正并入，可写为</p>
+<p><span class="math display">\[
+\boxed{T(N)=s(N-t)+(N-s)t+\sum_{(x,y)\in\mathcal B}\bigl(1-2\cdot
+\mathbf{1}\{r_x\ne c_y\}\bigr)} \tag{9}
+\]</span></p>
+<p>其中 <span class="math inline">\(\mathcal B\)</span>
+为黑格集合，<span class="math inline">\(\mathbf{1}\{\cdot\}\)</span>
+为指示函数。</p>
+<p>本题圆环满足 <span
+class="math inline">\(B_{xy}=B_{yx}\)</span>，故每行黑格数等于对应列黑格数，从而<span
+class="math inline">\(r_i=c_i, s=t.\)</span>于是 <span
+class="math inline">\((9)\)</span> 简化为</p>
+<p><span class="math display">\[
+\boxed{T(N)=2s(N-s)+\sum_{(x,y)\in\mathcal B}\begin{cases}
++1,&amp; r_x=r_y,\\
+-1,&amp; r_x\ne r_y.
+\end{cases}} \tag{10}
+\]</span></p>
+<p>所以偶数 <span class="math inline">\(N\)</span>
+的任务变成两件事：</p>
+<ol type="1">
+<li>统计 <span
+class="math inline">\(s\)</span>：有多少个行（等价列）黑格数为奇数；</li>
+<li>统计黑格上的符号和：每个黑格看 <span
+class="math inline">\(r_x\)</span> 与 <span
+class="math inline">\(r_y\)</span> 是否相等，等则 <span
+class="math inline">\(+1\)</span>，不等则 <span
+class="math inline">\(-1\)</span>。</li>
+</ol>
+<p>如图所示，是<span
+class="math inline">\(C_{2^6-6}\)</span>的棋盘：</p>
+<!-- ![](../resources/images/0331-1.png) -->
+<p>定义区间<span class="math inline">\(I=[(N-1)^2,N^2).\)</span>任意黑格
+<span class="math inline">\((x,y)\)</span> 满足 <span
+class="math inline">\(x^2+y^2\in I\)</span>。注意到 <span
+class="math inline">\(I\)</span> 的长度为<span
+class="math inline">\(|I|=N^2-(N-1)^2=2N-1.\)</span></p>
+<p>若某个黑格同时存在左邻 <span class="math inline">\((x-1,y)\)</span>
+与上邻 <span class="math inline">\((x,y+1)\)</span>
+也为黑格，则两者对应的平方半径之差为<span
+class="math inline">\((x^2+(y+1)^2)-((x-1)^2+y^2)=2(x+y).\)</span></p>
+<p>但这两者都落在区间 <span class="math inline">\(I\)</span>
+中，故差值必须小于 <span class="math inline">\(|I|\)</span>，即<span
+class="math inline">\(2(x+y)\le 2N-2\Rightarrow x+y\le N-1.\)</span></p>
+<p>另一方面，由 <span class="math inline">\(x^2+y^2\ge (N-1)^2\)</span>
+且 <span class="math inline">\(x,y\ge 0\)</span> 有<span
+class="math inline">\((x+y)^2\ge x^2+y^2\ge (N-1)^2\Rightarrow x+y\ge
+N-1.\)</span></p>
+<p>合并得 <span class="math inline">\(x+y=N-1\)</span>。但当 <span
+class="math inline">\(x+y=N-1\)</span> 时，<span
+class="math inline">\(x^2+y^2\le (x+y)^2=(N-1)^2,\)</span>要达到 <span
+class="math inline">\(\ge (N-1)^2\)</span> 只能取等号，而等号仅在 <span
+class="math inline">\(xy=0\)</span> 时成立，即只能是端点 <span
+class="math inline">\((0,N-1)\)</span> 或 <span
+class="math inline">\((N-1,0)\)</span>。在端点处显然不可能同时有“左邻”和“上邻”都在棋盘内成为黑格。</p>
+<p>因此得到结论：<strong>对任意非端点黑格 <span
+class="math inline">\((x,y)\)</span>，左邻与上邻不可能同时为黑格。所以沿着“能走就向左，否则能走就向上，否则走对角”的规则，路径是确定的，并且会恰好遍历每一个黑格一次。</strong></p>
+<p>这使得可以用一次遍历完成所有统计。</p>
+<p>遍历顺序从 <span class="math inline">\((N-1,0)\)</span> 走到 <span
+class="math inline">\((0,N-1)\)</span>，每步只可能是</p>
+<ul>
+<li>上：<span class="math inline">\((x,y)\to(x-1,y)\)</span></li>
+<li>左：<span class="math inline">\((x,y)\to(x,y+1)\)</span></li>
+<li>对角线：<span class="math inline">\((x,y)\to(x-1,y+1)\)</span></li>
+</ul>
+<p>在遍历过程中：</p>
+<ul>
+<li>“当前行 <span class="math inline">\(y\)</span>
+的黑格个数奇偶”用变量维护（每遇到一个黑格异或 <span
+class="math inline">\(1\)</span>）；</li>
+<li>“当前列 <span class="math inline">\(x\)</span>
+的黑格个数奇偶”用变量维护。</li>
+</ul>
+<p>当发生向上或者是对角线方向时时，意味着当前行结束，此时行奇偶就是该行的
+<span class="math inline">\(r_y\)</span>，于是可以把它计入 <span
+class="math inline">\(s\)</span>。</p>
+<p>难点在于计算<span
+class="math inline">\(\displaystyle{\sum_{(x,y)\in\mathcal B}(\pm
+1)}\)</span>。其中符号取决于该黑格所在行与列的最终奇偶（即 <span
+class="math inline">\(r_x,r_y\)</span>）。在遍历过程中，有时一边的奇偶已确定、另一边还没确定，需要“暂存贡献”。但由于路径结构的特殊性：</p>
+<ul>
+<li>当向上走（结束一行）时，除了当前格子所在的那一列外，该行中其它黑格所在的列都已经被完全走完（列奇偶已知）；</li>
+<li>当向左走（结束一列）时，除了当前格子所在的那一行外，该列中其它黑格所在的行都已经被完全走完（行奇偶已知）。</li>
+</ul>
+<p>因此只需要常数个“待结算计数”即可：</p>
+<ul>
+<li>当前行中，列奇偶已知的黑格数，按“列奇偶为 <span
+class="math inline">\(0/1\)</span>”分类；</li>
+<li>当前列中，行奇偶已知的黑格数，按“行奇偶为 <span
+class="math inline">\(0/1\)</span>”分类。</li>
+</ul>
+<p>当一行结束时（得到 <span
+class="math inline">\(r_y\)</span>），可以立刻结算<span
+class="math inline">\(\text{same}-\text{diff}\)</span>（同奇偶贡献 <span
+class="math inline">\(+1\)</span>，不同奇偶贡献 <span
+class="math inline">\(-1\)</span>），并清空该行的待结算计数。当一列结束时（得到对应的列奇偶），同理结算并清空该列的待结算计数。</p>
+<p>最后用 <span class="math inline">\((10)\)</span>：</p>
+<p><span class="math display">\[T(N)=2s(N-s)+\text{corr}.\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">30</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  仅处理偶数 n 的情况（本题总和里奇数 n 只有 n=5 贡献 3，其余奇数 n 不可解贡献 0）。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  背景（只写必要结论）：</span></span><br><span class="line"><span class="comment">  - 在 GF(2) 线性化后，偶数 n 时变换算子满足 Phi^2 = Id，因此解唯一，且解的按键矩阵 X = Phi(B)。</span></span><br><span class="line"><span class="comment">  - 最少步数等于 X 中 1 的个数。</span></span><br><span class="line"><span class="comment">  - 对本题圆环初始图案 B（关于主对角线对称），最少步数可写成：</span></span><br><span class="line"><span class="comment">      T(n) = 2*s*(n-s) + corr</span></span><br><span class="line"><span class="comment">    其中</span></span><br><span class="line"><span class="comment">      s = 行（等价列）黑格数为奇数的条数，</span></span><br><span class="line"><span class="comment">      corr = 对所有黑格 (x,y) 计入 +1 或 -1 的修正项（取决于该行/列奇偶是否相同）。</span></span><br><span class="line"><span class="comment">  - 关键在于无需建 O(n) 数组求行列奇偶：圆环黑格在第一象限构成一条“无分叉”的边界，</span></span><br><span class="line"><span class="comment">    可以沿边界走一遍，用 O(1) 状态把 s 与 corr 聚合出来。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">T_even</span><span class="params">(ll n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      我们只在第一象限上三角区域（x &lt;= y）行走，并利用对称性将全盘贡献折算为聚合公式。</span></span><br><span class="line"><span class="comment">      行走路径可理解为：沿圆环在第一象限的“内外边界之间”的黑格带的外侧边缘走，</span></span><br><span class="line"><span class="comment">      从 (0, n-1) 一路走到对角线附近。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">      坐标约定：</span></span><br><span class="line"><span class="comment">      - x：从 0 向右增</span></span><br><span class="line"><span class="comment">      - y：从 n-1 向下减（因为我们扫描上三角的“行”可以视为 y 递减）</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line"></span><br><span class="line">    ll x = <span class="number">0</span>;</span><br><span class="line">    ll y = n - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      r 维护：</span></span><br><span class="line"><span class="comment">        r = x^2 + y^2 - (n-1)^2</span></span><br><span class="line"><span class="comment">      解释：</span></span><br><span class="line"><span class="comment">      - (n-1)^2 是内圆半径平方；当 r &lt; 0 表示点落入内圆以内（不在圆环中）。</span></span><br><span class="line"><span class="comment">      - 外圆约束是 x^2 + y^2 &lt; n^2。</span></span><br><span class="line"><span class="comment">      之所以用 r：可以用增量 O(1) 更新而不用 sqrt。</span></span><br><span class="line"><span class="comment">      初始点 (0, n-1) 正好在内圆上：r = 0。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll r = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      n21 = 2*(n-1)</span></span><br><span class="line"><span class="comment">      用于外圆判定的等价不等式：</span></span><br><span class="line"><span class="comment">        (x+1)^2 + y^2 &lt; n^2</span></span><br><span class="line"><span class="comment">      结合 r 的定义可化成：</span></span><br><span class="line"><span class="comment">        r + 2x &lt; 2*(n-1)</span></span><br><span class="line"><span class="comment">      （这是把 n^2 与 (n-1)^2 的差 (2n-1) 以及增量 (2x+1) 整理后的结果，</span></span><br><span class="line"><span class="comment">       实现中用严格不等号并做了等价变形）</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll n21 = <span class="number">2</span> * (n - <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      cnt：当前固定 y 下，在上三角区域内这一“行”上连续黑格段的长度。</span></span><br><span class="line"><span class="comment">      我们在同一行里尝试不断右移 (x++) 扩展黑格段，直到将越过外圆，此时转入下一行 (y--)。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll cnt = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      odd：最终等于 s（奇数行/列的数量）。</span></span><br><span class="line"><span class="comment">      为什么只用一个 odd：</span></span><br><span class="line"><span class="comment">      - 本题图案关于对角线对称，所以“第 i 行奇偶” == “第 i 列奇偶”，计数可共用。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll odd = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      was / newwas：用于记录“相邻两行在同一列交界处是否形成两层相邻黑格”的事件。</span></span><br><span class="line"><span class="comment">      直观上：</span></span><br><span class="line"><span class="comment">      - 当从上一行结束转到下一行时，黑格段的右端点可能与上一行的右端点对齐或相邻，</span></span><br><span class="line"><span class="comment">        从而导致某一列在这两行中各有一个黑格（列黑格数为 2），这会影响该列奇偶。</span></span><br><span class="line"><span class="comment">      - 这里把这种“列里出现 2 个黑格”的情况抽象为 double 事件（记作 1），否则 0。</span></span><br><span class="line"><span class="comment">      was：上一行末端的 double 标记</span></span><br><span class="line"><span class="comment">      newwas：这一行末端的 double 标记</span></span><br><span class="line"><span class="comment">      both = was + newwas：用于批量结算“列奇偶已知/未知”的折算差异（见下方公式）</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll was = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      corr：修正项累计值。</span></span><br><span class="line"><span class="comment">      最终答案为：</span></span><br><span class="line"><span class="comment">        T(n) = 2*odd*(n-odd) + corr</span></span><br><span class="line"><span class="comment">      corr 的来源是：</span></span><br><span class="line"><span class="comment">      - 对每个黑格，根据“该行奇偶 == 该列奇偶”记 +1，否则记 -1</span></span><br><span class="line"><span class="comment">      - 但不显式存每行每列奇偶时，可在沿边界扫描时把贡献批量累加到 corr</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll corr = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      主循环：保持在上三角区域 x &lt; y 里行走。</span></span><br><span class="line"><span class="comment">      当 x==y 时到达对角线，退出主循环并做收尾。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">while</span> (x &lt; y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">          尝试在同一行右移到 (x+1, y)：</span></span><br><span class="line"><span class="comment">          若 (x+1, y) 仍在外圆内，则黑格段继续延伸，cnt++。</span></span><br><span class="line"><span class="comment">          判定用增量形式：r + 2x &lt; 2*(n-1)</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">if</span> (r + <span class="number">2</span> * x &lt; n21)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              x -&gt; x+1 时，r 增量为：</span></span><br><span class="line"><span class="comment">                (x+1)^2 - x^2 = 2x+1</span></span><br><span class="line"><span class="comment">              用两步写成 r += x; ++x; r += x; 等价于 r += 2x+1</span></span><br><span class="line"><span class="comment">              好处是避免乘法、保持整数安全（且和下面 y 的更新风格一致）。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            r += x;</span><br><span class="line">            ++x;</span><br><span class="line">            r += x;</span><br><span class="line">            ++cnt; <span class="comment">// 当前行的黑格段长度 +1</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              不能继续右移，则结束这一行的黑格段，转到下一行 y -&gt; y-1。</span></span><br><span class="line"><span class="comment">              y -&gt; y-1 时，r 增量为：</span></span><br><span class="line"><span class="comment">                (y-1)^2 - y^2 = - (2y-1)</span></span><br><span class="line"><span class="comment">              同样用两步写成 r -= y; --y; r -= y; 等价于 r -= (2y+1_old) 但注意 y 已改变。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            r -= y;</span><br><span class="line">            --y;</span><br><span class="line">            r -= y;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              newwas 决定这一行末端是否形成 double。</span></span><br><span class="line"><span class="comment">              经验上，在圆环边界上从一行切到下一行时：</span></span><br><span class="line"><span class="comment">              - 若此时 r &lt; 0，说明点落入内圆，需要做一次“对角补偿” x-&gt;x+1 拉回圆环带，</span></span><br><span class="line"><span class="comment">                此时 newwas = 0（表示没有形成两层相邻黑格的那种列结构）。</span></span><br><span class="line"><span class="comment">              - 若 r &gt;= 0，则 newwas = 1（表示形成了该 double 结构）。</span></span><br><span class="line"><span class="comment">              这套判定对应边界走法的几何性质（无须 sqrt）。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            ll newwas;</span><br><span class="line">            <span class="keyword">if</span> (r &lt; <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="comment">// 对角补偿：x -&gt; x+1，r 增量同上为 2x+1</span></span><br><span class="line">                r += x;</span><br><span class="line">                ++x;</span><br><span class="line">                r += x;</span><br><span class="line">                newwas = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                newwas = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              both = was + newwas 取值为 0/1/2，用于批量结算：</span></span><br><span class="line"><span class="comment">              - 行奇偶（由 cnt 决定）</span></span><br><span class="line"><span class="comment">              - 与列奇偶交互产生的 corr 修正</span></span><br><span class="line"><span class="comment">              - odd（奇数行/列计数）累加</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            ll both = was + newwas;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              delta = cnt - 2*both：</span></span><br><span class="line"><span class="comment">              - cnt 是当前行黑格段长度</span></span><br><span class="line"><span class="comment">              - both 反映两端是否发生 double，double 会导致“在折算到行/列奇偶时”少算/多算 1，</span></span><br><span class="line"><span class="comment">                因而在聚合中表现为对 cnt 的线性修正。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            ll delta = cnt - <span class="number">2</span> * both;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              corr 批量更新：</span></span><br><span class="line"><span class="comment">              直观理解：</span></span><br><span class="line"><span class="comment">              - 当 cnt 为奇数时，该行最终奇偶为 1，对应一类符号加法；</span></span><br><span class="line"><span class="comment">              - 当 cnt 为偶数时，该行最终奇偶为 0，对应另一类符号加法；</span></span><br><span class="line"><span class="comment">              这里把两种情况统一成：</span></span><br><span class="line"><span class="comment">                if (cnt odd)  corr +=  2*delta</span></span><br><span class="line"><span class="comment">                else          corr += -2*delta</span></span><br><span class="line"><span class="comment">              乘以 2 是因为我们只走上三角（x&lt;=y）的一半贡献，利用对称折算后会出现成对项。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            corr += (cnt &amp; <span class="number">1</span>) ? (<span class="number">2</span> * delta) : (<span class="number">-2</span> * delta);</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              odd（最终的 s）更新：</span></span><br><span class="line"><span class="comment">              odd 累加的是“行/列奇偶为 1”的数量。</span></span><br><span class="line"><span class="comment">              该聚合式来自对圆环边界结构的计数：</span></span><br><span class="line"><span class="comment">              - cnt 给出本行的黑格数</span></span><br><span class="line"><span class="comment">              - (cnt&amp;1) 与 both 共同决定本行/本列奇偶的翻转次数</span></span><br><span class="line"><span class="comment">              这里的公式：</span></span><br><span class="line"><span class="comment">                odd += cnt + (cnt&amp;1) - both</span></span><br><span class="line"><span class="comment">              是把本行结束时对“奇偶为 1”的条数贡献一次性结算。</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            odd += cnt + (cnt &amp; <span class="number">1</span>) - both;</span><br><span class="line"></span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">              准备进入下一行：</span></span><br><span class="line"><span class="comment">              - was 变成当前行末端标记，供下一次切行使用</span></span><br><span class="line"><span class="comment">              - cnt 重置为 1，从新行的第一个黑格开始数</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            was = newwas;</span><br><span class="line">            cnt = <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      收尾：处理对角线位置 x==y 的最后一个单元（或最后一段）。</span></span><br><span class="line"><span class="comment">      到了对角线时，上三角边界扫描结束，但还差最后一行/列的聚合结算。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">if</span> (x == y)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">          odd 的最后修正：</span></span><br><span class="line"><span class="comment">          - 对角线处的结构会让“是否发生 double（was）”影响最后一次奇偶计数</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        odd += <span class="number">1</span> - was;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">          corr 的最后修正：</span></span><br><span class="line"><span class="comment">          - 若 cnt&gt;1，说明对角附近这一行末尾还包含长度为 cnt 的黑格段，需要按 was 调整</span></span><br><span class="line"><span class="comment">          - 否则就是单点情形</span></span><br><span class="line"><span class="comment">          该分支对应边界在对角线附近的两种几何落点。</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; <span class="number">1</span>)</span><br><span class="line">            corr += <span class="number">4</span> * was - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            corr += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      主项：2*odd*(n-odd)</span></span><br><span class="line"><span class="comment">      - odd = s（奇数行/列数量）</span></span><br><span class="line"><span class="comment">      - 在偶数 n 情况下，最少步数的主贡献是：</span></span><br><span class="line"><span class="comment">          2*s*(n-s)</span></span><br><span class="line"><span class="comment">        （来自“行列奇偶不同”的格子数）</span></span><br><span class="line"><span class="comment">      加上 corr（来自黑格上的 ±1 修正）得到最终 T(n)。</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="keyword">return</span> corr + <span class="number">2</span> * odd * (n - odd);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">      总和：</span></span><br><span class="line"><span class="comment">        sum_&#123;i=3&#125;^&#123;31&#125; T(2^i - i)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">      其中：</span></span><br><span class="line"><span class="comment">      - i=3 -&gt; n=5，题面给出 T(5)=3</span></span><br><span class="line"><span class="comment">      - i 为奇数且 &gt;=5 时，n 为奇数且本题圆环图案不可解，T=0</span></span><br><span class="line"><span class="comment">      - 仅需计算 i 为偶数：4,6,...,30（此时 n 为偶数，且可用 T_even）</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    ll total = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">4</span>; i &lt;= N; i += <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ll n = (<span class="number">1</span> &lt;&lt; i) - i;</span><br><span class="line">        total += <span class="built_in">T_even</span>(n);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; total &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/331/" title="Project Euler 331">https://ujimatsu-chiya.github.io/project-euler/331/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

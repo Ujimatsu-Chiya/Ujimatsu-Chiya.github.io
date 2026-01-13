@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 376">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/376/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-13T15:52:57.000Z">
+<meta property="article:modified_time" content="2026-01-13T15:52:57.569Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/376/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/376/","path":"project-euler/376/","title":"Project Euler 376"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 376 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-376"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 376</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nontransitive-sets-of-dice"><span class="nav-number">1.1.1.</span> <span class="nav-text">Nontransitive sets of dice</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">727</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/376/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 376 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 376
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-13 23:52:57" itemprop="dateCreated datePublished" datetime="2026-01-13T23:52:57+08:00">2026-01-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-376">Project Euler 376</h1>
+<h2 id="题目">题目</h2>
+<h3 id="nontransitive-sets-of-dice">Nontransitive sets of dice</h3>
+<p>Consider the following set of dice with nonstandard pips:</p>
+<p>Die <span class="math inline">\(A: 144444\)</span></p>
+<p>Die <span class="math inline">\(B: 222555\)</span></p>
+<p>Die <span class="math inline">\(C: 333336\)</span></p>
+<p>A game is played by two players picking a die in turn and rolling it.
+The player who rolls the highest value wins.</p>
+<p>If the first player picks die <span class="math inline">\(A\)</span>
+and the second player picks die <span class="math inline">\(B\)</span>
+we get</p>
+<p><span class="math inline">\(P(\text{second player wins}) =
+\dfrac{7}{12} &gt; \dfrac{1}{2}\)</span></p>
+<p>If the first player picks die <span class="math inline">\(B\)</span>
+and the second player picks die <span class="math inline">\(C\)</span>
+we get</p>
+<p><span class="math inline">\(P(\text{second player wins}) =
+\dfrac{7}{12} &gt; \dfrac{1}{2}\)</span></p>
+<p>If the first player picks die <span class="math inline">\(C\)</span>
+and the second player picks die <span class="math inline">\(A\)</span>
+we get</p>
+<p><span class="math inline">\(P(\text{second player wins}) =
+\dfrac{25}{36} &gt; \dfrac{1}{2}\)</span></p>
+<p>So whatever die the first player picks, the second player can pick
+another die and have a larger than <span
+class="math inline">\(50\%\)</span> chance of winning.</p>
+<p>A set of dice having this property is called a <strong>nontransitive
+set of dice</strong>.</p>
+<p>We wish to investigate how many sets of nontransitive dice exist. We
+will assume the following conditions:</p>
+<ul>
+<li>There are three six-sided dice with each side having between <span
+class="math inline">\(1\)</span> and <span
+class="math inline">\(N\)</span> pips, inclusive.</li>
+<li>Dice with the same set of pips are equal, regardless of which side
+on the die the pips are located.</li>
+<li>The same pip value may appear on multiple dice; if both players roll
+the same value neither player wins.</li>
+<li>The sets of dice <span class="math inline">\(\{A,B,C\},
+\{B,C,A\}\)</span> and <span class="math inline">\(\{C,A,B\}\)</span>
+are the same set.</li>
+</ul>
+<p>For <span class="math inline">\(N = 7\)</span> we find there are
+<span class="math inline">\(9780\)</span> such sets.</p>
+<p>How many are there for <span class="math inline">\(N = 30\)</span>
+?</p>
+<h2 id="解决方案">解决方案</h2>
+<p>两枚六面骰 <span class="math inline">\(X,Y\)</span> 各掷一次共有
+<span class="math inline">\(36\)</span> 种等可能结果。令</p>
+<ul>
+<li><span class="math inline">\(W(Y&gt;X)\)</span>：满足 <span
+class="math inline">\(Y\)</span> 点数严格大于 <span
+class="math inline">\(X\)</span> 的结果数；</li>
+<li><span class="math inline">\(G(X\ge Y)\)</span>：满足 <span
+class="math inline">\(X\)</span> 点数大于等于 <span
+class="math inline">\(Y\)</span>（包含平局）的结果数。</li>
+</ul>
+<p>显然有恒等式<span class="math inline">\(W(Y&gt;X)+G(X\ge
+Y)=36\)</span>。题目要求“后手胜率严格大于 <span
+class="math inline">\(1/2\)</span>”等价于<span
+class="math inline">\(\dfrac{W(Y&gt;X)}{36}&gt;\dfrac12
+\Longleftrightarrow W(Y&gt;X)&gt;18 \Longleftrightarrow G(X\ge
+Y)&lt;18.\)</span></p>
+<p>对三枚骰 <span
+class="math inline">\((A,B,C)\)</span>，若无论先手选哪一枚，后手总能选另一枚使胜率
+<span class="math inline">\(&gt;1/2\)</span>，在 3
+点有向完全图中必然形成一个三环（因为“<span
+class="math inline">\(&gt;1/2\)</span>”是严格且反对称）。因此可固定方向，只统计满足<span
+class="math inline">\(P(B&gt;A)&gt;\dfrac12, P(C&gt;B)&gt;\dfrac12,
+P(A&gt;C)&gt;\dfrac12\)</span>的有序三元组 <span
+class="math inline">\((A,B,C)\)</span>，最后再除以 3
+消去循环平移等价（<span
+class="math inline">\({A,B,C}\sim{B,C,A}\sim{C,A,B}\)</span>）。</p>
+<p>利用上面的等价形式，这个方向化条件等价于三个不等式<span
+class="math inline">\(G(A\ge B)&lt;18, G(B\ge C)&lt;18, G(C\ge
+A)&lt;18.\)</span></p>
+<p>把三枚骰上出现过的所有点数去重并按从小到大排序，得到<span
+class="math inline">\(v_1&lt;v_2&lt;\cdots&lt;v_k.\)</span>接下来进行<strong>离散化</strong>：把每个取值
+<span class="math inline">\(v_t\)</span> 映射为一个等级编号 <span
+class="math inline">\(t\)</span>，也就是将所有等于 <span
+class="math inline">\(v_t\)</span> 的面统一替换为“等级” <span
+class="math inline">\(t\)</span>。这样一来，任意两面的比较结果只取决于等级之间的
+<span class="math inline">\(&lt;,=,&gt;\)</span>
+关系，而与具体数值的大小差距无关；因此诸如 <span
+class="math inline">\(G(\cdot\ge\cdot)\)</span>
+这类计数只依赖于离散化后的“等级结构”。</p>
+<p>反过来，给定一个使用了 <span class="math inline">\(k\)</span>
+个等级的结构，要恢复到原问题中的具体点数，只需从集合 <span
+class="math inline">\({1,2,\dots,N}\)</span> 中选择 <span
+class="math inline">\(k\)</span> 个严格递增的整数分别赋给等级 <span
+class="math inline">\(1,2,\dots,k\)</span>（即作为 <span
+class="math inline">\(v_1,\dots,v_k\)</span>）。这样的赋值方案数正是<span
+class="math inline">\(\dbinom{N}{k}.\)</span>因此整体计数可以表述为：对所有可行的等级结构求和，每个结构按照其使用等级数
+<span class="math inline">\(k\)</span> 贡献权重 <span
+class="math inline">\(\dbinom{N}{k}\)</span>。接下来只需设计一个 DP
+来枚举并计数所有满足三条 <span class="math inline">\(&lt;18\)</span>
+约束的等级结构，再将对应的权重累加即可。</p>
+<p>对每个等级 <span
+class="math inline">\(t\)</span>，记它在三枚骰上的出现次数为<span
+class="math inline">\((a_t,b_t,c_t), a_t,b_t,c_t\in\{0,1,\dots,6\},
+a_t+b_t+c_t\ge 1.\)</span>并满足总面数约束<span
+class="math inline">\(\displaystyle{\sum_{t=1}^k a_t=6, \sum_{t=1}^k
+b_t=6, \sum_{t=1}^k c_t=6.}\)</span></p>
+<p>我们按 <span
+class="math inline">\(t=1,2,\dots\)</span>（从最小等级到最大等级）依次决定
+<span class="math inline">\((a_t,b_t,c_t)\)</span>。</p>
+<p>定义三项“坏计数”（对应三条胜率约束）：<span class="math inline">\(L_A
+= G(C\ge A), L_B = G(A\ge B), L_C = G(B\ge C).\)</span>最终我们需要<span
+class="math inline">\(L_A&lt;18, L_B&lt;18,
+L_C&lt;18.\)</span>设在某一步之前，尚未分配等级的面数分别为<span
+class="math inline">\(a,b,c\)</span>（即将来会被赋予当前等级或更大等级的面数），并且坏计数当前为
+<span class="math inline">\((L_A,L_B,L_C)\)</span>。</p>
+<p>现在我们为“当前最小的尚未出现的等级”分配<span
+class="math inline">\((a&#39;,b&#39;,c&#39;), 0\le a&#39;\le a,0\le
+b&#39;\le b,0\le c&#39;\le c, a&#39;+b&#39;+c&#39;\ge 1.\)</span></p>
+<p>关键：由于当前等级是目前最小的等级，所有尚未分配的面将来拿到的等级都不小于当前等级，因此与当前等级面比较时必然满足未分配面
+<span class="math inline">\(\ge\)</span>
+当前等级。于是产生如下必然配对贡献：</p>
+<ul>
+<li><span class="math inline">\(L_B=G(A\ge B)\)</span>：当前新增的 <span
+class="math inline">\(b&#39;\)</span> 个 <span
+class="math inline">\(B\)</span> 面为当前等级，与所有“尚未分配的 <span
+class="math inline">\(A\)</span> 面”（数量为旧的 <span
+class="math inline">\(a\)</span>）配对都满足 <span
+class="math inline">\(A\ge B\)</span>，贡献增量 <span
+class="math inline">\(b&#39;\cdot a\)</span>。</li>
+<li><span class="math inline">\(L_C=G(B\ge C)\)</span>：增量为 <span
+class="math inline">\(c&#39;\cdot b\)</span>。</li>
+<li><span class="math inline">\(L_A=G(C\ge A)\)</span>：增量为 <span
+class="math inline">\(a&#39;\cdot c\)</span>。</li>
+</ul>
+<p>同时未分配面数更新为<span
+class="math inline">\((a,b,c)\leftarrow(a-a&#39;,b-b&#39;,c-c&#39;).\)</span></p>
+<p>最终，我们令<span
+class="math inline">\(F(k,a,b,c,L_A,L_B,L_C)\)</span>表示：已经使用了
+<span class="math inline">\(k\)</span> 个等级（已决定了前 <span
+class="math inline">\(k\)</span>
+个最小等级的分配），当前尚未分配的面数为 <span
+class="math inline">\((a,b,c)\)</span>，当前坏计数为 <span
+class="math inline">\((L_A,L_B,L_C)\)</span>
+时，从该状态继续完成所有等级分配所能得到的总贡献（即已经把最终的 <span
+class="math inline">\(\dbinom Nk\)</span>
+权重也考虑进来）。这里的“总贡献”最终会被加总得到方向化计数。</p>
+<p>那么可以写出状态转移<span
+class="math inline">\(F\)</span>的状态转移方程如下：</p>
+<p><span class="math display">\[
+F(k,a,b,c,L_A,L_B,L_C)=
+\left\{\begin{aligned}
+&amp;0
+&amp;&amp;\text{if}\quad \max\{L_A,L_B,L_C\}\ge 18 \\
+&amp;\binom{N}{k}
+&amp;&amp;\text{else if}\quad a=b=c=0 \\
+&amp;\displaystyle\sum_{\substack{0\le a&#39;\le a\\0\le b&#39;\le
+b\\0\le c&#39;\le c\\a&#39;+b&#39;+c&#39;\ge 1}}
+F(k+1,a-a&#39;,b-b&#39;,c-c&#39;,L_A+a&#39;\cdot c,L_B+b&#39;\cdot
+a,L_C+c&#39;\cdot b)
+&amp;&amp;\text{else.}
+\end{aligned}\right.
+\]</span></p>
+<p>方程第一行则表示任何一条坏计数若已达到或超过
+18，则该方向化三环不可能成立（因为坏计数只会增加不会减少）。方程第二行则表示当所有面都已分配完，说明我们已经构造出一个完整等级结构，并使用了
+<span class="math inline">\(k\)</span>
+个不同等级。该结构映射到真实点数的方式数为 <span
+class="math inline">\(\dbinom
+Nk\)</span>。第三行则表示枚举当前等级在三骰上的分配 <span
+class="math inline">\((a&#39;,b&#39;,c&#39;)\)</span>并进行转移。</p>
+<p>最终方向化计数得到￥<span
+class="math inline">\(F(0,6,6,6,0,0,0)\)</span>，把循环平移视作同一集合，因此最终答案为<span
+class="math inline">\(\dfrac{1}{3}F(0,6,6,6,0,0,0)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> comb</span><br><span class="line"></span><br><span class="line">N = <span class="number">30</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_nontransitive_sets</span>(<span class="params">N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    计算题目所求：三枚六面骰点数在 1..N 的所有非传递骰组数量，</span></span><br><span class="line"><span class="string">    其中 &#123;A,B,C&#125;、&#123;B,C,A&#125;、&#123;C,A,B&#125; 视为同一组（循环平移等价）。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 枚举分配三元组 (a&#x27;,b&#x27;,c&#x27;) 的列表：给定剩余 (a,b,c)，当前等级至少出现一次</span></span><br><span class="line">    splits = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> a <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">        <span class="keyword">for</span> b <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">                lst = []</span><br><span class="line">                <span class="keyword">for</span> aa <span class="keyword">in</span> <span class="built_in">range</span>(a + <span class="number">1</span>):</span><br><span class="line">                    <span class="keyword">for</span> bb <span class="keyword">in</span> <span class="built_in">range</span>(b + <span class="number">1</span>):</span><br><span class="line">                        <span class="keyword">for</span> cc <span class="keyword">in</span> <span class="built_in">range</span>(c + <span class="number">1</span>):</span><br><span class="line">                            <span class="keyword">if</span> aa + bb + cc &gt; <span class="number">0</span>:</span><br><span class="line">                                lst.append((aa, bb, cc))</span><br><span class="line">                splits[(a, b, c)] = lst</span><br><span class="line"></span><br><span class="line"><span class="meta">    @lru_cache(<span class="params">maxsize=<span class="literal">None</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">F</span>(<span class="params">k: <span class="built_in">int</span>, a: <span class="built_in">int</span>, b: <span class="built_in">int</span>, c: <span class="built_in">int</span>, LA: <span class="built_in">int</span>, LB: <span class="built_in">int</span>, LC: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="comment"># 剪枝：坏计数达到 18 则不可能满足严格 &gt; 1/2</span></span><br><span class="line">        <span class="keyword">if</span> LA &gt;= <span class="number">18</span> <span class="keyword">or</span> LB &gt;= <span class="number">18</span> <span class="keyword">or</span> LC &gt;= <span class="number">18</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 终止：全部分配完，贡献 C(N,k)</span></span><br><span class="line">        <span class="keyword">if</span> a + b + c == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> comb(N, k)</span><br><span class="line"></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="comment"># 转移：为“当前最小尚未出现等级”分配 (a&#x27;,b&#x27;,c&#x27;)</span></span><br><span class="line">        <span class="keyword">for</span> aa, bb, cc <span class="keyword">in</span> splits[(a, b, c)]:</span><br><span class="line">            res += F(</span><br><span class="line">                k + <span class="number">1</span>,</span><br><span class="line">                a - aa, b - bb, c - cc,</span><br><span class="line">                LA + aa * c,   <span class="comment"># L_A = G(C &gt;= A)</span></span><br><span class="line">                LB + bb * a,   <span class="comment"># L_B = G(A &gt;= B)</span></span><br><span class="line">                LC + cc * b    <span class="comment"># L_C = G(B &gt;= C)</span></span><br><span class="line">            )</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    oriented = F(<span class="number">0</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> oriented // <span class="number">3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(count_nontransitive_sets(N))</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/376/" title="Project Euler 376">https://ujimatsu-chiya.github.io/project-euler/376/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">22:47</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
