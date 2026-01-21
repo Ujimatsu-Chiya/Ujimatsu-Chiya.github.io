@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 464">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/464/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-21T11:56:26.000Z">
+<meta property="article:modified_time" content="2026-01-21T11:56:26.877Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/464/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/464/","path":"project-euler/464/","title":"Project Euler 464"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 464 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-464"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 464</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#m%C3%B6bius-function-and-intervals"><span class="nav-number">1.1.1.</span> <span class="nav-text">Möbius function and
+intervals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">773</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/464/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 464 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 464
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-21 19:56:26" itemprop="dateCreated datePublished" datetime="2026-01-21T19:56:26+08:00">2026-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-464">Project Euler 464</h1>
+<h2 id="题目">题目</h2>
+<h3 id="möbius-function-and-intervals">Möbius function and
+intervals</h3>
+<p>The <strong>Möbius function</strong>, denoted <span
+class="math inline">\(mu(n)\)</span>, is defined as:</p>
+<ul>
+<li><p><span class="math inline">\(\mu(n) = (-1)^{\omega(n)}\)</span> if
+<span class="math inline">\(n\)</span> is squarefree (where <span
+class="math inline">\(\omega(n)\)</span> is the number of distinct prime
+factors of <span class="math inline">\(n\)</span>)</p></li>
+<li><p><span class="math inline">\(\mu(n) = 0\)</span> if <span
+class="math inline">\(n\)</span> is not squarefree.</p></li>
+</ul>
+<p>Let <span class="math inline">\(P(a,b)\)</span> be the number of
+integers <span class="math inline">\(n\)</span> in the interval <span
+class="math inline">\([a,b]\)</span> such that <span
+class="math inline">\(\mu(n) = 1\)</span>.</p>
+<p>Let <span class="math inline">\(N(a,b)\)</span> be the number of
+integers <span class="math inline">\(n\)</span> in the interval <span
+class="math inline">\([a,b]\)</span> such that <span
+class="math inline">\(\mu(n) = -1\)</span>.</p>
+<p>For example, <span class="math inline">\(P(2,10) = 2\)</span> and
+<span class="math inline">\(N(2,10) = 4\)</span>.</p>
+<p>Let <span class="math inline">\(C(n)\)</span> be the number of
+integer pairs <span class="math inline">\((a,b)\)</span> such that:</p>
+<ul>
+<li><p><span class="math inline">\(1\le a\le b\le n\)</span>,</p></li>
+<li><p><span class="math inline">\(99\cdot N(a,b)\le100\cdot
+P(a,b)\)</span>, and</p></li>
+<li><p><span class="math inline">\(99\cdot P(a,b)\le100\cdot
+N(a,b)\)</span>.</p></li>
+</ul>
+<p>For example, <span class="math inline">\(C(10)=13,
+C(500)=16676\)</span> and <span
+class="math inline">\(C(10000)=20155319\)</span>.</p>
+<p>Find <span class="math inline">\(C(20000000)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令 <span
+class="math inline">\(N=20000000\)</span>。定义两个前缀函数：</p>
+<ul>
+<li><span class="math inline">\(p(m)=\#\{1\le k\le
+m:\mu(k)=1\}\)</span>，并约定 <span
+class="math inline">\(p(0)=0\)</span></li>
+<li><span class="math inline">\(n(m)=\#\{1\le k\le
+m:\mu(k)=-1\}\)</span>，并约定 <span
+class="math inline">\(n(0)=0\)</span></li>
+</ul>
+<p>则对任意区间 <span class="math inline">\([a,b]\)</span>（<span
+class="math inline">\(1\le a\le b\le N\)</span>）有：<span
+class="math inline">\(P(a,b)=p(b)-p(a-1),
+N(a,b)=n(b)-n(a-1).\)</span></p>
+<p>把题目中的两条不等式分别展开，移项后得到：</p>
+<ul>
+<li><span
+class="math inline">\(100p(b)-99n(b)\ge100p(a-1)-99n(a-1).\)</span></li>
+<li><span
+class="math inline">\(100n(b)-99p(b)\ge100n(a-1)-99p(a-1).\)</span></li>
+</ul>
+<p>因此定义两个前缀势能：<span
+class="math inline">\(X(t)=100p(t)-99n(t),
+Y(t)=100n(t)-99p(t).\)</span></p>
+<p>则区间 <span class="math inline">\([a,b]\)</span>
+同时满足两条条件，当且仅当<span class="math inline">\(X(b)\ge
+X(a-1)\land Y(b)\ge Y(a-1).\)</span></p>
+<p>把 <span class="math inline">\((a,b)\)</span> 映射成前缀端点 <span
+class="math inline">\((i,j)=(a-1,b)\)</span>，则 <span
+class="math inline">\(0\le i&lt;j\le N\)</span>，并且需要<span
+class="math inline">\(X(i)\le X(j), Y(i)\le Y(j).\)</span></p>
+<p>到这里看起来是二维偏序计数问题。</p>
+<p>对任意非负整数 <span
+class="math inline">\(P_0,N_0\)</span>（这里就是某个区间内的 <span
+class="math inline">\(P_0=P(a,b),N_0=N(a,b)\)</span>），考虑两条条件：</p>
+<ul>
+<li><span class="math inline">\(99N_0\le 100P_0\)</span></li>
+<li><span class="math inline">\(99P_0\le 100N_0\)</span></li>
+</ul>
+<p>若二者都不成立，则必须同时有严格不等式：<span
+class="math inline">\(99N_0&gt;100P_0\land 99P_0&gt;100N_0.\)</span></p>
+<p>当 <span class="math inline">\(PN&gt;0\)</span> 时，两式相乘得到<span
+class="math inline">\(9801PN&gt;10000PN,\)</span>矛盾。因此，当 <span
+class="math inline">\(PN=0\)</span> 时：</p>
+<ul>
+<li>若 <span class="math inline">\(P=0,N&gt;0\)</span>，则第二条 <span
+class="math inline">\(99P\le 100N\)</span> 必成立；</li>
+<li>若 <span class="math inline">\(N=0,P&gt;0\)</span>，则第一条 <span
+class="math inline">\(99N\le 100P\)</span> 必成立；</li>
+<li>若 <span class="math inline">\(P=N=0\)</span>，两条都成立。</li>
+</ul>
+<p>因此对每个区间 <span
+class="math inline">\([a,b]\)</span>，两条条件中<strong>至少有一条</strong>成立。设</p>
+<ul>
+<li><span class="math inline">\(I_1(a,b)\)</span>
+为第一条是否成立的指示变量（成立为 <span
+class="math inline">\(1\)</span>，否则为 <span
+class="math inline">\(0\)</span>）</li>
+<li><span class="math inline">\(I_2(a,b)\)</span>
+为第二条是否成立的指示变量</li>
+</ul>
+<p>则对任意区间都有 <span class="math inline">\(I_1+I_2\ge
+1\)</span>，并且：</p>
+<ul>
+<li>当且仅当两条都成立时，<span
+class="math inline">\(I_1+I_2-1=1\)</span></li>
+<li>若恰有一条成立，则 <span
+class="math inline">\(I_1+I_2-1=0\)</span></li>
+</ul>
+<p>于是</p>
+<p><span class="math display">\[
+C(N)=\sum_{1\le a\le b\le N}\bigl(I_1(a,b)+I_2(a,b)-1\bigr)
+= C_1(N)+C_2(N)-\frac{N(N+1)}2,
+\]</span></p>
+<p>其中</p>
+<ul>
+<li><span class="math inline">\(C_1(N)=\#\{(a,b):99N(a,b)\le
+100P(a,b)\}\)</span></li>
+<li><span class="math inline">\(C_2(N)=\#\{(a,b):99P(a,b)\le
+100N(a,b)\}\)</span></li>
+</ul>
+<p>也就是说，只要分别统计单条不等式成立的区间数，再减去总区间数即可。</p>
+<p>接下来针对单条不等式进行统计，变成一维前缀非逆序对计数。以第一条为例，等价于<span
+class="math inline">\(X(b)-X(a-1)=100P(a,b)-99N(a,b)\ge
+0\Longleftrightarrow X(a-1)\le X(b).\)</span></p>
+<p>所以 <span class="math inline">\(C_1(N)\)</span> 等于前缀序列 <span
+class="math inline">\(X(0),X(1),\dots,X(N)\)</span> 中满足<span
+class="math inline">\(0\le i&lt;j\le N, X(i)\le
+X(j)\)</span>的配对数量。</p>
+<p>这就是经典的统计非逆序对（等价于总对数减逆序对数）。做法是按时间顺序扫描
+<span class="math inline">\(j\)</span>，维护一个数据结构，支持：</p>
+<ul>
+<li>插入已出现的 <span class="math inline">\(X(i)\)</span></li>
+<li>查询已出现的值中 <span class="math inline">\(\le X(j)\)</span>
+的个数</li>
+</ul>
+<p>用树状数组在离散化后的坐标上即可做到 <span
+class="math inline">\(O(\log M)\)</span> 每次。</p>
+<p>第二条同理，只是把序列换成 <span
+class="math inline">\(Y(t)\)</span>。</p>
+<p>我们无需显式存 <span
+class="math inline">\(p(t),n(t)\)</span>以获得序列<span
+class="math inline">\(X(t),Y(t)\)</span>。只需按 <span
+class="math inline">\(\mu(t)\)</span> 更新即可：</p>
+<ul>
+<li>若 <span class="math inline">\(\mu(t)=1\)</span>：<span
+class="math inline">\(p\)</span> 增 <span
+class="math inline">\(1\)</span>，所以 <span
+class="math inline">\(X\)</span> 增 <span
+class="math inline">\(100\)</span>，<span
+class="math inline">\(Y\)</span> 减 <span
+class="math inline">\(99\)</span></li>
+<li>若 <span class="math inline">\(\mu(t)=-1\)</span>：<span
+class="math inline">\(n\)</span> 增 <span
+class="math inline">\(1\)</span>，所以 <span
+class="math inline">\(X\)</span> 减 <span
+class="math inline">\(99\)</span>，<span
+class="math inline">\(Y\)</span> 增 <span
+class="math inline">\(100\)</span></li>
+<li>若 <span class="math inline">\(\mu(t)=0\)</span>：都不变</li>
+</ul>
+<p>因此扫描 <span class="math inline">\(t=1\ldots N\)</span>
+就能递推得到整个步行轨迹，并顺便得到其最小/最大值用于坐标平移。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 0-index Fenwick (BIT) for counts</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Fenwick</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    vector&lt;<span class="type">uint32_t</span>&gt; bit; <span class="comment">// counts fit in 32-bit (&lt;= N+1)</span></span><br><span class="line">    <span class="built_in">Fenwick</span>(<span class="type">int</span> n_ = <span class="number">0</span>) : <span class="built_in">n</span>(n_), <span class="built_in">bit</span>(n_, <span class="number">0</span>) &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> i, <span class="type">uint32_t</span> v = <span class="number">1</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (i &lt; n)</span><br><span class="line">        &#123;</span><br><span class="line">            bit[i] += v;</span><br><span class="line">            i |= i + <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">inline</span> <span class="type">uint64_t</span> <span class="title">sumPrefix</span><span class="params">(<span class="type">int</span> i)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123; <span class="comment">// sum [0..i]</span></span><br><span class="line">        <span class="type">uint64_t</span> s = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (i &gt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            s += bit[i];</span><br><span class="line">            i = (i &amp; (i + <span class="number">1</span>)) - <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="type">static</span> <span class="type">const</span> <span class="type">int</span> N = <span class="number">20000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Linear sieve for Möbius mu[0..N], mu in &#123;-1,0,1&#125;</span></span><br><span class="line"><span class="function"><span class="type">static</span> vector&lt;<span class="type">int8_t</span>&gt; <span class="title">mobius_sieve</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int8_t</span>&gt; <span class="title">mu</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">lp</span><span class="params">(n + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; primes;</span><br><span class="line">    primes.<span class="built_in">reserve</span>(n / <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    mu[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (n &gt;= <span class="number">1</span>)</span><br><span class="line">        mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (lp[i] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            lp[i] = i;</span><br><span class="line">            primes.<span class="built_in">push_back</span>(i);</span><br><span class="line">            mu[i] = <span class="number">-1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> li = lp[i];</span><br><span class="line">        <span class="type">int8_t</span> mi = mu[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> p : primes)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">long</span> <span class="type">long</span> ip = <span class="number">1LL</span> * i * p;</span><br><span class="line">            <span class="keyword">if</span> (ip &gt; n)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            lp[(<span class="type">int</span>)ip] = p;</span><br><span class="line">            <span class="keyword">if</span> (p == li)</span><br><span class="line">            &#123;</span><br><span class="line">                mu[(<span class="type">int</span>)ip] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                mu[(<span class="type">int</span>)ip] = (<span class="type">int8_t</span>)(-mi);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> mu;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Walk to get min/max of prefix with step sizes for mu==1 and mu==-1</span></span><br><span class="line"><span class="function"><span class="type">static</span> pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt; <span class="title">walk_range</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int8_t</span>&gt; &amp;mu, <span class="type">int</span> n, <span class="type">int</span> d_pos, <span class="type">int</span> d_neg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>, mn = <span class="number">0</span>, mx = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> t = <span class="number">1</span>; t &lt;= n; ++t)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int8_t</span> m = mu[t];</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">1</span>)</span><br><span class="line">            x += d_pos;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (m == <span class="number">-1</span>)</span><br><span class="line">            x += d_neg;</span><br><span class="line">        mn = <span class="built_in">min</span>(mn, x);</span><br><span class="line">        mx = <span class="built_in">max</span>(mx, x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> &#123;mn, mx&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Count pairs (i,j), 0&lt;=i&lt;j&lt;=n, X(i) &lt;= X(j)</span></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="type">uint64_t</span> <span class="title">count_prefix_pairs</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int8_t</span>&gt; &amp;mu, <span class="type">int</span> n, <span class="type">int</span> d_pos, <span class="type">int</span> d_neg)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> [mn, mx] = <span class="built_in">walk_range</span>(mu, n, d_pos, d_neg);</span><br><span class="line">    <span class="type">int</span> size = mx - mn + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Fenwick <span class="title">fw</span><span class="params">(size)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> x = <span class="number">0</span>;</span><br><span class="line">    <span class="type">uint64_t</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// prefixes t=0..n</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> t = <span class="number">0</span>; t &lt;= n; ++t)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> idx = x - mn;</span><br><span class="line">        ans += fw.<span class="built_in">sumPrefix</span>(idx); <span class="comment">// count previous i &lt; t with X(i) &lt;= X(t)</span></span><br><span class="line">        fw.<span class="built_in">add</span>(idx, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (t == n)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="type">int8_t</span> m = mu[t + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (m == <span class="number">1</span>)</span><br><span class="line">            x += d_pos;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (m == <span class="number">-1</span>)</span><br><span class="line">            x += d_neg;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> mu = <span class="built_in">mobius_sieve</span>(N);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// C1: 99*N(a,b) &lt;= 100*P(a,b)  &lt;=&gt;  X(b) &gt;= X(a-1)</span></span><br><span class="line">    <span class="comment">// X step: mu==1 =&gt; +100, mu==-1 =&gt; -99</span></span><br><span class="line">    <span class="type">uint64_t</span> C1 = <span class="built_in">count_prefix_pairs</span>(mu, N, <span class="number">+100</span>, <span class="number">-99</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// C2: 99*P(a,b) &lt;= 100*N(a,b)  &lt;=&gt;  Y(b) &gt;= Y(a-1)</span></span><br><span class="line">    <span class="comment">// Y step: mu==1 =&gt; -99, mu==-1 =&gt; +100</span></span><br><span class="line">    <span class="type">uint64_t</span> C2 = <span class="built_in">count_prefix_pairs</span>(mu, N, <span class="number">-99</span>, <span class="number">+100</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">uint64_t</span> total = <span class="number">1ULL</span> * N * (N + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">    <span class="type">uint64_t</span> ans = C1 + C2 - total;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/464/" title="Project Euler 464">https://ujimatsu-chiya.github.io/project-euler/464/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.7m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">25:03</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

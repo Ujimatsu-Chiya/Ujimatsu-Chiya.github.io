@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 829">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/829/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0829_example1.jpg">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0829_example2.jpg">
+<meta property="article:published_time" content="2026-01-21T11:57:09.000Z">
+<meta property="article:modified_time" content="2026-01-21T11:57:09.913Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0829_example1.jpg">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/829/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/829/","path":"project-euler/829/","title":"Project Euler 829"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 829 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-829"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 829</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#integral-fusion"><span class="nav-number">1.1.1.</span> <span class="nav-text">Integral Fusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">773</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/829/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 829 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 829
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-21 19:57:09" itemprop="dateCreated datePublished" datetime="2026-01-21T19:57:09+08:00">2026-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-829">Project Euler 829</h1>
+<h2 id="题目">题目</h2>
+<h3 id="integral-fusion">Integral Fusion</h3>
+<p>Given any integer <span class="math inline">\(n&gt;1\)</span> a
+<em>binary factor tree</em> <span class="math inline">\(T(n)\)</span> is
+defined to be:</p>
+<ul>
+<li>A tree with the single node <span class="math inline">\(n\)</span>
+when <span class="math inline">\(n\)</span> is prime.</li>
+<li>A binary tree that has root node <span
+class="math inline">\(n\)</span>, left subtree <span
+class="math inline">\(T(a)\)</span> and right subtree <span
+class="math inline">\(T(b)\)</span>, when <span
+class="math inline">\(n\)</span> is not prime. Here <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> are positive integers such that <span
+class="math inline">\(n = ab\)</span>, <span class="math inline">\(a\le
+b\)</span> and <span class="math inline">\(b-a\)</span> is the
+smallest.</li>
+</ul>
+<p>For example <span class="math inline">\(T(20)\)</span>:</p>
+<p><img data-src="../resources/images/0829_example1.jpg" /></p>
+<p>We define <span class="math inline">\(M(n)\)</span> to be the
+smallest number that has a factor tree identical in shape to the factor
+tree for <span class="math inline">\(n!!\)</span>, the <strong>double
+factorial</strong> of <span class="math inline">\(n\)</span>.</p>
+<p>For example, consider <span class="math inline">\(9!! = 9\times
+7\times 5\times 3\times 1 = 945\)</span>. The factor tree for <span
+class="math inline">\(945\)</span> is shown below together with the
+factor tree for <span class="math inline">\(72\)</span> which is the
+smallest number that has a factor tree of the same shape. Hence <span
+class="math inline">\(M(9) = 72\)</span>.</p>
+<p><img data-src="../resources/images/0829_example2.jpg" /></p>
+<p>Find <span class="math inline">\(\displaystyle\sum_{n=2}^{31}
+M(n)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=31\)</span>。对任意合数 <span
+class="math inline">\(x\)</span>，题目要求在所有 <span
+class="math inline">\(x=ab\)</span>（<span class="math inline">\(a\le
+b\)</span>）的分解中选择使 <span class="math inline">\(b-a\)</span>
+最小的一组。记<span class="math inline">\(f(x)=\max\{d: d\mid x,d\le
+\sqrt{x}\}.\)</span>也就是 <span class="math inline">\(x\)</span> 在
+<span class="math inline">\(\sqrt{x}\)</span> 以下最大的因子。</p>
+<p>下面证明：题目的分解必然取 <span
+class="math inline">\((a,b)=(f(x),x/f(x))\)</span>。</p>
+<p>对每个 <span class="math inline">\(d\mid x\)</span> 且 <span
+class="math inline">\(d\le \sqrt{x}\)</span>，对应的配对因子是 <span
+class="math inline">\(x/d\ge \sqrt{x}\)</span>，差值为<span
+class="math inline">\(\Delta(d)=\frac{x}{d}-d.\)</span>在 <span
+class="math inline">\(d&gt;0\)</span> 上，<span
+class="math inline">\(\Delta&#39;(d)=-\frac{x}{d^2}-1&lt;0,\)</span>因此
+<span class="math inline">\(\Delta(d)\)</span> 随 <span
+class="math inline">\(d\)</span> 的增大严格下降。所以在所有可行的 <span
+class="math inline">\(d\le \sqrt{x}\)</span>
+中，<strong>差值最小</strong>当且仅当 <span
+class="math inline">\(d\)</span> 最大，即 <span
+class="math inline">\(d=f(x)\)</span>。</p>
+<p>结论：对任意合数 <span
+class="math inline">\(x\)</span>，因子树根节点的划分唯一确定为<span
+class="math inline">\(x = f(x)\cdot \dfrac{x}{f(x)}.\)</span></p>
+<p>由于我们只关心树形，不关心每个结点的数值。最方便的做法是把形状递归编码为一个类型：叶子（素数结点）形状记为
+<span class="math inline">\(0\)</span>；非叶子结点形状记为有序对 <span
+class="math inline">\((L,R)\)</span>，其中 <span
+class="math inline">\(L\)</span>、<span class="math inline">\(R\)</span>
+分别是左右子树形状。这样，两个数的因子树形状相同，当且仅当它们得到的形状编码完全一致。</p>
+<p>设某个形状为 <span class="math inline">\(S\)</span>，那么：</p>
+<ul>
+<li>若 <span class="math inline">\(S\)</span>
+是叶子，则所有满足该形状的数只能是素数；</li>
+<li>若 <span class="math inline">\(S=(S_L,S_R)\)</span>，那么某个整数
+<span class="math inline">\(X\)</span> 的根要拆成 <span
+class="math inline">\(X=uv\)</span>，并且必须满足：<span
+class="math inline">\(T(u)\)</span> 的形状是 <span
+class="math inline">\(S_L\)</span>；<span
+class="math inline">\(T(v)\)</span> 的形状是 <span
+class="math inline">\(S_R\)</span>；<span class="math inline">\(u\le
+v\)</span>；根的拆分必须由规则选中，即<span
+class="math inline">\(u=f(X).\)</span></li>
+</ul>
+<p>因此，对形状 <span class="math inline">\(S=(S_L,S_R)\)</span>
+的所有候选根值集合可以写成 <span class="math inline">\(\{uv \mid u\in
+\mathcal{A}(S_L),v\in \mathcal{A}(S_R),u\le v,f(uv)=u\},\)</span> 其中
+<span class="math inline">\(\mathcal{A}(S)\)</span> 表示形状为 <span
+class="math inline">\(S\)</span> 的所有可能取值集合。</p>
+<p>我们要求的是每个 <span class="math inline">\(n\)</span> 的根形状
+<span class="math inline">\(S(n!!)\)</span> 的最小可行值，即<span
+class="math inline">\(M(n) = \min\{\mathcal{A}(S(n!!))\}.\)</span></p>
+<p>直接生成 <span class="math inline">\(\mathcal{A}(S)\)</span>
+的全部元素不可行，因此只生成从小到大的前若干项，直到拿到最小值即可。基本思想是用优先队列按从小到大“流式生成”候选值。</p>
+<p>因此，对每个形状 <span
+class="math inline">\(S\)</span>，维护一个生成器流按升序输出合法的候选数。叶子流会按升序输出素数
+<span class="math inline">\(2,3,5,\dots\)</span>；那么对于内部形状 <span
+class="math inline">\(S=(S_L,S_R)\)</span>： * 左右子形状分别有升序流
+<span class="math inline">\(\mathcal{S}(S_L),\mathcal{S}(S_R)\)</span>；
+* 候选根值来自所有乘积 <span class="math inline">\(u_i
+v_j\)</span>（类似一个乘法矩阵），用最小堆做多路归并； *
+每弹出最小乘积就测试是否满足 <span
+class="math inline">\(f(u_iv_j)=u_i\)</span>，满足则作为该形状的下一个输出。</p>
+<p>这相当于按值域最小优先地搜索每个形状下可行的根值。</p>
+<p>设当前试图用 <span class="math inline">\((u,v)\)</span>
+作为根的左右因子，其中 <span class="math inline">\(p\)</span> 是 <span
+class="math inline">\(v\)</span> 的最小质因子。若<span
+class="math inline">\(v\ge u p^2,\)</span>则 <span
+class="math inline">\(up \le \sqrt{uv}\)</span>，并且 <span
+class="math inline">\(up\mid uv\)</span> 且 <span
+class="math inline">\(up&gt;u\)</span>，这说明 <span
+class="math inline">\(u\)</span> 不可能是 <span
+class="math inline">\(\sqrt{uv}\)</span> 以下最大的因子，从而不可能有
+<span
+class="math inline">\(f(uv)=u\)</span>，可以直接跳过。这个剪枝能显著减少真正需要计算
+<span class="math inline">\(f(uv)\)</span> 的次数。</p>
+<p>可见，<span
+class="math inline">\(N!!\)</span>的因子个数不大，于是可以递归枚举全部约数，并取其中满足
+<span class="math inline">\(d\le\sqrt{x}\)</span> 的最大者，即得到 <span
+class="math inline">\(f(x)\)</span>。再配合缓存即可非常快。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappop, heappush</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> int_sqrt, Factorizer</span><br><span class="line"></span><br><span class="line">N = <span class="number">31</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">sieve</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">    bs = [<span class="literal">True</span>] * (n + <span class="number">1</span>)</span><br><span class="line">    bs[<span class="number">0</span>] = bs[<span class="number">1</span>] = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="built_in">int</span>(n**<span class="number">0.5</span>) + <span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> bs[i]:</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i * i, n + <span class="number">1</span>, i):</span><br><span class="line">                bs[j] = <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> [i <span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">enumerate</span>(bs) <span class="keyword">if</span> v]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">factorizer = Factorizer(N)</span><br><span class="line">leaf_primes = factorizer.primes</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">double_factorial_fac</span>(<span class="params">n: <span class="built_in">int</span></span>):</span><br><span class="line">     fac = &#123;&#125;</span><br><span class="line">     <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n,<span class="number">1</span>,-<span class="number">2</span>):</span><br><span class="line">         <span class="keyword">for</span> p,e <span class="keyword">in</span> factorizer.factor_small(k):</span><br><span class="line">             fac[p] = fac.get(p,<span class="number">0</span>)+e</span><br><span class="line">     <span class="keyword">return</span> fac</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">fac_to_tuple</span>(<span class="params">fac: <span class="built_in">dict</span></span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">tuple</span>(<span class="built_in">sorted</span>(fac.items()))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">compute_val_from_fac</span>(<span class="params">fac: <span class="built_in">dict</span></span>):</span><br><span class="line">    v = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> fac.items():</span><br><span class="line">        v *= p**e</span><br><span class="line">    <span class="keyword">return</span> v</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache(<span class="params">maxsize=<span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">psr_from_fac</span>(<span class="params">val: <span class="built_in">int</span>, fac_tup: <span class="built_in">tuple</span></span>):</span><br><span class="line">    fac = <span class="built_in">dict</span>(fac_tup)</span><br><span class="line">    lim = <span class="built_in">int</span>(int_sqrt(val))</span><br><span class="line">    items = <span class="built_in">list</span>(fac.items())</span><br><span class="line">    best = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">i: <span class="built_in">int</span>, cur: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="keyword">nonlocal</span> best</span><br><span class="line">        <span class="keyword">if</span> cur &gt; lim:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> i == <span class="built_in">len</span>(items):</span><br><span class="line">            <span class="keyword">if</span> cur &gt; best:</span><br><span class="line">                best = cur</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        p, e = items[i]</span><br><span class="line">        v = <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(e + <span class="number">1</span>):</span><br><span class="line">            dfs(i + <span class="number">1</span>, cur * v)</span><br><span class="line">            v *= p</span><br><span class="line"></span><br><span class="line">    dfs(<span class="number">0</span>, <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> best</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">shape_map = &#123;<span class="literal">None</span>: <span class="number">0</span>&#125;</span><br><span class="line">shape_children = &#123;<span class="number">0</span>: <span class="literal">None</span>&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache(<span class="params">maxsize=<span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">shape_id_from_fac</span>(<span class="params">val: <span class="built_in">int</span>, fac_tup: <span class="built_in">tuple</span></span>):</span><br><span class="line">    fac = <span class="built_in">dict</span>(fac_tup)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(fac) == <span class="number">1</span>:</span><br><span class="line">        (p, e), = fac.items()</span><br><span class="line">        <span class="keyword">if</span> e == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    a = psr_from_fac(val, fac_tup)</span><br><span class="line">    b = val // a</span><br><span class="line"></span><br><span class="line">    fa = &#123;&#125;</span><br><span class="line">    x = a</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">sorted</span>(fac.keys()):</span><br><span class="line">        <span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        ee = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> ee &lt; fac[p] <span class="keyword">and</span> x % p == <span class="number">0</span>:</span><br><span class="line">            x //= p</span><br><span class="line">            ee += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> ee:</span><br><span class="line">            fa[p] = ee</span><br><span class="line"></span><br><span class="line">    fb = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> fac.items():</span><br><span class="line">        r = e - fa.get(p, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> r:</span><br><span class="line">            fb[p] = r</span><br><span class="line"></span><br><span class="line">    ida = shape_id_from_fac(a, fac_to_tuple(fa))</span><br><span class="line">    idb = shape_id_from_fac(b, fac_to_tuple(fb))</span><br><span class="line">    key = (ida, idb)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> shape_map:</span><br><span class="line">        shape_map[key] = <span class="built_in">len</span>(shape_map)</span><br><span class="line">        shape_children[shape_map[key]] = key</span><br><span class="line">    <span class="keyword">return</span> shape_map[key]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">traverse</span>(<span class="params">val: <span class="built_in">int</span>, fac: <span class="built_in">dict</span>, limits: <span class="built_in">dict</span></span>):</span><br><span class="line">    sid = shape_id_from_fac(val, fac_to_tuple(fac))</span><br><span class="line">    limits[sid] = <span class="built_in">max</span>(limits.get(sid, <span class="number">0</span>), val)</span><br><span class="line">    ch = shape_children[sid]</span><br><span class="line">    <span class="keyword">if</span> ch <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    a = psr_from_fac(val, fac_to_tuple(fac))</span><br><span class="line">    b = val // a</span><br><span class="line"></span><br><span class="line">    fa = &#123;&#125;</span><br><span class="line">    x = a</span><br><span class="line">    <span class="keyword">for</span> p <span class="keyword">in</span> <span class="built_in">sorted</span>(fac.keys()):</span><br><span class="line">        <span class="keyword">if</span> x == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        ee = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> ee &lt; fac[p] <span class="keyword">and</span> x % p == <span class="number">0</span>:</span><br><span class="line">            x //= p</span><br><span class="line">            ee += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> ee:</span><br><span class="line">            fa[p] = ee</span><br><span class="line"></span><br><span class="line">    fb = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> fac.items():</span><br><span class="line">        r = e - fa.get(p, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> r:</span><br><span class="line">            fb[p] = r</span><br><span class="line"></span><br><span class="line">    traverse(a, fa, limits)</span><br><span class="line">    traverse(b, fb, limits)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@lru_cache(<span class="params">maxsize=<span class="literal">None</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">merge_fac_tup</span>(<span class="params">a: <span class="built_in">tuple</span>, b: <span class="built_in">tuple</span></span>):</span><br><span class="line">    da = <span class="built_in">dict</span>(a)</span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> b:</span><br><span class="line">        da[p] = da.get(p, <span class="number">0</span>) + e</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">tuple</span>(<span class="built_in">sorted</span>(da.items()))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Stream</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, sid: <span class="built_in">int</span>, streams: <span class="built_in">dict</span>, limits: <span class="built_in">dict</span></span>):</span><br><span class="line">        <span class="variable language_">self</span>.sid = sid</span><br><span class="line">        <span class="variable language_">self</span>.streams = streams</span><br><span class="line">        <span class="variable language_">self</span>.ch = shape_children[sid]</span><br><span class="line">        <span class="variable language_">self</span>.limit = limits.get(sid, <span class="number">0</span>)</span><br><span class="line">        <span class="variable language_">self</span>.vals = []</span><br><span class="line">        <span class="variable language_">self</span>.facs = []</span><br><span class="line">        <span class="variable language_">self</span>.smpfs = []</span><br><span class="line">        <span class="variable language_">self</span>.heap = []</span><br><span class="line">        <span class="variable language_">self</span>.seen = <span class="built_in">set</span>()</span><br><span class="line">        <span class="variable language_">self</span>.row_start = &#123;&#125;</span><br><span class="line">        <span class="variable language_">self</span>.inited = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.ch <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">for</span> p <span class="keyword">in</span> leaf_primes:</span><br><span class="line">                <span class="keyword">if</span> <span class="variable language_">self</span>.limit <span class="keyword">and</span> p &gt; <span class="variable language_">self</span>.limit:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">                <span class="variable language_">self</span>.vals.append(p)</span><br><span class="line">                <span class="variable language_">self</span>.facs.append(((p, <span class="number">1</span>),))</span><br><span class="line">                <span class="variable language_">self</span>.smpfs.append(p)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">at</span>(<span class="params">self, idx: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.ch <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">if</span> idx &lt; <span class="built_in">len</span>(<span class="variable language_">self</span>.vals):</span><br><span class="line">                <span class="keyword">return</span> <span class="variable language_">self</span>.vals[idx], <span class="variable language_">self</span>.facs[idx], <span class="variable language_">self</span>.smpfs[idx]</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> idx &gt;= <span class="built_in">len</span>(<span class="variable language_">self</span>.vals):</span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>._gen_next():</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.vals[idx], <span class="variable language_">self</span>.facs[idx], <span class="variable language_">self</span>.smpfs[idx]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_push</span>(<span class="params">self, lidx: <span class="built_in">int</span>, ridx: <span class="built_in">int</span></span>):</span><br><span class="line">        key = (lidx, ridx)</span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> <span class="variable language_">self</span>.seen:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        L, R = <span class="variable language_">self</span>.ch</span><br><span class="line">        l = <span class="variable language_">self</span>.streams[L].at(lidx)</span><br><span class="line">        r = <span class="variable language_">self</span>.streams[R].at(ridx)</span><br><span class="line">        <span class="keyword">if</span> l <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> r <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        lv, lf, ls = l</span><br><span class="line">        rv, rf, rs = r</span><br><span class="line">        <span class="keyword">if</span> lv &gt; rv:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        prod = lv * rv</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.limit <span class="keyword">and</span> prod &gt; <span class="variable language_">self</span>.limit:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="variable language_">self</span>.seen.add(key)</span><br><span class="line">        heappush(<span class="variable language_">self</span>.heap, (prod, lidx, ridx))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_start_row</span>(<span class="params">self, l_idx: <span class="built_in">int</span></span>):</span><br><span class="line">        L, R = <span class="variable language_">self</span>.ch</span><br><span class="line">        l = <span class="variable language_">self</span>.streams[L].at(l_idx)</span><br><span class="line">        <span class="keyword">if</span> l <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        lv, _, _ = l</span><br><span class="line">        r_idx = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            r = <span class="variable language_">self</span>.streams[R].at(r_idx)</span><br><span class="line">            <span class="keyword">if</span> r <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            rv, _, _ = r</span><br><span class="line">            <span class="keyword">if</span> rv &gt;= lv:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            r_idx += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> L == R <span class="keyword">and</span> r_idx &lt; l_idx:</span><br><span class="line">            r_idx = l_idx</span><br><span class="line">        <span class="variable language_">self</span>.row_start[l_idx] = r_idx</span><br><span class="line">        <span class="variable language_">self</span>._push(l_idx, r_idx)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_ensure_init</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.inited:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="variable language_">self</span>.inited = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.streams[<span class="variable language_">self</span>.ch[<span class="number">0</span>]].at(<span class="number">0</span>) <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> <span class="variable language_">self</span>.streams[<span class="variable language_">self</span>.ch[<span class="number">1</span>]].at(<span class="number">0</span>) <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="variable language_">self</span>._start_row(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_gen_next</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="variable language_">self</span>._ensure_init()</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.heap:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        prod, lidx, ridx = heappop(<span class="variable language_">self</span>.heap)</span><br><span class="line">        L, R = <span class="variable language_">self</span>.ch</span><br><span class="line">        l = <span class="variable language_">self</span>.streams[L].at(lidx)</span><br><span class="line">        r = <span class="variable language_">self</span>.streams[R].at(ridx)</span><br><span class="line">        <span class="keyword">if</span> l <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> r <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        lv, lf, ls = l</span><br><span class="line">        rv, rf, rs = r</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>._push(lidx, ridx + <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> ridx == <span class="variable language_">self</span>.row_start.get(lidx, <span class="literal">None</span>):</span><br><span class="line">            <span class="variable language_">self</span>._start_row(lidx + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> rv &gt;= lv * (rs * rs):</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        ft = merge_fac_tup(lf, rf)</span><br><span class="line">        <span class="keyword">if</span> psr_from_fac(prod, ft) != lv:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.vals.append(prod)</span><br><span class="line">        <span class="variable language_">self</span>.facs.append(ft)</span><br><span class="line">        <span class="variable language_">self</span>.smpfs.append(ls <span class="keyword">if</span> ls &lt; rs <span class="keyword">else</span> rs)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">limits = &#123;&#125;</span><br><span class="line">root_shape = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    fac = double_factorial_fac(n)</span><br><span class="line">    val = compute_val_from_fac(fac)</span><br><span class="line">    traverse(val, fac, limits)</span><br><span class="line">    root_shape[n] = shape_id_from_fac(val, fac_to_tuple(fac))</span><br><span class="line"></span><br><span class="line">streams = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> sid <span class="keyword">in</span> shape_children:</span><br><span class="line">    streams[sid] = Stream(sid, streams, limits)</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> n <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">    sid = root_shape[n]</span><br><span class="line">    ans += streams[sid].at(<span class="number">0</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="built_in">print</span>(ans)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/829/" title="Project Euler 829">https://ujimatsu-chiya.github.io/project-euler/829/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.7m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">25:03</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

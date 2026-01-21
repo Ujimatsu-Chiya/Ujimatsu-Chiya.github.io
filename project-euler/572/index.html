@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 572">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/572/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-21T11:56:32.000Z">
+<meta property="article:modified_time" content="2026-01-21T11:56:32.776Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/572/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/572/","path":"project-euler/572/","title":"Project Euler 572"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 572 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-572"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 572</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#idempotent-matrices"><span class="nav-number">1.1.1.</span> <span class="nav-text">Idempotent matrices</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#xyzne-0%E9%80%9A%E7%94%A8%E6%83%85%E5%BD%A2"><span class="nav-number">1.2.1.</span> <span class="nav-text">\(xyz\ne
+0\)（通用情形）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z0%E6%81%B0%E6%9C%89%E4%B8%80%E4%B8%AA%E4%B8%BA%E9%9B%B6"><span class="nav-number">1.2.2.</span> <span class="nav-text">\(z&#x3D;0\)（恰有一个为零）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#bc0"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">\(b&#x3D;c&#x3D;0\)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#dg0-%E4%B8%94-bne-0"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">\(d&#x3D;g&#x3D;0\) 且
+\(b\ne 0\)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#x0y0zne-0%E6%81%B0%E6%9C%89%E4%B8%A4%E4%B8%AA%E4%B8%BA%E9%9B%B6"><span class="nav-number">1.2.3.</span> <span class="nav-text">\(x&#x3D;0,y&#x3D;0,z\ne
+0\)（恰有两个为零）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">773</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/572/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 572 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 572
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-21 19:56:32" itemprop="dateCreated datePublished" datetime="2026-01-21T19:56:32+08:00">2026-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-572">Project Euler 572</h1>
+<h2 id="题目">题目</h2>
+<h3 id="idempotent-matrices">Idempotent matrices</h3>
+<p>A matrix <span class="math inline">\(M\)</span> is called idempotent
+if <span class="math inline">\(M^2 = M\)</span>.</p>
+<p>Let <span class="math inline">\(M\)</span> be a three by three matrix
+:</p>
+<p><span class="math inline">\(M=\begin{pmatrix}
+  a &amp; b &amp; c\
+  d &amp; e &amp; f\\
+  g &amp; h &amp;i\\
+\end{pmatrix}\)</span>.</p>
+<p>Let <span class="math inline">\(C(n)\)</span> be the number of
+idempotent three by three matrices <span
+class="math inline">\(M\)</span> with integer elements such that</p>
+<p><span class="math inline">\(-n \le a,b,c,d,e,f,g,h,i \le
+n\)</span>.</p>
+<p><span class="math inline">\(C(1)=164\)</span> and <span
+class="math inline">\(C(2)=848\)</span>.</p>
+<p>Find <span class="math inline">\(C(200)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>直接计算 <span class="math inline">\(M^2\)</span> 并与 <span
+class="math inline">\(M\)</span> 对应元素相等，得到 9 条二次方程：</p>
+<p><strong>对角线 3 条：</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+a^2+bd+cg &amp;= a,\\
+e^2+bd+fh &amp;= e,\\
+i^2+cg+fh &amp;= i.
+\end{aligned}
+\]</span></p>
+<p><strong>非对角线 6 条：</strong></p>
+<p><span class="math display">\[
+\begin{aligned}
+ab+be+ch = b,ac+bf+ci = c,da+ed+fg = d,\\
+dc+ef+fi = f,ga+hd+ig = g,gb+he+ih = h.
+\end{aligned}
+\]</span></p>
+<p>令<span class="math inline">\(A=a-a^2, E=e-e^2, I=i-i^2.\)</span></p>
+<p>则对角线三式等价于线性系统：<span class="math inline">\(bd+cg =
+A,bd+fh = E,cg+fh= I.\)</span></p>
+<p>解得：<span class="math inline">\(bd = \dfrac{A+E-I}{2},cg =
+\dfrac{A+I-E}{2},fh = \dfrac{E+I-A}{2}.\)</span></p>
+<p>因此若 <span class="math inline">\(A+E+I\)</span> 为奇数，则 <span
+class="math inline">\(bd,cg,fh\)</span> 不是整数，直接无解。</p>
+<p>定义三个乘子：<span class="math inline">\(x=1-a-e, y=1-a-i,
+z=1-e-i.\)</span>把 6
+条非对角线方程移项后，可以整理成非常对称的形式：</p>
+<p><span class="math display">\[
+\begin{aligned}
+ch = bx,fg = dx,bf = cy,\\
+hd = gy,cd = fz,bg = hz.
+\end{aligned}
+\]</span></p>
+<p>接下来整个计数就围绕 <span class="math inline">\(x,y,z\)</span>
+是否为零分情况讨论。</p>
+<h3 id="xyzne-0通用情形"><span class="math inline">\(xyz\ne
+0\)</span>（通用情形）</h3>
+<p>假设<span class="math inline">\(xyz\ne 0\)</span>，此时从上面的 6
+个乘积式可以推出一个“核心三元乘积”恒等式。</p>
+<p>由<span class="math inline">\(bf=cy, cd=fz\)</span>消去 <span
+class="math inline">\(c\)</span> 得<span
+class="math inline">\(c=\dfrac{bf}{y},
+d=\dfrac{fz}{c}=\dfrac{fz}{bf/y}=\dfrac{yz}{b}.\)</span></p>
+<p>再由<span class="math inline">\(fg=dx\)</span>代入 <span
+class="math inline">\(d=\dfrac{yz}{b}\)</span> 得<span
+class="math inline">\(fg=\dfrac{yz}{b}x\iff bfg=xyz.\)</span></p>
+<p>因此在通用情形必有：<span
+class="math inline">\(bfg=xyz.\)</span>同理还可推出另外三个乘积恒等式：<span
+class="math inline">\(bd=yz,cg=xz,fh=xy.\)</span></p>
+<p>于是得到三条必要一致性条件，即把 <span class="math inline">\(xy, xz,
+yz\)</span> 消掉后的形式：</p>
+<p><span class="math display">\[fh\cdot z^2 = bd\cdot cg,bd\cdot x^2 =
+fh\cdot cg,cg\cdot y^2 = bd\cdot fh.\]</span></p>
+<p>这三式不成立时，通用情形无解，可以直接剪枝。</p>
+<p>在通用情形中，对角线已经唯一确定了三个乘积：<span
+class="math inline">\(bd, cg, fh.\)</span></p>
+<p>我们做如下构造：</p>
+<ol type="1">
+<li>枚举所有整数因子对 <span class="math inline">\((b,d)\)</span>
+满足<span class="math inline">\(b\cdot d = bd, |b|,|d|\le
+n.\)</span></li>
+<li>枚举所有整数因子对 <span class="math inline">\((f,h)\)</span>
+满足<span class="math inline">\(f\cdot h = fh, |f|,|h|\le
+n.\)</span></li>
+<li>由核心恒等式 <span class="math inline">\(bfg=xyz\)</span> 确定<span
+class="math inline">\(g=\dfrac{xyz}{bf}.\)</span>这一步要求 <span
+class="math inline">\(bf\mid xyz\)</span>，并且 <span
+class="math inline">\(g\ne 0\)</span> 且 <span
+class="math inline">\(|g|\le n\)</span>。</li>
+<li>由 <span class="math inline">\(cg=xz\)</span> 以及 <span
+class="math inline">\(cg=cg\)</span>（已知）确定<span
+class="math inline">\(c=\dfrac{cg}{g},\)</span>需要 <span
+class="math inline">\(g\mid cg\)</span> 且 <span
+class="math inline">\(|c|\le n\)</span> 且 <span
+class="math inline">\(c\ne 0\)</span>。</li>
+</ol>
+<p>在这些条件都满足时，矩阵就被完全确定，并且必然满足 <span
+class="math inline">\(M^2=M\)</span>。</p>
+<p>所以通用情形的计数本质上就是：枚举 <span
+class="math inline">\((b,d)\)</span> 与 <span
+class="math inline">\((f,h)\)</span> 的受限因子对，再检查能否得到合法的
+<span class="math inline">\(g,c\)</span>。</p>
+<p>为了加速，必须缓存所有 <span class="math inline">\(t\)</span>
+的因子对集合<span class="math inline">\(D_n(t)\)</span>（特别是 <span
+class="math inline">\(t=0\)</span> 要特殊处理），也就是<span
+class="math inline">\(D_n(t)=\{(u,v)\in \mathbb{Z}^2:uv=t,-n\le u,v\le
+n\}\)</span>。</p>
+<h3 id="z0恰有一个为零"><span
+class="math inline">\(z=0\)</span>（恰有一个为零）</h3>
+<p>不妨先固定在标准形：<span class="math inline">\(z=1-e-i=0\iff e+i=1,
+x\ne 0,y\ne 0.\)</span></p>
+<p>此时两条式子变成：<span class="math inline">\(cd=fz=0,
+bg=hz=0.\)</span></p>
+<p>而对角线解出来的乘积在这个情形会强迫：<span
+class="math inline">\(bd=0, cg=0.\)</span></p>
+<p>因此 <span class="math inline">\(b,d,c,g\)</span>
+中会出现大量自由度，不能再用通用情形的 “<span
+class="math inline">\(bfg=xyz\)</span>” 直接锁死全部变量。</p>
+<p>这一类情况可以拆成两种情况：</p>
+<h4 id="bc0"><span class="math inline">\(b=c=0\)</span></h4>
+<p>此时 <span class="math inline">\(cg=0\)</span>
+已由对角线条件自动推出，因此不再需要额外约束。剩下只需令 <span
+class="math inline">\((f,h)\)</span> 满足<span
+class="math inline">\(fh=\dfrac{E+I-A}{2},\)</span>即可保证与对角线方程相容。</p>
+<p>另一方面，由非对角项方程 <span class="math inline">\(fg=dx\)</span>
+可得<span class="math inline">\(g=\dfrac{dx}{f}.\)</span></p>
+<p>因此问题转化为计数：对每一组合法的 <span
+class="math inline">\((f,h)\)</span>（满足 <span
+class="math inline">\(|f|,|h|\le n\)</span> 且 <span
+class="math inline">\(fh\)</span> 固定），统计有多少个<span
+class="math inline">\(d\in[-n,n]\)</span>使得 <span
+class="math inline">\(g\)</span> 为整数，并且同时满足 <span
+class="math inline">\(|g|\le n\)</span>。</p>
+<p>这一计数可以通过一次<span
+class="math inline">\(\gcd(f,x)\)</span>化简，把整除条件 +
+取值范围压缩成对某个整数参数的区间计数，从而避免逐一枚举所有 <span
+class="math inline">\(d\)</span>。</p>
+<h4 id="dg0-且-bne-0"><span class="math inline">\(d=g=0\)</span> 且
+<span class="math inline">\(b\ne 0\)</span></h4>
+<p>此时 <span class="math inline">\(bd=0\)</span> 自动满足，且 <span
+class="math inline">\(fh\)</span> 仍由 <span
+class="math inline">\((f,h)\)</span> 决定。由 <span
+class="math inline">\(bf=cy\)</span> 得<span
+class="math inline">\(c=\dfrac{bf}{y},\)</span></p>
+<p>所以只要统计对每个 <span
+class="math inline">\((f,h)\)</span>，有多少个 <span
+class="math inline">\(b\ne 0\)</span> 使得 <span
+class="math inline">\(y\mid bf\)</span> 且 <span
+class="math inline">\(|c|\le n\)</span>。</p>
+<p>同样可以用一次 <span class="math inline">\(\gcd(f,y)\)</span>
+化简来快速得到可行个数。</p>
+<p>最终，如果 <span class="math inline">\(x=0\)</span> 或 <span
+class="math inline">\(y=0\)</span>，通过对角线置换（对称性）可以转化为
+<span class="math inline">\(z=0\)</span> 的同型问题，因此只需实现 <span
+class="math inline">\(z=0\)</span> 的计数函数即可。</p>
+<h3 id="x0y0zne-0恰有两个为零"><span class="math inline">\(x=0,y=0,z\ne
+0\)</span>（恰有两个为零）</h3>
+<p>当恰有两个乘子为零时（例如 <span class="math inline">\(x=0,y=0,z\ne
+0\)</span>），它只会出现在非常特殊的对角线配置上。</p>
+<p>以迹为 <span class="math inline">\(1\)</span> 的情况为例：<span
+class="math inline">\(x=0\iff a+e=1, y=0\iff a+i=1\Rightarrow
+e=i,a+2e=1\Rightarrow(a,e,i)=(1,0,0)\)</span>，其余是该对角线的排列。</p>
+<p>在这种对角线之下，对角线三式给出：<span
+class="math inline">\(bd=cg=fh=0.\)</span></p>
+<p>并且由 <span class="math inline">\(M^2=M\)</span>
+的非对角线方程可以化简到：<span
+class="math inline">\(f=dc,h=gb\)</span>并且约束只剩下<span
+class="math inline">\(bd=0, cg=0, |dc|\le n, |gb|\le n.\)</span></p>
+<p>也就是说，只要选定 <span
+class="math inline">\(b,c,d,g\)</span>，就自动确定 <span
+class="math inline">\(f,h\)</span>，其余方程全部成立。</p>
+<p>设<span
+class="math inline">\(\displaystyle{H=\sum_{k=1}^n\left\lfloor
+\frac{n}{k}\right\rfloor.}\)</span>这正是正整数对 <span
+class="math inline">\((u,v)\)</span> 满足 <span
+class="math inline">\(uv\le n\)</span> 的个数。</p>
+<p>在在此情形中，解集可以分成三类互不相交的情况：</p>
+<ol type="1">
+<li><strong><span class="math inline">\(dc\ne 0\)</span>（即 <span
+class="math inline">\(d\ne 0,c\ne 0\)</span>）</strong>，此时必须有
+<span class="math inline">\(b=0,g=0\)</span>（否则 <span
+class="math inline">\(bd=0\)</span> 与 <span
+class="math inline">\(cg=0\)</span> 会矛盾），并且需要<span
+class="math inline">\(|dc|\le n.\)</span>正数对数量为 <span
+class="math inline">\(H\)</span>，带符号共有 <span
+class="math inline">\(4H\)</span> 种。</li>
+<li><strong><span class="math inline">\(gb\ne 0\)</span>（即 <span
+class="math inline">\(g\ne 0,b\ne 0\)</span>）</strong>，同理得到 <span
+class="math inline">\(d=0,c=0\)</span>，并且需要 <span
+class="math inline">\(|gb|\le n\)</span>，带符号也是 <span
+class="math inline">\(4H\)</span>。</li>
+<li><strong><span class="math inline">\(dc=0\)</span> 且 <span
+class="math inline">\(gb=0\)</span></strong>，这等价于<span
+class="math inline">\((d=0\lor c=0)\land (g=0\lor
+b=0),\)</span>在同时满足 <span class="math inline">\(|b|,|c|,|d|,|g|\le
+n\)</span> 下可数出总数为<span
+class="math inline">\(8n(n+1)+1.\)</span></li>
+</ol>
+<p>因此这种情况下的总数为：</p>
+<p><span class="math display">\[T(n)=8H+8n(n+1)+1.\]</span></p>
+<hr />
+<p>可见，幂等矩阵的特征多项式满足<span
+class="math inline">\(M(M-I)=0,\)</span>在特征为 <span
+class="math inline">\(0\)</span>
+的域上其最小多项式无重根，因此所有特征值只可能为 <span
+class="math inline">\(0\)</span> 或 <span
+class="math inline">\(1\)</span>。于是<span
+class="math inline">\(\operatorname{tr}(M)\in\{0,1,2,3\}.\)</span></p>
+<p>其中：</p>
+<ul>
+<li><span class="math inline">\(\operatorname{tr}(M)=0\)</span>
+只对应零矩阵 <span class="math inline">\(M=0\)</span>；</li>
+<li><span class="math inline">\(\operatorname{tr}(M)=3\)</span>
+只对应单位矩阵 <span class="math inline">\(M=I\)</span>；</li>
+</ul>
+<p>所以最终只需要枚举：<span
+class="math inline">\(\operatorname{tr}(M)=1,2\)</span>
+并在最后补上这两个特殊解，总和为：</p>
+<p><span class="math display">\[
+C(n)=2+\sum_{\operatorname{tr}=1,2}\sum_{a,e}\#(a,e,i=\operatorname{tr}-a-e).
+\]</span></p>
+<p>实现中外层就是遍历 <span
+class="math inline">\(a,e\)</span>，确定<span
+class="math inline">\(i=\operatorname{tr}-a-e\)</span>再根据 <span
+class="math inline">\(x,y,z\)</span> 的零个数落入三种计数分支。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ------------------------------------------------------------</span></span><br><span class="line"><span class="comment">// Project Euler 572 - Idempotent 3x3 integer matrices</span></span><br><span class="line"><span class="comment">// Count matrices M with entries in [-LIM, LIM] such that M^2 = M.</span></span><br><span class="line"><span class="comment">// ------------------------------------------------------------</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// --------- Global parameters ----------</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">int</span> LIM = <span class="number">200</span>;</span><br><span class="line">ll LIM2; <span class="comment">// LIM^2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Cache for factor pairs of t (u,v) with u*v=t, u,v in [-LIM,LIM]</span></span><br><span class="line">unordered_map&lt;ll, vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt;&gt; div_cache;</span><br><span class="line"></span><br><span class="line"><span class="comment">// ---------- helpers ----------</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">ok</span><span class="params">(ll x)</span> </span>&#123; <span class="keyword">return</span> -LIM &lt;= x &amp;&amp; x &lt;= LIM; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// All integer pairs (u,v) with u*v=t, u,v in [-LIM, LIM]</span></span><br><span class="line"><span class="type">const</span> vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; &amp;<span class="built_in">factorPairs</span>(ll t)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">auto</span> it = div_cache.<span class="built_in">find</span>(t);</span><br><span class="line">    <span class="keyword">if</span> (it != div_cache.<span class="built_in">end</span>())</span><br><span class="line">        <span class="keyword">return</span> it-&gt;second;</span><br><span class="line"></span><br><span class="line">    vector&lt;pair&lt;<span class="type">int</span>, <span class="type">int</span>&gt;&gt; res;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (t == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// (u,0) for all u, and (0,v) for all v != 0, include (0,0) once</span></span><br><span class="line">        res.<span class="built_in">reserve</span>(<span class="number">2</span> * (<span class="number">2</span> * LIM + <span class="number">1</span>) - <span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> u = -LIM; u &lt;= LIM; ++u)</span><br><span class="line">            res.<span class="built_in">push_back</span>(&#123;u, <span class="number">0</span>&#125;);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> v = -LIM; v &lt;= LIM; ++v)</span><br><span class="line">            <span class="keyword">if</span> (v != <span class="number">0</span>)</span><br><span class="line">                res.<span class="built_in">push_back</span>(&#123;<span class="number">0</span>, v&#125;);</span><br><span class="line">        div_cache.<span class="built_in">emplace</span>(t, std::<span class="built_in">move</span>(res));</span><br><span class="line">        <span class="keyword">return</span> div_cache.<span class="built_in">find</span>(t)-&gt;second;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ll at = <span class="built_in">abs</span>(t);</span><br><span class="line">    <span class="comment">// If |t| &gt; LIM^2, no (u,v) within bounds can satisfy u*v=t</span></span><br><span class="line">    <span class="keyword">if</span> (at &gt; <span class="number">1LL</span> * LIM * LIM)</span><br><span class="line">    &#123;</span><br><span class="line">        div_cache.<span class="built_in">emplace</span>(t, std::<span class="built_in">move</span>(res));</span><br><span class="line">        <span class="keyword">return</span> div_cache.<span class="built_in">find</span>(t)-&gt;second;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ll rt = (ll)<span class="built_in">sqrt</span>((<span class="type">long</span> <span class="type">double</span>)at);</span><br><span class="line">    <span class="keyword">for</span> (ll d = <span class="number">1</span>; d &lt;= rt; ++d)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (at % d)</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        ll q = at / d;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// generate signed pairs (u,v) such that u*v=t</span></span><br><span class="line">        <span class="comment">// and also include swapped (v,u)</span></span><br><span class="line">        <span class="keyword">auto</span> addPair = [&amp;](ll u, ll v)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">ok</span>(u) &amp;&amp; <span class="built_in">ok</span>(v))</span><br><span class="line">            &#123;</span><br><span class="line">                res.<span class="built_in">push_back</span>(&#123;(<span class="type">int</span>)u, (<span class="type">int</span>)v&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (t &gt; <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">addPair</span>(d, q);</span><br><span class="line">            <span class="built_in">addPair</span>(-d, -q);</span><br><span class="line">            <span class="keyword">if</span> (d != q)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">addPair</span>(q, d);</span><br><span class="line">                <span class="built_in">addPair</span>(-q, -d);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">addPair</span>(d, -q);</span><br><span class="line">            <span class="built_in">addPair</span>(-d, q);</span><br><span class="line">            <span class="keyword">if</span> (d != q)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">addPair</span>(q, -d);</span><br><span class="line">                <span class="built_in">addPair</span>(-q, d);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    div_cache.<span class="built_in">emplace</span>(t, std::<span class="built_in">move</span>(res));</span><br><span class="line">    <span class="keyword">return</span> div_cache.<span class="built_in">find</span>(t)-&gt;second;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Precompute TwoZeroCount for given LIM:</span></span><br><span class="line"><span class="comment">// counts solutions for the (canonical) diagonal pattern with exactly two zero multipliers,</span></span><br><span class="line"><span class="comment">// which always ends up with bd=cg=fh=0 and two of x,y,z are 0.</span></span><br><span class="line"><span class="comment">// The final count only depends on LIM, not on the specific diagonal permutation.</span></span><br><span class="line"></span><br><span class="line">ll TWO_ZERO_COUNT = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -------- Case 0: x,y,z all nonzero --------</span></span><br><span class="line"><span class="function">ll <span class="title">countCommon</span><span class="params">(ll bd, ll cg, ll fh,</span></span></span><br><span class="line"><span class="params"><span class="function">               ll x, ll y, ll z)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Consistency conditions (necessary and sufficient)</span></span><br><span class="line">    <span class="comment">// If any fails -&gt; no solutions.</span></span><br><span class="line">    <span class="comment">// Use 128-bit for safety (though values are small for LIM=200).</span></span><br><span class="line">    ll BD = bd, CG = cg, FH = fh, X = x, Y = y, Z = z;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (FH * Z * Z != BD * CG || BD * X * X != FH * CG || CG * Y * Y != BD * FH)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="type">const</span> <span class="keyword">auto</span> &amp;BDPairs = <span class="built_in">factorPairs</span>(bd);</span><br><span class="line">    <span class="type">const</span> <span class="keyword">auto</span> &amp;FHPairs = <span class="built_in">factorPairs</span>(fh);</span><br><span class="line"></span><br><span class="line">    ll mul = x * y * z;</span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;p1 : BDPairs)</span><br><span class="line">    &#123;</span><br><span class="line">        ll b = p<span class="number">1.f</span>irst;</span><br><span class="line">        <span class="keyword">if</span> (b == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">continue</span>; <span class="comment">// bd != 0 in this case</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;p2 : FHPairs)</span><br><span class="line">        &#123;</span><br><span class="line">            ll f = p<span class="number">2.f</span>irst;</span><br><span class="line">            <span class="keyword">if</span> (f == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>; <span class="comment">// fh != 0 in this case</span></span><br><span class="line">            ll denom = b * f;</span><br><span class="line">            <span class="keyword">if</span> (mul % denom != <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            ll g = mul / denom;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">ok</span>(g) || g == <span class="number">0</span> || cg % g != <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            ll c = cg / g;</span><br><span class="line">            <span class="keyword">if</span> (!<span class="built_in">ok</span>(c) || c == <span class="number">0</span>)</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Unique matrix determined by (a,e,i,b,c,d,f,g,h)</span></span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// -------- Case 1: exactly one of x,y,z is zero --------</span></span><br><span class="line"><span class="comment">// We normalize by permuting diagonal so that z=0 (i.e. e+i=1).</span></span><br><span class="line"><span class="function">ll <span class="title">countOneZero_Z0</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> e, <span class="type">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Here z=0, and x,y !=0</span></span><br><span class="line">    ll x = <span class="number">1LL</span> - a - e, y = <span class="number">1LL</span> - a - i, z = <span class="number">1LL</span> - e - i;</span><br><span class="line">    <span class="keyword">if</span> (z != <span class="number">0</span> || x == <span class="number">0</span> || y == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ll A = <span class="number">1LL</span> * a - <span class="number">1LL</span> * a * a, E = <span class="number">1LL</span> * e - <span class="number">1LL</span> * e * e, I = <span class="number">1LL</span> * i - <span class="number">1LL</span> * i * i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (((A + E + I) &amp; <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    ll bd = (A + E - I) / <span class="number">2</span>, cg = (A + I - E) / <span class="number">2</span>, fh = (E + I - A) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// In this situation, we must have bd=cg=0, otherwise contradictions arise.</span></span><br><span class="line">    <span class="keyword">if</span> (bd != <span class="number">0</span> || cg != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// fh must be representable as product of two bounded ints</span></span><br><span class="line">    <span class="type">const</span> <span class="keyword">auto</span> &amp;FHPairs = <span class="built_in">factorPairs</span>(fh);</span><br><span class="line">    <span class="keyword">if</span> (FHPairs.<span class="built_in">empty</span>())</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Family A: b=0, c=0. Variables (f,h) factor of fh, then choose d, g is determined.</span></span><br><span class="line">    <span class="comment">// We can count d without looping by reducing divisibility.</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> <span class="keyword">auto</span> &amp;pr : FHPairs)</span><br><span class="line">    &#123;</span><br><span class="line">        ll f = pr.first;</span><br><span class="line">        ll h = pr.second;</span><br><span class="line">        <span class="keyword">if</span> (f == <span class="number">0</span> || h == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">continue</span>; <span class="comment">// fh != 0 in this case</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// Need d in [-LIM,LIM] such that g = d*x/f is integer and within [-LIM,LIM].</span></span><br><span class="line">        <span class="comment">// Let g0 = gcd(|f|,|x|), f = g0*f1, x = g0*x1 (gcd(f1,x1)=1).</span></span><br><span class="line">        <span class="comment">// Then d must be multiple of |f1|, write d = f1*t, and g = t*x1.</span></span><br><span class="line">        ll af = <span class="built_in">abs</span>(f);</span><br><span class="line">        ll ax = <span class="built_in">abs</span>(x);</span><br><span class="line">        ll g0 = __gcd(af, ax);</span><br><span class="line">        ll f1 = af / g0;</span><br><span class="line">        ll x1 = ax / g0;</span><br><span class="line"></span><br><span class="line">        ll T = <span class="built_in">min</span>((ll)(LIM / f1), (ll)(LIM / x1));</span><br><span class="line">        <span class="comment">// t in [-T..T]  =&gt; count = 2T+1</span></span><br><span class="line">        ans += (<span class="number">2</span> * T + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// Family B: d=0, g=0, but b != 0.</span></span><br><span class="line">        <span class="comment">// Need c = b*f / y integer and |c|&lt;=LIM.</span></span><br><span class="line">        <span class="comment">// Reduce: let g1=gcd(|f|,|y|), f=g1*f2, y=g1*y2 (gcd(f2,y2)=1)</span></span><br><span class="line">        <span class="comment">// then b must be multiple of |y2|, b=y2*t (t!=0),</span></span><br><span class="line">        <span class="comment">// and c=t*f2, so |t| &lt;= min(LIM/|y2|, LIM/|f2|).</span></span><br><span class="line">        ll ay = <span class="built_in">abs</span>(y);</span><br><span class="line">        ll g1 = __gcd(af, ay);</span><br><span class="line">        ll f2 = af / g1;</span><br><span class="line">        ll y2 = ay / g1;</span><br><span class="line"></span><br><span class="line">        ll T2 = <span class="built_in">min</span>((ll)(LIM / y2), (ll)(LIM / f2));</span><br><span class="line">        <span class="comment">// t != 0 =&gt; count = 2*T2</span></span><br><span class="line">        ans += (<span class="number">2</span> * T2);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Main per-diagonal counter</span></span><br><span class="line"><span class="function">ll <span class="title">countDiagonal</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> e, <span class="type">int</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll x = <span class="number">1LL</span> - a - e, y = <span class="number">1LL</span> - a - i, z = <span class="number">1LL</span> - e - i;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> zero = <span class="built_in">int</span>(x == <span class="number">0</span>) + <span class="built_in">int</span>(y == <span class="number">0</span>) + <span class="built_in">int</span>(z == <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">    ll A = <span class="number">1LL</span> * a - <span class="number">1LL</span> * a * a, E = <span class="number">1LL</span> * e - <span class="number">1LL</span> * e * e, I = <span class="number">1LL</span> * i - <span class="number">1LL</span> * i * i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (((A + E + I) &amp; <span class="number">1</span>) != <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    ll bd = (A + E - I) / <span class="number">2</span>, cg = (A + I - E) / <span class="number">2</span>, fh = (E + I - A) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (zero == <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// bd,cg,fh must be representable within bounds</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="built_in">abs</span>(bd) &gt; LIM2 || <span class="built_in">abs</span>(cg) &gt; LIM2 || <span class="built_in">abs</span>(fh) &gt; LIM2)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">countCommon</span>(bd, cg, fh, x, y, z);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (zero == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// normalize to z=0 by diagonal permutation (counts are invariant under permutation conjugation)</span></span><br><span class="line">        <span class="keyword">if</span> (z == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">countOneZero_Z0</span>(a, e, i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// (a,e,i) -&gt; (i,a,e) makes z&#x27; = a+e? actually e&#x27;+i&#x27; = a+e = 1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">countOneZero_Z0</span>(i, a, e);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// y==0: (a,e,i) -&gt; (e,a,i) makes e&#x27;+i&#x27; = a+i = 1</span></span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">countOneZero_Z0</span>(e, a, i);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (zero == <span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Only possible (for trace 1 or 2) on the special 0/1 diagonals, and then bd=cg=fh=0.</span></span><br><span class="line">        <span class="keyword">if</span> (bd != <span class="number">0</span> || cg != <span class="number">0</span> || fh != <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">return</span> TWO_ZERO_COUNT;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// x=y=z=0 impossible for integer diagonal with trace 1 or 2</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    LIM2 = <span class="number">1LL</span> * LIM * LIM;</span><br><span class="line">    <span class="comment">// Let H = sum_&#123;k=1..LIM&#125; floor(LIM/k)</span></span><br><span class="line">    ll H = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= LIM; k++)</span><br><span class="line">        H += LIM / k;</span><br><span class="line">    <span class="comment">// Derived closed-form:</span></span><br><span class="line">    <span class="comment">// TwoZeroCount = 8*H + 8*LIM*(LIM+1) + 1</span></span><br><span class="line">    <span class="comment">// (works for x=±1 canonical, but independent of sign)</span></span><br><span class="line">    TWO_ZERO_COUNT = <span class="number">8LL</span> * H + <span class="number">8LL</span> * LIM * (LIM + <span class="number">1</span>) + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    ll total = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (LIM &gt;= <span class="number">1</span>)</span><br><span class="line">        ++total;</span><br><span class="line">    <span class="comment">// Only trace 1 or 2 are possible for non-zero idempotent 3x3 matrices</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> tr = <span class="number">1</span>; tr &lt;= <span class="number">2</span>; ++tr)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> a = -LIM; a &lt;= LIM; ++a)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> e = -LIM; e &lt;= LIM; ++e)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> i = tr - a - e;</span><br><span class="line">                <span class="keyword">if</span> (i &lt; -LIM || i &gt; LIM)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                total += <span class="built_in">countDiagonal</span>(a, e, i);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; total &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/572/" title="Project Euler 572">https://ujimatsu-chiya.github.io/project-euler/572/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.7m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">25:03</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
