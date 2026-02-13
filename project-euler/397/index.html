@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 397">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/397/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-12T16:33:15.000Z">
+<meta property="article:modified_time" content="2026-02-12T16:33:15.667Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/397/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/397/","path":"project-euler/397/","title":"Project Euler 397"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 397 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-397"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 397</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#triangle-on-parabola"><span class="nav-number">1.1.1.</span> <span class="nav-text">Triangle on parabola</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-1-%E6%97%8F"><span class="nav-number">1.2.1.</span> <span class="nav-text">第 1 族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC-2-%E6%97%8F"><span class="nav-number">1.2.2.</span> <span class="nav-text">第 2 族</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A7%92%E5%9C%A8%E9%A1%B6%E7%82%B9-a"><span class="nav-number">1.2.3.</span> <span class="nav-text">直角在顶点 \(A\)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B4%E8%A7%92%E5%9C%A8%E9%A1%B6%E7%82%B9-c"><span class="nav-number">1.2.4.</span> <span class="nav-text">直角在顶点 \(C\)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">826</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/397/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 397 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 397
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-13 00:33:15" itemprop="dateCreated datePublished" datetime="2026-02-13T00:33:15+08:00">2026-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>7.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>7 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-397">Project Euler 397</h1>
+<h2 id="题目">题目</h2>
+<h3 id="triangle-on-parabola">Triangle on parabola</h3>
+<p>On the parabola <span class="math inline">\(y = x^2/k\)</span>, three
+points <span class="math inline">\(A(a, a^2/k), B(b, b^2/k)\)</span> and
+<span class="math inline">\(C(c, c^2/k)\)</span> are chosen.</p>
+<p>Let <span class="math inline">\(F(K, X)\)</span> be the number of the
+integer quadruplets <span class="math inline">\((k, a, b, c)\)</span>
+such that at least one angle of the triangle <span
+class="math inline">\(ABC\)</span> is <span
+class="math inline">\(45\)</span>-degree, with <span
+class="math inline">\(1 \le k \le K\)</span> and <span
+class="math inline">\(-X \le a &lt; b &lt; c \le X\)</span>.</p>
+<p>For example, <span class="math inline">\(F(1, 10) = 41\)</span> and
+<span class="math inline">\(F(10, 100) = 12492\)</span>.</p>
+<p>Find <span class="math inline">\(F(10^6, 10^9)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>两点<span class="math inline">\(P_u=\left(u,\dfrac{u^2}{k}\right),
+P_v=\left(v,\dfrac{v^2}{k}\right)\)</span> 的差向量为<span
+class="math inline">\(\overrightarrow{P_uP_v}=\left(v-u,\dfrac{v^2-u^2}{k}\right)=\left(v-u,\dfrac{(v-u)(v+u)}{k}\right).\)</span></p>
+<p>因此距离平方为<span
+class="math inline">\(|P_v-P_u|^2=(v-u)^2\left(1+\dfrac{(v+u)^2}{k^2}\right).\)</span>令<span
+class="math inline">\(L_{uv}^2=(v-u)^2\left(k^2+(v+u)^2\right),\)</span>则真实距离平方满足
+<span
+class="math inline">\(|P_v-P_u|^2=L_{uv}^2/k^2\)</span>。由于角度只与比值有关，我们可以用
+<span class="math inline">\(L_{uv}^2\)</span> 替代计算。</p>
+<p>若某顶点角为 <span
+class="math inline">\(45^\circ\)</span>，则该角的余弦平方满足<span
+class="math inline">\(\cos^2\theta=\dfrac12.\)</span>以顶点为例（取某一顶点、对应两条边的夹角），将余弦公式写为<span
+class="math inline">\(\cos^2\theta=\dfrac{(u\cdot
+v)^2}{|u|^2|v|^2}\)</span>，并代入上面的边长平方表达式进行化简，可以得到一个可因式分解的整数多项式条件。</p>
+<p>对非退化三角形（<span
+class="math inline">\(a&lt;b&lt;c\)</span>）而言，关键约束等价于要求下面两类二次因子之一为
+<span class="math inline">\(0\)</span>：<span
+class="math inline">\(ab+ac-ak+bc+bk+c^2+k^2=0\)</span>或<span
+class="math inline">\(ab+ac+ak+bc-bk+c^2+k^2=0.\)</span></p>
+<p>这两类方程在整体变换 <span
+class="math inline">\((a,b,c)\mapsto(-a,-b,-c)\)</span>
+下互相对应，因此只需处理其中一类并在最终计数中自然包含对称贡献即可。下面固定讨论<span
+class="math inline">\(ab+ac-ak+bc+bk+c^2+k^2=0.\)</span></p>
+<p>把它视为关于 <span class="math inline">\(c\)</span> 的二次方程：<span
+class="math inline">\(c^2+(a+b)c+(ab-ak+bk+k^2)=0.\)</span>判别式为<span
+class="math inline">\(\Delta=(a+b)^2-4(ab-ak+bk+k^2).\)</span>展开整理后可写成<span
+class="math inline">\(\Delta=(a-b+2k)^2-8k^2.\)</span>要使 <span
+class="math inline">\(c\)</span> 为整数，必须有<span
+class="math inline">\((a-b+2k)^2-8k^2=d^2\)</span> 对某个整数 <span
+class="math inline">\(d\)</span> 成立，即<span
+class="math inline">\(d^2+2(2k)^2=(a-b+2k)^2.\)</span></p>
+<p>设<span class="math inline">\(u=d, v=2k,
+w=a-b+2k,\)</span>就得到经典形式<span
+class="math inline">\(u^2+2v^2=w^2.\)</span></p>
+<p>该方程的本原解可用如下参数化给出：取互素正整数 <span
+class="math inline">\((m,n)=1\)</span> 且 <span
+class="math inline">\(m\)</span> 为奇数，则</p>
+<p><span class="math display">\[w=m^2+2n^2, u=m^2-2n^2,
+v=2mn\]</span></p>
+<p>给出一组本原解。</p>
+<p>再乘以任意缩放因子 <span class="math inline">\(l\ge 1\)</span>
+可得到全部解：</p>
+<p><span class="math display">\[
+w=l(m^2+2n^2), u=l(m^2-2n^2), v=2lmn.
+\]</span></p>
+<p>由 <span class="math inline">\(v=2k\)</span> 得 <span
+class="math inline">\(k=lmn.\)</span></p>
+<p>由定义<span class="math inline">\(w=a-b+2k,\)</span>因此<span
+class="math inline">\(b-a=2k-w.\)</span>在不同符号选择、以及顶点轮换（哪一个角取
+<span
+class="math inline">\(45^\circ\)</span>）下，会导出若干等价的线性族。将它们整理后，可以归并成两大族（同时，每族再含两个
+<span class="math inline">\(\gamma\)</span> 分支）。</p>
+<h3 id="第-1-族">第 1 族</h3>
+<p>第 1 族取<span
+class="math inline">\(w=-l(m^2+2n^2)\)</span>。我们令<span
+class="math inline">\(k_0=mn\)</span>，也就是本原解对应的最小 <span
+class="math inline">\(k\)</span>。可见，<span
+class="math inline">\(b-a=2k-w=l((m+n)^2+n^2)\)</span>，同样取<span
+class="math inline">\(b-a\)</span>最小的本原解，那么有<span
+class="math inline">\(\beta=(m+n)^2+n^2,\)</span></p>
+<p>另一方面，二次方程求根形式可写作<span
+class="math inline">\(2c=-(a+b)\pm u,\)</span>而参数化同时给出<span
+class="math inline">\(u=\pm l(m^2-2n^2).\)</span> 将 <span
+class="math inline">\(b=a+l\beta\)</span> 代入 <span
+class="math inline">\(a+b=2a+l\beta\)</span>，得到<span
+class="math inline">\(c=-a-\dfrac{l\beta}{2}\pm\dfrac{l(m^2-2n^2)}{2}.\)</span>
+为了避免分数，把 <span class="math display">\[
+\gamma=\dfrac{-\beta\pm(m^2-2n^2)}{2}
+\]</span> 记成整数常量（这里 <span class="math inline">\(m\)</span>
+为奇数可保证分子为偶数），两种符号分别给出：</p>
+<ul>
+<li>若取 <span class="math inline">\(+(m^2-2n^2)\)</span>，则<span
+class="math inline">\(\gamma=\dfrac{-\beta+(m^2-2n^2)}{2}=\dfrac{-(m^2+2mn+2n^2)+(m^2-2n^2)}{2}=-n(m+2n),\)</span></li>
+<li>若取 <span class="math inline">\(-(m^2-2n^2)\)</span>，则<span
+class="math inline">\(\gamma=\dfrac{-\beta-(m^2-2n^2)}{2}=\dfrac{-(m^2+2mn+2n^2)-m^2+2n^2}{2}=-m(m+n).\)</span></li>
+</ul>
+<p>因此对每个<span
+class="math inline">\(\gamma\in\{-m(m+n),-n(m+2n)\}.\)</span>都要考虑。</p>
+<p>对每个缩放 <span
+class="math inline">\(l=1,2,\dots,\left\lfloor\dfrac{K}{k_0}\right\rfloor\)</span>，令真实
+<span class="math inline">\(k=lk_0\)</span>，并构造 <span
+class="math inline">\(b=-a+l\gamma,
+c=a+l\beta.\)</span>此时只需统计满足<span class="math inline">\(-X\le
+a&lt;b&lt;c\le X\)</span>的整数 <span class="math inline">\(a\)</span>
+数量。</p>
+<p>由不等式：</p>
+<ul>
+<li><span class="math inline">\(a&lt;b\)</span> 等价于<span
+class="math inline">\(2a&lt;l\gamma.\)</span></li>
+<li><span class="math inline">\(b&lt;c\)</span> 等价于<span
+class="math inline">\(-a+l\gamma&lt;a+l\beta\iff
+2a&gt;l(\gamma-\beta).\)</span></li>
+<li><span class="math inline">\(c\le X\)</span> 等价于<span
+class="math inline">\(a\le X-l\beta.\)</span></li>
+<li><span class="math inline">\(b\ge -X\)</span> 等价于<span
+class="math inline">\(-a+l\gamma\ge -X\iff a\le X+l\gamma.\)</span></li>
+</ul>
+<p>最终得到 <span class="math inline">\(a\)</span> 的整数区间：<span
+class="math inline">\(\left\lfloor\dfrac{l(\gamma-\beta)}{2}\right\rfloor+1\le
+a\le\left\lfloor\dfrac{l\gamma-1}{2}\right\rfloor,\)</span>并与盒约束合并：<span
+class="math inline">\(a\ge -X,a\le X-l\beta,a\le
+X+l\gamma.\)</span>最终得到</p>
+<p><span
+class="math display">\[\max\left\{-X,\left\lfloor\dfrac{l(\gamma-\beta)}{2}\right\rfloor+1\right\}\le
+a\le\min\left\{\left\lfloor\dfrac{l\gamma-1}{2}\right\rfloor,X-l\beta,X+l\gamma\right\}\]</span></p>
+<h3 id="第-2-族">第 2 族</h3>
+<p>第 2 族取<span class="math inline">\(w=+l(m^2+2n^2).\)</span>则<span
+class="math inline">\(b-a=2k-w=2lmn-l(m^2+2n^2)=l(2mn-m^2-2n^2)=-l((m-n)^2+n^2),\)</span>
+于是自然令<span class="math inline">\(\beta=
+-((m-n)^2+n^2),\)</span>从而<span
+class="math inline">\(b-a=l\beta.\)</span></p>
+<p>和第 1族 一样，我们得到<span
+class="math inline">\(c=-a-\dfrac{l\beta}{2}\pm\dfrac{l(m^2-2n^2)}{2}\)</span>，并记<span
+class="math inline">\(\gamma=\dfrac{-\beta\pm(m^2-2n^2)}{2},\)</span></p>
+<p>这里 <span class="math inline">\(m\)</span>
+为奇数可保证分子为偶数，从而 <span class="math inline">\(\gamma\)</span>
+为整数。两种符号分别给出：</p>
+<ul>
+<li>若取 <span class="math inline">\(+(m^2-2n^2)\)</span>，则<span
+class="math inline">\(\gamma=\dfrac{-\beta+(m^2-2n^2)}{2}=\dfrac{(m^2-2mn+2n^2)+(m^2-2n^2)}{2}=m(m-n),\)</span></li>
+<li>若取 <span class="math inline">\(-(m^2-2n^2)\)</span>，则<span
+class="math inline">\(\gamma=\dfrac{-\beta-(m^2-2n^2)}{2}=\dfrac{(m^2-2mn+2n^2)-(m^2-2n^2)}{2}=n(2n-m).\)</span></li>
+</ul>
+<p>因此对每个<span
+class="math inline">\(\gamma\in\{m(m-n),n(2n-m)\}\)</span>都要考虑。</p>
+<p>与第 1 族相同，为了让计数关于 <span class="math inline">\(a\)</span>
+更对称（并方便一次性乘 <span class="math inline">\(2\)</span>
+处理对称解），使用同样的线性构造形式：<span
+class="math inline">\(b=-a+l\gamma, c=a+l\beta.\)</span></p>
+<p>对每个缩放<span
+class="math inline">\(l=1,2,\dots,\left\lfloor\dfrac{K}{k_0}\right\rfloor\)</span>我们只需统计满足<span
+class="math inline">\(-X\le a&lt;b&lt;c\le X\)</span>的整数 <span
+class="math inline">\(a\)</span> 数量。</p>
+<p>先把三点都落在 <span class="math inline">\([-X,X]\)</span>
+的限制写出来：</p>
+<ul>
+<li><span class="math inline">\(a\in[-X,X]\)</span> 给出<span
+class="math inline">\(-X\le a\le X.\)</span></li>
+<li><span class="math inline">\(b\in[-X,X]\)</span> 且 <span
+class="math inline">\(b=-a+l\gamma\)</span> 给出<span
+class="math inline">\(-X\le -a+l\gamma\le X\iff -X+l\gamma\le a\le
+X+l\gamma.\)</span></li>
+<li><span class="math inline">\(c\in[-X,X]\)</span> 且 <span
+class="math inline">\(c=a+l\beta\)</span> 给出<span
+class="math inline">\(-X\le a+l\beta\le X\iff -X-l\beta\le a\le
+X-l\beta.\)</span></li>
+</ul>
+<p>因此把三组限制取交集，得到第 2 族的
+<strong>基本可行区间</strong>：</p>
+<p><span class="math display">\[
+\max\{-X-l\beta,-X+l\gamma\}
+\le a\le
+\min\{X,X+l\gamma,X-l\beta\}.
+\]</span></p>
+<p>由于本族中 <span class="math inline">\(\beta&lt;0\)</span>，于是
+<span class="math inline">\(X-l\beta\ge X\)</span>，通常右端的 <span
+class="math inline">\(X-l\beta\)</span>
+不会成为真正限制，因此常写成更紧凑的形式：</p>
+<p><span class="math display">\[
+\max\{-X-l\beta,-X+l\gamma\}
+\le a\le
+\min\{X,X+l\gamma\}.
+\]</span></p>
+<p>与第 1 族不同，第 2 族由 <span
+class="math inline">\(\cos^2\theta=\dfrac12\)</span> 推出的解
+<strong>可能对应 <span class="math inline">\(\theta=45^\circ\)</span>
+也可能对应 <span
+class="math inline">\(\theta=135^\circ\)</span></strong>，两者的 <span
+class="math inline">\(\cos^2\)</span> 相同，但
+<strong>余弦符号相反</strong>。因此必须额外要求该角满足<span
+class="math inline">\(\cos\theta\ge 0.\)</span></p>
+<p>对这一族的线性构造 <span
+class="math inline">\(b=-a+l\gamma,c=a+l\beta\)</span>，可以把余弦符号化简为一个只与
+<span class="math inline">\(a\)</span>
+相关的不等式（常数因子在本族固定为正），等价于：<span
+class="math inline">\((2a-l\gamma)(2a+l(\beta-\gamma))\ge
+0.\)</span></p>
+<p>注意<span
+class="math inline">\(2a+l(\beta-\gamma)=2a-l(\gamma-\beta),\)</span>于是该条件等价于<span
+class="math inline">\((2a-l\gamma)(2a-l(\gamma-\beta))\ge
+0,\)</span>也就是说 <span class="math inline">\(2a\)</span>
+必须落在两个根的
+<strong>同侧</strong>，因此不允许处在它们之间。换句话说，必须剔除中间带：</p>
+<p><span class="math display">\[
+\frac{l\gamma}{2}\le a\le \frac{l(\gamma-\beta)}{2}.
+\]</span></p>
+<p>把它写成整数端点，就是剔除区间<span
+class="math inline">\(\left\lceil\dfrac{l\gamma}{2}\right\rceil\le
+a\le\left\lfloor\dfrac{l(\gamma-\beta)}{2}\right\rfloor.\)</span></p>
+<p>再与上一步的基本可行区间取交，得到最终需要
+<strong>从总计数中减去</strong> 的那一段： <span class="math display">\[
+\max\left\{
+-X-l\beta,-X+l\gamma,
+\left\lceil\frac{l\gamma}{2}\right\rceil
+\right\}
+\le a\le
+\min\left\{
+X,X+l\gamma,
+\left\lfloor\frac{l(\gamma-\beta)}{2}\right\rfloor
+\right\}.
+\]</span></p>
+<p>综上，第 2 族对固定 <span class="math inline">\((m,n)\)</span>、固定
+<span class="math inline">\(\gamma\)</span>、固定 <span
+class="math inline">\(l\)</span> 时：</p>
+<ol type="1">
+<li>先把基本区间内所有 <span class="math inline">\(a\)</span>
+计入：<span class="math inline">\(\max\{-X-l\beta,-X+l\gamma\}\le
+a\le\min\{X,X+l\gamma\};\)</span></li>
+<li>再剔除中间不合法区间：<span
+class="math inline">\(\left\lceil\dfrac{l\gamma}{2}\right\rceil\le
+a\le\left\lfloor\dfrac{l(\gamma-\beta)}{2}\right\rfloor.\)</span></li>
+</ol>
+<p>因此第 2 族对 <span class="math inline">\(a\)</span>
+的有效取值集合实际上是一个“两段式”的并集：</p>
+<p><span class="math display">\[
+[\max\{-X-l\beta,-X+l\gamma\},\min\{X,X+l\gamma\}]\setminus\left[\left\lceil\frac{l\gamma}{2}\right\rceil,\left\lfloor\frac{l(\gamma-\beta)}{2}\right\rfloor\right],
+\]</span></p>
+<p>并在实现中用总数减去剔除段的方式完成计数。</p>
+<p>若同一个三角形出现两个 <span class="math inline">\(45^\circ\)</span>
+角，则它是一个 <span
+class="math inline">\(45^\circ-45^\circ-!90^\circ\)</span>
+的等腰直角三角形。 这类三角形会被不同的生成方式重复计入：例如我们用“第 1
+族/第 2 族”的构造保证某一个顶点角为 <span
+class="math inline">\(45^\circ\)</span>，但如果另一个顶点角恰好也为
+<span
+class="math inline">\(45^\circ\)</span>，那么同一个三角形也可以被“把另一个顶点当作
+<span class="math inline">\(45^\circ\)</span>
+顶点”的方式再次生成，因此需要对这种重复进行扣除。</p>
+<p>回想一下，假设点 <span class="math inline">\(P_u(u,
+u^2/k)\)</span>、<span class="math inline">\(P_v(v, v^2/k),
+P_w(w,w^2/k)\)</span> 在抛物线 <span
+class="math inline">\(y=x^2/k\)</span> 上，向量<span
+class="math inline">\(\overrightarrow{P_uP_v}=\left(v-u,\dfrac{v^2-u^2}{k}\right)=(v-u)\left(1,\dfrac{v+u}{k}\right).\)</span></p>
+<p>因此两条边 <span class="math inline">\(\overrightarrow{P_uP_v}\cdot
+\overrightarrow{P_uP_w}\)</span> 的点积为<span
+class="math inline">\(\overrightarrow{PQ}\cdot\overrightarrow{PR}=(v-u)(w-u)\left(1+\dfrac{(v+u)(w+u)}{k^2}\right).\)</span>在非退化情形下
+<span class="math inline">\(u\neq v, u\neq w\)</span>，于是<span
+class="math inline">\(\angle
+QPR=90^\circ\iff1+\dfrac{(v+u)(w+u)}{k^2}=0\iff(v+u)(w+u)=-k^2.\)</span></p>
+<p>这就是我们用来“锁死”两角 <span
+class="math inline">\(45^\circ\)</span> 的核心： 若出现两个 <span
+class="math inline">\(45^\circ\)</span>，则第三角为 <span
+class="math inline">\(90^\circ\)</span>，从而必须满足上式。</p>
+<p>对固定的 <span
+class="math inline">\((m,n,l,\beta,\gamma)\)</span>，我们在计数时使用的线性构造为<span
+class="math inline">\(k=lk_0, b=-a+l\gamma, c=a+l\beta.\)</span>
+于是有三个“和”的简化表达：<span class="math inline">\(a+b=l\gamma,
+a+c=2a+l\beta, b+c=l(\beta+\gamma).\)</span></p>
+<p>如果同一个三角形出现两个 <span
+class="math inline">\(45^\circ\)</span>，则第三角为 <span
+class="math inline">\(90^\circ\)</span>。由于三角形只有三个顶点，所以“直角顶点”只可能落在两个位置（对应两种重复来源），分别给出两个候选的
+<span class="math inline">\(a\)</span>。</p>
+<h3 id="直角在顶点-a">直角在顶点 <span
+class="math inline">\(A\)</span></h3>
+<p>即 <span class="math inline">\(\angle
+BAC=90^\circ\)</span>。由上一小节的直角条件<span
+class="math inline">\((a+b)(a+c)=-k^2.\)</span>代入<span
+class="math inline">\(a+b=l\gamma, a+c=2a+l\beta,
+k=lk_0\)</span>，得到<span
+class="math inline">\(l\gamma(2a+l\beta)=-(lk_0)^2.\)</span></p>
+<p>两边除以 <span class="math inline">\(l\)</span> 并整理：<span
+class="math inline">\(2a\gamma=-l(k_0^2+\beta\gamma),\)</span>，从而有<span
+class="math inline">\(a=-\dfrac{l(k_0^2+\beta\gamma)}{2\gamma}.\)</span></p>
+<h3 id="直角在顶点-c">直角在顶点 <span
+class="math inline">\(C\)</span></h3>
+<p>即 <span class="math inline">\(\angle
+BCA=90^\circ\)</span>。直角条件为<span
+class="math inline">\((c+a)(c+b)=-k^2.\)</span>注意这里<span
+class="math inline">\(c+a=a+c=2a+l\beta,
+c+b=b+c=l(\beta+\gamma),\)</span>代入同样得到<span
+class="math inline">\((2a+l\beta)\cdot
+l(\beta+\gamma)=-(lk_0)^2.\)</span></p>
+<p>两边除以 <span class="math inline">\(l\)</span> 并整理：<span
+class="math inline">\(2a(\beta+\gamma)=-l\bigl(k_0^2+\beta(\beta+\gamma)\bigr)=-l(k_0^2+\beta^2+\beta\gamma),\)</span>从而<span
+class="math inline">\(a=-\dfrac{l(k_0^2+\beta^2+\beta\gamma)}{2(\beta+\gamma)}.\)</span></p>
+<p>综上，在固定 <span
+class="math inline">\((m,n,l,\beta,\gamma)\)</span>
+的前提下，上面两种情况分别给出一个一次方程，因此每种情况至多产生一个候选
+<span class="math inline">\(a\)</span>。也就是说：</p>
+<ul>
+<li>要么没有整数解；</li>
+<li>要么恰好出现一个整数 <span class="math inline">\(a\)</span>
+落在我们已计数区间内；</li>
+<li>若出现，则这一个点对应的三角形会被重复计数一次，需要减去 <span
+class="math inline">\(1\)</span>。</li>
+</ul>
+<p>因此最终只需检查以下两种候选：</p>
+<p><span class="math display">\[
+a=-\frac{l(k_0^2+\beta\gamma)}{2\gamma},a=-\frac{l(k_0^2+\beta^2+\beta\gamma)}{2(\beta+\gamma)}.
+\]</span></p>
+<p>最终我们需要遍历所有互素正整数对 <span
+class="math inline">\((m,n)\)</span>。此时我们使用 <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Stern%E2%80%93Brocot_tree">Stern–Brocot
+树</a> 可无须显式 <span
+class="math inline">\(\gcd\)</span>进行判定：</p>
+<p>从节点 <span class="math inline">\(\dfrac{n}{m}\)</span>
+生成两个子节点：<span
+class="math inline">\(\dfrac{n}{n+m},\dfrac{m}{n+m}\)</span>.只要满足<span
+class="math inline">\((m+n)m\le K, (m+n)n\le K\)</span>就继续扩展。</p>
+<p>同时对每个节点同时计算 <span class="math inline">\((m,n)\)</span> 与
+<span class="math inline">\((n,m)\)</span>
+两个方向的贡献。最后由于全局对称会产生双计数，将总和除以 <span
+class="math inline">\(2\)</span> 即得最终 <span
+class="math inline">\(F(K,X)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">__int128_t</span> i128;</span><br><span class="line"></span><br><span class="line">ll K = <span class="number">1000000LL</span>, X = <span class="number">1000000000LL</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">floordiv</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll q = a / b, r = a % b;</span><br><span class="line">    <span class="keyword">if</span> (r &amp;&amp; ((r &gt; <span class="number">0</span>) != (b &gt; <span class="number">0</span>)))</span><br><span class="line">        --q;</span><br><span class="line">    <span class="keyword">return</span> q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">count_mn</span><span class="params">(ll m, ll n, ll K, ll X)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ((m &amp; <span class="number">1</span>) == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    ll k0 = m * n;</span><br><span class="line">    ll maxl = K / k0;</span><br><span class="line">    ll kk = k0 * k0;</span><br><span class="line">    ll res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> sub_iso = [&amp;](ll ba, ll ca, ll l, ll min_a, ll max_a)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ca)</span><br><span class="line">        &#123;</span><br><span class="line">            i128 num = (i128)l * ((i128)kk + (i128)ba * (i128)ca);</span><br><span class="line">            i128 den = (i128)<span class="number">2</span> * ca;</span><br><span class="line">            <span class="keyword">if</span> (num % den == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ll a0 = (ll)(-(num / den));</span><br><span class="line">                <span class="keyword">if</span> (min_a &lt;= a0 &amp;&amp; a0 &lt;= max_a)</span><br><span class="line">                    --res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ll bc = ba + ca;</span><br><span class="line">        <span class="keyword">if</span> (bc)</span><br><span class="line">        &#123;</span><br><span class="line">            i128 num = (i128)l * ((i128)kk + (i128)ba * ba + (i128)ba * ca);</span><br><span class="line">            i128 den = (i128)<span class="number">2</span> * bc;</span><br><span class="line">            <span class="keyword">if</span> (num % den == <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                ll a0 = (ll)(-(num / den));</span><br><span class="line">                <span class="keyword">if</span> (min_a &lt;= a0 &amp;&amp; a0 &lt;= max_a)</span><br><span class="line">                    --res;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> add_seg = [&amp;](ll min_a, ll max_a, ll ba, ll ca, ll l)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (max_a &lt; min_a)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        res += <span class="number">2</span> * (max_a - min_a + <span class="number">1</span>);</span><br><span class="line">        <span class="built_in">sub_iso</span>(ba, ca, l, min_a, max_a);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        ll s = m + n;</span><br><span class="line">        ll ba = s * s + n * n;</span><br><span class="line">        array&lt;ll, 2&gt; cas = &#123;-m * (m + n), -n * (m + <span class="number">2</span> * n)&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ll ca : cas)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll l = <span class="number">1</span>; l &lt;= maxl; ++l)</span><br><span class="line">            &#123;</span><br><span class="line">                ll lca = l * ca;</span><br><span class="line">                ll lba = l * ba;</span><br><span class="line"></span><br><span class="line">                ll min_a = <span class="built_in">floordiv</span>(l * (ca - ba), <span class="number">2</span>) + <span class="number">1</span>;</span><br><span class="line">                min_a = <span class="built_in">max</span>(min_a, -X);</span><br><span class="line"></span><br><span class="line">                ll max_a = <span class="built_in">floordiv</span>(lca, <span class="number">2</span>) - ((lca &amp; <span class="number">1</span>) == <span class="number">0</span>);</span><br><span class="line">                max_a = <span class="built_in">min</span>(max_a, X - lba);</span><br><span class="line">                max_a = <span class="built_in">min</span>(max_a, X + lca);</span><br><span class="line"></span><br><span class="line">                <span class="built_in">add_seg</span>(min_a, max_a, ba, ca, l);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line">        ll d = m - n;</span><br><span class="line">        ll ba = -(d * d + n * n);</span><br><span class="line">        array&lt;ll, 2&gt; cas = &#123;m * (m - n), n * (<span class="number">2</span> * n - m)&#125;;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (ll ca : cas)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (ll l = <span class="number">1</span>; l &lt;= maxl; ++l)</span><br><span class="line">            &#123;</span><br><span class="line">                ll lca = l * ca;</span><br><span class="line">                ll lba = l * ba;</span><br><span class="line"></span><br><span class="line">                ll min_a = <span class="built_in">max</span>(-X - lba, -X + lca);</span><br><span class="line">                ll max_a = <span class="built_in">min</span>(X, X + lca);</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> (max_a &lt; min_a)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                <span class="built_in">add_seg</span>(min_a, max_a, ba, ca, l);</span><br><span class="line"></span><br><span class="line">                ll max_a2 = <span class="built_in">min</span>(max_a, <span class="built_in">floordiv</span>(l * (ca - ba), <span class="number">2</span>));</span><br><span class="line">                ll min_a2 = <span class="built_in">max</span>(min_a, <span class="built_in">floordiv</span>(lca, <span class="number">2</span>) + (lca &amp; <span class="number">1</span>));</span><br><span class="line">                <span class="keyword">if</span> (max_a2 &gt;= min_a2)</span><br><span class="line">                    res -= <span class="number">2</span> * (max_a2 - min_a2 + <span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll K, ll X)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll res = <span class="built_in">count_mn</span>(<span class="number">1</span>, <span class="number">1</span>, K, X);</span><br><span class="line"></span><br><span class="line">    vector&lt;pair&lt;ll, ll&gt;&gt; st;</span><br><span class="line">    st.<span class="built_in">reserve</span>(<span class="number">1</span> &lt;&lt; <span class="number">20</span>);</span><br><span class="line">    st.<span class="built_in">push_back</span>(&#123;<span class="number">2</span>, <span class="number">1</span>&#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!st.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">auto</span> [m, n] = st.<span class="built_in">back</span>();</span><br><span class="line">        st.<span class="built_in">pop_back</span>();</span><br><span class="line"></span><br><span class="line">        ll s = m + n;</span><br><span class="line">        <span class="keyword">if</span> (s * m &lt;= K)</span><br><span class="line">            st.<span class="built_in">push_back</span>(&#123;s, m&#125;);</span><br><span class="line">        <span class="keyword">if</span> (s * n &lt;= K)</span><br><span class="line">            st.<span class="built_in">push_back</span>(&#123;s, n&#125;);</span><br><span class="line"></span><br><span class="line">        res += <span class="built_in">count_mn</span>(m, n, K, X);</span><br><span class="line">        res += <span class="built_in">count_mn</span>(n, m, K, X);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> res / <span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">solve</span>(K, X) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/397/" title="Project Euler 397">https://ujimatsu-chiya.github.io/project-euler/397/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.9m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">28:05</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

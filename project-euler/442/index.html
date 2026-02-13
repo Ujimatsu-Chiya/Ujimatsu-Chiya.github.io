@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 442">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/442/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-12T16:33:26.000Z">
+<meta property="article:modified_time" content="2026-02-12T16:33:26.877Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/442/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/442/","path":"project-euler/442/","title":"Project Euler 442"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 442 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-442"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 442</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#eleven-free-integers"><span class="nav-number">1.1.1.</span> <span class="nav-text">Eleven-free integers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">826</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/442/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 442 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 442
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-13 00:33:26" itemprop="dateCreated datePublished" datetime="2026-02-13T00:33:26+08:00">2026-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-442">Project Euler 442</h1>
+<h2 id="题目">题目</h2>
+<h3 id="eleven-free-integers">Eleven-free integers</h3>
+<p>An integer is called <em>eleven-free</em> if its decimal expansion
+does not contain any substring representing a power of <span
+class="math inline">\(11\)</span> except <span
+class="math inline">\(1\)</span>.</p>
+<p>For example, <span class="math inline">\(2404\)</span> and <span
+class="math inline">\(13431\)</span> are eleven-free, while <span
+class="math inline">\(911\)</span> and <span
+class="math inline">\(4121331\)</span> are not.</p>
+<p>Let <span class="math inline">\(E(n)\)</span> be the <span
+class="math inline">\(n\text{th}\)</span> positive eleven-free integer.
+For example, <span class="math inline">\(E(3) = 3\)</span>, <span
+class="math inline">\(E(200) = 213\)</span> and <span
+class="math inline">\(E(500000) = 531563\)</span>.</p>
+<p>Find <span class="math inline">\(E(10^{18})\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=10^{18}\)</span>。定义计数函数<span
+class="math inline">\(F(N)\)</span>表示不超过<span
+class="math inline">\(N\)</span>的eleven-free数。则 <span
+class="math inline">\(E(n)\)</span> 是满足<span
+class="math inline">\(F(E(n))\ge n\)</span>的最小正整数，即<span
+class="math inline">\(E(n)=\min\{N\in\mathbb Z_{\ge1}\mid F(N)\ge
+n\}.\)</span></p>
+<p>注意到 <span class="math inline">\(F(N)\)</span> 随 <span
+class="math inline">\(N\)</span> 单调不减，因此一旦能够高效计算 <span
+class="math inline">\(F(N)\)</span>，就可以通过二分查找求出 <span
+class="math inline">\(E(N)\)</span>。</p>
+<p>令十进制数字集为 <span
+class="math inline">\(\Sigma=\{0,1,2,\dots,9\}\)</span>。观察到：任意
+<span class="math inline">\(11^k(k\ge1)\)</span> 的十进制表示都包含字符
+<code>1</code>，因此 <strong>若一个正整数的十进制表示中完全不出现
+<code>1</code>，它必然 eleven-free</strong>。</p>
+<p>考虑 <span class="math inline">\(d\)</span> 位正整数（最高位非 <span
+class="math inline">\(0\)</span>）且不含 <code>1</code> 的个数：首位可取
+<span class="math inline">\(\{2,3,\dots,9\}\)</span> 共 <span
+class="math inline">\(8\)</span> 种；后 <span
+class="math inline">\(d-1\)</span> 位可取 <span
+class="math inline">\(\Sigma\setminus\{1\}\)</span> 共 <span
+class="math inline">\(9\)</span> 种。</p>
+<p>因此<span class="math inline">\(d\)</span>位不含<span
+class="math inline">\(1\)</span>的数的个数为<span
+class="math inline">\(8\cdot 9^{d-1}.\)</span>对 <span
+class="math inline">\(1\le k\le d\)</span> 求和得到不含 <code>1</code>
+且位数不超过 <span class="math inline">\(d\)</span> 的正整数个数：<span
+class="math inline">\(\displaystyle{\sum_{k=1}^{d}8\cdot
+9^{k-1}=8\cdot\frac{9^d-1}{9-1}=9^d-1.}\)</span></p>
+<p>因此为找到最小的<span class="math inline">\(d\)</span>使得<span
+class="math inline">\(9^d-1\ge N\)</span>，那么<span
+class="math inline">\(d\)</span>至少为<span
+class="math inline">\(d=\left\lceil\dfrac{\log(N+1)}{\log9}\right\rceil\)</span>。这里我们得到了<span
+class="math inline">\(d=19\)</span>。也就是说在所有不超过 <span
+class="math inline">\(d\)</span> 位的正整数中，已经至少存在 <span
+class="math inline">\(N\)</span> 个 eleven-free 数。于是必有<span
+class="math inline">\(E(N)\ge 10^{d}.\)</span></p>
+<p>从而我们只需考虑长度 <span class="math inline">\(\le d\)</span> 的
+forbidden 子串，也即只需要枚举满足<span
+class="math inline">\(|\mathrm{str}(11^k)|\le 19\)</span>的那些 <span
+class="math inline">\(k\)</span>。其中<span
+class="math inline">\(\mathrm{str}\)</span>表示将数字解释为十进制字符串。</p>
+<p>令 forbidden 集合为<span class="math inline">\(\mathcal
+P=\{\mathrm{str}(11^k)\mid k\ge1,|\mathrm{str}(11^k)|\le
+d\}.\)</span>我们先约定：<span class="math inline">\(p\sqsubseteq
+w\)</span> 表示<span class="math inline">\(p\)</span> 是 <span
+class="math inline">\(w\)</span>的子串。则在 <span
+class="math inline">\(\Sigma\)</span> 上考虑语言<span
+class="math inline">\(\mathcal L=\{w\in\Sigma^*\mid \forall p\in\mathcal
+P,p\not\sqsubseteq w\}.\)</span></p>
+<p>显然，eleven-free 的判定就是判断一个数字串是否属于 <span
+class="math inline">\(\mathcal L\)</span>（并且我们允许出现
+<code>1</code>，只是不允许出现完整的 <span
+class="math inline">\(11^k\)</span> 子串）。</p>
+<p>为了在线检测子串出现与否，我们可以<a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm">构造AC自动机</a>来完成，把
+<span class="math inline">\(\mathcal P\)</span>
+中所有字符串插入并构建，得到确定性自动机 <span
+class="math inline">\(\mathcal A\)</span>，其状态集合 <span
+class="math inline">\(S\)</span>，字母表为 <span
+class="math inline">\(\Sigma\)</span>，转移函数为<span
+class="math inline">\(\delta:S\times\Sigma\to S.\)</span></p>
+<p>令 <span class="math inline">\(B\subseteq S\)</span>
+为“坏状态集合”，即所有对应“至少匹配到某个完整 forbidden
+模式”的状态，再加上它们在 fail 链上的传播闭包。形式上可理解为：若存在
+<span class="math inline">\(p\in\mathcal P\)</span>
+为当前读取串的某个后缀，则该状态属于 <span
+class="math inline">\(B\)</span>。</p>
+<p>于是对任意数字串 <span class="math inline">\(w\)</span>，从初态 <span
+class="math inline">\(s_0\)</span> 逐字符应用 <span
+class="math inline">\(\delta\)</span>，若过程中到达某个 <span
+class="math inline">\(b\in B\)</span>，则 <span
+class="math inline">\(w\notin\mathcal L\)</span>；否则 <span
+class="math inline">\(w\in\mathcal L\)</span>。由于 <span
+class="math inline">\(|\mathcal P|\)</span> 很小（长度 <span
+class="math inline">\(\le d\)</span> 的 <span
+class="math inline">\(11^k\)</span> 数量级是<span
+class="math inline">\(O(d)\)</span>），完全可行。</p>
+<p>令 <span class="math inline">\(N\)</span> 的十进制表示为<span
+class="math inline">\(N=\overline{D_0D_1\dots D_{L-1}},
+D_i\in\Sigma,L\)</span>是位数。我们要计算 <span
+class="math inline">\([0,N]\)</span> 中属于 <span
+class="math inline">\(\mathcal L\)</span> 的数字串数量，再减去 <span
+class="math inline">\(0\)</span>。</p>
+<p>用数位 DP，<span class="math inline">\(i\)</span>表示当前位置（<span
+class="math inline">\(0\le i\le L\)</span>），<span
+class="math inline">\(s\in S\)</span>表示当前到达的 AC 自动机状态，<span
+class="math inline">\(a\in\{0,1\}\)</span>表示是否出现过首个非零位，<span
+class="math inline">\(t\in\{0,1\}\)</span>：是否仍受上界约束，定义<span
+class="math inline">\(f(i,s,a,t)\)</span>表示补全后缀<span
+class="math inline">\(D_i\dots D_{L-1}\)</span>的方法数，使整体仍
+eleven-free。</p>
+<p>边界条件：<span
+class="math inline">\(f(L,\cdot,\cdot,\cdot)=1,\)</span>表示已经构造完成一个合法数（此时并不区分是否为
+<span class="math inline">\(0\)</span>，稍后统一减去）。</p>
+<p>若 <span class="math inline">\(t=1\)</span>，本位可选数字为 <span
+class="math inline">\(d\in[0,D_i]\)</span>；若 <span
+class="math inline">\(t=0\)</span>，则 <span
+class="math inline">\(d\in[0,9]\)</span>。记上界为<span
+class="math inline">\(U_i=\begin{cases}D_i,&amp;t=1\\9,&amp;t=0.\end{cases}\)</span></p>
+<p>若 <span class="math inline">\(a=0\)</span> 且 <span
+class="math inline">\(d=0\)</span>：仍未开始，自动机保持在初态 <span
+class="math inline">\(s_0\)</span>；否则：视为把数字 <span
+class="math inline">\(d\)</span> 喂给自动机，从状态 <span
+class="math inline">\(s\)</span> 转移到 <span
+class="math inline">\(\delta(s,d)\)</span>（若此前未开始，则等价于从
+<span class="math inline">\(s_0\)</span> 读入 <span
+class="math inline">\(d\)</span>）。并且如果到达坏状态 <span
+class="math inline">\(B\)</span>，则此分支无效。</p>
+<p>因此</p>
+<p><span class="math display">\[
+f(i,s,a,t)
+=\sum_{d=0}^{U_i}
+\mathbf 1\bigl(\delta(s,d)\not\in B)\cdot
+f(i+1,s&#39;,a&#39;,t&#39;),
+\]</span></p>
+<p>其中<span class="math inline">\(t&#39; = 1\)</span> 当且仅当 <span
+class="math inline">\(t=1\)</span> 且 <span
+class="math inline">\(d=U_i\)</span>，<span class="math inline">\(a&#39;
+= a\lor(d\ne 0)\)</span>，<span class="math inline">\(s&#39;\)</span>
+为更新后的自动机状态（未开始时保持 <span
+class="math inline">\(s_0\)</span>，否则 <span
+class="math inline">\(s&#39;=\delta(s,d)\)</span>）。</p>
+<p>最终得到包含<span
+class="math inline">\(0\)</span>的eleven-free数的个数为<span
+class="math inline">\(f(0,s_0,0,1)\)</span>。而题目所需的是正整数，所以<span
+class="math inline">\(F(N)=f(0,s_0,0,1)-1.\)</span></p>
+<p>我们要求最小 <span class="math inline">\(x\)</span> 使得 <span
+class="math inline">\(F(x)\ge 10^{N}\)</span>，由于 <span
+class="math inline">\(F\)</span> 单调不减，可以在区间 <span
+class="math inline">\([0,10^{d})\)</span> 上二分即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> lru_cache</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> deque</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log10, ceil</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span> ** <span class="number">18</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">build_automaton</span>(<span class="params">max_len: <span class="built_in">int</span></span>):</span><br><span class="line">    patterns = []</span><br><span class="line">    k = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        s = <span class="built_in">str</span>(<span class="number">11</span> ** k)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(s) &gt; max_len:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        patterns.append(<span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>,s)))</span><br><span class="line">        k += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    trans = [[-<span class="number">1</span>] * <span class="number">10</span>]</span><br><span class="line">    link = [<span class="number">0</span>]</span><br><span class="line">    bad = [<span class="literal">False</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> pat <span class="keyword">in</span> patterns:</span><br><span class="line">        v = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> pat:</span><br><span class="line">            <span class="keyword">if</span> trans[v][d] == -<span class="number">1</span>:</span><br><span class="line">                trans[v][d] = <span class="built_in">len</span>(trans)</span><br><span class="line">                trans.append([-<span class="number">1</span>] * <span class="number">10</span>)</span><br><span class="line">                link.append(<span class="number">0</span>)</span><br><span class="line">                bad.append(<span class="literal">False</span>)</span><br><span class="line">            v = trans[v][d]</span><br><span class="line">        bad[v] = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    q = deque()</span><br><span class="line">    <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">        <span class="keyword">if</span> trans[<span class="number">0</span>][d] != -<span class="number">1</span>:</span><br><span class="line">            v = trans[<span class="number">0</span>][d]</span><br><span class="line">            link[v] = <span class="number">0</span></span><br><span class="line">            q.append(v)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            trans[<span class="number">0</span>][d] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> q:</span><br><span class="line">        v = q.popleft()</span><br><span class="line">        bad[v] |= bad[link[v]]</span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">            u = trans[v][d]</span><br><span class="line">            <span class="keyword">if</span> u != -<span class="number">1</span>:</span><br><span class="line">                link[u] = trans[link[v]][d]</span><br><span class="line">                q.append(u)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                trans[v][d] = trans[link[v]][d]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> trans, bad</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_eleven_free_upto</span>(<span class="params">n: <span class="built_in">int</span>, trans, bad</span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    digits = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">int</span>, <span class="built_in">str</span>(n)))</span><br><span class="line">    L = <span class="built_in">len</span>(digits)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @lru_cache(<span class="params">maxsize=<span class="literal">None</span></span>)</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">dp</span>(<span class="params">pos: <span class="built_in">int</span>, state: <span class="built_in">int</span>, started: <span class="built_in">int</span>, tight: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> pos == L:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        lim = digits[pos] <span class="keyword">if</span> tight <span class="keyword">else</span> <span class="number">9</span></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> <span class="built_in">range</span>(lim + <span class="number">1</span>):</span><br><span class="line">            ntight = <span class="number">1</span> <span class="keyword">if</span> (tight <span class="keyword">and</span> d == lim) <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">            <span class="keyword">if</span> started == <span class="number">0</span> <span class="keyword">and</span> d == <span class="number">0</span>:</span><br><span class="line">                res += dp(pos + <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, ntight)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                ns = trans[state][d] <span class="keyword">if</span> started <span class="keyword">else</span> trans[<span class="number">0</span>][d]</span><br><span class="line">                <span class="keyword">if</span> bad[ns]:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                res += dp(pos + <span class="number">1</span>, ns, <span class="number">1</span>, ntight)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">nth_eleven_free</span>(<span class="params">k: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    max_digits = ceil(log10(k + <span class="number">1</span>) / log10(<span class="number">9</span>))</span><br><span class="line">    trans, bad = build_automaton(max_digits)</span><br><span class="line"></span><br><span class="line">    l = <span class="number">0</span></span><br><span class="line">    r = <span class="number">10</span> ** max_digits - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> l &lt; r:</span><br><span class="line">        mid = (l + r) // <span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> count_eleven_free_upto(mid, trans, bad) &gt;= k:</span><br><span class="line">            r = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l = mid + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(nth_eleven_free(N))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/442/" title="Project Euler 442">https://ujimatsu-chiya.github.io/project-euler/442/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.9m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">28:05</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

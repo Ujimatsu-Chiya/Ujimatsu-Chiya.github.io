@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 840">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/840/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-12T16:33:39.000Z">
+<meta property="article:modified_time" content="2026-02-12T16:33:39.079Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/840/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/840/","path":"project-euler/840/","title":"Project Euler 840"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 840 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-840"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 840</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sum-of-products"><span class="nav-number">1.1.1.</span> <span class="nav-text">Sum of Products</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">826</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/840/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 840 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 840
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-13 00:33:39" itemprop="dateCreated datePublished" datetime="2026-02-13T00:33:39+08:00">2026-02-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-840">Project Euler 840</h1>
+<h2 id="题目">题目</h2>
+<h3 id="sum-of-products">Sum of Products</h3>
+<p>A <strong>partition</strong> of <span
+class="math inline">\(n\)</span> is a set of positive integers for which
+the sum equals <span class="math inline">\(n\)</span>.</p>
+<p>The partitions of <span class="math inline">\(5\)</span> are:</p>
+<p><span
+class="math inline">\(\{5\},\{1,4\},\{2,3\},\{1,1,3\},\{1,2,2\},\{1,1,1,2\}\)</span>
+and <span class="math inline">\(\{1,1,1,1,1\}\)</span>.</p>
+<p>Further we define the function <span
+class="math inline">\(D(p)\)</span> as:</p>
+<p><span class="math display">\[\begin{align}
+\begin{split}
+D(1) &amp;= 1 \\
+D(p) &amp;= 1, \text{ for any prime } p \\
+D(pq) &amp;= D(p)q + pD(q), \text{ for any positive integers } p,q \gt
+1.
+\end{split}
+\end{align}\]</span></p>
+<p>Now let <span class="math inline">\(\{a_1, a_2,\ldots,a_k\}\)</span>
+be a partition of <span class="math inline">\(n\)</span>.</p>
+<p>We assign to this particular partition the value:</p>
+<p><span class="math display">\[P=\prod_{j=1}^{k}D(a_j). \]</span></p>
+<p><span class="math inline">\(G(n)\)</span> is the sum of <span
+class="math inline">\(P\)</span> for all partitions of <span
+class="math inline">\(n\)</span>.</p>
+<p>We can verify that <span class="math inline">\(G(10) =
+164\)</span>.</p>
+<p>We also define:</p>
+<p><span class="math display">\[S(N)=\sum_{n=1}^{N}G(n).\]</span></p>
+<p>You are given <span class="math inline">\(S(10)=396\)</span>.</p>
+<p>Find <span class="math inline">\(S(5\times 10^4) \mod
+999676999\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(N=5\times
+10^4,M=999676999\)</span>。递推式<span
+class="math inline">\(D(pq)=D(p)q+pD(q)\)</span>与微积分的乘积法则一致，配合
+<span
+class="math inline">\(D(p)=1\)</span>（素数）正是经典的<strong>算术导数</strong>（arithmetic
+derivative）的定义方式（除题目额外规定 <span
+class="math inline">\(D(1)=1\)</span> 以外）。因此 <span
+class="math inline">\(D(n)\)</span>
+具备可由素因子分解快速计算的闭式。</p>
+<p>对 <span class="math inline">\(e\ge 1\)</span>,<span
+class="math inline">\(D(p^e)=D(p^{e-1}\cdot
+p)=D(p^{e-1})p+p^{e-1}D(p)=pD(p^{e-1})+p^{e-1}.\)</span>由此递推可得<span
+class="math inline">\(D(p^e)=ep^{e-1}.\)</span></p>
+<p>对于一般情况，设<span
+class="math inline">\(n\)</span>的质因子分解为<span
+class="math inline">\(\displaystyle{n=\prod_{i=1}^t
+p_i^{e_i}.}\)</span>利用乘积法则反复展开（或用对数微分的等价形式），可得标准公式：<span
+class="math inline">\(\displaystyle{D(n)=n\sum_{i=1}^t
+\frac{e_i}{p_i}}\)</span>等价地写成无分数的形式：</p>
+<p><span class="math display">\[
+D(n)=\sum_{i=1}^t e_i\cdot \frac{n}{p_i}.
+\]</span></p>
+<p>因此只要知道 <span class="math inline">\(n\)</span>
+的素因子及指数，就能在 <span class="math inline">\(O(\omega(n))\)</span>
+时间算出 <span class="math inline">\(D(n)\)</span>（<span
+class="math inline">\(\omega\)</span> 为不同素因子个数）。</p>
+<p>把分拆按每个部件大小 <span class="math inline">\(k\)</span> 出现次数
+<span class="math inline">\(m_k\)</span> 表示，则<span
+class="math inline">\(\displaystyle{\sum_{k\ge 1} km_k=n,P=\prod_{k\ge
+1} D(k)^{m_k}.}\)</span></p>
+<p>对固定的 <span class="math inline">\(k\)</span>，出现次数 <span
+class="math inline">\(m\)</span> 可以是 <span
+class="math inline">\(0,1,2,\dots\)</span>，对生成函数的贡献是几何级数：<span
+class="math inline">\(\displaystyle{\sum_{m\ge
+0}\bigl(D(k)x^k\bigr)^m=\frac{1}{1-D(k)x^k}.}\)</span>不同 <span
+class="math inline">\(k\)</span> 相互独立相乘，于是得到总体生成函数<span
+class="math inline">\(\displaystyle{
+F(x)=\sum_{n\ge 0}G(n)x^n=\prod_{k\ge
+1}\frac{1}{1-D(k)x^k}.}\)</span></p>
+<p>我们只需要到 <span class="math inline">\(N\)</span> 的系数，因此在模
+<span class="math inline">\(x^{N+1}\)</span> 意义下可截断为</p>
+<p><span class="math display">\[
+F(x)\equiv \prod_{k=1}^{N}\frac{1}{1-D(k)x^k}\pmod{x^{N+1}}.
+\]</span></p>
+<p>其中常数项 <span class="math inline">\(G(0)=1\)</span>
+对应空分拆。最终目标和为</p>
+<p><span class="math display">\[
+S(N)=\sum_{n=1}^N G(n)=\left(\sum_{n=0}^N [x^n]F(x)\right)-1.
+\]</span></p>
+<p>可见，如果直接做完全背包型 DP：<span
+class="math inline">\(G(n)\leftarrow G(n)+D(k)G(n-k)\)</span>是 <span
+class="math inline">\(O(N^2)\)</span>的时间复杂度，比较慢。关键是对生成函数取对数：</p>
+<p><span class="math display">\[
+\log F(x)=\sum_{k=1}^N -\log(1-D(k)x^k)
+=\sum_{k=1}^N \sum_{m\ge 1}\frac{D(k)^m}{m}x^{km}.
+\]</span></p>
+<p>令<span class="math inline">\(\displaystyle{L(x)=\log
+F(x)=\sum_{t=1}^N L_t x^t,}\)</span>则系数满足<span
+class="math inline">\(\displaystyle{L_t=\sum_{k\mid
+t}\frac{D(k)^{t/k}}{t/k}.}\)</span>（也就是令 <span
+class="math inline">\(t=km\)</span>，对所有 <span
+class="math inline">\(k\)</span> 枚举 <span
+class="math inline">\(m=t/k\)</span>）</p>
+<p>于是只要先算出 <span class="math inline">\(L(x)\)</span> 的前 <span
+class="math inline">\(N\)</span> 项，就有<span
+class="math inline">\(F(x)=\exp(L(x)).\)</span>所以核心变成：在模 <span
+class="math inline">\(M\)</span> 下做形式幂级数的 <span
+class="math inline">\(\exp\)</span>。</p>
+<p>使用模逆元，我们可以在 <span class="math inline">\(O(N\log
+N)\)</span>的时间计算出<span class="math inline">\(L(x)\bmod
+x^{N+1}\)</span>的表达式。</p>
+<p>接下来我们假设下面所有多项式运算都在模 <span
+class="math inline">\(x^m\)</span> 截断下进行。</p>
+<p>对于多项式求逆，即给定 <span class="math inline">\(f(0)\ne
+0\)</span>，求 <span
+class="math inline">\(g=f^{-1}\pmod{x^m}\)</span>。通过 Newton
+迭代：<span class="math inline">\(g_i=g_{i-1}\cdot
+(2-fg_{i-1})\pmod{x^{2n}}.\)</span>从 <span
+class="math inline">\(g_1=f(0)^{-1}\)</span>
+开始，每次精度翻倍，直到达到 <span
+class="math inline">\(m\)</span>。</p>
+<p>对于多项式对数，要求 <span
+class="math inline">\(f(0)=1\)</span>，并定义<span
+class="math inline">\(\displaystyle{\log f=\int
+\frac{f&#39;}{f}dx.}\)</span>实现步骤如下：求导 <span
+class="math inline">\(f&#39;\)</span>；求逆 <span
+class="math inline">\(f^{-1}\)</span>；卷积得到 <span
+class="math inline">\(f&#39;\cdot f^{-1}\)</span>；并积分即可。</p>
+<p>对于多项式指数，给定幂级数 <span class="math inline">\(a(x)\)</span>
+且满足 <span class="math inline">\(a_0=0\)</span>，要求 <span
+class="math inline">\(f=\exp(a)\)</span>（此时必有 <span
+class="math inline">\(f_0=1\)</span>）。Newton 迭代的标准形式为：<span
+class="math inline">\(f_{i}=f_{i-1}\cdot \bigl(1+a-\log
+f_{i-1}\bigr)\pmod{x^{2n}}.\)</span>从 <span
+class="math inline">\(f=1\)</span> 开始精度翻倍到 <span
+class="math inline">\(N+1\)</span>。在本题中，取 <span
+class="math inline">\(a(x)=L(x)=\log F(x)\)</span>，因此最终 <span
+class="math inline">\(F(x)=\exp(L(x))\)</span>。</p>
+<p>这些步骤的瓶颈全部是多项式乘法（卷积）。</p>
+<p>接下来使用 FFT 做模数乘法。可见，模数 <span
+class="math inline">\(M\)</span> 不是常见 NTT 友好模数时，可以用实数 FFT
+做卷积，再通过“拆位”避免精度溢出。把系数表示为：<span
+class="math inline">\(a = a_0 + a_1 B, b=b_0+b_1 B,\)</span>其中 <span
+class="math inline">\(B=2^{15}\)</span>，<span
+class="math inline">\(a_0,a_1,b_0,b_1\)</span> 都在较小范围内。</p>
+<p>则<span class="math inline">\(ab = (a_0b_0) + (a_0b_1+a_1b_0)B +
+(a_1b_1)B^2.\)</span>分别用 FFT
+做三次实数卷积，四舍五入取整后再按模数重建即可。再配合一个小规模阈值在规模很小时改用朴素乘法，整体速度更稳。</p>
+<p>最终，计算 <span
+class="math inline">\(F(x)=\exp(L(x))\pmod{x^{N+1}}\)</span>后，得到
+<span class="math inline">\(G(n)=[x^n]F(x)\)</span>。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> Factorizer</span><br><span class="line"></span><br><span class="line">N = <span class="number">50000</span></span><br><span class="line">MOD = <span class="number">999676999</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">conv_mod_fft</span>(<span class="params">a: np.ndarray, b: np.ndarray</span>) -&gt; np.ndarray:</span><br><span class="line">    na = a.size</span><br><span class="line">    nb = b.size</span><br><span class="line">    <span class="keyword">if</span> na == <span class="number">0</span> <span class="keyword">or</span> nb == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> np.zeros(<span class="number">0</span>, dtype=np.int64)</span><br><span class="line">    need = na + nb - <span class="number">1</span></span><br><span class="line">    L = <span class="number">1</span> &lt;&lt; ((need - <span class="number">1</span>).bit_length())</span><br><span class="line">    base = <span class="number">1</span> &lt;&lt; <span class="number">15</span></span><br><span class="line"></span><br><span class="line">    a = a.astype(np.int64, copy=<span class="literal">False</span>) % MOD</span><br><span class="line">    b = b.astype(np.int64, copy=<span class="literal">False</span>) % MOD</span><br><span class="line"></span><br><span class="line">    a0 = (a % base).astype(np.float64, copy=<span class="literal">False</span>)</span><br><span class="line">    a1 = (a // base).astype(np.float64, copy=<span class="literal">False</span>)</span><br><span class="line">    b0 = (b % base).astype(np.float64, copy=<span class="literal">False</span>)</span><br><span class="line">    b1 = (b // base).astype(np.float64, copy=<span class="literal">False</span>)</span><br><span class="line"></span><br><span class="line">    fa0 = np.fft.rfft(a0, L)</span><br><span class="line">    fa1 = np.fft.rfft(a1, L)</span><br><span class="line">    fb0 = np.fft.rfft(b0, L)</span><br><span class="line">    fb1 = np.fft.rfft(b1, L)</span><br><span class="line"></span><br><span class="line">    c00 = np.fft.irfft(fa0 * fb0, L)[:need]</span><br><span class="line">    c01 = np.fft.irfft(fa0 * fb1 + fa1 * fb0, L)[:need]</span><br><span class="line">    c11 = np.fft.irfft(fa1 * fb1, L)[:need]</span><br><span class="line"></span><br><span class="line">    c00 = np.rint(c00).astype(np.int64) % MOD</span><br><span class="line">    c01 = np.rint(c01).astype(np.int64) % MOD</span><br><span class="line">    c11 = np.rint(c11).astype(np.int64) % MOD</span><br><span class="line"></span><br><span class="line">    bb = base % MOD</span><br><span class="line">    bb2 = (base * base) % MOD</span><br><span class="line">    <span class="keyword">return</span> (c00 + c01 * bb + c11 * bb2) % MOD</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">poly_mul</span>(<span class="params">a: np.ndarray, b: np.ndarray, lim: <span class="built_in">int</span></span>) -&gt; np.ndarray:</span><br><span class="line">    <span class="keyword">if</span> lim &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> np.zeros(<span class="number">0</span>, dtype=np.int64)</span><br><span class="line">    <span class="keyword">if</span> a.size == <span class="number">0</span> <span class="keyword">or</span> b.size == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> np.zeros(lim, dtype=np.int64)</span><br><span class="line">    <span class="keyword">if</span> a.size * b.size &lt;= <span class="number">4000</span>:</span><br><span class="line">        L = <span class="built_in">min</span>(lim, a.size + b.size - <span class="number">1</span>)</span><br><span class="line">        r = np.zeros(L, dtype=np.int64)</span><br><span class="line">        aa = a.astype(np.int64, copy=<span class="literal">False</span>) % MOD</span><br><span class="line">        bb = b.astype(np.int64, copy=<span class="literal">False</span>) % MOD</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(aa.size):</span><br><span class="line">            ai = <span class="built_in">int</span>(aa[i])</span><br><span class="line">            <span class="keyword">if</span> ai == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            jmax = <span class="built_in">min</span>(bb.size, L - i)</span><br><span class="line">            <span class="keyword">if</span> jmax &gt; <span class="number">0</span>:</span><br><span class="line">                r[i:i + jmax] = (r[i:i + jmax] + ai * bb[:jmax]) % MOD</span><br><span class="line">        <span class="keyword">if</span> L &lt; lim:</span><br><span class="line">            r = np.pad(r, (<span class="number">0</span>, lim - L))</span><br><span class="line">        <span class="keyword">return</span> r[:lim]</span><br><span class="line">    c = conv_mod_fft(a, b)</span><br><span class="line">    <span class="keyword">if</span> c.size &lt; lim:</span><br><span class="line">        c = np.pad(c, (<span class="number">0</span>, lim - c.size))</span><br><span class="line">    <span class="keyword">return</span> c[:lim]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">poly_inv</span>(<span class="params">f: np.ndarray, m: <span class="built_in">int</span></span>) -&gt; np.ndarray:</span><br><span class="line">    g = np.array([<span class="built_in">pow</span>(<span class="built_in">int</span>(f[<span class="number">0</span>]), MOD - <span class="number">2</span>, MOD)], dtype=np.int64)</span><br><span class="line">    n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; m:</span><br><span class="line">        n2 = <span class="built_in">min</span>(<span class="number">2</span> * n, m)</span><br><span class="line">        fg = poly_mul(f[:n2], g, n2)</span><br><span class="line">        t = np.zeros(n2, dtype=np.int64)</span><br><span class="line">        t[<span class="number">0</span>] = (<span class="number">2</span> - fg[<span class="number">0</span>]) % MOD</span><br><span class="line">        <span class="keyword">if</span> n2 &gt; <span class="number">1</span>:</span><br><span class="line">            t[<span class="number">1</span>:] = (-fg[<span class="number">1</span>:]) % MOD</span><br><span class="line">        g = poly_mul(g, t, n2)</span><br><span class="line">        n = n2</span><br><span class="line">    <span class="keyword">return</span> g[:m]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">poly_log</span>(<span class="params">f: np.ndarray, m: <span class="built_in">int</span>, inv: np.ndarray</span>) -&gt; np.ndarray:</span><br><span class="line">    df = np.zeros(<span class="built_in">max</span>(<span class="number">0</span>, m - <span class="number">1</span>), dtype=np.int64)</span><br><span class="line">    up = <span class="built_in">min</span>(f.size, m)</span><br><span class="line">    <span class="keyword">if</span> up &gt; <span class="number">1</span>:</span><br><span class="line">        idx = np.arange(<span class="number">1</span>, up, dtype=np.int64)</span><br><span class="line">        df[:up - <span class="number">1</span>] = (f[<span class="number">1</span>:up] * idx) % MOD</span><br><span class="line">    invf = poly_inv(f, m)</span><br><span class="line">    q = poly_mul(df, invf, m - <span class="number">1</span>)</span><br><span class="line">    res = np.zeros(m, dtype=np.int64)</span><br><span class="line">    <span class="keyword">if</span> m &gt; <span class="number">1</span>:</span><br><span class="line">        res[<span class="number">1</span>:] = (q[:m - <span class="number">1</span>] * inv[<span class="number">1</span>:m]) % MOD</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">poly_exp</span>(<span class="params">a: np.ndarray, m: <span class="built_in">int</span>, inv: np.ndarray</span>) -&gt; np.ndarray:</span><br><span class="line">    f = np.array([<span class="number">1</span>], dtype=np.int64)</span><br><span class="line">    n = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &lt; m:</span><br><span class="line">        n2 = <span class="built_in">min</span>(<span class="number">2</span> * n, m)</span><br><span class="line">        ln_f = poly_log(f, n2, inv)</span><br><span class="line">        diff = (a[:n2] - ln_f) % MOD</span><br><span class="line">        diff[<span class="number">0</span>] = (diff[<span class="number">0</span>] + <span class="number">1</span>) % MOD</span><br><span class="line">        f = poly_mul(f, diff, n2)</span><br><span class="line">        n = n2</span><br><span class="line">    <span class="keyword">return</span> f[:m]</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N</span>):</span><br><span class="line">    inv = np.zeros(N + <span class="number">1</span>, dtype=np.int64)</span><br><span class="line">    inv[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">        inv[i] = (MOD - (MOD // i) * inv[MOD % i] % MOD) % MOD</span><br><span class="line"></span><br><span class="line">    spf = Factorizer(N).spf</span><br><span class="line">    D = [<span class="number">0</span>] * (N + <span class="number">1</span>)</span><br><span class="line">    D[<span class="number">1</span>] = <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, N + <span class="number">1</span>):</span><br><span class="line">        t = x</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> t &gt; <span class="number">1</span>:</span><br><span class="line">            p = spf[t]</span><br><span class="line">            e = <span class="number">0</span></span><br><span class="line">            <span class="keyword">while</span> t % p == <span class="number">0</span>:</span><br><span class="line">                t //= p</span><br><span class="line">                e += <span class="number">1</span></span><br><span class="line">            res += e * (x // p)</span><br><span class="line">        D[x] = res % MOD</span><br><span class="line"></span><br><span class="line">    L = np.zeros(N + <span class="number">1</span>, dtype=np.int64)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, N + <span class="number">1</span>):</span><br><span class="line">        ak = D[k] % MOD</span><br><span class="line">        <span class="keyword">if</span> ak == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        pw = ak</span><br><span class="line">        lim = N // k</span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, lim + <span class="number">1</span>):</span><br><span class="line">            L[k * m] = (L[k * m] + pw * inv[m]) % MOD</span><br><span class="line">            pw = (pw * ak) % MOD</span><br><span class="line"></span><br><span class="line">    f = poly_exp(L, N + <span class="number">1</span>, inv)</span><br><span class="line">    ans = <span class="built_in">int</span>(f[<span class="number">1</span>:].<span class="built_in">sum</span>() % MOD)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(solve(N))</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/840/" title="Project Euler 840">https://ujimatsu-chiya.github.io/project-euler/840/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">1.9m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">28:05</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
