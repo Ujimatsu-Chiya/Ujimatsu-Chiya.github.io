@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 723">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/723/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0723_1.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0723_2.png">
+<meta property="article:published_time" content="2026-02-23T12:18:35.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:35.549Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0723_1.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/723/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/723/","path":"project-euler/723/","title":"Project Euler 723"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 723 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-723"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 723</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pythagorean-quadrilaterals"><span class="nav-number">1.1.1.</span> <span class="nav-text">Pythagorean Quadrilaterals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/723/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 723 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 723
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:35" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:35+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-723">Project Euler 723</h1>
+<h2 id="题目">题目</h2>
+<h3 id="pythagorean-quadrilaterals">Pythagorean Quadrilaterals</h3>
+<p>A pythagorean triangle with catheti <span
+class="math inline">\(a\)</span> and <span
+class="math inline">\(b\)</span> and hypotenuse <span
+class="math inline">\(c\)</span> is characterized by the well-known
+equation <span class="math inline">\(a^2+b^2=c^2\)</span>. However, this
+can also be formulated differently:</p>
+<p>When inscribed into a circle with radius <span
+class="math inline">\(r\)</span>, a triangle with sides <span
+class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>
+and <span class="math inline">\(c\)</span> is pythagorean, if and only
+if <span class="math inline">\(a^2+b^2+c^2=8r^2\)</span>.</p>
+<p>Analogously, we call a quadrilateral <span
+class="math inline">\(ABCD\)</span> with sides <span
+class="math inline">\(a\)</span>, <span
+class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span>
+and <span class="math inline">\(d\)</span>, inscribed in a circle with
+radius <span class="math inline">\(r\)</span>, a <em>pythagorean
+quadrilateral</em>, if <span class="math inline">\(a^2+b^2+c^2+d^2=8\,
+r^2\)</span>.</p>
+<p>We further call a pythagorean quadrilateral a <em>pythagorean lattice
+grid quadrilateral</em>, if all four vertices are lattice grid points
+with the same distance <span class="math inline">\(r\)</span> from the
+origin <span class="math inline">\(O\)</span> (which then happens to be
+the centre of the circumcircle).</p>
+<p>Let <span class="math inline">\(f(r)\)</span> be the number of
+different pythagorean lattice grid quadrilaterals for which the radius
+of the circumcircle is <span class="math inline">\(r\)</span>. For
+example <span class="math inline">\(f(1)=1\)</span>, <span
+class="math inline">\(f(\sqrt 2)=1\)</span>, <span
+class="math inline">\(f(\sqrt 5)=38\)</span> and <span
+class="math inline">\(f(5)=167\)</span>.</p>
+<p>Two of the pythagorean lattice grid quadrilaterals with <span
+class="math inline">\(r=\sqrt 5\)</span> are illustrated below:</p>
+<p><img data-src="../resources/images/0723_1.png" /></p>
+<p><img data-src="../resources/images/0723_2.png" /></p>
+<p>Let <span class="math inline">\(\displaystyle S(n)=\sum_{d \mid n}
+f(\sqrt d)\)</span>. For example, <span
+class="math inline">\(S(325)=S(5^2 \cdot 13)=f(1)+f(\sqrt
+5)+f(5)+f(\sqrt {13})+f(\sqrt{65})+f(5\sqrt{13})=2370\)</span> and <span
+class="math inline">\(S(1105)=S(5\cdot 13 \cdot 17)=5535\)</span>.</p>
+<p>Find <span class="math inline">\(S(1411033124176203125)=S(5^6 \cdot
+13^3 \cdot 17^2 \cdot 29 \cdot 37 \cdot 41 \cdot 53 \cdot
+61)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可见，若圆上有整点，则 <span
+class="math inline">\(r^2=x^2+y^2\)</span> 必为整数，所以只需讨论 <span
+class="math inline">\(N=r^2\in\mathbb Z\)</span>。</p>
+<p>把点当作向量（从原点出发），并用内积表示长度：<span
+class="math inline">\(|u-v|^2=(u-v)\cdot(u-v)=|u|^2+|v|^2-2u\cdot
+v.\)</span>因为四点都在半径为 <span class="math inline">\(r\)</span>
+的圆上，所以<span
+class="math inline">\(|A|^2=|B|^2=|C|^2=|D|^2=r^2.\)</span>于是</p>
+<p><span class="math display">\[ \begin{aligned} a^2+b^2+c^2+d^2
+&amp;=|A-B|^2+|B-C|^2+|C-D|^2+|D-A|^2\\
+&amp;=2(|A|^2+|B|^2+|C|^2+|D|^2)-2(A\cdot B+B\cdot C+C\cdot D+D\cdot
+A)\\ &amp;=8r^2-2(A\cdot B+B\cdot C+C\cdot D+D\cdot A). \end{aligned}
+\]</span></p>
+<p>另一方面利用内积交换律：<span
+class="math inline">\((A+C)\cdot(B+D)=A\cdot B+A\cdot D+C\cdot B+C\cdot
+D= A\cdot B+D\cdot A+B\cdot C+C\cdot D.\)</span>因此<span
+class="math inline">\(A\cdot B+B\cdot C+C\cdot D+D\cdot
+A=(A+C)\cdot(B+D),\)</span>从而<span
+class="math inline">\(a^2+b^2+c^2+d^2=8r^2\Longleftrightarrow(A+C)\cdot(B+D)=0.\)</span></p>
+<p>令<span class="math inline">\(u=A+C, v=B+D.\)</span>条件就是 <span
+class="math inline">\(u\cdot v=0\)</span>。有如下情形：</p>
+<ul>
+<li><strong>情形 1：</strong> <span
+class="math inline">\(u=0\)</span>，即 <span
+class="math inline">\(A=-C\)</span>。这表示对角线 <span
+class="math inline">\(AC\)</span> 是直径。</li>
+<li><strong>情形 2：</strong> <span
+class="math inline">\(v=0\)</span>，即 <span
+class="math inline">\(B=-D\)</span>。这表示对角线 <span
+class="math inline">\(BD\)</span> 是直径。</li>
+<li><strong>情形 3：</strong> <span class="math inline">\(u\neq
+0\)</span> 且 <span class="math inline">\(v\neq 0\)</span> 且 <span
+class="math inline">\(u\perp v\)</span>。</li>
+</ul>
+<p>当 <span class="math inline">\(u\neq 0\)</span> 时，<span
+class="math inline">\(u/2\)</span> 是弦 <span
+class="math inline">\(AC\)</span>
+的中点向量（从圆心指向弦中点的半径），而半径必垂直于弦，所以 <span
+class="math inline">\(u\perp AC\)</span>。同理 <span
+class="math inline">\(v\perp BD\)</span>。由于旋转 <span
+class="math inline">\(90^\circ\)</span> 保角，<span
+class="math inline">\(u\perp v\)</span> 等价于弦方向 <span
+class="math inline">\(AC\perp BD\)</span>。因此情形 3
+等价于“<strong>两条对角线互相垂直且都不是直径</strong>”。</p>
+<p>下面把至少一条对角线是直径的计数称为 1 类，把对角线垂直且无直径称为 2
+类。</p>
+<p>设<span class="math inline">\(N\)</span>的质因子分解为<span
+class="math inline">\(\displaystyle N=2^a\prod_{p\equiv 1\pmod
+4}p^{\alpha_p}\prod_{q\equiv 3\pmod 4}q^{\beta_q}.\)</span></p>
+<p>两平方和定理给出：</p>
+<p><span class="math display">\[
+r_2(N)=\#\{(x,y)\in\mathbb Z^2:x^2+y^2=N\}=
+\begin{cases}
+0, &amp; \exist q\equiv 3\pmod 4: \beta_q\equiv 1\pmod 2,\\
+4\displaystyle\prod_{p\equiv 1\pmod 4}(\alpha_p+1), &amp;
+\text{otherwise.}
+\end{cases}
+\]</span></p>
+<p>也就是说：若某个 <span class="math inline">\(4k+3\)</span>
+质因子的指数为奇数，则圆上<strong>没有整点</strong>，从而<span
+class="math inline">\(F(N)=0.\)</span>若所有 <span
+class="math inline">\(4k+3\)</span> 质因子指数均为偶数，则整点总数仍只由
+<span class="math inline">\(4k+1\)</span> 质因子指数决定。</p>
+<p>下面只讨论所有 <span class="math inline">\(\beta_q\)</span>
+都为偶数的情形。定义核心部分<span class="math inline">\(\displaystyle
+N_\ast=\prod_{p\equiv 1\pmod 4}p^{\alpha_p}.\)</span>并记<span
+class="math inline">\(\displaystyle T=(1+i)^a\prod_{q\equiv 3\pmod
+4}q^{\beta_q/2}\in\mathbb Z[i].\)</span>则<span
+class="math inline">\(\displaystyle|T|^2=2^a\prod_{q\equiv 3\pmod
+4}q^{\beta_q},N=|T|^2N_\ast.\)</span></p>
+<p>考虑高斯整数上的映射<span class="math inline">\(z\mapsto
+Tz.\)</span>它把整点映到整点，并且是一个相似变换（整数线性变换和缩放旋转）；同时它把满足<span
+class="math inline">\(|z|^2=N_\ast\)</span>的整点一一对应到满足<span
+class="math inline">\(|z|^2=N\)</span>的整点。</p>
+<p>因此它保持：圆周上的循环顺序，是否互为对径点（直径情形）；向量正交关系（从而保持
+pythagorean 条件）；四边形计数。</p>
+<p>所以当所有 <span class="math inline">\(\beta_q\)</span>
+为偶数时，有<span class="math inline">\(F(N)=F(N_\ast).\)</span></p>
+<p>换句话说：<strong>对一般 <span
+class="math inline">\(N\)</span>，<span
+class="math inline">\(F(N)\)</span> 的非平凡部分只取决于 <span
+class="math inline">\(p\equiv 1\pmod 4\)</span> 的指数；<span
+class="math inline">\(2\)</span> 的指数和 <span
+class="math inline">\(4k+3\)</span>
+质因子的偶数指数只造成整体相似变换。</strong></p>
+<p>在可表示情形（即所有 <span class="math inline">\(\beta_q\)</span>
+均为偶数）下，令<span class="math inline">\(\displaystyle
+q=\prod_{p\equiv 1\pmod 4}(\alpha_p+1).\)</span>则<span
+class="math inline">\(r_2(N)=4q.\)</span>圆上的点成对互为相反数，所以直径条数为<span
+class="math inline">\(k=\dfrac{r_2(N)}{2}=2q.\)</span></p>
+<p>接下来对1类解进行计数。注意，这里是在可表示情形下进行；若存在某个
+<span class="math inline">\(q\equiv 3\pmod 4\)</span> 使 <span
+class="math inline">\(\beta_q\)</span> 为奇数，则1类节的数量为 <span
+class="math inline">\(0\)</span>。</p>
+<p>先固定一条直径作为对角线（比如 <span
+class="math inline">\(AC\)</span>）：直径可选 <span
+class="math inline">\(k\)</span>
+条；固定该直径后，圆周被分成两个开半圆，每边都有 <span
+class="math inline">\(k-1\)</span> 个可选点（不含端点）。取 <span
+class="math inline">\(B\)</span> 在一侧、<span
+class="math inline">\(D\)</span> 在另一侧，一共 <span
+class="math inline">\((k-1)^2\)</span> 种。</p>
+<p>因此初步得到<span
+class="math inline">\(k(k-1)^2\)</span>个四边形。但两个对角线都是直径的四边形被算了两次：它们对应选两条不同直径作为两条对角线，数量为<span
+class="math inline">\(\dbinom{k}{2}.\)</span>所以<span
+class="math inline">\(F_1(N)=k(k-1)^2-\dbinom{k}{2}.\)</span>代入 <span
+class="math inline">\(k=2q\)</span> 可化为<span
+class="math inline">\(F_1(N)=8q^3-10q^2+3q.\)</span></p>
+<p>接下来对2类解进行计数。和前面类似，若存在某个 <span
+class="math inline">\(q\equiv 3\pmod 4\)</span> 使 <span
+class="math inline">\(\beta_q\)</span> 为奇数，则2类节的数量为 <span
+class="math inline">\(0\)</span>。</p>
+<p>关键是：当<span class="math inline">\(\displaystyle N_\ast=\prod
+p_i^{e_i} (p_i\equiv1\pmod4)\)</span>时，圆上整点在高斯整数 <span
+class="math inline">\(\mathbb Z[i]\)</span> 中对应范数为 <span
+class="math inline">\(N_\ast\)</span>的元素，其极角可以写成<span
+class="math inline">\(\displaystyle\theta = s\frac{\pi}{2}+\sum_i
+t_i\omega_i,\)</span>其中<span
+class="math inline">\(s\in\{0,1,2,3\},\)</span>而<span
+class="math inline">\(t_i\in\{-e_i,-e_i+2,\dots,e_i-2,e_i\}\)</span>（共<span
+class="math inline">\(e_i+1\)</span>个元素），因此两条对角线垂直（且不是直径）等价于<span
+class="math inline">\(\theta_A+\theta_C\equiv
+\theta_B+\theta_D+\pi\pmod{2\pi}.\)</span>由于不同素因子给出的 <span
+class="math inline">\(\omega_i\)</span>
+相互独立，这迫使每个素因子坐标分别满足<span
+class="math inline">\(t_i^A+t_i^C=t_i^B+t_i^D.\)</span></p>
+<p>令集合<span
+class="math inline">\(T_e=\{-e,-e+2,\dots,e\}.\)</span>把<span
+class="math inline">\(t=-e+2j\)</span>映射为<span
+class="math inline">\(j\in\{0,1,\dots,e\},\)</span>则条件<span
+class="math inline">\(t^A+t^C=t^B+t^D\)</span>等价于<span
+class="math inline">\(j_A+j_C=j_B+j_D.\)</span>设 <span
+class="math inline">\(g_e(s)\)</span> 为满足 <span
+class="math inline">\(j_1+j_2=s\)</span> 的有序对数，则</p>
+<p><span class="math display">\[
+g_e(s)=
+\begin{cases}
+s+1,&amp;0\le s\le e,\\
+2e-s+1,&amp;e\le s\le 2e.
+\end{cases}
+\]</span></p>
+<p>于是四元组数为</p>
+<p><span class="math display">\[
+P(e)=\sum_{s=0}^{2e}g_e(s)^2
+=1^2+2^2+\cdots+(e+1)^2+e^2+\cdots+1^2
+=\frac{(e+1)(2e^2+4e+3)}{3}.
+\]</span></p>
+<p>把所有素因子独立相乘，并考虑四分之一旋转带来的 <span
+class="math inline">\(4\)</span> 倍对称，得到主项<span
+class="math inline">\(4\prod
+P(e).\)</span>接着需要扣除/补回几类被多算或不该出现的配置，最终可以整理为：每个局部都满足
+<span class="math inline">\(t^A=t^B\)</span> 且 <span
+class="math inline">\(t^C=t^D\)</span>（对应某些退化重计数），需要减去<span
+class="math inline">\(\displaystyle 4\prod
+(e+1)^2.\)</span>出现直径（要从2类解中剔除），其单素因子局部计数为<span
+class="math inline">\(\left\lceil
+\dfrac{(e+1)^2}{2}\right\rceil,\)</span>整体需减去<span
+class="math inline">\(\displaystyle4\prod \left\lceil
+\frac{(e+1)^2}{2}\right\rceil.\)</span>正方形在上面扣除中被多扣，需要加回<span
+class="math inline">\(\displaystyle4\prod (e+1).\)</span></p>
+<p>因此（在可表示情形下），可整理出 <span class="math display">\[
+F_{\mathrm{2}}(N)=
+4\prod_{p\equiv1\pmod4}\frac{({\alpha_p}+1)(2{\alpha_p}^2+4{\alpha_p}+3)}{3}
+-4\prod_{p\equiv1\pmod4}({\alpha_p}+1)^2
+-4\prod_{p\equiv1\pmod4}\left\lceil
+\frac{({\alpha_p}+1)^2}{2}\right\rceil
++4\prod_{p\equiv1\pmod4}({\alpha_p}+1).
+\]</span></p>
+<p>最终，对于<span class="math inline">\(N\)</span>的分解，若存在某个
+<span class="math inline">\(q\equiv 3\pmod 4\)</span> 使 <span
+class="math inline">\(\beta_q\)</span> 为奇数，则<span
+class="math inline">\(F(N)=0.\)</span></p>
+<p>否则（即所有 <span class="math inline">\(\beta_q\)</span>
+均为偶数），由第 3 节的约化结论，<span
+class="math inline">\(F(N)\)</span> 与 <span
+class="math inline">\(a\)</span>、<span
+class="math inline">\(\beta_q\)</span> 无关，只由 <span
+class="math inline">\(\alpha_p\)</span>
+决定。把1类解和2类解相加并整理，得到</p>
+<p><span class="math display">\[
+F(N)=
+7\prod_{p\equiv1\pmod4}(\alpha_p+1)
+-14\prod_{p\equiv1\pmod4}(\alpha_p+1)^2
+-4\prod_{p\equiv1\pmod4}\left\lceil\frac{(\alpha_p+1)^2}{2}\right\rceil
++8\prod_{p\equiv1\pmod4}(\alpha_p+1)^3
++4\prod_{p\equiv1\pmod4}\frac{(\alpha_p+1)(2\alpha_p^2+4\alpha_p+3)}{3}.
+\]</span></p>
+<p>其中空乘积按 <span class="math inline">\(1\)</span> 处理。</p>
+<p>设<span class="math inline">\(n\)</span>的分解为<span
+class="math inline">\(\displaystyle n=2^a\prod_{p\equiv 1\pmod
+4}p^{e_p}\prod_{q\equiv 3\pmod 4}q^{f_q}.\)</span>因为 <span
+class="math inline">\(F(d)\)</span> 在某个 <span
+class="math inline">\(q\equiv3\pmod4\)</span> 的约数指数为奇数时为 <span
+class="math inline">\(0\)</span>，所以对约数求和时：对素因子 <span
+class="math inline">\(2\)</span>，约数指数 <span
+class="math inline">\(0,1,\dots,a\)</span> 都有贡献，贡献乘子<span
+class="math inline">\(a+1;\)</span>对每个 <span
+class="math inline">\(q\equiv3\pmod4\)</span>，只有偶数指数有贡献，贡献乘子<span
+class="math inline">\(\left\lfloor\dfrac{f_q}{2}\right\rfloor+1.\)</span>剩余的非平凡部分只来自
+<span class="math inline">\(p\equiv1\pmod4\)</span>
+的指数，仍按原来的五类乘积求和。</p>
+<p>定义 <span class="math display">\[
+M(n)=(a+1)\prod_{q\equiv3\pmod4}\left(\left\lfloor\frac{f_q}{2}\right\rfloor+1\right).
+\]</span></p>
+<p>对单个 <span class="math inline">\(p\equiv1\pmod4\)</span> 的指数上界
+<span class="math inline">\(e\)</span>，需要以下和式（令 <span
+class="math inline">\(k\)</span> 为该素因子的约数指数）：</p>
+<ol type="1">
+<li><span class="math inline">\(\displaystyle\sum_{k=0}^e
+(k+1)=\frac{(e+1)(e+2)}{2}\)</span></li>
+<li><span class="math inline">\(\displaystyle\sum_{k=0}^e
+(k+1)^2=\frac{(e+1)(e+2)(2e+3)}{6}\)</span></li>
+<li><span class="math inline">\(\displaystyle\sum_{k=0}^e
+\left\lceil\frac{(k+1)^2}{2}\right\rceil=\frac12\left(\frac{(e+1)(e+2)(2e+3)}{6}+\left\lceil\frac{e+1}{2}\right\rceil\right)\)</span></li>
+<li><span class="math inline">\(\displaystyle\sum_{k=0}^e
+(k+1)^3=\left(\frac{(e+1)(e+2)}{2}\right)^2\)</span></li>
+<li><span class="math inline">\(\displaystyle\sum_{k=0}^e
+\frac{(k+1)(2k^2+4k+3)}{3}=\frac{(e+1)(e+2)(e^2+3e+3)}{6}\)</span></li>
+</ol>
+<p>于是得到闭式：</p>
+<p><span class="math display">\[
+\begin{aligned}
+S(n)=M(n)\Bigg[&amp;
+7\prod_{p\equiv1\pmod4}\frac{(e_p+1)(e_p+2)}{2}
+-14\prod_{p\equiv1\pmod4}\frac{(e_p+1)(e_p+2)(2e_p+3)}{6}\\
+&amp;-4\prod_{p\equiv1\pmod4}\frac12\left(\frac{(e_p+1)(e_p+2)(2e_p+3)}{6}+\left\lceil\frac{e_p+1}{2}\right\rceil\right)\\
+&amp;+8\prod_{p\equiv1\pmod4}\frac{(e_p+1)^2(e_p+2)^2}{4}
++4\prod_{p\equiv1\pmod4}\frac{(e_p+1)(e_p+2)(e_p^2+3e_p+3)}{6}
+\Bigg].
+\end{aligned}
+\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> prod</span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> factorization</span><br><span class="line"></span><br><span class="line">N = <span class="number">1411033124176203125</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N</span>):</span><br><span class="line">    fac = factorization(N)</span><br><span class="line"></span><br><span class="line">    e2 = <span class="number">0</span></span><br><span class="line">    mul = <span class="number">1</span></span><br><span class="line">    exps = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> p, e <span class="keyword">in</span> fac:</span><br><span class="line">        <span class="keyword">if</span> p == <span class="number">2</span>:</span><br><span class="line">            e2 = e</span><br><span class="line">        <span class="keyword">elif</span> p % <span class="number">4</span> == <span class="number">1</span>:</span><br><span class="line">            exps.append(e)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            mul *= e // <span class="number">2</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    mul *= e2 + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    t1 = prod((e + <span class="number">1</span>) * (e + <span class="number">2</span>) // <span class="number">2</span> <span class="keyword">for</span> e <span class="keyword">in</span> exps)</span><br><span class="line">    t2 = prod((e + <span class="number">1</span>) * (e + <span class="number">2</span>) * (<span class="number">2</span> * e + <span class="number">3</span>) // <span class="number">6</span> <span class="keyword">for</span> e <span class="keyword">in</span> exps)</span><br><span class="line">    t3 = prod((((e + <span class="number">1</span>) * (e + <span class="number">2</span>) * (<span class="number">2</span> * e + <span class="number">3</span>) // <span class="number">6</span>) + (e + <span class="number">2</span>) // <span class="number">2</span>) // <span class="number">2</span> <span class="keyword">for</span> e <span class="keyword">in</span> exps)</span><br><span class="line">    t4 = prod(((e + <span class="number">1</span>) * (e + <span class="number">2</span>) // <span class="number">2</span>) ** <span class="number">2</span> <span class="keyword">for</span> e <span class="keyword">in</span> exps)</span><br><span class="line">    t5 = prod((e + <span class="number">1</span>) * (e + <span class="number">2</span>) * (e * e + <span class="number">3</span> * e + <span class="number">3</span>) // <span class="number">6</span> <span class="keyword">for</span> e <span class="keyword">in</span> exps)</span><br><span class="line"></span><br><span class="line">    base = <span class="number">7</span> * t1 - <span class="number">14</span> * t2 - <span class="number">4</span> * t3 + <span class="number">8</span> * t4 + <span class="number">4</span> * t5</span><br><span class="line">    <span class="keyword">return</span> mul * base</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(solve(N))</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/723/" title="Project Euler 723">https://ujimatsu-chiya.github.io/project-euler/723/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

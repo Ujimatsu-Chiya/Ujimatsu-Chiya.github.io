@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 566">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/566/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0566-cakeicingpuzzle.gif">
+<meta property="article:published_time" content="2026-02-23T12:18:14.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:14.819Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0566-cakeicingpuzzle.gif">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/566/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/566/","path":"project-euler/566/","title":"Project Euler 566"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 566 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-566"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 566</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cake-icing-puzzle"><span class="nav-number">1.1.1.</span> <span class="nav-text">Cake Icing Puzzle</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/566/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 566 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 566
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:14" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:14+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-566">Project Euler 566</h1>
+<h2 id="题目">题目</h2>
+<h3 id="cake-icing-puzzle">Cake Icing Puzzle</h3>
+<p>Adam plays the following game with his birthday cake.</p>
+<p>He cuts a piece forming a circular sector of <span
+class="math inline">\(60\)</span> degrees and flips the piece upside
+down, with the icing on the bottom.</p>
+<p>He then rotates the cake by 60 degrees counterclockwise, cuts an
+adjacent <span class="math inline">\(60\)</span> degree piece and flips
+it upside down.</p>
+<p>He keeps repeating this, until after a total of twelve steps, all the
+icing is back on top.</p>
+<p>Amazingly, this works for any piece size, even if the cutting angle
+is an irrational number: all the icing will be back on top after a
+finite number of steps.</p>
+<p>Now, Adam tries something different: he alternates cutting pieces of
+size <span class="math inline">\(x=\dfrac{360}{9}\)</span> degrees,
+<span class="math inline">\(y=\dfrac{360}{10}\)</span> degrees and <span
+class="math inline">\(z=\dfrac{360 }{\sqrt{11}}\)</span> degrees. The
+first piece he cuts has size <span class="math inline">\(x\)</span> and
+he flips it. The second has size <span class="math inline">\(y\)</span>
+and he flips it. The third has size <span
+class="math inline">\(z\)</span> and he flips it. He repeats this with
+pieces of size <span class="math inline">\(x, y\)</span> and <span
+class="math inline">\(z\)</span> in that order until all the icing is
+back on top, and discovers he needs <span
+class="math inline">\(60\)</span> flips altogether.</p>
+<p><img data-src="../resources/images/0566-cakeicingpuzzle.gif" /></p>
+<p>Let <span class="math inline">\(F(a, b, c)\)</span> be the minimum
+number of piece flips needed to get all the icing back on top for pieces
+of size <span class="math inline">\(x=\dfrac{360}{a}\)</span> degrees,
+<span class="math inline">\(y=\dfrac{360}{b}\)</span> degrees and <span
+class="math inline">\(z=\dfrac{360}{\sqrt{c}}\)</span> degrees.</p>
+<p>Let <span class="math inline">\(G(n) = \sum_{9 \le a &lt; b &lt; c
+\le n} F(a,b,c)\)</span>, for integers <span class="math inline">\(a,
+b\)</span> and <span class="math inline">\(c\)</span>.</p>
+<p>You are given that <span class="math inline">\(F(9,10,11)=60,
+F(10,14,16)=506, F(15,16,17)=785232\)</span>.</p>
+<p>You are also given <span class="math inline">\(G(11)=60,
+G(14)=58020\)</span> and <span
+class="math inline">\(G(17)=1269260\)</span>.</p>
+<p>Find <span class="math inline">\(G(53)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>把整块蛋糕的圆周长度归一化为 <span
+class="math inline">\(1\)</span>（对应 <span
+class="math inline">\(360^\circ\)</span>）。每一步做两件事：从当前起点沿圆周切下一个指定长度的扇形片（相当于取一段连续圆弧）。将这段片翻面（会让其覆盖的区域取反），然后把起点沿圆周前移这段长度，继续切下一段相邻的片。</p>
+<p>题目的关键并不在这是不是糖霜一面，而在切口最终会形成怎样的有限分割；一旦分割固定，后续每
+<span class="math inline">\(3\)</span> 次翻片的作用就是一个确定的置换 +
+翻转重复作用于这些小段，因此问题转化为求最小周期。</p>
+<p>对固定 <span
+class="math inline">\(a,b,c\)</span>，把圆周长度放大成一个方便的整尺度
+<span class="math inline">\(L\)</span>：</p>
+<ul>
+<li>若 <span class="math inline">\(c=s^2\)</span> 是完全平方数，则 <span
+class="math inline">\(z=1/s\)</span> 为有理数，取<span
+class="math inline">\(L=\operatorname{lcm}(a,b,s),x=\dfrac{L}{a},y=\dfrac{L}{b},z=\dfrac{L}{s}.\)</span>全部是整数。</li>
+<li>若 <span class="math inline">\(c\)</span> 不是平方数，取<span
+class="math inline">\(L=\operatorname{lcm}(a,b),x=\dfrac{L}{a},y=\dfrac{L}{b},z=\dfrac{L}{\sqrt
+c}.\)</span>此时长度属于<span class="math inline">\(\mathbb
+Z\left[\dfrac1{\sqrt c}\right]=\left\{u+\dfrac{v}{\sqrt c}:u,v\in\mathbb
+Z\right\}.\)</span></li>
+</ul>
+<p>我们用二元整数对 <span class="math inline">\((u,v)\)</span> 表示数
+<span class="math inline">\(u+v/\sqrt
+c\)</span>。比较两个数大小等价于判断差<span
+class="math inline">\(d=u+\dfrac{v}{\sqrt c}\)</span>的符号。因为 <span
+class="math inline">\(\sqrt c&gt;0\)</span>，若 <span
+class="math inline">\(u,v\)</span> 同号则 <span
+class="math inline">\(d\)</span> 同号；若异号，则比较 <span
+class="math inline">\(|u|\)</span> 与 <span
+class="math inline">\(|v|/\sqrt c\)</span>。用平方消去根号：<span
+class="math inline">\(u+\dfrac{v}{\sqrt c} &gt; 0 \iff(u&gt;0 \land
+u^2c&gt;v^2)\lor(u&lt;0 \land u^2c&lt;v^2).\)</span></p>
+<p>把所有出现过的切口位置收集起来，圆周被切成许多小弧段。把每一段小弧段称为一个
+<strong>元素</strong>。一次切一片并翻面的效果对元素来说只有两点：该片覆盖的若干连续元素顺序会被反转；这些元素的糖霜朝向全部取反。</p>
+<p>把当前起点作为 <span
+class="math inline">\(0\)</span>，把圆周展开为直线长度 <span
+class="math inline">\(L\)</span>。考虑连续三次翻片（依次取长度 <span
+class="math inline">\(x,y,z\)</span>
+的相邻三片）并且把起点移动到第三片末端（也就是下一轮的起点）。设这三片对应的直线分段分别为字符串（元素序列）<span
+class="math inline">\(X,Y,Z,\)</span>剩余部分为 <span
+class="math inline">\(R\)</span>，则展开后原始顺序为<span
+class="math inline">\(X,Y,Z,R.\)</span>翻片等价于对各片内部反转，因此三次翻片并把起点移到第三片末端后，整体元素序列变为<span
+class="math inline">\(R,\overline{X},\overline{Y},\overline{Z},\)</span>其中
+<span class="math inline">\(\overline{W}\)</span> 表示字符串反转。</p>
+<p>这说明：<strong>每三次翻片对元素的作用是固定的置换</strong>，并且在
+<span class="math inline">\(X,Y,Z\)</span>
+内的元素会翻转一次，其余不翻。接下来只需知道最终切口稳定后，总共有多少元素
+<span class="math inline">\(N\)</span>，并且在块的起点处，长度 <span
+class="math inline">\(x,y,z\)</span> 各自覆盖多少个元素：记为 <span
+class="math inline">\(e_x,e_y,e_z\)</span>。一旦得到 <span
+class="math inline">\((N,e_x,e_y,e_z)\)</span>，三步合成的置换完全由这三个整数决定，与实际角度数值无关。</p>
+<p>令<span class="math inline">\(X=x, Y=y, Z=z,
+S=X+Y+Z.\)</span>把块的起点设为 <span
+class="math inline">\(0\)</span>，则三片边界切口在位置 <span
+class="math inline">\(X,X+Y,S\)</span>。圆周长度为 <span
+class="math inline">\(L\)</span>。把 <span
+class="math inline">\(L\)</span> 写成<span class="math inline">\(L = mS
++ E, 0&lt;E\le S,\)</span> 其中 <span class="math inline">\(m=\lfloor
+L/S\rfloor\)</span>，<span class="math inline">\(E\)</span>
+是余长。这里的 <span class="math inline">\(\lfloor\cdot\rfloor\)</span>
+在 <span class="math inline">\(\mathbb Z[1/\sqrt c]\)</span>
+的有序结构里是良定义的（用上面的精确比较找最大 <span
+class="math inline">\(m\)</span> 使 <span
+class="math inline">\((m+1)S\le L\)</span>）。</p>
+<p>切口稳定后，长度为 <span class="math inline">\(S\)</span>
+的每个完整块内切口结构相同，整个圆周由 <span
+class="math inline">\(m\)</span> 个完整块加一个长度 <span
+class="math inline">\(E\)</span> 的尾巴组成。因此：一个完整块内元素数为
+<span class="math inline">\(e_x+e_y+e_z\)</span>；全圆周元素数<span
+class="math inline">\(N = m(e_x+e_y+e_z) + e_E,\)</span>其中 <span
+class="math inline">\(e_E\)</span>
+是尾巴部分包含的元素数（等价于切口位置 <span class="math inline">\(\le
+E\)</span>的个数）。</p>
+<p>于是只需找出第一块 <span class="math inline">\([0,S]\)</span>
+内所有稳定切口的位置（只需知道它们落在 <span
+class="math inline">\(X/Y/Z\)</span> 的哪一段，以及是否 <span
+class="math inline">\(\le E\)</span>），就能得到所有计数。</p>
+<p>取第一块中任一切口位置 <span
+class="math inline">\(t\in(0,S]\)</span>。在展开串<span
+class="math inline">\(X,Y,Z,R \to R,\overline X,\overline Y,\overline
+Z\)</span>中跟踪这个点的位置：</p>
+<ul>
+<li>若 <span class="math inline">\(t\in(0,X]\)</span>（在 <span
+class="math inline">\(X\)</span> 内），它在 <span
+class="math inline">\(\overline X\)</span> 内距 <span
+class="math inline">\(\overline X\)</span> 起点的位置为 <span
+class="math inline">\(X-t\)</span>，<span
+class="math inline">\(\overline X\)</span> 在新串中的起点距离为 <span
+class="math inline">\(|R|=L-S\)</span>，因此新坐标为<span
+class="math inline">\((L-S)+(X-t)=L-(Y+Z)-t.\)</span></li>
+<li>若 <span class="math inline">\(t\in(X,X+Y]\)</span>，类似得到<span
+class="math inline">\(L+X-Z-t.\)</span></li>
+<li>若 <span class="math inline">\(t\in(X+Y,S]\)</span>，得到<span
+class="math inline">\(L+X+Y-t.\)</span></li>
+</ul>
+<p>下一轮我们关心的是它在下一块起点下的相对位置，即对 <span
+class="math inline">\(S\)</span> 取模并落回 <span
+class="math inline">\((0,S]\)</span>：</p>
+<p><span class="math display">\[
+t&#39; \equiv
+\begin{cases}
+L-(Y+Z)-t  &amp; t\in X,\\
+L+X-Z-t &amp; t\in Y,\\
+L+X+Y-t  &amp; t\in Z.
+\end{cases}
+\pmod S
+\]</span></p>
+<p>切口传播过程是确定且可逆的，因此从边界切口 <span
+class="math inline">\(X,X+Y,S\)</span>
+出发沿此映射迭代，只会在有限集合中循环。对题目范围内的所有三元组，该迭代都会回到某个边界切口，从而得到有限切口集合。</p>
+<p>因此，从起始点 <span class="math inline">\(X,X+Y,S\)</span>
+分别出发，不断算 <span class="math inline">\(t\mapsto
+t&#39;\)</span>：若 <span class="math inline">\(t&#39;\)</span> 落在
+<span class="math inline">\(X/Y/Z\)</span> 哪段，就把对应 <span
+class="math inline">\(e_x/e_y/e_z\)</span> 加一；若 <span
+class="math inline">\(t&#39;\le E\)</span>，则把 <span
+class="math inline">\(e_E\)</span> 加一；一旦 <span
+class="math inline">\(t&#39;\)</span> 等于 <span
+class="math inline">\(X,X+Y,S\)</span> 之一就停止该轨道。初始化时 <span
+class="math inline">\(e_x=e_y=e_z=1\)</span>（每段至少有一个元素），并把
+<span class="math inline">\(X,X+Y\)</span> 是否 <span
+class="math inline">\(\le E\)</span> 计入 <span
+class="math inline">\(e_E\)</span>。这样即可在完全精确的整数运算下得到
+<span
+class="math inline">\((N,e_x,e_y,e_z)\)</span>，而不需要用高级数据结构去维护全部切口位置。</p>
+<p>接下来，我们通过三步合成变成置换和翻转，并且周期可分解到环。</p>
+<p>把元素按当前起点顺序编号 <span
+class="math inline">\(0,1,\dots,N-1\)</span>。一次翻长度覆盖前 <span
+class="math inline">\(p\)</span>
+个元素的片并把起点移到片末端，等价于：前缀 <span
+class="math inline">\([0,p)\)</span> 被反转并移到末尾；这 <span
+class="math inline">\(p\)</span> 个元素翻转一次；其余元素向前平移 <span
+class="math inline">\(p\)</span>。因此索引映射为<span
+class="math inline">\(i\mapsto\begin{cases}N-1-i &amp; i&lt;p,\\i-p
+&amp; i\ge p.\end{cases}\)</span>并且当 <span
+class="math inline">\(i&lt;p\)</span> 时该元素糖霜朝向取反；当 <span
+class="math inline">\(i\ge p\)</span> 时糖霜朝向保持不变。</p>
+<p>把该操作记为一个带翻转标记的置换，那么依次取 <span
+class="math inline">\(p=e_x,e_y,e_z\)</span> 的三次合成，得到总置换
+<span class="math inline">\(P\)</span> 及每个位置的一步翻转标记。</p>
+<p>把 <span class="math inline">\(P\)</span>
+分解为不相交的环。对某个环，按环上的顺序把元素写成<span
+class="math inline">\(v_0\to v_1\to \cdots \to v_{n-1}\to
+v_0,\)</span>并定义二进制序列<span
+class="math inline">\(g_j\)</span>表示一步从<span
+class="math inline">\(v_j\)</span>走到<span
+class="math inline">\(v_{j+1}\)</span>时是否翻转。</p>
+<p>初始时所有元素糖霜朝上（<span class="math inline">\(0\)</span>）。做
+<span class="math inline">\(k\)</span> 次三步合成后，元素 <span
+class="math inline">\(v_j\)</span> 被翻转的奇偶为<span
+class="math inline">\(p_k(j)=g_j\oplus g_{j+1}\oplus\cdots\oplus
+g_{j+k-1},\)</span>（下标按 <span class="math inline">\(n\)</span>
+取模）。要求全朝上等价于对该环所有 <span
+class="math inline">\(j\)</span>，都有 <span
+class="math inline">\(p_k(j)=0\)</span>。</p>
+<p>设 <span class="math inline">\(g\)</span> 的最小周期为 <span
+class="math inline">\(p\)</span>（把 <span
+class="math inline">\(g\)</span> 看作长度 <span
+class="math inline">\(n\)</span>
+的循环词，等价于在线性串中求最小重复块长度）。因为 <span
+class="math inline">\(g\)</span> 是 <span
+class="math inline">\(p\)</span>-周期的，长度为 <span
+class="math inline">\(p\)</span>
+的任意连续窗口包含同一段周期词，因此<span
+class="math inline">\(\displaystyle p_p(j)=\bigoplus_{t=0}^{p-1}
+g_t\)</span>与 <span class="math inline">\(j\)</span> 无关：做 <span
+class="math inline">\(p\)</span>
+次后三步合成，环上所有元素要么全不翻（若该异或为 <span
+class="math inline">\(0\)</span>），要么全翻一次（若为 <span
+class="math inline">\(1\)</span>）。若 <span
+class="math inline">\(\displaystyle \bigoplus_{t=0}^{p-1}
+g_t=0\)</span>，则 <span class="math inline">\(k=p\)</span>
+就使该环全回到朝上，且更小的 <span class="math inline">\(k\)</span>
+不可能（否则会推出更小周期）。若该异或为 <span
+class="math inline">\(1\)</span>，则 <span
+class="math inline">\(k=p\)</span> 时全翻一次，还需要再做 <span
+class="math inline">\(p\)</span> 次才能翻回，最小 <span
+class="math inline">\(k=2p\)</span>。</p>
+<p>因此每个环的回归次数是 <span class="math inline">\(p\)</span> 或
+<span
+class="math inline">\(2p\)</span>，整体（要求所有环同时回归）所需的三步合成次数是这些环回归次数的最小公倍数
+<span class="math inline">\(T\)</span>，对应翻片次数为<span
+class="math inline">\(F_{\equiv 0}(a,b,c)=3T.\)</span></p>
+<p>不过，翻片总次数可能不是 <span class="math inline">\(3\)</span>
+的倍数。若答案为 <span
+class="math inline">\(3k+1\)</span>，等价于先单独做一次翻 <span
+class="math inline">\(X\)</span>；然后重复做三步块，但块的顺序变为 <span
+class="math inline">\((Y,Z,X)\)</span>，共做 <span
+class="math inline">\(k\)</span> 次。</p>
+<p>这时进入块循环时，初始糖霜状态不是全 <span
+class="math inline">\(0\)</span>：恰好被那一次 <span
+class="math inline">\(X\)</span> 涉及的元素翻过一次。在编号 <span
+class="math inline">\(0,\dots,N-1\)</span> 的线性表示下，做完一次 <span
+class="math inline">\(X\)</span> 后，未被翻的那段长度是 <span
+class="math inline">\(N-e_x\)</span>，被翻过的那段是末尾的 <span
+class="math inline">\(e_x\)</span> 个，因此初始目标向量为<span
+class="math inline">\(t(i)=\mathbf{1}\{i\ge N-e_x\}.\)</span>对块置换
+<span class="math inline">\(Q_{(Y,Z,X)}\)</span> 的每个环：</p>
+<ul>
+<li>若该环上的 <span class="math inline">\(t\)</span> 全为 <span
+class="math inline">\(0\)</span>，则该环起始时所有元素仍然朝上，因此它只要求块迭代次数
+<span class="math inline">\(k\)</span>
+必须是该环回到全朝上的最小回归次数的倍数。设该回归次数为 <span
+class="math inline">\(T\)</span>（上文已说明 <span
+class="math inline">\(T\)</span> 只能是 <span
+class="math inline">\(p\)</span> 或 <span
+class="math inline">\(2p\)</span>），则约束为 <span
+class="math inline">\(k\equiv 0\pmod T\)</span>，可以并入全局模数。</li>
+<li>若该环上 <span class="math inline">\(t\)</span>
+混杂（环跨过了分界点），就不能用“倍数整除”直接给出 <span
+class="math inline">\(k\)</span>，但环的周期仍然是上一节的 <span
+class="math inline">\(p\)</span> 或 <span
+class="math inline">\(2p\)</span>。此时可以在该环内顺着复合 <span
+class="math inline">\(Q\)</span> 一步步迭代，最多试到周期长度，找最小
+<span class="math inline">\(k\)</span> 使得“累计翻转向量 <span
+class="math inline">\(= t\)</span>”。若找不到则该同余类无解。</li>
+</ul>
+<p>不同环给出同余条件 <span class="math inline">\(k\equiv
+r_i\pmod{m_i}\)</span>。用带兼容性检查的中国剩余定理逐步合并，一旦冲突立刻判定无解。若合并成功得到最小正解
+<span class="math inline">\(k\)</span>，则<span
+class="math inline">\(F_{\equiv 1}(a,b,c)=3k+1.\)</span></p>
+<p>同理，若答案为 <span class="math inline">\(3k+2\)</span>，就是先做
+<span class="math inline">\(X\)</span> 再做 <span
+class="math inline">\(Y\)</span>，然后块顺序为 <span
+class="math inline">\((Z,X,Y)\)</span>，初始翻转段长度为 <span
+class="math inline">\(e_x+e_y\)</span>，即可得到<span
+class="math inline">\(F_{\equiv 2}(a,b,c)=3k+2.\)</span></p>
+<p>最终<span class="math inline">\(F(a,b,c)\)</span>是<span
+class="math inline">\(F_{\equiv 0}(a,b,c),F_{\equiv 1}(a,b,c),F_{\equiv
+2}(a,b,c)\)</span>中的最小值（如果它们存在）。</p>
+<p>大量不同的 <span class="math inline">\((a,b,c)\)</span>
+会得到相同的剖分四元组 <span
+class="math inline">\((N,e_x,e_y,e_z)\)</span>，从而 <span
+class="math inline">\(F\)</span>
+也相同。用哈希表对该四元组记忆化即可显著加速。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tools.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">53</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="function"><span class="type">static</span> ll <span class="title">lcmll</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a / __gcd(a, b) * b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Quad</span></span><br><span class="line">&#123;</span><br><span class="line">    ll u = <span class="number">0</span>, v = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Quad</span>() = <span class="keyword">default</span>;</span><br><span class="line">    <span class="built_in">Quad</span>(ll uu, ll vv) : <span class="built_in">u</span>(uu), <span class="built_in">v</span>(vv) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">sgn</span><span class="params">(ll x)</span> </span>&#123; <span class="keyword">return</span> (x &gt; <span class="number">0</span>) - (x &lt; <span class="number">0</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">signum</span><span class="params">(ll du, ll dv, ll c)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (du == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">sgn</span>(dv);</span><br><span class="line">        <span class="keyword">if</span> (dv == <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="built_in">sgn</span>(du);</span><br><span class="line">        <span class="type">int</span> su = <span class="built_in">sgn</span>(du), sv = <span class="built_in">sgn</span>(dv);</span><br><span class="line">        <span class="keyword">if</span> (su == sv)</span><br><span class="line">            <span class="keyword">return</span> su;</span><br><span class="line">        ll uu = du * du;</span><br><span class="line">        ll vv = dv * dv;</span><br><span class="line">        ll cmp = uu * c - vv;</span><br><span class="line">        <span class="type">int</span> sc = (cmp &gt; <span class="number">0</span>) - (cmp &lt; <span class="number">0</span>);</span><br><span class="line">        <span class="keyword">return</span> su * sc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">cmp</span><span class="params">(<span class="type">const</span> Quad &amp;o, ll c)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">signum</span>(u - o.u, v - o.v, c);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">Quad <span class="title">norm_mod</span><span class="params">(<span class="type">const</span> Quad &amp;mod, ll c)</span> <span class="type">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Quad x = *<span class="keyword">this</span>;</span><br><span class="line">        Quad zero;</span><br><span class="line">        <span class="keyword">while</span> (x.<span class="built_in">cmp</span>(zero, c) &lt;= <span class="number">0</span>)</span><br><span class="line">            x = x + mod;</span><br><span class="line">        <span class="keyword">while</span> (x.<span class="built_in">cmp</span>(mod, c) &gt; <span class="number">0</span>)</span><br><span class="line">            x = x - mod;</span><br><span class="line">        <span class="keyword">return</span> x;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">friend</span> Quad <span class="keyword">operator</span>+(<span class="type">const</span> Quad &amp;a, <span class="type">const</span> Quad &amp;b) &#123; <span class="keyword">return</span> &#123;a.u + b.u, a.v + b.v&#125;; &#125;</span><br><span class="line">    <span class="keyword">friend</span> Quad <span class="keyword">operator</span>-(<span class="type">const</span> Quad &amp;a, <span class="type">const</span> Quad &amp;b) &#123; <span class="keyword">return</span> &#123;a.u - b.u, a.v - b.v&#125;; &#125;</span><br><span class="line">    <span class="keyword">friend</span> Quad <span class="keyword">operator</span>*(<span class="type">const</span> Quad &amp;a, ll k)</span><br><span class="line">    &#123;</span><br><span class="line">        ll uu = a.u * k;</span><br><span class="line">        ll vv = a.v * k;</span><br><span class="line">        <span class="keyword">return</span> &#123;(ll)uu, (ll)vv&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">friend</span> Quad <span class="keyword">operator</span>*(ll k, <span class="type">const</span> Quad &amp;a) &#123; <span class="keyword">return</span> a * k; &#125;</span><br><span class="line">    <span class="keyword">friend</span> <span class="type">bool</span> <span class="keyword">operator</span>==(<span class="type">const</span> Quad &amp;a, <span class="type">const</span> Quad &amp;b) &#123; <span class="keyword">return</span> a.u == b.u &amp;&amp; a.v == b.v; &#125;</span><br><span class="line">    <span class="keyword">friend</span> <span class="type">bool</span> <span class="keyword">operator</span>!=(<span class="type">const</span> Quad &amp;a, <span class="type">const</span> Quad &amp;b) &#123; <span class="keyword">return</span> !(a == b); &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Dissection</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> N, ex, ey, ez;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> Dissection <span class="title">dissect</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll s = <span class="built_in">int_square</span>(c);</span><br><span class="line">    ll L;</span><br><span class="line">    Quad X, Y, Z;</span><br><span class="line">    <span class="keyword">if</span> (s * s == c)</span><br><span class="line">    &#123;</span><br><span class="line">        L = <span class="built_in">lcmll</span>(<span class="built_in">lcmll</span>(a, b), (<span class="type">int</span>)s);</span><br><span class="line">        X = &#123;(ll)(L / a), <span class="number">0</span>&#125;;</span><br><span class="line">        Y = &#123;(ll)(L / b), <span class="number">0</span>&#125;;</span><br><span class="line">        Z = &#123;(ll)(L / s), <span class="number">0</span>&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        L = <span class="built_in">lcmll</span>(a, b);</span><br><span class="line">        X = &#123;(ll)(L / a), <span class="number">0</span>&#125;;</span><br><span class="line">        Y = &#123;(ll)(L / b), <span class="number">0</span>&#125;;</span><br><span class="line">        Z = &#123;<span class="number">0</span>, (ll)L&#125;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Quad S = X + Y + Z;</span><br><span class="line">    Quad total&#123;(ll)L, <span class="number">0</span>&#125;;</span><br><span class="line"></span><br><span class="line">    ll m = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((S * (m + <span class="number">1</span>)).<span class="built_in">cmp</span>(total, c) &lt;= <span class="number">0</span>)</span><br><span class="line">        ++m;</span><br><span class="line"></span><br><span class="line">    Quad extra = total - S * m;</span><br><span class="line">    Quad pieceX = X;</span><br><span class="line">    Quad pieceY = X + Y;</span><br><span class="line">    Quad pieceZ = S;</span><br><span class="line"></span><br><span class="line">    ll elemX = <span class="number">1</span>, elemY = <span class="number">1</span>, elemZ = <span class="number">1</span>, elemE = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (pieceX.<span class="built_in">cmp</span>(extra, c) &lt;= <span class="number">0</span>)</span><br><span class="line">        ++elemE;</span><br><span class="line">    <span class="keyword">if</span> (pieceY.<span class="built_in">cmp</span>(extra, c) &lt;= <span class="number">0</span>)</span><br><span class="line">        ++elemE;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> step = [&amp;](<span class="type">const</span> Quad &amp;src) -&gt; Quad</span><br><span class="line">    &#123;</span><br><span class="line">        Quad dst;</span><br><span class="line">        <span class="keyword">if</span> (src.<span class="built_in">cmp</span>(pieceX, c) &lt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dst = total - Y - Z - src;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (src.<span class="built_in">cmp</span>(pieceY, c) &lt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            dst = (total + X - Z) - src;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            dst = (total + X + Y) - src;</span><br><span class="line">        &#125;</span><br><span class="line">        dst = dst - S * m;</span><br><span class="line">        dst = dst.<span class="built_in">norm_mod</span>(S, c);</span><br><span class="line">        <span class="keyword">return</span> dst;</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    vector&lt;Quad&gt; starts = &#123;pieceX, pieceY, pieceZ&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">const</span> Quad &amp;st : starts)</span><br><span class="line">    &#123;</span><br><span class="line">        Quad src = st;</span><br><span class="line">        <span class="keyword">for</span> (;;)</span><br><span class="line">        &#123;</span><br><span class="line">            Quad dst = <span class="built_in">step</span>(src);</span><br><span class="line">            <span class="keyword">if</span> (dst == pieceX || dst == pieceY || dst == pieceZ)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (dst.<span class="built_in">cmp</span>(pieceX, c) &lt; <span class="number">0</span>)</span><br><span class="line">                ++elemX;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (dst.<span class="built_in">cmp</span>(pieceY, c) &lt; <span class="number">0</span>)</span><br><span class="line">                ++elemY;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ++elemZ;</span><br><span class="line">            <span class="keyword">if</span> (dst.<span class="built_in">cmp</span>(extra, c) &lt;= <span class="number">0</span>)</span><br><span class="line">                ++elemE;</span><br><span class="line">            src = dst;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    ll N = m * (elemX + elemY + elemZ) + elemE;</span><br><span class="line">    <span class="keyword">return</span> &#123;(<span class="type">int</span>)N, (<span class="type">int</span>)elemX, (<span class="type">int</span>)elemY, (<span class="type">int</span>)elemZ&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Cycle</span></span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; nxt;</span><br><span class="line">    vector&lt;<span class="type">uint8_t</span>&gt; fl;</span><br><span class="line">    <span class="type">int</span> flipped = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Cycle</span>() = <span class="keyword">default</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">Cycle</span>(<span class="type">int</span> n, <span class="type">int</span> piece)</span><br><span class="line">    &#123;</span><br><span class="line">        nxt.<span class="built_in">resize</span>(n);</span><br><span class="line">        fl.<span class="built_in">resize</span>(n);</span><br><span class="line">        flipped = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; piece; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            fl[i] = <span class="number">1</span>;</span><br><span class="line">            nxt[i] = n - <span class="number">1</span> - i;</span><br><span class="line">            flipped++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = piece; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            fl[i] = <span class="number">0</span>;</span><br><span class="line">            nxt[i] = i - piece;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">static</span> Cycle <span class="title">fromOrbit</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">uint8_t</span>&gt; &amp;flip)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = (<span class="type">int</span>)flip.<span class="built_in">size</span>();</span><br><span class="line">        Cycle c;</span><br><span class="line">        c.nxt.<span class="built_in">resize</span>(n);</span><br><span class="line">        c.fl = flip;</span><br><span class="line">        c.flipped = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            c.nxt[i] = (i + <span class="number">1</span> == n ? <span class="number">0</span> : i + <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (c.fl[i])</span><br><span class="line">                c.flipped++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> c;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Cycle <span class="keyword">operator</span>*(<span class="type">const</span> Cycle &amp;other) <span class="type">const</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> n = (<span class="type">int</span>)nxt.<span class="built_in">size</span>();</span><br><span class="line">        Cycle r;</span><br><span class="line">        r.nxt.<span class="built_in">resize</span>(n);</span><br><span class="line">        r.fl.<span class="built_in">resize</span>(n);</span><br><span class="line">        r.flipped = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> mid = nxt[i];</span><br><span class="line">            <span class="type">int</span> to = other.nxt[mid];</span><br><span class="line">            <span class="type">uint8_t</span> f = fl[i] ^ other.fl[mid];</span><br><span class="line">            r.nxt[i] = to;</span><br><span class="line">            r.fl[i] = f;</span><br><span class="line">            <span class="keyword">if</span> (f)</span><br><span class="line">                r.flipped++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="type">int</span> <span class="title">min_period_binary</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">uint8_t</span>&gt; &amp;s)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = (<span class="type">int</span>)s.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">l</span><span class="params">(n)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> j = l[i - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">while</span> (j &gt; <span class="number">0</span> &amp;&amp; s[i] != s[j])</span><br><span class="line">            j = l[j - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">if</span> (s[i] == s[j])</span><br><span class="line">            j++;</span><br><span class="line">        l[i] = j;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> p = n - l[n - <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">if</span> (p &gt; <span class="number">0</span> &amp;&amp; n % p == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> p;</span><br><span class="line">    <span class="keyword">return</span> n;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> ll <span class="title">period_allup</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">uint8_t</span>&gt; &amp;flip)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n = (<span class="type">int</span>)flip.<span class="built_in">size</span>();</span><br><span class="line">    <span class="keyword">if</span> (n == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> p = <span class="built_in">min_period_binary</span>(flip);</span><br><span class="line">    <span class="type">int</span> parity = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; p; i++)</span><br><span class="line">        parity ^= (<span class="type">int</span>)flip[i];</span><br><span class="line">    <span class="keyword">return</span> parity ? <span class="number">2LL</span> * p : <span class="number">1LL</span> * p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">OrbitInfo</span></span><br><span class="line">&#123;</span><br><span class="line">    vector&lt;<span class="type">uint8_t</span>&gt; flip;</span><br><span class="line">    vector&lt;<span class="type">uint8_t</span>&gt; target;</span><br><span class="line">    ll per;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> ll <span class="title">hybrid_k</span><span class="params">(<span class="type">const</span> Cycle &amp;perm, <span class="type">int</span> head)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> N = (<span class="type">int</span>)perm.nxt.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">uint8_t</span>&gt; <span class="title">vis</span><span class="params">(N, <span class="number">0</span>)</span></span>;</span><br><span class="line">    ll res = <span class="number">0</span>, mod = <span class="number">1</span>;</span><br><span class="line">    vector&lt;OrbitInfo&gt; hard;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">if</span> (!vis[i])</span><br><span class="line">        &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; idx;</span><br><span class="line">            <span class="type">int</span> cur = i;</span><br><span class="line">            <span class="keyword">while</span> (!vis[cur])</span><br><span class="line">            &#123;</span><br><span class="line">                vis[cur] = <span class="number">1</span>;</span><br><span class="line">                idx.<span class="built_in">push_back</span>(cur);</span><br><span class="line">                cur = perm.nxt[cur];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="type">int</span> n = (<span class="type">int</span>)idx.<span class="built_in">size</span>();</span><br><span class="line">            <span class="function">vector&lt;<span class="type">uint8_t</span>&gt; <span class="title">f</span><span class="params">(n)</span>, <span class="title">t</span><span class="params">(n)</span></span>;</span><br><span class="line">            <span class="type">bool</span> any = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> id = idx[j];</span><br><span class="line">                f[j] = perm.fl[id];</span><br><span class="line">                t[j] = (id &gt;= head);</span><br><span class="line">                any |= t[j];</span><br><span class="line">            &#125;</span><br><span class="line">            ll per = <span class="built_in">period_allup</span>(f);</span><br><span class="line">            <span class="keyword">if</span> (!any)</span><br><span class="line">            &#123;</span><br><span class="line">                ll g = __gcd(mod, per);</span><br><span class="line">                mod = mod / g * per;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                hard.<span class="built_in">push_back</span>(&#123;<span class="built_in">move</span>(f), <span class="built_in">move</span>(t), per&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">sort</span>(hard.<span class="built_in">begin</span>(), hard.<span class="built_in">end</span>(), [](<span class="type">const</span> OrbitInfo &amp;a, <span class="type">const</span> OrbitInfo &amp;b)</span><br><span class="line">         &#123; <span class="keyword">return</span> a.flip.<span class="built_in">size</span>() &lt; b.flip.<span class="built_in">size</span>(); &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">auto</span> &amp;o : hard)</span><br><span class="line">    &#123;</span><br><span class="line">        Cycle base = Cycle::<span class="built_in">fromOrbit</span>(o.flip);</span><br><span class="line">        Cycle cur = base;</span><br><span class="line">        ll early = <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (ll k = <span class="number">1</span>; k &lt;= o.per; k++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">bool</span> ok = <span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">size_t</span> i = <span class="number">0</span>; i &lt; o.flip.<span class="built_in">size</span>(); i++)</span><br><span class="line">                <span class="keyword">if</span> (cur.fl[i] != o.target[i])</span><br><span class="line">                &#123;</span><br><span class="line">                    ok = <span class="literal">false</span>;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            <span class="keyword">if</span> (ok)</span><br><span class="line">            &#123;</span><br><span class="line">                early = k;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            cur = cur * base;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (early &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        ll merged = <span class="built_in">CRT2</span>(res, mod, early % o.per, o.per);</span><br><span class="line">        <span class="keyword">if</span> (merged &lt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        ll g = __gcd(mod, o.per);</span><br><span class="line">        mod = mod / g * o.per;</span><br><span class="line">        res = merged;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    res %= mod;</span><br><span class="line">    <span class="keyword">if</span> (res == <span class="number">0</span>)</span><br><span class="line">        res = mod;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Key</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> N, ex, ey, ez;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">KeyHash</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Key &amp;k)</span> <span class="type">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="type">size_t</span> h = (<span class="type">uint32_t</span>)k.N;</span><br><span class="line">        h = h * <span class="number">1315423911u</span> + (<span class="type">uint32_t</span>)k.ex;</span><br><span class="line">        h = h * <span class="number">1315423911u</span> + (<span class="type">uint32_t</span>)k.ey;</span><br><span class="line">        h = h * <span class="number">1315423911u</span> + (<span class="type">uint32_t</span>)k.ez;</span><br><span class="line">        <span class="keyword">return</span> h;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">KeyEq</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="type">const</span> Key &amp;a, <span class="type">const</span> Key &amp;b)</span> <span class="type">const</span> <span class="keyword">noexcept</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a.N == b.N &amp;&amp; a.ex == b.ex &amp;&amp; a.ey == b.ey &amp;&amp; a.ez == b.ez;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> ll <span class="title">F</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> c, unordered_map&lt;Key, ll, KeyHash, KeyEq&gt; &amp;cache)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    Dissection d = <span class="built_in">dissect</span>(a, b, c);</span><br><span class="line">    Key key&#123;d.N, d.ex, d.ey, d.ez&#125;;</span><br><span class="line">    <span class="keyword">auto</span> it = cache.<span class="built_in">find</span>(key);</span><br><span class="line">    <span class="keyword">if</span> (it != cache.<span class="built_in">end</span>())</span><br><span class="line">        <span class="keyword">return</span> it-&gt;second;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> N = d.N;</span><br><span class="line">    <span class="function">Cycle <span class="title">cx</span><span class="params">(N, d.ex)</span></span>;</span><br><span class="line">    <span class="function">Cycle <span class="title">cy</span><span class="params">(N, d.ey)</span></span>;</span><br><span class="line">    <span class="function">Cycle <span class="title">cz</span><span class="params">(N, d.ez)</span></span>;</span><br><span class="line"></span><br><span class="line">    Cycle perm0 = cx * cy * cz;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">uint8_t</span>&gt; <span class="title">vis</span><span class="params">(N, <span class="number">0</span>)</span></span>;</span><br><span class="line">    ll l = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; N; i++)</span><br><span class="line">        <span class="keyword">if</span> (!vis[i])</span><br><span class="line">        &#123;</span><br><span class="line">            vector&lt;<span class="type">uint8_t</span>&gt; f;</span><br><span class="line">            <span class="type">int</span> cur = i;</span><br><span class="line">            <span class="keyword">while</span> (!vis[cur])</span><br><span class="line">            &#123;</span><br><span class="line">                vis[cur] = <span class="number">1</span>;</span><br><span class="line">                f.<span class="built_in">push_back</span>(perm<span class="number">0.f</span>l[cur]);</span><br><span class="line">                cur = perm<span class="number">0.</span>nxt[cur];</span><br><span class="line">            &#125;</span><br><span class="line">            ll per = <span class="built_in">period_allup</span>(f);</span><br><span class="line">            ll g = __gcd(l, per);</span><br><span class="line">            l = l / g * per;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    ll ans = <span class="number">3</span> * l;</span><br><span class="line"></span><br><span class="line">    Cycle perm1 = cy * cz * cx;</span><br><span class="line">    ll k1 = <span class="built_in">hybrid_k</span>(perm1, N - d.ex);</span><br><span class="line">    <span class="keyword">if</span> (k1)</span><br><span class="line">        ans = <span class="built_in">min</span>(ans, <span class="number">3</span> * k1 + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    Cycle perm2 = cz * cx * cy;</span><br><span class="line">    ll k2 = <span class="built_in">hybrid_k</span>(perm2, N - d.ex - d.ey);</span><br><span class="line">    <span class="keyword">if</span> (k2)</span><br><span class="line">        ans = <span class="built_in">min</span>(ans, <span class="number">3</span> * k2 + <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">    cache.<span class="built_in">emplace</span>(key, ans);</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> ll <span class="title">G</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    unordered_map&lt;Key, ll, KeyHash, KeyEq&gt; cache;</span><br><span class="line">    cache.<span class="built_in">reserve</span>(<span class="number">20000</span>);</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">11</span>; c &lt;= n; c++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> b = <span class="number">10</span>; b &lt; c; b++)</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">9</span>; a &lt; b; a++)</span><br><span class="line">                sum += <span class="built_in">F</span>(a, b, c, cache);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">G</span>(N) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/566/" title="Project Euler 566">https://ujimatsu-chiya.github.io/project-euler/566/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

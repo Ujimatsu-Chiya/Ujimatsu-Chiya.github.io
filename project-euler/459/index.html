@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 459">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/459/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0459-flipping-game-0.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0459-flipping-game-1.png">
+<meta property="article:published_time" content="2026-02-23T12:18:00.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:00.127Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0459-flipping-game-0.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/459/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/459/","path":"project-euler/459/","title":"Project Euler 459"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 459 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-459"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 459</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#flipping-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">Flipping game</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/459/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 459 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 459
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:00" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:00+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-459">Project Euler 459</h1>
+<h2 id="题目">题目</h2>
+<h3 id="flipping-game">Flipping game</h3>
+<p>The flipping game is a two player game played on a <span
+class="math inline">\(N\)</span> by <span
+class="math inline">\(N\)</span> square board.</p>
+<p>Each square contains a disk with one side white and one side
+black.</p>
+<p>The game starts with all disks showing their white side.</p>
+<p>A turn consists of flipping all disks in a rectangle with the
+following properties:</p>
+<ul>
+<li><p>the upper right corner of the rectangle contains a white
+disk</p></li>
+<li><p>the rectangle width is a perfect square <span
+class="math inline">\((1, 4, 9, 16, \dots)\)</span></p></li>
+<li><p>the rectangle height is a
+<dfn title="The triangular numbers are defined as ½n(n + 1) for positive integer n.">triangular
+number</dfn> <span class="math inline">\((1, 3, 6, 10,
+\dots)\)</span></p></li>
+</ul>
+<p><img data-src="../resources/images/0459-flipping-game-0.png" /></p>
+<p>Players alternate turns. A player wins by turning the grid all
+black.</p>
+<p>Let <span class="math inline">\(W(N)\)</span> be the number of
+<dfn title="The first move of a strategy that ensures a win no matter what the opponent plays.">winning
+moves</dfn> for the first player on a <span
+class="math inline">\(N\)</span> by <span
+class="math inline">\(N\)</span> board with all disks white, assuming
+perfect play.</p>
+<p><span class="math inline">\(W(1) = 1, W(2) = 0, W(5) = 8\)</span> and
+<span class="math inline">\(W(10^2) = 31395\)</span>.</p>
+<p>For <span class="math inline">\(N=5\)</span>, the first player’s
+eight winning first moves are:</p>
+<p><img data-src="../resources/images/0459-flipping-game-1.png" /></p>
+<p>Find <span class="math inline">\(W(10^6)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>可见这是一个有限、无偏、正常玩法博弈，因此可以使用 SG 定理。记 <span
+class="math inline">\(B(x,y)\)</span> 为仅 <span
+class="math inline">\((x,y)\)</span> 为白，其余全黑的局面，并记其 SG
+值为 <span class="math inline">\(g(x,y)\)</span>。</p>
+<p>把任意局面 <span class="math inline">\(S\)</span>
+理解为若干个单白格局面 <span class="math inline">\(B(x,y)\)</span>
+的组合：哪些格子为白，就包含哪些 <span
+class="math inline">\(B(x,y)\)</span>。由于组合局面的 SG 值等于各子局面
+SG 值的异或和，故有</p>
+<p><span class="math display">\[
+\operatorname{SG}(S)=\bigoplus_{(x,y)\in S} g(x,y).
+\]</span></p>
+<p>因此，执行一次翻转一个矩形的操作，等价于把该矩形内所有格子的 <span
+class="math inline">\(g(x,y)\)</span> 各自异或一次，从而得到新局面的 SG
+值。</p>
+<p>观察合法操作：选择右上角白格 <span
+class="math inline">\((x,y)\)</span> 后，允许翻转的矩形集合为<span
+class="math inline">\([x-w+1,x]\times[y-h+1,y],\)</span> 其中 <span
+class="math inline">\(w\)</span> 取平方数集合 <span
+class="math inline">\(\mathcal S=\{i^2\mid i\in
+\mathbb{Z}_{&gt;0}\}\)</span>，<span class="math inline">\(h\)</span>
+取三角数集合 <span class="math inline">\(\mathcal
+T=\left\{\dfrac{i(i+1)}{2}
+\mid i\in \mathbb{Z}_{&gt;0}\right\}\)</span>。</p>
+<p>注意这一步的结构是横向区间与纵向区间的笛卡尔积：先选一个横向长度
+<span class="math inline">\(w\)</span> 的区间，再选一个纵向长度 <span
+class="math inline">\(h\)</span>
+的区间，矩形就是两者的乘积。因此我们引入两个一维游戏：</p>
+<ul>
+<li>横向游戏 <span class="math inline">\(H_N\)</span>：长度为 <span
+class="math inline">\(N\)</span> 的一排棋子（位置 <span
+class="math inline">\(1,\dots,N\)</span>），一次操作选一个白位置 <span
+class="math inline">\(x\)</span> 作为右端点，选 <span
+class="math inline">\(w\in\mathcal S\)</span> 且 <span
+class="math inline">\(w\le x\)</span>，翻转区间 <span
+class="math inline">\([x-w+1,x]\)</span>；</li>
+<li>纵向游戏 <span
+class="math inline">\(V_N\)</span>：同样是一排棋子（位置 <span
+class="math inline">\(1,\dots,N\)</span>），一次操作选白位置 <span
+class="math inline">\(y\)</span> 作为上端点，选 <span
+class="math inline">\(h\in\mathcal T\)</span> 且 <span
+class="math inline">\(h\le y\)</span>，翻转区间 <span
+class="math inline">\([y-h+1,y]\)</span>。</li>
+</ul>
+<p>二维操作的结构可以理解为两个一维规则的笛卡尔积：每一步先在横向选择一个合法区间，再在纵向选择一个合法区间，随后翻转它们的直积矩形。</p>
+<p>因此只需先研究两个一维边界游戏。设 <span
+class="math inline">\(h(x)\)</span> 为横向一维游戏中仅位置 <span
+class="math inline">\(x\)</span> 为白的 SG 值，<span
+class="math inline">\(v(y)\)</span> 为纵向一维游戏中仅位置 <span
+class="math inline">\(y\)</span> 为白的 SG 值。再引入 <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nimber#Multiplication">nimber
+乘法</a> <span class="math inline">\(\otimes\)</span>，则二维单白格局面
+<span class="math inline">\(B(x,y)\)</span> 的 SG 值满足<span
+class="math inline">\(g(x,y)=h(x)\otimes v(y).\)</span>其中<span
+class="math inline">\(\otimes\)</span>的含义为：<span
+class="math inline">\(\alpha \otimes \beta = \operatorname{mex}\{
+\alpha&#39; \otimes \beta \oplus \alpha \otimes \beta&#39; \oplus
+\alpha&#39; \otimes \beta&#39; : \alpha&#39; &lt; \alpha,\beta&#39; &lt;
+\beta \}.\)</span></p>
+<p>到此为止，二维问题被拆成：求出一维序列 <span
+class="math inline">\(h(1,\dots,N)\)</span>（平方长度规则）；求出一维序列
+<span
+class="math inline">\(v(1,\dots,N)\)</span>（三角长度规则）；最后用
+<span class="math inline">\(\otimes\)</span> 将它们组合，并做计数。</p>
+<p>不失一般性，下面只推横向平方规则，纵向完全同理，只需把平方数换成三角数。</p>
+<p>令 <span class="math inline">\(H(x)\)</span> 表示一维横向游戏中仅位置
+<span class="math inline">\(x\)</span> 白，其余黑的局面，定义<span
+class="math inline">\(h(x)=\operatorname{SG}(H(x)).\)</span>考虑从 <span
+class="math inline">\(H(x)\)</span> 出发的一步：必须以该白子 <span
+class="math inline">\(x\)</span> 为右端点，选一个平方长度 <span
+class="math inline">\(w\in\mathcal S\)</span> 且 <span
+class="math inline">\(w\le x\)</span>，翻转区间 <span
+class="math inline">\([x-w+1,x]\)</span>。翻转后：位置 <span
+class="math inline">\(x\)</span> 被翻成黑；位置 <span
+class="math inline">\(x-w+1,\dots,x-1\)</span>
+被翻转：原本是黑，现在变白。</p>
+<p>于是新局面等价于这些新白子各自对应的单白格子游戏的异或和，其 SG
+值为<span class="math inline">\(h(x-1)\oplus h(x-2)\oplus\cdots\oplus
+h(x-w+1).\)</span>因此从 <span class="math inline">\(H(x)\)</span>
+可达的 SG 值集合为<span
+class="math inline">\(\displaystyle\left\{\bigoplus_{t=x-w+1}^{x-1}
+h(t)\middle|w\in\mathcal S,w\le x\right\}\cup\{0\},\)</span></p>
+<p>其中 <span class="math inline">\(0\)</span> 对应若 <span
+class="math inline">\(w=1\)</span>，区间只有 <span
+class="math inline">\([x,x]\)</span>，翻完后变成空局面。根据 SG
+定义，</p>
+<p><span
+class="math display">\[h(x)=\operatorname{mex}\left(\left\{\bigoplus_{t=x-w+1}^{x-1}
+h(t)\mid w\in\mathcal S,w\le x\right\}\cup\{0\}\right).\]</span></p>
+<p>为了把区间异或在 <span class="math inline">\(O(1)\)</span>
+求出，引入前缀异或<span class="math inline">\(\displaystyle
+P_H(x)=\bigoplus_{i=1}^x h(i), P_H(0)=0.\)</span>则<span
+class="math inline">\(\displaystyle\bigoplus_{t=x-w+1}^{x-1}
+h(t)=P_H(x-1)\oplus P_H(x-w).\)</span>从而递推式可写为<span
+class="math inline">\(h(x)=\operatorname{mex}\left(\left\{P_H(x-1)\oplus
+P_H(x-w)\mid w\in\mathcal S,w\le
+x\right\}\cup{0}\right),\)</span>并且更新<span
+class="math inline">\(P_H(x)=P_H(x-1)\oplus h(x).\)</span></p>
+<p>纵向序列 <span class="math inline">\(v(y)\)</span> 同理，设<span
+class="math inline">\(\displaystyle P_V(y)=\bigoplus_{j=1}^yv(j),
+P_V(0)=0,\)</span>则</p>
+<p><span class="math display">\[
+\begin{aligned}
+v(y)&amp;=\operatorname{mex}\left(\left\{P_V(y-1)\oplus P_V(y-h)\mid
+h\in\mathcal T,h\le y\right\}\cup\{0\}\right),\\
+P_V(y)&amp;=P_V(y-1)\oplus v(y).
+\end{aligned}
+\]</span></p>
+<p>可见，全白棋盘<span class="math inline">\(W\)</span>的 SG
+值为所有单白格值的异或为：</p>
+<p><span class="math display">\[
+\operatorname{SG}(W)
+=\bigoplus_{x=1}^N\bigoplus_{y=1}^N g(x,y)
+=\bigoplus_{x=1}^N\bigoplus_{y=1}^N \bigl(h(x)\otimes v(y)\bigr)
+=\left(\bigoplus_{x=1}^N h(x)\right)\otimes\left(\bigoplus_{y=1}^N
+v(y)\right)
+\]</span></p>
+<p>可见，最后一步是利用了 nimber 乘法对异或的分配律。所以设<span
+class="math inline">\(\displaystyle A=P_H(N)=\bigoplus_{x=1}^N h(x),
+B=P_V(N)=\bigoplus_{y=1}^N v(y),\)</span>则初态 SG 为<span
+class="math inline">\(T=A\otimes B.\)</span></p>
+<p>一次翻转矩形<span
+class="math inline">\(R=[x-w+1,x]\times[y-h+1,y]\)</span>对 SG
+的影响就是异或上该矩形内所有 <span
+class="math inline">\(g(i,j)\)</span>。矩形的值定义为 <span
+class="math display">\[
+\operatorname{val}(R)=\bigoplus_{i=x-w+1}^{x}\bigoplus_{j=y-h+1}^{y}
+g(i,j).
+\]</span></p>
+<p>由 <span class="math inline">\(g(i,j)=h(i)\otimes v(j)\)</span>
+以及分配律，有<span
+class="math inline">\(\displaystyle\operatorname{val}(R)=\left(\bigoplus_{i=x-w+1}^{x}
+h(i)\right)\otimes\left(\bigoplus_{j=y-h+1}^{y}
+v(j)\right).\)</span></p>
+<p>再用前缀异或把两段区间异或化为 <span
+class="math inline">\(O(1)\)</span> 形式：<span
+class="math inline">\(\displaystyle\bigoplus_{i=x-w+1}^{x}
+h(i)=P_H(x)\oplus P_H(x-w),\bigoplus_{j=y-h+1}^{y} v(j)=P_V(y)\oplus
+P_V(y-h).\)</span>因此<span
+class="math inline">\(\operatorname{val}(R)=\bigl(P_H(x)\oplus
+P_H(x-w)\bigr)\otimes\bigl(P_V(y)\oplus P_V(y-h)\bigr).\)</span></p>
+<p>当前局面 SG 值为 <span class="math inline">\(T\)</span>。翻转矩形
+<span class="math inline">\(R\)</span> 后，新局面 SG 值为<span
+class="math inline">\(T\oplus
+\operatorname{val}(R).\)</span>先手一步走到必败局面当且仅当新 SG 为
+<span class="math inline">\(0\)</span>，即<span
+class="math inline">\(T\oplus
+\operatorname{val}(R)=0\Longleftrightarrow\operatorname{val}(R)=T.\)</span></p>
+<p>因此 <span class="math inline">\(W(N)\)</span>
+的定义等价于：统计所有合法首步矩形 <span
+class="math inline">\(R\)</span>，其矩形值 <span
+class="math inline">\(\operatorname{val}(R)\)</span> 等于 <span
+class="math inline">\(T\)</span> 的个数。</p>
+<p>注意每个合法矩形由一对合法区间决定：横向：选择右端点 <span
+class="math inline">\(x\)</span> 与平方长度 <span
+class="math inline">\(w\)</span>；纵向：选择上端点 <span
+class="math inline">\(y\)</span> 与三角长度 <span
+class="math inline">\(h\)</span>。令横向区间异或值<span
+class="math inline">\(a=P_H(x)\oplus
+P_H(x-w),\)</span>纵向区间异或值<span
+class="math inline">\(b=P_V(y)\oplus P_V(y-h),\)</span>则矩形值为<span
+class="math inline">\(\operatorname{val}(R)=a\otimes b.\)</span></p>
+<p>于是只需要统计两类一维区间值的出现次数：对每个可能的 <span
+class="math inline">\(a\)</span>，令 <span
+class="math inline">\(C_H[a]\)</span> 为所有合法 <span
+class="math inline">\((x,w)\)</span> 产生该 <span
+class="math inline">\(a\)</span> 的次数；对每个可能的 <span
+class="math inline">\(b\)</span>，令 <span
+class="math inline">\(C_V[b]\)</span> 为所有合法 <span
+class="math inline">\((y,h)\)</span> 产生该 <span
+class="math inline">\(b\)</span> 的次数。那么</p>
+<p><span class="math display">\[
+W(N)=\sum_{a}\sum_{b}\mathbb{1}\{a\otimes b=T\}\cdot C_H[a]\cdot C_V[b],
+\]</span></p>
+<p>至此，我们用 mex 递推得到 <span
+class="math inline">\(h(1,\dots,N)\)</span> 与 <span
+class="math inline">\(P_H(0,\dots,N)\)</span>，同时枚举所有平方长度区间得到分布
+<span class="math inline">\(C_H[\cdot]\)</span>；用 mex 递推得到 <span
+class="math inline">\(v(1,\dots,N)\)</span> 与 <span
+class="math inline">\(P_V(0,\dots,N)\)</span>，同时枚举所有三角长度区间得到分布
+<span class="math inline">\(C_V[\cdot]\)</span>；随后计算 <span
+class="math inline">\(T=P_H(N)\otimes P_V(N)\)</span>，并按上式求和得到
+<span class="math inline">\(W(N)\)</span>。</p>
+<p>需要注意的是，<span class="math inline">\(\otimes\)</span> 与异或
+<span class="math inline">\(\oplus\)</span>
+共同构成一个域结构，也就是上文提到的分配律：对任意 <span
+class="math inline">\(x,y,z\)</span>，都有<span
+class="math inline">\(x\otimes(y\oplus z)=(x\otimes y)\oplus(x\otimes
+z),(x\oplus y)\otimes z=(x\otimes z)\oplus(y\otimes
+z).\)</span>因此，对幂 <span class="math inline">\(2^i,2^j\)</span>
+的乘法有递归结构，可用 mex
+定义并配合分解计算，从而在有限位宽下可高效预表或记忆化。</p>
+<p>本题中一维递推产生的 SG
+值实际落在很小的范围，因此只需在该小范围内处理 <span
+class="math inline">\(\otimes\)</span> 的配对即可完成最终计数。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1000000</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> M = <span class="number">1</span> &lt;&lt; <span class="number">16</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> O = <span class="built_in">sqrt</span>(N) * <span class="number">2</span> + <span class="number">4</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> GMAX = <span class="number">512</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> pre_sq[N];</span><br><span class="line"><span class="type">int</span> pre_tr[N];</span><br><span class="line">ll cnt_sq[GMAX];</span><br><span class="line">ll cnt_tr[GMAX];</span><br><span class="line"><span class="type">int</span> nim[GMAX][GMAX];</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> sq_len[O], tr_len[O];</span><br><span class="line"><span class="type">int</span> sq_n = <span class="number">0</span>, tr_n = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> seen_line[GMAX];</span><br><span class="line"><span class="type">int</span> seen_prod[M];</span><br><span class="line"><span class="type">int</span> tag_line = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> tag_prod = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_lengths</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">long</span> <span class="type">long</span> i = <span class="number">1</span>; i * i &lt;= N; ++i)</span><br><span class="line">        sq_len[sq_n++] = (<span class="type">int</span>)(i * i);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">long</span> <span class="type">long</span> i = <span class="number">1</span>; i * (i + <span class="number">1</span>) / <span class="number">2</span> &lt;= N; ++i)</span><br><span class="line">        tr_len[tr_n++] = (<span class="type">int</span>)(i * (i + <span class="number">1</span>) / <span class="number">2</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_line</span><span class="params">(<span class="type">const</span> <span class="type">int</span> *lens, <span class="type">int</span> m, <span class="type">int</span> *pre, ll *cnt)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    pre[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">1</span>; x &lt; N; ++x)</span><br><span class="line">    &#123;</span><br><span class="line">        ++tag_line;</span><br><span class="line">        <span class="type">int</span> base = pre[x - <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> w = lens[i];</span><br><span class="line">            <span class="keyword">if</span> (w &gt; x + <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="type">int</span> v = base ^ (w == x + <span class="number">1</span> ? <span class="number">0</span> : pre[x - w]);</span><br><span class="line">            seen_line[v] = tag_line;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> g = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> (g &lt; GMAX &amp;&amp; seen_line[g] == tag_line)</span><br><span class="line">            ++g;</span><br><span class="line">        pre[x] = base ^ g;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">memset</span>(cnt, <span class="number">0</span>, <span class="built_in">sizeof</span>(ll) * GMAX);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt; N; ++x)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> len = x + <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> px = pre[x];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> w = lens[i];</span><br><span class="line">            <span class="keyword">if</span> (w &gt; len)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">if</span> (w == len)</span><br><span class="line">                cnt[px]++;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                cnt[px ^ pre[x - w]]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">mex_nim_prod</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ++tag_prod;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; a; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; b; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> z = nim[i][b] ^ nim[a][j] ^ nim[i][j];</span><br><span class="line">            seen_prod[z] = tag_prod;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> v = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (seen_prod[v] == tag_prod)</span><br><span class="line">        ++v;</span><br><span class="line">    <span class="keyword">return</span> v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build_nim_table</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> a = <span class="number">0</span>; a &lt; GMAX; ++a)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> b = <span class="number">0</span>; b &lt; GMAX; ++b)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (a &amp; (a - <span class="number">1</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> lb = a &amp; -a;</span><br><span class="line">                nim[a][b] = nim[lb][b] ^ nim[a ^ lb][b];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (b &amp; (b - <span class="number">1</span>))</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> lb = b &amp; -b;</span><br><span class="line">                nim[a][b] = nim[a][lb] ^ nim[a][b ^ lb];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                nim[a][b] = <span class="built_in">mex_nim_prod</span>(a, b);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">build_lengths</span>();</span><br><span class="line">    <span class="built_in">build_line</span>(sq_len, sq_n, pre_sq, cnt_sq);</span><br><span class="line">    <span class="built_in">build_line</span>(tr_len, tr_n, pre_tr, cnt_tr);</span><br><span class="line">    <span class="built_in">build_nim_table</span>();</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> target = nim[pre_sq[N - <span class="number">1</span>]][pre_tr[N - <span class="number">1</span>]];</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> idx_sq[GMAX], idx_tr[GMAX], ns = <span class="number">0</span>, nt = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; GMAX; ++i)</span><br><span class="line">        <span class="keyword">if</span> (cnt_sq[i])</span><br><span class="line">            idx_sq[ns++] = i;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; GMAX; ++i)</span><br><span class="line">        <span class="keyword">if</span> (cnt_tr[i])</span><br><span class="line">            idx_tr[nt++] = i;</span><br><span class="line"></span><br><span class="line">    ll ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; ns; ++i)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> a = idx_sq[i];</span><br><span class="line">        ll ca = cnt_sq[a];</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; nt; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> b = idx_tr[j];</span><br><span class="line">            <span class="keyword">if</span> (nim[a][b] == target)</span><br><span class="line">                ans += ca * cnt_tr[b];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/459/" title="Project Euler 459">https://ujimatsu-chiya.github.io/project-euler/459/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

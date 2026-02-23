@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 696">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/696/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0696_mahjong_1.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0696_mahjong_2.png">
+<meta property="article:published_time" content="2026-02-23T12:18:31.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:31.557Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0696_mahjong_1.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/696/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/696/","path":"project-euler/696/","title":"Project Euler 696"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 696 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-696"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 696</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mahjong"><span class="nav-number">1.1.1.</span> <span class="nav-text">Mahjong</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/696/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 696 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 696
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:31" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:31+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-696">Project Euler 696</h1>
+<h2 id="题目">题目</h2>
+<h3 id="mahjong">Mahjong</h3>
+<p>The game of Mahjong is played with tiles belonging to <span
+class="math inline">\(s\)</span> <em>suits</em>. Each tile also has a
+<em>number</em> in the range <span class="math inline">\(1\ldots
+n\)</span>, and for each suit/number combination there are exactly four
+indistinguishable tiles with that suit and number. (The real Mahjong
+game also contains other bonus tiles, but those will not feature in this
+problem.)</p>
+<p>A <em>winning hand</em> is a collection of <span
+class="math inline">\(3t+2\)</span> Tiles (where <span
+class="math inline">\(t\)</span> is a fixed integer) that can be
+arranged as <span class="math inline">\(t\)</span> <em>Triples</em> and
+one <em>Pair</em>, where:</p>
+<ul>
+<li><p>A <em>Triple</em> is either a <em>Chow</em> or a
+<em>Pung</em></p></li>
+<li><p>A <em>Chow</em> is three tiles of the same suit and consecutive
+numbers</p></li>
+<li><p>A <em>Pung</em> is three identical tiles (same suit and same
+number)</p></li>
+<li><p>A <em>Pair</em> is two identical tiles (same suit and same
+number)</p></li>
+</ul>
+<p>For example, here is a winning hand with <span
+class="math inline">\(n=9\)</span>, <span
+class="math inline">\(s=3\)</span>, <span
+class="math inline">\(t=4\)</span>, consisting in this case of two
+Chows, two Pungs, and one Pair:</p>
+<p><img data-src="../resources/images/0696_mahjong_1.png" /></p>
+<p>Note that sometimes the same collection of tiles can be represented
+as <span class="math inline">\(t\)</span> Triples and one Pair in more
+than one way. This only counts as one winning hand. For example, this is
+considered to be the same winning hand as above, because it consists of
+the same tiles:</p>
+<p><img data-src="../resources/images/0696_mahjong_2.png" /></p>
+<p>Let <span class="math inline">\(w(n, s, t)\)</span> be the number of
+distinct winning hands formed of <span class="math inline">\(t\)</span>
+Triples and one Pair, where there are <span
+class="math inline">\(s\)</span> suits available and tiles are numbered
+up to <span class="math inline">\(n\)</span>.</p>
+<p>For example, with a single suit and tiles numbered up to <span
+class="math inline">\(4\)</span>, we have <span
+class="math inline">\(w(4, 1, 1) = 20\)</span>: there are <span
+class="math inline">\(12\)</span> winning hands consisting of a Pung and
+a Pair, and another 8 containing a Chow and a Pair. You are also given
+that <span class="math inline">\(w(9, 1, 4) = 13259\)</span>, <span
+class="math inline">\(w(9, 3, 4) = 5237550\)</span>, and <span
+class="math inline">\(w(1000, 1000, 5) \equiv 107662178
+\pmod{1\,000\,000\,007}\)</span>.</p>
+<p>Find <span class="math inline">\(w(10^8, 10^8, 30)\)</span>. Give
+your answer modulo <span
+class="math inline">\(1\,000\,000\,007\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span
+class="math inline">\(N=S=10^8,T=30.\)</span>把一手牌按花色拆开：对每个花色
+<span class="math inline">\(\sigma\)</span>，用计数序列<span
+class="math inline">\(c^{(\sigma)}_1,\ldots,c^{(\sigma)}_n, 0\le
+c^{(\sigma)}_i\le 4\)</span>表示该花色点数 <span
+class="math inline">\(i\)</span>
+取了多少张。不同花色互不影响：顺子/刻子/对子都只在同一花色内发生。</p>
+<p>因此总体计数的合并只需知道单花色能贡献多少个三元组，以及是否含对子。</p>
+<p>定义单花色数量：<span
+class="math inline">\(C_q(n)\)</span>表示在一个花色内，能组成<strong>恰好
+<span class="math inline">\(q\)</span>
+个三元组且不含对子</strong>的不同多重集合数；<span
+class="math inline">\(A_q(n)\)</span>表示在一个花色内，能组成<strong>恰好
+<span class="math inline">\(q\)</span> 个三元组且含 1
+个对子</strong>的不同多重集合数。</p>
+<p>把它们定义成生成函数（只需到次数 <span
+class="math inline">\(t\)</span>），那么有：<span
+class="math inline">\(\displaystyle C(y)=\sum_{q=0}^{t}
+C_q(n)y^q,A(y)=\sum_{q=0}^{t} A_q(n)y^q.\)</span></p>
+<p>对每个花色，有两类选择：无对子（贡献 <span
+class="math inline">\(C(y)\)</span>）或含对子（贡献 <span
+class="math inline">\(A(y)\)</span> 并标记这花色用了对子）。令 <span
+class="math inline">\(x\)</span>
+表示是否用了对子，则单花色的二元生成函数是<span
+class="math inline">\(P(x,y)=C(y)+xA(y).\)</span></p>
+<p>总共有 <span class="math inline">\(s\)</span>
+个花色、且全局必须恰好一个对子，因此答案是<span
+class="math inline">\(w(n,s,t)=[x^1y^t]P(x,y)^s.\)</span>取 <span
+class="math inline">\(x^1\)</span> 系数等价于选 1
+个花色放对子，其余花色不放对子，从而<span
+class="math inline">\(w(n,s,t)= s\cdot
+[y^t]A(y)C(y)^{s-1}.\)</span>接下来关键就是计算单花色的 <span
+class="math inline">\(C_q(n),A_q(n)\)</span>。</p>
+<p>固定一个花色，考虑计数序列 <span
+class="math inline">\(c_1,\ldots,c_n\)</span>。我们从左到右处理点数，处理到位置
+<span class="math inline">\(i\)</span> 时，顺子可能跨越 <span
+class="math inline">\((i-2,i-1,i)\)</span> 或 <span
+class="math inline">\((i-1,i,i+1)\)</span>，因此需要记录前两列遗留了多少未完成的顺子。</p>
+<p>对同一起点 <span class="math inline">\(i\)</span>，若启动了 3
+个完全重叠的 顺子（即三份 <span
+class="math inline">\((i,i+1,i+2)\)</span>），它们一共消耗了点数 <span
+class="math inline">\(i,i+1,i+2\)</span> 各 3 张牌。这与在三列各放一个
+刻子 完全等价（同样各消耗 3 张），且不影响其它点数。</p>
+<p>因此，在是否存在某种拆法的意义下，启动顺子的数量在每个位置只需保留
+<span class="math inline">\(\bmod 3\)</span> 的信息；超过<span
+class="math inline">\(2\)</span>的部分可用局部替换转成刻子，不改变可分解性。又因为每列最多
+<span class="math inline">\(4\)</span> 张牌，<span
+class="math inline">\(\bmod 3\)</span> 后的值只可能是 <span
+class="math inline">\(0,1,2\)</span>。</p>
+<p>在处理点数 <span class="math inline">\(i\)</span> 时，设：<span
+class="math inline">\(a\in\{0,1,2\}\)</span>表示还有 <span
+class="math inline">\(a\)</span> 个 顺子 是从 <span
+class="math inline">\(i-2\)</span> 开始的，它们在 <span
+class="math inline">\(i\)</span> 需要各取 1 张。<span
+class="math inline">\(b\in\{0,1,2\}\)</span>表示还有 <span
+class="math inline">\(b\)</span> 个 顺子 是从 <span
+class="math inline">\(i-1\)</span> 开始的，它们在 <span
+class="math inline">\(i\)</span> 需要各取 1 张；<span
+class="math inline">\(p\in\{0,1\}\)</span>表示是否已经使用过
+对子。把基本状态编码为 18 种：<span
+class="math inline">\((a,b,p)\)</span>。</p>
+<p>初始时还没开始任何顺子、也未放对子：<span
+class="math inline">\((a,b,p)=(0,0,0).\)</span>假设当前列有 <span
+class="math inline">\(x\in\{0,1,2,3,4\}\)</span>
+张牌。先必须满足前面的顺子需求：需要 <span
+class="math inline">\(a+b\)</span>
+张，否则无解；如果此列选择放对子（只能在 <span
+class="math inline">\(p=0\)</span> 时），还需额外消耗 2 张。</p>
+<p>因此对是否在此列放对子的两种选择可能都可行。设 <span
+class="math inline">\(d=1\)</span> 表示当前列选择放对子，<span
+class="math inline">\(d=0\)</span> 表示不放对子。分别检查：<span
+class="math inline">\(x\ge a+b+2\cdot d.\)</span>令<span
+class="math inline">\(r=x-a-b-2\cdot d(\ge
+0)\)</span>为剩余张数。剩余张数要分成若干个刻子：消耗 3 的倍数；若干个从
+<span class="math inline">\(i\)</span> 开始的新顺子：每个消耗 1
+张，并在后两列各留下 1 个需求。</p>
+<p>根据上面的模 3 归约，我们可取新启动顺子的数量<span
+class="math inline">\(s \equiv r \pmod 3, s\in\{0,1,2\},\)</span>于是
+<span class="math inline">\(r-s\)</span> 自动是 3
+的倍数（可全用刻子吸收）。那么下一步（处理 <span
+class="math inline">\(i+1\)</span>）时：原来从 <span
+class="math inline">\(i-1\)</span> 开始的 顺子（数量 <span
+class="math inline">\(b\)</span>）会变成“从 <span
+class="math inline">\(i-1\)</span> 开始、在 <span
+class="math inline">\(i+1\)</span> 还需要 1 张”的遗留，相当于新的 <span
+class="math inline">\(a&#39; = b\)</span>；新启动的 <span
+class="math inline">\(s\)</span> 个 顺子 会在 <span
+class="math inline">\(i+1\)</span> 需要 1 张，相当于新的 <span
+class="math inline">\(b&#39; = s\)</span>；对子标记更新为 <span
+class="math inline">\(p&#39; = p \lor d\)</span>。</p>
+<p>所以转移是确定的：<span
+class="math inline">\((a&#39;,b&#39;,p&#39;)=(b,r\bmod 3,p\lor
+d).\)</span>是否放对子导致分支，因此这是一个 <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automaton">NFA</a>（非确定有限自动机），共有
+18 个基本状态。</p>
+<p>对计数序列进行识别时，一个序列可能对应多条 NFA
+路径，但我们要数的是序列个数（多重集合个数），不能按路径数重复计数。</p>
+<p>标准做法：把 NFA 的状态集合用子集表示并进行确定化。DFA
+的每个状态就是一组可能的 NFA 基本状态子集。</p>
+<p>从初始子集 <span class="math inline">\(\{(0,0,0)\}\)</span>
+出发，对输入符号 <span class="math inline">\(x\in\{0,1,2,3,4\}\)</span>
+计算可达子集并 BFS 扩展。实际可达的子集只有 <span
+class="math inline">\(68\)</span> 个（远少于 <span
+class="math inline">\(2^{18}\)</span>）。</p>
+<p>对于接受条件：为了保证最后没有未完成的顺子，需要末尾两列也视为
+0（等价于附加两个虚拟 0），这会强制所有遗留 <span
+class="math inline">\(a,b\)</span>
+清零。实际实现中只需在最终状态要求包含清空遗留的基本状态即可。因此：<strong>无对子可接受</strong>，此时DFA
+子集中包含基本状态 <span
+class="math inline">\((0,0,0)\)</span>。<strong>含对子可接受</strong>，此时DFA
+子集中包含基本状态 <span class="math inline">\((0,0,1)\)</span>。</p>
+<p>同时还需满足总牌数：无对子时总牌数 <span class="math inline">\(\equiv
+0\pmod 3\)</span>，即总牌数 <span
+class="math inline">\(=3q\)</span>；含对子时：总牌数 <span
+class="math inline">\(\equiv 2\pmod 3\)</span>，即总牌数 <span
+class="math inline">\(=3q+2\)</span>。</p>
+<p>直接按长度 <span class="math inline">\(n=N\)</span> 做逐列 DP
+显然不可行。但这里有一个关键事实：整手牌总数仅为 <span
+class="math inline">\(3T+2\)</span>张，因此任一花色实际使用的牌数也不超过
+<span
+class="math inline">\(3T+2\)</span>，从而该花色的计数序列中非零位置非常稀疏。这使得我们可以先只统计非零结构和必要的内部断点，再用组合数一次性补上大量零列。</p>
+<p>最终，我们把单花色序列中满足 <span
+class="math inline">\(c_i&gt;0\)</span>
+的位置按连续性分成若干块。相邻块之间至少要有一个 <span
+class="math inline">\(0\)</span>，否则应视为同一块。</p>
+<ul>
+<li>若该花色 <strong>不含对子</strong>，则每个非空块至少包含 <span
+class="math inline">\(1\)</span> 个三元组（否则无法构成可分解且牌数为
+<span class="math inline">\(3\)</span>
+的倍数的局部结构），因此块数至多为 <span
+class="math inline">\(q\)</span>，不超过<span
+class="math inline">\(t\)</span>。</li>
+<li>若该花色
+<strong>含对子</strong>，则可能有一个块只包含一个对子（<span
+class="math inline">\(2\)</span> 张）而不含三元组，其余非空块仍至少各含
+<span class="math inline">\(1\)</span> 个三元组，因此块数至多为 <span
+class="math inline">\(q + 1\)</span>，不超过<span
+class="math inline">\(t + 1\)</span>。</li>
+</ul>
+<p>因此，内部零段（即块与块之间的零段）个数等于块数减一，不超过<span
+class="math inline">\(t\)</span>。取更宽松的上界 <span
+class="math inline">\(t+1\)</span> 也完全安全，后续写法会更统一。</p>
+<p>把一个单花色计数序列中的<strong>每个内部零段</strong>压缩成一个单独的
+<span class="math inline">\(0\)</span>
+标记；同时不在开头和结尾显式保留零（因为首尾零的长度可以最后统一用组合数处理）。于是得到一个核心串：字符取值为
+<span
+class="math inline">\(\{0,1,2,3,4\}\)</span>；非零字符表示该点数取牌张数；<span
+class="math inline">\(0\)</span>
+表示一个内部零段的占位符；不允许出现相邻两个 <span
+class="math inline">\(0\)</span>（因为同一内部零段只保留一个标记）。</p>
+<p>设核心串长度为 <span class="math inline">\(i\)</span>，其中 <span
+class="math inline">\(0\)</span> 标记出现了 <span
+class="math inline">\(k\)</span> 次（即内部零段数为 <span
+class="math inline">\(k\)</span>）。当把它还原为长度恰好为 <span
+class="math inline">\(n\)</span> 的真实序列时，还需要补入 <span
+class="math inline">\(n-i\)</span>个额外的零。它们可以分配到以下 <span
+class="math inline">\(k+2\)</span>
+个位置中：开头零段（可为空）；结尾零段（可为空）；每个内部零段（在已有一个
+<span class="math inline">\(0\)</span> 标记的基础上继续延长）。</p>
+<p>因此是一个标准的隔板法计数，方案数为<span
+class="math inline">\(\dbinom{(n-i)+(k+2)-1}{(k+2)-1}=\dbinom{n-i+k+1}{k+1}.\)</span>记<span
+class="math inline">\(\displaystyle
+C(i,k)=\binom{n-i+k+1}{k+1}.\)</span>由于这里只会用到 <span
+class="math inline">\(k\le
+t+1\)</span>，可以直接用乘积形式计算，不需要预处理到 <span
+class="math inline">\(n!\)</span>。</p>
+<p>现在，我们在前文构造出的 DFA 上对核心串做计数。</p>
+<p>设 DFA 状态集合大小为 <span class="math inline">\(V\)</span>（实际为
+<span class="math inline">\(68\)</span>），转移函数记作<span
+class="math inline">\(\delta(u,x),
+u\in\{0,\dots,V-1\},x\in\{0,1,2,3,4\}.\)</span>定义计数函数<span
+class="math inline">\(f_i(j,k,\ell,u),\)</span>表示长度为 <span
+class="math inline">\(i\)</span> 的核心串前缀的方案数，其中：<span
+class="math inline">\(j\)</span>表示该前缀对应的已用牌总数；<span
+class="math inline">\(k\)</span>表示该前缀中内部零段（即 <span
+class="math inline">\(0\)</span> 标记）个数；<span
+class="math inline">\(\ell\in\{0,1\}\)</span>表示前缀最后一位是否为
+<span class="math inline">\(0\)</span>（<span
+class="math inline">\(\ell=1\)</span> 表示是 <span
+class="math inline">\(0\)</span>）；<span
+class="math inline">\(u\)</span>表示读入该前缀后所在的 DFA 状态。</p>
+<p>空串作为初始前缀，视作上一位是 <span
+class="math inline">\(0\)</span>（这样可自然禁止开头先放 <span
+class="math inline">\(0\)</span>）：<span
+class="math inline">\(f_0(0,0,1,\mathrm{START})=1,\)</span>其余状态为
+<span class="math inline">\(0\)</span>。其中<span
+class="math inline">\(\mathrm{START}\)</span>是DFA的初始状态。</p>
+<p>对任意 <span
+class="math inline">\(x\in\{1,2,3,4\}\)</span>，可在前缀末尾追加该符号。于是对于任意
+<span class="math inline">\(\ell\in\{0,1\}\)</span> 有<span
+class="math inline">\(f_{i+1}(j+x,k,0,\delta(u,x))\leftarrow
+f_i(j,k,\ell,u).\)</span>这里最后一位变为非零，因此新标记为 <span
+class="math inline">\(\ell&#39;=0\)</span>。</p>
+<p>只有当前缀最后一位不是 <span class="math inline">\(0\)</span>（即
+<span class="math inline">\(\ell=0\)</span>）时，才能追加一个 <span
+class="math inline">\(0\)</span>
+标记；这对应开启一个新的内部零段。因此<span
+class="math inline">\(f_{i+1}(j,k+1,1,\delta(u,0))\leftarrow
+f_i(j,k,0,u).\)</span></p>
+<p>当处理到长度 <span class="math inline">\(i\)</span>
+的核心串前缀时，我们允许它在此结束，但要求<strong>末位非零</strong>（否则核心串会以内部零段结尾，不符合定义），即
+<span class="math inline">\(\ell=0\)</span>。记：<span
+class="math inline">\(\mathcal U_0\)</span> 为DFA 状态中包含 NFA
+基本状态 <span
+class="math inline">\((0,0,0)\)</span>的状态集合（对应无对子且顺子遗留清空）；<span
+class="math inline">\(\mathcal U_1\)</span> 为“DFA 状态中包含 NFA
+基本状态 <span
+class="math inline">\((0,0,1)\)</span>”的状态集合（对应已使用对子且顺子遗留清空）。</p>
+<p>那么若 <span class="math inline">\(j\equiv 0\pmod 3\)</span>，令
+<span class="math inline">\(q=j/3\)</span>，则对所有 <span
+class="math inline">\(u\in\mathcal U_0\)</span> 累加<span
+class="math inline">\(\displaystyle C_q(n)\leftarrow \sum_{k\ge 0}
+f_i(j,k,0,u)C(i,k).\)</span>若 <span class="math inline">\(j\equiv
+2\pmod 3\)</span>，令 <span class="math inline">\(q=\lfloor
+j/3\rfloor\)</span>，则对所有 <span class="math inline">\(u\in\mathcal
+U_1\)</span> 累加<span class="math inline">\(\displaystyle
+A_q(n)\leftarrow \sum_{k\ge 0} f_i(j,k,0,u),C(i,k).\)</span></p>
+<p>由于非零符号总共不超过 <span class="math inline">\(3t+2\)</span>
+个，内部零段标记不超过 <span class="math inline">\(t+1\)</span>
+个，所以核心串长度满足<span class="math inline">\(i\le
+(3t+2)+(t+1)=4t+3.\)</span>因此只需计算到这个范围即可。最后还需补上空花色（完全不取牌）的情形，它对应<span
+class="math inline">\(C_0(n)=1,\)</span>这一项不会被非空核心串统计到，因此手动加入。至此即可得到单花色多项式<span
+class="math inline">\(\displaystyle
+C(y)=\sum_{q=0}^{t}C_q(n)y^q,A(y)=\sum_{q=0}^{t}A_q(n)y^q.\)</span></p>
+<p>接下来把单花色结果合并到 <span class="math inline">\(s\)</span>
+个花色。</p>
+<p>设对某一组花色，其总三元组数的计数多项式记为一对<span
+class="math inline">\((F(y),G(y)),\)</span>其中：<span
+class="math inline">\(F(y)\)</span>表示不含对子；<span
+class="math inline">\(G(y)\)</span>表示恰好含一个对子。</p>
+<p>若两组花色对应的结果分别为 <span
+class="math inline">\((F_1,G_1)\)</span> 与 <span
+class="math inline">\((F_2,G_2)\)</span>，则合并后满足<span
+class="math inline">\(F = F_1F_2,\)</span>以及<span
+class="math inline">\(G = F_1G_2 +
+G_1F_2.\)</span>这里乘法均为按三元组数的普通多项式乘法，并在次数 <span
+class="math inline">\(&gt;t\)</span> 时截断。</p>
+<p>因此可以把单花色对象<span
+class="math inline">\((C(y),A(y))\)</span>通过快速幂合并 <span
+class="math inline">\(s\)</span> 次，最终答案就是合并结果中 <span
+class="math inline">\(G(y)\)</span> 的 <span
+class="math inline">\(y^t\)</span> 系数，即</p>
+<p><span class="math display">\[
+w(n,s,t)= [y^t]G(y).
+\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&quot;tools.h&quot;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MOD = <span class="number">1000000007</span>;</span><br><span class="line">ll N = <span class="number">100000000LL</span>;</span><br><span class="line">ll S = <span class="number">100000000LL</span>;</span><br><span class="line"><span class="type">int</span> T = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">base_id</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> ((a * <span class="number">3</span> + b) * <span class="number">2</span> + p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">trans_base</span><span class="params">(<span class="type">int</span> u, <span class="type">int</span> x, <span class="type">int</span> take_pair)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> p = (u &amp; <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> tmp = (u &gt;&gt; <span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span> b = tmp % <span class="number">3</span>;</span><br><span class="line">    <span class="type">int</span> a = tmp / <span class="number">3</span>;</span><br><span class="line">    <span class="keyword">if</span> (take_pair)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (p)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; a + b + <span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> rem = x - a - b - <span class="number">2</span>;</span><br><span class="line">        <span class="type">int</span> na = b;</span><br><span class="line">        <span class="type">int</span> nb = rem % <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">base_id</span>(na, nb, <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (x &lt; a + b)</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> rem = x - a - b;</span><br><span class="line">        <span class="type">int</span> na = b;</span><br><span class="line">        <span class="type">int</span> nb = rem % <span class="number">3</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">base_id</span>(na, nb, p);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">next_mask</span><span class="params">(<span class="type">int</span> mask, <span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> u = <span class="number">0</span>; u &lt; <span class="number">18</span>; u++)</span><br><span class="line">        <span class="keyword">if</span> (mask &amp; (<span class="number">1</span> &lt;&lt; u))</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> v0 = <span class="built_in">trans_base</span>(u, x, <span class="number">0</span>);</span><br><span class="line">            <span class="keyword">if</span> (v0 != <span class="number">-1</span>)</span><br><span class="line">                res |= (<span class="number">1</span> &lt;&lt; v0);</span><br><span class="line">            <span class="type">int</span> v1 = <span class="built_in">trans_base</span>(u, x, <span class="number">1</span>);</span><br><span class="line">            <span class="keyword">if</span> (v1 != <span class="number">-1</span>)</span><br><span class="line">                res |= (<span class="number">1</span> &lt;&lt; v1);</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">poly_mul</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;a, <span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;b, <span class="type">int</span> T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">c</span><span class="params">(T + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= T; i++)</span><br><span class="line">        <span class="keyword">if</span> (a[i])</span><br><span class="line">        &#123;</span><br><span class="line">            ll ai = a[i];</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j + i &lt;= T; j++)</span><br><span class="line">                <span class="keyword">if</span> (b[j])</span><br><span class="line">                &#123;</span><br><span class="line">                    c[i + j] = (c[i + j] + ai * b[j]) % MOD;</span><br><span class="line">                &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">return</span> c;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">combine_fg</span><span class="params">(<span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;F1, <span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;G1,</span></span></span><br><span class="line"><span class="params"><span class="function">                <span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;F2, <span class="type">const</span> vector&lt;<span class="type">int</span>&gt; &amp;G2,</span></span></span><br><span class="line"><span class="params"><span class="function">                vector&lt;<span class="type">int</span>&gt; &amp;F, vector&lt;<span class="type">int</span>&gt; &amp;G, <span class="type">int</span> T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; FF = <span class="built_in">poly_mul</span>(F1, F2, T);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; FG = <span class="built_in">poly_mul</span>(F1, G2, T);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; GF = <span class="built_in">poly_mul</span>(G1, F2, T);</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">GG</span><span class="params">(T + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= T; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        GG[i] = FG[i] + GF[i];</span><br><span class="line">        <span class="keyword">if</span> (GG[i] &gt;= MOD)</span><br><span class="line">            GG[i] -= MOD;</span><br><span class="line">    &#125;</span><br><span class="line">    F.<span class="built_in">swap</span>(FF);</span><br><span class="line">    G.<span class="built_in">swap</span>(GG);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(ll N, ll S, <span class="type">int</span> T)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> id00_0 = <span class="built_in">base_id</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> id00_1 = <span class="built_in">base_id</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> start_mask = (<span class="number">1</span> &lt;&lt; id00_0);</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; masks;</span><br><span class="line">    masks.<span class="built_in">push_back</span>(start_mask);</span><br><span class="line">    unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">    mp.<span class="built_in">reserve</span>(<span class="number">256</span>);</span><br><span class="line">    mp[start_mask] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    vector&lt;array&lt;<span class="type">int</span>, 5&gt;&gt; TRANS;</span><br><span class="line">    deque&lt;<span class="type">int</span>&gt; q;</span><br><span class="line">    q.<span class="built_in">push_back</span>(start_mask);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (!q.<span class="built_in">empty</span>())</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> m = q.<span class="built_in">front</span>();</span><br><span class="line">        q.<span class="built_in">pop_front</span>();</span><br><span class="line">        <span class="type">int</span> id = mp[m];</span><br><span class="line">        <span class="keyword">if</span> ((<span class="type">int</span>)TRANS.<span class="built_in">size</span>() &lt;= id)</span><br><span class="line">            TRANS.<span class="built_in">resize</span>(id + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">0</span>; x &lt;= <span class="number">4</span>; x++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> nm = <span class="built_in">next_mask</span>(m, x);</span><br><span class="line">            <span class="keyword">auto</span> it = mp.<span class="built_in">find</span>(nm);</span><br><span class="line">            <span class="type">int</span> nid;</span><br><span class="line">            <span class="keyword">if</span> (it == mp.<span class="built_in">end</span>())</span><br><span class="line">            &#123;</span><br><span class="line">                nid = (<span class="type">int</span>)masks.<span class="built_in">size</span>();</span><br><span class="line">                mp[nm] = nid;</span><br><span class="line">                masks.<span class="built_in">push_back</span>(nm);</span><br><span class="line">                q.<span class="built_in">push_back</span>(nm);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                nid = it-&gt;second;</span><br><span class="line">            &#125;</span><br><span class="line">            TRANS[id][x] = nid;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> V = (<span class="type">int</span>)masks.<span class="built_in">size</span>();</span><br><span class="line">    <span class="function">vector&lt;<span class="type">char</span>&gt; <span class="title">acc0</span><span class="params">(V, <span class="number">0</span>)</span>, <span class="title">acc1</span><span class="params">(V, <span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; V; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> m = masks[i];</span><br><span class="line">        acc0[i] = (m &amp; (<span class="number">1</span> &lt;&lt; id00_0)) != <span class="number">0</span>;</span><br><span class="line">        acc1[i] = (m &amp; (<span class="number">1</span> &lt;&lt; id00_1)) != <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> maxTiles = <span class="number">3</span> * T + <span class="number">2</span>;</span><br><span class="line">    <span class="type">int</span> maxGaps = T + <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> maxCoreLen = (<span class="type">int</span>)<span class="built_in">min</span>&lt;ll&gt;(N, (ll)maxTiles + maxGaps);</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> maxK = maxGaps + <span class="number">1</span>;</span><br><span class="line">    <span class="function">vector&lt;ll&gt; <span class="title">fac</span><span class="params">(maxK + <span class="number">1</span>, <span class="number">1</span>)</span>, <span class="title">invfac</span><span class="params">(maxK + <span class="number">1</span>, <span class="number">1</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= maxK; i++)</span><br><span class="line">        fac[i] = fac[i - <span class="number">1</span>] * i % MOD;</span><br><span class="line">    invfac[maxK] = <span class="built_in">qpow</span>(fac[maxK], MOD - <span class="number">2</span>, MOD);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = maxK; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">        invfac[i - <span class="number">1</span>] = invfac[i] * i % MOD;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;<span class="type">int</span>&gt;&gt; <span class="built_in">coef</span>(maxCoreLen + <span class="number">1</span>, <span class="built_in">vector</span>&lt;<span class="type">int</span>&gt;(maxGaps + <span class="number">1</span>, <span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= maxCoreLen; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= maxGaps; k++)</span><br><span class="line">        &#123;</span><br><span class="line">            ll top = N - i + k + <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">if</span> (top &lt; k + <span class="number">1</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                coef[i][k] = <span class="number">0</span>;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ll num = <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> l = <span class="number">0</span>; l &lt;= k; l++)</span><br><span class="line">                num = num * ((top - l) % MOD) % MOD;</span><br><span class="line">            ll c = num * invfac[k + <span class="number">1</span>] % MOD;</span><br><span class="line">            coef[i][k] = (<span class="type">int</span>)c;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="type">int</span> SZ = (maxTiles + <span class="number">1</span>) * (maxGaps + <span class="number">1</span>) * <span class="number">2</span> * V;</span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">dp</span><span class="params">(SZ, <span class="number">0</span>)</span>, <span class="title">ndp</span><span class="params">(SZ, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">auto</span> IDX = [&amp;](<span class="type">int</span> j, <span class="type">int</span> k, <span class="type">int</span> sflag, <span class="type">int</span> u)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">return</span> (((j * (maxGaps + <span class="number">1</span>) + k) * <span class="number">2</span> + sflag) * V + u);</span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">    dp[<span class="built_in">IDX</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>)] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">C</span><span class="params">(T + <span class="number">1</span>, <span class="number">0</span>)</span>, <span class="title">A</span><span class="params">(T + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= maxCoreLen; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= maxTiles; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= maxGaps; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> cf = coef[i][k];</span><br><span class="line">                <span class="keyword">if</span> (!cf)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                <span class="type">int</span> base = (((j * (maxGaps + <span class="number">1</span>) + k) * <span class="number">2</span> + <span class="number">0</span>) * V);</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> u = <span class="number">0</span>; u &lt; V; u++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="type">int</span> val = dp[base + u];</span><br><span class="line">                    <span class="keyword">if</span> (!val)</span><br><span class="line">                        <span class="keyword">continue</span>;</span><br><span class="line">                    <span class="keyword">if</span> (acc0[u] &amp;&amp; (j % <span class="number">3</span> == <span class="number">0</span>))</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="type">int</span> q3 = j / <span class="number">3</span>;</span><br><span class="line">                        <span class="keyword">if</span> (q3 &lt;= T)</span><br><span class="line">                            C[q3] = (C[q3] + (ll)val * cf) % MOD;</span><br><span class="line">                    &#125;</span><br><span class="line">                    <span class="keyword">if</span> (acc1[u] &amp;&amp; (j % <span class="number">3</span> == <span class="number">2</span>))</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="type">int</span> q3 = j / <span class="number">3</span>;</span><br><span class="line">                        <span class="keyword">if</span> (q3 &lt;= T)</span><br><span class="line">                            A[q3] = (A[q3] + (ll)val * cf) % MOD;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="built_in">fill</span>(ndp.<span class="built_in">begin</span>(), ndp.<span class="built_in">end</span>(), <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= maxTiles; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">0</span>; k &lt;= maxGaps; k++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="type">int</span> sflag = <span class="number">0</span>; sflag &lt;= <span class="number">1</span>; sflag++)</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="type">int</span> base = (((j * (maxGaps + <span class="number">1</span>) + k) * <span class="number">2</span> + sflag) * V);</span><br><span class="line">                    <span class="keyword">for</span> (<span class="type">int</span> u = <span class="number">0</span>; u &lt; V; u++)</span><br><span class="line">                    &#123;</span><br><span class="line">                        <span class="type">int</span> val = dp[base + u];</span><br><span class="line">                        <span class="keyword">if</span> (!val)</span><br><span class="line">                            <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> (sflag == <span class="number">0</span> &amp;&amp; k &lt; maxGaps)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="type">int</span> u2 = TRANS[u][<span class="number">0</span>];</span><br><span class="line">                            <span class="type">int</span> &amp;dst = ndp[<span class="built_in">IDX</span>(j, k + <span class="number">1</span>, <span class="number">1</span>, u2)];</span><br><span class="line">                            <span class="type">int</span> nv = dst + val;</span><br><span class="line">                            dst = (nv &gt;= MOD ? nv - MOD : nv);</span><br><span class="line">                        &#125;</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">for</span> (<span class="type">int</span> x = <span class="number">1</span>; x &lt;= <span class="number">4</span>; x++)</span><br><span class="line">                        &#123;</span><br><span class="line">                            <span class="keyword">if</span> (j + x &gt; maxTiles)</span><br><span class="line">                                <span class="keyword">break</span>;</span><br><span class="line">                            <span class="type">int</span> u2 = TRANS[u][x];</span><br><span class="line">                            <span class="type">int</span> &amp;dst = ndp[<span class="built_in">IDX</span>(j + x, k, <span class="number">0</span>, u2)];</span><br><span class="line">                            <span class="type">int</span> nv = dst + val;</span><br><span class="line">                            dst = (nv &gt;= MOD ? nv - MOD : nv);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        dp.<span class="built_in">swap</span>(ndp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    C[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">vector&lt;<span class="type">int</span>&gt; <span class="title">resF</span><span class="params">(T + <span class="number">1</span>, <span class="number">0</span>)</span>, <span class="title">resG</span><span class="params">(T + <span class="number">1</span>, <span class="number">0</span>)</span></span>;</span><br><span class="line">    resF[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; baseF = C, baseG = A;</span><br><span class="line"></span><br><span class="line">    ll ss = S;</span><br><span class="line">    <span class="keyword">while</span> (ss &gt; <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (ss &amp; <span class="number">1</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; nF, nG;</span><br><span class="line">            <span class="built_in">combine_fg</span>(resF, resG, baseF, baseG, nF, nG, T);</span><br><span class="line">            resF.<span class="built_in">swap</span>(nF);</span><br><span class="line">            resG.<span class="built_in">swap</span>(nG);</span><br><span class="line">        &#125;</span><br><span class="line">        &#123;</span><br><span class="line">            vector&lt;<span class="type">int</span>&gt; nF, nG;</span><br><span class="line">            <span class="built_in">combine_fg</span>(baseF, baseG, baseF, baseG, nF, nG, T);</span><br><span class="line">            baseF.<span class="built_in">swap</span>(nF);</span><br><span class="line">            baseG.<span class="built_in">swap</span>(nG);</span><br><span class="line">        &#125;</span><br><span class="line">        ss &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> resG[T];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios::<span class="built_in">sync_with_stdio</span>(<span class="literal">false</span>);</span><br><span class="line">    cin.<span class="built_in">tie</span>(<span class="literal">nullptr</span>);</span><br><span class="line">    cout &lt;&lt; <span class="built_in">solve</span>(N, S, T) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/696/" title="Project Euler 696">https://ujimatsu-chiya.github.io/project-euler/696/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

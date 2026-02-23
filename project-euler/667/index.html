@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 667">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/667/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0667_MovingPentagon.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0667-1.png">
+<meta property="article:published_time" content="2026-02-23T12:18:25.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:25.604Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0667_MovingPentagon.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/667/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/667/","path":"project-euler/667/","title":"Project Euler 667"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 667 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-667"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 667</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#moving-pentagon"><span class="nav-number">1.1.1.</span> <span class="nav-text">Moving Pentagon</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/667/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 667 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 667
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:25" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:25+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-667">Project Euler 667</h1>
+<h2 id="题目">题目</h2>
+<h3 id="moving-pentagon">Moving Pentagon</h3>
+<p>After buying a <em>Gerver Sofa</em> from the <em>Moving Sofa
+Company</em>, Jack wants to buy a matching cocktail table from the same
+company. Most important for him is that the table can be pushed through
+his L-shaped corridor into the living room without having to be lifted
+from its table legs.</p>
+<p>Unfortunately, the simple square model offered to him is too small
+for him, so he asks for a bigger model.</p>
+<p>He is offered the new pentagonal model illustrated below:</p>
+<p><img data-src="../resources/images/0667_MovingPentagon.png" /></p>
+<p>Note, while the shape and size can be ordered individually, due to
+the production process, <strong>all edges of the pentagonal table have
+to have the same length.</strong></p>
+<p>Given optimal form and size, what is the biggest pentagonal cocktail
+table (in terms of area) that Jack can buy that still fits through his
+unit wide L-shaped corridor?</p>
+<p>Give your answer rounded to <span class="math inline">\(10\)</span>
+digits after the decimal point (if Jack had choosen the square model
+instead the answer would have been <span
+class="math inline">\(1.0000000000\)</span>).</p>
+<h2 id="解决方案">解决方案</h2>
+<p>本题的关键在于两点：五边形的 <span class="math inline">\(5\)</span>
+条边等长，并且形状如题图（一个对称的凹五边形）。以及在转弯过程中，最卡的时刻出现在桌子同时受两条外墙约束时；因此可以把问题化为：对每个旋转角度，把五边形尽量推到外墙（两坐标轴）上，然后检查内拐角是否会落入五边形内部（或与其边界相交）。</p>
+<p>下面将把这一思路形式化，并设计可直接求解的数值算法。</p>
+<p>可见，走廊关于交换两条走廊方向（<span
+class="math inline">\(x\leftrightarrow
+y\)</span>）是对称的，而“从竖走廊进来”和“从横走廊进来”的情形等价，因此我们希望把最优桌子限制到关于一条轴对称的等边凹五边形（题图所示的模型）。</p>
+<p>这一限制需要论证。先给出走廊对称性下的一个标准结论：</p>
+<p>命题：设可行形状空间为 <span class="math inline">\(\mathcal
+M\)</span>（把五边形在平移、旋转等刚体运动下视为同一个等价类之后得到的形状参数空间），目标函数为
+<span class="math inline">\(F:\mathcal M\to\mathbb
+R\)</span>，并且对反射变换 <span
+class="math inline">\(R\)</span>（交换两条走廊方向，对应平面上 <span
+class="math inline">\(x\leftrightarrow y\)</span> 的反射）满足<span
+class="math inline">\(F(R(P))=F(P), \forall P\in\mathcal
+M,\)</span>且可行性条件也在 <span class="math inline">\(R\)</span>
+下保持不变。若 <span class="math inline">\(P^\ast\)</span>
+是一个<strong>孤立</strong>的全局最优点（即在某邻域内不存在与 <span
+class="math inline">\(P^\ast\)</span>
+非同一个刚体等价类的最优点），则必有<span
+class="math inline">\(R(P^\ast)=P^\ast,\)</span>从而 <span
+class="math inline">\(P^\ast\)</span> 在适当放置下具有镜面对称。</p>
+<p>证明：由不变性可知若 <span class="math inline">\(P^\ast\)</span>
+最优，则 <span class="math inline">\(R(P^\ast)\)</span> 也最优且 <span
+class="math inline">\(F(R(P^\ast))=F(P^\ast)\)</span>。若 <span
+class="math inline">\(R(P^\ast)\neq
+P^\ast\)</span>，则存在两个不同的最优点，违背孤立假设，因此必须 <span
+class="math inline">\(R(P^\ast)=P^\ast\)</span>。证毕。</p>
+<p>因此，<strong>只要最优解是孤立的，走廊的对称性就会强迫最优形状对称</strong>。</p>
+<p>在此基础上，下面对称五边形用一个角参数 <span
+class="math inline">\(\theta\)</span> 描述，并把边长先固定为 <span
+class="math inline">\(1\)</span>（最后再整体缩放）：令底边（与凹点相对的那条边）为<span
+class="math inline">\(A=\left(-\dfrac12,0\right),B=\left(\dfrac12,0\right),|AB|=1.\)</span>设在点
+<span class="math inline">\(B\)</span> 处，边 <span
+class="math inline">\(BC\)</span> 与 <span
+class="math inline">\(BA\)</span> 的夹角为 <span
+class="math inline">\(\theta\)</span>，其中为了形成凹点需要<span
+class="math inline">\(\dfrac{\pi}{2}&lt;\theta&lt;\dfrac{2\pi}{3}.\)</span>则<span
+class="math inline">\(C=\left(\dfrac12-\cos\theta,\sin\theta\right).\)</span>由对称性得<span
+class="math inline">\(E=(-C_x,C_y).\)</span>顶点 <span
+class="math inline">\(D\)</span> 在对称轴 <span
+class="math inline">\(x=0\)</span> 上，并满足 <span
+class="math inline">\(|CD|=|DE|=1\)</span>。令 <span
+class="math inline">\(C=(x,y)\)</span>，则<span
+class="math inline">\(x^2+(y-y_D)^2=1\Rightarrow
+y_D=y\pm\sqrt{1-x^2}.\)</span>取较小的那个（使 <span
+class="math inline">\(D\)</span> 落在 <span
+class="math inline">\(CE\)</span> 下方形成凹角）：<span
+class="math inline">\(D=(0,y-\sqrt{1-x^2}), x=\dfrac12-\cos\theta,
+y=\sin\theta.\)</span>至此，<span class="math inline">\(\theta\)</span>
+唯一确定这族五边形。</p>
+<p>按顶点顺序 <span class="math inline">\(A\to B\to C\to D\to E\)</span>
+用鞋带公式计算面积。记 <span
+class="math inline">\(C=(x,y)\)</span>，并记<span
+class="math inline">\(t=\sqrt{1-x^2}.\)</span>则 <span
+class="math inline">\(D=(0,y-t)\)</span>。化简可得单位边长五边形面积</p>
+<p><span class="math display">\[
+S_0
+=\frac12(y+2x(y-t))
+=\frac{y}{2}+x(y-t).
+\]</span></p>
+<p>代回 <span
+class="math inline">\(x=\dfrac12-\cos\theta,y=\sin\theta\)</span> 即得
+<span class="math inline">\(S_0(\theta)\)</span>。</p>
+<p><img data-src="../resources/images/0667-1.png" /></p>
+<p>把走廊放在第一象限，外墙为两坐标轴 <span
+class="math inline">\(x=0\)</span>、<span
+class="math inline">\(y=0\)</span>，内拐角为 <span
+class="math inline">\((w,w)\)</span>（走廊宽度为 <span
+class="math inline">\(w\)</span>）。若桌子在某一朝向下被推到外墙（即平移使其最小
+<span class="math inline">\(x\)</span> 与最小 <span
+class="math inline">\(y\)</span> 都为 <span
+class="math inline">\(0\)</span>），则此时它能放入宽度为 <span
+class="math inline">\(w\)</span> 的 L
+形走廊，当且仅当桌子不进入禁止区域<span class="math inline">\(\{(x,y):
+x&gt;w\land y&gt;w\}.\)</span></p>
+<p>引理1：固定旋转角 <span class="math inline">\(\varphi\)</span>
+与桌子形状。把“所需走廊宽度”定义为：在所有平移方式中，使桌子上点 <span
+class="math inline">\(P\)</span> 的 <span
+class="math inline">\(\min(x(P),y(P))\)</span>
+的最大值尽可能小的那个最小可能值，即<span
+class="math inline">\(\displaystyle w_{\text{need}}=\inf_{\tau}\
+\sup_{P\in\mathcal{T}} \min\bigl(x_{\tau}(P),y_{\tau}(P)\bigr).\)</span>
+其中 <span class="math inline">\(\tau\)</span>
+表示对整张桌子的平移，<span class="math inline">\(\mathcal{T}\)</span>
+表示桌子对应的平面点集，<span
+class="math inline">\(x_{\tau}(P),y_{\tau}(P)\)</span> 表示点 <span
+class="math inline">\(P\)</span> 在平移 <span
+class="math inline">\(\tau\)</span> 后的坐标。</p>
+<p>那么可以取到该下确界的平移，使得桌子在该朝向下同时贴住两条外墙，即满足<span
+class="math inline">\(\displaystyle\min_{P\in\mathcal{T}} x_{\tau}(P)=0,
+\min_{P\in\mathcal{T}}
+y_{\tau}(P)=0.\)</span>也就是说，在固定朝向下的最优放置一定可以令桌子同时接触两条外墙。</p>
+<p>证明：对任意平移后的桌子，若 <span
+class="math inline">\(\displaystyle\min_{P\in\mathcal{T}}
+x_{\tau}(P)=a&gt;0\)</span>，则整体向左再平移 <span
+class="math inline">\(a\)</span>，使所有点的 <span
+class="math inline">\(x\)</span> 同时减去 <span
+class="math inline">\(a\)</span> 而 <span
+class="math inline">\(y\)</span> 不变。于是对每个点 <span
+class="math inline">\(P\)</span> 都有 <span
+class="math inline">\(\min(x_{\tau}(P)-a,y_{\tau}(P))\le
+\min(x_{\tau}(P),y_{\tau}(P))\)</span>，从而 <span
+class="math inline">\(\displaystyle\sup_{P\in\mathcal{T}}\min(\cdot,\cdot)\)</span>
+不增。类似地可把 <span class="math inline">\(\min y\)</span> 也推到
+<span class="math inline">\(0\)</span>。由此得证。</p>
+<p>因此我们只需考虑已推到外墙的版本。定义函数<span
+class="math inline">\(g(x,y)=\min(x,y),\)</span>那么禁止区域正是 <span
+class="math inline">\(g(x,y)&gt;w\)</span>。因此对于已推到外墙的形状，所需的最小宽度就是<span
+class="math inline">\(\displaystyle w(\varphi)=\max_{P\in
+\mathcal{P}_{\varphi}} g(P),\)</span> 其中 <span
+class="math inline">\(\mathcal{P}_{\varphi}\)</span> 表示：把桌子按角度
+<span class="math inline">\(\varphi\)</span>
+旋转后，再做某个平移使其同时贴住两条外墙（满足上面的两个最小值为 <span
+class="math inline">\(0\)</span>）所得到的闭集（包含内部与边界）。</p>
+<p>下面说明最大值必发生在边界上：</p>
+<p>引理2：对任意非空有界闭集合 <span
+class="math inline">\(\mathcal{K}\subset \mathbb R^2\)</span>，若 <span
+class="math inline">\(g(x,y)=\min(x,y)\)</span>，则<span
+class="math inline">\(\displaystyle\max_{(x,y)\in\mathcal K}
+g(x,y)=\max_{(x,y)\in\partial\mathcal K} g(x,y).\)</span></p>
+<p>证明：<span class="math inline">\(g\)</span> 连续，最大值在 <span
+class="math inline">\(\mathcal K\)</span> 处可取。设最大点为 <span
+class="math inline">\(Q\)</span>。若 <span
+class="math inline">\(Q\)</span> 位于内部，则存在 <span
+class="math inline">\(\epsilon&gt;0\)</span> 使得 <span
+class="math inline">\(Q+\delta(1,1)\in\mathcal K\)</span> 对所有 <span
+class="math inline">\(0&lt;\delta&lt;\epsilon\)</span> 成立，其中<span
+class="math inline">\(\delta\)</span> 是一个很小的正数步长，而<span
+class="math inline">\(g(Q+\delta(1,1))=g(Q)+\delta&gt;g(Q),\)</span>与
+<span class="math inline">\(Q\)</span>
+为最大点矛盾。因此最大点只能在边界上。证明完成。</p>
+<p>因此<span class="math inline">\(\displaystyle w(\varphi)=\max_{P\in
+\partial\mathcal{P}_\varphi} g(P).\)</span></p>
+<p>接下来要把这个“最大值”算出来：</p>
+<p>引理 3：在一条线段上，<span
+class="math inline">\(g(x,y)=\min(x,y)\)</span>
+的最大值只能发生在两端点或与直线 <span
+class="math inline">\(x=y\)</span> 的交点处（若交点在线段上）。</p>
+<p>证明：在 <span class="math inline">\(x\le y\)</span> 的区域内，<span
+class="math inline">\(g(x,y)=x\)</span> 为线性函数；在 <span
+class="math inline">\(x\ge y\)</span> 的区域内，<span
+class="math inline">\(g(x,y)=y\)</span> 亦为线性函数。线段与直线 <span
+class="math inline">\(x=y\)</span>
+至多交一次，从而线段被分成至多两段在线性函数上的限制，最大值必在每段端点取得，即原线段端点或交点。证毕。</p>
+<p>因此对每个朝向 <span
+class="math inline">\(\varphi\)</span>，只要检查<span
+class="math inline">\(5\)</span> 个顶点的 <span
+class="math inline">\(\min(x_i,y_i)\)</span>和每条边若跨过 <span
+class="math inline">\(x=y\)</span>，计算交点 <span
+class="math inline">\((u,u)\)</span>，取 <span
+class="math inline">\(u\)</span>，即可得到 <span
+class="math inline">\(w(\varphi)\)</span>。</p>
+<p>从竖走廊转到横走廊，桌子需要经历从某一初始朝向到最终朝向的连续旋转。由于整体旋转
+<span class="math inline">\(90^\circ\)</span> 后问题对称，且上述 <span
+class="math inline">\(w(\varphi)\)</span> 以 <span
+class="math inline">\(\dfrac{\pi}{2}\)</span>
+为周期考虑即可，因此需要的走廊宽度是<span
+class="math inline">\(\displaystyle W(\theta)=\max_{\varphi\in[0,\pi/2]}
+w(\varphi;\theta).\)</span></p>
+<p>当走廊宽度固定为 <span class="math inline">\(1\)</span>
+时，如果单位边长五边形需要宽度 <span
+class="math inline">\(W(\theta)\)</span>
+才能通过，那么把整个五边形按比例缩放 <span
+class="math inline">\(s=\dfrac{1}{W(\theta)}\)</span>
+就恰好能通过单位宽走廊；面积按平方缩放，因此该形状下可买到的最大桌面面积为<span
+class="math inline">\(S(\theta)=\dfrac{S_0(\theta)}{W(\theta)^2}.\)</span>目标即为<span
+class="math inline">\(\displaystyle\max_{\theta\in(\pi/2,,2\pi/3)}
+S(\theta).\)</span></p>
+<p>不过直接按定义去算<span class="math inline">\(\displaystyle
+W(\theta)=\max_{\varphi} w(\varphi;\theta)\)</span>会引入对 <span
+class="math inline">\(\varphi\)</span> 的最大化，再外层对 <span
+class="math inline">\(\theta\)</span>
+最大化，形成双层搜索。我们证明在最优解处，最大值来自一个<strong>临界构型</strong>，可用<strong>相切条件</strong>刻画，从而把搜索变成解方程。</p>
+<p>引理4；设某形状在单位宽走廊中可通过，且在全过程中都严格满足 <span
+class="math inline">\(w(\varphi)&lt;1\)</span>（即存在裕量）。则该形状可被整体放大一个比例
+<span class="math inline">\(1+\epsilon\)</span>
+仍可通过，从而原形状不可能最优。</p>
+<p>证明：若对所有朝向都有 <span class="math inline">\(w(\varphi)\le
+1-\delta\)</span>，则缩放 <span
+class="math inline">\(1+\epsilon\)</span> 后所需宽度变为 <span
+class="math inline">\((1+\epsilon)w(\varphi)\le
+(1+\epsilon)(1-\delta)\)</span>。取足够小的 <span
+class="math inline">\(\epsilon\)</span> 使其仍小于 <span
+class="math inline">\(1\)</span>，即仍可通过，而面积变大。证明完成。</p>
+<p>因此最优解必满足：存在某个关键朝向 <span
+class="math inline">\(\varphi^\ast\)</span> 使得<span
+class="math inline">\(w(\varphi^\ast)=1,\)</span>并且在该关键构型中，内拐角与桌子边界发生接触（否则仍有缩放裕量）。</p>
+<p>在一个固定的接触模式（即究竟是哪条边/哪个点在给出 <span
+class="math inline">\(w(\varphi)\)</span>不变）内，<span
+class="math inline">\(w(\varphi)\)</span>
+是一个光滑函数。若全局最大值在该模式的内部点 <span
+class="math inline">\(\varphi^\ast\)</span> 取得，则必有驻点条件<span
+class="math inline">\(\dfrac{d}{d\varphi}
+w(\varphi^\ast)=0.\)</span>在几何上，这正对应内拐角落在某条移动边的包络上，即该边在运动参数下扫出的直线族与包络曲线相切。</p>
+<p>在本题的最优解中，关键接触模式可选取为：桌子贴着两条外墙运动时，内拐角恰好与某条斜边（对称的两条之一）相切。此时相切条件给出一个额外方程，用来消去对
+<span class="math inline">\(\varphi\)</span> 的搜索。</p>
+<p>为了把相切条件写得简洁，改用对称等边凹五边形的两参数表示：<span
+class="math inline">\(l\)</span>表示边长；<span
+class="math inline">\(h\)</span>表示凹点到上方那条对称边的垂直距离（在标准放置下可定义为某对称轴上的几何量）。</p>
+<p>在该参数下，五边形可拆分为一个梯形与两个全等三角形，得到<strong>面积</strong>为<span
+class="math inline">\(A(h,l)=\dfrac{hl}{2}+\sqrt{h^2+\dfrac{l^2}{4}}\sqrt{\dfrac{15l^2}{16}-\dfrac{h^2}{4}}.\)</span><strong>整体高度</strong>为<span
+class="math inline">\(H(h,l)=\dfrac{h}{2}+\dfrac{l\sqrt{\frac{15l^2}{16}-\frac{h^2}{4}}}{2\sqrt{h^2+\frac{l^2}{4}}}.\)</span></p>
+<p>由引理 4，最优时高度也会卡到走廊宽度，因此<span
+class="math inline">\(H(h,l)=1.\)</span></p>
+<p>在关键阶段（桌子贴着两条外墙并转过拐角的阶段），把走廊内拐角相对于桌子坐标系的位置写成参数
+<span class="math inline">\(t\)</span> 的轨迹 <span
+class="math display">\[
+x(l,t)=\frac{l}{2}\cos t-\cos\frac{t}{2}+\sin\frac{t}{2},
+y(l,t)=\frac{l}{2}\sin t-\sin\frac{t}{2}-\cos\frac{t}{2}.
+\]</span></p>
+<p>轨迹在参数 <span class="math inline">\(t\)</span> 处的切线斜率为
+<span class="math display">\[
+m(l,t)=\frac{\partial y/\partial t}{\partial x/\partial t}.
+\]</span></p>
+<p>对称性意味着关键接触由 <span class="math inline">\(t\)</span> 与
+<span class="math inline">\(\pi-t\)</span>
+两处的对称切线共同决定：取两条切线的交点，其纵坐标给出 <span
+class="math inline">\(-h\)</span>，即<span
+class="math inline">\(h=h(l,t).\)</span>最后，相切的那条桌边必须与该切线一致，并且其端点间距离恰为
+<span class="math inline">\(l\)</span>，可化为一个只含 <span
+class="math inline">\(l,t\)</span> 的方程<span
+class="math inline">\(F(l,t)=0.\)</span></p>
+<p>于是：对每个 <span class="math inline">\(l\)</span>，由<span
+class="math inline">\(F(l,t)=0\)</span>解出对应的 <span
+class="math inline">\(t\)</span>，再得到 <span
+class="math inline">\(h=h(l,t)\)</span>，进而得到高度 <span
+class="math inline">\(H(h,l)\)</span>。最优尺寸由高度卡死给出<span
+class="math inline">\(H(h(l,t),l)=1,\)</span>这变成对 <span
+class="math inline">\(l\)</span>
+的一维求根（单调性来自几何上“放大边长会放大高度”，并在数值上表现为严格单调）。</p>
+<p>这样就把原来的双层最大化替换成：内层对给定 <span
+class="math inline">\(l\)</span> 解一元方程 <span
+class="math inline">\(F(l,t)=0\)</span> 得 <span
+class="math inline">\(t\)</span>；外层对 <span
+class="math inline">\(l\)</span> 二分使 <span
+class="math inline">\(H=1\)</span>；最终面积输出 <span
+class="math inline">\(A(h,l)\)</span>。</p>
+<p>在该流程中，搜索只剩<strong>稳定的一维二分</strong>，且每步只需要解一个一元方程，不再需要对角度网格扫描找全局最大。</p>
+<p>上述方程组给出一个离散解（在合理区间内唯一），因此最优点在形状空间中是孤立的。由命题可知，走廊对称性强迫最优形状对称。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">pi = math.pi</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">xx</span>(<span class="params">l, t</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * l * math.cos(t) - math.cos(<span class="number">0.5</span> * t) + math.sin(<span class="number">0.5</span> * t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">yy</span>(<span class="params">l, t</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * l * math.sin(t) - math.sin(<span class="number">0.5</span> * t) - math.cos(<span class="number">0.5</span> * t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dxx</span>(<span class="params">l, t</span>):</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">0.5</span> * l * math.sin(t) + <span class="number">0.5</span> * math.sin(<span class="number">0.5</span> * t) + <span class="number">0.5</span> * math.cos(<span class="number">0.5</span> * t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">dyy</span>(<span class="params">l, t</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * l * math.cos(t) - <span class="number">0.5</span> * math.cos(<span class="number">0.5</span> * t) + <span class="number">0.5</span> * math.sin(<span class="number">0.5</span> * t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">slope</span>(<span class="params">l, t</span>):</span><br><span class="line">    <span class="keyword">return</span> dyy(l, t) / dxx(l, t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">h_from_t</span>(<span class="params">l, t</span>):</span><br><span class="line">    m1 = slope(l, t)</span><br><span class="line">    m2 = slope(l, pi - t)</span><br><span class="line">    x1, y1 = xx(l, t), yy(l, t)</span><br><span class="line">    x2, y2 = xx(l, pi - t), yy(l, pi - t)</span><br><span class="line">    x = (m1 * x1 - y1 - (m2 * x2 - y2)) / (m1 - m2)</span><br><span class="line">    y = m1 * (x - x1) + y1</span><br><span class="line">    <span class="keyword">return</span> -y</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">f_t</span>(<span class="params">l, t</span>):</span><br><span class="line">    m = slope(l, t)</span><br><span class="line">    ang = math.atan(m)</span><br><span class="line">    h = h_from_t(l, t)</span><br><span class="line">    c = math.cos(ang)</span><br><span class="line">    s = math.sin(ang)</span><br><span class="line">    <span class="keyword">return</span> l * l - (l * l * (c - <span class="number">0.5</span>) * (c - <span class="number">0.5</span>) + (h - l * s) * (h - l * s))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_t</span>(<span class="params">x</span>):</span><br><span class="line">    a = <span class="number">1e-6</span></span><br><span class="line">    b = pi - a</span><br><span class="line">    n = <span class="number">400</span></span><br><span class="line">    prev_t = a</span><br><span class="line">    prev_f = f_t(x, prev_t)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, n + <span class="number">1</span>):</span><br><span class="line">        t = a + (b - a) * i / n</span><br><span class="line">        ft = f_t(x, t)</span><br><span class="line">        <span class="keyword">if</span> prev_f == <span class="number">0.0</span>:</span><br><span class="line">            <span class="keyword">return</span> prev_t</span><br><span class="line">        <span class="keyword">if</span> ft == <span class="number">0.0</span>:</span><br><span class="line">            <span class="keyword">return</span> t</span><br><span class="line">        <span class="keyword">if</span> prev_f * ft &lt; <span class="number">0.0</span>:</span><br><span class="line">            l, r = prev_t, t</span><br><span class="line">            flo = prev_f</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">80</span>):</span><br><span class="line">                mid = <span class="number">0.5</span> * (l + r)</span><br><span class="line">                fm = f_t(x, mid)</span><br><span class="line">                <span class="keyword">if</span> flo * fm &lt;= <span class="number">0.0</span>:</span><br><span class="line">                    r = mid</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    l = mid</span><br><span class="line">                    flo = fm</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0.5</span> * (l + r)</span><br><span class="line">        prev_t, prev_f = t, ft</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">H</span>(<span class="params">h, l</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * h + l * math.sqrt(<span class="number">15.0</span> * l * l / <span class="number">16.0</span> - h * h / <span class="number">4.0</span>) / (<span class="number">2.0</span> * math.sqrt(h * h + l * l / <span class="number">4.0</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">area</span>(<span class="params">h, l</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0.5</span> * h * l + math.sqrt(h * h + l * l / <span class="number">4.0</span>) * math.sqrt(<span class="number">15.0</span> * l * l / <span class="number">16.0</span> - h * h / <span class="number">4.0</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">H_of_l</span>(<span class="params">l</span>):</span><br><span class="line">    t = solve_t(l)</span><br><span class="line">    h = h_from_t(l, t)</span><br><span class="line">    <span class="keyword">return</span> H(h, l), h, t</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>():</span><br><span class="line">    l, r = <span class="number">1</span>, <span class="number">2</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">80</span>):</span><br><span class="line">        mid = <span class="number">0.5</span> * (l + r)</span><br><span class="line">        <span class="keyword">if</span> H_of_l(mid)[<span class="number">0</span>] &gt; <span class="number">1.0</span>:</span><br><span class="line">            r = mid</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            l = mid</span><br><span class="line">    l = <span class="number">0.5</span> * (l + r)</span><br><span class="line">    HH, h, t = H_of_l(l)</span><br><span class="line">    ans = area(h, l)</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;<span class="subst">&#123;solve():<span class="number">.10</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/667/" title="Project Euler 667">https://ujimatsu-chiya.github.io/project-euler/667/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 780">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/780/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0780_sample-small-1.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0780_animation.gif">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0780_t6-all.png">
+<meta property="article:published_time" content="2026-02-23T12:18:45.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:45.400Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0780_sample-small-1.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/780/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/780/","path":"project-euler/780/","title":"Project Euler 780"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 780 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-780"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 780</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#toriangulations"><span class="nav-number">1.1.1.</span> <span class="nav-text">Toriangulations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/780/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 780 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 780
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:45" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:45+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-780">Project Euler 780</h1>
+<h2 id="题目">题目</h2>
+<h3 id="toriangulations">Toriangulations</h3>
+<p>For positive real numbers <span class="math inline">\(a,b\)</span>,
+an <span class="math inline">\(a\times b\)</span> <em>torus</em> is a
+rectangle of width <span class="math inline">\(a\)</span> and height
+<span class="math inline">\(b\)</span>, with left and right sides
+identified, as well as top and bottom sides identified. In other words,
+when tracing a path on the rectangle, reaching an edge results in
+“wrapping round” to the corresponding point on the opposite edge.</p>
+<p>A <em>tiling</em> of a torus is a way to dissect it into equilateral
+triangles of edge length <span class="math inline">\(1\)</span>. For
+example, the following three diagrams illustrate respectively a <span
+class="math inline">\(1\times \dfrac{\sqrt{3}}{2}\)</span> torus with
+two triangles, a <span class="math inline">\(\sqrt{3}\times 1\)</span>
+torus with four triangles, and an approximately <span
+class="math inline">\(2.8432\times 2.1322\)</span> torus with fourteen
+triangles:</p>
+<p><img data-src="../resources/images/0780_sample-small-1.png" /> <img data-src="../resources/images/0780_sample-small-2.png" /> <img data-src="../resources/images/0780_sample-small-3.png" /></p>
+<p>Two tilings of an <span class="math inline">\(a\times b\)</span>
+torus are called <em>equivalent</em> if it is possible to obtain one
+from the other by continuously moving all triangles so that no gaps
+appear and no triangles overlap at any stage during the movement. For
+example, the animation below shows an equivalence between two
+tilings:</p>
+<p><img data-src="../resources/images/0780_animation.gif" /></p>
+<p>Let <span class="math inline">\(F(n)\)</span> be the total number of
+non-equivalent tilings of all possible tori with exactly <span
+class="math inline">\(n\)</span> triangles. For example, <span
+class="math inline">\(F(6)=8\)</span>, with the eight non-equivalent
+tilings with six triangles listed below:</p>
+<p><img data-src="../resources/images/0780_t6-all.png" /></p>
+<p>Let <span class="math inline">\(G(N)=\sum_{n=1}^N F(n)\)</span>. You
+are given that <span class="math inline">\(G(6)=14,
+G(100)=8090\)</span>, and <span class="math inline">\(G(10^5)\equiv
+645124048 \pmod{1\,000\,000\,007}\)</span>.</p>
+<p>Find <span class="math inline">\(G(10^9)\)</span>. Give your answer
+modulo <span class="math inline">\(1\,000\,000\,007\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>把一个 <span class="math inline">\(a\times b\)</span> 的 torus
+看成矩形基本域，两组对边分别粘合。若它被边长 <span
+class="math inline">\(1\)</span>
+的正三角形铺满，那么把基本域在平面上按周期复制，就得到一个<strong>整张平面</strong>的边长
+<span class="math inline">\(1\)</span>
+等边三角形铺法（周期性铺法）。</p>
+<p>因此，可见任意这样的平面铺法都可以看成由若干条<strong>平行条带</strong>组成，每条条带宽度固定为
+<span class="math inline">\(\sqrt{3} /
+2\)</span>，内部是上下交替的单位等边三角形链，并且一般情况下条带方向是唯一的；但当铺法恰好是三角晶格（六角/蜂窝意义下的那类）时，会有
+<span class="math inline">\(3\)</span> 个等价方向可选。</p>
+<p>这立即带来两个结论：每条条带里上下三角形数量相同，所以总三角形数
+<span class="math inline">\(n\)</span>
+必须是偶数；我们可以先按条带方向计数，再把三角晶格导致的三重计数修正掉。因此奇数
+<span class="math inline">\(n\)</span> 时 <span
+class="math inline">\(F(n)=0\)</span>。</p>
+<p>现在假设<span class="math inline">\(n\)</span>是偶数。设 <span
+class="math inline">\(n=2m\)</span>。设 torus 基本域边长为 <span
+class="math inline">\(X\)</span>（水平）和 <span
+class="math inline">\(Y\)</span>（竖直），面积满足<span
+class="math inline">\(XY = \dfrac{\sqrt 3}{4}n = \dfrac{\sqrt
+3}{2}m.\)</span></p>
+<p>固定某个条带方向。沿该方向绕 torus
+一圈后会闭合，因此该方向相对矩形的斜率必须是有理绕行数：设横向绕行 <span
+class="math inline">\(p\)</span> 次、纵向绕行 <span
+class="math inline">\(q\)</span> 次（<span
+class="math inline">\(p,q\)</span> 互素，允许其中一个为 <span
+class="math inline">\(0\)</span>）；若共有 <span
+class="math inline">\(k\)</span>
+条平行条带（同方向的不同平移类），则每条条带长度恰好是 <span
+class="math inline">\(m/k\)</span>（因为每条条带含 <span
+class="math inline">\(m/k\)</span> 个上三角与 <span
+class="math inline">\(m/k\)</span> 个下三角，总 <span
+class="math inline">\(2m/k\)</span> 个三角，沿长度方向每个三角贡献底边长
+<span class="math inline">\(1\)</span>）。于是有长度方程：</p>
+<p><span class="math display">\[
+(pX)^2 + (qY)^2 = \left(\frac{m}{k}\right)^2.
+\]</span></p>
+<p>同时面积方程为上面的 <span class="math inline">\(XY =
+(\sqrt3/2)m\)</span>。把<span class="math inline">\(A = pX, B =
+qY\)</span>代入，则<span
+class="math inline">\(A^2+B^2=\left(\dfrac{m}{k}\right)^2, AB = pq\cdot
+XY = pq\cdot\dfrac{\sqrt3}{2}m.\)</span>因此<span
+class="math inline">\((A^2-B^2)^2=(A^2+B^2)^2-4A^2B^2=\left(\dfrac{m}{k}\right)^4-3p^2q^2m^2.\)</span>要有实数解，必须且只需右边非负，即<span
+class="math inline">\(\left(\dfrac{m}{k}\right)^4 \ge 3p^2q^2m^2\iff m
+\ge \sqrt3k^2pq.\)</span></p>
+<p>因此，若 <span class="math inline">\(p=0\)</span> 或 <span
+class="math inline">\(q=0\)</span>（条带平行于坐标轴），给定 <span
+class="math inline">\((k,p,q)\)</span> 时只有 <span
+class="math inline">\(1\)</span> 个正解 <span
+class="math inline">\((X,Y)\)</span>；若 <span
+class="math inline">\(p,q&gt;0\)</span>，由 <span
+class="math inline">\(A^2+B^2\)</span> 与 <span
+class="math inline">\(|A^2-B^2|\)</span>
+可得两种解（交换大/小分配），所以有 <span
+class="math inline">\(2\)</span> 个正解。此外还要计入正负斜率对 torus
+铺法计数的区别，再乘 <span class="math inline">\(2\)</span>。</p>
+<p>于是轴向条带（<span class="math inline">\(p=0\)</span> 或 <span
+class="math inline">\(q=0\)</span>）每组贡献 <span
+class="math inline">\(2\)</span>；非轴向条带（<span
+class="math inline">\(p,q&gt;0\)</span>）每组贡献 <span
+class="math inline">\(4\)</span>。</p>
+<p>令<span class="math inline">\(u=kp, v=kq.\)</span>则 <span
+class="math inline">\(\gcd(u,v)=k\)</span>，且 <span
+class="math inline">\(p,q\)</span> 互素。非轴向时 <span
+class="math inline">\(u,v\ge1\)</span>。条件<span
+class="math inline">\(m \ge \sqrt3k^2pq\)</span>变成<span
+class="math inline">\(m \ge \sqrt3uv.\)</span>但 <span
+class="math inline">\(m\)</span> 还必须是 <span
+class="math inline">\(k=\gcd(u,v)\)</span> 的倍数（因为 <span
+class="math inline">\(m=kt\)</span>）。所以在 <span
+class="math inline">\(1\le n\le N\)</span>（即 <span
+class="math inline">\(1\le m\le \lfloor
+N/2\rfloor\)</span>）范围内，对固定 <span
+class="math inline">\((u,v)\)</span> 的可选 <span
+class="math inline">\(m\)</span> 数量是<span
+class="math inline">\(\left\lfloor \dfrac{N}{2\gcd(u,v)}
+\right\rfloor-\left\lfloor \sqrt3\cdot \dfrac{uv}{\gcd(u,v)}
+\right\rfloor.\)</span></p>
+<p>设<span class="math inline">\(M=\left\lfloor\dfrac
+N2\right\rfloor,L=\left\lfloor
+\dfrac{M}{\sqrt3}\right\rfloor=\left\lfloor\dfrac{N}{2\sqrt3}\right\rfloor.\)</span>则所有条带方向计数（暂未修正三重计数）为</p>
+<p><span class="math display">\[
+G_{\text{strip}}(N)
+=2D(M)+
+4\sum_{uv\le L}
+\left(
+\left\lfloor \frac{N}{2\gcd(u,v)} \right\rfloor-
+\left\lfloor \sqrt3\cdot \frac{uv}{\gcd(u,v)} \right\rfloor
+\right),
+\]</span></p>
+<p>其中<span class="math inline">\(\displaystyle
+D(x)=\sum_{t=1}^{x}\left\lfloor
+\frac{x}{t}\right\rfloor.\)</span>上式第一项 <span
+class="math inline">\(2D(M)\)</span>
+就是轴向条带的贡献，第二项是非轴向条带的贡献。</p>
+<p>不过上面的主计数 <span
+class="math inline">\(G_{\text{strip}}(N)\)</span>
+是按条带方向来数铺法的。对于一般铺法，这样计数没有问题；但当铺法的所有顶点都落在三角晶格点上时，会出现一个特殊现象：同一个铺法可以沿三角晶格的三组轴方向中的任意一组切成条带，因此在
+<span class="math inline">\(G_{\text{strip}}(N)\)</span> 中会被计数
+<span class="math inline">\(3\)</span> 次，而在 <span
+class="math inline">\(F(n)\)</span> 中它本应只计 <span
+class="math inline">\(1\)</span> 次。</p>
+<p>因此，这一类三角晶格铺法需要做统一修正：每个铺法多算了 <span
+class="math inline">\(2\)</span> 次，所以最终要减去这类铺法总数的 <span
+class="math inline">\(2\)</span>
+倍。下面我们直接参数化并计数这类铺法。</p>
+<p>为了计算这部分修正项，下面采用等价的晶格矩形原始块参数化。</p>
+<p>三角晶格上的（按旋转归类后的）原始矩形可由整数对 <span
+class="math inline">\((u,v)\)</span> 参数化，并对应到基本面积参数<span
+class="math inline">\(Q(u,v)=u^2+uv+v^2.\)</span>满足原始性（即去掉可进一步分解、以及会导致三方向重复退化的情形）的条件可写成：<span
+class="math inline">\(u&gt;v,\gcd(u,v)=1,2u+v \not\equiv 0 \pmod
+3\)</span></p>
+<p>此外，还要单独加上最基本的轴向原始块（对应 <span
+class="math inline">\(Q=1\)</span> 的那一族）。</p>
+<p>令<span
+class="math inline">\(X=\left\lfloor\frac{N}{4}\right\rfloor.\)</span>定义
+<span class="math inline">\(H(X)\)</span> 为这些原始晶格矩形所生成的
+torus 铺法前缀计数（并且把横向/纵向堆叠产生的所有倍数都计入）：</p>
+<p><span class="math display">\[
+H(X)=D(X)+2\sum_{\substack{u&gt;v\ge1\\ \gcd(u,v)=1\\
+2u+v\not\equiv0\pmod 3\\ Q(u,v)\le X}}
+D\left(\left\lfloor\frac{X}{Q(u,v)}\right\rfloor\right).
+\]</span></p>
+<p>在这里，<span class="math inline">\(D(X)\)</span>
+是轴向原始块族的贡献，以及非轴向部分前面的系数 <span
+class="math inline">\(2\)</span> 来自旋转/对称带来的两种取向。</p>
+<p>由此可得，三角晶格型 torus 铺法的总前缀数为 <span
+class="math inline">\(2H(X)\)</span>（每个原始矩形对应两种取向）。而这部分在
+<span class="math inline">\(G_{\text{strip}}(N)\)</span> 中被数了 <span
+class="math inline">\(3\)</span> 次，所以相对于正确计数需要额外减去<span
+class="math inline">\(2\times (2H(X)) = 4H(X).\)</span></p>
+<p>因此最终修正后的结果为</p>
+<p><span class="math display">\[
+G(N)=G_{\text{strip}}(N)-4H\left(\left\lfloor\frac
+N4\right\rfloor\right).
+\]</span></p>
+<p>直接双重枚举 <span class="math inline">\(uv\le L\)</span>
+会很慢，我们需要两个关键优化。</p>
+<p>在非轴向条带项中，固定某个参数（例如固定 <span
+class="math inline">\(v\)</span>）后，会出现形如“统计与某个整数互素的个数”的子问题。</p>
+<p>设需要统计<span class="math inline">\(\#\{t\le
+T:\gcd(t,m)=1\},\)</span>则可用 Möbius 反演写成<span
+class="math inline">\(\displaystyle\#\{t\le T:\gcd(t,m)=1\}=\sum_{q\mid
+m}\mu(q)\left\lfloor\frac{T}{q}\right\rfloor.\)</span></p>
+<p>这样一来，原本带有 <span class="math inline">\(\gcd\)</span>
+约束的计数，就转化为对 <span class="math inline">\(m\)</span>
+的因子（或无平方因子）的求和。在实现中，只需预处理：Möbius 函数 <span
+class="math inline">\(\mu(\cdot)\)</span>；每个整数的因子表（或无平方因子表）；就可以把互素计数压缩到
+<span class="math inline">\(O\left(\sum \tau(v)\right)\)</span>
+量级处理（这里 <span class="math inline">\(\tau\)</span>
+是约数个数函数）。</p>
+<p>这一步主要用于条带主项中由 <span class="math inline">\(\gcd\)</span>
+导致的计数拆分，是后续 Beatty 求和的前提。</p>
+<p>可见，条带主项的另一部分会反复出现形如<span
+class="math inline">\(\sum \left\lfloor c\sqrt3\cdot t
+\right\rfloor\)</span>的求和（其中 <span
+class="math inline">\(c\)</span>
+为整数或由当前枚举参数确定的常数）。这正是 Beatty 型前缀和。定义<span
+class="math inline">\(\displaystyle
+T(n)=\frac{n(n+1)}2,B(\alpha,n)=\sum_{k=1}^{n}\lfloor
+k\alpha\rfloor.\)</span>对无理数 <span
+class="math inline">\(\alpha&gt;1\)</span>，递归分两种情况。大致过程如下：</p>
+<p>当 <span class="math inline">\(\alpha\ge 2\)</span>
+时，先拆整数部分。设<span class="math inline">\(\alpha=r+\beta,
+r=\lfloor \alpha\rfloor, 0&lt;\beta&lt;1.\)</span>则<span
+class="math inline">\(\lfloor k\alpha\rfloor=\lfloor
+kr+k\beta\rfloor=kr+\lfloor k\beta\rfloor,\)</span>所以<span
+class="math inline">\(\displaystyle
+B(\alpha,n)=rT(n)+\sum_{k=1}^{n}\lfloor k\beta\rfloor.\)</span></p>
+<p>为了继续使用参数 <span class="math inline">\(&gt;1\)</span>
+的递归形式，通常把 <span class="math inline">\(\beta\)</span> 改写成
+<span class="math inline">\(1+(\beta-1)\)</span>
+的处理方式。因此，更直接地写成（取 <span
+class="math inline">\(i=\lfloor\alpha\rfloor-1\)</span>，使 <span
+class="math inline">\(\alpha-i\in(1,2)\)</span>）：</p>
+<p><span
+class="math display">\[B(\alpha,n)=iT(n)+B(\alpha-i,n).\]</span></p>
+<p>当 <span class="math inline">\(1&lt;\alpha&lt;2\)</span> 时，用
+Beatty 互补递归。设<span class="math inline">\(m=\lfloor
+(\alpha-1)n\rfloor, t=\lfloor \alpha n\rfloor,\)</span>并令<span
+class="math inline">\(\alpha&#39;=\dfrac{\alpha}{\alpha-1}.\)</span>则有递归</p>
+<p><span class="math display">\[
+B(\alpha,n)=T(t)-B(\alpha&#39;,m).
+\]</span></p>
+<p>其中 <span class="math inline">\(t=\lfloor \alpha
+n\rfloor\)</span>，<span
+class="math inline">\(m=\lfloor(\alpha-1)n\rfloor=t-n\)</span>。</p>
+<p>这一步会把参数从 <span class="math inline">\((1,2)\)</span>
+映射到一个新的大于 <span class="math inline">\(2\)</span>
+的无理数，再配合上一条拆整数部分继续递归。由此我们方便地计算出了这类无理数向下取整前缀和。</p>
+<p>其余部分（包括三角晶格修正项）在实现中按前述参数化直接计算即可.</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> typing <span class="keyword">import</span> <span class="type">List</span>, <span class="type">Tuple</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tools <span class="keyword">import</span> Factorizer, gcd, int_sqrt</span><br><span class="line">N = <span class="number">10</span>**<span class="number">9</span></span><br><span class="line">MOD = <span class="number">1_000_000_007</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Fact2</span>(<span class="title class_ inherited__">Factorizer</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, lim: <span class="built_in">int</span></span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__(<span class="built_in">max</span>(lim, <span class="number">1</span>))</span><br><span class="line">        <span class="variable language_">self</span>.all_divs: <span class="type">List</span>[<span class="type">List</span>[<span class="built_in">int</span>]] = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.maxN + <span class="number">1</span>)]</span><br><span class="line">        <span class="variable language_">self</span>.sf_mu_divs: <span class="type">List</span>[<span class="type">List</span>[<span class="type">Tuple</span>[<span class="built_in">int</span>, <span class="built_in">int</span>]]] = [[] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="variable language_">self</span>.maxN + <span class="number">1</span>)]</span><br><span class="line">        <span class="variable language_">self</span>.all_divs[<span class="number">0</span>] = []</span><br><span class="line">        <span class="variable language_">self</span>.sf_mu_divs[<span class="number">0</span>] = []</span><br><span class="line">        <span class="variable language_">self</span>.all_divs[<span class="number">1</span>] = [<span class="number">1</span>]</span><br><span class="line">        <span class="variable language_">self</span>.sf_mu_divs[<span class="number">1</span>] = [(<span class="number">1</span>, <span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="variable language_">self</span>.maxN + <span class="number">1</span>):</span><br><span class="line">            fac = <span class="variable language_">self</span>.factor_small(x)</span><br><span class="line">            <span class="variable language_">self</span>.all_divs[x] = <span class="variable language_">self</span>._build_divs_from_factor(fac)</span><br><span class="line">            <span class="variable language_">self</span>.sf_mu_divs[x] = <span class="variable language_">self</span>._build_sqfree_mu_divs_from_factor(fac)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_build_divs_from_factor</span>(<span class="params">self, fac: <span class="type">List</span>[<span class="type">Tuple</span>[<span class="built_in">int</span>, <span class="built_in">int</span>]]</span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        divs = [<span class="number">1</span>]</span><br><span class="line">        <span class="keyword">for</span> p, e <span class="keyword">in</span> fac:</span><br><span class="line">            nxt = []</span><br><span class="line">            pe = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(e + <span class="number">1</span>):</span><br><span class="line">                <span class="keyword">for</span> d <span class="keyword">in</span> divs:</span><br><span class="line">                    nxt.append(d * pe)</span><br><span class="line">                pe *= p</span><br><span class="line">            divs = nxt</span><br><span class="line">        <span class="keyword">return</span> divs</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">_build_sqfree_mu_divs_from_factor</span>(<span class="params">self, fac: <span class="type">List</span>[<span class="type">Tuple</span>[<span class="built_in">int</span>, <span class="built_in">int</span>]]</span>) -&gt; <span class="type">List</span>[<span class="type">Tuple</span>[<span class="built_in">int</span>, <span class="built_in">int</span>]]:</span><br><span class="line">        res = [(<span class="number">1</span>, <span class="number">1</span>)]</span><br><span class="line">        <span class="keyword">for</span> p, _ <span class="keyword">in</span> fac:</span><br><span class="line">            res += [(d * p, -sgn) <span class="keyword">for</span> d, sgn <span class="keyword">in</span> res]</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">divisors</span>(<span class="params">self, x: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="built_in">int</span>]:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.all_divs[x]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">squarefree_mu_divs</span>(<span class="params">self, x: <span class="built_in">int</span></span>) -&gt; <span class="type">List</span>[<span class="type">Tuple</span>[<span class="built_in">int</span>, <span class="built_in">int</span>]]:</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">self</span>.sf_mu_divs[x]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">floor_sqrt3_mul</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> int_sqrt(<span class="number">3</span> * n * n)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">floor_div_sqrt3</span>(<span class="params">n: <span class="built_in">int</span>, m: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    nn = n * n</span><br><span class="line">    den = <span class="number">3</span> * m * m</span><br><span class="line">    t = int_sqrt(nn // den)</span><br><span class="line">    <span class="keyword">while</span> den * (t + <span class="number">1</span>) * (t + <span class="number">1</span>) &lt;= nn:</span><br><span class="line">        t += <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> den * t * t &gt; nn:</span><br><span class="line">        t -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> t</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">divisor_summatory</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    i = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> i &lt;= n:</span><br><span class="line">        q = n // i</span><br><span class="line">        j = n // q</span><br><span class="line">        res += q * (j - i + <span class="number">1</span>)</span><br><span class="line">        i = j + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">norm_abc</span>(<span class="params">a: <span class="built_in">int</span>, b: <span class="built_in">int</span>, c: <span class="built_in">int</span></span>):</span><br><span class="line">    <span class="keyword">if</span> c &lt; <span class="number">0</span>:</span><br><span class="line">        a, b, c = -a, -b, -c</span><br><span class="line">    g = gcd(gcd(<span class="built_in">abs</span>(a), <span class="built_in">abs</span>(b)), <span class="built_in">abs</span>(c))</span><br><span class="line">    <span class="keyword">if</span> g &gt; <span class="number">1</span>:</span><br><span class="line">        a //= g</span><br><span class="line">        b //= g</span><br><span class="line">        c //= g</span><br><span class="line">    <span class="keyword">return</span> a, b, c</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">floor_qsqrt3</span>(<span class="params">a: <span class="built_in">int</span>, b: <span class="built_in">int</span>, c: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> b == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> a // c</span><br><span class="line">    x = (a + floor_sqrt3_mul(<span class="built_in">abs</span>(b))) // c</span><br><span class="line">    bb3 = <span class="number">3</span> * b * b</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        y = (x + <span class="number">1</span>) * c - a</span><br><span class="line">        <span class="keyword">if</span> y &lt;= <span class="number">0</span> <span class="keyword">or</span> y * y &lt;= bb3:</span><br><span class="line">            x += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        y = x * c - a</span><br><span class="line">        <span class="keyword">if</span> y &lt;= <span class="number">0</span> <span class="keyword">or</span> y * y &lt;= bb3:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        x -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">alpha_floor</span>(<span class="params">alpha</span>):</span><br><span class="line">    a, b, c = alpha</span><br><span class="line">    <span class="keyword">return</span> floor_qsqrt3(a, b, c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">alpha_mul_floor</span>(<span class="params">alpha, n: <span class="built_in">int</span></span>):</span><br><span class="line">    a, b, c = alpha</span><br><span class="line">    <span class="keyword">return</span> floor_qsqrt3(a * n, b * n, c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">alpha_sub_int</span>(<span class="params">alpha, k: <span class="built_in">int</span></span>):</span><br><span class="line">    a, b, c = alpha</span><br><span class="line">    <span class="keyword">return</span> norm_abc(a - k * c, b, c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">alpha_div_alpha_minus1</span>(<span class="params">alpha</span>):</span><br><span class="line">    a, b, c = alpha</span><br><span class="line">    ac = a - c</span><br><span class="line">    A = a * ac - <span class="number">3</span> * b * b</span><br><span class="line">    B = -b * c</span><br><span class="line">    D = ac * ac - <span class="number">3</span> * b * b</span><br><span class="line">    <span class="keyword">if</span> D &lt; <span class="number">0</span>:</span><br><span class="line">        A, B, D = -A, -B, -D</span><br><span class="line">    <span class="keyword">if</span> B &lt; <span class="number">0</span>:</span><br><span class="line">        A, B = -A, -B</span><br><span class="line">    <span class="keyword">return</span> norm_abc(A, B, D)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">tri</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">return</span> n * (n + <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">beatty_sum</span>(<span class="params">alpha, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    sign = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        f = alpha_floor(alpha)</span><br><span class="line">        <span class="keyword">if</span> f &gt; <span class="number">1</span>:</span><br><span class="line">            res += sign * (f - <span class="number">1</span>) * tri(n)</span><br><span class="line">            alpha = alpha_sub_int(alpha, f - <span class="number">1</span>)</span><br><span class="line">        m = alpha_mul_floor(alpha, n)</span><br><span class="line">        res += sign * tri(m)</span><br><span class="line">        n = m - n</span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        alpha = alpha_div_alpha_minus1(alpha)</span><br><span class="line">        sign = -sign</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">beatty_sqrt3</span>(<span class="params">c: <span class="built_in">int</span>, n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> beatty_sum((<span class="number">0</span>, c, <span class="number">1</span>), n)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">strip_sums</span>(<span class="params">N: <span class="built_in">int</span>, V: <span class="built_in">int</span>, L: <span class="built_in">int</span>, nt: Fact2</span>):</span><br><span class="line">    s1 = <span class="number">0</span></span><br><span class="line">    s2 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, V + <span class="number">1</span>):</span><br><span class="line">        Umax = L // v</span><br><span class="line">        <span class="keyword">for</span> d <span class="keyword">in</span> nt.divisors(v):</span><br><span class="line">            m = v // d</span><br><span class="line">            hi = Umax // d</span><br><span class="line">            <span class="keyword">if</span> hi &lt; m:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            w = N // (<span class="number">2</span> * d)</span><br><span class="line">            lo = m - <span class="number">1</span></span><br><span class="line">            cnt = <span class="number">0</span></span><br><span class="line">            sm = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> q, muq <span class="keyword">in</span> nt.squarefree_mu_divs(m):</span><br><span class="line">                cnt += muq * (hi // q - lo // q)</span><br><span class="line">                hiq = hi // q</span><br><span class="line">                loq = lo // q</span><br><span class="line">                <span class="keyword">if</span> hiq:</span><br><span class="line">                    sm += muq * (beatty_sqrt3(v * q, hiq) - beatty_sqrt3(v * q, loq))</span><br><span class="line">            s1 += w * cnt</span><br><span class="line">            s2 += sm</span><br><span class="line">    d1 = <span class="number">0</span></span><br><span class="line">    d2 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, V + <span class="number">1</span>):</span><br><span class="line">        d1 += N // (<span class="number">2</span> * v)</span><br><span class="line">        d2 += floor_sqrt3_mul(v)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">2</span> * s1 - d1, <span class="number">2</span> * s2 - d2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">count_mod3</span>(<span class="params">lo: <span class="built_in">int</span>, hi: <span class="built_in">int</span>, r: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> hi &lt; lo:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    first = lo + (r - lo % <span class="number">3</span>) % <span class="number">3</span></span><br><span class="line">    <span class="keyword">if</span> first &gt; hi:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">return</span> (hi - first) // <span class="number">3</span> + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hex_hsum</span>(<span class="params">X: <span class="built_in">int</span>, nt: Fact2</span>):</span><br><span class="line">    <span class="keyword">if</span> X &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    dcache = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">D</span>(<span class="params">n: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> n <span class="keyword">not</span> <span class="keyword">in</span> dcache:</span><br><span class="line">            dcache[n] = divisor_summatory(n)</span><br><span class="line">        <span class="keyword">return</span> dcache[n]</span><br><span class="line"></span><br><span class="line">    V = int_sqrt(X)</span><br><span class="line">    extra = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> v <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, V + <span class="number">1</span>):</span><br><span class="line">        disc0 = <span class="number">4</span> * X - <span class="number">3</span> * v * v</span><br><span class="line">        <span class="keyword">if</span> disc0 &lt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        Umax = (-v + int_sqrt(disc0)) // <span class="number">2</span></span><br><span class="line">        u = v + <span class="number">1</span></span><br><span class="line">        sfv = nt.squarefree_mu_divs(v)</span><br><span class="line">        vmod = v % <span class="number">3</span></span><br><span class="line">        <span class="keyword">while</span> u &lt;= Umax:</span><br><span class="line">            t = u * u + u * v + v * v</span><br><span class="line">            q = X // t</span><br><span class="line">            <span class="keyword">if</span> q == <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            T = X // q</span><br><span class="line">            uhi = (-v + int_sqrt(<span class="number">4</span> * T - <span class="number">3</span> * v * v)) // <span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> uhi &gt; Umax:</span><br><span class="line">                uhi = Umax</span><br><span class="line">            lo = u - <span class="number">1</span></span><br><span class="line">            total = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> d, mud <span class="keyword">in</span> sfv:</span><br><span class="line">                total += mud * (uhi // d - lo // d)</span><br><span class="line">            <span class="keyword">if</span> vmod:</span><br><span class="line">                bad = <span class="number">0</span></span><br><span class="line">                r = vmod</span><br><span class="line">                <span class="keyword">for</span> d, mud <span class="keyword">in</span> sfv:</span><br><span class="line">                    dm3 = d % <span class="number">3</span></span><br><span class="line">                    inv = <span class="number">1</span> <span class="keyword">if</span> dm3 == <span class="number">1</span> <span class="keyword">else</span> <span class="number">2</span></span><br><span class="line">                    tlo = (u + d - <span class="number">1</span>) // d</span><br><span class="line">                    thi = uhi // d</span><br><span class="line">                    rr = (r * inv) % <span class="number">3</span></span><br><span class="line">                    bad += mud * count_mod3(tlo, thi, rr)</span><br><span class="line">                total -= bad</span><br><span class="line">            <span class="keyword">if</span> total:</span><br><span class="line">                extra += total * D(q)</span><br><span class="line">            u = uhi + <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> D(X) + <span class="number">2</span> * extra</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">N: <span class="built_in">int</span></span>) -&gt; <span class="built_in">int</span>:</span><br><span class="line">    <span class="keyword">if</span> N &lt;= <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">    M = N // <span class="number">2</span></span><br><span class="line">    L = floor_div_sqrt3(M, <span class="number">1</span>) <span class="keyword">if</span> M &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    V1 = int_sqrt(L) <span class="keyword">if</span> L &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    X = N // <span class="number">4</span></span><br><span class="line">    V2 = int_sqrt(X) <span class="keyword">if</span> X &gt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    nt = Fact2(<span class="built_in">max</span>(V1, V2))</span><br><span class="line">    base = <span class="number">2</span> * divisor_summatory(M)</span><br><span class="line">    s1, s2 = strip_sums(N, V1, L, nt)</span><br><span class="line">    h = hex_hsum(X, nt)</span><br><span class="line">    <span class="keyword">return</span> (base + <span class="number">4</span> * (s1 - s2) - <span class="number">4</span> * h) % MOD</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(solve(N))</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/780/" title="Project Euler 780">https://ujimatsu-chiya.github.io/project-euler/780/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 671">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/671/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0671_loop_acceptable.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0671_loop_unacceptable.png">
+<meta property="article:published_time" content="2026-02-23T12:18:28.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:28.579Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0671_loop_acceptable.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/671/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/671/","path":"project-euler/671/","title":"Project Euler 671"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 671 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-671"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 671</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#colouring-a-loop"><span class="nav-number">1.1.1.</span> <span class="nav-text">Colouring a Loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/671/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 671 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 671
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:28" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:28+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-671">Project Euler 671</h1>
+<h2 id="题目">题目</h2>
+<h3 id="colouring-a-loop">Colouring a Loop</h3>
+<p>A certain type of flexible tile comes in three different sizes -
+<span class="math inline">\(1\times1, 1\times2,\)</span> and <span
+class="math inline">\(1\times3\)</span> - and in <span
+class="math inline">\(k\)</span> different colours. There is an
+unlimited number of tiles available in each combination of size and
+colour.</p>
+<p>These are used to tile a closed loop of width <span
+class="math inline">\(2\)</span> and length (circumference) <span
+class="math inline">\(n\)</span>, where <span
+class="math inline">\(n\)</span> is a positive integer, subject to the
+following conditions:</p>
+<ul>
+<li><p>The loop must be fully covered by non-overlapping tiles.</p></li>
+<li><p>It is <em>not</em> permitted for four tiles to have their corners
+meeting at a single point.</p></li>
+<li><p>Adjacent tiles must be of different colours.</p></li>
+</ul>
+<p>For example, the following is an acceptable tiling of a <span
+class="math inline">\(2\times 23\)</span> loop with <span
+class="math inline">\(k=4\)</span> (blue, green, red and yellow):</p>
+<p><img data-src="../resources/images/0671_loop_acceptable.png" /></p>
+<p>but the following is not an acceptable tiling, because it violates
+the “no four corners meeting at a point” rule:</p>
+<p><img data-src="../resources/images/0671_loop_unacceptable.png" /></p>
+<p>Let <span class="math inline">\(F_k(n)\)</span> be the number of ways
+the <span class="math inline">\(2\times n\)</span> loop can be tiled
+subject to these rules when <span class="math inline">\(k\)</span>
+colours are available. (Not all <span class="math inline">\(k\)</span>
+colours have to be used.) Where reflecting horizontally or vertically
+would give a different tiling, these tilings are to be counted
+separately.</p>
+<p>For example, <span class="math inline">\(F_4(3) = 104\)</span>, <span
+class="math inline">\(F_5(7) = 3327300\)</span>, and <span
+class="math inline">\(F_6(101)\equiv 75309980
+\pmod{1\,000\,004\,321}\)</span>. Find <span
+class="math inline">\(F_{10}(10\,004\,003\,002\,001) \bmod
+1\,000\,004\,321\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>令<span class="math inline">\(n=10004003002001\)</span>。本题和题目
+670 背景类似，这里只保留背景相似的分析结论。考虑从左到右逐列观察，令第
+<span class="math inline">\(t\)</span> 列上、下格颜色分别为 <span
+class="math inline">\(a_t,b_t\)</span>。则有：同一行中，相邻列若颜色相同，则必属于同一块水平砖延伸；因此每一行的同色连续段长度最多为
+<span class="math inline">\(3\)</span>（对应水平砖长度最多为 <span
+class="math inline">\(3\)</span>）。<span
+class="math inline">\(a_t=b_t\)</span> 当且仅当第 <span
+class="math inline">\(t\)</span> 列是一块竖直 <span
+class="math inline">\(2\times1\)</span> 砖。</p>
+<p>类似的，四角相遇只可能发生在某条列分界线 <span
+class="math inline">\(t\mid t+1\)</span>
+与上下两行分界线的交点处。因此，在 <span class="math inline">\(a_t\ne
+b_t\land a_{t+1}\ne b_{t+1}\)</span> 时，必须满足 <span
+class="math inline">\(a_{t+1}=a_t\)</span> 或 <span
+class="math inline">\(b_{t+1}=b_t\)</span>（至少一行继续同色段）。</p>
+<p>可见，颜色名称本身不重要，真正影响计数的是：颜色之间的相等/不等关系；新颜色需要避开多少种已出现颜色。对所有颜色做任意置换会把合法铺法双射到合法铺法，因此可以用规范代表色压缩状态。这一思想在题目
+670
+已经用过；本题因为是环形计数且要精确处理颜色选择数，需要更细的颜色标签信息。</p>
+<p>在计算 <span
+class="math inline">\(G_k(n)\)</span>（把循环平移视为不同，固定切口）时，采用如下规范化：用标签
+<span class="math inline">\(1,2\)</span> 表示两种被区分的代表色；用标签
+<span class="math inline">\(0\)</span> 表示其余 <span
+class="math inline">\(k-2\)</span> 种颜色中的某一种。</p>
+<p>沿环固定一条切口，按列推进。切口处只需记录当前被切到的砖形态。</p>
+<p>若切口切到一块竖直 <span class="math inline">\(2\times1\)</span>
+砖，记为<span class="math inline">\(V(t), t\in\{0,1,2\},\)</span>其中
+<span class="math inline">\(t\)</span> 为该竖砖颜色标签。共有 <span
+class="math inline">\(3\)</span> 个竖直状态。</p>
+<p>若切口处上下两格分别属于两块水平砖，则记为<span
+class="math inline">\(H(c,d,x,y),\)</span>其中<span
+class="math inline">\(c,d\)</span>表示切口右侧这一列上、下格的颜色标签；<span
+class="math inline">\(x,y\in\{0,1,2\}\)</span>表示该格在所属水平砖中的位置减一（即第
+<span class="math inline">\(x+1\)</span> / <span
+class="math inline">\(y+1\)</span> 格）。</p>
+<p>因为上下两格相邻（共享边）必须异色，所以 <span
+class="math inline">\((c,d)\)</span> 只可能属于以下 <span
+class="math inline">\(7\)</span> 种规范化组合：<span
+class="math inline">\((0,0),(1,0),(0,1),(2,0),(0,2),(1,2),(2,1).\)</span>其中
+<span class="math inline">\((0,0)\)</span>
+表示上下都是其它色，且这两个其它色实际必须不同。因此水平状态数为：<span
+class="math inline">\(7\times 3\times 3=63.\)</span>总状态数为：<span
+class="math inline">\(3+63=66.\)</span></p>
+<p>令 <span class="math inline">\(M\)</span> 为 <span
+class="math inline">\(66\times 66\)</span>
+转移矩阵。一次转移表示向右推进一列。若当前状态是 <span
+class="math inline">\(H(c,d,x,y)\)</span>，则下一列上、下两行各自要么继续当前水平砖，要么开启新砖，因此上行位置参数
+<span class="math inline">\(X\)</span>、下行位置参数 <span
+class="math inline">\(Y\)</span> 满足：<span
+class="math inline">\(X\in\{0,x+1\},
+Y\in\{0,y+1\},\)</span>并且必须满足长度上限（即 <span
+class="math inline">\(X,Y\le
+2\)</span>）。再由前文的等价条件，在水平/水平 <span
+class="math inline">\(\to\)</span>
+水平/水平的转移中，不允许上下两行同时在边界处换砖，因此禁止<span
+class="math inline">\(X=0\land Y=0.\)</span></p>
+<p>令矩阵元素 <span class="math inline">\(M[s][t]\)</span> 表示从状态
+<span class="math inline">\(s\)</span> 转到状态 <span
+class="math inline">\(t\)</span> 的真实颜色方案数。注意规范化标签 <span
+class="math inline">\(0\)</span> 实际对应 <span
+class="math inline">\(k-2\)</span>
+种颜色，且新放置砖时要避开与其共享边相邻砖的颜色。于是权重只取决于：新颜色是否为标签
+<span class="math inline">\(1/2\)</span>（唯一选择）；若为标签 <span
+class="math inline">\(0\)</span>，需要避开多少种已知颜色（可选数为 <span
+class="math inline">\(k-2-m\)</span>）。</p>
+<p>尤其在 <span class="math inline">\((0,0)\)</span>
+类型中，上下两格都属于其它色且必须彼此不同，因此会出现乘积项，例如：不额外禁用时，权值为<span
+class="math inline">\((k-2)(k-3)\)</span>；如果需要额外避开某个其它色时，权值为
+<span class="math inline">\((k-3)(k-4)\)</span>。</p>
+<p>我们先定义 <span class="math inline">\(G_k(n)\)</span>
+为固定切口，循环平移视为不同的合法铺法数。题目要求的 <span
+class="math inline">\(F_k(n)\)</span>
+是把旋转视为相同后的结果。对某个循环群 <span
+class="math inline">\(C_n\)</span> 使用 <a
+target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Burnside%27s_lemma">Burnside
+引理</a>：</p>
+<p><span class="math display">\[
+F_k(n)=\frac{1}{n}\sum_{r=0}^{n-1}\mathrm{Fix}(r),
+\]</span></p>
+<p>其中 <span class="math inline">\(\mathrm{Fix}(r)\)</span> 表示旋转
+<span class="math inline">\(r\)</span> 列后不变的铺法数。</p>
+<p>对按列状态模型，若旋转 <span class="math inline">\(r\)</span>
+固定某铺法，则其列模式周期为 <span
+class="math inline">\(\gcd(n,r)\)</span>，因此可写成约数和形式：<span
+class="math inline">\(\displaystyle F_k(n)=\frac{1}{n}\sum_{d\mid
+n}\varphi(d)G_k\left(\frac{n}{d}\right).\)</span></p>
+<p>本题中<span
+class="math inline">\(n\)</span>是素数。于是除恒等旋转外，其余旋转若固定铺法，则该铺法必须每列相同。这在本题约束下不可能成立（会与相邻异色或四角约束冲突），因此非平凡旋转固定点数为
+<span class="math inline">\(0\)</span>，从而有：</p>
+<p><span class="math display">\[F_k(n)=\dfrac{G_k(n)}{n}.\]</span></p>
+<p>固定切口后，一个合法环铺法对应一条长度为 <span
+class="math inline">\(n\)</span> 的状态闭环，因此对任意状态 <span
+class="math inline">\(s\)</span>，回到自身的方案数是 <span
+class="math inline">\((M^n)[s][s]\)</span>。要恢复真实计数 <span
+class="math inline">\(G_k(n)\)</span>，只需对规范化起点加上颜色重数。</p>
+<p>如果起点为竖直砖，取起点状态为 <span
+class="math inline">\(V(1)\)</span>。代表切口处是一块竖直砖，其颜色被命名为标签
+<span class="math inline">\(1\)</span>。真实颜色有 <span
+class="math inline">\(k\)</span> 种选择，因此贡献为<span
+class="math inline">\(k\cdot (M^n)[V(1),V(1)].\)</span></p>
+<p>如果起点为水平/水平，取起点为 <span
+class="math inline">\(H(1,2,x,y)\)</span>，表示切口处上下是两块不同水平砖，并把它们颜色命名为标签
+<span class="math inline">\(1,2\)</span>。真实有序选色数为 <span
+class="math inline">\(k(k-1)\)</span>，且切口可能落在砖内任意位置，因此要对
+<span class="math inline">\(x,y\in{0,1,2}\)</span> 求和，贡献为<span
+class="math inline">\(\displaystyle
+k(k-1)\sum_{x=0}^{2}\sum_{y=0}^{2}(M^n)[H(1,2,x,y),H(1,2,x,y)].\)</span>两类贡献相加即为
+<span class="math inline">\(G_k(n)\)</span>。</p>
+<p>于是最终答案为：</p>
+<p><span class="math display">\[
+F_k(n)=\dfrac{1}{n}
+\left(
+k\cdot (M^n)[V(1),V(1)]
++
+k(k-1)\sum_{x=0}^{2}\sum_{y=0}^{2}(M^n)[H(1,2,x,y),H(1,2,x,y)]
+\right)
+\]</span></p>
+<h2 id="代码">代码</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">K = <span class="number">10</span></span><br><span class="line">N = <span class="number">10004003002001</span></span><br><span class="line">MOD = <span class="number">1000004321</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve</span>(<span class="params">k, n, mod=MOD</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">state_to_int</span>(<span class="params">b, t</span>):</span><br><span class="line">        <span class="keyword">if</span> b:</span><br><span class="line">            <span class="keyword">return</span> t</span><br><span class="line">        c, d, x, y = t</span><br><span class="line">        mp = &#123;(<span class="number">0</span>, <span class="number">0</span>): <span class="number">0</span>, (<span class="number">1</span>, <span class="number">0</span>): <span class="number">1</span>, (<span class="number">0</span>, <span class="number">1</span>): <span class="number">2</span>, (<span class="number">2</span>, <span class="number">0</span>): <span class="number">3</span>, (<span class="number">0</span>, <span class="number">2</span>): <span class="number">4</span>, (<span class="number">1</span>, <span class="number">2</span>): <span class="number">5</span>, (<span class="number">2</span>, <span class="number">1</span>): <span class="number">6</span>&#125;</span><br><span class="line">        j = mp[(c, d)]</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span> + <span class="number">9</span> * j + <span class="number">3</span> * x + y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">int_to_state</span>(<span class="params">i</span>):</span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>, i</span><br><span class="line">        j, m = <span class="built_in">divmod</span>(i - <span class="number">3</span>, <span class="number">9</span>)</span><br><span class="line">        mp = [(<span class="number">0</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">1</span>, <span class="number">2</span>), (<span class="number">2</span>, <span class="number">1</span>)]</span><br><span class="line">        c, d = mp[j]</span><br><span class="line">        x, y = <span class="built_in">divmod</span>(m, <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span>, (c, d, x, y)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">build_matrix</span>():</span><br><span class="line">        size = <span class="number">66</span></span><br><span class="line">        M = [[<span class="number">0</span>] * size <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(size)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">            b, t = int_to_state(i)</span><br><span class="line">            <span class="keyword">if</span> b:</span><br><span class="line">                <span class="keyword">for</span> c <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">                    <span class="keyword">if</span> t != <span class="number">0</span> <span class="keyword">and</span> t == c:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    z = (k - <span class="number">2</span> - <span class="built_in">int</span>(t == <span class="number">0</span>)) <span class="keyword">if</span> c == <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">                    j = state_to_int(<span class="literal">True</span>, c)</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod</span><br><span class="line">                <span class="keyword">for</span> c, d <span class="keyword">in</span> product((<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>)):</span><br><span class="line">                    <span class="keyword">if</span> c != <span class="number">0</span> <span class="keyword">and</span> c == d:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> t != <span class="number">0</span> <span class="keyword">and</span> (c == t <span class="keyword">or</span> d == t):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (c, d) == (<span class="number">0</span>, <span class="number">0</span>):</span><br><span class="line">                        z = (k - <span class="number">3</span>) * (k - <span class="number">4</span>) <span class="keyword">if</span> t == <span class="number">0</span> <span class="keyword">else</span> (k - <span class="number">2</span>) * (k - <span class="number">3</span>)</span><br><span class="line">                    <span class="keyword">elif</span> c == <span class="number">0</span> <span class="keyword">or</span> d == <span class="number">0</span>:</span><br><span class="line">                        z = (k - <span class="number">3</span>) <span class="keyword">if</span> t == <span class="number">0</span> <span class="keyword">else</span> (k - <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        z = <span class="number">1</span></span><br><span class="line">                    j = state_to_int(<span class="literal">False</span>, (c, d, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                c, d, x, y = t</span><br><span class="line">                <span class="keyword">for</span> C <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">                    <span class="keyword">if</span> C == <span class="number">0</span>:</span><br><span class="line">                        z = k - <span class="number">2</span> - <span class="built_in">int</span>(c == <span class="number">0</span>) - <span class="built_in">int</span>(d == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        z = <span class="built_in">int</span>(C != c <span class="keyword">and</span> C != d)</span><br><span class="line">                    j = state_to_int(<span class="literal">True</span>, C)</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod</span><br><span class="line">                <span class="keyword">for</span> C, D, X, Y <span class="keyword">in</span> product((<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="number">0</span>, x + <span class="number">1</span>), (<span class="number">0</span>, y + <span class="number">1</span>)):</span><br><span class="line">                    <span class="keyword">if</span> X == <span class="number">0</span> <span class="keyword">and</span> Y == <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> X &gt; <span class="number">2</span> <span class="keyword">or</span> Y &gt; <span class="number">2</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> C != <span class="number">0</span> <span class="keyword">and</span> C == D:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (X &gt; <span class="number">0</span> <span class="keyword">and</span> C != c) <span class="keyword">or</span> (Y &gt; <span class="number">0</span> <span class="keyword">and</span> D != d):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (X == <span class="number">0</span> <span class="keyword">and</span> C == c <span class="keyword">and</span> C != <span class="number">0</span>) <span class="keyword">or</span> (Y == <span class="number">0</span> <span class="keyword">and</span> D == d <span class="keyword">and</span> D != <span class="number">0</span>):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (X == <span class="number">0</span> <span class="keyword">and</span> C == <span class="number">0</span>) <span class="keyword">or</span> (Y == <span class="number">0</span> <span class="keyword">and</span> D == <span class="number">0</span>):</span><br><span class="line">                        z = k - <span class="number">2</span> - <span class="built_in">int</span>(c == <span class="number">0</span>) - <span class="built_in">int</span>(d == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        z = <span class="number">1</span></span><br><span class="line">                    j = state_to_int(<span class="literal">False</span>, (C, D, X, Y))</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod</span><br><span class="line">        <span class="keyword">return</span> M</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mat_mul</span>(<span class="params">A, B, mod</span>):</span><br><span class="line">        <span class="keyword">return</span> [[<span class="built_in">sum</span>(A[i][k] * B[k][j] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(A[<span class="number">0</span>]))) % mod <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(B[<span class="number">0</span>]))] <span class="keyword">for</span> i <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">range</span>(<span class="built_in">len</span>(A))]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mat_pow</span>(<span class="params">M, e</span>):</span><br><span class="line">        n0 = <span class="built_in">len</span>(M)</span><br><span class="line">        R = [[<span class="number">0</span>] * n0 <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n0)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n0):</span><br><span class="line">            R[i][i] = <span class="number">1</span></span><br><span class="line">        A = M</span><br><span class="line">        <span class="keyword">while</span> e:</span><br><span class="line">            <span class="keyword">if</span> e &amp; <span class="number">1</span>:</span><br><span class="line">                R = mat_mul(R, A, mod)</span><br><span class="line">            e &gt;&gt;= <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> e:</span><br><span class="line">                A = mat_mul(A, A, mod)</span><br><span class="line">        <span class="keyword">return</span> R</span><br><span class="line"></span><br><span class="line">    M = build_matrix()</span><br><span class="line">    Mn = mat_pow(M, n)</span><br><span class="line"></span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    i = state_to_int(<span class="literal">True</span>, <span class="number">1</span>)</span><br><span class="line">    res = (res + k * Mn[i][i]) % mod</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">            i = state_to_int(<span class="literal">False</span>, (<span class="number">1</span>, <span class="number">2</span>, x, y))</span><br><span class="line">            res = (res + k * (k - <span class="number">1</span>) * Mn[i][i]) % mod</span><br><span class="line"></span><br><span class="line">    inv_n = <span class="built_in">pow</span>(n, mod - <span class="number">2</span>, mod)</span><br><span class="line">    <span class="keyword">return</span> res * inv_n % mod</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(solve(K, N))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"><span class="keyword">import</span> sympy</span><br><span class="line"></span><br><span class="line">K = <span class="number">10</span></span><br><span class="line">N = <span class="number">10004003002001</span></span><br><span class="line">MOD = <span class="number">1000004321</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">factorization</span>(<span class="params">n</span>):</span><br><span class="line">    ls = <span class="built_in">list</span>(sympy.factorint(n).items())</span><br><span class="line">    ls.sort()</span><br><span class="line">    <span class="keyword">return</span> ls</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">solve_any_n</span>(<span class="params">k, n, mod=MOD</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">state_to_int</span>(<span class="params">b, t</span>):</span><br><span class="line">        <span class="keyword">if</span> b:</span><br><span class="line">            <span class="keyword">return</span> t</span><br><span class="line">        c, d, x, y = t</span><br><span class="line">        mp = &#123;(<span class="number">0</span>, <span class="number">0</span>): <span class="number">0</span>, (<span class="number">1</span>, <span class="number">0</span>): <span class="number">1</span>, (<span class="number">0</span>, <span class="number">1</span>): <span class="number">2</span>, (<span class="number">2</span>, <span class="number">0</span>): <span class="number">3</span>, (<span class="number">0</span>, <span class="number">2</span>): <span class="number">4</span>, (<span class="number">1</span>, <span class="number">2</span>): <span class="number">5</span>, (<span class="number">2</span>, <span class="number">1</span>): <span class="number">6</span>&#125;</span><br><span class="line">        j = mp[(c, d)]</span><br><span class="line">        <span class="keyword">return</span> <span class="number">3</span> + <span class="number">9</span> * j + <span class="number">3</span> * x + y</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">int_to_state</span>(<span class="params">i</span>):</span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="number">3</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span>, i</span><br><span class="line">        j, m = <span class="built_in">divmod</span>(i - <span class="number">3</span>, <span class="number">9</span>)</span><br><span class="line">        mp = [(<span class="number">0</span>, <span class="number">0</span>), (<span class="number">1</span>, <span class="number">0</span>), (<span class="number">0</span>, <span class="number">1</span>), (<span class="number">2</span>, <span class="number">0</span>), (<span class="number">0</span>, <span class="number">2</span>), (<span class="number">1</span>, <span class="number">2</span>), (<span class="number">2</span>, <span class="number">1</span>)]</span><br><span class="line">        c, d = mp[j]</span><br><span class="line">        x, y = <span class="built_in">divmod</span>(m, <span class="number">3</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span>, (c, d, x, y)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">build_matrix</span>(<span class="params">mod_now</span>):</span><br><span class="line">        size = <span class="number">66</span></span><br><span class="line">        M = [[<span class="number">0</span>] * size <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(size)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(size):</span><br><span class="line">            b, t = int_to_state(i)</span><br><span class="line">            <span class="keyword">if</span> b:</span><br><span class="line">                <span class="keyword">for</span> c <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">                    <span class="keyword">if</span> t != <span class="number">0</span> <span class="keyword">and</span> t == c:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    z = (k - <span class="number">2</span> - <span class="built_in">int</span>(t == <span class="number">0</span>)) <span class="keyword">if</span> c == <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">                    j = state_to_int(<span class="literal">True</span>, c)</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod_now</span><br><span class="line">                <span class="keyword">for</span> c, d <span class="keyword">in</span> product((<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>)):</span><br><span class="line">                    <span class="keyword">if</span> c != <span class="number">0</span> <span class="keyword">and</span> c == d:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> t != <span class="number">0</span> <span class="keyword">and</span> (c == t <span class="keyword">or</span> d == t):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (c, d) == (<span class="number">0</span>, <span class="number">0</span>):</span><br><span class="line">                        z = (k - <span class="number">3</span>) * (k - <span class="number">4</span>) <span class="keyword">if</span> t == <span class="number">0</span> <span class="keyword">else</span> (k - <span class="number">2</span>) * (k - <span class="number">3</span>)</span><br><span class="line">                    <span class="keyword">elif</span> c == <span class="number">0</span> <span class="keyword">or</span> d == <span class="number">0</span>:</span><br><span class="line">                        z = (k - <span class="number">3</span>) <span class="keyword">if</span> t == <span class="number">0</span> <span class="keyword">else</span> (k - <span class="number">2</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        z = <span class="number">1</span></span><br><span class="line">                    j = state_to_int(<span class="literal">False</span>, (c, d, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod_now</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                c, d, x, y = t</span><br><span class="line">                <span class="keyword">for</span> C <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>):</span><br><span class="line">                    <span class="keyword">if</span> C == <span class="number">0</span>:</span><br><span class="line">                        z = k - <span class="number">2</span> - <span class="built_in">int</span>(c == <span class="number">0</span>) - <span class="built_in">int</span>(d == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        z = <span class="built_in">int</span>(C != c <span class="keyword">and</span> C != d)</span><br><span class="line">                    j = state_to_int(<span class="literal">True</span>, C)</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod_now</span><br><span class="line">                <span class="keyword">for</span> C, D, X, Y <span class="keyword">in</span> product((<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>), (<span class="number">0</span>, x + <span class="number">1</span>), (<span class="number">0</span>, y + <span class="number">1</span>)):</span><br><span class="line">                    <span class="keyword">if</span> X == <span class="number">0</span> <span class="keyword">and</span> Y == <span class="number">0</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> X &gt; <span class="number">2</span> <span class="keyword">or</span> Y &gt; <span class="number">2</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> C != <span class="number">0</span> <span class="keyword">and</span> C == D:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (X &gt; <span class="number">0</span> <span class="keyword">and</span> C != c) <span class="keyword">or</span> (Y &gt; <span class="number">0</span> <span class="keyword">and</span> D != d):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (X == <span class="number">0</span> <span class="keyword">and</span> C == c <span class="keyword">and</span> C != <span class="number">0</span>) <span class="keyword">or</span> (Y == <span class="number">0</span> <span class="keyword">and</span> D == d <span class="keyword">and</span> D != <span class="number">0</span>):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> (X == <span class="number">0</span> <span class="keyword">and</span> C == <span class="number">0</span>) <span class="keyword">or</span> (Y == <span class="number">0</span> <span class="keyword">and</span> D == <span class="number">0</span>):</span><br><span class="line">                        z = k - <span class="number">2</span> - <span class="built_in">int</span>(c == <span class="number">0</span>) - <span class="built_in">int</span>(d == <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">else</span>:</span><br><span class="line">                        z = <span class="number">1</span></span><br><span class="line">                    j = state_to_int(<span class="literal">False</span>, (C, D, X, Y))</span><br><span class="line">                    M[i][j] = (M[i][j] + z) % mod_now</span><br><span class="line">        <span class="keyword">return</span> M</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mat_mul</span>(<span class="params">A, B, mod</span>):</span><br><span class="line">        <span class="keyword">return</span> [[<span class="built_in">sum</span>(A[i][k] * B[k][j] <span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(A[<span class="number">0</span>]))) % mod <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(B[<span class="number">0</span>]))] <span class="keyword">for</span> i <span class="keyword">in</span></span><br><span class="line">                <span class="built_in">range</span>(<span class="built_in">len</span>(A))]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">precompute_powers</span>(<span class="params">M, emax, mod_now</span>):</span><br><span class="line">        pw = [M]</span><br><span class="line">        <span class="keyword">while</span> (<span class="number">1</span> &lt;&lt; <span class="built_in">len</span>(pw)) &lt;= emax:</span><br><span class="line">            pw.append(mat_mul(pw[-<span class="number">1</span>], pw[-<span class="number">1</span>], mod_now))</span><br><span class="line">        <span class="keyword">return</span> pw</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">mat_pow_from_powers</span>(<span class="params">pw, e, mod_now</span>):</span><br><span class="line">        n0 = <span class="built_in">len</span>(pw[<span class="number">0</span>])</span><br><span class="line">        R = [[<span class="number">0</span>] * n0 <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(n0)]</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n0):</span><br><span class="line">            R[i][i] = <span class="number">1</span></span><br><span class="line">        b = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> e:</span><br><span class="line">            <span class="keyword">if</span> e &amp; <span class="number">1</span>:</span><br><span class="line">                R = mat_mul(R, pw[b], mod_now)</span><br><span class="line">            e &gt;&gt;= <span class="number">1</span></span><br><span class="line">            b += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> R</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">rooted_count_from_power</span>(<span class="params">Mn, mod_now</span>):</span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line">        i = state_to_int(<span class="literal">True</span>, <span class="number">1</span>)</span><br><span class="line">        res = (res + k * Mn[i][i]) % mod_now</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">                i = state_to_int(<span class="literal">False</span>, (<span class="number">1</span>, <span class="number">2</span>, x, y))</span><br><span class="line">                res = (res + k * (k - <span class="number">1</span>) * Mn[i][i]) % mod_now</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">gen_divisors_with_phi</span>(<span class="params">fac</span>):</span><br><span class="line">        ans = []</span><br><span class="line">        <span class="keyword">def</span> <span class="title function_">dfs</span>(<span class="params">idx, d, ph</span>):</span><br><span class="line">            <span class="keyword">if</span> idx == <span class="built_in">len</span>(fac):</span><br><span class="line">                ans.append((d, ph))</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            p, e = fac[idx]</span><br><span class="line">            dfs(idx + <span class="number">1</span>, d, ph)</span><br><span class="line">            dd = d</span><br><span class="line">            pp = ph</span><br><span class="line">            <span class="keyword">for</span> t <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, e + <span class="number">1</span>):</span><br><span class="line">                dd *= p</span><br><span class="line">                <span class="keyword">if</span> t == <span class="number">1</span>:</span><br><span class="line">                    pp2 = pp * (p - <span class="number">1</span>)</span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    pp2 = pp * (p - <span class="number">1</span>) * (p ** (t - <span class="number">1</span>))</span><br><span class="line">                dfs(idx + <span class="number">1</span>, dd, pp2)</span><br><span class="line">        dfs(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">    fac = factorization(n)</span><br><span class="line">    divs_phi = gen_divisors_with_phi(fac)</span><br><span class="line">    need_ms = <span class="built_in">sorted</span>(&#123;n // d <span class="keyword">for</span> d, _ <span class="keyword">in</span> divs_phi&#125;)</span><br><span class="line">    mod_for_dp = mod <span class="keyword">if</span> n % mod != <span class="number">0</span> <span class="keyword">else</span> mod * n</span><br><span class="line"></span><br><span class="line">    M = build_matrix(mod_for_dp)</span><br><span class="line">    pw = precompute_powers(M, <span class="built_in">max</span>(need_ms), mod_for_dp)</span><br><span class="line"></span><br><span class="line">    g_cache = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> m <span class="keyword">in</span> need_ms:</span><br><span class="line">        Mn = mat_pow_from_powers(pw, m, mod_for_dp)</span><br><span class="line">        g_cache[m] = rooted_count_from_power(Mn, mod_for_dp)</span><br><span class="line"></span><br><span class="line">    num = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> d, ph <span class="keyword">in</span> divs_phi:</span><br><span class="line">        m = n // d</span><br><span class="line">        num = (num + (ph % mod_for_dp) * g_cache[m]) % mod_for_dp</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> n % mod != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> num * <span class="built_in">pow</span>(n % mod, mod - <span class="number">2</span>, mod) % mod</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (num // n) % mod</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(solve_any_n(K, N))</span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/671/" title="Project Euler 671">https://ujimatsu-chiya.github.io/project-euler/671/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>

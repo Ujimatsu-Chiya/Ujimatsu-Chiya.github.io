@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"ujimatsu-chiya.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.26.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"vs","dark":"vs2015"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta property="og:type" content="article">
+<meta property="og:title" content="Project Euler 620">
+<meta property="og:url" content="https://ujimatsu-chiya.github.io/project-euler/620/index.html">
+<meta property="og:site_name" content="Ujimatsu Chiya">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0620_planetary_gears.png">
+<meta property="og:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0620-1.png">
+<meta property="article:published_time" content="2026-02-23T12:18:21.000Z">
+<meta property="article:modified_time" content="2026-02-23T12:18:21.654Z">
+<meta property="article:author" content="Ujimatsu Chiya">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ujimatsu-chiya.github.io/project-euler/resources/images/0620_planetary_gears.png">
+
+
+<link rel="canonical" href="https://ujimatsu-chiya.github.io/project-euler/620/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ujimatsu-chiya.github.io/project-euler/620/","path":"project-euler/620/","title":"Project Euler 620"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Project Euler 620 | Ujimatsu Chiya</title>
+  
+
+  <script src="/js/third-party/analytics/baidu-analytics.js" defer></script>
+  <script async src="https://hm.baidu.com/hm.js?b51c0caaa35b7e7749207556edb4b772"></script>
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lozad.js/1.16.0/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js" integrity="sha256-j+yj56cdEY2CwkVtGyz18fNybFGpMGJ8JxG3GSyO2+I=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js" defer></script>
+
+
+
+  
+  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Ujimatsu Chiya</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-project-euler"><a href="/project-euler/" rel="section"><i class="fa fa-align-justify fa-fw"></i>Project Euler</a></li><li class="menu-item menu-item-算法导论"><a href="/introduction-to-algorithms/" rel="section"><i class="fa-solid fa-question fa-fw"></i>算法导论</a></li><li class="menu-item menu-item-友情链接"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>友情链接</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#project-euler-620"><span class="nav-number">1.</span> <span class="nav-text">Project Euler 620</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#planetary-gears"><span class="nav-number">1.1.1.</span> <span class="nav-text">Planetary Gears</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="nav-number">1.2.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Ujimatsu Chiya"
+      src="/images/chiya.png">
+  <p class="site-author-name" itemprop="name">Ujimatsu Chiya</p>
+  <div class="site-description" itemprop="description">Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">882</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">32</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Ujimatsu-Chiya" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Ujimatsu-Chiya" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://leetcode.cn/u/ujimatsu_chiya/" title="Leetcode → https:&#x2F;&#x2F;leetcode.cn&#x2F;u&#x2F;ujimatsu_chiya&#x2F;" rel="noopener me" target="_blank"><i class="fa custom leetcode fa-fw"></i>Leetcode</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.xiaohongshu.com/user/profile/6423968900000000110225fd" title="Xiaohongshu → https:&#x2F;&#x2F;www.xiaohongshu.com&#x2F;user&#x2F;profile&#x2F;6423968900000000110225fd" rel="noopener me" target="_blank"><i class="fa custom xiaohongshu fa-fw"></i>Xiaohongshu</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://ujimatsu-chiya.github.io/project-euler/620/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/chiya.png">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ujimatsu Chiya">
+      <meta itemprop="description" content="Ujimatsu Chiya 的博客还在建造当中，什么都会整一些上来哦">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Project Euler 620 | Ujimatsu Chiya">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Project Euler 620
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-02-23 20:18:21" itemprop="dateCreated datePublished" datetime="2026-02-23T20:18:21+08:00">2026-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Project-Euler/" itemprop="url" rel="index"><span itemprop="name">Project Euler</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p><escape><span id="more"></span></escape></p>
+<h1 id="project-euler-620">Project Euler 620</h1>
+<h2 id="题目">题目</h2>
+<h3 id="planetary-gears">Planetary Gears</h3>
+<p>A circle <span class="math inline">\(C\)</span> of circumference
+<span class="math inline">\(c\)</span> centimetres has a smaller circle
+<span class="math inline">\(S\)</span> of circumference <span
+class="math inline">\(s\)</span> centimetres lying off-centre within it.
+Four other distinct circles, which we call “planets”, with
+circumferences <span class="math inline">\(p\)</span>, <span
+class="math inline">\(p\)</span>, <span
+class="math inline">\(q\)</span>, <span class="math inline">\(q\)</span>
+centimetres respectively (<span class="math inline">\(p&lt;q\)</span>),
+are inscribed within <span class="math inline">\(C\)</span> but outside
+<span class="math inline">\(S\)</span>, with each planet touching both
+<span class="math inline">\(C\)</span> and <span
+class="math inline">\(S\)</span> tangentially. The planets are permitted
+to overlap one another, but the boundaries of <span
+class="math inline">\(S\)</span> and <span
+class="math inline">\(C\)</span> must be at least 1cm apart at their
+closest point.</p>
+<p>Now suppose that these circles are actually gears with perfectly
+meshing teeth at a pitch of 1cm. <span class="math inline">\(C\)</span>
+is an internal gear with teeth on the inside. We require that <span
+class="math inline">\(c, s, p, q\)</span> are all integers (as they are
+the numbers of teeth), and we further stipulate that any gear must have
+at least <span class="math inline">\(5\)</span> teeth.</p>
+<p>Note that “perfectly meshing” means that as the gears rotate, the
+ratio between their angular velocities remains constant, and the teeth
+of one gear perfectly align with the groves of the other gear and vice
+versa. Only for certain gear sizes and positions will it be possible for
+<span class="math inline">\(S\)</span> and <span
+class="math inline">\(C\)</span> each to mesh perfectly with all the
+planets. Arrangements where not all gears mesh perfectly are not
+valid.</p>
+<p>Define <span class="math inline">\(g(c,s,p,q)\)</span> to be the
+number of such gear arrangements for given values of <span
+class="math inline">\(c\)</span>, <span
+class="math inline">\(s\)</span>, <span
+class="math inline">\(p\)</span>, <span
+class="math inline">\(q\)</span>: it turns out that this is finite as
+only certain discrete arrangements are possible satisfying the above
+conditions. For example, <span
+class="math inline">\(g(16,5,5,6)=9\)</span>.</p>
+<p>Here is one such arrangement:</p>
+<p><img data-src="../resources/images/0620_planetary_gears.png" /></p>
+<p>Let <span class="math inline">\(G(n) = \sum_{s+p+q\le n}
+g(s+p+q,s,p,q)\)</span> where the sum only includes cases with <span
+class="math inline">\(p&lt;q\)</span>, <span class="math inline">\(p\ge
+5\)</span>, and <span class="math inline">\(s\ge 5\)</span>, all
+integers. You are given that <span
+class="math inline">\(G(16)=9\)</span> and <span
+class="math inline">\(G(20)=205\)</span>.</p>
+<p>Find <span class="math inline">\(G(500)\)</span>.</p>
+<h2 id="解决方案">解决方案</h2>
+<p>设所有齿轮的齿距为 <span
+class="math inline">\(1\text{cm}\)</span>，因此<strong>节圆周长</strong>就是齿数（题面用的
+<span class="math inline">\(c,s,p,q\)</span>
+均为整数）。把圆周长换成节圆半径：<span
+class="math inline">\(R_C=\dfrac{c}{2\pi}, R_S=\dfrac{s}{2\pi},
+R_P=\dfrac{p}{2\pi},
+R_Q=\dfrac{q}{2\pi}.\)</span>在本题的求和里始终取<span
+class="math inline">\(c=s+p+q.\)</span></p>
+<p><img data-src="../resources/images/0620-1.png" /></p>
+<p>外圈 <span class="math inline">\(C\)</span>
+是<strong>内齿轮</strong>（齿在内侧），但节圆仍是半径 <span
+class="math inline">\(R_C\)</span> 的圆。内圈 <span
+class="math inline">\(S\)</span> 与行星齿轮 <span
+class="math inline">\(P,Q\)</span> 都是普通外齿轮。</p>
+<p>利用旋转对称性，可不失一般性令 <span class="math inline">\(C\)</span>
+的圆心在原点 <span class="math inline">\(O\)</span>，令 <span
+class="math inline">\(S\)</span> 的圆心在竖直向上 <span
+class="math inline">\(U=(0,d)\)</span>，其中 <span
+class="math inline">\(d=|OU|\)</span>。</p>
+<p>一个行星齿轮（以 <span class="math inline">\(P\)</span>
+为例）要求：<span class="math inline">\(P\)</span> 与 <span
+class="math inline">\(C\)</span>
+<strong>内切</strong>：行星在大圆内侧与之相切，故圆心距<span
+class="math inline">\(OP = R_C - R_P\)</span>；<span
+class="math inline">\(P\)</span> 与 <span
+class="math inline">\(S\)</span> <strong>外切</strong>：圆心距为<span
+class="math inline">\(UP = R_S + R_P.\)</span></p>
+<p>因此 <span class="math inline">\(P\)</span> 的圆心是两圆交点：以
+<span class="math inline">\(O\)</span> 为圆心半径 <span
+class="math inline">\(R_C-R_P\)</span> 的圆，与以 <span
+class="math inline">\(U\)</span> 为圆心半径 <span
+class="math inline">\(R_S+R_P\)</span>
+的圆。只要交点存在，就得到左右对称的两颗 <span
+class="math inline">\(P\)</span> 行星；<span
+class="math inline">\(Q\)</span>
+同理。行星允许重叠，所以不需要再管行星之间的互相干涉。于是整套布局（在固定大小
+<span class="math inline">\(s,p,q\)</span>
+下）只有一个连续自由度：<strong>偏心距</strong> <span
+class="math inline">\(d\)</span>。</p>
+<p>齿距为<span
+class="math inline">\(1\text{cm}\)</span>的关键含义在于：沿节圆走过弧长
+<span class="math inline">\(\ell\)</span>，等价于跨过了 <span
+class="math inline">\(\ell\)</span>
+个齿距。要让所有接触处的齿槽在运动过程中始终对齐，必须要求沿任一闭合回路累积的齿距位移为整数（即回到同一齿槽相位）。取上半部分两颗
+<span class="math inline">\(P\)</span>
+行星（左右对称），定义三段弧长（均按节圆弧长计）：</p>
+<ul>
+<li><span class="math inline">\(L_C\)</span>：外圈 <span
+class="math inline">\(C\)</span> 上方连接两颗 <span
+class="math inline">\(P\)</span> 与 <span
+class="math inline">\(C\)</span> 的接触点的那段弧；</li>
+<li><span class="math inline">\(L_S\)</span>：内圈 <span
+class="math inline">\(S\)</span> 上方连接两颗 <span
+class="math inline">\(P\)</span> 与 <span
+class="math inline">\(S\)</span> 的接触点的那段弧；</li>
+<li><span class="math inline">\(L_P\)</span>：左侧 <span
+class="math inline">\(P\)</span> 行星从其与 <span
+class="math inline">\(C\)</span> 的接触点沿指定方向到其与 <span
+class="math inline">\(S\)</span> 的接触点的那段弧（右侧 <span
+class="math inline">\(P\)</span> 对称同长）。</li>
+</ul>
+<p>考虑由这些接触弧构成的闭合路径：从左 <span
+class="math inline">\(P\)</span> 与 <span
+class="math inline">\(C\)</span> 的接触点出发，沿左 <span
+class="math inline">\(P\)</span> 到达其与 <span
+class="math inline">\(S\)</span> 的接触点，再沿 <span
+class="math inline">\(S\)</span> 的上方弧到达右 <span
+class="math inline">\(P\)</span> 与 <span
+class="math inline">\(S\)</span> 的接触点，沿右 <span
+class="math inline">\(P\)</span> 回到其与 <span
+class="math inline">\(C\)</span> 的接触点，最后沿 <span
+class="math inline">\(C\)</span>
+的上方弧回到起点。将内啮合与外啮合在相位传递方向上的差异折算为弧长的符号后，该闭合回路的净齿距位移恰为<span
+class="math inline">\(D= 2L_P - L_C -
+L_S.\)</span>因此，完美啮合的必要且充分条件是<span
+class="math inline">\(D\in\mathbb
+Z.\)</span>该条件保证上半部分的四个接触（<span
+class="math inline">\(C\)</span>–<span class="math inline">\(P\)</span>
+两处与 <span class="math inline">\(S\)</span>–<span
+class="math inline">\(P\)</span>
+两处）在同一相位约束下同时成立，从而外圈 <span
+class="math inline">\(C\)</span>、内圈 <span
+class="math inline">\(S\)</span> 与两颗 <span
+class="math inline">\(P\)</span> 行星可同时完美啮合。</p>
+<p>进一步，在 <span class="math inline">\(c=s+p+q\)</span>
+的约束下，下半部分两颗 <span class="math inline">\(Q\)</span>
+行星的啮合条件并不额外引入独立限制。其理由如下：仍以相同的两端点（两颗
+<span class="math inline">\(P\)</span> 在 <span
+class="math inline">\(C\)</span>
+上方的接触点）为界，除上半部分路径外，还存在一条经由下半部分（经过两颗
+<span class="math inline">\(Q\)</span> 以及 <span
+class="math inline">\(C,S\)</span>
+的下方弧段）的路径连接这两个端点。将上、下两条路径首尾拼接形成闭合回路时，所得到的总路径在每个齿轮上要么走过整圈周长的若干倍，要么与上半部分的弧段互为补弧；因此该闭合回路的净齿距位移与
+<span class="math inline">\(c,s,p,q\)</span>
+的整数线性组合相差一个整数。由于 <span
+class="math inline">\(c,s,p,q\)</span> 均为整数，且 <span
+class="math inline">\(c=s+p+q\)</span>
+使得该补回路与全系统的接触结构相匹配，故当上半部分满足 <span
+class="math inline">\(D\in\mathbb Z\)</span>
+时，下半部分对应的净位移亦必为整数，从而两颗 <span
+class="math inline">\(Q\)</span> 行星也与 <span
+class="math inline">\(C\)</span>、<span class="math inline">\(S\)</span>
+同时完美啮合。</p>
+<p>所以问题核心变成：对给定 <span
+class="math inline">\(s,p,q\)</span>，当偏心距 <span
+class="math inline">\(d\)</span> 变化时，表达式 <span
+class="math inline">\(D(d)\)</span>
+什么时候是整数，以及会有多少个整数。</p>
+<p>考虑三角形 <span class="math inline">\(OUP\)</span>（<span
+class="math inline">\(P\)</span> 是左上那颗 <span
+class="math inline">\(P\)</span> 行星的圆心）。为了避免到处出现 <span
+class="math inline">\(2\pi\)</span>，把所有长度乘上 <span
+class="math inline">\(2\pi\)</span> 记成周长单位，令<span
+class="math inline">\(PS = s+p, PC = c-p = s+q, CU = 2\pi
+d.\)</span>记<span class="math inline">\(\alpha\)</span>：在点 <span
+class="math inline">\(P\)</span> 的夹角 <span
+class="math inline">\(\angle OPU\)</span>；<span
+class="math inline">\(\beta\)</span>：在点 <span
+class="math inline">\(O\)</span> 的夹角（<span
+class="math inline">\(P\)</span> 相对竖直轴的偏角），使得两颗 <span
+class="math inline">\(P\)</span> 在 <span
+class="math inline">\(C\)</span> 上的接触点在 <span
+class="math inline">\(O\)</span> 处的圆心角为 <span
+class="math inline">\(2\beta\)</span>。</p>
+<p>可见，那么三段弧长为如下。<span class="math inline">\(C\)</span>
+上方两接触点对应的圆心角是 <span
+class="math inline">\(2\beta\)</span>，弧长<span
+class="math inline">\(L_C = \dfrac{2\beta}{2\pi}c =
+\dfrac{\beta}{\pi}(s+p+q).\)</span>在三角形里，点 <span
+class="math inline">\(U\)</span> 的内角为 <span
+class="math inline">\(\pi-\alpha-\beta\)</span>。但 <span
+class="math inline">\(S\)</span>
+上方弧对应的是相对“向上竖直方向”的夹角，等于其补角 <span
+class="math inline">\(\alpha+\beta\)</span>。左右对称两点夹角为 <span
+class="math inline">\(2(\alpha+\beta)\)</span>，因此<span
+class="math inline">\(L_S=\dfrac{2(\alpha+\beta)}{2\pi}s=\dfrac{\alpha+\beta}{\pi}s.\)</span>注意
+<span class="math inline">\(P\)</span> 与 <span
+class="math inline">\(C\)</span> 为<strong>内切</strong>：<span
+class="math inline">\(P\)</span> 上的接触点在“指向 <span
+class="math inline">\(O\)</span>”方向的反向；而 <span
+class="math inline">\(P\)</span> 与 <span
+class="math inline">\(S\)</span> 为外切：接触点在“指向 <span
+class="math inline">\(U\)</span>”方向。于是 <span
+class="math inline">\(P\)</span> 上两接触点在 <span
+class="math inline">\(P\)</span> 处夹角不是 <span
+class="math inline">\(\alpha\)</span>，而是 <span
+class="math inline">\(\pi-\alpha\)</span>。取右侧那段弧：<span
+class="math inline">\(L_P=\dfrac{\pi-\alpha}{2\pi}p=\left(\dfrac12-\dfrac{\alpha}{2\pi}\right)p.\)</span></p>
+<p>由余弦定理可直接写出<span
+class="math inline">\(\cos\alpha(d)=\dfrac{(s+p)^2+(s+q)^2-t^2}{2(s+p)(s+q)},\cos\beta(d)=\dfrac{(s+q)^2+t^2-(s+p)^2}{2(s+q)t}.\)</span>对应到节圆弧长（前文已经给出）：<span
+class="math inline">\(L_P(d)=\left(\dfrac12-\frac{\alpha(d)}{2\pi}\right)p,L_C(d)=\dfrac{\beta(d)}{\pi}(s+p+q),L_S(d)=\dfrac{\alpha(d)+\beta(d)}{\pi}s.\)</span>从而</p>
+<p><span class="math display">\[
+D(d)=2L_P(d)-L_C(d)-L_S(d)
+= p-\frac{(p+s)\alpha(d)+(p+q+2s)\beta(d)}{\pi}.
+\]</span></p>
+<p>由上式可见，<span class="math inline">\(\alpha(d)\)</span> 与 <span
+class="math inline">\(\beta(d)\)</span> 都由余弦定理给出，且随 <span
+class="math inline">\(t=2\pi d\)</span> 连续变化，因此 <span
+class="math inline">\(D(d)\)</span> 连续。并且当 <span
+class="math inline">\(d\)</span> 增大时，三角形 <span
+class="math inline">\(OUP\)</span> 在边 <span
+class="math inline">\(OU\)</span> 方向张开，角 <span
+class="math inline">\(\alpha(d)\)</span> 与 <span
+class="math inline">\(\beta(d)\)</span> 随之增大（这一点可直接由上述
+<span class="math inline">\(\cos\alpha(d),\cos\beta(d)\)</span>
+的表达式随 <span class="math inline">\(t\)</span>
+的变化得出），从而<span
+class="math inline">\(D(d)=2L_P(d)-L_C(d)-L_S(d)\)</span>在可行区间内连续且严格单调（随
+<span class="math inline">\(d\)</span> 增大严格减小）。</p>
+<p>接下来讨论 <span class="math inline">\(d\)</span>
+的可行区间与端点行为。几何上两圆交点存在且两颗 <span
+class="math inline">\(P\)</span> 行星不同时，必有<span
+class="math inline">\(t&gt; (s+q)-(s+p)=q-p.\)</span>当 <span
+class="math inline">\(d\)</span> 取到几何可行的最小值（两颗 <span
+class="math inline">\(P\)</span> 的交点塌缩到中轴线上）时，<span
+class="math inline">\(\alpha(d)\to 0,\ \beta(d)\to 0\)</span>，从而<span
+class="math inline">\(L_P(d)\to \frac p2, L_C(d)\to 0, L_S(d)\to
+0\Rightarrow D(d)\to p.\)</span>该极限对应行星不再不同，因此上界 <span
+class="math inline">\(D=p\)</span> 不计入，但它给出了 <span
+class="math inline">\(D\)</span> 的最大可能值，即<span
+class="math inline">\(D_{\max}=p.\)</span></p>
+<p>题目还要求 <span class="math inline">\(C\)</span> 与 <span
+class="math inline">\(S\)</span> 边界最近处至少 <span
+class="math inline">\(1\text{cm}\)</span>。两圆心连线方向的最近距离为
+<span class="math inline">\(R_C-R_S-d\)</span>，因此约束为<span
+class="math inline">\(R_C-R_S-d \ge 1\Rightarrow d \le
+d_{\max}=R_C-R_S-1=\dfrac{p+q}{2\pi}-1.\)</span>在 <span
+class="math inline">\(d=d_{\max}\)</span> 时，上半部分的弧差 <span
+class="math inline">\(D(d)\)</span> 取得最小值，记为<span
+class="math inline">\(D_{\min}=D(d_{\max}).\)</span></p>
+<p>于是满足<span class="math inline">\(D(d)\in\mathbb
+Z\)</span>的解是离散的，并且每个整数至多对应一个几何位置。故</p>
+<p><span class="math display">\[
+g(s+p+q,s,p,q)=
+\#\{k\in\mathbb Z:\ D_{\min}\le k &lt; p\}=
+\left\lfloor p-D_{\min}\right\rfloor
+=\left\lfloor\frac{\alpha(p+s)+\beta(p+q+2s)}{\pi}\right\rfloor.
+\]</span></p>
+<p>因此直接枚举 <span class="math inline">\(c=s+p+q\)</span>：<span
+class="math inline">\(c\)</span> 从 <span
+class="math inline">\(16\)</span> 到 <span
+class="math inline">\(n\)</span>；<span class="math inline">\(s\)</span>
+从 <span class="math inline">\(5\)</span> 到 <span
+class="math inline">\(c-11\)</span>；<span
+class="math inline">\(p\)</span> 从 <span
+class="math inline">\(5\)</span> 到 <span
+class="math inline">\(\left\lfloor\dfrac{c-s-1}{2}\right\rfloor\)</span>；<span
+class="math inline">\(q=c-s-p\)</span>，要求 <span
+class="math inline">\(q&gt;p\)</span>，然后把结果相加即可。</p>
+<h2 id="代码">代码</h2>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">500</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> pi = <span class="built_in">acosl</span>(<span class="number">-1.0L</span>);</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="function"><span class="type">static</span> <span class="keyword">inline</span> <span class="type">double</span> <span class="title">clamp_ld</span><span class="params">(<span class="type">double</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt; <span class="number">-1.0L</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1.0L</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &gt; <span class="number">1.0L</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1.0L</span>;</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">static</span> <span class="keyword">inline</span> ll <span class="title">g_one</span><span class="params">(<span class="type">int</span> s, <span class="type">int</span> p, <span class="type">int</span> q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> t = (<span class="type">double</span>)(p + q) - <span class="number">2.0L</span> * pi;</span><br><span class="line">    <span class="type">double</span> ps = (<span class="type">double</span>)(s + p);</span><br><span class="line">    <span class="type">double</span> qs = (<span class="type">double</span>)(s + q);</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> cos_alpha = (qs * qs + ps * ps - t * t) / (<span class="number">2.0L</span> * qs * ps);</span><br><span class="line">    <span class="type">double</span> alpha = <span class="built_in">acosl</span>(<span class="built_in">clamp_ld</span>(cos_alpha));</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> cos_beta = (qs * qs + t * t - ps * ps) / (<span class="number">2.0L</span> * qs * t);</span><br><span class="line">    <span class="type">double</span> beta = <span class="built_in">acosl</span>(<span class="built_in">clamp_ld</span>(cos_beta));</span><br><span class="line"></span><br><span class="line">    <span class="type">double</span> m = (alpha * (<span class="type">double</span>)(p + s) + beta * (<span class="type">double</span>)(p + q + <span class="number">2</span> * s)) / pi;</span><br><span class="line">    ll ans = (ll)<span class="built_in">floorl</span>(m + <span class="number">1e-12L</span>);</span><br><span class="line">    <span class="keyword">if</span> (ans &lt; <span class="number">0</span>)</span><br><span class="line">        ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">solve</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll total = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> c = <span class="number">16</span>; c &lt;= n; ++c)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> s = <span class="number">5</span>; s &lt;= c - <span class="number">11</span>; ++s)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> maxp = (c - s - <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> p = <span class="number">5</span>; p &lt;= maxp; ++p)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> q = c - s - p;</span><br><span class="line">                <span class="keyword">if</span> (q &lt;= p)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                total += <span class="built_in">g_one</span>(s, p, q);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> total;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">solve</span>(N) &lt;&lt; <span class="string">&quot;\n&quot;</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Ujimatsu Chiya 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="Ujimatsu Chiya 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>Ujimatsu Chiya
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://ujimatsu-chiya.github.io/project-euler/620/" title="Project Euler 620">https://ujimatsu-chiya.github.io/project-euler/620/</a>
+  </li>
+  <li class="post-copyright-license">
+      <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2022 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Ujimatsu Chiya</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">2.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">31:32</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div><!-- 页面动态线条-->
+<script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://lib.baomitu.com/canvas-nest.js/1.0.1/canvas-nest.js"></script>
+<!-- 页面点击小红心
+<script type="text/javascript" src="/js/click-love.js" />-->
+
+<span id="sitetime"></span>
+<script language=javascript>
+function siteTime(){
+    window.setTimeout("siteTime()", 1000);
+    let seconds = 1000;
+    let minutes = seconds * 60;
+    let hours = minutes * 60;
+    let days = hours * 24;
+    let years = days * 365;
+    let create_day = new Date("2022-03-25T13:14:23Z");
+    let today = new Date();
+    let awesome = "<i class=\"fa-solid fa-clock\"></i> "
+
+    let diff = today-create_day;
+    let diffSeconds = Math.floor(diff/seconds%60);
+    let diffMinutes = Math.floor(diff/minutes%60);
+    let diffHours = Math.floor(diff/hours%24);
+    let diffDays = Math.floor(diff/days%365);
+    let diffYears = Math.floor(diff/years);
+
+    document.getElementById("sitetime").innerHTML=`自 ${create_day.getFullYear()} 年 ${create_day.getMonth() + 1} 月 ${create_day.getDate()} 日建立以来，本网站已运行： ${awesome} ${diffYears} 年 ${diffDays} 天 ${diffHours} 时 ${diffMinutes} 分 ${diffSeconds} 秒`;
+}
+siteTime();
+</script>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"Ujimatsu-Chiya/Ujimatsu-Chiya.github.io-comment","issue_term":"pathname","theme":"github-light","crossorigin":"anonymous"}</script>
+<script src="/js/third-party/comments/utterances.js" defer></script>
+
+</body>
+</html>
